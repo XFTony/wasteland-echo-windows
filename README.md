@@ -8,6 +8,7 @@ Windows 桌面优先的俯视角废土生存射击 Roguelite。当前开发线�
 v1.5 路线图：[docs/optimization-roadmap-v1.5.md](./docs/optimization-roadmap-v1.5.md)
 2026-09-23 全面复审与优先级计划：[docs/optimization-plan-2026-09-23.md](./docs/optimization-plan-2026-09-23.md)
 v1.5 真人试玩记录表：[docs/playtest-v1.5-field-sheet.md](./docs/playtest-v1.5-field-sheet.md)
+外部审查逐项复核：[docs/external-review-validation-2026-09-23.md](./docs/external-review-validation-2026-09-23.md)
 材料与冗余审计：[docs/project-material-audit-v1.5-alpha.md](./docs/project-material-audit-v1.5-alpha.md)
 美术方向与界面规范：[docs/art-direction-v1.2-full-page-scenes.md](./docs/art-direction-v1.2-full-page-scenes.md)
 美术材料库与版本清单：[art/README.md](./art/README.md)、[art/manifest.json](./art/manifest.json)
@@ -155,6 +156,10 @@ web/            Windows 浏览器构建产物
 项目目录仅保留 Windows 桌面运行链路；微信小游戏和移动触控适配器已移除。稳定版 v1.4.0 已提供未签名的 Tauri 2 / WebView2 便携式 `.exe` 与当前用户 NSIS 安装器；v1.5.0-alpha.1 是继续开发分支。商业代码签名尚未配置，因此公开下载时 Windows SmartScreen 仍可能显示“未知发布者”。
 
 标题主视觉、环境地表纹理和两张破框感染者由项目内生成资产提供，中文像素标题字体来自 OFL 许可的 Fusion Pixel Font；这些资产均已登记到 `docs/assets-ledger.csv`。未来加入第三方素材前，必须同样登记来源、许可和署名要求；生成资产在商业发布前仍需按台账记录复核适用服务条款。
+
+## Git 版本基线
+
+2026-09-23 已在 main 建立首次提交 afffa33 与日期标签 baseline-2026-09-23。源码、测试、文档、许可证、活动素材和美术源图纳入 Git；node_modules、Rust target、dist、output、release 和历史安装包不入库，生成方式及发布文件 SHA 见 docs/build-record-2026-09-23.md。当前仅为本地仓库，尚未配置远程地址；Git 不能替代异机备份，尤其不能代替对未纳入 Git 的安装包和截图的备份。
 
 ## 存档与备份
 
