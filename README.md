@@ -159,7 +159,7 @@ web/            Windows 浏览器构建产物
 
 ## Git 版本基线
 
-2026-09-23 已在 main 建立首次提交 afffa33 与日期标签 baseline-2026-09-23。源码、测试、文档、许可证、活动素材和美术源图纳入 Git；node_modules、Rust target、dist、output、release 和历史安装包不入库，生成方式及发布文件 SHA 见 docs/build-record-2026-09-23.md。当前仅为本地仓库，尚未配置远程地址；Git 不能替代异机备份，尤其不能代替对未纳入 Git 的安装包和截图的备份。
+2026-09-23 已在 main 建立首次提交 89652ab 与日期标签 baseline-2026-09-23。源码、测试、文档、许可证、活动素材和美术源图纳入 Git；node_modules、Rust target、dist、output、release 和历史安装包不入库，生成方式及发布文件 SHA 见 docs/build-record-2026-09-23.md。公开远程仓库为 https://github.com/XFTony/wasteland-echo-windows；GitHub 不包含被忽略的安装包和截图，这些资料仍需单独备份。
 
 ## 存档与备份
 
