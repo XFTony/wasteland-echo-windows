@@ -1,0 +1,98 @@
+{
+  "format": "webp",
+  "sourceBytes": 24643363,
+  "runtimeBytes": 4554162,
+  "savedPercent": 81.52,
+  "assets": [
+    {
+      "source": "art/generated/v1.0/runtime-snapshot/wasteland-ground-texture-v1.png",
+      "runtime": "web/assets/wasteland-ground-texture-v1.webp",
+      "sourceBytes": 3516628,
+      "runtimeBytes": 548988,
+      "savedPercent": 84.39,
+      "normalizedRms": 0.01821,
+      "sha256": "2F91FEA991F7E602E9607BD6903FCB65CCB097B973839E862C58D08E3927F3B6"
+    },
+    {
+      "source": "art/generated/v1.0/runtime-snapshot/wasteland-title-keyart-v1.png",
+      "runtime": "web/assets/wasteland-title-keyart-v1.webp",
+      "sourceBytes": 2308519,
+      "runtimeBytes": 348724,
+      "savedPercent": 84.89,
+      "normalizedRms": 0.02659,
+      "sha256": "A7EFAB848C3615748697F404E2D9995237A6613BA1186C1715C7373491C0C67B"
+    },
+    {
+      "source": "art/generated/v1.2/runtime/menu-main-camp-v2.png",
+      "runtime": "web/assets/ui/backdrops/menu-main-camp-v2.webp",
+      "sourceBytes": 2509720,
+      "runtimeBytes": 263238,
+      "savedPercent": 89.51,
+      "normalizedRms": 0.01606,
+      "sha256": "AE4C68414ECC25C7E28EAACD2C607842754DEA7C82D45AD35D11F330F362C89C"
+    },
+    {
+      "source": "art/generated/v1.2/runtime/deployment-command-bunker-v2.png",
+      "runtime": "web/assets/ui/backdrops/deployment-command-bunker-v2.webp",
+      "sourceBytes": 2724492,
+      "runtimeBytes": 318172,
+      "savedPercent": 88.32,
+      "normalizedRms": 0.01679,
+      "sha256": "B22C2386A6D9652649904E94E828CC55342E3E51885CA7B8D11C5EB98F3162C6"
+    },
+    {
+      "source": "art/generated/v1.2/runtime/inventory-armory-v2.png",
+      "runtime": "web/assets/ui/backdrops/inventory-armory-v2.webp",
+      "sourceBytes": 2603970,
+      "runtimeBytes": 296912,
+      "savedPercent": 88.6,
+      "normalizedRms": 0.01665,
+      "sha256": "4C581EB9224A712C96CE9480AEA1C98CD5A27807A328C9C7499F5B48EC00F76F"
+    },
+    {
+      "source": "art/generated/v1.2/runtime/shop-quartermaster-v2.png",
+      "runtime": "web/assets/ui/backdrops/shop-quartermaster-v2.webp",
+      "sourceBytes": 2610836,
+      "runtimeBytes": 318056,
+      "savedPercent": 87.82,
+      "normalizedRms": 0.01789,
+      "sha256": "FBB2A636C94F96F2C9E79591CE81CCF5AFEB9B4AC65ECAF3F591AB1FA188A4C7"
+    },
+    {
+      "source": "art/generated/v1.2/runtime/settings-radio-room-v2.png",
+      "runtime": "web/assets/ui/backdrops/settings-radio-room-v2.webp",
+      "sourceBytes": 2535445,
+      "runtimeBytes": 295670,
+      "savedPercent": 88.34,
+      "normalizedRms": 0.01667,
+      "sha256": "E931886B01ACFA283A277DB66D72AF4303CFF384B590C669D540049D1DED1B02"
+    },
+    {
+      "source": "art/generated/v1.2/runtime/credits-archive-v2.png",
+      "runtime": "web/assets/ui/backdrops/credits-archive-v2.webp",
+      "sourceBytes": 2721981,
+      "runtimeBytes": 354696,
+      "savedPercent": 86.97,
+      "normalizedRms": 0.01856,
+      "sha256": "E3D8325290B574F17524AAE61EF07F06F8603F836780F9B9BD10024323692F9B"
+    },
+    {
+      "source": "art/generated/v1.2/runtime/ui-field-plate-v2.png",
+      "runtime": "web/assets/ui/shared/ui-field-plate-v2.webp",
+      "sourceBytes": 1731125,
+      "runtimeBytes": 972494,
+      "savedPercent": 43.82,
+      "normalizedRms": 0.0,
+      "sha256": "5E27D946BF61750E9D0608ED9497F76EDF457C55944773A14F1FBE4FA27582E8"
+    },
+    {
+      "source": "art/generated/v1.1/runtime/deployment-convoy-vignette-v1.png",
+      "runtime": "web/assets/ui/deployment/deployment-convoy-vignette-v1.webp",
+      "sourceBytes": 1380647,
+      "runtimeBytes": 837212,
+      "savedPercent": 39.36,
+      "normalizedRms": 0.0,
+      "sha256": "66F471509CD688F9E77C3C32418C08F2E2DBD76819054F6E637F803DAB3715DC"
+    }
+  ]
+}

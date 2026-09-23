@@ -1,0 +1,693 @@
+"use strict";
+
+const PALETTE = Object.freeze({
+  ink: "#17140f",
+  panel: "#2b2720",
+  panelLight: "#3a3429",
+  sand: "#d8c08a",
+  sandDark: "#80663f",
+  rust: "#b85b3f",
+  rustDark: "#71372c",
+  cream: "#ead9ad",
+  mint: "#87976a",
+  cyan: "#6e9892",
+  amber: "#cfa34f",
+  danger: "#b94b42",
+  white: "#f2e6c5",
+  muted: "#b9aa88"
+});
+
+const DEFAULT_RUN_DURATION = 180;
+
+function freezeSpawnPhases(phases) {
+  return Object.freeze(phases.map((phase, index) => Object.freeze({ ...phase, index })));
+}
+
+const GAME_MODES = Object.freeze({
+  survival: {
+    id: "survival",
+    name: "坚守模式",
+    description: "撑过三分钟递增尸潮即可获胜",
+    objective: "守住信号",
+    rule: "survive",
+    spawnProfile: "survival",
+    playerHp: 115,
+    playerSpeed: 178,
+    playerInvulnerability: 0.72,
+    enemyLimit: 78,
+    spawnStart: 1.28,
+    spawnEnd: 0.3,
+    spawnPhases: freezeSpawnPhases([
+      { id: "scout", at: 0, cap: 12, interval: 1.28, label: "接触警报", detail: "零散感染者正在靠近" },
+      { id: "pressure", at: 0.12, cap: 20, interval: 0.94, label: "街区失守", detail: "尸潮开始沿主干道聚集" },
+      { id: "surge", at: 0.3, cap: 34, interval: 0.66, label: "第一波冲击", detail: "保持移动，别被路障困住" },
+      { id: "lull", at: 0.48, cap: 26, interval: 0.98, label: "短暂喘息", detail: "抓紧搜集经验，下一波更凶" },
+      { id: "siege", at: 0.6, cap: 52, interval: 0.45, label: "警报升级", detail: "特殊感染者已进入战区" },
+      { id: "last-stand", at: 0.82, cap: 78, interval: 0.3, label: "最终攻势", detail: "信号只剩最后一分钟" }
+    ]),
+    hpGrowth: 0.52,
+    speedGrowth: 0.09,
+    bossOneAt: 0.88,
+    bossTwoAt: null,
+    winReward: 25
+  },
+  extraction: {
+    id: "extraction",
+    name: "撤离模式",
+    description: "终局进入信标并完成同步",
+    objective: "抵达信标",
+    rule: "extract",
+    spawnProfile: "extraction",
+    playerHp: 100,
+    playerSpeed: 170,
+    playerInvulnerability: 0.6,
+    enemyLimit: 84,
+    spawnStart: 0.82,
+    spawnEnd: 0.23,
+    spawnPhases: freezeSpawnPhases([
+      { id: "infiltration", at: 0, cap: 16, interval: 0.82, label: "撤离线侦测", detail: "先清理外围感染者" },
+      { id: "blockade", at: 0.16, cap: 28, interval: 0.58, label: "道路封锁", detail: "敌群正在截断撤离路线" },
+      { id: "crossfire", at: 0.38, cap: 44, interval: 0.42, label: "交叉火力", detail: "远程感染者开始压制" },
+      { id: "sweep", at: 0.6, cap: 58, interval: 0.32, label: "清场行动", detail: "保持通往信标的路线畅通" },
+      { id: "evacuation", at: 0.82, cap: 84, interval: 0.23, label: "撤离倒计时", detail: "信标即将上线" }
+    ]),
+    hpGrowth: 0.7,
+    speedGrowth: 0.12,
+    bossOneAt: 0.5,
+    bossTwoAt: 0.9375,
+    winReward: 40
+  },
+  endless: {
+    id: "endless",
+    name: "无尽模式",
+    description: "没有撤离倒计时，尸潮会持续强化",
+    objective: "尽可能久地存活",
+    rule: "endless",
+    spawnProfile: "endless",
+    playerHp: 108,
+    playerSpeed: 175,
+    playerInvulnerability: 0.66,
+    enemyLimit: 104,
+    spawnStart: 1.08,
+    spawnEnd: 0.22,
+    spawnPhases: freezeSpawnPhases([
+      { id: "endless-scout", at: 0, cap: 14, interval: 1.08, label: "低频回声", detail: "第一批感染者正在试探防线" },
+      { id: "endless-rise", at: 0.16, cap: 28, interval: 0.74, label: "回声增强", detail: "尸群开始从多条道路汇聚" },
+      { id: "endless-surge", at: 0.36, cap: 48, interval: 0.5, label: "持续浪涌", detail: "特殊感染者加入进攻" },
+      { id: "endless-siege", at: 0.62, cap: 76, interval: 0.32, label: "无尽围城", detail: "威胁不会自行结束" },
+      { id: "endless-redline", at: 0.84, cap: 104, interval: 0.22, label: "红线警报", detail: "每一分钟都会比上一分钟危险" }
+    ]),
+    hpGrowth: 0.9,
+    speedGrowth: 0.16,
+    bossOneAt: 0.5,
+    bossTwoAt: 0.82,
+    winReward: 0
+  }
+});
+
+const WEAPONS = Object.freeze({
+  scrap_pistol: {
+    id: "scrap_pistol",
+    name: "废料手枪",
+    description: "稳定可靠的单发武器",
+    visualId: "scrap-sidearm",
+    rangeBand: "mid",
+    weaponClass: "sidearm",
+    mechanicId: "steady_cycle",
+    damage: 12,
+    interval: 0.35,
+    projectileCount: 1,
+    projectileSpeed: 660,
+    spread: 0,
+    ttl: 0.9,
+    pierce: 0,
+    knockback: 46,
+    recoil: 4.5,
+    muzzleLength: 25,
+    muzzleFlashLength: 12,
+    muzzleFlashLife: 0.065,
+    muzzleParticles: 4,
+    lockRange: 520,
+    shellLength: 4,
+    shellLife: 0.54,
+    shellColor: "#c89b4b",
+    color: PALETTE.amber
+  },
+  swarm_smg: {
+    id: "swarm_smg",
+    name: "蜂群冲锋枪",
+    description: "快速连射，压制成群目标",
+    visualId: "swarm-compact",
+    rangeBand: "mid",
+    weaponClass: "smg",
+    mechanicId: "heat_ramp",
+    damage: 4.8,
+    interval: 0.105,
+    projectileCount: 1,
+    projectileSpeed: 610,
+    spread: 9,
+    ttl: 0.72,
+    pierce: 0,
+    knockback: 18,
+    recoil: 2.4,
+    muzzleLength: 27,
+    muzzleFlashLength: 10,
+    muzzleFlashLife: 0.05,
+    muzzleParticles: 3,
+    lockRange: 420,
+    shellLength: 3,
+    shellLife: 0.42,
+    shellColor: "#d4aa57",
+    color: PALETTE.mint
+  },
+  breaker_shotgun: {
+    id: "breaker_shotgun",
+    name: "破门霰弹枪",
+    description: "近距扇形爆发并强力击退",
+    visualId: "breaker-pump",
+    rangeBand: "close",
+    weaponClass: "shotgun",
+    mechanicId: "breach_cone",
+    damage: 5.4,
+    interval: 0.82,
+    projectileCount: 6,
+    projectileSpeed: 560,
+    spread: 34,
+    ttl: 0.48,
+    pierce: 0,
+    knockback: 92,
+    recoil: 9,
+    muzzleLength: 34,
+    muzzleFlashLength: 19,
+    muzzleFlashLife: 0.095,
+    muzzleParticles: 9,
+    lockRange: 250,
+    shellLength: 6,
+    shellLife: 0.72,
+    shellColor: "#b9783f",
+    color: PALETTE.rust
+  },
+  needle_rifle: {
+    id: "needle_rifle",
+    name: "针刺步枪",
+    description: "高伤害高速贯穿弹",
+    visualId: "needle-longrifle",
+    rangeBand: "long",
+    weaponClass: "rifle",
+    mechanicId: "focus_lance",
+    damage: 28,
+    interval: 0.72,
+    projectileCount: 1,
+    projectileSpeed: 940,
+    spread: 0,
+    ttl: 1.1,
+    pierce: 3,
+    knockback: 38,
+    recoil: 6.5,
+    muzzleLength: 38,
+    muzzleFlashLength: 16,
+    muzzleFlashLife: 0.07,
+    muzzleParticles: 5,
+    lockRange: 680,
+    shellLength: 5,
+    shellLife: 0.58,
+    shellColor: "#d8b65f",
+    color: PALETTE.cyan
+  },
+  rust_revolver: {
+    id: "rust_revolver",
+    name: "锈痕左轮",
+    description: "沉重六发弹巢，单击威力与击退兼备",
+    visualId: "rust-revolver",
+    rangeBand: "mid",
+    weaponClass: "revolver",
+    mechanicId: "sixth_chamber",
+    damage: 21,
+    interval: 0.58,
+    projectileCount: 1,
+    projectileSpeed: 730,
+    spread: 1.5,
+    ttl: 0.86,
+    pierce: 1,
+    knockback: 58,
+    recoil: 7.2,
+    muzzleLength: 29,
+    muzzleFlashLength: 15,
+    muzzleFlashLife: 0.08,
+    muzzleParticles: 6,
+    lockRange: 500,
+    shellLength: 5,
+    shellLife: 0.64,
+    shellColor: "#d7a757",
+    color: "#f08a4b"
+  },
+  ember_carbine: {
+    id: "ember_carbine",
+    name: "余烬卡宾枪",
+    description: "兼顾射速与精度的中程连发平台",
+    visualId: "ember-carbine",
+    rangeBand: "mid",
+    weaponClass: "carbine",
+    mechanicId: "momentum_feed",
+    damage: 10.5,
+    interval: 0.22,
+    projectileCount: 1,
+    projectileSpeed: 760,
+    spread: 4,
+    ttl: 0.9,
+    pierce: 1,
+    knockback: 30,
+    recoil: 4.1,
+    muzzleLength: 35,
+    muzzleFlashLength: 14,
+    muzzleFlashLife: 0.06,
+    muzzleParticles: 4,
+    lockRange: 570,
+    shellLength: 4,
+    shellLife: 0.52,
+    shellColor: "#e0b65d",
+    color: "#ff7956"
+  },
+  coil_cannon: {
+    id: "coil_cannon",
+    name: "荒雷线圈炮",
+    description: "发射高能贯穿弹的远程重型武器",
+    visualId: "coil-heavy",
+    rangeBand: "long",
+    weaponClass: "heavy",
+    mechanicId: "arc_overload",
+    damage: 58,
+    interval: 1.18,
+    projectileCount: 1,
+    projectileSpeed: 860,
+    spread: 0,
+    ttl: 1.28,
+    pierce: 5,
+    knockback: 124,
+    recoil: 12,
+    muzzleLength: 46,
+    muzzleFlashLength: 24,
+    muzzleFlashLife: 0.12,
+    muzzleParticles: 10,
+    lockRange: 760,
+    shellLength: 7,
+    shellLife: 0.82,
+    shellColor: "#77e6df",
+    color: "#58e4ed"
+  }
+});
+
+const ENEMIES = Object.freeze({
+  drifter: {
+    id: "drifter",
+    name: "漂游者",
+    hp: 16,
+    speed: 55,
+    damage: 8,
+    radius: 10,
+    xp: 3,
+    scrapChance: 0.08,
+    color: "#78865f",
+    role: "chaser"
+  },
+  runner: {
+    id: "runner",
+    name: "突袭者",
+    hp: 9,
+    speed: 104,
+    damage: 12,
+    radius: 8,
+    xp: 4,
+    scrapChance: 0.1,
+    color: "#b3764b",
+    role: "runner"
+  },
+  spitter: {
+    id: "spitter",
+    name: "腐蚀者",
+    hp: 14,
+    speed: 42,
+    damage: 10,
+    radius: 10,
+    xp: 5,
+    scrapChance: 0.12,
+    color: "#6fa57a",
+    role: "ranged"
+  },
+  brute: {
+    id: "brute",
+    name: "重甲者",
+    hp: 52,
+    speed: 31,
+    damage: 22,
+    radius: 15,
+    xp: 10,
+    scrapChance: 0.22,
+    color: "#686b68",
+    role: "tank",
+    knockbackResistance: 0.72
+  },
+  screecher: {
+    id: "screecher",
+    name: "警报者",
+    hp: 12,
+    speed: 59,
+    damage: 6,
+    radius: 10,
+    xp: 7,
+    scrapChance: 0.15,
+    color: "#8c6aa2",
+    role: "buffer"
+  },
+  crawler: {
+    id: "crawler",
+    name: "爬行群",
+    hp: 6,
+    speed: 83,
+    damage: 5,
+    radius: 6,
+    xp: 2,
+    scrapChance: 0.05,
+    color: "#856148",
+    role: "swarm"
+  },
+  warden: {
+    id: "warden",
+    name: "荒原看守",
+    hp: 145,
+    speed: 38,
+    damage: 28,
+    radius: 19,
+    xp: 30,
+    scrapChance: 1,
+    color: "#a1473b",
+    role: "elite",
+    elite: true,
+    knockbackResistance: 0.9
+  },
+  iron_colossus: {
+    id: "iron_colossus",
+    name: "铁幕巨像",
+    hp: 430,
+    speed: 29,
+    damage: 30,
+    radius: 28,
+    xp: 80,
+    scrapChance: 1,
+    color: "#7e332f",
+    role: "boss",
+    elite: true,
+    boss: true,
+    knockbackResistance: 0.96
+  }
+});
+
+const UPGRADES = Object.freeze({
+  damage: { id: "damage", name: "高压弹头", detail: "伤害 +15%", flavor: "让每一发都更有分量", family: "firepower", rarity: "standard", max: 5 },
+  fireRate: { id: "fireRate", name: "快速机件", detail: "射速 +12%", flavor: "缩短枪机复位间隔", family: "firepower", rarity: "standard", max: 5 },
+  projectile: { id: "projectile", name: "分流枪机", detail: "弹丸 +1", flavor: "一次扣动，多路火力", family: "firepower", rarity: "prototype", max: 2 },
+  pierce: { id: "pierce", name: "穿甲弹芯", detail: "穿透 +1", flavor: "撕开拥挤的感染群", family: "firepower", rarity: "advanced", max: 3 },
+  velocity: { id: "velocity", name: "磁轨增压", detail: "弹速 +16% · 射程 +8%", flavor: "更快抵达，更晚衰减", family: "firepower", rarity: "advanced", max: 4 },
+  caliber: { id: "caliber", name: "重型枪膛", detail: "弹体 +0.6 · 击退 +18%", flavor: "以冲击力换取安全距离", family: "firepower", rarity: "advanced", max: 4 },
+  critical: { id: "critical", name: "弱点测绘", detail: "暴击率 +7%", flavor: "红色数字造成双倍伤害", family: "firepower", rarity: "prototype", max: 4 },
+  speed: { id: "speed", name: "轻量靴", detail: "移动速度 +8%", flavor: "穿过浪潮的缝隙", family: "mobility", rarity: "standard", max: 4 },
+  vitality: { id: "vitality", name: "战地医疗", detail: "最大生命 +15 · 回复 15", flavor: "立刻重整呼吸", family: "survival", rarity: "standard", max: 4 },
+  magnet: { id: "magnet", name: "磁吸核心", detail: "拾取范围 +25%", flavor: "把战利品拉向身边", family: "utility", rarity: "standard", max: 4 },
+  armor: { id: "armor", name: "加固背心", detail: "受到伤害 -8%", flavor: "旧钢板也能挡住利爪", family: "survival", rarity: "advanced", max: 4 },
+  recovery: { id: "recovery", name: "纳米修复", detail: "脱战后每秒回复 0.4", flavor: "4 秒未受击后启动", family: "survival", rarity: "prototype", max: 4 },
+  scavenger: { id: "scavenger", name: "拾荒协议", detail: "废料掉率 +8% · 收益 +20%", flavor: "没有一块零件会被浪费", family: "utility", rarity: "advanced", max: 4 },
+  phaseLining: { id: "phaseLining", name: "相位衬层", detail: "受击无敌 +0.08 秒", flavor: "在第二次撕咬前脱身", family: "survival", rarity: "prototype", max: 3 },
+  executionCapacitor: { id: "executionCapacitor", name: "处决电容", detail: "连续击败敌人后储存强化弹", flavor: "杀戮不再只是计数，而是下一发的电荷", family: "firepower", rarity: "prototype", max: 3 },
+  reactivePlating: { id: "reactivePlating", name: "反应装甲", detail: "受击时释放近身冲击波", flavor: "装甲把撕咬反向送回尸群", family: "survival", rarity: "prototype", max: 3 },
+  salvageOverdrive: { id: "salvageOverdrive", name: "回收超频", detail: "拾取经验或废料后短暂强化弹道", flavor: "每一块战利品都让枪机重新加速", family: "utility", rarity: "advanced", max: 3 },
+  pointBlankRelay: { id: "pointBlankRelay", name: "近距继电", detail: "近距离锁定时提高伤害与击退", flavor: "距离越危险，继电器输出越高", family: "firepower", rarity: "advanced", max: 3 },
+  focusProtocol: { id: "focusProtocol", name: "弱点协议", detail: "长时间无伤后下一轮射击必定暴击", flavor: "稳定呼吸，把准星压进裂缝", family: "mobility", rarity: "prototype", max: 3 },
+  cascadeRounds: { id: "cascadeRounds", name: "电弧跳弹", detail: "暴击会向附近目标传导伤害", flavor: "一次命中，在尸群中继续寻找出口", family: "utility", rarity: "prototype", max: 3 },
+  penetratorDoctrine: { id: "penetratorDoctrine", name: "穿燃教义", detail: "伤害 +25% · 穿透 +2 · 弹体增大", flavor: "高压弹芯被重铸为一次性的质变", family: "firepower", rarity: "evolution", max: 1, evolution: true, requires: { upgrades: { damage: 3, pierce: 2 }, weaponClasses: ["rifle", "heavy"], masteryUnlock: true } },
+  swarmProtocol: { id: "swarmProtocol", name: "蜂群协议", detail: "弹丸 +2 · 射速 +15% · 单发伤害 -12%", flavor: "火力从直线变成覆盖整条街区的弹幕", family: "firepower", rarity: "evolution", max: 1, evolution: true, requires: { upgrades: { projectile: 2, fireRate: 3 }, weaponClasses: ["smg", "carbine"], masteryUnlock: true } },
+  recoveryField: { id: "recoveryField", name: "回收力场", detail: "拾取范围 +80% · 脱战回复 +0.8", flavor: "废料、药剂与经验都被同一场域牵引", family: "utility", rarity: "evolution", max: 1, evolution: true, requires: { upgrades: { magnet: 3, recovery: 2 }, weaponClasses: ["sidearm", "revolver"], masteryUnlock: true } },
+  phaseAegis: { id: "phaseAegis", name: "相位壁垒", detail: "减伤 +10% · 无敌时间 +0.12 秒 · 移速 +8%", flavor: "护甲不再承受冲击，而是让冲击短暂落空", family: "survival", rarity: "evolution", max: 1, evolution: true, requires: { upgrades: { armor: 3, phaseLining: 2 }, weaponClasses: ["shotgun", "heavy"], masteryUnlock: true } },
+  kineticLoop: { id: "kineticLoop", name: "动能回路", detail: "移速 +16% · 无敌时间 +0.1 秒 · 暴击 +5%", flavor: "每一次脱身都为下一次突进储能", family: "mobility", rarity: "evolution", max: 1, evolution: true, requires: { upgrades: { speed: 3, phaseLining: 2 }, weaponClasses: ["sidearm", "revolver", "shotgun"], masteryUnlock: true } },
+  arcNetwork: { id: "arcNetwork", name: "电弧战术网", detail: "弹速 +20% · 伤害 +12% · 穿透 +1", flavor: "线圈与瞄具共享脉冲时序，火力穿过整条战线", family: "utility", rarity: "evolution", max: 1, evolution: true, requires: { upgrades: { velocity: 3, critical: 2 }, weaponClasses: ["carbine", "heavy", "rifle"], masteryUnlock: true } }
+});
+
+const SKINS = Object.freeze({
+  wanderer: {
+    id: "wanderer",
+    name: "荒原旅人",
+    description: "默认外观",
+    body: "#a98a5f",
+    accent: "#7b3f31",
+    dark: "#332b22"
+  },
+  mechanic: {
+    id: "mechanic",
+    name: "信号维修工",
+    description: "青绿检修服，缀有工具带与信号灯。",
+    body: "#557e72",
+    accent: "#b8873e",
+    dark: "#263632"
+  },
+  nightwatch: {
+    id: "nightwatch",
+    name: "夜巡者",
+    description: "深蓝夜行披挂，带信号蓝反光条。",
+    body: "#4f586d",
+    accent: "#688f8b",
+    dark: "#242734"
+  }
+});
+
+const HEROES = Object.freeze({
+  ranger: {
+    id: "ranger",
+    name: "巡线者·黎响",
+    callsign: "ECHO-07",
+    description: "均衡可靠，擅长在视野边缘捕捉目标。",
+    passive: "远距感知：自动锁定距离 +8%",
+    hpMultiplier: 1,
+    speedMultiplier: 1,
+    pickupMultiplier: 1,
+    damageMultiplier: 1,
+    lockRangeMultiplier: 1.08,
+    armorBonus: 0,
+    copperMultiplier: 1,
+    portrait: "ranger",
+    accent: "#cda34f"
+  },
+  mechanic: {
+    id: "mechanic",
+    name: "废土技师·阿岚",
+    callsign: "PATCH-12",
+    description: "轻装搜索专家，能从残骸中拆出更多可用零件。",
+    passive: "精密回收：拾取范围 +24%，铜币收益 +15%",
+    hpMultiplier: 0.95,
+    speedMultiplier: 1.03,
+    pickupMultiplier: 1.24,
+    damageMultiplier: 0.98,
+    lockRangeMultiplier: 1,
+    armorBonus: 0,
+    copperMultiplier: 1.15,
+    portrait: "mechanic",
+    accent: "#6f9a86"
+  },
+  bulwark: {
+    id: "bulwark",
+    name: "铁卫·牧石",
+    callsign: "BASTION-03",
+    description: "以旧装甲硬抗尸潮，牺牲机动换取容错。",
+    passive: "拼装重甲：生命 +20%，护甲 +8%",
+    hpMultiplier: 1.2,
+    speedMultiplier: 0.92,
+    pickupMultiplier: 0.95,
+    damageMultiplier: 1.04,
+    lockRangeMultiplier: 0.96,
+    armorBonus: 0.08,
+    copperMultiplier: 1,
+    portrait: "bulwark",
+    accent: "#b85b43"
+  }
+});
+
+const MAPS = Object.freeze({
+  echo_district: {
+    id: "echo_district",
+    name: "回声旧城",
+    description: "商店街、主干道与南线货场交错的废弃城区。",
+    layoutId: "echo_district",
+    worldSize: 3072,
+    threat: 1,
+    accent: "#ffd166"
+  },
+  freight_nexus: {
+    id: "freight_nexus",
+    name: "锈轨枢纽",
+    description: "轨道密集、视线狭长，废弃列车把战场切成数段。",
+    layoutId: "freight_nexus",
+    worldSize: 3584,
+    threat: 1.15,
+    accent: "#62d8ea"
+  },
+  red_basin: {
+    id: "red_basin",
+    name: "赤砂沉降区",
+    description: "开阔沙盆包围旧研究站，变异体会从风暴中出现。",
+    layoutId: "red_basin",
+    worldSize: 4096,
+    threat: 1.3,
+    accent: "#ff765f"
+  }
+});
+
+const STAGES = Object.freeze({
+  signal_dawn: {
+    id: "signal_dawn",
+    order: 1,
+    name: "第一章：破晓信号",
+    description: "在旧城重新点亮广播塔。",
+    radioTitle: "远征电台 · 破晓频段",
+    radioDetail: "广播塔仍在呼吸，把信号带过旧城。",
+    mapId: "echo_district",
+    duration: 180,
+    difficulty: 1,
+    copperMultiplier: 1,
+    goldReward: 1,
+    unlockWins: 0
+  },
+  dead_rail: {
+    id: "dead_rail",
+    order: 2,
+    name: "第二章：死亡铁轨",
+    description: "沿锈轨寻找失联补给车。",
+    radioTitle: "远征电台 · 锈轨频段",
+    radioDetail: "列车没有归站，沿铁轨找到最后一节车厢。",
+    mapId: "freight_nexus",
+    duration: 180,
+    difficulty: 1.16,
+    copperMultiplier: 1.25,
+    goldReward: 2,
+    unlockWins: 1
+  },
+  red_storm: {
+    id: "red_storm",
+    order: 3,
+    name: "第三章：赤色风暴",
+    description: "深入沉降区，面对完成进化的感染体。",
+    radioTitle: "远征电台 · 赤风频段",
+    radioDetail: "风暴墙已经合拢，所有变异信号都指向中心。",
+    mapId: "red_basin",
+    duration: 210,
+    difficulty: 1.34,
+    copperMultiplier: 1.55,
+    goldReward: 3,
+    unlockWins: 3
+  }
+});
+
+const EQUIPMENT = Object.freeze({
+  field_vest: {
+    id: "field_vest",
+    slot: "chest",
+    visualId: "field-canvas-vest",
+    name: "巡线背心",
+    description: "蜡帆布与薄钢衬片缝成的入门护具。",
+    rarity: "standard",
+    stats: Object.freeze({ hp: 8, armor: 0.02 })
+  },
+  iron_plate: {
+    id: "iron_plate",
+    slot: "chest",
+    visualId: "riveted-iron-shell",
+    name: "拼装铁甲",
+    description: "铆接路牌与车门钢板，厚重但可靠。",
+    rarity: "advanced",
+    stats: Object.freeze({ hp: 24, armor: 0.08, speedMultiplier: 0.96 })
+  },
+  runner_boots: {
+    id: "runner_boots",
+    slot: "boots",
+    visualId: "runner-wrap-boots",
+    name: "疾行战靴",
+    description: "旧运动鞋底与军靴绑带的实用组合。",
+    rarity: "standard",
+    stats: Object.freeze({ armor: 0.01, speedMultiplier: 1.07 })
+  },
+  magnet_coil: {
+    id: "magnet_coil",
+    slot: "helmet",
+    visualId: "salvage-sensor-helm",
+    name: "回收感应盔",
+    description: "焊在旧矿盔上的感应线圈，可定位散落物资。",
+    rarity: "advanced",
+    stats: Object.freeze({ armor: 0.01, pickupMultiplier: 1.3, copperMultiplier: 1.1 })
+  },
+  ammo_rig: {
+    id: "ammo_rig",
+    slot: "legs",
+    visualId: "ammo-thigh-rig",
+    name: "速装腿挂",
+    description: "弹匣分置双腿，减少换弹与枪机复位时间。",
+    rarity: "advanced",
+    stats: Object.freeze({ hp: 6, armor: 0.02, fireRateMultiplier: 1.1 })
+  },
+  signal_charm: {
+    id: "signal_charm",
+    slot: "helmet",
+    visualId: "longwave-visor-helm",
+    name: "远讯侦测盔",
+    description: "完整晶振驱动的远讯目镜，强化锁定与弱点识别。",
+    rarity: "prototype",
+    stats: Object.freeze({ armor: 0.02, damageMultiplier: 1.1, lockRangeMultiplier: 1.12 })
+  },
+  servo_greaves: {
+    id: "servo_greaves",
+    slot: "legs",
+    visualId: "servo-braced-greaves",
+    name: "助力膝甲",
+    description: "拆车场液压杆与护膝组合，稳定移动射击姿态。",
+    rarity: "advanced",
+    stats: Object.freeze({ hp: 10, armor: 0.03, speedMultiplier: 1.03 })
+  },
+  stormstep_boots: {
+    id: "stormstep_boots",
+    slot: "boots",
+    visualId: "stormstep-insulated-boots",
+    name: "踏雷绝缘靴",
+    description: "隔离电网回流的复合靴底，兼顾疾行与锁定稳定。",
+    rarity: "prototype",
+    stats: Object.freeze({ armor: 0.02, speedMultiplier: 1.1, lockRangeMultiplier: 1.05 })
+  }
+});
+
+const SHOP_ITEMS = Object.freeze({
+  buy_swarm_smg: { id: "buy_swarm_smg", category: "weapon", name: "蜂群冲锋枪", description: "高射速近中程压制武器。", grantType: "weapon", grantId: "swarm_smg", currency: "copper", price: 420, unlockStage: 1 },
+  buy_rust_revolver: { id: "buy_rust_revolver", category: "weapon", name: "锈痕左轮", description: "中程高冲击六发左轮。", grantType: "weapon", grantId: "rust_revolver", currency: "copper", price: 560, unlockStage: 1 },
+  buy_breaker_shotgun: { id: "buy_breaker_shotgun", category: "weapon", name: "破门霰弹枪", description: "近距离扇形爆发与强击退。", grantType: "weapon", grantId: "breaker_shotgun", currency: "copper", price: 780, unlockStage: 2, unlockRuleId: "blueprint_breaker" },
+  buy_ember_carbine: { id: "buy_ember_carbine", category: "weapon", name: "余烬卡宾枪", description: "稳定连发的中程通用步枪。", grantType: "weapon", grantId: "ember_carbine", currency: "copper", price: 1120, unlockStage: 2, unlockRuleId: "blueprint_ember" },
+  buy_needle_rifle: { id: "buy_needle_rifle", category: "weapon", name: "针刺步枪", description: "远距高伤害贯穿弹。", grantType: "weapon", grantId: "needle_rifle", currency: "gold", price: 7, unlockStage: 3, unlockRuleId: "blueprint_needle" },
+  buy_coil_cannon: { id: "buy_coil_cannon", category: "weapon", name: "荒雷线圈炮", description: "远程重型贯穿武器。", grantType: "weapon", grantId: "coil_cannon", currency: "gold", price: 12, unlockStage: 3, unlockRuleId: "blueprint_coil" },
+  buy_mechanic_outfit: { id: "buy_mechanic_outfit", category: "outfit", name: "技师工装", description: "高辨识度青绿检修服。", grantType: "skin", grantId: "mechanic", currency: "copper", price: 360, unlockStage: 1 },
+  buy_nightwatch_outfit: { id: "buy_nightwatch_outfit", category: "outfit", name: "夜巡披挂", description: "带信号蓝反光条的夜行装。", grantType: "skin", grantId: "nightwatch", currency: "gold", price: 4, unlockStage: 2, unlockRuleId: "blueprint_nightwatch" },
+  buy_iron_plate: { id: "buy_iron_plate", category: "equipment", name: "拼装铁甲", description: "身甲：生命 +24，护甲 +8%，移动 -4%。", grantType: "equipment", grantId: "iron_plate", currency: "copper", price: 520, unlockStage: 1 },
+  buy_runner_boots: { id: "buy_runner_boots", category: "equipment", name: "疾行战靴", description: "靴子：护甲 +1%，移动速度 +7%。", grantType: "equipment", grantId: "runner_boots", currency: "copper", price: 300, unlockStage: 1 },
+  buy_magnet_coil: { id: "buy_magnet_coil", category: "equipment", name: "回收感应盔", description: "头盔：拾取 +30%，铜币 +10%。", grantType: "equipment", grantId: "magnet_coil", currency: "copper", price: 640, unlockStage: 2, unlockRuleId: "blueprint_magnet" },
+  buy_ammo_rig: { id: "buy_ammo_rig", category: "equipment", name: "速装腿挂", description: "腿甲：生命 +6，护甲 +2%，射速 +10%。", grantType: "equipment", grantId: "ammo_rig", currency: "copper", price: 690, unlockStage: 2, unlockRuleId: "blueprint_ammo" },
+  buy_signal_charm: { id: "buy_signal_charm", category: "equipment", name: "远讯侦测盔", description: "头盔：伤害 +10%，锁定距离 +12%。", grantType: "equipment", grantId: "signal_charm", currency: "gold", price: 6, unlockStage: 3, unlockRuleId: "blueprint_signal" },
+  buy_servo_greaves: { id: "buy_servo_greaves", category: "equipment", name: "助力膝甲", description: "腿甲：生命 +10，护甲 +3%，移动 +3%。", grantType: "equipment", grantId: "servo_greaves", currency: "copper", price: 820, unlockStage: 2, unlockRuleId: "blueprint_servo" },
+  buy_stormstep_boots: { id: "buy_stormstep_boots", category: "equipment", name: "踏雷绝缘靴", description: "靴子：护甲 +2%，移动 +10%，锁定 +5%。", grantType: "equipment", grantId: "stormstep_boots", currency: "gold", price: 5, unlockStage: 3, unlockRuleId: "blueprint_stormstep" }
+});
+
+module.exports = {
+  DEFAULT_RUN_DURATION,
+  PALETTE,
+  GAME_MODES,
+  WEAPONS,
+  ENEMIES,
+  UPGRADES,
+  SKINS,
+  HEROES,
+  MAPS,
+  STAGES,
+  EQUIPMENT,
+  SHOP_ITEMS
+};

@@ -1,0 +1,67 @@
+@font-face {
+  font-family: "Fusion Pixel 12";
+  src: url("./assets/fonts/wasteland-fusion-pixel-12-subset.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400 900;
+}
+
+:root {
+  color-scheme: dark;
+  font-family: "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
+  background: #100f0c;
+  --desktop-edge: #806b45;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+.game-shell {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #100f0c;
+}
+
+body {
+  overscroll-behavior: none;
+  user-select: none;
+}
+
+.game-shell {
+  position: relative;
+  isolation: isolate;
+  box-shadow: inset 0 0 0 2px #4a4234;
+}
+
+#game {
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  cursor: crosshair;
+  image-rendering: auto;
+  background: #100f0c;
+}
+
+#game:focus-visible {
+  box-shadow: inset 0 0 0 2px #8d784d;
+}
+
+.build-badge {
+  position: fixed;
+  right: 10px;
+  bottom: 8px;
+  padding: 4px 7px;
+  border: 1px solid #71664f;
+  color: #ead9ad;
+  background: rgba(18, 16, 12, 0.94);
+  font-family: "Fusion Pixel 12", "Cascadia Mono", Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+}

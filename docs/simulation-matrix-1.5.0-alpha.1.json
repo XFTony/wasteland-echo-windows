@@ -1,0 +1,728 @@
+{
+  "seed": 20260907,
+  "duration": 180,
+  "healthProfile": "normal",
+  "scenarios": 6,
+  "completed": 3,
+  "results": [
+    {
+      "id": "survival-default",
+      "targetSeconds": 180,
+      "simulatedSeconds": 180,
+      "reachedTarget": true,
+      "seed": 20260907,
+      "mode": "survival",
+      "strategy": "default",
+      "healthProfile": "normal",
+      "result": "resultWin",
+      "finalHp": 112.22,
+      "kills": 269,
+      "eliteKills": 0,
+      "level": 6,
+      "damageDealt": 5235.77,
+      "damageTaken": 10.78,
+      "damageTakenBySource": {
+        "iron_colossus": 10.78
+      },
+      "accuracy": 0.6605,
+      "upgradeOrder": [
+        {
+          "id": "velocity",
+          "level": 1,
+          "elapsed": 32.97
+        },
+        {
+          "id": "projectile",
+          "level": 1,
+          "elapsed": 98.82
+        },
+        {
+          "id": "scavenger",
+          "level": 1,
+          "elapsed": 152.52
+        },
+        {
+          "id": "pierce",
+          "level": 1,
+          "elapsed": 165.58
+        },
+        {
+          "id": "pierce",
+          "level": 2,
+          "elapsed": 174.03
+        }
+      ],
+      "phaseTimeline": [
+        {
+          "id": "pressure",
+          "elapsed": 21.6
+        },
+        {
+          "id": "surge",
+          "elapsed": 54.02
+        },
+        {
+          "id": "lull",
+          "elapsed": 86.42
+        },
+        {
+          "id": "siege",
+          "elapsed": 108.02
+        },
+        {
+          "id": "last-stand",
+          "elapsed": 147.6
+        }
+      ],
+      "bossEncounters": [
+        {
+          "enemyType": "iron_colossus",
+          "startedAt": 158.4,
+          "duration": null
+        }
+      ],
+      "copperCurve": [
+        {
+          "elapsed": 30,
+          "scrap": 0
+        },
+        {
+          "elapsed": 60,
+          "scrap": 1
+        },
+        {
+          "elapsed": 90,
+          "scrap": 1
+        },
+        {
+          "elapsed": 120,
+          "scrap": 2
+        },
+        {
+          "elapsed": 150,
+          "scrap": 2
+        },
+        {
+          "elapsed": 180,
+          "scrap": 11
+        }
+      ],
+      "maxEnemies": 73,
+      "maxProjectiles": 24,
+      "maxPickups": 140,
+      "bossWaves": 0,
+      "emittedEvents": 1488,
+      "runtimeMs": 921.65,
+      "memoryMiB": {
+        "baselineRss": 55.07,
+        "peakRss": 65.77,
+        "finalRss": 64.05,
+        "baselineHeapUsed": 5.81,
+        "peakHeapUsed": 12.47,
+        "finalHeapUsed": 9.18,
+        "peakHeapGrowth": 6.66,
+        "peakExternal": 1.45
+      },
+      "pools": {
+        "enemies": {
+          "created": 88,
+          "free": 17
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 77
+        },
+        "pickups": {
+          "created": 140,
+          "free": 0
+        }
+      }
+    },
+    {
+      "id": "survival-kite",
+      "targetSeconds": 180,
+      "simulatedSeconds": 155.57,
+      "reachedTarget": false,
+      "seed": 20260907,
+      "mode": "survival",
+      "strategy": "kite",
+      "healthProfile": "normal",
+      "result": "resultLose",
+      "finalHp": -3,
+      "kills": 209,
+      "eliteKills": 0,
+      "level": 6,
+      "damageDealt": 3820.66,
+      "damageTaken": 126,
+      "damageTakenBySource": {
+        "spitter": 90,
+        "runner": 21.6,
+        "drifter": 14.4
+      },
+      "accuracy": 0.7697,
+      "upgradeOrder": [
+        {
+          "id": "armor",
+          "level": 1,
+          "elapsed": 46.48
+        },
+        {
+          "id": "scavenger",
+          "level": 1,
+          "elapsed": 78.35
+        },
+        {
+          "id": "fireRate",
+          "level": 1,
+          "elapsed": 90.6
+        },
+        {
+          "id": "fireRate",
+          "level": 2,
+          "elapsed": 107
+        },
+        {
+          "id": "reactivePlating",
+          "level": 1,
+          "elapsed": 125.55
+        }
+      ],
+      "phaseTimeline": [
+        {
+          "id": "pressure",
+          "elapsed": 21.6
+        },
+        {
+          "id": "surge",
+          "elapsed": 54.02
+        },
+        {
+          "id": "lull",
+          "elapsed": 86.42
+        },
+        {
+          "id": "siege",
+          "elapsed": 108.02
+        },
+        {
+          "id": "last-stand",
+          "elapsed": 147.6
+        }
+      ],
+      "bossEncounters": [],
+      "copperCurve": [
+        {
+          "elapsed": 30,
+          "scrap": 0
+        },
+        {
+          "elapsed": 60,
+          "scrap": 0
+        },
+        {
+          "elapsed": 90,
+          "scrap": 0
+        },
+        {
+          "elapsed": 120,
+          "scrap": 3
+        },
+        {
+          "elapsed": 150,
+          "scrap": 4
+        }
+      ],
+      "maxEnemies": 37,
+      "maxProjectiles": 15,
+      "maxPickups": 140,
+      "bossWaves": 0,
+      "emittedEvents": 1267,
+      "runtimeMs": 469.17,
+      "memoryMiB": {
+        "baselineRss": 65.25,
+        "peakRss": 69.11,
+        "finalRss": 65.76,
+        "baselineHeapUsed": 11.01,
+        "peakHeapUsed": 14.17,
+        "finalHeapUsed": 11.56,
+        "peakHeapGrowth": 3.16,
+        "peakExternal": 1.52
+      },
+      "pools": {
+        "enemies": {
+          "created": 88,
+          "free": 51
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 81
+        },
+        "pickups": {
+          "created": 140,
+          "free": 0
+        }
+      }
+    },
+    {
+      "id": "survival-facehug",
+      "targetSeconds": 180,
+      "simulatedSeconds": 100.33,
+      "reachedTarget": false,
+      "seed": 20260907,
+      "mode": "survival",
+      "strategy": "facehug",
+      "healthProfile": "normal",
+      "result": "resultLose",
+      "finalHp": -5.08,
+      "kills": 105,
+      "eliteKills": 0,
+      "level": 5,
+      "damageDealt": 1708.76,
+      "damageTaken": 143.08,
+      "damageTakenBySource": {
+        "drifter": 70.56,
+        "spitter": 49,
+        "runner": 23.52
+      },
+      "accuracy": 0.6105,
+      "upgradeOrder": [
+        {
+          "id": "salvageOverdrive",
+          "level": 1,
+          "elapsed": 36.03
+        },
+        {
+          "id": "executionCapacitor",
+          "level": 1,
+          "elapsed": 52.17
+        },
+        {
+          "id": "critical",
+          "level": 1,
+          "elapsed": 77.27
+        },
+        {
+          "id": "vitality",
+          "level": 1,
+          "elapsed": 90.48
+        }
+      ],
+      "phaseTimeline": [
+        {
+          "id": "pressure",
+          "elapsed": 21.6
+        },
+        {
+          "id": "surge",
+          "elapsed": 54.02
+        },
+        {
+          "id": "lull",
+          "elapsed": 86.42
+        }
+      ],
+      "bossEncounters": [],
+      "copperCurve": [
+        {
+          "elapsed": 30,
+          "scrap": 0
+        },
+        {
+          "elapsed": 60,
+          "scrap": 0
+        },
+        {
+          "elapsed": 90,
+          "scrap": 2
+        }
+      ],
+      "maxEnemies": 11,
+      "maxProjectiles": 5,
+      "maxPickups": 76,
+      "bossWaves": 0,
+      "emittedEvents": 798,
+      "runtimeMs": 336.27,
+      "memoryMiB": {
+        "baselineRss": 65.81,
+        "peakRss": 69.89,
+        "finalRss": 67.22,
+        "baselineHeapUsed": 11.91,
+        "peakHeapUsed": 14.82,
+        "finalHeapUsed": 11.85,
+        "peakHeapGrowth": 2.91,
+        "peakExternal": 1.6
+      },
+      "pools": {
+        "enemies": {
+          "created": 88,
+          "free": 77
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 91
+        },
+        "pickups": {
+          "created": 140,
+          "free": 68
+        }
+      }
+    },
+    {
+      "id": "survival-random-upgrade",
+      "targetSeconds": 180,
+      "simulatedSeconds": 180,
+      "reachedTarget": true,
+      "seed": 20260907,
+      "mode": "survival",
+      "strategy": "random-upgrade",
+      "healthProfile": "normal",
+      "result": "resultWin",
+      "finalHp": 36,
+      "kills": 215,
+      "eliteKills": 0,
+      "level": 7,
+      "damageDealt": 4415.95,
+      "damageTaken": 87,
+      "damageTakenBySource": {
+        "spitter": 27.8,
+        "drifter": 22.24,
+        "brute": 19.8,
+        "runner": 11.76,
+        "screecher": 5.4
+      },
+      "accuracy": 0.7775,
+      "upgradeOrder": [
+        {
+          "id": "scavenger",
+          "level": 1,
+          "elapsed": 32.97
+        },
+        {
+          "id": "executionCapacitor",
+          "level": 1,
+          "elapsed": 96.4
+        },
+        {
+          "id": "reactivePlating",
+          "level": 1,
+          "elapsed": 128.75
+        },
+        {
+          "id": "armor",
+          "level": 1,
+          "elapsed": 147.08
+        },
+        {
+          "id": "cascadeRounds",
+          "level": 1,
+          "elapsed": 165.38
+        },
+        {
+          "id": "recovery",
+          "level": 1,
+          "elapsed": 177.72
+        }
+      ],
+      "phaseTimeline": [
+        {
+          "id": "pressure",
+          "elapsed": 21.6
+        },
+        {
+          "id": "surge",
+          "elapsed": 54.02
+        },
+        {
+          "id": "lull",
+          "elapsed": 86.42
+        },
+        {
+          "id": "siege",
+          "elapsed": 108.02
+        },
+        {
+          "id": "last-stand",
+          "elapsed": 147.6
+        }
+      ],
+      "bossEncounters": [
+        {
+          "enemyType": "iron_colossus",
+          "startedAt": 158.4,
+          "duration": null
+        }
+      ],
+      "copperCurve": [
+        {
+          "elapsed": 30,
+          "scrap": 0
+        },
+        {
+          "elapsed": 60,
+          "scrap": 1
+        },
+        {
+          "elapsed": 90,
+          "scrap": 2
+        },
+        {
+          "elapsed": 120,
+          "scrap": 3
+        },
+        {
+          "elapsed": 150,
+          "scrap": 7
+        },
+        {
+          "elapsed": 180,
+          "scrap": 11
+        }
+      ],
+      "maxEnemies": 78,
+      "maxProjectiles": 23,
+      "maxPickups": 140,
+      "bossWaves": 0,
+      "emittedEvents": 1478,
+      "runtimeMs": 906.1,
+      "memoryMiB": {
+        "baselineRss": 68.76,
+        "peakRss": 69.93,
+        "finalRss": 67.45,
+        "baselineHeapUsed": 12.16,
+        "peakHeapUsed": 15.65,
+        "finalHeapUsed": 12.14,
+        "peakHeapGrowth": 3.49,
+        "peakExternal": 1.67
+      },
+      "pools": {
+        "enemies": {
+          "created": 88,
+          "free": 11
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 79
+        },
+        "pickups": {
+          "created": 140,
+          "free": 0
+        }
+      }
+    },
+    {
+      "id": "survival-no-magnet",
+      "targetSeconds": 180,
+      "simulatedSeconds": 180,
+      "reachedTarget": true,
+      "seed": 20260907,
+      "mode": "survival",
+      "strategy": "no-magnet",
+      "healthProfile": "normal",
+      "result": "resultWin",
+      "finalHp": 70.08,
+      "kills": 269,
+      "eliteKills": 0,
+      "level": 8,
+      "damageDealt": 4899.85,
+      "damageTaken": 68.6,
+      "damageTakenBySource": {
+        "drifter": 31.36,
+        "spitter": 19.6,
+        "runner": 11.76,
+        "screecher": 5.88
+      },
+      "accuracy": 0.8172,
+      "upgradeOrder": [
+        {
+          "id": "velocity",
+          "level": 1,
+          "elapsed": 33.47
+        },
+        {
+          "id": "executionCapacitor",
+          "level": 1,
+          "elapsed": 57.9
+        },
+        {
+          "id": "cascadeRounds",
+          "level": 1,
+          "elapsed": 78.07
+        },
+        {
+          "id": "caliber",
+          "level": 1,
+          "elapsed": 116.52
+        },
+        {
+          "id": "focusProtocol",
+          "level": 1,
+          "elapsed": 140.93
+        },
+        {
+          "id": "caliber",
+          "level": 2,
+          "elapsed": 158.47
+        },
+        {
+          "id": "pierce",
+          "level": 1,
+          "elapsed": 173.73
+        }
+      ],
+      "phaseTimeline": [
+        {
+          "id": "pressure",
+          "elapsed": 21.6
+        },
+        {
+          "id": "surge",
+          "elapsed": 54.02
+        },
+        {
+          "id": "lull",
+          "elapsed": 86.42
+        },
+        {
+          "id": "siege",
+          "elapsed": 108.02
+        },
+        {
+          "id": "last-stand",
+          "elapsed": 147.6
+        }
+      ],
+      "bossEncounters": [
+        {
+          "enemyType": "iron_colossus",
+          "startedAt": 158.4,
+          "duration": null
+        }
+      ],
+      "copperCurve": [
+        {
+          "elapsed": 30,
+          "scrap": 0
+        },
+        {
+          "elapsed": 60,
+          "scrap": 1
+        },
+        {
+          "elapsed": 90,
+          "scrap": 3
+        },
+        {
+          "elapsed": 120,
+          "scrap": 4
+        },
+        {
+          "elapsed": 150,
+          "scrap": 14
+        },
+        {
+          "elapsed": 180,
+          "scrap": 18
+        }
+      ],
+      "maxEnemies": 78,
+      "maxProjectiles": 26,
+      "maxPickups": 140,
+      "bossWaves": 0,
+      "emittedEvents": 1708,
+      "runtimeMs": 809.47,
+      "memoryMiB": {
+        "baselineRss": 67.56,
+        "peakRss": 72.37,
+        "finalRss": 70.59,
+        "baselineHeapUsed": 12.25,
+        "peakHeapUsed": 16.65,
+        "finalHeapUsed": 13.71,
+        "peakHeapGrowth": 4.4,
+        "peakExternal": 1.74
+      },
+      "pools": {
+        "enemies": {
+          "created": 88,
+          "free": 16
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 72
+        },
+        "pickups": {
+          "created": 140,
+          "free": 0
+        }
+      }
+    },
+    {
+      "id": "extraction-priority",
+      "targetSeconds": 180,
+      "simulatedSeconds": 62.35,
+      "reachedTarget": false,
+      "seed": 20260907,
+      "mode": "extraction",
+      "strategy": "extract-only",
+      "healthProfile": "normal",
+      "result": "resultLose",
+      "finalHp": -9.6,
+      "kills": 81,
+      "eliteKills": 0,
+      "level": 1,
+      "damageDealt": 1276.4,
+      "damageTaken": 117.6,
+      "damageTakenBySource": {
+        "spitter": 117.6
+      },
+      "accuracy": 0.7368,
+      "upgradeOrder": [],
+      "phaseTimeline": [
+        {
+          "id": "blockade",
+          "elapsed": 28.82
+        }
+      ],
+      "bossEncounters": [],
+      "copperCurve": [
+        {
+          "elapsed": 30,
+          "scrap": 0
+        },
+        {
+          "elapsed": 60,
+          "scrap": 0
+        }
+      ],
+      "maxEnemies": 15,
+      "maxProjectiles": 6,
+      "maxPickups": 91,
+      "bossWaves": 0,
+      "emittedEvents": 457,
+      "runtimeMs": 50.1,
+      "memoryMiB": {
+        "baselineRss": 68.55,
+        "peakRss": 71.17,
+        "finalRss": 71.17,
+        "baselineHeapUsed": 14.03,
+        "peakHeapUsed": 17,
+        "finalHeapUsed": 15.45,
+        "peakHeapGrowth": 2.97,
+        "peakExternal": 1.81
+      },
+      "pools": {
+        "enemies": {
+          "created": 88,
+          "free": 74
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 93
+        },
+        "pickups": {
+          "created": 140,
+          "free": 49
+        }
+      }
+    }
+  ]
+}

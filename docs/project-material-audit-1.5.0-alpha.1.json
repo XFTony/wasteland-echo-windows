@@ -1,0 +1,413 @@
+{
+  "generatedAt": "2026-09-22T13:28:41.258Z",
+  "version": "1.5.0-alpha.1",
+  "summary": {
+    "sourceModules": 76,
+    "bundledModules": 76,
+    "unbundledSourceModules": 0,
+    "catalogAssets": 10,
+    "activeCatalogAssets": 10,
+    "inactiveCatalogAssets": 0,
+    "webAssets": 12,
+    "unregisteredWebAssets": 0,
+    "missingManifestPaths": 0,
+    "duplicateGroups": 8,
+    "redundantWebCopies": 0,
+    "redundantWebBytes": 0,
+    "stableReleaseVersion": "1.4.0",
+    "historicalReleaseFiles": 0
+  },
+  "source": {
+    "modules": [
+      "src/app.js",
+      "src/browser-entry.js",
+      "src/config.js",
+      "src/content/boss-definitions.js",
+      "src/content/mastery-rewards.js",
+      "src/content/run-modifiers.js",
+      "src/content/unlock-rules.js",
+      "src/content/weapon-mechanics.js",
+      "src/core/boss-system.js",
+      "src/core/campaign.js",
+      "src/core/combat-sim.js",
+      "src/core/content-registry.js",
+      "src/core/contracts.js",
+      "src/core/economy.js",
+      "src/core/enemy-brain.js",
+      "src/core/entity-factories.js",
+      "src/core/equipment.js",
+      "src/core/fixed-step-clock.js",
+      "src/core/game-model.js",
+      "src/core/loadout-selection.js",
+      "src/core/mastery-system.js",
+      "src/core/math.js",
+      "src/core/mechanic-system.js",
+      "src/core/menu-session.js",
+      "src/core/pool.js",
+      "src/core/progression.js",
+      "src/core/random.js",
+      "src/core/run-advice.js",
+      "src/core/run-state.js",
+      "src/core/save.js",
+      "src/core/spatial-grid.js",
+      "src/core/spawn-director.js",
+      "src/core/spawn-system.js",
+      "src/core/tutorial.js",
+      "src/core/unlock-system.js",
+      "src/core/upgrade-effects.js",
+      "src/input/command-map.js",
+      "src/input/gamepad-source.js",
+      "src/input/input-manager.js",
+      "src/input/key-bindings.js",
+      "src/input/ui-navigator.js",
+      "src/platform/audio-engine.js",
+      "src/platform/browser-bindings.js",
+      "src/platform/browser-platform.js",
+      "src/platform/music-score.js",
+      "src/render/actor-view.js",
+      "src/render/art/art-store.js",
+      "src/render/art/asset-catalog.js",
+      "src/render/canvas-renderer.js",
+      "src/render/format.js",
+      "src/render/fx-system.js",
+      "src/render/hud-view.js",
+      "src/render/menu-pages.js",
+      "src/render/menu-view.js",
+      "src/render/obstacle-view.js",
+      "src/render/pixel-actors.js",
+      "src/render/render-hash.js",
+      "src/render/terrain-view.js",
+      "src/render/ui/art-primitives.js",
+      "src/render/ui/deployment-bunker.js",
+      "src/render/ui/deployment-page.js",
+      "src/render/ui/equipment-presentation.js",
+      "src/render/ui/field-surfaces.js",
+      "src/render/ui/image-primitives.js",
+      "src/render/ui/inventory-page.js",
+      "src/render/ui/item-icons.js",
+      "src/render/ui/shop-page.js",
+      "src/render/ui/theme.js",
+      "src/render/ui/upgrade-cards.js",
+      "src/render/world-view.js",
+      "src/runtime/action-router.js",
+      "src/runtime/create-game-runtime.js",
+      "src/version.js",
+      "src/world/navigation-grid.js",
+      "src/world/wasteland-map.js",
+      "src/world/world-registry.js"
+    ],
+    "bundledModules": [
+      "src/app.js",
+      "src/browser-entry.js",
+      "src/config.js",
+      "src/content/boss-definitions.js",
+      "src/content/mastery-rewards.js",
+      "src/content/run-modifiers.js",
+      "src/content/unlock-rules.js",
+      "src/content/weapon-mechanics.js",
+      "src/core/boss-system.js",
+      "src/core/campaign.js",
+      "src/core/combat-sim.js",
+      "src/core/content-registry.js",
+      "src/core/contracts.js",
+      "src/core/economy.js",
+      "src/core/enemy-brain.js",
+      "src/core/entity-factories.js",
+      "src/core/equipment.js",
+      "src/core/fixed-step-clock.js",
+      "src/core/game-model.js",
+      "src/core/loadout-selection.js",
+      "src/core/mastery-system.js",
+      "src/core/math.js",
+      "src/core/mechanic-system.js",
+      "src/core/menu-session.js",
+      "src/core/pool.js",
+      "src/core/progression.js",
+      "src/core/random.js",
+      "src/core/run-advice.js",
+      "src/core/run-state.js",
+      "src/core/save.js",
+      "src/core/spatial-grid.js",
+      "src/core/spawn-director.js",
+      "src/core/spawn-system.js",
+      "src/core/tutorial.js",
+      "src/core/unlock-system.js",
+      "src/core/upgrade-effects.js",
+      "src/input/command-map.js",
+      "src/input/gamepad-source.js",
+      "src/input/input-manager.js",
+      "src/input/key-bindings.js",
+      "src/input/ui-navigator.js",
+      "src/platform/audio-engine.js",
+      "src/platform/browser-bindings.js",
+      "src/platform/browser-platform.js",
+      "src/platform/music-score.js",
+      "src/render/actor-view.js",
+      "src/render/art/art-store.js",
+      "src/render/art/asset-catalog.js",
+      "src/render/canvas-renderer.js",
+      "src/render/format.js",
+      "src/render/fx-system.js",
+      "src/render/hud-view.js",
+      "src/render/menu-pages.js",
+      "src/render/menu-view.js",
+      "src/render/obstacle-view.js",
+      "src/render/pixel-actors.js",
+      "src/render/render-hash.js",
+      "src/render/terrain-view.js",
+      "src/render/ui/art-primitives.js",
+      "src/render/ui/deployment-bunker.js",
+      "src/render/ui/deployment-page.js",
+      "src/render/ui/equipment-presentation.js",
+      "src/render/ui/field-surfaces.js",
+      "src/render/ui/image-primitives.js",
+      "src/render/ui/inventory-page.js",
+      "src/render/ui/item-icons.js",
+      "src/render/ui/shop-page.js",
+      "src/render/ui/theme.js",
+      "src/render/ui/upgrade-cards.js",
+      "src/render/world-view.js",
+      "src/runtime/action-router.js",
+      "src/runtime/create-game-runtime.js",
+      "src/version.js",
+      "src/world/navigation-grid.js",
+      "src/world/wasteland-map.js",
+      "src/world/world-registry.js"
+    ],
+    "unbundledModules": []
+  },
+  "art": {
+    "catalog": [
+      {
+        "id": "world.ground.v1",
+        "path": "web/assets/wasteland-ground-texture-v1.webp",
+        "active": true,
+        "eager": true
+      },
+      {
+        "id": "cover.keyart.v1",
+        "path": "web/assets/wasteland-title-keyart-v1.webp",
+        "active": true,
+        "eager": true
+      },
+      {
+        "id": "menu.backdrop.main.v2",
+        "path": "web/assets/ui/backdrops/menu-main-camp-v2.webp",
+        "active": true,
+        "eager": true
+      },
+      {
+        "id": "menu.backdrop.deployment.v2",
+        "path": "web/assets/ui/backdrops/deployment-command-bunker-v2.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "menu.backdrop.inventory.v2",
+        "path": "web/assets/ui/backdrops/inventory-armory-v2.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "menu.backdrop.shop.v2",
+        "path": "web/assets/ui/backdrops/shop-quartermaster-v2.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "menu.backdrop.settings.v2",
+        "path": "web/assets/ui/backdrops/settings-radio-room-v2.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "menu.backdrop.credits.v2",
+        "path": "web/assets/ui/backdrops/credits-archive-v2.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "ui.field-plate.v2",
+        "path": "web/assets/ui/shared/ui-field-plate-v2.webp",
+        "active": true,
+        "eager": true
+      },
+      {
+        "id": "deployment.convoy.v1",
+        "path": "web/assets/ui/deployment/deployment-convoy-vignette-v1.webp",
+        "active": true,
+        "eager": false
+      }
+    ],
+    "unregisteredWebAssets": [],
+    "missingManifestPaths": [],
+    "redundantWebCopies": [],
+    "duplicateGroups": [
+      {
+        "hash": "8410F358BDEEB0B25D91C27B990C2D8940C16ECF61BD35DFACFA2A649C421C8B",
+        "bytes": 2860791,
+        "copies": 2,
+        "paths": [
+          "art/generated/v1.1/runtime/deployment-journal-spread-v1.png",
+          "art/generated/v1.1/source/deployment-journal-spread-v1-source.png"
+        ]
+      },
+      {
+        "hash": "39889D3400CB5357233E99D3021DA10B675E6E2CE75B26EBC61601FA45E66296",
+        "bytes": 2724492,
+        "copies": 2,
+        "paths": [
+          "art/generated/v1.2/runtime/deployment-command-bunker-v2.png",
+          "art/generated/v1.2/source/deployment-command-bunker-v2-source.png"
+        ]
+      },
+      {
+        "hash": "FF268D28CA0414C44A8BC933FA74923B7C7443FBF34F03A73EADAA675769D96E",
+        "bytes": 2721981,
+        "copies": 2,
+        "paths": [
+          "art/generated/v1.2/runtime/credits-archive-v2.png",
+          "art/generated/v1.2/source/credits-archive-v2-source.png"
+        ]
+      },
+      {
+        "hash": "AFC7F5BCFBB82DF83544CFC97376C6D8CB42C624DBB3CF81CF511F40752715E9",
+        "bytes": 2610836,
+        "copies": 2,
+        "paths": [
+          "art/generated/v1.2/runtime/shop-quartermaster-v2.png",
+          "art/generated/v1.2/source/shop-quartermaster-v2-source.png"
+        ]
+      },
+      {
+        "hash": "487FF58EB018DD9AB91F2B0648574754AD76CF1A47E37AA5AE08FBCF9A9F8C53",
+        "bytes": 2603970,
+        "copies": 2,
+        "paths": [
+          "art/generated/v1.2/runtime/inventory-armory-v2.png",
+          "art/generated/v1.2/source/inventory-armory-v2-source.png"
+        ]
+      },
+      {
+        "hash": "AA5FC96005D86ACEEAE6C0ECCBE274D258771F38D5A8E4A557FD92FF28AB2765",
+        "bytes": 2535445,
+        "copies": 2,
+        "paths": [
+          "art/generated/v1.2/runtime/settings-radio-room-v2.png",
+          "art/generated/v1.2/source/settings-radio-room-v2-source.png"
+        ]
+      },
+      {
+        "hash": "D9F261B1E0F69BEDF91D9325DCC4954F1D83DF7DB78B58F3DA06A9E918C4E20A",
+        "bytes": 2509720,
+        "copies": 2,
+        "paths": [
+          "art/generated/v1.2/runtime/menu-main-camp-v2.png",
+          "art/generated/v1.2/source/menu-main-camp-v2-source.png"
+        ]
+      },
+      {
+        "hash": "E53C200DCF9A1DE26C7D426FDD5E838E0DF318E2BB2F3A86E8C00EA725CCE94A",
+        "bytes": 2493406,
+        "copies": 2,
+        "paths": [
+          "art/generated/v1.1/source/deployment-convoy-vignette-v1-edit-target.png",
+          "art/generated/v1.1/source/deployment-convoy-vignette-v1-raw-checkerboard.png"
+        ]
+      }
+    ]
+  },
+  "release": [
+    {
+      "path": "release/README-v1.4.0.txt",
+      "bytes": 986,
+      "current": true
+    },
+    {
+      "path": "release/SHA256SUMS.txt",
+      "bytes": 314,
+      "current": true
+    },
+    {
+      "path": "release/WastelandEcho-v1.4.0-win-x64-portable.zip",
+      "bytes": 7314059,
+      "current": true
+    },
+    {
+      "path": "release/WastelandEcho-v1.4.0-win-x64-setup.exe",
+      "bytes": 6888067,
+      "current": true
+    },
+    {
+      "path": "release/WastelandEcho-v1.4.0-win-x64.exe",
+      "bytes": 13197312,
+      "current": true
+    }
+  ],
+  "directories": [
+    {
+      "directory": "src",
+      "files": 76,
+      "bytes": 523305
+    },
+    {
+      "directory": "test",
+      "files": 36,
+      "bytes": 170336
+    },
+    {
+      "directory": "scripts",
+      "files": 23,
+      "bytes": 67291
+    },
+    {
+      "directory": "web",
+      "files": 16,
+      "bytes": 5111786
+    },
+    {
+      "directory": "dist",
+      "files": 16,
+      "bytes": 5051695
+    },
+    {
+      "directory": "art",
+      "files": 42,
+      "bytes": 83848185
+    },
+    {
+      "directory": "archive",
+      "files": 6,
+      "bytes": 27346956
+    },
+    {
+      "directory": "docs",
+      "files": 41,
+      "bytes": 4228226
+    },
+    {
+      "directory": "output",
+      "files": 153,
+      "bytes": 110729294
+    },
+    {
+      "directory": "release",
+      "files": 5,
+      "bytes": 27400738
+    },
+    {
+      "directory": "src-tauri",
+      "files": 3696,
+      "bytes": 1498610824
+    },
+    {
+      "directory": ".playwright-cli",
+      "files": 0,
+      "bytes": 0
+    }
+  ],
+  "transient": {
+    "rootPlaywrightSnapshots": [],
+    "tauriTarget": true
+  }
+}

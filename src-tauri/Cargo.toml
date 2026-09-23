@@ -1,0 +1,16 @@
+[package]
+name = "wasteland-echo"
+version = "1.5.0-alpha.1"
+description = "Wasteland Echo Windows desktop roguelite"
+authors = ["Wasteland Echo Project"]
+edition = "2021"
+
+[[bin]]
+name = "wasteland-echo"
+path = "src/main.rs"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }

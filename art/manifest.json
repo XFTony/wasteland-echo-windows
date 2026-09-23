@@ -1,0 +1,289 @@
+{
+  "schemaVersion": 2,
+  "updatedAt": "2026-09-20",
+  "policy": {
+    "deleteInactiveAssets": false,
+    "runtimeCatalog": "src/render/art/asset-catalog.js",
+    "runtimeRoot": "web/assets",
+    "runtimeContainsOptimizedOnly": true,
+    "inactiveArchiveRoot": "art/generated",
+    "commercialReview": "Generated assets require a service-terms review before commercial release."
+  },
+  "assets": [
+    {
+      "id": "cover.keyart.v1",
+      "version": "1.0",
+      "status": "active",
+      "runtimePath": "web/assets/wasteland-title-keyart-v1.webp",
+      "archivePath": "art/generated/v1.0/runtime-snapshot/wasteland-title-keyart-v1.png",
+      "bytes": 348724,
+      "sha256": "A7EFAB848C3615748697F404E2D9995237A6613BA1186C1715C7373491C0C67B",
+      "generator": "OpenAI ImageGen",
+      "notes": "Existing cover retained; v1.1 fixes contain-safe rendering rather than replacing the art."
+    },
+    {
+      "id": "world.ground.v1",
+      "version": "1.0",
+      "status": "active",
+      "runtimePath": "web/assets/wasteland-ground-texture-v1.webp",
+      "archivePath": "art/generated/v1.0/runtime-snapshot/wasteland-ground-texture-v1.png",
+      "bytes": 548988,
+      "sha256": "2F91FEA991F7E602E9607BD6903FCB65CCB097B973839E862C58D08E3927F3B6",
+      "generator": "OpenAI ImageGen"
+    },
+    {
+      "id": "menu.backdrop.main.v2",
+      "version": "1.2",
+      "status": "active",
+      "runtimePath": "web/assets/ui/backdrops/menu-main-camp-v2.webp",
+      "archivePath": "art/generated/v1.2/runtime/menu-main-camp-v2.png",
+      "sourcePaths": [
+        "art/generated/v1.2/source/menu-main-camp-v2-source.png"
+      ],
+      "width": 1672,
+      "height": 941,
+      "pixelFormat": "RGB",
+      "bytes": 263238,
+      "sha256": "AE4C68414ECC25C7E28EAACD2C607842754DEA7C82D45AD35D11F330F362C89C",
+      "generator": "OpenAI ImageGen",
+      "notes": "Near-native 16:9 full-bleed camp backdrop with a protected left menu zone."
+    },
+    {
+      "id": "menu.backdrop.deployment.v2",
+      "version": "1.2",
+      "status": "active",
+      "runtimePath": "web/assets/ui/backdrops/deployment-command-bunker-v2.webp",
+      "archivePath": "art/generated/v1.2/runtime/deployment-command-bunker-v2.png",
+      "sourcePaths": [
+        "art/generated/v1.2/source/deployment-command-bunker-v2-source.png"
+      ],
+      "width": 1672,
+      "height": 941,
+      "pixelFormat": "RGB",
+      "bytes": 318172,
+      "sha256": "B22C2386A6D9652649904E94E828CC55342E3E51885CA7B8D11C5EB98F3162C6",
+      "generator": "OpenAI ImageGen",
+      "notes": "Full-bleed command garage; live crew and mission controls remain separate layers."
+    },
+    {
+      "id": "menu.backdrop.inventory.v2",
+      "version": "1.2",
+      "status": "active",
+      "runtimePath": "web/assets/ui/backdrops/inventory-armory-v2.webp",
+      "archivePath": "art/generated/v1.2/runtime/inventory-armory-v2.png",
+      "sourcePaths": [
+        "art/generated/v1.2/source/inventory-armory-v2-source.png"
+      ],
+      "width": 1672,
+      "height": 941,
+      "pixelFormat": "RGB",
+      "bytes": 296912,
+      "sha256": "4C581EB9224A712C96CE9480AEA1C98CD5A27807A328C9C7499F5B48EC00F76F",
+      "generator": "OpenAI ImageGen",
+      "notes": "Full-bleed armory composed for the live wardrobe and five-by-four inventory grid."
+    },
+    {
+      "id": "menu.backdrop.shop.v2",
+      "version": "1.2",
+      "status": "active",
+      "runtimePath": "web/assets/ui/backdrops/shop-quartermaster-v2.webp",
+      "archivePath": "art/generated/v1.2/runtime/shop-quartermaster-v2.png",
+      "sourcePaths": [
+        "art/generated/v1.2/source/shop-quartermaster-v2-source.png"
+      ],
+      "width": 1672,
+      "height": 941,
+      "pixelFormat": "RGB",
+      "bytes": 318056,
+      "sha256": "FBB2A636C94F96F2C9E79591CE81CCF5AFEB9B4AC65ECAF3F591AB1FA188A4C7",
+      "generator": "OpenAI ImageGen",
+      "notes": "Full-bleed quartermaster room with protected merchandise and wallet areas."
+    },
+    {
+      "id": "menu.backdrop.settings.v2",
+      "version": "1.2",
+      "status": "active",
+      "runtimePath": "web/assets/ui/backdrops/settings-radio-room-v2.webp",
+      "archivePath": "art/generated/v1.2/runtime/settings-radio-room-v2.png",
+      "sourcePaths": [
+        "art/generated/v1.2/source/settings-radio-room-v2-source.png"
+      ],
+      "width": 1672,
+      "height": 941,
+      "pixelFormat": "RGB",
+      "bytes": 295670,
+      "sha256": "E931886B01ACFA283A277DB66D72AF4303CFF384B590C669D540049D1DED1B02",
+      "generator": "OpenAI ImageGen",
+      "notes": "Full-bleed radio room with calm zones for settings rows and input help."
+    },
+    {
+      "id": "menu.backdrop.credits.v2",
+      "version": "1.2",
+      "status": "active",
+      "runtimePath": "web/assets/ui/backdrops/credits-archive-v2.webp",
+      "archivePath": "art/generated/v1.2/runtime/credits-archive-v2.png",
+      "sourcePaths": [
+        "art/generated/v1.2/source/credits-archive-v2-source.png"
+      ],
+      "width": 1672,
+      "height": 941,
+      "pixelFormat": "RGB",
+      "bytes": 354696,
+      "sha256": "E3D8325290B574F17524AAE61EF07F06F8603F836780F9B9BD10024323692F9B",
+      "generator": "OpenAI ImageGen",
+      "notes": "Full-bleed records room with a low-detail live-copy surface."
+    },
+    {
+      "id": "ui.field-plate.v2",
+      "version": "1.2",
+      "status": "active",
+      "runtimePath": "web/assets/ui/shared/ui-field-plate-v2.webp",
+      "archivePath": "art/generated/v1.2/runtime/ui-field-plate-v2.png",
+      "sourcePaths": [
+        "art/generated/v1.2/source/ui-field-plate-v2-checker-source.png",
+        "art/generated/v1.2/source/ui-field-plate-v2-alpha-failed-source.png",
+        "art/generated/v1.2/source/ui-field-plate-v2-chroma.png"
+      ],
+      "width": 1200,
+      "height": 647,
+      "pixelFormat": "RGBA",
+      "bytes": 972494,
+      "sha256": "5E27D946BF61750E9D0608ED9497F76EDF457C55944773A14F1FBE4FA27582E8",
+      "generator": "OpenAI ImageGen + local chroma-key pipeline",
+      "notes": "Reusable physical UI surface. Both failed checkerboard transparency attempts are retained as source-only records."
+    },
+    {
+      "id": "ui.overhang.mutant.v1",
+      "version": "1.0",
+      "status": "inactive",
+      "runtimePath": null,
+      "lastRuntimePath": "web/assets/ui-mutant-overhang-v1.png",
+      "archivePath": "art/generated/v1.0/runtime-snapshot/ui-mutant-overhang-v1.png",
+      "sourcePaths": [
+        "art/generated/v1.0/source/ui-mutant-overhang-v1-source.png"
+      ],
+      "generator": "OpenAI ImageGen",
+      "notes": "Retained but no longer used by deployment; detached crop composition was retired."
+    },
+    {
+      "id": "ui.overhang.crawler.v1",
+      "version": "1.0",
+      "status": "inactive",
+      "runtimePath": null,
+      "lastRuntimePath": "web/assets/ui-crawler-overhang-v1.png",
+      "archivePath": "art/generated/v1.0/runtime-snapshot/ui-crawler-overhang-v1.png",
+      "sourcePaths": [
+        "art/generated/v1.0/source/ui-crawler-overhang-v1-source.png"
+      ],
+      "generator": "OpenAI ImageGen"
+    },
+    {
+      "id": "deployment.journal.v1",
+      "version": "1.1",
+      "status": "inactive",
+      "runtimePath": null,
+      "lastRuntimePath": "web/assets/ui/deployment/deployment-journal-spread-v1.png",
+      "archivePath": "art/generated/v1.1/runtime/deployment-journal-spread-v1.png",
+      "sourcePaths": [
+        "art/generated/v1.1/source/deployment-journal-spread-v1-source.png"
+      ],
+      "width": 1672,
+      "height": 941,
+      "pixelFormat": "RGB",
+      "bytes": 2860791,
+      "sha256": "8410F358BDEEB0B25D91C27B990C2D8940C16ECF61BD35DFACFA2A649C421C8B",
+      "generator": "OpenAI ImageGen"
+    },
+    {
+      "id": "deployment.convoy.v1",
+      "version": "1.1",
+      "status": "active",
+      "runtimePath": "web/assets/ui/deployment/deployment-convoy-vignette-v1.webp",
+      "archivePath": "art/generated/v1.1/runtime/deployment-convoy-vignette-v1.png",
+      "sourcePaths": [
+        "art/generated/v1.1/source/deployment-convoy-vignette-v1-raw-checkerboard.png",
+        "art/generated/v1.1/source/deployment-convoy-vignette-v1-edit-target.png",
+        "art/generated/v1.1/source/deployment-convoy-vignette-v1-source.png",
+        "art/generated/v1.1/source/deployment-convoy-vignette-v1-chroma.png"
+      ],
+      "inactiveVariants": [
+        "art/generated/v1.1/runtime/deployment-convoy-vignette-v1-distance-key-inactive.png"
+      ],
+      "width": 1100,
+      "height": 768,
+      "pixelFormat": "RGBA",
+      "bytes": 837212,
+      "sha256": "66F471509CD688F9E77C3C32418C08F2E2DBD76819054F6E637F803DAB3715DC",
+      "generator": "OpenAI ImageGen + local chroma-key pipeline"
+    },
+    {
+      "id": "deployment.note.v1",
+      "version": "1.1",
+      "status": "inactive",
+      "runtimePath": null,
+      "lastRuntimePath": "web/assets/ui/deployment/deployment-note-surface-v1.png",
+      "archivePath": "art/generated/v1.1/runtime/deployment-note-surface-v1.png",
+      "sourcePaths": [
+        "art/generated/v1.1/source/deployment-note-surface-v1-chroma.png"
+      ],
+      "width": 1200,
+      "height": 312,
+      "pixelFormat": "RGBA",
+      "bytes": 859669,
+      "sha256": "51A52A0CFC4006C4178DBBFE2E98FF57D5C0C7980802C0F951FC27FD9F1A211F",
+      "generator": "OpenAI ImageGen + local chroma-key pipeline"
+    },
+    {
+      "id": "deployment.action.v1",
+      "version": "1.1",
+      "status": "inactive",
+      "runtimePath": null,
+      "lastRuntimePath": "web/assets/ui/deployment/deployment-action-strap-v1.png",
+      "archivePath": "art/generated/v1.1/runtime/deployment-action-strap-v1.png",
+      "sourcePaths": [
+        "art/generated/v1.1/source/deployment-action-strap-v1-chroma.png"
+      ],
+      "width": 1200,
+      "height": 250,
+      "pixelFormat": "RGBA",
+      "bytes": 735261,
+      "sha256": "DCF5A54F1EE43A6C700B25E0FBB2BA99F2652468DC4BCC2D1993B2A7F2B82E31",
+      "generator": "OpenAI ImageGen + local chroma-key pipeline"
+    },
+    {
+      "id": "deployment.back-tab.v1",
+      "version": "1.1",
+      "status": "inactive",
+      "runtimePath": null,
+      "lastRuntimePath": "web/assets/ui/deployment/deployment-back-tab-v1.png",
+      "archivePath": "art/generated/v1.1/runtime/deployment-back-tab-v1.png",
+      "sourcePaths": [
+        "art/generated/v1.1/source/deployment-back-tab-v1-chroma.png"
+      ],
+      "width": 700,
+      "height": 142,
+      "pixelFormat": "RGBA",
+      "bytes": 234969,
+      "sha256": "EE743CDEE8A4C2AA55B9227A2A7D62ED5EC3657153CC9C1EF64B5419BC22C4F4",
+      "generator": "OpenAI ImageGen + local chroma-key pipeline"
+    },
+    {
+      "id": "deployment.edge-mutant.v1",
+      "version": "1.1",
+      "status": "inactive",
+      "runtimePath": null,
+      "lastRuntimePath": "web/assets/ui/deployment/deployment-edge-mutant-v1.png",
+      "archivePath": "art/generated/v1.1/runtime/deployment-edge-mutant-v1.png",
+      "sourcePaths": [
+        "art/generated/v1.1/source/deployment-edge-mutant-v1-chroma.png"
+      ],
+      "width": 620,
+      "height": 1525,
+      "pixelFormat": "RGBA",
+      "bytes": 1650724,
+      "sha256": "1CA47F7A5CE3DCCABBC11EF75C6707CE0072EFB1225378F8C1D752D50D691BB0",
+      "generator": "OpenAI ImageGen + local chroma-key pipeline",
+      "notes": "One continuous head-shoulder-arm-claw silhouette; no detached crop is used."
+    }
+  ]
+}

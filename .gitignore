@@ -1,0 +1,22 @@
+# Installed dependencies and reproducible build caches
+/node_modules/
+/src-tauri/target/
+/src-tauri/gen/
+/dist/
+/web/game.bundle.js
+
+# Build packages, historical installers, and local visual-test output
+/output/
+/release/
+/archive/releases/
+/.playwright-cli/
+
+# Local editor, operating-system, and runtime byproducts
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.log
+*.tmp
+*.pdb
+__pycache__/
+*.pyc
