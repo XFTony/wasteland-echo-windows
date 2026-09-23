@@ -96,7 +96,7 @@
 - [~] 04 背包详情区四行文字间距和次要参数字号已先修；其他页面及实体窗口仍待人工视觉复验。
 - [x] 2026-09-23 最终完整 `npm.cmd run verify` 通过：195/195 测试、六策略 3/6 通关、600 秒无尽保持运行、Edge 720p/1080p 快速采样均无页面错误；性能数字只代表本机 headless Edge。
 - [~] 03 本轮 alpha 便携 exe、NSIS、zip 和 SHA 已重新生成并独立校验；安装/卸载、Windows 10/11 与真人操控仍待实际设备演练。详见 `docs/build-record-2026-09-23.md`。
-- [x] 版本治理准备：新增跨文件版本检查、可复用的 npm run check、GitHub Windows Quality 工作流、PR 模板、CHANGELOG、发布候选 SHA 核验与现行发布规则；本地一键检查通过。
+- [x] 版本治理准备：新增跨文件版本检查、可复用的 npm run check、GitHub Windows Quality 工作流、PR 模板、CHANGELOG、发布候选 SHA 核验与现行发布规则；本地与干净克隆检查通过，PR #1 和 main 的 GitHub CI 均成功，main 已启用 PR、check、线性历史与禁止强推/删除的保护。
 - [ ] 其余任务按上表依赖逐项推进，每项完成后在此记录证据和版本。
 
 - [x] 外部审查逐项复核见 docs/external-review-validation-2026-09-23.md。
