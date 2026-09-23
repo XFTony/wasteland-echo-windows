@@ -157,4 +157,9 @@ if (process.argv.includes("--write")) {
   console.log(`Wrote ${relative(output)}`);
 }
 console.log(JSON.stringify(report.summary, null, 2));
-if (report.summary.missingManifestPaths > 0) process.exitCode = 1;
+for (const key of ["unbundledSourceModules", "unregisteredWebAssets", "missingManifestPaths", "redundantWebCopies", "historicalReleaseFiles"]) {
+  if (report.summary[key] > 0) {
+    console.error("Project audit failed: " + key + " = " + report.summary[key]);
+    process.exitCode = 1;
+  }
+}

@@ -33,7 +33,7 @@ test("package metadata and browser shell identify the Windows desktop target", (
   assert.equal(packageJson.dependencies, undefined);
   assert.ok(packageJson.devDependencies["playwright-core"]);
   assert.ok(packageJson.scripts["build:desktop"]);
-  assert.equal(packageJson.version, "1.5.0-alpha.1");
+  assert.match(packageJson.version, /^\d+\.\d+\.\d+(?:-(?:alpha|beta|rc)\.\d+)?$/);
   assert.equal(GAME_VERSION, packageJson.version);
   assert.equal(tauri.version, packageJson.version);
   assert.match(html, new RegExp(`v${GAME_VERSION.replaceAll(".", "\\.")}`));
