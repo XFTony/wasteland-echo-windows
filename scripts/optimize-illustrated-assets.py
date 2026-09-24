@@ -31,6 +31,23 @@ CUTOUTS = (
     ("warden-v1-source.png", "web/assets/actors/warden-v1.webp"),
     ("iron-colossus-v1-source.png", "web/assets/actors/iron-colossus-v1.webp"),
     ("scrap-pistol-v1-source.png", "web/assets/weapons/scrap-pistol-v1.webp"),
+    ("swarm-smg-v1-source.png", "web/assets/weapons/swarm-smg-v1.webp"),
+    ("breaker-shotgun-v1-source.png", "web/assets/weapons/breaker-shotgun-v1.webp"),
+    ("needle-rifle-v1-source.png", "web/assets/weapons/needle-rifle-v1.webp"),
+    ("rust-revolver-v1-source.png", "web/assets/weapons/rust-revolver-v1.webp"),
+    ("ember-carbine-v1-source.png", "web/assets/weapons/ember-carbine-v1.webp"),
+    ("coil-cannon-v1-source.png", "web/assets/weapons/coil-cannon-v1.webp"),
+    ("wanderer-outfit-v1-source.png", "web/assets/outfits/wanderer-v1.webp"),
+    ("mechanic-outfit-v1-source.png", "web/assets/outfits/mechanic-v1.webp"),
+    ("nightwatch-outfit-v1-source.png", "web/assets/outfits/nightwatch-v1.webp"),
+    ("field-vest-v1-source.png", "web/assets/equipment/field-vest-v1.webp"),
+    ("iron-plate-v1-source.png", "web/assets/equipment/iron-plate-v1.webp"),
+    ("runner-boots-v1-source.png", "web/assets/equipment/runner-boots-v1.webp"),
+    ("magnet-helm-v1-source.png", "web/assets/equipment/magnet-helm-v1.webp"),
+    ("ammo-rig-v1-source.png", "web/assets/equipment/ammo-rig-v1.webp"),
+    ("signal-helm-v1-source.png", "web/assets/equipment/signal-helm-v1.webp"),
+    ("servo-greaves-v1-source.png", "web/assets/equipment/servo-greaves-v1.webp"),
+    ("stormstep-boots-v1-source.png", "web/assets/equipment/stormstep-boots-v1.webp"),
 )
 TEXTURES = (
     ("echo-ground-v1-source.png", "web/assets/world/echo-ground-v1.webp"),
@@ -63,7 +80,7 @@ def optimize(source_name: str, target_relative: str, kind: str) -> dict:
                 min(source_size[0], bounds[2] + pad), min(source_size[1], bounds[3] + pad),
             )
             rendered = rgba.crop(bounds)
-            max_edge = 1200 if "cover-" in source_name else 768 if "portrait-" in source_name else 512
+            max_edge = 1200 if "cover-" in source_name else 768 if "portrait-" in source_name else 320 if "/outfits/" in target_relative or "/equipment/" in target_relative else 512
             rendered.thumbnail((max_edge, max_edge), Image.Resampling.LANCZOS)
             rendered.save(target, "WEBP", lossless=True, exact=True, method=6)
         else:

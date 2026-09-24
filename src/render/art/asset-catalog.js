@@ -27,6 +27,23 @@ const ART_IDS = Object.freeze({
   ACTOR_WARDEN: "actor.warden.v1",
   ACTOR_IRON_COLOSSUS: "actor.iron-colossus.v1",
   WEAPON_SCRAP_PISTOL: "weapon.scrap-pistol.v1",
+  WEAPON_SWARM_SMG: "weapon.swarm-smg.v1",
+  WEAPON_BREAKER_SHOTGUN: "weapon.breaker-shotgun.v1",
+  WEAPON_NEEDLE_RIFLE: "weapon.needle-rifle.v1",
+  WEAPON_RUST_REVOLVER: "weapon.rust-revolver.v1",
+  WEAPON_EMBER_CARBINE: "weapon.ember-carbine.v1",
+  WEAPON_COIL_CANNON: "weapon.coil-cannon.v1",
+  OUTFIT_WANDERER: "outfit.wanderer.v1",
+  OUTFIT_MECHANIC: "outfit.mechanic.v1",
+  OUTFIT_NIGHTWATCH: "outfit.nightwatch.v1",
+  EQUIPMENT_FIELD_VEST: "equipment.field-vest.v1",
+  EQUIPMENT_IRON_PLATE: "equipment.iron-plate.v1",
+  EQUIPMENT_RUNNER_BOOTS: "equipment.runner-boots.v1",
+  EQUIPMENT_MAGNET_HELM: "equipment.magnet-helm.v1",
+  EQUIPMENT_AMMO_RIG: "equipment.ammo-rig.v1",
+  EQUIPMENT_SIGNAL_HELM: "equipment.signal-helm.v1",
+  EQUIPMENT_SERVO_GREAVES: "equipment.servo-greaves.v1",
+  EQUIPMENT_STORMSTEP_BOOTS: "equipment.stormstep-boots.v1",
   LEGACY_TITLE_KEY_ART: "cover.keyart.v1",
   LEGACY_BACKDROP_MAIN: "menu.backdrop.main.v2",
   LEGACY_BACKDROP_DEPLOYMENT: "menu.backdrop.deployment.v2",
@@ -130,6 +147,57 @@ const ART_ASSETS = Object.freeze({
   }),
   [ART_IDS.WEAPON_SCRAP_PISTOL]: asset(ART_IDS.WEAPON_SCRAP_PISTOL, "./assets/weapons/scrap-pistol-v1.webp", "combat-weapons", {
     version: "1.5", notes: "Painted separate starter pistol sprite."
+  }),
+  [ART_IDS.WEAPON_SWARM_SMG]: asset(ART_IDS.WEAPON_SWARM_SMG, "./assets/weapons/swarm-smg-v1.webp", "combat-weapons", {
+    version: "1.5", notes: "Painted standalone swarm-smg sprite for combat and inventory."
+  }),
+  [ART_IDS.WEAPON_BREAKER_SHOTGUN]: asset(ART_IDS.WEAPON_BREAKER_SHOTGUN, "./assets/weapons/breaker-shotgun-v1.webp", "combat-weapons", {
+    version: "1.5", notes: "Painted standalone breaker-shotgun sprite for combat and inventory."
+  }),
+  [ART_IDS.WEAPON_NEEDLE_RIFLE]: asset(ART_IDS.WEAPON_NEEDLE_RIFLE, "./assets/weapons/needle-rifle-v1.webp", "combat-weapons", {
+    version: "1.5", notes: "Painted standalone needle-rifle sprite for combat and inventory."
+  }),
+  [ART_IDS.WEAPON_RUST_REVOLVER]: asset(ART_IDS.WEAPON_RUST_REVOLVER, "./assets/weapons/rust-revolver-v1.webp", "combat-weapons", {
+    version: "1.5", notes: "Painted standalone rust-revolver sprite for combat and inventory."
+  }),
+  [ART_IDS.WEAPON_EMBER_CARBINE]: asset(ART_IDS.WEAPON_EMBER_CARBINE, "./assets/weapons/ember-carbine-v1.webp", "combat-weapons", {
+    version: "1.5", notes: "Painted standalone ember-carbine sprite for combat and inventory."
+  }),
+  [ART_IDS.WEAPON_COIL_CANNON]: asset(ART_IDS.WEAPON_COIL_CANNON, "./assets/weapons/coil-cannon-v1.webp", "combat-weapons", {
+    version: "1.5", notes: "Painted standalone coil-cannon sprite for combat and inventory."
+  }),
+  [ART_IDS.OUTFIT_WANDERER]: asset(ART_IDS.OUTFIT_WANDERER, "./assets/outfits/wanderer-v1.webp", "outfit-icons", {
+    version: "1.5", notes: "Painted inventory and shop item illustration."
+  }),
+  [ART_IDS.OUTFIT_MECHANIC]: asset(ART_IDS.OUTFIT_MECHANIC, "./assets/outfits/mechanic-v1.webp", "outfit-icons", {
+    version: "1.5", notes: "Painted inventory and shop item illustration."
+  }),
+  [ART_IDS.OUTFIT_NIGHTWATCH]: asset(ART_IDS.OUTFIT_NIGHTWATCH, "./assets/outfits/nightwatch-v1.webp", "outfit-icons", {
+    version: "1.5", notes: "Painted inventory and shop item illustration."
+  }),
+  [ART_IDS.EQUIPMENT_FIELD_VEST]: asset(ART_IDS.EQUIPMENT_FIELD_VEST, "./assets/equipment/field-vest-v1.webp", "equipment-icons", {
+    version: "1.5", notes: "Painted inventory and shop item illustration."
+  }),
+  [ART_IDS.EQUIPMENT_IRON_PLATE]: asset(ART_IDS.EQUIPMENT_IRON_PLATE, "./assets/equipment/iron-plate-v1.webp", "equipment-icons", {
+    version: "1.5", notes: "Painted inventory and shop item illustration."
+  }),
+  [ART_IDS.EQUIPMENT_RUNNER_BOOTS]: asset(ART_IDS.EQUIPMENT_RUNNER_BOOTS, "./assets/equipment/runner-boots-v1.webp", "equipment-icons", {
+    version: "1.5", notes: "Painted inventory and shop item illustration."
+  }),
+  [ART_IDS.EQUIPMENT_MAGNET_HELM]: asset(ART_IDS.EQUIPMENT_MAGNET_HELM, "./assets/equipment/magnet-helm-v1.webp", "equipment-icons", {
+    version: "1.5", notes: "Painted inventory and shop item illustration."
+  }),
+  [ART_IDS.EQUIPMENT_AMMO_RIG]: asset(ART_IDS.EQUIPMENT_AMMO_RIG, "./assets/equipment/ammo-rig-v1.webp", "equipment-icons", {
+    version: "1.5", notes: "Painted inventory and shop item illustration."
+  }),
+  [ART_IDS.EQUIPMENT_SIGNAL_HELM]: asset(ART_IDS.EQUIPMENT_SIGNAL_HELM, "./assets/equipment/signal-helm-v1.webp", "equipment-icons", {
+    version: "1.5", notes: "Painted inventory and shop item illustration."
+  }),
+  [ART_IDS.EQUIPMENT_SERVO_GREAVES]: asset(ART_IDS.EQUIPMENT_SERVO_GREAVES, "./assets/equipment/servo-greaves-v1.webp", "equipment-icons", {
+    version: "1.5", notes: "Painted inventory and shop item illustration."
+  }),
+  [ART_IDS.EQUIPMENT_STORMSTEP_BOOTS]: asset(ART_IDS.EQUIPMENT_STORMSTEP_BOOTS, "./assets/equipment/stormstep-boots-v1.webp", "equipment-icons", {
+    version: "1.5", notes: "Painted inventory and shop item illustration."
   }),
   [ART_IDS.LEGACY_TITLE_KEY_ART]: asset(ART_IDS.LEGACY_TITLE_KEY_ART, "./assets/wasteland-title-keyart-v1.webp", "legacy", { active: false }),
   [ART_IDS.LEGACY_BACKDROP_MAIN]: asset(ART_IDS.LEGACY_BACKDROP_MAIN, "./assets/ui/backdrops/menu-main-camp-v2.webp", "legacy", { active: false }),

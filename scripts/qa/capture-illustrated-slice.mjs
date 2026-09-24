@@ -51,6 +51,18 @@ try {
   }
   await page.evaluate(() => {
     const game = window.__WASTELAND_GAME__;
+    game.model.setMenuPage("shop");
+    game.model.cycleShopCategory(1);
+  });
+  await page.waitForFunction(() => ["outfit.wanderer.v1", "outfit.mechanic.v1", "outfit.nightwatch.v1"]
+    .every((id) => window.__WASTELAND_GAME__?.renderer?.artStore?.ready(id)));
+  await page.screenshot({ path: path.join(output, "shop-outfits-1280x720.png") });
+  await page.evaluate(() => window.__WASTELAND_GAME__.model.cycleShopCategory(1));
+  await page.waitForFunction(() => ["equipment.field-vest.v1", "equipment.iron-plate.v1", "equipment.runner-boots.v1", "equipment.magnet-helm.v1"]
+    .every((id) => window.__WASTELAND_GAME__?.renderer?.artStore?.ready(id)));
+  await page.screenshot({ path: path.join(output, "shop-equipment-1280x720.png") });
+  await page.evaluate(() => {
+    const game = window.__WASTELAND_GAME__;
     game.model.startRun({ seed: 20260923, duration: 180, mapId: "echo_district", heroId: "ranger", weaponId: "scrap_pistol" });
     game.model.run.tutorial = null;
     const player = game.model.run.player;
@@ -101,7 +113,23 @@ try {
     }, { groundId, actorId });
     await page.screenshot({ path: path.join(output, file) });
   }
-  console.log(JSON.stringify({ output, screenshots: 11, errors, metrics }));
+  for (const [weaponId, artId] of [
+    ["scrap_pistol", "weapon.scrap-pistol.v1"],
+    ["swarm_smg", "weapon.swarm-smg.v1"],
+    ["breaker_shotgun", "weapon.breaker-shotgun.v1"],
+    ["needle_rifle", "weapon.needle-rifle.v1"],
+    ["rust_revolver", "weapon.rust-revolver.v1"],
+    ["ember_carbine", "weapon.ember-carbine.v1"],
+    ["coil_cannon", "weapon.coil-cannon.v1"]
+  ]) {
+    await page.evaluate((weaponId) => {
+      const game = window.__WASTELAND_GAME__;
+      game.model.startRun({ seed: 20260924, duration: 180, mapId: "echo_district", heroId: "ranger", weaponId, tutorial: false });
+    }, weaponId);
+    await page.waitForFunction((artId) => window.__WASTELAND_GAME__?.renderer?.artStore?.ready(artId), artId);
+    await page.screenshot({ path: path.join(output, `weapon-${weaponId}-detail.png`), clip: { x: 540, y: 260, width: 200, height: 200 } });
+  }
+  console.log(JSON.stringify({ output, screenshots: 20, errors, metrics }));
   if (errors.length) process.exitCode = 1;
 } finally {
   if (browser) await browser.close();

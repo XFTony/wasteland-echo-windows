@@ -19,6 +19,26 @@ const ENEMY_ART = Object.freeze({
   iron_colossus: ART_IDS.ACTOR_IRON_COLOSSUS
 });
 
+const WEAPON_ART = Object.freeze({
+  scrap_pistol: ART_IDS.WEAPON_SCRAP_PISTOL,
+  swarm_smg: ART_IDS.WEAPON_SWARM_SMG,
+  breaker_shotgun: ART_IDS.WEAPON_BREAKER_SHOTGUN,
+  needle_rifle: ART_IDS.WEAPON_NEEDLE_RIFLE,
+  rust_revolver: ART_IDS.WEAPON_RUST_REVOLVER,
+  ember_carbine: ART_IDS.WEAPON_EMBER_CARBINE,
+  coil_cannon: ART_IDS.WEAPON_COIL_CANNON
+});
+
+const WEAPON_WIDTH = Object.freeze({
+  scrap_pistol: 39,
+  swarm_smg: 49,
+  breaker_shotgun: 56,
+  needle_rifle: 61,
+  rust_revolver: 40,
+  ember_carbine: 55,
+  coil_cannon: 64
+});
+
 function paintedShadow(ctx, x, y, radius) {
   ctx.save();
   ctx.fillStyle = "rgba(13,12,10,0.42)";
@@ -41,13 +61,14 @@ function drawCutout(ctx, image, x, y, height, options = {}) {
 }
 
 function drawIllustratedSurvivor(renderer, player, run, flicker) {
-  if (player.skinId !== "wanderer" || player.weaponId !== "scrap_pistol") return false;
+  if (player.skinId !== "wanderer") return false;
   const heroArt = HERO_ART[player.heroId];
-  if (!heroArt) return false;
+  const weaponArt = WEAPON_ART[player.weaponId];
+  if (!heroArt || !weaponArt) return false;
   const store = renderer.artStore;
-  if (!store || !store.ready(heroArt) || !store.ready(ART_IDS.WEAPON_SCRAP_PISTOL)) return false;
+  if (!store || !store.ready(heroArt) || !store.ready(weaponArt)) return false;
   const body = store.get(heroArt);
-  const pistol = store.get(ART_IDS.WEAPON_SCRAP_PISTOL);
+  const weapon = store.get(weaponArt);
   const position = renderer.worldToScreen(player.x, player.y, renderer.screenPoint);
   const moving = Math.hypot(run.input.moveX, run.input.moveY) > 0.12;
   const bob = moving ? Math.sin(run.elapsed * 13) * 2.1 : Math.sin(run.elapsed * 2.2) * 0.7;
@@ -61,9 +82,13 @@ function drawIllustratedSurvivor(renderer, player, run, flicker) {
   ctx.save();
   ctx.translate(position.x, position.y - 43 + bob);
   ctx.rotate(Math.atan2(player.lastAimY, player.lastAimX));
+  if (player.lastAimX < 0) ctx.scale(1, -1);
   ctx.globalAlpha *= flicker ? 0.48 : 1;
   ctx.imageSmoothingEnabled = true;
-  ctx.drawImage(pistol, -10, -11, 39, 26);
+  const gunWidth = WEAPON_WIDTH[player.weaponId];
+  const gunHeight = gunWidth * weapon.naturalHeight / weapon.naturalWidth;
+  const grip = player.weaponId === "scrap_pistol" || player.weaponId === "rust_revolver" ? 0.29 : 0.39;
+  ctx.drawImage(weapon, -gunWidth * grip, -gunHeight * 0.43, gunWidth, gunHeight);
   ctx.restore();
   return true;
 }
@@ -99,4 +124,4 @@ function drawIllustratedEnemy(renderer, enemy, elapsed) {
   return true;
 }
 
-module.exports = { HERO_ART, ENEMY_ART, drawIllustratedSurvivor, drawIllustratedEnemy, drawIllustratedPortrait };
+module.exports = { HERO_ART, ENEMY_ART, WEAPON_ART, drawIllustratedSurvivor, drawIllustratedEnemy, drawIllustratedPortrait };

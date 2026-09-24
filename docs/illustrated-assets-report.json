@@ -362,6 +362,312 @@
       "sha256": "8965B0BF4EFA16E432452A737B75A72404F7EC61980726F4D207169B4E7B40E6"
     },
     {
+      "source": "art/generated/v1.5/source/swarm-smg-v1-source.png",
+      "runtime": "web/assets/weapons/swarm-smg-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "crop": [
+        0,
+        0,
+        1536,
+        1007
+      ],
+      "width": 512,
+      "height": 336,
+      "sourceBytes": 1499242,
+      "runtimeBytes": 77432,
+      "sha256": "C86CBC907936C1C38C40424F070DB7FC9FAA1E4C0C91F83A0C10DFF2A2943DE7"
+    },
+    {
+      "source": "art/generated/v1.5/source/breaker-shotgun-v1-source.png",
+      "runtime": "web/assets/weapons/breaker-shotgun-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1774,
+      "sourceHeight": 887,
+      "crop": [
+        0,
+        9,
+        1774,
+        874
+      ],
+      "width": 512,
+      "height": 250,
+      "sourceBytes": 944123,
+      "runtimeBytes": 63166,
+      "sha256": "A1143C91CDD3357A70064FD889D0958799A642035410334071FBC3B2B5795A00"
+    },
+    {
+      "source": "art/generated/v1.5/source/needle-rifle-v1-source.png",
+      "runtime": "web/assets/weapons/needle-rifle-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1891,
+      "sourceHeight": 831,
+      "crop": [
+        0,
+        30,
+        1891,
+        831
+      ],
+      "width": 512,
+      "height": 217,
+      "sourceBytes": 577305,
+      "runtimeBytes": 38044,
+      "sha256": "E7234F67E8470B4E5A7263CA2E255C3674A5D042225A0A0E3F306AE3AAC9EA78"
+    },
+    {
+      "source": "art/generated/v1.5/source/rust-revolver-v1-source.png",
+      "runtime": "web/assets/weapons/rust-revolver-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "crop": [
+        0,
+        65,
+        1536,
+        1023
+      ],
+      "width": 512,
+      "height": 319,
+      "sourceBytes": 1993048,
+      "runtimeBytes": 114004,
+      "sha256": "ECF7C23E50297F4CC11D831D59FEF124F57171E56D6E9E4203C891B738AE5783"
+    },
+    {
+      "source": "art/generated/v1.5/source/ember-carbine-v1-source.png",
+      "runtime": "web/assets/weapons/ember-carbine-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1774,
+      "sourceHeight": 887,
+      "crop": [
+        0,
+        61,
+        1774,
+        874
+      ],
+      "width": 512,
+      "height": 235,
+      "sourceBytes": 919125,
+      "runtimeBytes": 65692,
+      "sha256": "C49E139AB1EC6FFD16D42EEB57E7A632A40A5395C1917E6EF6274B0011FF24FB"
+    },
+    {
+      "source": "art/generated/v1.5/source/coil-cannon-v1-source.png",
+      "runtime": "web/assets/weapons/coil-cannon-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1774,
+      "sourceHeight": 887,
+      "crop": [
+        0,
+        4,
+        1774,
+        876
+      ],
+      "width": 512,
+      "height": 252,
+      "sourceBytes": 1075594,
+      "runtimeBytes": 76894,
+      "sha256": "F9E5B9DEAC94808C0EFC298EB3EE42107AE84DA693D4E67F2283BCFCBA568D05"
+    },
+    {
+      "source": "art/generated/v1.5/source/wanderer-outfit-v1-source.png",
+      "runtime": "web/assets/outfits/wanderer-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1145,
+      "sourceHeight": 1374,
+      "crop": [
+        28,
+        0,
+        1102,
+        1374
+      ],
+      "width": 250,
+      "height": 320,
+      "sourceBytes": 1325920,
+      "runtimeBytes": 57800,
+      "sha256": "C9E9C0E63DBB1194B06700AF1425FF6C5FA66BED15B1589E9B3E45F8762BD275"
+    },
+    {
+      "source": "art/generated/v1.5/source/mechanic-outfit-v1-source.png",
+      "runtime": "web/assets/outfits/mechanic-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "crop": [
+        42,
+        8,
+        1024,
+        1529
+      ],
+      "width": 207,
+      "height": 320,
+      "sourceBytes": 1987141,
+      "runtimeBytes": 54072,
+      "sha256": "000C476B53B88B2B3166E07FB035DD7DCF0EF636A627593B3F840AA9BA479E0E"
+    },
+    {
+      "source": "art/generated/v1.5/source/nightwatch-outfit-v1-source.png",
+      "runtime": "web/assets/outfits/nightwatch-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "crop": [
+        22,
+        0,
+        931,
+        1528
+      ],
+      "width": 190,
+      "height": 320,
+      "sourceBytes": 1724614,
+      "runtimeBytes": 38934,
+      "sha256": "67240379EE6A48CE3B186A8B0FF29449051730B5A1D865B270E19FEEBABBEAEB"
+    },
+    {
+      "source": "art/generated/v1.5/source/field-vest-v1-source.png",
+      "runtime": "web/assets/equipment/field-vest-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1312,
+      "sourceHeight": 1199,
+      "crop": [
+        11,
+        0,
+        1312,
+        1199
+      ],
+      "width": 320,
+      "height": 295,
+      "sourceBytes": 1850300,
+      "runtimeBytes": 84696,
+      "sha256": "E7145D973B284B889AFA50E3A9AF1682406D2D3BF16663D97FE112B19150426B"
+    },
+    {
+      "source": "art/generated/v1.5/source/iron-plate-v1-source.png",
+      "runtime": "web/assets/equipment/iron-plate-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1278,
+      "sourceHeight": 1230,
+      "crop": [
+        0,
+        0,
+        1268,
+        1230
+      ],
+      "width": 320,
+      "height": 310,
+      "sourceBytes": 2048766,
+      "runtimeBytes": 104684,
+      "sha256": "916179C4727504AE85B3160427534F65530B3254B217A02A61AE5614151DE039"
+    },
+    {
+      "source": "art/generated/v1.5/source/runner-boots-v1-source.png",
+      "runtime": "web/assets/equipment/runner-boots-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1374,
+      "sourceHeight": 1145,
+      "crop": [
+        0,
+        0,
+        1341,
+        1134
+      ],
+      "width": 320,
+      "height": 271,
+      "sourceBytes": 1668143,
+      "runtimeBytes": 71526,
+      "sha256": "B0F27774D2CC13EC62224F48B21DD5C00C13C0CA954C3BEF5D6A84796160537B"
+    },
+    {
+      "source": "art/generated/v1.5/source/magnet-helm-v1-source.png",
+      "runtime": "web/assets/equipment/magnet-helm-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1312,
+      "sourceHeight": 1199,
+      "crop": [
+        61,
+        19,
+        1300,
+        1199
+      ],
+      "width": 320,
+      "height": 305,
+      "sourceBytes": 1685861,
+      "runtimeBytes": 92760,
+      "sha256": "32508CA35CEDD6A959704A7D1A9D00D87F51B7EBD067D72227A855D182CBE223"
+    },
+    {
+      "source": "art/generated/v1.5/source/ammo-rig-v1-source.png",
+      "runtime": "web/assets/equipment/ammo-rig-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "crop": [
+        42,
+        9,
+        1479,
+        1024
+      ],
+      "width": 320,
+      "height": 226,
+      "sourceBytes": 2279938,
+      "runtimeBytes": 61532,
+      "sha256": "D6A68C6D2C6D354BA546D7191385E0FBED14BF8AACADE99E95A0C913C4C29F05"
+    },
+    {
+      "source": "art/generated/v1.5/source/signal-helm-v1-source.png",
+      "runtime": "web/assets/equipment/signal-helm-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1295,
+      "sourceHeight": 1215,
+      "crop": [
+        47,
+        2,
+        1240,
+        1194
+      ],
+      "width": 320,
+      "height": 320,
+      "sourceBytes": 1759778,
+      "runtimeBytes": 95160,
+      "sha256": "6110691CF20135DEA67F2F25313A3FD029B4016FD3C60628E931094D17B707E4"
+    },
+    {
+      "source": "art/generated/v1.5/source/servo-greaves-v1-source.png",
+      "runtime": "web/assets/equipment/servo-greaves-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1283,
+      "sourceHeight": 1226,
+      "crop": [
+        70,
+        11,
+        1184,
+        1211
+      ],
+      "width": 297,
+      "height": 320,
+      "sourceBytes": 1406239,
+      "runtimeBytes": 81654,
+      "sha256": "013B72ECD6F51D29FC6297FCC44135E9C29F729367663555A0BAADC9A89FA332"
+    },
+    {
+      "source": "art/generated/v1.5/source/stormstep-boots-v1-source.png",
+      "runtime": "web/assets/equipment/stormstep-boots-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1374,
+      "sourceHeight": 1145,
+      "crop": [
+        0,
+        0,
+        1374,
+        1145
+      ],
+      "width": 320,
+      "height": 267,
+      "sourceBytes": 2185000,
+      "runtimeBytes": 92020,
+      "sha256": "80DDBCC3DFD6936D39B2FC54044322C005D2AEB8FF8F94D63576E2D77271A8AE"
+    },
+    {
       "source": "art/generated/v1.5/source/echo-ground-v1-source.png",
       "runtime": "web/assets/world/echo-ground-v1.webp",
       "kind": "texture",
@@ -416,5 +722,5 @@
       "sha256": "8EC0EC4F73191C8E2112C1656672E1ED31025D23D74D8DB0954AA6046F3847AA"
     }
   ],
-  "runtimeBytes": 4515202
+  "runtimeBytes": 5785272
 }

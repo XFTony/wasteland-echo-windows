@@ -1,6 +1,38 @@
 "use strict";
 
 const { UI_COLORS } = require("./theme");
+const { WEAPON_ART } = require("../illustrated-actors");
+const { ART_IDS } = require("../art/asset-catalog");
+
+const SKIN_ART = Object.freeze({
+  wanderer: ART_IDS.OUTFIT_WANDERER,
+  mechanic: ART_IDS.OUTFIT_MECHANIC,
+  nightwatch: ART_IDS.OUTFIT_NIGHTWATCH
+});
+
+const EQUIPMENT_ART = Object.freeze({
+  field_vest: ART_IDS.EQUIPMENT_FIELD_VEST,
+  iron_plate: ART_IDS.EQUIPMENT_IRON_PLATE,
+  runner_boots: ART_IDS.EQUIPMENT_RUNNER_BOOTS,
+  magnet_coil: ART_IDS.EQUIPMENT_MAGNET_HELM,
+  ammo_rig: ART_IDS.EQUIPMENT_AMMO_RIG,
+  signal_charm: ART_IDS.EQUIPMENT_SIGNAL_HELM,
+  servo_greaves: ART_IDS.EQUIPMENT_SERVO_GREAVES,
+  stormstep_boots: ART_IDS.EQUIPMENT_STORMSTEP_BOOTS
+});
+
+function drawPaintedItemIcon(renderer, artId, x, y, size) {
+  if (!artId || !renderer.artStore || !renderer.artStore.ready(artId)) return false;
+  const image = renderer.artStore.get(artId);
+  const scale = Math.min(size * 0.88 / image.naturalWidth, size * 0.84 / image.naturalHeight);
+  const width = image.naturalWidth * scale;
+  const height = image.naturalHeight * scale;
+  renderer.ctx.save();
+  renderer.ctx.imageSmoothingEnabled = true;
+  renderer.ctx.drawImage(image, x - width / 2, y - height / 2, width, height);
+  renderer.ctx.restore();
+  return true;
+}
 
 function visual(width, height, shapes) {
   return Object.freeze({
@@ -238,19 +270,33 @@ function drawEquipmentIcon(ctx, item, x, y, size, accent = UI_COLORS.green) {
 function drawGrantIcon(renderer, grantType, grantId, x, y, size, accent) {
   if (grantType === "weapon") {
     const weapon = renderer.content.get("weapons", grantId, renderer.content.defaults.weapon);
-    drawWeaponIcon(renderer.ctx, weapon, x, y, size, { palette: { accent: accent || weapon.color } });
+    const artId = WEAPON_ART[weapon.id];
+    if (artId && renderer.artStore && renderer.artStore.ready(artId)) {
+      const image = renderer.artStore.get(artId);
+      const scale = Math.min(size * 0.9 / image.naturalWidth, size * 0.65 / image.naturalHeight);
+      const width = image.naturalWidth * scale;
+      const height = image.naturalHeight * scale;
+      renderer.ctx.save();
+      renderer.ctx.imageSmoothingEnabled = true;
+      renderer.ctx.drawImage(image, x - width / 2, y - height / 2, width, height);
+      renderer.ctx.restore();
+    } else {
+      drawWeaponIcon(renderer.ctx, weapon, x, y, size, { palette: { accent: accent || weapon.color } });
+    }
     return;
   }
   if (grantType === "skin") {
     const skin = renderer.content.get("skins", grantId, renderer.content.defaults.skin);
-    drawOutfitIcon(renderer.ctx, skin, x, y, size);
+    if (!drawPaintedItemIcon(renderer, SKIN_ART[skin.id], x, y, size)) drawOutfitIcon(renderer.ctx, skin, x, y, size);
     return;
   }
   const equipment = renderer.content.get("equipment", grantId, renderer.content.defaults.equipment);
-  drawEquipmentIcon(renderer.ctx, equipment, x, y, size, accent);
+  if (!drawPaintedItemIcon(renderer, EQUIPMENT_ART[equipment.id], x, y, size)) drawEquipmentIcon(renderer.ctx, equipment, x, y, size, accent);
 }
 
 module.exports = {
+  SKIN_ART,
+  EQUIPMENT_ART,
   WEAPON_VISUALS,
   EQUIPMENT_VISUALS,
   RANGE_BANDS,

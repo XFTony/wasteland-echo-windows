@@ -21,3 +21,29 @@
 ## 前序生成稿
 
 六张菜单场景、封面、第一章地表、巡线者、漂游者、铁幕巨像和起始手枪，以及本轮接入的技师、铁卫、腐蚀者、重甲者、警报者、爬行者、荒原看守来自同一 ImageGen 视觉重构工作流。前序会话未在项目中保留逐字 prompt；此处不补写无法核实的原文。每件源图、运行图及哈希以 `docs/illustrated-assets-report.json` 和 `art/manifest.json` 为准。
+
+## 2026-09-24 武器、服饰与护具扩充
+
+下表保留本轮正式采用稿的主体和差异要求。共同约束：OpenAI 内置 ImageGen；风格化厚涂废土、克制纹理、上左方尘光、真实透明背景、单一物件、完整轮廓、无人物/文字/边框/水印/投影。武器均为枪托在左、枪口朝右的水平侧视图，供独立旋转；服饰与护具为正面偏三分之四视角的空物件，缩到 64～70 像素仍须分辨类别。
+
+| 源图 | 最终主体要求 |
+|---|---|
+| `swarm-smg-v1-source.png` | 折叠线托、短枪管、鼓式弹匣、暗绿锈蚀饰条的紧凑冲锋枪。 |
+| `breaker-shotgun-v1-source.png` | 短粗双通气枪管、旧木泵柄、重型钢机匣的破门霰弹枪。 |
+| `needle-rifle-v1-source.png` | 瘦长精确步枪，细长铜轨、瞄准镜、细折叠枪托和尖锐枪口。 |
+| `rust-revolver-v1-source.png` | 可辨的六发弹巢、短粗枪管、旧木握把和氧化钢面。 |
+| `ember-carbine-v1-source.png` | 中长度、折叠枪托、斜弹匣、通气护木和少量余烬红刻痕。 |
+| `coil-cannon-v1-source.png` | 重型电磁炮，铜线圈、肩托、下置电池，少量去饱和青色状态窗。 |
+| `wanderer-outfit-v1-source.png` | 无人穿着的沙色兜帽披风、煤灰工具外套、旧红布签、长裤和荒原靴。 |
+| `mechanic-outfit-v1-source.png` | 无人穿着的灰青工装、胸前工具带、黄铜紧固件与琥珀小信号灯。 |
+| `nightwatch-outfit-v1-source.png` | 无人穿着的深蓝夜巡披挂、短肩斗篷、窄蓝色反光条和静音靴。 |
+| `field-vest-v1-source.png` | 蜡帆布入门护胸，薄钢衬片、四个口袋和磨旧皮带。 |
+| `iron-plate-v1-source.png` | 旧路牌与车门钢板焊成的重胸甲，不对称铆钉和宽肩。 |
+| `runner-boots-v1-source.png` | 一双轻便战靴，旧运动鞋底、黑皮鞋面、浅褐绑带。 |
+| `magnet-helm-v1-source.png` | 旧矿盔、外露铜线圈和小型青绿拾取定位目镜。 |
+| `ammo-rig-v1-source.png` | 成对大腿腿挂，竖排弹匣、黄铜弹环和旧皮带。 |
+| `signal-helm-v1-source.png` | 远讯侦测盔，宽幅青绿目镜、侧天线与独立晶振仓，与矿盔轮廓不同。 |
+| `servo-greaves-v1-source.png` | 一对钢制小腿护甲，外露助力液压杆、皮带与琥珀色机械关节。 |
+| `stormstep-boots-v1-source.png` | 一双厚重绝缘靴，浅色陶瓷鞋底、深皮鞋筒与细蓝色绝缘线。 |
+
+这些是生成要求的可复现摘要，不冒充逐字 API 请求记录。运行图的裁切、尺寸和 SHA 以报告与清单为准。

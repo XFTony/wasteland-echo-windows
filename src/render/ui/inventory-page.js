@@ -29,7 +29,7 @@ const {
   equipmentMeta
 } = require("./equipment-presentation");
 
-const INVENTORY_PAGE_SIZE = 20;
+const INVENTORY_PAGE_SIZE = 12;
 const ENTRY_LABELS = Object.freeze({ weapon: "枪械", skin: "服饰", equipment: "护具" });
 const ARMOR_SLOTS = Object.freeze(["helmet", "chest", "legs", "boots"]);
 
@@ -286,20 +286,21 @@ function drawEmptyCell(renderer, x, y, w, h, index, compact) {
 function drawEntryInfo(renderer, model, entry, x, y, w, h, compact) {
   drawFieldPlate(renderer, x, y, w, h, { accent: entry ? entryAccent(entry) : UI_COLORS.iron, active: Boolean(entry) });
   if (!entry) {
-    renderer.text("背包为空", x + 12, y + h / 2, compact ? 10 : 14, UI_COLORS.muted, "left", "800");
+    renderer.text("背包为空", x + 14, y + h / 2, compact ? 11 : 16, UI_COLORS.muted, "left", "800");
     return;
   }
   const accent = entryAccent(entry);
-  renderer.text(ENTRY_LABELS[entry.grantType], x + 12, y + (compact ? 13 : 20), compact ? 10 : 12, accent, "left", "900", "mono");
-  renderer.fitText(entry.item.name, x + (compact ? 62 : 86), y + (compact ? 13 : 20), compact ? 13 : 18, w - (compact ? 74 : 102), UI_COLORS.white, "left", "900", 11, "display");
-  if (!compact || h >= 66) renderer.fitText(entryMeta(entry), x + 12, y + (compact ? 31 : 39), compact ? 10 : 13, w - 24, UI_COLORS.paper, "left", "800", 10);
   const mastery = masterySummary(model, entry);
-  if (mastery && !compact) {
-    renderer.fitText(entryStats(entry), x + 12, y + 58, 13, w - 24, UI_COLORS.paper, "left", "700", 11);
-    renderer.fitText(mastery, x + 12, y + 77, 13, w - 24, accent, "left", "900", 11);
-  } else {
-    renderer.fitText(mastery || entryStats(entry), x + 12, y + h - (compact ? 12 : 19), compact ? 10 : 12, w - 24, mastery ? accent : UI_COLORS.muted, "left", mastery ? "900" : "700", 10);
+  renderer.text(ENTRY_LABELS[entry.grantType], x + 14, y + (compact ? 15 : 23), compact ? 10 : 12, accent, "left", "900", "mono");
+  renderer.fitText(entry.item.name, x + (compact ? 65 : 92), y + (compact ? 15 : 23), compact ? 13 : 21, w - (compact ? 78 : 108), UI_COLORS.white, "left", "900", 11, "display");
+  renderer.fitText(entryMeta(entry), x + 14, y + (compact ? 36 : 51), compact ? 10 : 14, w - 28, UI_COLORS.paper, "left", "800", 10);
+  if (compact) {
+    renderer.fitText(mastery || entryStats(entry), x + 14, y + h - 13, 11, w - 28, mastery ? accent : UI_COLORS.muted, "left", mastery ? "900" : "700", 10);
+    return;
   }
+  renderer.fitText(entryStats(entry), x + 14, y + 79, 15, w - 28, UI_COLORS.paper, "left", "700", 11);
+  if (mastery) renderer.fitText(mastery, x + 14, y + 104, 14, w - 28, accent, "left", "900", 11);
+  if (h >= 136) renderer.fitText(entry.item.description || "", x + 14, y + h - 18, 13, w - 28, UI_COLORS.muted, "left", "700", 11);
 }
 
 function drawInventoryGrid(renderer, model, x, y, w, h, compact) {
@@ -322,18 +323,19 @@ function drawInventoryGrid(renderer, model, x, y, w, h, compact) {
     renderer.button(`inventoryPage:${next}`, "›", x + w - (compact ? 30 : 42), y + (compact ? 4 : 7), compact ? 26 : 34, compact ? 26 : 36, "secondary");
   }
 
-  const infoH = compact ? 50 : 88;
+  const infoH = compact ? 72 : 144;
   const gap = compact ? 4 : 8;
   const gridX = x + (compact ? 7 : 11);
-  const gridY = y + headerH;
+  const gridY = y + headerH + gap;
   const gridW = w - (compact ? 14 : 22);
-  const gridH = h - headerH - infoH - gap - (compact ? 7 : 11);
-  const columns = 5;
-  const rows = 4;
+  const maxGridH = h - headerH - infoH - gap * 3 - (compact ? 7 : 11);
+  const columns = 4;
+  const rows = Math.max(1, Math.ceil(pageEntries.length / columns));
   const cellW = (gridW - gap * (columns - 1)) / columns;
-  const cellH = (gridH - gap * (rows - 1)) / rows;
+  const cellH = Math.max(24, Math.min(compact ? 82 : 132, (maxGridH - gap * (rows - 1)) / rows));
+  const gridH = rows * cellH + gap * (rows - 1);
   let activeEntry = null;
-  for (let index = 0; index < INVENTORY_PAGE_SIZE; index += 1) {
+  for (let index = 0; index < rows * columns; index += 1) {
     const column = index % columns;
     const row = Math.floor(index / columns);
     const cellX = gridX + column * (cellW + gap);
@@ -346,7 +348,7 @@ function drawInventoryGrid(renderer, model, x, y, w, h, compact) {
     }
   }
   if (!activeEntry) activeEntry = pageEntries.find((entry) => entryIsEquipped(entry, model)) || pageEntries[0] || null;
-  drawEntryInfo(renderer, model, activeEntry, gridX, y + h - infoH - (compact ? 6 : 10), gridW, infoH, compact);
+  drawEntryInfo(renderer, model, activeEntry, gridX, gridY + gridH + gap, gridW, infoH, compact);
 }
 
 function drawInventoryPage(renderer, model) {
