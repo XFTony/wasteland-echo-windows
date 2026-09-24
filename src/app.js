@@ -67,8 +67,8 @@ class GameApp {
     const player = this.model.run && this.model.run.player;
     const camera = this.renderer.camera;
     if (player && camera && Number.isFinite(camera.x) && Number.isFinite(camera.y)) {
-      viewport.aimOriginX = player.x - camera.x;
-      viewport.aimOriginY = player.y - camera.y;
+      viewport.aimOriginX = (player.x - camera.x) * (camera.zoom || 1);
+      viewport.aimOriginY = (player.y - camera.y) * (camera.zoom || 1);
     }
     return viewport;
   }

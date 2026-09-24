@@ -20,6 +20,9 @@ art/
       prompts.md          # 六张页面底板与公共实体铭牌的生成规范
       source/             # 原生 16:9 源图、透明失败稿和洋红源图
       runtime/            # 当前全页底板与 RGBA 公共铭牌
+    v1.5/
+      prompts.md          # 当前轮次可核实的 ImageGen 提示词
+      source/             # 全插画重构原始 PNG；运行图由脚本生成
 ~~~
 
 ## 状态规则
@@ -66,3 +69,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/process-chroma-key.p
 ```
 
 脚本使用色度优势而非简单全局颜色删除，并保留中间稿；输出后仍需检查 Alpha、边缘污染和实际合成画面。
+
+## v1.5 全插画样板
+
+运行 `python scripts/optimize-illustrated-assets.py` 生成限制尺寸的 WebP 与 `docs/illustrated-assets-report.json`，随后运行 `python scripts/register-illustrated-assets.py` 更新清单和来源台账。新图接入前检查透明度、完整四肢、实际缩小后的剪影、碰撞边界和菜单文字对比。浏览器截图工具为 `node scripts/qa/capture-illustrated-slice.mjs`，输出到被 Git 忽略的 `output/playwright/v15-painted/`。完整视觉状态与下一批阻断项见 `docs/art-direction-v1.5-illustrated.md`。

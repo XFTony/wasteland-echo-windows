@@ -26,9 +26,9 @@ const { formatTime } = require("./format");
 
 const FONT_STACKS = Object.freeze({
   ui: '"Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif',
-  display: '"Fusion Pixel 12", Impact, "Microsoft YaHei UI", sans-serif',
+  display: '"Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif',
   card: '"Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif',
-  mono: '"Cascadia Mono", Consolas, "Fusion Pixel 12", monospace'
+  mono: '"Cascadia Mono", Consolas, monospace'
 });
 const OFFSCREEN_POINTER = Object.freeze({ x: -1000, y: -1000, down: false });
 class CanvasRenderer {
@@ -54,7 +54,9 @@ class CanvasRenderer {
     this.regions = [];
     this.regionPool = Array.from({ length: 128 }, () => ({ action: "", x: 0, y: 0, w: 0, h: 0 }));
     this.regionCount = 0;
-    this.camera = { x: 0, y: 0 };
+    this.camera = { x: 0, y: 0, zoom: 1 };
+    this.visibleWorldWidth = this.width;
+    this.visibleWorldHeight = this.height;
     this.mapLayout = this.resolveMapLayout(this.content.defaults.map);
     this.screenPoint = { x: 0, y: 0 };
     this.frame = 0;
@@ -76,6 +78,7 @@ class CanvasRenderer {
     this.screenEnteredFrame = 0;
     this.artStore = options.artStore || createDefaultArtStore();
     this.groundTexture = this.artStore.get(ART_IDS.GROUND);
+    this.paintedGround = false;
     this.coverArt = this.artStore.get(ART_IDS.TITLE_KEY_ART);
     this.portraitLook = { x: 0, y: 0 };
     this.activeMenuBackdrop = null;
@@ -145,6 +148,9 @@ class CanvasRenderer {
   resize(width, height, dpr = 1) {
     this.width = Math.max(320, width);
     this.height = Math.max(180, height);
+    this.camera.zoom = clamp(Math.min(this.width / 1280, this.height / 720), 1, 2);
+    this.visibleWorldWidth = this.width / this.camera.zoom;
+    this.visibleWorldHeight = this.height / this.camera.zoom;
     this.dpr = clamp(dpr, 1, 2);
     this.canvas.width = Math.round(this.width * this.dpr);
     this.canvas.height = Math.round(this.height * this.dpr);
@@ -386,6 +392,15 @@ class CanvasRenderer {
     const ctx = this.ctx;
     const run = model.run;
     const player = run.player;
+    const mapGroundId = {
+      echo_district: ART_IDS.GROUND_ECHO,
+      freight_nexus: ART_IDS.GROUND_FREIGHT,
+      red_basin: ART_IDS.GROUND_RED_BASIN
+    }[run.mapId];
+    this.paintedGround = Boolean(mapGroundId && this.artStore.ready(mapGroundId));
+    this.groundTexture = this.paintedGround
+      ? this.artStore.get(mapGroundId)
+      : this.artStore.get(ART_IDS.GROUND);
     let shakeX = 0;
     let shakeY = 0;
     if (player.invulnerable > 0 && model.save.settings.screenShake !== "off") {
@@ -394,20 +409,23 @@ class CanvasRenderer {
       shakeY = Math.cos(this.frame * 1.7) * strength;
     }
     const recoilScale = model.save.settings.screenShake === "off" ? 0 : model.save.settings.screenShake === "high" ? 1 : 0.58;
-    const maxCameraX = Math.max(0, model.worldSize - this.width);
-    const maxCameraY = Math.max(0, model.worldSize - this.height);
+    const maxCameraX = Math.max(0, model.worldSize - this.visibleWorldWidth);
+    const maxCameraY = Math.max(0, model.worldSize - this.visibleWorldHeight);
     this.camera.x = clamp(
-      player.x - this.width / 2 + this.recoilAimX * this.cameraKick * recoilScale - shakeX,
+      player.x - this.visibleWorldWidth / 2 + this.recoilAimX * this.cameraKick * recoilScale - shakeX,
       0,
       maxCameraX
     );
     this.camera.y = clamp(
-      player.y - this.height / 2 + this.recoilAimY * this.cameraKick * recoilScale - shakeY,
+      player.y - this.visibleWorldHeight / 2 + this.recoilAimY * this.cameraKick * recoilScale - shakeY,
       0,
       maxCameraY
     );
+    ctx.save();
+    ctx.setTransform(this.dpr * this.camera.zoom, 0, 0, this.dpr * this.camera.zoom, 0, 0);
+    ctx.imageSmoothingEnabled = true;
     ctx.fillStyle = "#6d593b";
-    ctx.fillRect(0, 0, this.width, this.height);
+    ctx.fillRect(0, 0, this.visibleWorldWidth, this.visibleWorldHeight);
     this.drawTerrain(model.worldSize);
     this.drawInteractives(model.interactives || []);
     this.drawExtraction(run);
@@ -421,6 +439,7 @@ class CanvasRenderer {
     this.drawAimReticle(model);
     this.drawWorldEffects();
     this.drawAtmosphere(run.elapsed);
+    ctx.restore();
   }
 
   drawWorldEffects() {

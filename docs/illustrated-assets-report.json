@@ -1,0 +1,420 @@
+{
+  "style": "stylized-painted-wasteland-v1.5",
+  "assets": [
+    {
+      "source": "art/generated/v1.5/source/menu-main-keyart-v3-source.png",
+      "runtime": "web/assets/ui/backdrops/menu-main-v3.webp",
+      "kind": "menu",
+      "sourceWidth": 1672,
+      "sourceHeight": 941,
+      "crop": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "width": 1672,
+      "height": 941,
+      "sourceBytes": 2301883,
+      "runtimeBytes": 190430,
+      "sha256": "2047CA13715CC3FF0A4D0A175E4A6AD250386D653D1CBA8ED7FDEF24870D75CB"
+    },
+    {
+      "source": "art/generated/v1.5/source/deployment-command-garage-v3-source.png",
+      "runtime": "web/assets/ui/backdrops/deployment-command-garage-v3.webp",
+      "kind": "menu",
+      "sourceWidth": 1672,
+      "sourceHeight": 941,
+      "crop": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "width": 1672,
+      "height": 941,
+      "sourceBytes": 2163854,
+      "runtimeBytes": 189218,
+      "sha256": "13ABFAA519C64713E9D24471F741B63E8D436476BE403B2D6B93269344617FD2"
+    },
+    {
+      "source": "art/generated/v1.5/source/inventory-armory-v3-source.png",
+      "runtime": "web/assets/ui/backdrops/inventory-armory-v3.webp",
+      "kind": "menu",
+      "sourceWidth": 1672,
+      "sourceHeight": 941,
+      "crop": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "width": 1672,
+      "height": 941,
+      "sourceBytes": 1960698,
+      "runtimeBytes": 124302,
+      "sha256": "304AE65A30F8FA0FEFB79E4437FCA3E3DF8494183C39A8BC82CED1C300B90475"
+    },
+    {
+      "source": "art/generated/v1.5/source/shop-quartermaster-v3-source.png",
+      "runtime": "web/assets/ui/backdrops/shop-quartermaster-v3.webp",
+      "kind": "menu",
+      "sourceWidth": 1672,
+      "sourceHeight": 941,
+      "crop": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "width": 1672,
+      "height": 941,
+      "sourceBytes": 2021120,
+      "runtimeBytes": 141626,
+      "sha256": "178AEEB598DB55D612364C49C6B112B0748086C6C958A17F5D04B37E7736788B"
+    },
+    {
+      "source": "art/generated/v1.5/source/settings-radio-room-v3-source.png",
+      "runtime": "web/assets/ui/backdrops/settings-radio-room-v3.webp",
+      "kind": "menu",
+      "sourceWidth": 1672,
+      "sourceHeight": 941,
+      "crop": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "width": 1672,
+      "height": 941,
+      "sourceBytes": 1847678,
+      "runtimeBytes": 102716,
+      "sha256": "F7256D279BF2A93A894129BBF0FDA0820455EE5F50233634EFDA09F532DB1C7F"
+    },
+    {
+      "source": "art/generated/v1.5/source/credits-archive-v3-source.png",
+      "runtime": "web/assets/ui/backdrops/credits-archive-v3.webp",
+      "kind": "menu",
+      "sourceWidth": 1672,
+      "sourceHeight": 941,
+      "crop": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "width": 1672,
+      "height": 941,
+      "sourceBytes": 2071101,
+      "runtimeBytes": 134222,
+      "sha256": "BD074D9B2BFA6CF8802058C5974F76B1B584C917E55D0ACD5029E70F34C6737C"
+    },
+    {
+      "source": "art/generated/v1.5/source/cover-survivor-v3-source.png",
+      "runtime": "web/assets/ui/characters/cover-survivor-v3.webp",
+      "kind": "cutout",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "crop": [
+        42,
+        0,
+        1024,
+        1536
+      ],
+      "width": 767,
+      "height": 1200,
+      "sourceBytes": 2179341,
+      "runtimeBytes": 638280,
+      "sha256": "EBCDE97F58D3FF095B982C7D372D7F53BF9A27D3D9356AB9D409620485614684"
+    },
+    {
+      "source": "art/generated/v1.5/source/ranger-armed-portrait-v1-source.png",
+      "runtime": "web/assets/actors/ranger-armed-portrait-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1216,
+      "sourceHeight": 1294,
+      "crop": [
+        0,
+        2,
+        1216,
+        1256
+      ],
+      "width": 745,
+      "height": 768,
+      "sourceBytes": 973252,
+      "runtimeBytes": 258444,
+      "sha256": "BE440C9549ABAD70451E42B1D5C66FFC9C9FBB5498A51A998D2173545207D97C"
+    },
+    {
+      "source": "art/generated/v1.5/source/ranger-base-v1-source.png",
+      "runtime": "web/assets/actors/ranger-base-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "crop": [
+        10,
+        46,
+        1024,
+        1517
+      ],
+      "width": 353,
+      "height": 512,
+      "sourceBytes": 1915766,
+      "runtimeBytes": 113272,
+      "sha256": "FC35DE7B512F3161462FD84C26B267DB6A58EB005D01BA7EC2637D2D1E8A4E7F"
+    },
+    {
+      "source": "art/generated/v1.5/source/drifter-v1-source.png",
+      "runtime": "web/assets/actors/drifter-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "crop": [
+        42,
+        5,
+        985,
+        1517
+      ],
+      "width": 319,
+      "height": 512,
+      "sourceBytes": 1609600,
+      "runtimeBytes": 89850,
+      "sha256": "E6B1AAD52CEEEF250C00DA24F577E944BC6D2FA3C9948F99F10EB155F296CFE7"
+    },
+    {
+      "source": "art/generated/v1.5/source/mechanic-base-v1-source.png",
+      "runtime": "web/assets/actors/mechanic-base-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "crop": [
+        42,
+        0,
+        1024,
+        1527
+      ],
+      "width": 329,
+      "height": 512,
+      "sourceBytes": 1830234,
+      "runtimeBytes": 106492,
+      "sha256": "536031544450C108BF26F457058698C420B9FF4D9FD0DB454F6A4217C0F9B149"
+    },
+    {
+      "source": "art/generated/v1.5/source/bulwark-base-v1-source.png",
+      "runtime": "web/assets/actors/bulwark-base-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1145,
+      "sourceHeight": 1374,
+      "crop": [
+        0,
+        0,
+        1128,
+        1374
+      ],
+      "width": 420,
+      "height": 512,
+      "sourceBytes": 1470473,
+      "runtimeBytes": 170448,
+      "sha256": "35452EEE217405420DA56C736E073C6CB90BD8D46454D59502618A740059C109"
+    },
+    {
+      "source": "art/generated/v1.5/source/runner-v1-source.png",
+      "runtime": "web/assets/actors/runner-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "crop": [
+        42,
+        0,
+        1024,
+        1535
+      ],
+      "width": 328,
+      "height": 512,
+      "sourceBytes": 1770886,
+      "runtimeBytes": 104320,
+      "sha256": "A62961828CD2CDF91F4F328AB45B3089FADB26DFFAF70B3B39674EA5368E0E1F"
+    },
+    {
+      "source": "art/generated/v1.5/source/spitter-v1-source.png",
+      "runtime": "web/assets/actors/spitter-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1154,
+      "sourceHeight": 1363,
+      "crop": [
+        37,
+        27,
+        1150,
+        1358
+      ],
+      "width": 428,
+      "height": 512,
+      "sourceBytes": 1217163,
+      "runtimeBytes": 143184,
+      "sha256": "4534707E3F59E6819B85FDDD602363CA7CCFBAC1D38EE7BC65CCEAFBB1C7BCE7"
+    },
+    {
+      "source": "art/generated/v1.5/source/brute-v1-source.png",
+      "runtime": "web/assets/actors/brute-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1225,
+      "sourceHeight": 1284,
+      "crop": [
+        6,
+        2,
+        1225,
+        1277
+      ],
+      "width": 490,
+      "height": 512,
+      "sourceBytes": 1467451,
+      "runtimeBytes": 190256,
+      "sha256": "440FD949C344906176DB88E5B139609E96E466EC7731FB1EF6E098FDA82E3FEC"
+    },
+    {
+      "source": "art/generated/v1.5/source/screecher-v1-source.png",
+      "runtime": "web/assets/actors/screecher-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1060,
+      "sourceHeight": 1484,
+      "crop": [
+        0,
+        0,
+        1060,
+        1484
+      ],
+      "width": 366,
+      "height": 512,
+      "sourceBytes": 1239454,
+      "runtimeBytes": 119184,
+      "sha256": "E18A67040E328DD9A5A7AD5EC41B929DC76E6ACE3850264C3174EFB6F4F790AE"
+    },
+    {
+      "source": "art/generated/v1.5/source/crawler-v1-source.png",
+      "runtime": "web/assets/actors/crawler-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1310,
+      "sourceHeight": 1200,
+      "crop": [
+        3,
+        0,
+        1306,
+        1176
+      ],
+      "width": 512,
+      "height": 462,
+      "sourceBytes": 858917,
+      "runtimeBytes": 104178,
+      "sha256": "C3EE5570C255B794D05F00FBFFA9586ABC25830FC80492A96704A1E9817F6BB9"
+    },
+    {
+      "source": "art/generated/v1.5/source/warden-v1-source.png",
+      "runtime": "web/assets/actors/warden-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1145,
+      "sourceHeight": 1374,
+      "crop": [
+        0,
+        0,
+        1128,
+        1374
+      ],
+      "width": 420,
+      "height": 512,
+      "sourceBytes": 1368981,
+      "runtimeBytes": 153990,
+      "sha256": "B52BDF371BA808C41552F95F64BB673E4FD494A8BD94F00AB5CB3CA7839137A5"
+    },
+    {
+      "source": "art/generated/v1.5/source/iron-colossus-v1-source.png",
+      "runtime": "web/assets/actors/iron-colossus-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1230,
+      "sourceHeight": 1278,
+      "crop": [
+        0,
+        0,
+        1230,
+        1278
+      ],
+      "width": 493,
+      "height": 512,
+      "sourceBytes": 2298019,
+      "runtimeBytes": 300906,
+      "sha256": "5461E66B546525E34E6A009BE9B3837F8E1C192379E7EB912E92E3410F875400"
+    },
+    {
+      "source": "art/generated/v1.5/source/scrap-pistol-v1-source.png",
+      "runtime": "web/assets/weapons/scrap-pistol-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "crop": [
+        0,
+        0,
+        1536,
+        1021
+      ],
+      "width": 512,
+      "height": 340,
+      "sourceBytes": 2248819,
+      "runtimeBytes": 140434,
+      "sha256": "8965B0BF4EFA16E432452A737B75A72404F7EC61980726F4D207169B4E7B40E6"
+    },
+    {
+      "source": "art/generated/v1.5/source/echo-ground-v1-source.png",
+      "runtime": "web/assets/world/echo-ground-v1.webp",
+      "kind": "texture",
+      "sourceWidth": 1254,
+      "sourceHeight": 1254,
+      "crop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "width": 1254,
+      "height": 1254,
+      "sourceBytes": 2990262,
+      "runtimeBytes": 294124,
+      "sha256": "1529597FE141C99ED4F51E5584B911DE4977D80C712AB661AB2D6E7C52423C21"
+    },
+    {
+      "source": "art/generated/v1.5/source/freight-ground-v1-source.png",
+      "runtime": "web/assets/world/freight-ground-v1.webp",
+      "kind": "texture",
+      "sourceWidth": 1254,
+      "sourceHeight": 1254,
+      "crop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "width": 1254,
+      "height": 1254,
+      "sourceBytes": 3375399,
+      "runtimeBytes": 413352,
+      "sha256": "0555805FC414637D685ACA091C37E3A0D2B5AF3E0B8C7B2C574D9EE5048E5E43"
+    },
+    {
+      "source": "art/generated/v1.5/source/red-basin-ground-v1-source.png",
+      "runtime": "web/assets/world/red-basin-ground-v1.webp",
+      "kind": "texture",
+      "sourceWidth": 1254,
+      "sourceHeight": 1254,
+      "crop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "width": 1254,
+      "height": 1254,
+      "sourceBytes": 2948801,
+      "runtimeBytes": 291974,
+      "sha256": "8EC0EC4F73191C8E2112C1656672E1ED31025D23D74D8DB0954AA6046F3847AA"
+    }
+  ],
+  "runtimeBytes": 4515202
+}

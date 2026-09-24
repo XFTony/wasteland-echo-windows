@@ -117,7 +117,7 @@ const MENU_METHODS = {
     const safeX = compact ? 18 : Math.max(58, this.width * 0.06);
     const safeY = compact ? 18 : Math.max(42, this.height * 0.07);
     const menuW = compact ? Math.min(286, this.width * 0.51) : Math.min(430, this.width * 0.38);
-    const hasKeyArt = this.drawTitleKeyArt();
+    const hasKeyArt = Boolean(this.artStore && this.artStore.ready(ART_IDS.BACKDROP_MAIN)) || this.drawTitleKeyArt();
     this.ctx.fillStyle = this.menuReadabilityGradient || "rgba(8,15,20,0.9)";
     this.ctx.fillRect(0, 0, this.width, this.height);
     this.ctx.fillStyle = this.menuFooterGradient || "rgba(8,12,15,0.3)";
@@ -396,7 +396,7 @@ const MENU_METHODS = {
       nextRuleLine,
       "游戏设计、战斗内核与像素角色：本项目原创",
       "标题主视觉、地表纹理与破框感染者：为本项目生成并登记素材台账",
-      "标题字体：Fusion Pixel Font · SIL OFL 1.1；正文使用系统易读字体",
+      "标题与正文使用系统中文字体；历史像素字体许可保存在素材台账",
       "音乐与音效：原创编曲 + WebAudio 程序化合成，无外部采样",
       "输入：可重绑定键盘鼠标 + 标准 Gamepad API 手柄",
       "完整来源、许可与修改记录：查看 CREDITS.md 和素材台账"

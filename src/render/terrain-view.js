@@ -1,7 +1,7 @@
 "use strict";
 
 const { PALETTE } = require("../config");
-const { drawVisibleGroundTexture } = require("./world-view");
+const { drawVisibleGroundTexture, drawPaintedGround } = require("./world-view");
 const { hash2 } = require("./render-hash");
 
 const TERRAIN_METHODS = {
@@ -14,6 +14,7 @@ const TERRAIN_METHODS = {
     this.drawGroundGrain(worldSize);
     this.drawDistrictSurfaces();
     this.drawRoadNetwork();
+    this.drawSurfacePatina(worldSize);
     this.drawRoadDetails();
     this.drawRailNetwork();
     this.drawMapLabels();
@@ -159,6 +160,28 @@ const TERRAIN_METHODS = {
         }
       }
     }
+  },
+
+  drawSurfacePatina(worldSize) {
+    if (!this.paintedGround || !this.groundTexture) return;
+    const ctx = this.ctx;
+    const width = this.visibleWorldWidth || this.width;
+    const height = this.visibleWorldHeight || this.height;
+    ctx.save();
+    ctx.beginPath();
+    for (const zone of this.mapLayout.zones) {
+      const point = this.worldToScreen(zone.x, zone.y, this.screenPoint);
+      if (point.x + zone.w < 0 || point.y + zone.h < 0 || point.x > width || point.y > height) continue;
+      ctx.rect(point.x, point.y, zone.w, zone.h);
+    }
+    for (const road of this.mapLayout.roads) {
+      const point = this.worldToScreen(road.x, road.y, this.screenPoint);
+      if (point.x + road.w < 0 || point.y + road.h < 0 || point.x > width || point.y > height) continue;
+      ctx.rect(point.x, point.y, road.w, road.h);
+    }
+    ctx.clip();
+    drawPaintedGround(this, this.groundTexture, worldSize, this.qualityLevel === 0 ? 0.25 : 0.38);
+    ctx.restore();
   },
 
   drawRoadDetails() {

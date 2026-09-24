@@ -503,3 +503,20 @@ test("Windows 720p and 1080p layouts keep every desktop action inside the viewpo
     }
   }
 });
+test("world framing stays fixed across desktop resolutions", () => {
+  const { canvas, calls } = createMockCanvas();
+  const renderer = new CanvasRenderer(canvas);
+  const model = createModel();
+  renderer.resize(1280, 720, 1);
+  assert.equal(renderer.camera.zoom, 1);
+  assert.deepEqual([renderer.visibleWorldWidth, renderer.visibleWorldHeight], [1280, 720]);
+  renderer.resize(1920, 1080, 1);
+  assert.equal(renderer.camera.zoom, 1.5);
+  assert.deepEqual([renderer.visibleWorldWidth, renderer.visibleWorldHeight], [1280, 720]);
+  renderer.resize(2560, 1440, 1);
+  assert.equal(renderer.camera.zoom, 2);
+  assert.deepEqual([renderer.visibleWorldWidth, renderer.visibleWorldHeight], [1280, 720]);
+  model.startRun({ seed: 77 });
+  renderer.render(model);
+  assert.ok(calls.some((call) => call[0] === "setTransform" && call[1] === 2 && call[4] === 2));
+});

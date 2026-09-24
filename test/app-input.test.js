@@ -156,3 +156,16 @@ test("deployment opens inventory, direct selections route to the model, and back
   app.handleAction("back");
   assert.equal(app.model.menuPage, "loadout");
 });
+test("mouse aim origin scales with the fixed world camera", () => {
+  const app = createApp();
+  app.renderer.width = 1920;
+  app.renderer.height = 1080;
+  app.renderer.camera = { x: 360, y: 240, zoom: 1.5 };
+  app.model.run = { player: { x: 1000, y: 600 } };
+  const viewport = app.inputViewport();
+  assert.equal(viewport.aimOriginX, 960);
+  assert.equal(viewport.aimOriginY, 540);
+  app.mouseMove(1200, 540);
+  assert.ok(app.input.aimX > 0.99);
+  assert.ok(Math.abs(app.input.aimY) < 0.01);
+});

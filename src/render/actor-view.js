@@ -3,6 +3,7 @@
 const { PALETTE } = require("../config");
 const { clamp } = require("../core/math");
 const { drawSurvivorActor, drawZombieActor } = require("./pixel-actors");
+const { drawIllustratedSurvivor, drawIllustratedEnemy } = require("./illustrated-actors");
 
 const ACTOR_METHODS = {
   drawExtraction(run) {
@@ -39,6 +40,7 @@ const ACTOR_METHODS = {
     const weapon = this.content.get("weapons", player.weaponId, this.content.defaults.weapon);
     const moving = Math.hypot(run.input.moveX, run.input.moveY) > 0.12;
     const flicker = player.invulnerable > 0 && Math.floor(this.frame / 3) % 2 === 0;
+    if (drawIllustratedSurvivor(this, player, run, flicker)) return;
     drawSurvivorActor(this.ctx, {
       x: p.x,
       y: p.y,
@@ -87,18 +89,18 @@ const ACTOR_METHODS = {
     const ctx = this.ctx;
     const p = this.worldToScreen(enemy.x, enemy.y, this.screenPoint);
     if (p.x < -80 || p.y < -80 || p.x > this.width + 80 || p.y > this.height + 80) return;
-    drawZombieActor(ctx, { enemy, x: p.x, y: p.y, elapsed });
+    if (!drawIllustratedEnemy(this, enemy, elapsed)) drawZombieActor(ctx, { enemy, x: p.x, y: p.y, elapsed });
 
     if (enemy.elite) {
       const barW = enemy.boss ? 64 : 42;
-      const barY = p.y - (enemy.boss ? 70 : 50);
+      const barY = p.y - (enemy.boss ? 105 : 84);
       ctx.fillStyle = "#241d1c";
       ctx.fillRect(p.x - barW / 2, barY, barW, 5);
       ctx.fillStyle = enemy.boss ? PALETTE.rust : PALETTE.amber;
       ctx.fillRect(p.x - barW / 2, barY, barW * clamp(enemy.hp / enemy.maxHp, 0, 1), 5);
     } else if (enemy.hp < enemy.maxHp) {
       const barW = 22;
-      const barY = p.y - (enemy.role === "tank" ? 47 : enemy.role === "swarm" ? 18 : 36);
+      const barY = p.y - (enemy.role === "tank" ? 72 : enemy.role === "swarm" ? 43 : 56);
       ctx.fillStyle = "rgba(28,23,21,0.82)";
       ctx.fillRect(p.x - barW / 2, barY, barW, 3);
       ctx.fillStyle = PALETTE.rust;

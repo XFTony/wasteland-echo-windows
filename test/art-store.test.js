@@ -7,6 +7,8 @@ const path = require("node:path");
 const crypto = require("node:crypto");
 const { ART_IDS, ART_ASSETS, validateArtCatalog } = require("../src/render/art/asset-catalog");
 const { ArtStore } = require("../src/render/art/art-store");
+const { HERO_ART, ENEMY_ART } = require("../src/render/illustrated-actors");
+const { HEROES, ENEMIES } = require("../src/config");
 const { drawAssetContain, drawNineSlice } = require("../src/render/ui/image-primitives");
 
 const root = path.resolve(__dirname, "..");
@@ -36,18 +38,29 @@ function rendererWith(store) {
   };
 }
 
-test("runtime art catalog contains only active, local assets", () => {
+test("illustrated runtime art catalog keeps active assets local and retired art inactive", () => {
   assert.equal(validateArtCatalog(ART_ASSETS), ART_ASSETS);
-  assert.equal(ART_ASSETS[ART_IDS.BACKDROP_DEPLOYMENT].version, "1.2");
+  assert.equal(ART_ASSETS[ART_IDS.BACKDROP_DEPLOYMENT].version, "1.5");
   assert.equal(ART_ASSETS[ART_IDS.UI_FIELD_PLATE].version, "1.2");
   assert.match(ART_ASSETS[ART_IDS.BACKDROP_MAIN].src, /\.webp$/);
   assert.match(ART_ASSETS[ART_IDS.GROUND].src, /\.webp$/);
+  assert.equal(ART_ASSETS[ART_IDS.LEGACY_TITLE_KEY_ART].active, false);
+  assert.equal(ART_ASSETS[ART_IDS.LEGACY_BACKDROP_MAIN].active, false);
   for (const definition of Object.values(ART_ASSETS)) {
-    assert.equal(definition.active, true);
+    assert.equal(definition.active, definition.group !== "legacy");
     assert.match(definition.src, /^\.\/assets\//);
     assert.doesNotMatch(definition.src, /^https?:/i);
   }
   assert.ok(fs.existsSync(path.join(root, "archive", "code", "ui", "deployment-legacy.js")));
+});
+
+test("every base hero and enemy resolves to a registered painted sprite", () => {
+  assert.deepEqual(Object.keys(HERO_ART).sort(), Object.keys(HEROES).sort());
+  assert.deepEqual(Object.keys(ENEMY_ART).sort(), Object.keys(ENEMIES).sort());
+  for (const id of [...Object.values(HERO_ART), ...Object.values(ENEMY_ART)]) {
+    assert.equal(ART_ASSETS[id].active, true, `${id} must be active`);
+    assert.ok(fs.existsSync(path.join(root, "web", ART_ASSETS[id].src.slice(2))), `${id} runtime sprite must exist`);
+  }
 });
 
 test("art store loads active definitions once and supports injected images", () => {

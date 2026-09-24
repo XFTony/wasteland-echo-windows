@@ -1,6 +1,7 @@
 "use strict";
 
 const { drawSurvivorActor } = require("../pixel-actors");
+const { drawIllustratedPortrait } = require("../illustrated-actors");
 const { createBasePlayerStats } = require("../../core/run-state");
 const {
   calculateLoadoutStats,
@@ -220,26 +221,29 @@ function drawWardrobe(renderer, model, x, y, w, h, compact) {
   const actorY = workY + workH * (compact ? 0.57 : 0.59);
   const unit = Math.max(compact ? 0.92 : 1.55, Math.min(compact ? 1.9 : 3.75, Math.min(workH / 75, alcoveW / 49)));
   const look = updatePortraitLook(renderer, actorX, actorY, alcoveW, workH);
-  drawSurvivorActor(ctx, {
-    x: actorX,
-    y: actorY,
-    unit,
-    skin,
-    skinId: model.selectedSkin,
-    heroId: model.selectedHero,
-    weapon,
-    aimX: 0.92,
-    aimY: -0.22,
-    lookX: look.x,
-    lookY: look.y,
-    elapsed: renderer.frame / 60,
-    moving: false,
-    portrait: true,
-    equipment
-  });
+  const paintedPortrait = drawIllustratedPortrait(renderer, model.selectedHero, model.selectedSkin, alcoveX, workY, alcoveW, workH);
+  if (!paintedPortrait) {
+    drawSurvivorActor(ctx, {
+      x: actorX,
+      y: actorY,
+      unit,
+      skin,
+      skinId: model.selectedSkin,
+      heroId: model.selectedHero,
+      weapon,
+      aimX: 0.92,
+      aimY: -0.22,
+      lookX: look.x,
+      lookY: look.y,
+      elapsed: renderer.frame / 60,
+      moving: false,
+      portrait: true,
+      equipment
+    });
+  }
   if (!compact && alcoveW > 110) {
     renderer.text(hero.callsign, actorX, workY + 17, 11, hero.accent, "center", "900", "mono");
-    renderer.text("头部随鼠标观察", actorX, workY + workH - 11, 11, UI_COLORS.muted, "center", "700");
+    renderer.text(paintedPortrait ? "荒原行动员" : "头部随鼠标观察", actorX, workY + workH - 11, 11, UI_COLORS.muted, "center", "700");
   }
 
   drawStatPlate(renderer, composed.stats, mode, x + (compact ? 7 : 11), statsY, w - (compact ? 14 : 22), statsH, compact);

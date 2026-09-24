@@ -2,17 +2,39 @@
 
 const ART_IDS = Object.freeze({
   GROUND: "world.ground.v1",
-  TITLE_KEY_ART: "cover.keyart.v1",
-  BACKDROP_MAIN: "menu.backdrop.main.v2",
-  BACKDROP_DEPLOYMENT: "menu.backdrop.deployment.v2",
-  BACKDROP_INVENTORY: "menu.backdrop.inventory.v2",
-  BACKDROP_SHOP: "menu.backdrop.shop.v2",
-  BACKDROP_SETTINGS: "menu.backdrop.settings.v2",
-  BACKDROP_CREDITS: "menu.backdrop.credits.v2",
+  GROUND_ECHO: "world.ground.echo.v1",
+  GROUND_FREIGHT: "world.ground.freight.v1",
+  GROUND_RED_BASIN: "world.ground.red-basin.v1",
+  TITLE_KEY_ART: "cover.survivor.v3",
+  BACKDROP_MAIN: "menu.backdrop.main.v3",
+  BACKDROP_DEPLOYMENT: "menu.backdrop.deployment.v3",
+  BACKDROP_INVENTORY: "menu.backdrop.inventory.v3",
+  BACKDROP_SHOP: "menu.backdrop.shop.v3",
+  BACKDROP_SETTINGS: "menu.backdrop.settings.v3",
+  BACKDROP_CREDITS: "menu.backdrop.credits.v3",
   UI_FIELD_PLATE: "ui.field-plate.v2",
-  DEPLOYMENT_CONVOY: "deployment.convoy.v1"
+  DEPLOYMENT_CONVOY: "deployment.convoy.v1",
+  ACTOR_RANGER: "actor.ranger.base.v1",
+  ACTOR_RANGER_PORTRAIT: "actor.ranger.portrait.v1",
+  ACTOR_DRIFTER: "actor.drifter.v1",
+  ACTOR_MECHANIC: "actor.mechanic.base.v1",
+  ACTOR_BULWARK: "actor.bulwark.base.v1",
+  ACTOR_RUNNER: "actor.runner.v1",
+  ACTOR_SPITTER: "actor.spitter.v1",
+  ACTOR_BRUTE: "actor.brute.v1",
+  ACTOR_SCREECHER: "actor.screecher.v1",
+  ACTOR_CRAWLER: "actor.crawler.v1",
+  ACTOR_WARDEN: "actor.warden.v1",
+  ACTOR_IRON_COLOSSUS: "actor.iron-colossus.v1",
+  WEAPON_SCRAP_PISTOL: "weapon.scrap-pistol.v1",
+  LEGACY_TITLE_KEY_ART: "cover.keyart.v1",
+  LEGACY_BACKDROP_MAIN: "menu.backdrop.main.v2",
+  LEGACY_BACKDROP_DEPLOYMENT: "menu.backdrop.deployment.v2",
+  LEGACY_BACKDROP_INVENTORY: "menu.backdrop.inventory.v2",
+  LEGACY_BACKDROP_SHOP: "menu.backdrop.shop.v2",
+  LEGACY_BACKDROP_SETTINGS: "menu.backdrop.settings.v2",
+  LEGACY_BACKDROP_CREDITS: "menu.backdrop.credits.v2"
 });
-
 function asset(id, src, group, options = {}) {
   return Object.freeze({
     id,
@@ -29,50 +51,94 @@ function asset(id, src, group, options = {}) {
 
 const ART_ASSETS = Object.freeze({
   [ART_IDS.GROUND]: asset(ART_IDS.GROUND, "./assets/wasteland-ground-texture-v1.webp", "world", {
-    eager: true,
-    notes: "Low-opacity ground texture; gameplay geometry remains data-driven."
+    eager: true, notes: "Legacy shared ground until every map has a painted material."
   }),
-  [ART_IDS.TITLE_KEY_ART]: asset(ART_IDS.TITLE_KEY_ART, "./assets/wasteland-title-keyart-v1.webp", "cover", {
-    eager: true,
-    notes: "Portrait key art rendered with contain-safe framing."
+  [ART_IDS.GROUND_ECHO]: asset(ART_IDS.GROUND_ECHO, "./assets/world/echo-ground-v1.webp", "world", {
+    version: "1.5", notes: "Painted Echo District overhead ground material, mirrored in world space."
   }),
-  [ART_IDS.BACKDROP_MAIN]: asset(ART_IDS.BACKDROP_MAIN, "./assets/ui/backdrops/menu-main-camp-v2.webp", "menu-backdrop", {
-    version: "1.2",
-    eager: true,
-    notes: "Full-bleed 16:9 camp entrance with a protected left-side menu zone."
+  [ART_IDS.GROUND_FREIGHT]: asset(ART_IDS.GROUND_FREIGHT, "./assets/world/freight-ground-v1.webp", "world", {
+    version: "1.5", notes: "Painted cool slate rail-yard ground material."
   }),
-  [ART_IDS.BACKDROP_DEPLOYMENT]: asset(ART_IDS.BACKDROP_DEPLOYMENT, "./assets/ui/backdrops/deployment-command-bunker-v2.webp", "menu-backdrop", {
-    version: "1.2",
-    notes: "Full-bleed command garage; quiet zones match the deployment composition."
+  [ART_IDS.GROUND_RED_BASIN]: asset(ART_IDS.GROUND_RED_BASIN, "./assets/world/red-basin-ground-v1.webp", "world", {
+    version: "1.5", notes: "Painted warm cracked-clay desert ground material."
   }),
-  [ART_IDS.BACKDROP_INVENTORY]: asset(ART_IDS.BACKDROP_INVENTORY, "./assets/ui/backdrops/inventory-armory-v2.webp", "menu-backdrop", {
-    version: "1.2",
-    notes: "Full-bleed armory with dedicated wardrobe and inventory zones."
+  [ART_IDS.TITLE_KEY_ART]: asset(ART_IDS.TITLE_KEY_ART, "./assets/ui/characters/cover-survivor-v3.webp", "cover", {
+    version: "1.5", eager: true,
+    notes: "New illustrated survivor cutout used when the full menu scene has not loaded."
   }),
-  [ART_IDS.BACKDROP_SHOP]: asset(ART_IDS.BACKDROP_SHOP, "./assets/ui/backdrops/shop-quartermaster-v2.webp", "menu-backdrop", {
-    version: "1.2",
-    notes: "Full-bleed quartermaster counter with a calm merchandise wall."
+  [ART_IDS.BACKDROP_MAIN]: asset(ART_IDS.BACKDROP_MAIN, "./assets/ui/backdrops/menu-main-v3.webp", "menu-backdrop", {
+    version: "1.5", eager: true, notes: "New illustrated camp scene with quiet left-side title zone."
   }),
-  [ART_IDS.BACKDROP_SETTINGS]: asset(ART_IDS.BACKDROP_SETTINGS, "./assets/ui/backdrops/settings-radio-room-v2.webp", "menu-backdrop", {
-    version: "1.2",
-    notes: "Full-bleed signal room with protected settings and help zones."
+  [ART_IDS.BACKDROP_DEPLOYMENT]: asset(ART_IDS.BACKDROP_DEPLOYMENT, "./assets/ui/backdrops/deployment-command-garage-v3.webp", "menu-backdrop", {
+    version: "1.5", notes: "New illustrated convoy garage with protected mission controls."
   }),
-  [ART_IDS.BACKDROP_CREDITS]: asset(ART_IDS.BACKDROP_CREDITS, "./assets/ui/backdrops/credits-archive-v2.webp", "menu-backdrop", {
-    version: "1.2",
-    notes: "Full-bleed records room with a central low-detail reading surface."
+  [ART_IDS.BACKDROP_INVENTORY]: asset(ART_IDS.BACKDROP_INVENTORY, "./assets/ui/backdrops/inventory-armory-v3.webp", "menu-backdrop", {
+    version: "1.5", notes: "New illustrated armory with wardrobe and inventory reading zones."
+  }),
+  [ART_IDS.BACKDROP_SHOP]: asset(ART_IDS.BACKDROP_SHOP, "./assets/ui/backdrops/shop-quartermaster-v3.webp", "menu-backdrop", {
+    version: "1.5", notes: "New illustrated market with quiet product area."
+  }),
+  [ART_IDS.BACKDROP_SETTINGS]: asset(ART_IDS.BACKDROP_SETTINGS, "./assets/ui/backdrops/settings-radio-room-v3.webp", "menu-backdrop", {
+    version: "1.5", notes: "New illustrated radio room with quiet settings columns."
+  }),
+  [ART_IDS.BACKDROP_CREDITS]: asset(ART_IDS.BACKDROP_CREDITS, "./assets/ui/backdrops/credits-archive-v3.webp", "menu-backdrop", {
+    version: "1.5", notes: "New illustrated archive with protected central text area."
   }),
   [ART_IDS.UI_FIELD_PLATE]: asset(ART_IDS.UI_FIELD_PLATE, "./assets/ui/shared/ui-field-plate-v2.webp", "shared-ui", {
-    version: "1.2",
-    eager: true,
+    version: "1.2", eager: true,
     nineSlice: { left: 175, right: 175, top: 125, bottom: 125 },
-    notes: "Alpha-correct physical equipment plate; corners scale uniformly and only center bands stretch."
+    notes: "Transitional field plate; will be replaced with lighter painted surfaces."
   }),
   [ART_IDS.DEPLOYMENT_CONVOY]: asset(ART_IDS.DEPLOYMENT_CONVOY, "./assets/ui/deployment/deployment-convoy-vignette-v1.webp", "deployment", {
-    version: "1.1",
-    notes: "Transparent survivor and armored convoy vignette."
-  })
+    version: "1.1", notes: "Transitional fixed convoy vignette."
+  }),
+  [ART_IDS.ACTOR_RANGER]: asset(ART_IDS.ACTOR_RANGER, "./assets/actors/ranger-base-v1.webp", "combat-actors", {
+    version: "1.5", notes: "Painted survivor base body without a weapon."
+  }),
+  [ART_IDS.ACTOR_RANGER_PORTRAIT]: asset(ART_IDS.ACTOR_RANGER_PORTRAIT, "./assets/actors/ranger-armed-portrait-v1.webp", "combat-actors", {
+    version: "1.5", notes: "Painted armed ranger for inventory and result pages."
+  }),
+  [ART_IDS.ACTOR_DRIFTER]: asset(ART_IDS.ACTOR_DRIFTER, "./assets/actors/drifter-v1.webp", "combat-actors", {
+    version: "1.5", notes: "Painted ordinary infected drifter."
+  }),
+  [ART_IDS.ACTOR_MECHANIC]: asset(ART_IDS.ACTOR_MECHANIC, "./assets/actors/mechanic-base-v1.webp", "combat-actors", {
+    version: "1.5", notes: "Painted salvage specialist hero body."
+  }),
+  [ART_IDS.ACTOR_BULWARK]: asset(ART_IDS.ACTOR_BULWARK, "./assets/actors/bulwark-base-v1.webp", "combat-actors", {
+    version: "1.5", notes: "Painted armored defender hero body."
+  }),
+  [ART_IDS.ACTOR_RUNNER]: asset(ART_IDS.ACTOR_RUNNER, "./assets/actors/runner-v1.webp", "combat-actors", {
+    version: "1.5", notes: "Painted fast infected runner."
+  }),
+  [ART_IDS.ACTOR_SPITTER]: asset(ART_IDS.ACTOR_SPITTER, "./assets/actors/spitter-v1.webp", "combat-actors", {
+    version: "1.5", notes: "Painted corrosive ranged infected."
+  }),
+  [ART_IDS.ACTOR_BRUTE]: asset(ART_IDS.ACTOR_BRUTE, "./assets/actors/brute-v1.webp", "combat-actors", {
+    version: "1.5", notes: "Painted heavy infected tank."
+  }),
+  [ART_IDS.ACTOR_SCREECHER]: asset(ART_IDS.ACTOR_SCREECHER, "./assets/actors/screecher-v1.webp", "combat-actors", {
+    version: "1.5", notes: "Painted alarm infected."
+  }),
+  [ART_IDS.ACTOR_CRAWLER]: asset(ART_IDS.ACTOR_CRAWLER, "./assets/actors/crawler-v1.webp", "combat-actors", {
+    version: "1.5", notes: "Painted low crawling infected."
+  }),
+  [ART_IDS.ACTOR_WARDEN]: asset(ART_IDS.ACTOR_WARDEN, "./assets/actors/warden-v1.webp", "combat-actors", {
+    version: "1.5", notes: "Painted elite wasteland warden."
+  }),
+  [ART_IDS.ACTOR_IRON_COLOSSUS]: asset(ART_IDS.ACTOR_IRON_COLOSSUS, "./assets/actors/iron-colossus-v1.webp", "combat-actors", {
+    version: "1.5", notes: "Painted iron colossus boss."
+  }),
+  [ART_IDS.WEAPON_SCRAP_PISTOL]: asset(ART_IDS.WEAPON_SCRAP_PISTOL, "./assets/weapons/scrap-pistol-v1.webp", "combat-weapons", {
+    version: "1.5", notes: "Painted separate starter pistol sprite."
+  }),
+  [ART_IDS.LEGACY_TITLE_KEY_ART]: asset(ART_IDS.LEGACY_TITLE_KEY_ART, "./assets/wasteland-title-keyart-v1.webp", "legacy", { active: false }),
+  [ART_IDS.LEGACY_BACKDROP_MAIN]: asset(ART_IDS.LEGACY_BACKDROP_MAIN, "./assets/ui/backdrops/menu-main-camp-v2.webp", "legacy", { active: false }),
+  [ART_IDS.LEGACY_BACKDROP_DEPLOYMENT]: asset(ART_IDS.LEGACY_BACKDROP_DEPLOYMENT, "./assets/ui/backdrops/deployment-command-bunker-v2.webp", "legacy", { active: false }),
+  [ART_IDS.LEGACY_BACKDROP_INVENTORY]: asset(ART_IDS.LEGACY_BACKDROP_INVENTORY, "./assets/ui/backdrops/inventory-armory-v2.webp", "legacy", { active: false }),
+  [ART_IDS.LEGACY_BACKDROP_SHOP]: asset(ART_IDS.LEGACY_BACKDROP_SHOP, "./assets/ui/backdrops/shop-quartermaster-v2.webp", "legacy", { active: false }),
+  [ART_IDS.LEGACY_BACKDROP_SETTINGS]: asset(ART_IDS.LEGACY_BACKDROP_SETTINGS, "./assets/ui/backdrops/settings-radio-room-v2.webp", "legacy", { active: false }),
+  [ART_IDS.LEGACY_BACKDROP_CREDITS]: asset(ART_IDS.LEGACY_BACKDROP_CREDITS, "./assets/ui/backdrops/credits-archive-v2.webp", "legacy", { active: false })
 });
-
 function validateArtCatalog(catalog) {
   if (!catalog || typeof catalog !== "object") throw new TypeError("Art asset catalog must be an object");
   for (const [key, definition] of Object.entries(catalog)) {

@@ -1,11 +1,7 @@
 "use strict";
 
 const { INPUT_DEVICES } = require("../../core/contracts");
-const { equippedDefinitionMap } = require("../../core/equipment");
-const { ART_IDS } = require("../art/asset-catalog");
-const { drawSurvivorActor } = require("../pixel-actors");
 const { focusBrackets } = require("./art-primitives");
-const { drawAssetContain } = require("./image-primitives");
 const { drawFieldButton, drawFieldPlate, drawTextScrim, inside } = require("./field-surfaces");
 const { UI_COLORS } = require("./theme");
 
@@ -61,33 +57,10 @@ function drawSelector(renderer, model, type, x, y, w, h, compact) {
   }
 }
 
-function drawFallbackCrew(renderer, model, x, y, w, h) {
-  const skin = renderer.content.get("skins", model.selectedSkin, renderer.content.defaults.skin);
-  const weapon = renderer.content.get("weapons", model.selectedWeapon, renderer.content.defaults.weapon);
-  drawSurvivorActor(renderer.ctx, {
-    x: x + w * 0.5,
-    y: y + h * 0.68,
-    unit: Math.max(1.4, Math.min(4.3, h / 80)),
-    skin,
-    skinId: model.selectedSkin,
-    heroId: model.selectedHero,
-    weapon,
-    aimX: 0.92,
-    aimY: -0.22,
-    elapsed: renderer.frame / 60,
-    portrait: true,
-    equipment: equippedDefinitionMap(model.save, renderer.content)
-  });
-}
-
 function drawCrew(renderer, model, x, y, w, h, compact) {
   renderer.text("当前车组", x + 2, y + (compact ? 12 : 20), compact ? 11 : 14, UI_COLORS.orange, "left", "900", "ui");
   renderer.trackedText("CREW 07 / READY", x + (compact ? 74 : 104), y + (compact ? 12 : 20), compact ? 9 : 11, UI_COLORS.gold, compact ? 0.5 : 1.2);
   const captionH = compact ? 52 : 98;
-  const artY = y + (compact ? 24 : 38);
-  const artH = Math.max(80, h - captionH - (compact ? 31 : 54));
-  const art = drawAssetContain(renderer, ART_IDS.DEPLOYMENT_CONVOY, x, artY, w, artH, { padding: 2, alignY: 0.62 });
-  if (!art) drawFallbackCrew(renderer, model, x, artY, w, artH);
 
   const hero = renderer.content.get("heroes", model.selectedHero, renderer.content.defaults.hero);
   const weapon = renderer.content.get("weapons", model.selectedWeapon, renderer.content.defaults.weapon);
