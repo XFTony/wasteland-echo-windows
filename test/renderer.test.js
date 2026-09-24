@@ -5,6 +5,8 @@ const assert = require("node:assert/strict");
 const { SaveManager } = require("../src/core/save");
 const { GameModel } = require("../src/core/game-model");
 const { CanvasRenderer } = require("../src/render/canvas-renderer");
+const { ArtStore } = require("../src/render/art/art-store");
+const { ART_IDS } = require("../src/render/art/asset-catalog");
 const { FX_METHODS } = require("../src/render/fx-system");
 const { HUD_METHODS } = require("../src/render/hud-view");
 const { GAME_VERSION } = require("../src/version");
@@ -18,6 +20,8 @@ function createMockCanvas() {
     fillRect: (...args) => calls.push(["fillRect", ...args]),
     strokeRect: (...args) => calls.push(["strokeRect", ...args]),
     beginPath: () => calls.push(["beginPath"]),
+    rect: (...args) => calls.push(["rect", ...args]),
+    clip: () => calls.push(["clip"]),
     closePath: () => calls.push(["closePath"]),
     moveTo: (...args) => calls.push(["moveTo", ...args]),
     lineTo: (...args) => calls.push(["lineTo", ...args]),
@@ -29,6 +33,7 @@ function createMockCanvas() {
     restore: () => calls.push(["restore"]),
     translate: (...args) => calls.push(["translate", ...args]),
     rotate: (...args) => calls.push(["rotate", ...args]),
+    scale: (...args) => calls.push(["scale", ...args]),
     drawImage: (...args) => calls.push(["drawImage", ...args]),
     fillText: (...args) => calls.push(["fillText", ...args]),
     createLinearGradient: () => gradient,
@@ -535,6 +540,38 @@ test("combat HUD scales with the viewport and preserves the pause hit target", (
   for (const key of ["x", "y", "w", "h"]) assert.ok(Math.abs(scaled[key] - base[key] * 2) < 2, `${key} should scale with the viewport`);
   assert.equal(renderer.hitTest(scaled.x + scaled.w / 2, scaled.y + scaled.h / 2), "pause");
   assert.deepEqual([renderer.visibleWorldWidth, renderer.visibleWorldHeight], [1280, 720]);
+});
+
+test("switching maps and returning to menu releases unused decoded art", () => {
+  class LoadedImage {
+    constructor() {
+      this.complete = true;
+      this.naturalWidth = 1200;
+      this.naturalHeight = 900;
+      this.src = "";
+    }
+  }
+  const { canvas } = createMockCanvas();
+  const store = new ArtStore({ ImageCtor: LoadedImage });
+  const renderer = new CanvasRenderer(canvas, { artStore: store });
+  const model = createModel();
+  renderer.resize(1280, 720, 1);
+  renderer.render(model);
+  assert.ok(store.get(ART_IDS.BACKDROP_MAIN));
+  model.startRun({ seed: 31, mapId: "freight_nexus", tutorial: false });
+  renderer.render(model);
+  assert.equal(store.get(ART_IDS.BACKDROP_MAIN), null);
+  assert.ok(store.get(ART_IDS.GROUND_FREIGHT));
+  model.startRun({ seed: 32, mapId: "red_basin", tutorial: false });
+  renderer.render(model);
+  assert.equal(store.get(ART_IDS.GROUND_FREIGHT), null);
+  assert.ok(store.get(ART_IDS.GROUND_RED_BASIN));
+  assert.ok(store.get(ART_IDS.GROUND));
+  model.goToMenu();
+  renderer.render(model);
+  assert.equal(store.get(ART_IDS.GROUND_RED_BASIN), null);
+  assert.equal(store.get(ART_IDS.ACTOR_DRIFTER), null);
+  assert.ok(store.get(ART_IDS.BACKDROP_MAIN));
 });
 
 test("world framing stays fixed across desktop resolutions", () => {

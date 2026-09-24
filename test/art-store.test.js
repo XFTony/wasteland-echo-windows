@@ -85,6 +85,16 @@ test("art store releases inactive menu backgrounds while retaining the current p
   assert.ok(store.get(ART_IDS.BACKDROP_INVENTORY));
 });
 
+test("world group release can retain the fallback and current map texture", () => {
+  const store = new ArtStore({ ImageCtor: FakeImage });
+  for (const id of [ART_IDS.GROUND, ART_IDS.GROUND_ECHO, ART_IDS.GROUND_FREIGHT, ART_IDS.GROUND_RED_BASIN]) store.request(id);
+  assert.equal(store.releaseGroup("world", [ART_IDS.GROUND, ART_IDS.GROUND_ECHO]), 2);
+  assert.ok(store.get(ART_IDS.GROUND));
+  assert.ok(store.get(ART_IDS.GROUND_ECHO));
+  assert.equal(store.get(ART_IDS.GROUND_FREIGHT), null);
+  assert.equal(store.get(ART_IDS.GROUND_RED_BASIN), null);
+});
+
 test("image primitives contain complete art and preserve nine-slice corners", () => {
   const store = new ArtStore({ ImageCtor: FakeImage });
   const renderer = rendererWith(store);

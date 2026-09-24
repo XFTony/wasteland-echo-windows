@@ -82,6 +82,7 @@ class CanvasRenderer {
     this.coverArt = this.artStore.get(ART_IDS.TITLE_KEY_ART);
     this.portraitLook = { x: 0, y: 0 };
     this.activeMenuBackdrop = null;
+    this.activeGroundId = null;
     this.uiScale = 1;
   }
 
@@ -199,6 +200,24 @@ class CanvasRenderer {
     this.uiScale = model.save && model.save.settings ? Number(model.save.settings.uiScale) || 1 : 1;
     this.flashSetting = model.save && model.save.settings ? model.save.settings.flashes : "low";
     if (model.screen !== this.lastScreen) {
+      if (this.lastScreen === "menu" && model.screen !== "menu") {
+        if (typeof this.artStore.releaseGroup === "function") {
+          this.artStore.releaseGroup("menu-backdrop");
+          this.artStore.releaseGroup("outfit-icons");
+          this.artStore.releaseGroup("equipment-icons");
+        }
+        this.activeMenuBackdrop = null;
+      }
+      if (model.screen === "menu") {
+        if (typeof this.artStore.releaseGroup === "function") {
+          this.artStore.releaseGroup("world", ART_IDS.GROUND);
+          this.artStore.releaseGroup("combat-actors");
+          this.artStore.releaseGroup("combat-weapons");
+        }
+        this.activeGroundId = null;
+        this.paintedGround = false;
+        this.groundTexture = this.artStore.get(ART_IDS.GROUND);
+      }
       this.lastScreen = model.screen;
       this.screenEnteredFrame = this.frame;
     }
@@ -437,6 +456,10 @@ class CanvasRenderer {
       red_basin: ART_IDS.GROUND_RED_BASIN
     }[run.mapId];
     this.paintedGround = Boolean(mapGroundId && this.artStore.ready(mapGroundId));
+    if (this.paintedGround && this.activeGroundId !== mapGroundId) {
+      if (typeof this.artStore.releaseGroup === "function") this.artStore.releaseGroup("world", [ART_IDS.GROUND, mapGroundId]);
+      this.activeGroundId = mapGroundId;
+    }
     this.groundTexture = this.paintedGround
       ? this.artStore.get(mapGroundId)
       : this.artStore.get(ART_IDS.GROUND);
