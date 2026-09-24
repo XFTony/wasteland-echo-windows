@@ -177,11 +177,12 @@ class CanvasRenderer {
       region = { action: "", x: 0, y: 0, w: 0, h: 0 };
       this.regionPool.push(region);
     }
+    const scale = this.interfaceLayoutScale || 1;
     region.action = action;
-    region.x = x;
-    region.y = y;
-    region.w = w;
-    region.h = h;
+    region.x = x * scale;
+    region.y = y * scale;
+    region.w = w * scale;
+    region.h = h * scale;
     this.regionCount += 1;
     this.regions.push(region);
   }
@@ -210,19 +211,14 @@ class CanvasRenderer {
     if (model.run) {
       this.mapLayout = this.resolveMapLayout(model.run.mapId);
       this.drawWorld(model);
-      this.drawHud(model);
-      if (model.screen === "running") {
-        this.drawTutorial(model);
-        if (model.save.settings.showControlHints) this.drawDesktopControlHint();
-      }
-      if (model.save.settings.showFps) this.drawDiagnostics(model);
-      this.drawScreenEffects();
+      this.drawScaledInterface(model, "hud");
+      this.drawScreenEffects(model);
     } else {
       this.drawMenuBackdrop(model.menuPage || "main");
     }
 
     if (model.screen === "menu") {
-      drawMenuPage(this, model);
+      this.drawScaledInterface(model, "menu");
     } else if (model.screen === "levelup") {
       drawUpgradeDraft(this, model);
     } else if (model.screen === "paused") {
@@ -233,6 +229,49 @@ class CanvasRenderer {
 
     this.drawSaveStatus(model);
     if (this.width < 800 || this.height < 450 || this.width / this.height < 1.15) this.drawWindowNotice();
+  }
+
+  drawInterfaceLayer(model, kind) {
+    if (kind === "menu") {
+      drawMenuPage(this, model);
+      return;
+    }
+    this.drawHud(model);
+    if (model.screen === "running") {
+      this.drawTutorial(model);
+      if (model.save.settings.showControlHints) this.drawDesktopControlHint();
+    }
+    if (model.save.settings.showFps) this.drawDiagnostics(model);
+  }
+
+  drawScaledInterface(model, kind) {
+    const scale = clamp(Math.min(this.width / 1280, this.height / 720), 1, 2);
+    if (scale === 1) {
+      this.drawInterfaceLayer(model, kind);
+      return;
+    }
+    const physicalWidth = this.width;
+    const physicalHeight = this.height;
+    const physicalPointer = this.pointerState;
+    const logicalPointer = this.interfacePointer || (this.interfacePointer = { x: 0, y: 0, down: false });
+    logicalPointer.x = physicalPointer.x / scale;
+    logicalPointer.y = physicalPointer.y / scale;
+    logicalPointer.down = physicalPointer.down;
+    this.ctx.save();
+    this.ctx.setTransform(this.dpr * scale, 0, 0, this.dpr * scale, 0, 0);
+    this.width = physicalWidth / scale;
+    this.height = physicalHeight / scale;
+    this.pointerState = logicalPointer;
+    this.interfaceLayoutScale = scale;
+    try {
+      this.drawInterfaceLayer(model, kind);
+    } finally {
+      this.interfaceLayoutScale = 1;
+      this.pointerState = physicalPointer;
+      this.width = physicalWidth;
+      this.height = physicalHeight;
+      this.ctx.restore();
+    }
   }
 
   drawSaveStatus(model) {
@@ -520,7 +559,7 @@ class CanvasRenderer {
     ctx.fillRect(0, 0, this.width, this.height);
   }
 
-  drawScreenEffects() {
+  drawScreenEffects(model) {
     const ctx = this.ctx;
     if (this.damageVignette > 0) {
       const alpha = this.damageVignette * 0.26;
@@ -534,13 +573,15 @@ class CanvasRenderer {
       const progress = this.banner.life / this.banner.maxLife;
       const alpha = clamp(Math.min((1 - progress) * 5, progress * 3), 0, 1);
       ctx.globalAlpha = alpha;
-      const width = Math.min(480, this.width - 40);
-      const y = 78;
-      this.panel(this.width / 2 - width / 2, y, width, 58, {
+      const interfaceScale = clamp(Math.min(this.width / 1280, this.height / 720), 1, 2);
+      const bossActive = Boolean(model && model.enemies && model.enemies.some((enemy) => enemy.active && enemy.boss));
+      const width = Math.min(480 * interfaceScale, this.width - 40);
+      const y = (bossActive ? 132 : 78) * interfaceScale;
+      this.panel(this.width / 2 - width / 2, y, width, 58 * interfaceScale, {
         fill: "rgba(26,23,20,0.92)", stroke: this.banner.color, radius: 4, lineWidth: 2
       });
-      this.text(this.banner.text, this.width / 2, y + 20, 17, this.banner.color, "center", "bold");
-      this.text(this.banner.detail, this.width / 2, y + 42, 11, PALETTE.cream, "center");
+      this.text(this.banner.text, this.width / 2, y + 20 * interfaceScale, 17 * interfaceScale, this.banner.color, "center", "bold");
+      this.text(this.banner.detail, this.width / 2, y + 42 * interfaceScale, 11 * interfaceScale, PALETTE.cream, "center");
       ctx.globalAlpha = 1;
     }
     if (this.upgradeFlash > 0) {
@@ -571,11 +612,13 @@ class CanvasRenderer {
     const unit = size / 48;
     ctx.save();
     ctx.translate(x, y);
-    ctx.fillStyle = `${color}22`;
-    ctx.fillRect(-radius, -radius, size, size);
+    ctx.beginPath();
+    ctx.arc(0, 0, radius * 0.9, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(20,21,18,0.88)";
+    ctx.fill();
     ctx.strokeStyle = color;
-    ctx.lineWidth = Math.max(2, 3 * unit);
-    ctx.strokeRect(-radius + 5 * unit, -radius + 5 * unit, size - 10 * unit, size - 10 * unit);
+    ctx.lineWidth = Math.max(1.5, 1.6 * unit);
+    ctx.stroke();
     ctx.fillStyle = color;
     if (id === "kineticLoop") {
       ctx.beginPath();

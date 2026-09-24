@@ -49,6 +49,33 @@ try {
     await page.waitForTimeout(350);
     await page.screenshot({ path: path.join(output, file) });
   }
+  for (const [width, height] of [[960, 540], [1920, 1080], [2560, 1440]]) {
+    await page.setViewportSize({ width, height });
+    for (const [menu, label, backdropId] of [
+      ["main", "main", "menu.backdrop.main.v3"],
+      ["loadout", "deployment", "menu.backdrop.deployment.v3"],
+      ["inventory", "inventory", "menu.backdrop.inventory.v3"],
+      ["shop", "shop", "menu.backdrop.shop.v3"],
+      ["settings", "settings", "menu.backdrop.settings.v3"],
+      ["credits", "credits", "menu.backdrop.credits.v3"]
+    ]) {
+      await page.evaluate((name) => window.__WASTELAND_GAME__.model.setMenuPage(name), menu);
+      await page.waitForFunction((id) => window.__WASTELAND_GAME__?.renderer?.artStore?.ready(id), backdropId);
+      await page.screenshot({ path: path.join(output, `${label}-${width}x${height}.png`) });
+    }
+  }
+  await page.evaluate(() => window.__WASTELAND_GAME__.model.setMenuPage("main"));
+  await page.waitForTimeout(100);
+  for (const [action, expectedPage] of [["start", "loadout"], ["inventory", "inventory"]]) {
+    const region = await page.evaluate((action) => {
+      const hit = window.__WASTELAND_GAME__.renderer.regions.find((entry) => entry.action === action);
+      return hit ? { x: hit.x + hit.w / 2, y: hit.y + hit.h / 2 } : null;
+    }, action);
+    if (!region) throw new Error(`Missing ${action} region at 1440p`);
+    await page.mouse.click(region.x, region.y);
+    await page.waitForFunction((expectedPage) => window.__WASTELAND_GAME__?.model?.menuPage === expectedPage, expectedPage);
+  }
+  await page.setViewportSize({ width: 1280, height: 720 });
   await page.evaluate(() => {
     const game = window.__WASTELAND_GAME__;
     game.model.setMenuPage("shop");
@@ -79,6 +106,12 @@ try {
   await page.setViewportSize({ width: 1920, height: 1080 });
   await page.waitForTimeout(200);
   await page.screenshot({ path: path.join(output, "echo-combat-1920x1080.png") });
+  for (const [width, height] of [[960, 540], [2560, 1440]]) {
+    await page.setViewportSize({ width, height });
+    await page.screenshot({ path: path.join(output, `echo-combat-${width}x${height}.png`) });
+  }
+  await page.setViewportSize({ width: 1920, height: 1080 });
+  await page.waitForFunction(() => Math.abs((window.__WASTELAND_GAME__?.renderer?.camera?.zoom || 0) - 1.5) < 0.01);
   const metrics = await page.evaluate(() => ({
     zoom: window.__WASTELAND_GAME__.renderer.camera.zoom,
     visibleWidth: window.__WASTELAND_GAME__.renderer.visibleWorldWidth,
@@ -112,7 +145,56 @@ try {
       return store?.ready(groundId) && store?.ready(actorId);
     }, { groundId, actorId });
     await page.screenshot({ path: path.join(output, file) });
+    for (const [width, height] of [[960, 540], [1920, 1080], [2560, 1440]]) {
+      await page.setViewportSize({ width, height });
+      await page.screenshot({ path: path.join(output, file.replace("1280x720", `${width}x${height}`)) });
+    }
+    await page.setViewportSize({ width: 1280, height: 720 });
   }
+  await page.evaluate(() => {
+    const game = window.__WASTELAND_GAME__;
+    game.model.startRun({ seed: 20260924, duration: 180, mapId: "echo_district", heroId: "ranger", weaponId: "scrap_pistol", tutorial: false });
+    game.model.run.player.xp = game.model.run.player.xpNext;
+    game.model.checkLevelUp();
+  });
+  await page.waitForTimeout(650);
+  await page.screenshot({ path: path.join(output, "upgrade-1280x720.png") });
+  for (const [width, height] of [[960, 540], [2560, 1440]]) {
+    await page.setViewportSize({ width, height });
+    await page.waitForTimeout(100);
+    await page.screenshot({ path: path.join(output, `upgrade-${width}x${height}.png`) });
+  }
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.evaluate(() => {
+    const game = window.__WASTELAND_GAME__;
+    game.model.startRun({ seed: 20260924, duration: 180, mapId: "echo_district", tutorial: false });
+    game.model.togglePause();
+  });
+  for (const [width, height] of [[1280, 720], [960, 540]]) {
+    await page.setViewportSize({ width, height });
+    await page.screenshot({ path: path.join(output, `pause-${width}x${height}.png`) });
+  }
+  for (const result of ["win", "lose"]) {
+    await page.evaluate((result) => {
+      const game = window.__WASTELAND_GAME__;
+      game.model.startRun({ seed: result === "win" ? 20260925 : 20260926, duration: 180, mapId: "echo_district", tutorial: false });
+      const run = game.model.run;
+      run.kills = result === "win" ? 25 : 12;
+      run.eliteKills = result === "win" ? 2 : 1;
+      run.damageDealt = result === "win" ? 2100 : 650;
+      run.elapsed = result === "win" ? 180 : 84;
+      run.projectilesFired = 100;
+      run.hits = result === "win" ? 48 : 28;
+      run.maxNoHitTime = result === "win" ? 43 : 25;
+      run.scrap = result === "win" ? 12 : 4;
+      game.model.finishRun(result);
+    }, result);
+    for (const [width, height] of [[1280, 720], [960, 540]]) {
+      await page.setViewportSize({ width, height });
+      await page.screenshot({ path: path.join(output, `result-${result}-${width}x${height}.png`) });
+    }
+  }
+  await page.setViewportSize({ width: 1280, height: 720 });
   for (const [weaponId, artId] of [
     ["scrap_pistol", "weapon.scrap-pistol.v1"],
     ["swarm_smg", "weapon.swarm-smg.v1"],
@@ -129,7 +211,7 @@ try {
     await page.waitForFunction((artId) => window.__WASTELAND_GAME__?.renderer?.artStore?.ready(artId), artId);
     await page.screenshot({ path: path.join(output, `weapon-${weaponId}-detail.png`), clip: { x: 540, y: 260, width: 200, height: 200 } });
   }
-  console.log(JSON.stringify({ output, screenshots: 20, errors, metrics }));
+  console.log(JSON.stringify({ output, screenshots: 55, errors, metrics }));
   if (errors.length) process.exitCode = 1;
 } finally {
   if (browser) await browser.close();

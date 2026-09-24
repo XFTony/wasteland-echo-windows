@@ -503,6 +503,40 @@ test("Windows 720p and 1080p layouts keep every desktop action inside the viewpo
     }
   }
 });
+test("menu art scales with desktop resolution while hit regions stay in physical coordinates", () => {
+  const { canvas } = createMockCanvas();
+  const renderer = new CanvasRenderer(canvas);
+  const model = createModel();
+  renderer.resize(1280, 720, 1);
+  renderer.render(model);
+  const base = { ...renderer.regions.find((region) => region.action === "start") };
+  renderer.resize(2560, 1440, 1);
+  renderer.render(model);
+  const scaled = renderer.regions.find((region) => region.action === "start");
+  assert.ok(scaled);
+  for (const key of ["x", "y", "w", "h"]) assert.ok(Math.abs(scaled[key] - base[key] * 2) < 2, `${key} should scale with the viewport`);
+  assert.equal(renderer.hitTest(scaled.x + scaled.w / 2, scaled.y + scaled.h / 2), "start");
+  assert.equal(renderer.width, 2560);
+  assert.equal(renderer.height, 1440);
+});
+
+test("combat HUD scales with the viewport and preserves the pause hit target", () => {
+  const { canvas } = createMockCanvas();
+  const renderer = new CanvasRenderer(canvas);
+  const model = createModel();
+  model.startRun({ seed: 20260924, tutorial: false });
+  renderer.resize(1280, 720, 1);
+  renderer.render(model);
+  const base = { ...renderer.regions.find((region) => region.action === "pause") };
+  renderer.resize(2560, 1440, 1);
+  renderer.render(model);
+  const scaled = renderer.regions.find((region) => region.action === "pause");
+  assert.ok(scaled);
+  for (const key of ["x", "y", "w", "h"]) assert.ok(Math.abs(scaled[key] - base[key] * 2) < 2, `${key} should scale with the viewport`);
+  assert.equal(renderer.hitTest(scaled.x + scaled.w / 2, scaled.y + scaled.h / 2), "pause");
+  assert.deepEqual([renderer.visibleWorldWidth, renderer.visibleWorldHeight], [1280, 720]);
+});
+
 test("world framing stays fixed across desktop resolutions", () => {
   const { canvas, calls } = createMockCanvas();
   const renderer = new CanvasRenderer(canvas);
