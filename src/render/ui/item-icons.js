@@ -29,6 +29,7 @@ function drawPaintedItemIcon(renderer, artId, x, y, size) {
   const height = image.naturalHeight * scale;
   renderer.ctx.save();
   renderer.ctx.imageSmoothingEnabled = true;
+  if (artId === ART_IDS.OUTFIT_NIGHTWATCH) renderer.ctx.filter = "brightness(1.3)";
   renderer.ctx.drawImage(image, x - width / 2, y - height / 2, width, height);
   renderer.ctx.restore();
   return true;

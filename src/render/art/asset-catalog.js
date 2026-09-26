@@ -16,6 +16,7 @@ const ART_IDS = Object.freeze({
   DEPLOYMENT_CONVOY: "deployment.convoy.v1",
   ACTOR_RANGER: "actor.ranger.base.v1",
   ACTOR_RANGER_MECHANIC: "actor.ranger.mechanic.v1",
+  ACTOR_RANGER_NIGHTWATCH: "actor.ranger.nightwatch.v2",
   ACTOR_RANGER_PORTRAIT: "actor.ranger.portrait.v1",
   ACTOR_DRIFTER: "actor.drifter.v1",
   ACTOR_MECHANIC: "actor.mechanic.base.v1",
@@ -53,6 +54,12 @@ const ART_IDS = Object.freeze({
   LEGACY_BACKDROP_SETTINGS: "menu.backdrop.settings.v2",
   LEGACY_BACKDROP_CREDITS: "menu.backdrop.credits.v2"
 });
+const MAP_GROUND_ART = Object.freeze({
+  echo_district: ART_IDS.GROUND_ECHO,
+  freight_nexus: ART_IDS.GROUND_FREIGHT,
+  red_basin: ART_IDS.GROUND_RED_BASIN
+});
+
 function asset(id, src, group, options = {}) {
   return Object.freeze({
     id,
@@ -112,6 +119,9 @@ const ART_ASSETS = Object.freeze({
   }),
   [ART_IDS.ACTOR_RANGER]: asset(ART_IDS.ACTOR_RANGER, "./assets/actors/ranger-base-v1.webp", "combat-actors", {
     version: "1.5", notes: "Painted survivor base body without a weapon."
+  }),
+  [ART_IDS.ACTOR_RANGER_NIGHTWATCH]: asset(ART_IDS.ACTOR_RANGER_NIGHTWATCH, "./assets/actors/ranger-nightwatch-v2.webp", "combat-actors", {
+    version: "1.5", notes: "Painted ranger in the legible nightwatch outfit; v1 source archived as too dark."
   }),
   [ART_IDS.ACTOR_RANGER_MECHANIC]: asset(ART_IDS.ACTOR_RANGER_MECHANIC, "./assets/actors/ranger-mechanic-v1.webp", "combat-actors", {
     version: "1.5", notes: "Painted ranger wearing signal mechanic outfit; internal combination sample."
@@ -230,4 +240,4 @@ function validateArtCatalog(catalog) {
 
 validateArtCatalog(ART_ASSETS);
 
-module.exports = { ART_IDS, ART_ASSETS, validateArtCatalog };
+module.exports = { ART_IDS, MAP_GROUND_ART, ART_ASSETS, validateArtCatalog };

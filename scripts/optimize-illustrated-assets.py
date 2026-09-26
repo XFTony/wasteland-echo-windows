@@ -21,6 +21,7 @@ CUTOUTS = (
     ("ranger-armed-portrait-v1-source.png", "web/assets/actors/ranger-armed-portrait-v1.webp"),
     ("ranger-base-v1-source.png", "web/assets/actors/ranger-base-v1.webp"),
     ("ranger-mechanic-v1-source.png", "web/assets/actors/ranger-mechanic-v1.webp"),
+    ("ranger-nightwatch-v2-source.png", "web/assets/actors/ranger-nightwatch-v2.webp"),
     ("drifter-v1-source.png", "web/assets/actors/drifter-v1.webp"),
     ("mechanic-base-v1-source.png", "web/assets/actors/mechanic-base-v1.webp"),
     ("bulwark-base-v1-source.png", "web/assets/actors/bulwark-base-v1.webp"),

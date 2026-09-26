@@ -4,7 +4,7 @@ const { PALETTE } = require("../config");
 const { clamp } = require("../core/math");
 const { INPUT_DEVICES } = require("../core/contracts");
 const { DEFAULT_CONTENT } = require("../core/content-registry");
-const { ART_IDS } = require("./art/asset-catalog");
+const { ART_IDS, MAP_GROUND_ART } = require("./art/asset-catalog");
 const { createDefaultArtStore } = require("./art/art-store");
 const { DEFAULT_WORLD } = require("../world/world-registry");
 const { UI_COLORS, MATERIALS } = require("./ui/theme");
@@ -450,11 +450,7 @@ class CanvasRenderer {
     const ctx = this.ctx;
     const run = model.run;
     const player = run.player;
-    const mapGroundId = {
-      echo_district: ART_IDS.GROUND_ECHO,
-      freight_nexus: ART_IDS.GROUND_FREIGHT,
-      red_basin: ART_IDS.GROUND_RED_BASIN
-    }[run.mapId];
+    const mapGroundId = MAP_GROUND_ART[run.mapId];
     this.paintedGround = Boolean(mapGroundId && this.artStore.ready(mapGroundId));
     if (this.paintedGround && this.activeGroundId !== mapGroundId) {
       if (typeof this.artStore.releaseGroup === "function") this.artStore.releaseGroup("world", [ART_IDS.GROUND, mapGroundId]);

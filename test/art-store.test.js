@@ -5,10 +5,10 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 const crypto = require("node:crypto");
-const { ART_IDS, ART_ASSETS, validateArtCatalog } = require("../src/render/art/asset-catalog");
+const { ART_IDS, MAP_GROUND_ART, ART_ASSETS, validateArtCatalog } = require("../src/render/art/asset-catalog");
 const { ArtStore } = require("../src/render/art/art-store");
 const { HERO_SKIN_ART, ENEMY_ART, WEAPON_ART, drawIllustratedSurvivor } = require("../src/render/illustrated-actors");
-const { HEROES, ENEMIES, WEAPONS, SKINS, EQUIPMENT } = require("../src/config");
+const { HEROES, ENEMIES, WEAPONS, SKINS, EQUIPMENT, MAPS } = require("../src/config");
 const { drawAssetContain, drawNineSlice } = require("../src/render/ui/image-primitives");
 const { SKIN_ART, EQUIPMENT_ART } = require("../src/render/ui/item-icons");
 
@@ -61,14 +61,16 @@ test("every base hero, enemy, weapon, outfit and equipment resolves to registere
   assert.deepEqual(Object.keys(WEAPON_ART).sort(), Object.keys(WEAPONS).sort());
   assert.deepEqual(Object.keys(SKIN_ART).sort(), Object.keys(SKINS).sort());
   assert.deepEqual(Object.keys(EQUIPMENT_ART).sort(), Object.keys(EQUIPMENT).sort());
-  for (const id of [...Object.values(HERO_SKIN_ART).map((skins) => skins.wanderer), ...Object.values(ENEMY_ART), ...Object.values(WEAPON_ART), ...Object.values(SKIN_ART), ...Object.values(EQUIPMENT_ART)]) {
+  assert.deepEqual(Object.keys(MAP_GROUND_ART).sort(), Object.keys(MAPS).sort());
+  for (const id of [...Object.values(HERO_SKIN_ART).map((skins) => skins.wanderer), ...Object.values(ENEMY_ART), ...Object.values(WEAPON_ART), ...Object.values(SKIN_ART), ...Object.values(EQUIPMENT_ART), ...Object.values(MAP_GROUND_ART)]) {
     assert.equal(ART_ASSETS[id].active, true, `${id} must be active`);
     assert.ok(fs.existsSync(path.join(root, "web", ART_ASSETS[id].src.slice(2))), `${id} runtime sprite must exist`);
   }
 });
 
-test("ranger mechanic outfit renders as painted body with an independent weapon", () => {
+test("ranger outfit variants render painted bodies with independent weapons", () => {
   assert.equal(HERO_SKIN_ART.ranger.mechanic, ART_IDS.ACTOR_RANGER_MECHANIC);
+  assert.equal(HERO_SKIN_ART.ranger.nightwatch, ART_IDS.ACTOR_RANGER_NIGHTWATCH);
   const store = new ArtStore({ ImageCtor: FakeImage });
   const calls = [];
   const ctx = {
@@ -81,7 +83,8 @@ test("ranger mechanic outfit renders as painted body with an independent weapon"
   const run = { elapsed: 0, input: { moveX: 0, moveY: 0 } };
   const player = { heroId: "ranger", skinId: "mechanic", weaponId: "scrap_pistol", x: 100, y: 100, lastAimX: 1, lastAimY: 0 };
   assert.equal(drawIllustratedSurvivor(renderer, player, run, false), true);
-  assert.equal(calls.length, 2, "body and separate weapon must both draw");
+  assert.equal(drawIllustratedSurvivor(renderer, { ...player, skinId: "nightwatch" }, run, false), true);
+  assert.equal(calls.length, 4, "each painted body and separate weapon must both draw");
   assert.equal(drawIllustratedSurvivor(renderer, { ...player, heroId: "bulwark" }, run, false), false);
 });
 

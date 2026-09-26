@@ -1,0 +1,44 @@
+{
+  "styleVersion": "1.5",
+  "heroOutfits": {
+    "covered": 5,
+    "total": 9,
+    "missing": [
+      "mechanic/mechanic",
+      "mechanic/nightwatch",
+      "bulwark/mechanic",
+      "bulwark/nightwatch"
+    ]
+  },
+  "enemies": {
+    "covered": 8,
+    "total": 8,
+    "missing": []
+  },
+  "weapons": {
+    "covered": 7,
+    "total": 7,
+    "missing": []
+  },
+  "outfitIcons": {
+    "covered": 3,
+    "total": 3,
+    "missing": []
+  },
+  "equipmentIcons": {
+    "covered": 8,
+    "total": 8,
+    "missing": []
+  },
+  "mapGrounds": {
+    "covered": 3,
+    "total": 3,
+    "missing": []
+  },
+  "remainingVisualSystems": {
+    "wornEquipment": "dedicated character layers pending",
+    "mapObjects": "programmatic geometry pending illustrated props",
+    "upgradeIcons": "26 code-drawn symbols pending visual unification",
+    "actorMotion": "static body cutouts with procedural bob pending action states"
+  }
+}

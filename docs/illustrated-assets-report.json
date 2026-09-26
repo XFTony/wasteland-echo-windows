@@ -182,6 +182,24 @@
       "sha256": "9DACF0CE45F604D857A55099ECEC39E3D416640D8FAB92191DB67D10CCC2F037"
     },
     {
+      "source": "art/generated/v1.5/source/ranger-nightwatch-v2-source.png",
+      "runtime": "web/assets/actors/ranger-nightwatch-v2.webp",
+      "kind": "cutout",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "crop": [
+        42,
+        49,
+        997,
+        1517
+      ],
+      "width": 333,
+      "height": 512,
+      "sourceBytes": 2049955,
+      "runtimeBytes": 133106,
+      "sha256": "7006D20CA506D67F61845DEBAADDE34C5318CFED2604D4967BCE1987E9E1C59F"
+    },
+    {
       "source": "art/generated/v1.5/source/drifter-v1-source.png",
       "runtime": "web/assets/actors/drifter-v1.webp",
       "kind": "cutout",
@@ -740,5 +758,5 @@
       "sha256": "8EC0EC4F73191C8E2112C1656672E1ED31025D23D74D8DB0954AA6046F3847AA"
     }
   ],
-  "runtimeBytes": 5910172
+  "runtimeBytes": 6043278
 }

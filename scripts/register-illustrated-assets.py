@@ -20,6 +20,7 @@ IDS = {
     "ranger-armed-portrait-v1.webp": "actor.ranger.portrait.v1",
     "ranger-base-v1.webp": "actor.ranger.base.v1",
     "ranger-mechanic-v1.webp": "actor.ranger.mechanic.v1",
+    "ranger-nightwatch-v2.webp": "actor.ranger.nightwatch.v2",
     "drifter-v1.webp": "actor.drifter.v1",
     "mechanic-base-v1.webp": "actor.mechanic.base.v1",
     "bulwark-base-v1.webp": "actor.bulwark.base.v1",
@@ -92,12 +93,15 @@ def main() -> None:
             "generator": "OpenAI ImageGen",
             "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending.",
         }
+        if asset_id == "actor.ranger.nightwatch.v2":
+            record["sourcePaths"] = ["art/generated/v1.5/source/ranger-nightwatch-v1-source.png"]
+            record["notes"] += " First source variant archived but rejected because the 76px silhouette was too dark."
         if asset_id in known:
             known[asset_id].update(record)
         else:
             manifest["assets"].append(record)
             known[asset_id] = record
-    manifest["updatedAt"] = "2026-09-24"
+    manifest["updatedAt"] = "2026-09-26"
     MANIFEST.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     with LEDGER.open(newline="", encoding="utf-8") as handle:
@@ -116,7 +120,7 @@ def main() -> None:
             "source_url": "",
             "creator": "OpenAI ImageGen",
             "license": "Generated project asset; verify applicable service terms before commercial release",
-            "download_date": "2026-09-24",
+            "download_date": "2026-09-26",
             "modified": "true" if item["kind"] == "cutout" else "false",
             "attribution_text": "Generated for Wasteland Echo; source and runtime transformation recorded",
             "commercial_ok": "review-required",

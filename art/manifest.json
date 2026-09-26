@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-09-24",
+  "updatedAt": "2026-09-26",
   "policy": {
     "deleteInactiveAssets": false,
     "runtimeCatalog": "src/render/art/asset-catalog.js",
@@ -858,6 +858,23 @@
       "sha256": "9DACF0CE45F604D857A55099ECEC39E3D416640D8FAB92191DB67D10CCC2F037",
       "generator": "OpenAI ImageGen",
       "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "actor.ranger.nightwatch.v2",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/actors/ranger-nightwatch-v2.webp",
+      "archivePath": "art/generated/v1.5/source/ranger-nightwatch-v2-source.png",
+      "width": 333,
+      "height": 512,
+      "pixelFormat": "RGBA",
+      "bytes": 133106,
+      "sha256": "7006D20CA506D67F61845DEBAADDE34C5318CFED2604D4967BCE1987E9E1C59F",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending. First source variant archived but rejected because the 76px silhouette was too dark.",
+      "sourcePaths": [
+        "art/generated/v1.5/source/ranger-nightwatch-v1-source.png"
+      ]
     }
   ]
 }
