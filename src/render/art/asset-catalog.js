@@ -20,6 +20,7 @@ const ART_IDS = Object.freeze({
   ACTOR_RANGER_PORTRAIT: "actor.ranger.portrait.v1",
   ACTOR_DRIFTER: "actor.drifter.v1",
   ACTOR_MECHANIC: "actor.mechanic.base.v1",
+  ACTOR_MECHANIC_MECHANIC: "actor.mechanic.mechanic.v2",
   ACTOR_BULWARK: "actor.bulwark.base.v1",
   ACTOR_RUNNER: "actor.runner.v1",
   ACTOR_SPITTER: "actor.spitter.v1",
@@ -134,6 +135,9 @@ const ART_ASSETS = Object.freeze({
   }),
   [ART_IDS.ACTOR_MECHANIC]: asset(ART_IDS.ACTOR_MECHANIC, "./assets/actors/mechanic-base-v1.webp", "combat-actors", {
     version: "1.5", notes: "Painted salvage specialist hero body."
+  }),
+  [ART_IDS.ACTOR_MECHANIC_MECHANIC]: asset(ART_IDS.ACTOR_MECHANIC_MECHANIC, "./assets/actors/mechanic-mechanic-v2.webp", "combat-actors", {
+    version: "1.5", notes: "Painted mechanic hero in distinct signal-repair outfit; v1 archived as too similar to default."
   }),
   [ART_IDS.ACTOR_BULWARK]: asset(ART_IDS.ACTOR_BULWARK, "./assets/actors/bulwark-base-v1.webp", "combat-actors", {
     version: "1.5", notes: "Painted armored defender hero body."

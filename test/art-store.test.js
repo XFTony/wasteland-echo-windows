@@ -68,9 +68,10 @@ test("every base hero, enemy, weapon, outfit and equipment resolves to registere
   }
 });
 
-test("ranger outfit variants render painted bodies with independent weapons", () => {
+test("painted hero outfit variants retain independent weapons", () => {
   assert.equal(HERO_SKIN_ART.ranger.mechanic, ART_IDS.ACTOR_RANGER_MECHANIC);
   assert.equal(HERO_SKIN_ART.ranger.nightwatch, ART_IDS.ACTOR_RANGER_NIGHTWATCH);
+  assert.equal(HERO_SKIN_ART.mechanic.mechanic, ART_IDS.ACTOR_MECHANIC_MECHANIC);
   const store = new ArtStore({ ImageCtor: FakeImage });
   const calls = [];
   const ctx = {
@@ -84,7 +85,8 @@ test("ranger outfit variants render painted bodies with independent weapons", ()
   const player = { heroId: "ranger", skinId: "mechanic", weaponId: "scrap_pistol", x: 100, y: 100, lastAimX: 1, lastAimY: 0 };
   assert.equal(drawIllustratedSurvivor(renderer, player, run, false), true);
   assert.equal(drawIllustratedSurvivor(renderer, { ...player, skinId: "nightwatch" }, run, false), true);
-  assert.equal(calls.length, 4, "each painted body and separate weapon must both draw");
+  assert.equal(drawIllustratedSurvivor(renderer, { ...player, heroId: "mechanic" }, run, false), true);
+  assert.equal(calls.length, 6, "each painted body and separate weapon must both draw");
   assert.equal(drawIllustratedSurvivor(renderer, { ...player, heroId: "bulwark" }, run, false), false);
 });
 

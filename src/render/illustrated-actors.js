@@ -4,7 +4,7 @@ const { ART_IDS } = require("./art/asset-catalog");
 
 const HERO_SKIN_ART = Object.freeze({
   ranger: Object.freeze({ wanderer: ART_IDS.ACTOR_RANGER, mechanic: ART_IDS.ACTOR_RANGER_MECHANIC, nightwatch: ART_IDS.ACTOR_RANGER_NIGHTWATCH }),
-  mechanic: Object.freeze({ wanderer: ART_IDS.ACTOR_MECHANIC }),
+  mechanic: Object.freeze({ wanderer: ART_IDS.ACTOR_MECHANIC, mechanic: ART_IDS.ACTOR_MECHANIC_MECHANIC }),
   bulwark: Object.freeze({ wanderer: ART_IDS.ACTOR_BULWARK })
 });
 
@@ -79,8 +79,9 @@ function drawIllustratedSurvivor(renderer, player, run, flicker) {
     alpha: flicker ? 0.48 : 1
   });
   ctx.save();
-  const weaponAnchorY = player.heroId === "bulwark" ? -34 : -30;
-  ctx.translate(position.x, position.y + weaponAnchorY + bob);
+  const weaponAnchorX = player.heroId === "mechanic" ? (player.lastAimX < 0 ? -11 : 11) : 0;
+  const weaponAnchorY = player.heroId === "bulwark" ? -34 : player.heroId === "mechanic" ? -23 : -30;
+  ctx.translate(position.x + weaponAnchorX, position.y + weaponAnchorY + bob);
   ctx.rotate(Math.atan2(player.lastAimY, player.lastAimX));
   if (player.lastAimX < 0) ctx.scale(1, -1);
   ctx.globalAlpha *= flicker ? 0.48 : 1;

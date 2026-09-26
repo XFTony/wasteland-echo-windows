@@ -23,6 +23,7 @@ IDS = {
     "ranger-nightwatch-v2.webp": "actor.ranger.nightwatch.v2",
     "drifter-v1.webp": "actor.drifter.v1",
     "mechanic-base-v1.webp": "actor.mechanic.base.v1",
+    "mechanic-mechanic-v2.webp": "actor.mechanic.mechanic.v2",
     "bulwark-base-v1.webp": "actor.bulwark.base.v1",
     "runner-v1.webp": "actor.runner.v1",
     "spitter-v1.webp": "actor.spitter.v1",
@@ -96,6 +97,9 @@ def main() -> None:
         if asset_id == "actor.ranger.nightwatch.v2":
             record["sourcePaths"] = ["art/generated/v1.5/source/ranger-nightwatch-v1-source.png"]
             record["notes"] += " First source variant archived but rejected because the 76px silhouette was too dark."
+        if asset_id == "actor.mechanic.mechanic.v2":
+            record["sourcePaths"] = ["art/generated/v1.5/source/mechanic-mechanic-v1-source.png"]
+            record["notes"] += " First source variant archived but rejected because it resembled the default olive jacket at 76px."
         if asset_id in known:
             known[asset_id].update(record)
         else:

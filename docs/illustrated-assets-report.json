@@ -236,6 +236,24 @@
       "sha256": "536031544450C108BF26F457058698C420B9FF4D9FD0DB454F6A4217C0F9B149"
     },
     {
+      "source": "art/generated/v1.5/source/mechanic-mechanic-v2-source.png",
+      "runtime": "web/assets/actors/mechanic-mechanic-v2.webp",
+      "kind": "cutout",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "crop": [
+        52,
+        0,
+        1024,
+        1527
+      ],
+      "width": 326,
+      "height": 512,
+      "sourceBytes": 1949906,
+      "runtimeBytes": 116438,
+      "sha256": "4FD2709523F6DED06B7E2FBE42CEB66866E4091F2E13D5DAD4C522E746904889"
+    },
+    {
       "source": "art/generated/v1.5/source/bulwark-base-v1-source.png",
       "runtime": "web/assets/actors/bulwark-base-v1.webp",
       "kind": "cutout",
@@ -758,5 +776,5 @@
       "sha256": "8EC0EC4F73191C8E2112C1656672E1ED31025D23D74D8DB0954AA6046F3847AA"
     }
   ],
-  "runtimeBytes": 6043278
+  "runtimeBytes": 6159716
 }

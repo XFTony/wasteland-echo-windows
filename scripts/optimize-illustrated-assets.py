@@ -24,6 +24,7 @@ CUTOUTS = (
     ("ranger-nightwatch-v2-source.png", "web/assets/actors/ranger-nightwatch-v2.webp"),
     ("drifter-v1-source.png", "web/assets/actors/drifter-v1.webp"),
     ("mechanic-base-v1-source.png", "web/assets/actors/mechanic-base-v1.webp"),
+    ("mechanic-mechanic-v2-source.png", "web/assets/actors/mechanic-mechanic-v2.webp"),
     ("bulwark-base-v1-source.png", "web/assets/actors/bulwark-base-v1.webp"),
     ("runner-v1-source.png", "web/assets/actors/runner-v1.webp"),
     ("spitter-v1-source.png", "web/assets/actors/spitter-v1.webp"),

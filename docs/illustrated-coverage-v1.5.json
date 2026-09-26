@@ -1,10 +1,9 @@
 {
   "styleVersion": "1.5",
   "heroOutfits": {
-    "covered": 5,
+    "covered": 6,
     "total": 9,
     "missing": [
-      "mechanic/mechanic",
       "mechanic/nightwatch",
       "bulwark/mechanic",
       "bulwark/nightwatch"

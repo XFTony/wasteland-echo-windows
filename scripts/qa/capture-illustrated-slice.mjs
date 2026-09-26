@@ -88,36 +88,39 @@ try {
   await page.waitForFunction(() => ["equipment.field-vest.v1", "equipment.iron-plate.v1", "equipment.runner-boots.v1", "equipment.magnet-helm.v1"]
     .every((id) => window.__WASTELAND_GAME__?.renderer?.artStore?.ready(id)));
   await page.screenshot({ path: path.join(output, "shop-equipment-1280x720.png") });
-  for (const [skinId, artId] of [
-    ["mechanic", "actor.ranger.mechanic.v1"],
-    ["nightwatch", "actor.ranger.nightwatch.v2"]
+  for (const [heroId, skinId, artId] of [
+    ["ranger", "mechanic", "actor.ranger.mechanic.v1"],
+    ["ranger", "nightwatch", "actor.ranger.nightwatch.v2"],
+    ["mechanic", "mechanic", "actor.mechanic.mechanic.v2"]
   ]) {
-    await page.evaluate((skinId) => {
+    await page.evaluate(({ heroId, skinId }) => {
       const game = window.__WASTELAND_GAME__;
       game.model.goToMenu();
+      if (!game.model.save.unlockedHeroes.includes(heroId)) game.model.save.unlockedHeroes.push(heroId);
       if (!game.model.save.unlockedSkins.includes(skinId)) game.model.save.unlockedSkins.push(skinId);
+      game.model.selectHero(heroId);
       game.model.selectSkin(skinId);
       game.model.setMenuPage("inventory");
-    }, skinId);
+    }, { heroId, skinId });
     await page.waitForFunction((id) => window.__WASTELAND_GAME__?.renderer?.artStore?.ready(id), artId);
-    await page.screenshot({ path: path.join(output, `inventory-ranger-${skinId}-1280x720.png`) });
-    await page.evaluate((skinId) => {
+    await page.screenshot({ path: path.join(output, `inventory-${heroId}-${skinId}-1280x720.png`) });
+    await page.evaluate(({ heroId, skinId }) => {
       const game = window.__WASTELAND_GAME__;
-      game.model.startRun({ seed: 20260924, duration: 180, mapId: "echo_district", heroId: "ranger", skinId, weaponId: "scrap_pistol", tutorial: false });
-    }, skinId);
-    await page.screenshot({ path: path.join(output, `combat-ranger-${skinId}-1280x720.png`) });
-    await page.screenshot({ path: path.join(output, `combat-ranger-${skinId}-detail.png`), clip: { x: 540, y: 260, width: 200, height: 200 } });
+      game.model.startRun({ seed: 20260924, duration: 180, mapId: "echo_district", heroId, skinId, weaponId: "scrap_pistol", tutorial: false });
+    }, { heroId, skinId });
+    await page.screenshot({ path: path.join(output, `combat-${heroId}-${skinId}-1280x720.png`) });
+    await page.screenshot({ path: path.join(output, `combat-${heroId}-${skinId}-detail.png`), clip: { x: 540, y: 260, width: 200, height: 200 } });
     await page.evaluate(() => { window.__WASTELAND_GAME__.model.save.settings.autoAim = false; });
     await page.mouse.move(535, 360);
     await page.waitForTimeout(90);
-    await page.screenshot({ path: path.join(output, `combat-ranger-${skinId}-left.png`), clip: { x: 540, y: 260, width: 200, height: 200 } });
+    await page.screenshot({ path: path.join(output, `combat-${heroId}-${skinId}-left.png`), clip: { x: 540, y: 260, width: 200, height: 200 } });
     await page.mouse.move(640, 260);
     await page.waitForTimeout(90);
-    await page.screenshot({ path: path.join(output, `combat-ranger-${skinId}-up.png`), clip: { x: 540, y: 260, width: 200, height: 200 } });
+    await page.screenshot({ path: path.join(output, `combat-${heroId}-${skinId}-up.png`), clip: { x: 540, y: 260, width: 200, height: 200 } });
     await page.mouse.move(760, 360);
     await page.keyboard.down("d");
     await page.waitForTimeout(180);
-    await page.screenshot({ path: path.join(output, `combat-ranger-${skinId}-moving.png`), clip: { x: 540, y: 260, width: 200, height: 200 } });
+    await page.screenshot({ path: path.join(output, `combat-${heroId}-${skinId}-moving.png`), clip: { x: 540, y: 260, width: 200, height: 200 } });
     await page.keyboard.up("d");
     await page.evaluate(() => { window.__WASTELAND_GAME__.model.save.settings.autoAim = true; });
   }
@@ -244,7 +247,7 @@ try {
     await page.waitForFunction((artId) => window.__WASTELAND_GAME__?.renderer?.artStore?.ready(artId), artId);
     await page.screenshot({ path: path.join(output, `weapon-${weaponId}-detail.png`), clip: { x: 540, y: 260, width: 200, height: 200 } });
   }
-  console.log(JSON.stringify({ output, screenshots: 67, errors, metrics }));
+  console.log(JSON.stringify({ output, screenshots: 73, errors, metrics }));
   if (errors.length) process.exitCode = 1;
 } finally {
   if (browser) await browser.close();

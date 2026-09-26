@@ -875,6 +875,23 @@
       "sourcePaths": [
         "art/generated/v1.5/source/ranger-nightwatch-v1-source.png"
       ]
+    },
+    {
+      "id": "actor.mechanic.mechanic.v2",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/actors/mechanic-mechanic-v2.webp",
+      "archivePath": "art/generated/v1.5/source/mechanic-mechanic-v2-source.png",
+      "width": 326,
+      "height": 512,
+      "pixelFormat": "RGBA",
+      "bytes": 116438,
+      "sha256": "4FD2709523F6DED06B7E2FBE42CEB66866E4091F2E13D5DAD4C522E746904889",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending. First source variant archived but rejected because it resembled the default olive jacket at 76px.",
+      "sourcePaths": [
+        "art/generated/v1.5/source/mechanic-mechanic-v1-source.png"
+      ]
     }
   ]
 }
