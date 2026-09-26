@@ -254,6 +254,24 @@
       "sha256": "4FD2709523F6DED06B7E2FBE42CEB66866E4091F2E13D5DAD4C522E746904889"
     },
     {
+      "source": "art/generated/v1.5/source/mechanic-nightwatch-v1-source.png",
+      "runtime": "web/assets/actors/mechanic-nightwatch-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "crop": [
+        114,
+        0,
+        1024,
+        1527
+      ],
+      "width": 305,
+      "height": 512,
+      "sourceBytes": 1900872,
+      "runtimeBytes": 108106,
+      "sha256": "B07AF5386B2667B870F023C0CC761B987E4F4B3E0892758245993D3BAA20CF71"
+    },
+    {
       "source": "art/generated/v1.5/source/bulwark-base-v1-source.png",
       "runtime": "web/assets/actors/bulwark-base-v1.webp",
       "kind": "cutout",
@@ -776,5 +794,5 @@
       "sha256": "8EC0EC4F73191C8E2112C1656672E1ED31025D23D74D8DB0954AA6046F3847AA"
     }
   ],
-  "runtimeBytes": 6159716
+  "runtimeBytes": 6267822
 }

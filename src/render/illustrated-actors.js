@@ -4,7 +4,7 @@ const { ART_IDS } = require("./art/asset-catalog");
 
 const HERO_SKIN_ART = Object.freeze({
   ranger: Object.freeze({ wanderer: ART_IDS.ACTOR_RANGER, mechanic: ART_IDS.ACTOR_RANGER_MECHANIC, nightwatch: ART_IDS.ACTOR_RANGER_NIGHTWATCH }),
-  mechanic: Object.freeze({ wanderer: ART_IDS.ACTOR_MECHANIC, mechanic: ART_IDS.ACTOR_MECHANIC_MECHANIC }),
+  mechanic: Object.freeze({ wanderer: ART_IDS.ACTOR_MECHANIC, mechanic: ART_IDS.ACTOR_MECHANIC_MECHANIC, nightwatch: ART_IDS.ACTOR_MECHANIC_NIGHTWATCH }),
   bulwark: Object.freeze({ wanderer: ART_IDS.ACTOR_BULWARK })
 });
 

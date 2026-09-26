@@ -24,6 +24,7 @@ IDS = {
     "drifter-v1.webp": "actor.drifter.v1",
     "mechanic-base-v1.webp": "actor.mechanic.base.v1",
     "mechanic-mechanic-v2.webp": "actor.mechanic.mechanic.v2",
+    "mechanic-nightwatch-v1.webp": "actor.mechanic.nightwatch.v1",
     "bulwark-base-v1.webp": "actor.bulwark.base.v1",
     "runner-v1.webp": "actor.runner.v1",
     "spitter-v1.webp": "actor.spitter.v1",
@@ -105,7 +106,7 @@ def main() -> None:
         else:
             manifest["assets"].append(record)
             known[asset_id] = record
-    manifest["updatedAt"] = "2026-09-26"
+    manifest["updatedAt"] = "2026-09-27"
     MANIFEST.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     with LEDGER.open(newline="", encoding="utf-8") as handle:
@@ -124,7 +125,7 @@ def main() -> None:
             "source_url": "",
             "creator": "OpenAI ImageGen",
             "license": "Generated project asset; verify applicable service terms before commercial release",
-            "download_date": "2026-09-26",
+            "download_date": "2026-09-27",
             "modified": "true" if item["kind"] == "cutout" else "false",
             "attribution_text": "Generated for Wasteland Echo; source and runtime transformation recorded",
             "commercial_ok": "review-required",
