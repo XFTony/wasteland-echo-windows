@@ -19,6 +19,7 @@ IDS = {
     "cover-survivor-v3.webp": "cover.survivor.v3",
     "ranger-armed-portrait-v1.webp": "actor.ranger.portrait.v1",
     "ranger-base-v1.webp": "actor.ranger.base.v1",
+    "ranger-mechanic-v1.webp": "actor.ranger.mechanic.v1",
     "drifter-v1.webp": "actor.drifter.v1",
     "mechanic-base-v1.webp": "actor.mechanic.base.v1",
     "bulwark-base-v1.webp": "actor.bulwark.base.v1",

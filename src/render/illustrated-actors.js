@@ -2,10 +2,10 @@
 
 const { ART_IDS } = require("./art/asset-catalog");
 
-const HERO_ART = Object.freeze({
-  ranger: ART_IDS.ACTOR_RANGER,
-  mechanic: ART_IDS.ACTOR_MECHANIC,
-  bulwark: ART_IDS.ACTOR_BULWARK
+const HERO_SKIN_ART = Object.freeze({
+  ranger: Object.freeze({ wanderer: ART_IDS.ACTOR_RANGER, mechanic: ART_IDS.ACTOR_RANGER_MECHANIC }),
+  mechanic: Object.freeze({ wanderer: ART_IDS.ACTOR_MECHANIC }),
+  bulwark: Object.freeze({ wanderer: ART_IDS.ACTOR_BULWARK })
 });
 
 const ENEMY_ART = Object.freeze({
@@ -61,8 +61,7 @@ function drawCutout(ctx, image, x, y, height, options = {}) {
 }
 
 function drawIllustratedSurvivor(renderer, player, run, flicker) {
-  if (player.skinId !== "wanderer") return false;
-  const heroArt = HERO_ART[player.heroId];
+  const heroArt = HERO_SKIN_ART[player.heroId] && HERO_SKIN_ART[player.heroId][player.skinId];
   const weaponArt = WEAPON_ART[player.weaponId];
   if (!heroArt || !weaponArt) return false;
   const store = renderer.artStore;
@@ -80,7 +79,8 @@ function drawIllustratedSurvivor(renderer, player, run, flicker) {
     alpha: flicker ? 0.48 : 1
   });
   ctx.save();
-  ctx.translate(position.x, position.y - 43 + bob);
+  const weaponAnchorY = player.heroId === "bulwark" ? -34 : -30;
+  ctx.translate(position.x, position.y + weaponAnchorY + bob);
   ctx.rotate(Math.atan2(player.lastAimY, player.lastAimX));
   if (player.lastAimX < 0) ctx.scale(1, -1);
   ctx.globalAlpha *= flicker ? 0.48 : 1;
@@ -94,8 +94,7 @@ function drawIllustratedSurvivor(renderer, player, run, flicker) {
 }
 
 function drawIllustratedPortrait(renderer, heroId, skinId, x, y, width, height) {
-  if (skinId !== "wanderer") return false;
-  const id = HERO_ART[heroId];
+  const id = HERO_SKIN_ART[heroId] && HERO_SKIN_ART[heroId][skinId];
   if (!id || !renderer.artStore || !renderer.artStore.ready(id)) return false;
   const image = renderer.artStore.get(id);
   const scale = Math.min(width * 0.85 / image.naturalWidth, height * 0.94 / image.naturalHeight);
@@ -124,4 +123,4 @@ function drawIllustratedEnemy(renderer, enemy, elapsed) {
   return true;
 }
 
-module.exports = { HERO_ART, ENEMY_ART, WEAPON_ART, drawIllustratedSurvivor, drawIllustratedEnemy, drawIllustratedPortrait };
+module.exports = { HERO_SKIN_ART, ENEMY_ART, WEAPON_ART, drawIllustratedSurvivor, drawIllustratedEnemy, drawIllustratedPortrait };

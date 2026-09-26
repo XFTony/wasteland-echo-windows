@@ -90,6 +90,33 @@ try {
   await page.screenshot({ path: path.join(output, "shop-equipment-1280x720.png") });
   await page.evaluate(() => {
     const game = window.__WASTELAND_GAME__;
+    if (!game.model.save.unlockedSkins.includes("mechanic")) game.model.save.unlockedSkins.push("mechanic");
+    game.model.selectSkin("mechanic");
+    game.model.setMenuPage("inventory");
+  });
+  await page.waitForFunction(() => window.__WASTELAND_GAME__?.renderer?.artStore?.ready("actor.ranger.mechanic.v1"));
+  await page.screenshot({ path: path.join(output, "inventory-ranger-mechanic-1280x720.png") });
+  await page.evaluate(() => {
+    const game = window.__WASTELAND_GAME__;
+    game.model.startRun({ seed: 20260924, duration: 180, mapId: "echo_district", heroId: "ranger", skinId: "mechanic", weaponId: "scrap_pistol", tutorial: false });
+  });
+  await page.screenshot({ path: path.join(output, "combat-ranger-mechanic-1280x720.png") });
+  await page.screenshot({ path: path.join(output, "combat-ranger-mechanic-detail.png"), clip: { x: 540, y: 260, width: 200, height: 200 } });
+  await page.evaluate(() => { window.__WASTELAND_GAME__.model.save.settings.autoAim = false; });
+  await page.mouse.move(535, 360);
+  await page.waitForTimeout(90);
+  await page.screenshot({ path: path.join(output, "combat-ranger-mechanic-left.png"), clip: { x: 540, y: 260, width: 200, height: 200 } });
+  await page.mouse.move(640, 260);
+  await page.waitForTimeout(90);
+  await page.screenshot({ path: path.join(output, "combat-ranger-mechanic-up.png"), clip: { x: 540, y: 260, width: 200, height: 200 } });
+  await page.mouse.move(760, 360);
+  await page.keyboard.down("d");
+  await page.waitForTimeout(180);
+  await page.screenshot({ path: path.join(output, "combat-ranger-mechanic-moving.png"), clip: { x: 540, y: 260, width: 200, height: 200 } });
+  await page.keyboard.up("d");
+  await page.evaluate(() => { window.__WASTELAND_GAME__.model.save.settings.autoAim = true; });
+  await page.evaluate(() => {
+    const game = window.__WASTELAND_GAME__;
     game.model.startRun({ seed: 20260923, duration: 180, mapId: "echo_district", heroId: "ranger", weaponId: "scrap_pistol" });
     game.model.run.tutorial = null;
     const player = game.model.run.player;
@@ -211,7 +238,7 @@ try {
     await page.waitForFunction((artId) => window.__WASTELAND_GAME__?.renderer?.artStore?.ready(artId), artId);
     await page.screenshot({ path: path.join(output, `weapon-${weaponId}-detail.png`), clip: { x: 540, y: 260, width: 200, height: 200 } });
   }
-  console.log(JSON.stringify({ output, screenshots: 55, errors, metrics }));
+  console.log(JSON.stringify({ output, screenshots: 61, errors, metrics }));
   if (errors.length) process.exitCode = 1;
 } finally {
   if (browser) await browser.close();

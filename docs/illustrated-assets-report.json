@@ -164,6 +164,24 @@
       "sha256": "FC35DE7B512F3161462FD84C26B267DB6A58EB005D01BA7EC2637D2D1E8A4E7F"
     },
     {
+      "source": "art/generated/v1.5/source/ranger-mechanic-v1-source.png",
+      "runtime": "web/assets/actors/ranger-mechanic-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "crop": [
+        42,
+        48,
+        993,
+        1503
+      ],
+      "width": 335,
+      "height": 512,
+      "sourceBytes": 1902456,
+      "runtimeBytes": 124900,
+      "sha256": "9DACF0CE45F604D857A55099ECEC39E3D416640D8FAB92191DB67D10CCC2F037"
+    },
+    {
       "source": "art/generated/v1.5/source/drifter-v1-source.png",
       "runtime": "web/assets/actors/drifter-v1.webp",
       "kind": "cutout",
@@ -722,5 +740,5 @@
       "sha256": "8EC0EC4F73191C8E2112C1656672E1ED31025D23D74D8DB0954AA6046F3847AA"
     }
   ],
-  "runtimeBytes": 5785272
+  "runtimeBytes": 5910172
 }

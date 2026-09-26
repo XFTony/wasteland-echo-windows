@@ -15,6 +15,7 @@ const ART_IDS = Object.freeze({
   UI_FIELD_PLATE: "ui.field-plate.v2",
   DEPLOYMENT_CONVOY: "deployment.convoy.v1",
   ACTOR_RANGER: "actor.ranger.base.v1",
+  ACTOR_RANGER_MECHANIC: "actor.ranger.mechanic.v1",
   ACTOR_RANGER_PORTRAIT: "actor.ranger.portrait.v1",
   ACTOR_DRIFTER: "actor.drifter.v1",
   ACTOR_MECHANIC: "actor.mechanic.base.v1",
@@ -111,6 +112,9 @@ const ART_ASSETS = Object.freeze({
   }),
   [ART_IDS.ACTOR_RANGER]: asset(ART_IDS.ACTOR_RANGER, "./assets/actors/ranger-base-v1.webp", "combat-actors", {
     version: "1.5", notes: "Painted survivor base body without a weapon."
+  }),
+  [ART_IDS.ACTOR_RANGER_MECHANIC]: asset(ART_IDS.ACTOR_RANGER_MECHANIC, "./assets/actors/ranger-mechanic-v1.webp", "combat-actors", {
+    version: "1.5", notes: "Painted ranger wearing signal mechanic outfit; internal combination sample."
   }),
   [ART_IDS.ACTOR_RANGER_PORTRAIT]: asset(ART_IDS.ACTOR_RANGER_PORTRAIT, "./assets/actors/ranger-armed-portrait-v1.webp", "combat-actors", {
     version: "1.5", notes: "Painted armed ranger for inventory and result pages."
