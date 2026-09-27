@@ -568,6 +568,24 @@ test("shared shop roof follows each shop's collision dimensions", () => {
   assert.deepEqual(painted.slice(-2), [190, 145]);
 });
 
+test("painted warehouse roof uses obstacle dimensions across warehouse sizes", () => {
+  const { canvas, calls } = createMockCanvas();
+  const roof = { complete: true, naturalWidth: 512, naturalHeight: 352 };
+  const store = new ArtStore({ images: { [ART_IDS.PROP_ECHO_WAREHOUSE]: roof } });
+  const renderer = new CanvasRenderer(canvas, { artStore: store });
+  renderer.resize(1280, 720, 1);
+  calls.length = 0;
+  renderer.drawObstacles([
+    { x: 120, y: 160, w: 168, h: 116, kind: "warehouse", sign: "DEPOT" },
+    { x: 420, y: 160, w: 310, h: 150, kind: "warehouse", sign: "RADIO" }
+  ]);
+  const painted = calls.filter((call) => call[0] === "drawImage" && call[1] === roof);
+  assert.deepEqual(painted.map((call) => call.slice(2)), [
+    [120, 160, 168, 116],
+    [420, 160, 310, 150]
+  ]);
+});
+
 test("switching maps and returning to menu releases unused decoded art", () => {
   class LoadedImage {
     constructor() {

@@ -965,6 +965,20 @@
       "sha256": "B61B8EA9D6596B6C23A98A44231394A85B27C2EAFDE195121A670F03B8586262",
       "generator": "OpenAI ImageGen",
       "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "world.prop.echo.warehouse-roof.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/world/props/echo-warehouse-roof-v1.webp",
+      "archivePath": "art/generated/v1.5/source/echo-warehouse-roof-v1-source.png",
+      "width": 512,
+      "height": 352,
+      "pixelFormat": "RGBA",
+      "bytes": 212966,
+      "sha256": "2BBB62432D2E02B37AC27DDBC02606643A832790FE42FCC7BD9BACD5C857CD21",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
     }
   ]
 }

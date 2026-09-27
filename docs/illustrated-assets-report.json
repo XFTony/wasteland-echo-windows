@@ -812,6 +812,24 @@
       "sha256": "B61B8EA9D6596B6C23A98A44231394A85B27C2EAFDE195121A670F03B8586262"
     },
     {
+      "source": "art/generated/v1.5/source/echo-warehouse-roof-v1-source.png",
+      "runtime": "web/assets/world/props/echo-warehouse-roof-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1512,
+      "sourceHeight": 1040,
+      "crop": [
+        0,
+        0,
+        1512,
+        1040
+      ],
+      "width": 512,
+      "height": 352,
+      "sourceBytes": 2408625,
+      "runtimeBytes": 212966,
+      "sha256": "2BBB62432D2E02B37AC27DDBC02606643A832790FE42FCC7BD9BACD5C857CD21"
+    },
+    {
       "source": "art/generated/v1.5/source/echo-ground-v1-source.png",
       "runtime": "web/assets/world/echo-ground-v1.webp",
       "kind": "texture",
@@ -866,5 +884,5 @@
       "sha256": "8EC0EC4F73191C8E2112C1656672E1ED31025D23D74D8DB0954AA6046F3847AA"
     }
   ],
-  "runtimeBytes": 7039800
+  "runtimeBytes": 7252766
 }

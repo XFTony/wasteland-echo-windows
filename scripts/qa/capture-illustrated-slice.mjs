@@ -169,6 +169,33 @@ try {
   await page.setViewportSize({ width: 2560, height: 1440 });
   await page.screenshot({ path: path.join(output, "echo-apothecary-2560x1440.png") });
   await page.setViewportSize({ width: 1280, height: 720 });
+  for (const [sign, file] of [
+    ["DEPOT", "echo-warehouse-depot"],
+    ["CARGO", "echo-warehouse-cargo"],
+    ["RADIO", "echo-warehouse-radio"]
+  ]) {
+    await page.evaluate(() => {
+      const game = window.__WASTELAND_GAME__;
+      game.model.startRun({ seed: 20260927, duration: 180, mapId: "echo_district", heroId: "ranger", weaponId: "scrap_pistol", tutorial: false });
+    });
+    await page.waitForFunction(() => window.__WASTELAND_GAME__?.renderer?.artStore?.ready("world.prop.echo.warehouse-roof.v1"));
+    await page.evaluate((sign) => {
+      const game = window.__WASTELAND_GAME__;
+      const obstacle = game.renderer.mapLayout.obstacles.find((item) => item.kind === "warehouse" && item.sign === sign);
+      if (!obstacle) throw new Error(`Missing warehouse ${sign}`);
+      game.model.run.player.x = obstacle.x + obstacle.w / 2;
+      game.model.run.player.y = obstacle.y + obstacle.h / 2 + 160;
+    }, sign);
+    await page.waitForTimeout(100);
+    await page.screenshot({ path: path.join(output, `${file}-1280x720.png`) });
+    const detailClip = await page.evaluate((sign) => {
+      const renderer = window.__WASTELAND_GAME__.renderer;
+      const obstacle = renderer.mapLayout.obstacles.find((item) => item.kind === "warehouse" && item.sign === sign);
+      const center = renderer.worldToScreen(obstacle.x + obstacle.w / 2, obstacle.y + obstacle.h / 2);
+      return { x: Math.max(0, Math.min(860, center.x - 210)), y: Math.max(0, Math.min(410, center.y - 155)), width: 420, height: 310 };
+    }, sign);
+    await page.screenshot({ path: path.join(output, `${file}-detail.png`), clip: detailClip });
+  }
   await page.evaluate(() => {
     const game = window.__WASTELAND_GAME__;
     game.model.startRun({ seed: 20260924, duration: 180, mapId: "echo_district", heroId: "ranger", weaponId: "scrap_pistol" });

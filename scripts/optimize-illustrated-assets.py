@@ -56,6 +56,7 @@ CUTOUTS = (
     ("stormstep-boots-v1-source.png", "web/assets/equipment/stormstep-boots-v1.webp"),
     ("echo-apothecary-roof-v1-source.png", "web/assets/world/props/echo-apothecary-roof-v1.webp"),
     ("echo-shop-roof-v1-source.png", "web/assets/world/props/echo-shop-roof-v1.webp"),
+    ("echo-warehouse-roof-v1-source.png", "web/assets/world/props/echo-warehouse-roof-v1.webp"),
 )
 TEXTURES = (
     ("echo-ground-v1-source.png", "web/assets/world/echo-ground-v1.webp"),
