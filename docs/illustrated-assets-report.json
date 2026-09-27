@@ -794,6 +794,24 @@
       "sha256": "3C3C3DF356A7A43C1AF9A6E49E6C1E24A6548E93F907CAAA059E9439C8471B38"
     },
     {
+      "source": "art/generated/v1.5/source/echo-shop-roof-v1-source.png",
+      "runtime": "web/assets/world/props/echo-shop-roof-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "crop": [
+        0,
+        0,
+        1501,
+        1024
+      ],
+      "width": 512,
+      "height": 349,
+      "sourceBytes": 2766707,
+      "runtimeBytes": 208472,
+      "sha256": "B61B8EA9D6596B6C23A98A44231394A85B27C2EAFDE195121A670F03B8586262"
+    },
+    {
       "source": "art/generated/v1.5/source/echo-ground-v1-source.png",
       "runtime": "web/assets/world/echo-ground-v1.webp",
       "kind": "texture",
@@ -848,5 +866,5 @@
       "sha256": "8EC0EC4F73191C8E2112C1656672E1ED31025D23D74D8DB0954AA6046F3847AA"
     }
   ],
-  "runtimeBytes": 6831328
+  "runtimeBytes": 7039800
 }

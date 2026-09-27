@@ -6,6 +6,7 @@ const ART_IDS = Object.freeze({
   GROUND_FREIGHT: "world.ground.freight.v1",
   GROUND_RED_BASIN: "world.ground.red-basin.v1",
   PROP_ECHO_APOTHECARY: "world.prop.echo.apothecary-roof.v1",
+  PROP_ECHO_SHOP: "world.prop.echo.shop-roof.v1",
   TITLE_KEY_ART: "cover.survivor.v3",
   BACKDROP_MAIN: "menu.backdrop.main.v3",
   BACKDROP_DEPLOYMENT: "menu.backdrop.deployment.v3",
@@ -91,6 +92,9 @@ const ART_ASSETS = Object.freeze({
   }),
   [ART_IDS.GROUND_RED_BASIN]: asset(ART_IDS.GROUND_RED_BASIN, "./assets/world/red-basin-ground-v1.webp", "world", {
     version: "1.5", notes: "Painted warm cracked-clay desert ground material."
+  }),
+  [ART_IDS.PROP_ECHO_SHOP]: asset(ART_IDS.PROP_ECHO_SHOP, "./assets/world/props/echo-shop-roof-v1.webp", "world-props", {
+    version: "1.5", notes: "Reusable overhead Echo District shop roof; game draws the shop name separately."
   }),
   [ART_IDS.PROP_ECHO_APOTHECARY]: asset(ART_IDS.PROP_ECHO_APOTHECARY, "./assets/world/props/echo-apothecary-roof-v1.webp", "world-props", {
     version: "1.5", notes: "Painted overhead apothecary roof aligned to its registered collision footprint."

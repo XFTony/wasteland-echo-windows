@@ -555,6 +555,19 @@ test("painted apothecary roof stays inside its registered obstacle footprint", (
   assert.deepEqual(painted.slice(2), [174, 250, 202, 130]);
 });
 
+test("shared shop roof follows each shop's collision dimensions", () => {
+  const { canvas, calls } = createMockCanvas();
+  const roof = { complete: true, naturalWidth: 512, naturalHeight: 341 };
+  const store = new ArtStore({ images: { [ART_IDS.PROP_ECHO_SHOP]: roof } });
+  const renderer = new CanvasRenderer(canvas, { artStore: store });
+  renderer.resize(1280, 720, 1);
+  calls.length = 0;
+  renderer.drawObstacles([{ x: 438, y: 184, w: 190, h: 145, kind: "shop", sign: "机件" }]);
+  const painted = calls.find((call) => call[0] === "drawImage" && call[1] === roof);
+  assert.ok(painted);
+  assert.deepEqual(painted.slice(-2), [190, 145]);
+});
+
 test("switching maps and returning to menu releases unused decoded art", () => {
   class LoadedImage {
     constructor() {

@@ -54,6 +54,7 @@ IDS = {
     "servo-greaves-v1.webp": "equipment.servo-greaves.v1",
     "stormstep-boots-v1.webp": "equipment.stormstep-boots.v1",
     "echo-apothecary-roof-v1.webp": "world.prop.echo.apothecary-roof.v1",
+    "echo-shop-roof-v1.webp": "world.prop.echo.shop-roof.v1",
     "echo-ground-v1.webp": "world.ground.echo.v1",
     "freight-ground-v1.webp": "world.ground.freight.v1",
     "red-basin-ground-v1.webp": "world.ground.red-basin.v1",
