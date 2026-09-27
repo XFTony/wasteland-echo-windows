@@ -23,6 +23,8 @@ const ART_IDS = Object.freeze({
   ACTOR_MECHANIC_MECHANIC: "actor.mechanic.mechanic.v2",
   ACTOR_MECHANIC_NIGHTWATCH: "actor.mechanic.nightwatch.v1",
   ACTOR_BULWARK: "actor.bulwark.base.v1",
+  ACTOR_BULWARK_MECHANIC: "actor.bulwark.mechanic.v1",
+  ACTOR_BULWARK_NIGHTWATCH: "actor.bulwark.nightwatch.v2",
   ACTOR_RUNNER: "actor.runner.v1",
   ACTOR_SPITTER: "actor.spitter.v1",
   ACTOR_BRUTE: "actor.brute.v1",
@@ -142,6 +144,12 @@ const ART_ASSETS = Object.freeze({
   }),
   [ART_IDS.ACTOR_MECHANIC_MECHANIC]: asset(ART_IDS.ACTOR_MECHANIC_MECHANIC, "./assets/actors/mechanic-mechanic-v2.webp", "combat-actors", {
     version: "1.5", notes: "Painted mechanic hero in distinct signal-repair outfit; v1 archived as too similar to default."
+  }),
+  [ART_IDS.ACTOR_BULWARK_NIGHTWATCH]: asset(ART_IDS.ACTOR_BULWARK_NIGHTWATCH, "./assets/actors/bulwark-nightwatch-v2.webp", "combat-actors", {
+    version: "1.5", notes: "Painted heavy bulwark in nightwatch cape; rejected checkerboard v1 archived."
+  }),
+  [ART_IDS.ACTOR_BULWARK_MECHANIC]: asset(ART_IDS.ACTOR_BULWARK_MECHANIC, "./assets/actors/bulwark-mechanic-v1.webp", "combat-actors", {
+    version: "1.5", notes: "Painted heavy bulwark in signal-repair field gear; armor silhouette preserved."
   }),
   [ART_IDS.ACTOR_BULWARK]: asset(ART_IDS.ACTOR_BULWARK, "./assets/actors/bulwark-base-v1.webp", "combat-actors", {
     version: "1.5", notes: "Painted armored defender hero body."

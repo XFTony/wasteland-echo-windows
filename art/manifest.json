@@ -906,6 +906,37 @@
       "sha256": "B07AF5386B2667B870F023C0CC761B987E4F4B3E0892758245993D3BAA20CF71",
       "generator": "OpenAI ImageGen",
       "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "actor.bulwark.mechanic.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/actors/bulwark-mechanic-v1.webp",
+      "archivePath": "art/generated/v1.5/source/bulwark-mechanic-v1-source.png",
+      "width": 408,
+      "height": 512,
+      "pixelFormat": "RGBA",
+      "bytes": 184480,
+      "sha256": "14BA9B2E942F207E7F1E3F9A9744E26FB72C960C22043543D67583F96BAE845A",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "actor.bulwark.nightwatch.v2",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/actors/bulwark-nightwatch-v2.webp",
+      "archivePath": "art/generated/v1.5/source/bulwark-nightwatch-v2-source.png",
+      "width": 395,
+      "height": 512,
+      "pixelFormat": "RGBA",
+      "bytes": 180882,
+      "sha256": "2EB2946A01F4823016F2EF88DEFF7769671F82A15FD42B965ABB15081AA2D4A9",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending. First source variant archived but rejected because its checkerboard background had no alpha channel.",
+      "sourcePaths": [
+        "art/generated/v1.5/source/bulwark-nightwatch-v1-source.png"
+      ]
     }
   ]
 }

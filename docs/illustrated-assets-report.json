@@ -290,6 +290,42 @@
       "sha256": "35452EEE217405420DA56C736E073C6CB90BD8D46454D59502618A740059C109"
     },
     {
+      "source": "art/generated/v1.5/source/bulwark-mechanic-v1-source.png",
+      "runtime": "web/assets/actors/bulwark-mechanic-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1145,
+      "sourceHeight": 1374,
+      "crop": [
+        12,
+        0,
+        1108,
+        1374
+      ],
+      "width": 408,
+      "height": 512,
+      "sourceBytes": 1559630,
+      "runtimeBytes": 184480,
+      "sha256": "14BA9B2E942F207E7F1E3F9A9744E26FB72C960C22043543D67583F96BAE845A"
+    },
+    {
+      "source": "art/generated/v1.5/source/bulwark-nightwatch-v2-source.png",
+      "runtime": "web/assets/actors/bulwark-nightwatch-v2.webp",
+      "kind": "cutout",
+      "sourceWidth": 1145,
+      "sourceHeight": 1374,
+      "crop": [
+        28,
+        0,
+        1089,
+        1374
+      ],
+      "width": 395,
+      "height": 512,
+      "sourceBytes": 1604878,
+      "runtimeBytes": 180882,
+      "sha256": "2EB2946A01F4823016F2EF88DEFF7769671F82A15FD42B965ABB15081AA2D4A9"
+    },
+    {
       "source": "art/generated/v1.5/source/runner-v1-source.png",
       "runtime": "web/assets/actors/runner-v1.webp",
       "kind": "cutout",
@@ -794,5 +830,5 @@
       "sha256": "8EC0EC4F73191C8E2112C1656672E1ED31025D23D74D8DB0954AA6046F3847AA"
     }
   ],
-  "runtimeBytes": 6267822
+  "runtimeBytes": 6633184
 }

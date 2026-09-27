@@ -26,6 +26,8 @@ IDS = {
     "mechanic-mechanic-v2.webp": "actor.mechanic.mechanic.v2",
     "mechanic-nightwatch-v1.webp": "actor.mechanic.nightwatch.v1",
     "bulwark-base-v1.webp": "actor.bulwark.base.v1",
+    "bulwark-mechanic-v1.webp": "actor.bulwark.mechanic.v1",
+    "bulwark-nightwatch-v2.webp": "actor.bulwark.nightwatch.v2",
     "runner-v1.webp": "actor.runner.v1",
     "spitter-v1.webp": "actor.spitter.v1",
     "brute-v1.webp": "actor.brute.v1",
@@ -101,6 +103,9 @@ def main() -> None:
         if asset_id == "actor.mechanic.mechanic.v2":
             record["sourcePaths"] = ["art/generated/v1.5/source/mechanic-mechanic-v1-source.png"]
             record["notes"] += " First source variant archived but rejected because it resembled the default olive jacket at 76px."
+        if asset_id == "actor.bulwark.nightwatch.v2":
+            record["sourcePaths"] = ["art/generated/v1.5/source/bulwark-nightwatch-v1-source.png"]
+            record["notes"] += " First source variant archived but rejected because its checkerboard background had no alpha channel."
         if asset_id in known:
             known[asset_id].update(record)
         else:

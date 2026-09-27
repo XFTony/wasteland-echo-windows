@@ -27,6 +27,8 @@ CUTOUTS = (
     ("mechanic-mechanic-v2-source.png", "web/assets/actors/mechanic-mechanic-v2.webp"),
     ("mechanic-nightwatch-v1-source.png", "web/assets/actors/mechanic-nightwatch-v1.webp"),
     ("bulwark-base-v1-source.png", "web/assets/actors/bulwark-base-v1.webp"),
+    ("bulwark-mechanic-v1-source.png", "web/assets/actors/bulwark-mechanic-v1.webp"),
+    ("bulwark-nightwatch-v2-source.png", "web/assets/actors/bulwark-nightwatch-v2.webp"),
     ("runner-v1-source.png", "web/assets/actors/runner-v1.webp"),
     ("spitter-v1-source.png", "web/assets/actors/spitter-v1.webp"),
     ("brute-v1-source.png", "web/assets/actors/brute-v1.webp"),

@@ -73,12 +73,15 @@ test("painted hero outfit variants retain independent weapons", () => {
   assert.equal(HERO_SKIN_ART.ranger.nightwatch, ART_IDS.ACTOR_RANGER_NIGHTWATCH);
   assert.equal(HERO_SKIN_ART.mechanic.mechanic, ART_IDS.ACTOR_MECHANIC_MECHANIC);
   assert.equal(HERO_SKIN_ART.mechanic.nightwatch, ART_IDS.ACTOR_MECHANIC_NIGHTWATCH);
+  assert.equal(HERO_SKIN_ART.bulwark.mechanic, ART_IDS.ACTOR_BULWARK_MECHANIC);
+  assert.equal(HERO_SKIN_ART.bulwark.nightwatch, ART_IDS.ACTOR_BULWARK_NIGHTWATCH);
   const store = new ArtStore({ ImageCtor: FakeImage });
   const calls = [];
+  const translations = [];
   const ctx = {
     globalAlpha: 1,
     save() {}, restore() {}, beginPath() {}, arc() {}, fill() {},
-    translate() {}, scale() {}, rotate() {},
+    translate(...point) { translations.push(point); }, scale() {}, rotate() {},
     drawImage(image) { calls.push(image); }
   };
   const renderer = { ctx, artStore: store, screenPoint: { x: 0, y: 0 }, worldToScreen: (x, y) => ({ x, y }) };
@@ -88,8 +91,13 @@ test("painted hero outfit variants retain independent weapons", () => {
   assert.equal(drawIllustratedSurvivor(renderer, { ...player, skinId: "nightwatch" }, run, false), true);
   assert.equal(drawIllustratedSurvivor(renderer, { ...player, heroId: "mechanic" }, run, false), true);
   assert.equal(drawIllustratedSurvivor(renderer, { ...player, heroId: "mechanic", skinId: "nightwatch" }, run, false), true);
-  assert.equal(calls.length, 8, "each painted body and separate weapon must both draw");
-  assert.equal(drawIllustratedSurvivor(renderer, { ...player, heroId: "bulwark" }, run, false), false);
+  assert.equal(drawIllustratedSurvivor(renderer, { ...player, heroId: "bulwark" }, run, false), true);
+  const rightGripX = translations.at(-1)[0];
+  assert.equal(drawIllustratedSurvivor(renderer, { ...player, heroId: "bulwark", lastAimX: -1 }, run, false), true);
+  const leftGripX = translations.at(-1)[0];
+  assert.ok(rightGripX > player.x && leftGripX < player.x, "bulwark weapon must follow the nearer hand on each side");
+  assert.equal(drawIllustratedSurvivor(renderer, { ...player, heroId: "bulwark", skinId: "nightwatch" }, run, false), true);
+  assert.equal(calls.length, 14, "each painted body and separate weapon must both draw");
 });
 
 test("art store loads active definitions once and supports injected images", () => {

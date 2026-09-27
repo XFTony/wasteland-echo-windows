@@ -92,7 +92,9 @@ try {
     ["ranger", "mechanic", "actor.ranger.mechanic.v1"],
     ["ranger", "nightwatch", "actor.ranger.nightwatch.v2"],
     ["mechanic", "mechanic", "actor.mechanic.mechanic.v2"],
-    ["mechanic", "nightwatch", "actor.mechanic.nightwatch.v1"]
+    ["mechanic", "nightwatch", "actor.mechanic.nightwatch.v1"],
+    ["bulwark", "mechanic", "actor.bulwark.mechanic.v1"],
+    ["bulwark", "nightwatch", "actor.bulwark.nightwatch.v2"]
   ]) {
     await page.evaluate(({ heroId, skinId }) => {
       const game = window.__WASTELAND_GAME__;
@@ -248,7 +250,7 @@ try {
     await page.waitForFunction((artId) => window.__WASTELAND_GAME__?.renderer?.artStore?.ready(artId), artId);
     await page.screenshot({ path: path.join(output, `weapon-${weaponId}-detail.png`), clip: { x: 540, y: 260, width: 200, height: 200 } });
   }
-  console.log(JSON.stringify({ output, screenshots: 79, errors, metrics }));
+  console.log(JSON.stringify({ output, screenshots: 91, errors, metrics }));
   if (errors.length) process.exitCode = 1;
 } finally {
   if (browser) await browser.close();
