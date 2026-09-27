@@ -57,7 +57,12 @@ CUTOUTS = (
     ("echo-apothecary-roof-v1-source.png", "web/assets/world/props/echo-apothecary-roof-v1.webp"),
     ("echo-shop-roof-v1-source.png", "web/assets/world/props/echo-shop-roof-v1.webp"),
     ("echo-warehouse-roof-v1-source.png", "web/assets/world/props/echo-warehouse-roof-v1.webp"),
+    ("echo-container-v1-source.png", "web/assets/world/props/echo-container-v1.webp"),
 )
+ALPHA_CROP_THRESHOLDS = {
+    # ImageGen left near-invisible alpha outside the container; crop to its visible body.
+    "echo-container-v1-source.png": 8,
+}
 TEXTURES = (
     ("echo-ground-v1-source.png", "web/assets/world/echo-ground-v1.webp"),
     ("freight-ground-v1-source.png", "web/assets/world/freight-ground-v1.webp"),
@@ -80,7 +85,9 @@ def optimize(source_name: str, target_relative: str, kind: str) -> dict:
         source_size = image.size
         if kind == "cutout":
             rgba = image.convert("RGBA")
-            bounds = rgba.getchannel("A").getbbox()
+            alpha = rgba.getchannel("A")
+            threshold = ALPHA_CROP_THRESHOLDS.get(source_name, 1)
+            bounds = alpha.point(lambda value: 255 if value >= threshold else 0).getbbox()
             if bounds is None:
                 raise RuntimeError(f"Transparent cutout is empty: {source}")
             pad = max(4, round(max(source_size) * 0.015))

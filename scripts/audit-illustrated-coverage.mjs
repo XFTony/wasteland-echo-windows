@@ -39,7 +39,7 @@ const report = {
   mapProps: { illustratedAssets: mapPropIds.length, ids: mapPropIds },
   remainingVisualSystems: {
     wornEquipment: "dedicated character layers pending",
-    mapObjects: `${mapPropIds.length} painted roof assets; other collision objects remain programmatic`,
+    mapObjects: `${mapPropIds.length} painted map-object assets; other collision objects remain programmatic`,
     upgradeIcons: `${Object.keys(UPGRADES).length} code-drawn symbols pending visual unification`,
     actorMotion: "static body cutouts with procedural bob pending action states"
   }

@@ -40,6 +40,15 @@ const OBSTACLE_METHODS = {
         if (this.qualityLevel > 0) this.text(obstacle.sign || "DEPOT", point.x + obstacle.w / 2, point.y + obstacle.h - 13, 10, PALETTE.cream, "center", "bold");
         continue;
       }
+      if (this.mapLayout.id === "echo_district" && obstacle.kind === "container"
+        && this.artStore && this.artStore.ready(ART_IDS.PROP_ECHO_CONTAINER)) {
+        const container = this.artStore.get(ART_IDS.PROP_ECHO_CONTAINER);
+        ctx.save();
+        ctx.imageSmoothingEnabled = true;
+        ctx.drawImage(container, point.x, point.y, obstacle.w, obstacle.h);
+        ctx.restore();
+        continue;
+      }
       if (obstacle.kind === "shop") {
         ctx.fillStyle = "#473f34";
         ctx.fillRect(point.x, point.y + 10, obstacle.w, obstacle.h - 10);

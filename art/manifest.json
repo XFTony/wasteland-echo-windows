@@ -979,6 +979,20 @@
       "sha256": "2BBB62432D2E02B37AC27DDBC02606643A832790FE42FCC7BD9BACD5C857CD21",
       "generator": "OpenAI ImageGen",
       "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "world.prop.echo.container.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/world/props/echo-container-v1.webp",
+      "archivePath": "art/generated/v1.5/source/echo-container-v1-source.png",
+      "width": 512,
+      "height": 201,
+      "pixelFormat": "RGBA",
+      "bytes": 142882,
+      "sha256": "9C420F642CE15989BE54138F414F7C9A14E966765714E55E97390A089E3C114B",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
     }
   ]
 }

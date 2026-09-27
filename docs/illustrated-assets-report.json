@@ -830,6 +830,24 @@
       "sha256": "2BBB62432D2E02B37AC27DDBC02606643A832790FE42FCC7BD9BACD5C857CD21"
     },
     {
+      "source": "art/generated/v1.5/source/echo-container-v1-source.png",
+      "runtime": "web/assets/world/props/echo-container-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1658,
+      "sourceHeight": 949,
+      "crop": [
+        95,
+        180,
+        1565,
+        757
+      ],
+      "width": 512,
+      "height": 201,
+      "sourceBytes": 1517187,
+      "runtimeBytes": 142882,
+      "sha256": "9C420F642CE15989BE54138F414F7C9A14E966765714E55E97390A089E3C114B"
+    },
+    {
       "source": "art/generated/v1.5/source/echo-ground-v1-source.png",
       "runtime": "web/assets/world/echo-ground-v1.webp",
       "kind": "texture",
@@ -884,5 +902,5 @@
       "sha256": "8EC0EC4F73191C8E2112C1656672E1ED31025D23D74D8DB0954AA6046F3847AA"
     }
   ],
-  "runtimeBytes": 7252766
+  "runtimeBytes": 7395648
 }

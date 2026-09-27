@@ -586,6 +586,23 @@ test("painted warehouse roof uses obstacle dimensions across warehouse sizes", (
   ]);
 });
 
+test("painted container fills its Echo District collision size without replacing other maps", () => {
+  const { canvas, calls } = createMockCanvas();
+  const container = { complete: true, naturalWidth: 512, naturalHeight: 201 };
+  const store = new ArtStore({ images: { [ART_IDS.PROP_ECHO_CONTAINER]: container } });
+  const renderer = new CanvasRenderer(canvas, { artStore: store });
+  renderer.resize(1280, 720, 1);
+  const obstacle = { x: 150, y: 170, w: 126, h: 72, kind: "container" };
+  calls.length = 0;
+  renderer.drawObstacles([obstacle]);
+  const painted = calls.find((call) => call[0] === "drawImage" && call[1] === container);
+  assert.deepEqual(painted.slice(2), [150, 170, 126, 72]);
+  renderer.mapLayout = renderer.resolveMapLayout("freight_nexus");
+  calls.length = 0;
+  renderer.drawObstacles([obstacle]);
+  assert.equal(calls.some((call) => call[0] === "drawImage" && call[1] === container), false);
+});
+
 test("switching maps and returning to menu releases unused decoded art", () => {
   class LoadedImage {
     constructor() {

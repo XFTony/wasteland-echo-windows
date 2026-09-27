@@ -8,6 +8,7 @@ const ART_IDS = Object.freeze({
   PROP_ECHO_APOTHECARY: "world.prop.echo.apothecary-roof.v1",
   PROP_ECHO_SHOP: "world.prop.echo.shop-roof.v1",
   PROP_ECHO_WAREHOUSE: "world.prop.echo.warehouse-roof.v1",
+  PROP_ECHO_CONTAINER: "world.prop.echo.container.v1",
   TITLE_KEY_ART: "cover.survivor.v3",
   BACKDROP_MAIN: "menu.backdrop.main.v3",
   BACKDROP_DEPLOYMENT: "menu.backdrop.deployment.v3",
@@ -99,6 +100,9 @@ const ART_ASSETS = Object.freeze({
   }),
   [ART_IDS.PROP_ECHO_WAREHOUSE]: asset(ART_IDS.PROP_ECHO_WAREHOUSE, "./assets/world/props/echo-warehouse-roof-v1.webp", "world-props", {
     version: "1.5", notes: "Overhead Echo District warehouse roof; dimensions come from registered obstacles."
+  }),
+  [ART_IDS.PROP_ECHO_CONTAINER]: asset(ART_IDS.PROP_ECHO_CONTAINER, "./assets/world/props/echo-container-v1.webp", "world-props", {
+    version: "1.5", notes: "Overhead Echo District cargo container; collision size comes from registered obstacles."
   }),
   [ART_IDS.PROP_ECHO_APOTHECARY]: asset(ART_IDS.PROP_ECHO_APOTHECARY, "./assets/world/props/echo-apothecary-roof-v1.webp", "world-props", {
     version: "1.5", notes: "Painted overhead apothecary roof aligned to its registered collision footprint."

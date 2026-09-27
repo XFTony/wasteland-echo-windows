@@ -31,16 +31,17 @@
     "missing": []
   },
   "mapProps": {
-    "illustratedAssets": 3,
+    "illustratedAssets": 4,
     "ids": [
       "world.prop.echo.apothecary-roof.v1",
+      "world.prop.echo.container.v1",
       "world.prop.echo.shop-roof.v1",
       "world.prop.echo.warehouse-roof.v1"
     ]
   },
   "remainingVisualSystems": {
     "wornEquipment": "dedicated character layers pending",
-    "mapObjects": "3 painted roof assets; other collision objects remain programmatic",
+    "mapObjects": "4 painted map-object assets; other collision objects remain programmatic",
     "upgradeIcons": "26 code-drawn symbols pending visual unification",
     "actorMotion": "static body cutouts with procedural bob pending action states"
   }
