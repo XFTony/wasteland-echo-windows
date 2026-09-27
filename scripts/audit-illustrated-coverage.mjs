@@ -23,6 +23,7 @@ function category(ids, mapping) {
 
 const pairs = Object.keys(HEROES).flatMap((heroId) => Object.keys(SKINS).map((skinId) => ({ heroId, skinId })));
 const missingPairs = pairs.filter(({ heroId, skinId }) => !ready(HERO_SKIN_ART[heroId]?.[skinId]));
+const mapPropIds = Object.values(ART_ASSETS).filter((asset) => asset.group === "world-props" && ready(asset.id)).map((asset) => asset.id).sort();
 const report = {
   styleVersion: "1.5",
   heroOutfits: {
@@ -35,9 +36,10 @@ const report = {
   outfitIcons: category(SKINS, SKIN_ART),
   equipmentIcons: category(EQUIPMENT, EQUIPMENT_ART),
   mapGrounds: category(MAPS, MAP_GROUND_ART),
+  mapProps: { illustratedAssets: mapPropIds.length, ids: mapPropIds },
   remainingVisualSystems: {
     wornEquipment: "dedicated character layers pending",
-    mapObjects: "programmatic geometry pending illustrated props",
+    mapObjects: "apothecary pilot only; other collision objects remain programmatic",
     upgradeIcons: `${Object.keys(UPGRADES).length} code-drawn symbols pending visual unification`,
     actorMotion: "static body cutouts with procedural bob pending action states"
   }

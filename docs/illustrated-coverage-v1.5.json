@@ -30,9 +30,15 @@
     "total": 3,
     "missing": []
   },
+  "mapProps": {
+    "illustratedAssets": 1,
+    "ids": [
+      "world.prop.echo.apothecary-roof.v1"
+    ]
+  },
   "remainingVisualSystems": {
     "wornEquipment": "dedicated character layers pending",
-    "mapObjects": "programmatic geometry pending illustrated props",
+    "mapObjects": "apothecary pilot only; other collision objects remain programmatic",
     "upgradeIcons": "26 code-drawn symbols pending visual unification",
     "actorMotion": "static body cutouts with procedural bob pending action states"
   }

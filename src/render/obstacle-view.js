@@ -1,6 +1,7 @@
 "use strict";
 
 const { PALETTE } = require("../config");
+const { ART_IDS } = require("./art/asset-catalog");
 
 const OBSTACLE_METHODS = {
   drawObstacles(obstacles) {
@@ -10,6 +11,16 @@ const OBSTACLE_METHODS = {
       if (point.x + obstacle.w < -20 || point.y + obstacle.h < -20 || point.x > this.width + 20 || point.y > this.height + 20) continue;
       ctx.fillStyle = "rgba(20,18,15,0.28)";
       ctx.fillRect(point.x + 8, point.y + 9, obstacle.w, obstacle.h);
+      if (this.mapLayout.id === "echo_district" && obstacle.kind === "shop" && obstacle.sign === "药房"
+        && this.artStore && this.artStore.ready(ART_IDS.PROP_ECHO_APOTHECARY)) {
+        const roof = this.artStore.get(ART_IDS.PROP_ECHO_APOTHECARY);
+        ctx.save();
+        ctx.imageSmoothingEnabled = true;
+        ctx.drawImage(roof, point.x, point.y, obstacle.w, obstacle.h);
+        ctx.restore();
+        if (this.qualityLevel > 0) this.text(obstacle.sign, point.x + obstacle.w / 2, point.y + obstacle.h - 13, 10, PALETTE.cream, "center", "bold");
+        continue;
+      }
       if (obstacle.kind === "shop") {
         ctx.fillStyle = "#473f34";
         ctx.fillRect(point.x, point.y + 10, obstacle.w, obstacle.h - 10);

@@ -776,6 +776,24 @@
       "sha256": "80DDBCC3DFD6936D39B2FC54044322C005D2AEB8FF8F94D63576E2D77271A8AE"
     },
     {
+      "source": "art/generated/v1.5/source/echo-apothecary-roof-v1-source.png",
+      "runtime": "web/assets/world/props/echo-apothecary-roof-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "crop": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "width": 512,
+      "height": 341,
+      "sourceBytes": 2687242,
+      "runtimeBytes": 198144,
+      "sha256": "3C3C3DF356A7A43C1AF9A6E49E6C1E24A6548E93F907CAAA059E9439C8471B38"
+    },
+    {
       "source": "art/generated/v1.5/source/echo-ground-v1-source.png",
       "runtime": "web/assets/world/echo-ground-v1.webp",
       "kind": "texture",
@@ -830,5 +848,5 @@
       "sha256": "8EC0EC4F73191C8E2112C1656672E1ED31025D23D74D8DB0954AA6046F3847AA"
     }
   ],
-  "runtimeBytes": 6633184
+  "runtimeBytes": 6831328
 }

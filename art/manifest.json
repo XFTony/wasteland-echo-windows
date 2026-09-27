@@ -937,6 +937,20 @@
       "sourcePaths": [
         "art/generated/v1.5/source/bulwark-nightwatch-v1-source.png"
       ]
+    },
+    {
+      "id": "world.prop.echo.apothecary-roof.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/world/props/echo-apothecary-roof-v1.webp",
+      "archivePath": "art/generated/v1.5/source/echo-apothecary-roof-v1-source.png",
+      "width": 512,
+      "height": 341,
+      "pixelFormat": "RGBA",
+      "bytes": 198144,
+      "sha256": "3C3C3DF356A7A43C1AF9A6E49E6C1E24A6548E93F907CAAA059E9439C8471B38",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
     }
   ]
 }

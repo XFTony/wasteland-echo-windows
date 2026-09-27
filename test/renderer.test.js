@@ -542,6 +542,19 @@ test("combat HUD scales with the viewport and preserves the pause hit target", (
   assert.deepEqual([renderer.visibleWorldWidth, renderer.visibleWorldHeight], [1280, 720]);
 });
 
+test("painted apothecary roof stays inside its registered obstacle footprint", () => {
+  const { canvas, calls } = createMockCanvas();
+  const roof = { complete: true, naturalWidth: 512, naturalHeight: 341 };
+  const store = new ArtStore({ images: { [ART_IDS.PROP_ECHO_APOTHECARY]: roof } });
+  const renderer = new CanvasRenderer(canvas, { artStore: store });
+  renderer.resize(1280, 720, 1);
+  calls.length = 0;
+  renderer.drawObstacles([{ x: 174, y: 250, w: 202, h: 130, kind: "shop", sign: "药房" }]);
+  const painted = calls.find((call) => call[0] === "drawImage" && call[1] === roof);
+  assert.ok(painted);
+  assert.deepEqual(painted.slice(2), [174, 250, 202, 130]);
+});
+
 test("switching maps and returning to menu releases unused decoded art", () => {
   class LoadedImage {
     constructor() {
@@ -558,9 +571,11 @@ test("switching maps and returning to menu releases unused decoded art", () => {
   renderer.resize(1280, 720, 1);
   renderer.render(model);
   assert.ok(store.get(ART_IDS.BACKDROP_MAIN));
+  store.request(ART_IDS.PROP_ECHO_APOTHECARY);
   model.startRun({ seed: 31, mapId: "freight_nexus", tutorial: false });
   renderer.render(model);
   assert.equal(store.get(ART_IDS.BACKDROP_MAIN), null);
+  assert.equal(store.get(ART_IDS.PROP_ECHO_APOTHECARY), null);
   assert.ok(store.get(ART_IDS.GROUND_FREIGHT));
   model.startRun({ seed: 32, mapId: "red_basin", tutorial: false });
   renderer.render(model);

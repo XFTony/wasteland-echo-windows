@@ -211,6 +211,7 @@ class CanvasRenderer {
       if (model.screen === "menu") {
         if (typeof this.artStore.releaseGroup === "function") {
           this.artStore.releaseGroup("world", ART_IDS.GROUND);
+          this.artStore.releaseGroup("world-props");
           this.artStore.releaseGroup("combat-actors");
           this.artStore.releaseGroup("combat-weapons");
         }
@@ -453,7 +454,10 @@ class CanvasRenderer {
     const mapGroundId = MAP_GROUND_ART[run.mapId];
     this.paintedGround = Boolean(mapGroundId && this.artStore.ready(mapGroundId));
     if (this.paintedGround && this.activeGroundId !== mapGroundId) {
-      if (typeof this.artStore.releaseGroup === "function") this.artStore.releaseGroup("world", [ART_IDS.GROUND, mapGroundId]);
+      if (typeof this.artStore.releaseGroup === "function") {
+        this.artStore.releaseGroup("world", [ART_IDS.GROUND, mapGroundId]);
+        this.artStore.releaseGroup("world-props");
+      }
       this.activeGroundId = mapGroundId;
     }
     this.groundTexture = this.paintedGround

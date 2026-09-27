@@ -159,6 +159,18 @@ try {
   await page.setViewportSize({ width: 1280, height: 720 });
   await page.evaluate(() => {
     const game = window.__WASTELAND_GAME__;
+    game.model.startRun({ seed: 20260927, duration: 180, mapId: "echo_district", heroId: "ranger", weaponId: "scrap_pistol", tutorial: false });
+    game.model.run.player.x = 400;
+    game.model.run.player.y = 360;
+  });
+  await page.waitForFunction(() => window.__WASTELAND_GAME__?.renderer?.artStore?.ready("world.prop.echo.apothecary-roof.v1"));
+  await page.screenshot({ path: path.join(output, "echo-apothecary-1280x720.png") });
+  await page.screenshot({ path: path.join(output, "echo-apothecary-detail.png"), clip: { x: 120, y: 205, width: 320, height: 250 } });
+  await page.setViewportSize({ width: 2560, height: 1440 });
+  await page.screenshot({ path: path.join(output, "echo-apothecary-2560x1440.png") });
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.evaluate(() => {
+    const game = window.__WASTELAND_GAME__;
     game.model.startRun({ seed: 20260924, duration: 180, mapId: "echo_district", heroId: "ranger", weaponId: "scrap_pistol" });
     game.model.run.tutorial = null;
     const player = game.model.run.player;
@@ -250,7 +262,7 @@ try {
     await page.waitForFunction((artId) => window.__WASTELAND_GAME__?.renderer?.artStore?.ready(artId), artId);
     await page.screenshot({ path: path.join(output, `weapon-${weaponId}-detail.png`), clip: { x: 540, y: 260, width: 200, height: 200 } });
   }
-  console.log(JSON.stringify({ output, screenshots: 91, errors, metrics }));
+  console.log(JSON.stringify({ output, screenshots: 94, errors, metrics }));
   if (errors.length) process.exitCode = 1;
 } finally {
   if (browser) await browser.close();
