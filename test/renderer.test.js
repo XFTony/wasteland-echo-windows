@@ -603,6 +603,26 @@ test("painted container fills its Echo District collision size without replacing
   assert.equal(calls.some((call) => call[0] === "drawImage" && call[1] === container), false);
 });
 
+test("one painted railcar fits horizontal and rotated vertical collision rectangles", () => {
+  const { canvas, calls } = createMockCanvas();
+  const railcar = { complete: true, naturalWidth: 512, naturalHeight: 129 };
+  const store = new ArtStore({ images: { [ART_IDS.PROP_ECHO_RAILCAR]: railcar } });
+  const renderer = new CanvasRenderer(canvas, { artStore: store });
+  renderer.resize(1280, 720, 1);
+  calls.length = 0;
+  renderer.drawObstacles([
+    { x: 100, y: 140, w: 232, h: 76, kind: "railcar" },
+    { x: 480, y: 140, w: 92, h: 190, kind: "railcar" }
+  ]);
+  const painted = calls.filter((call) => call[0] === "drawImage" && call[1] === railcar);
+  assert.deepEqual(painted.map((call) => call.slice(2)), [
+    [100, 140, 232, 76],
+    [0, 0, 190, 92]
+  ]);
+  assert.ok(calls.some((call) => call[0] === "translate" && call[1] === 572 && call[2] === 140));
+  assert.ok(calls.some((call) => call[0] === "rotate" && call[1] === Math.PI / 2));
+});
+
 test("switching maps and returning to menu releases unused decoded art", () => {
   class LoadedImage {
     constructor() {

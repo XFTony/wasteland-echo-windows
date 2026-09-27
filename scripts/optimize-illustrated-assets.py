@@ -58,10 +58,12 @@ CUTOUTS = (
     ("echo-shop-roof-v1-source.png", "web/assets/world/props/echo-shop-roof-v1.webp"),
     ("echo-warehouse-roof-v1-source.png", "web/assets/world/props/echo-warehouse-roof-v1.webp"),
     ("echo-container-v1-source.png", "web/assets/world/props/echo-container-v1.webp"),
+    ("echo-railcar-v1-source.png", "web/assets/world/props/echo-railcar-v1.webp"),
 )
 ALPHA_CROP_THRESHOLDS = {
     # ImageGen left near-invisible alpha outside the container; crop to its visible body.
     "echo-container-v1-source.png": 8,
+    "echo-railcar-v1-source.png": 8,
 }
 TEXTURES = (
     ("echo-ground-v1-source.png", "web/assets/world/echo-ground-v1.webp"),

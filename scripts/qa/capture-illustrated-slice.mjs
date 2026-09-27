@@ -212,6 +212,30 @@ try {
   await page.screenshot({ path: path.join(output, "echo-containers-1280x720.png") });
   await page.evaluate(() => {
     const game = window.__WASTELAND_GAME__;
+    game.model.startRun({ seed: 20260927, duration: 180, mapId: "echo_district", heroId: "ranger", weaponId: "scrap_pistol", tutorial: false });
+  });
+  await page.waitForFunction(() => window.__WASTELAND_GAME__?.renderer?.artStore?.ready("world.prop.echo.railcar.v1"));
+  await page.evaluate(() => {
+    const game = window.__WASTELAND_GAME__;
+    const pair = game.renderer.mapLayout.obstacles.filter((item) => item.kind === "railcar").sort((a, b) => a.x - b.x).slice(0, 2);
+    if (pair.length !== 2) throw new Error("Missing Echo District railcar pair");
+    game.model.run.player.x = (pair[0].x + pair[1].x + pair[1].w) / 2;
+    game.model.run.player.y = (Math.min(pair[0].y, pair[1].y) + Math.max(pair[0].y + pair[0].h, pair[1].y + pair[1].h)) / 2 + 165;
+  });
+  await page.waitForTimeout(100);
+  await page.screenshot({ path: path.join(output, "echo-railcars-1280x720.png") });
+  for (const [index, name] of [[0, "vertical"], [1, "horizontal"]]) {
+    const clip = await page.evaluate((index) => {
+      const renderer = window.__WASTELAND_GAME__.renderer;
+      const pair = renderer.mapLayout.obstacles.filter((item) => item.kind === "railcar").sort((a, b) => a.x - b.x).slice(0, 2);
+      const car = pair[index];
+      const center = renderer.worldToScreen(car.x + car.w / 2, car.y + car.h / 2);
+      return { x: Math.max(0, Math.min(980, center.x - 150)), y: Math.max(0, Math.min(440, center.y - 140)), width: 300, height: 280 };
+    }, index);
+    await page.screenshot({ path: path.join(output, `echo-railcar-${name}-detail.png`), clip });
+  }
+  await page.evaluate(() => {
+    const game = window.__WASTELAND_GAME__;
     game.model.startRun({ seed: 20260924, duration: 180, mapId: "echo_district", heroId: "ranger", weaponId: "scrap_pistol" });
     game.model.run.tutorial = null;
     const player = game.model.run.player;

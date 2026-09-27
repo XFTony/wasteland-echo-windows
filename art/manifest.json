@@ -993,6 +993,20 @@
       "sha256": "9C420F642CE15989BE54138F414F7C9A14E966765714E55E97390A089E3C114B",
       "generator": "OpenAI ImageGen",
       "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "world.prop.echo.railcar.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/world/props/echo-railcar-v1.webp",
+      "archivePath": "art/generated/v1.5/source/echo-railcar-v1-source.png",
+      "width": 512,
+      "height": 129,
+      "pixelFormat": "RGBA",
+      "bytes": 78586,
+      "sha256": "01D64B947380EF0EE00364C6AC58A2D8F68E2FDC6EB1DF8F397F2B718C7EAFB7",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
     }
   ]
 }

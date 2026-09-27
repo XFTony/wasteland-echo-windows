@@ -848,6 +848,24 @@
       "sha256": "9C420F642CE15989BE54138F414F7C9A14E966765714E55E97390A089E3C114B"
     },
     {
+      "source": "art/generated/v1.5/source/echo-railcar-v1-source.png",
+      "runtime": "web/assets/world/props/echo-railcar-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 2188,
+      "sourceHeight": 718,
+      "crop": [
+        17,
+        80,
+        2171,
+        621
+      ],
+      "width": 512,
+      "height": 129,
+      "sourceBytes": 1703497,
+      "runtimeBytes": 78586,
+      "sha256": "01D64B947380EF0EE00364C6AC58A2D8F68E2FDC6EB1DF8F397F2B718C7EAFB7"
+    },
+    {
       "source": "art/generated/v1.5/source/echo-ground-v1-source.png",
       "runtime": "web/assets/world/echo-ground-v1.webp",
       "kind": "texture",
@@ -902,5 +920,5 @@
       "sha256": "8EC0EC4F73191C8E2112C1656672E1ED31025D23D74D8DB0954AA6046F3847AA"
     }
   ],
-  "runtimeBytes": 7395648
+  "runtimeBytes": 7474234
 }

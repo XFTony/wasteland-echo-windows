@@ -49,6 +49,21 @@ const OBSTACLE_METHODS = {
         ctx.restore();
         continue;
       }
+      if (this.mapLayout.id === "echo_district" && obstacle.kind === "railcar"
+        && this.artStore && this.artStore.ready(ART_IDS.PROP_ECHO_RAILCAR)) {
+        const railcar = this.artStore.get(ART_IDS.PROP_ECHO_RAILCAR);
+        ctx.save();
+        ctx.imageSmoothingEnabled = true;
+        if (obstacle.h > obstacle.w) {
+          ctx.translate(point.x + obstacle.w, point.y);
+          ctx.rotate(Math.PI / 2);
+          ctx.drawImage(railcar, 0, 0, obstacle.h, obstacle.w);
+        } else {
+          ctx.drawImage(railcar, point.x, point.y, obstacle.w, obstacle.h);
+        }
+        ctx.restore();
+        continue;
+      }
       if (obstacle.kind === "shop") {
         ctx.fillStyle = "#473f34";
         ctx.fillRect(point.x, point.y + 10, obstacle.w, obstacle.h - 10);
