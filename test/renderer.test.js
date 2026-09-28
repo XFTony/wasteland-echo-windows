@@ -234,14 +234,12 @@ test("weapon feedback uses bounded shell and muzzle slots and decays recoil", ()
   assert.ok(renderer.weaponKick < 0.01);
 });
 
-test("default ranger uses compact leg frames under a separate painted upper body", () => {
+test("default ranger draws eleven jointed parts with the weapon between upper and forearms", () => {
   const { canvas, calls } = createMockCanvas();
-  const upper = { complete: true, naturalWidth: 160, naturalHeight: 160 };
-  const legs = { complete: true, naturalWidth: 640, naturalHeight: 480 };
+  const rig = { complete: true, naturalWidth: 512, naturalHeight: 384 };
   const gun = { complete: true, naturalWidth: 128, naturalHeight: 48 };
   const store = new ArtStore({ images: {
-    [ART_IDS.ACTOR_RANGER_WANDERER_UPPER]: upper,
-    [ART_IDS.ACTOR_RANGER_WANDERER_WALK]: legs,
+    [ART_IDS.ACTOR_RANGER_WANDERER_JOINTS]: rig,
     [ART_IDS.WEAPON_SCRAP_PISTOL]: gun
   } });
   const renderer = new CanvasRenderer(canvas, { artStore: store });
@@ -253,10 +251,12 @@ test("default ranger uses compact leg frames under a separate painted upper body
   model.run.elapsed += 0.17;
   calls.length = 0;
   renderer.drawPlayer(model.run.player, model.run);
-  const legDraw = calls.find((call) => call[0] === "drawImage" && call[1] === legs);
-  assert.deepEqual(legDraw.slice(2, 6), [480, 0, 160, 160]);
-  assert.ok(calls.some((call) => call[0] === "drawImage" && call[1] === upper));
-  assert.ok(calls.some((call) => call[0] === "drawImage" && call[1] === gun));
+  const partDraws = calls.filter((call) => call[0] === "drawImage" && call[1] === rig);
+  assert.equal(partDraws.length, 11);
+  assert.ok(partDraws.every((call) => call[4] === 128 && call[5] === 128));
+  const gunIndex = calls.findIndex((call) => call[0] === "drawImage" && call[1] === gun);
+  const forearmIndex = calls.findIndex((call) => call[0] === "drawImage" && call[1] === rig && call[2] === 384 && call[3] === 0);
+  assert.ok(gunIndex >= 0 && forearmIndex > gunIndex);
 });
 
 test("default ranger keeps the static body available while motion art loads", () => {

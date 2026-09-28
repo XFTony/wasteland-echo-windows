@@ -11,6 +11,7 @@ const args = new Set(process.argv.slice(2));
 const full = args.has("--full");
 const write = args.has("--write");
 const assertThresholds = args.has("--assert");
+const staticRanger = args.has("--static-ranger");
 const port = 4186;
 const baseUrl = "http://127.0.0.1:" + port + "/";
 const quickScenarios = [
@@ -84,7 +85,7 @@ try {
     await page.evaluate((config) => {
       const runtime = window.__WASTELAND_GAME__;
       const model = runtime.model;
-      model.startRun({ seed: 20260921, duration: 600, modeId: "endless", tutorial: false });
+      model.startRun({ seed: 20260921, duration: 600, modeId: "endless", heroId: "ranger", skinId: "wanderer", tutorial: false });
       model.releaseAllEntities();
       model.updateSpawner = () => {};
       model.run.player.hp = 1000000;
@@ -100,7 +101,10 @@ try {
       }
       runtime.renderer.qualityLevel = config.quality;
       runtime.renderer.updatePerformance = () => {};
-    }, scenario);
+      if (config.staticRanger) {
+        runtime.renderer.artStore.images["actor.ranger.wanderer.joints.v2"] = { complete: false, naturalWidth: 0, naturalHeight: 0 };
+      }
+    }, { ...scenario, staticRanger });
     await page.waitForTimeout(350);
     const samples = await page.evaluate(async ({ warmup, frames }) => {
       const deltas = [];
@@ -130,6 +134,7 @@ try {
     generatedAt: new Date().toISOString(),
     browser: "Microsoft Edge via playwright-core",
     headless: true,
+    staticRanger,
     sampleFrames,
     warmupFrames,
     pageErrors,
