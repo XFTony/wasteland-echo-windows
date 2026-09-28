@@ -1,8 +1,7 @@
 {
-  "generatedAt": "2026-09-28T08:14:49.187Z",
+  "generatedAt": "2026-09-28T03:51:42.825Z",
   "browser": "Microsoft Edge via playwright-core",
   "headless": true,
-  "staticRanger": false,
   "sampleFrames": 120,
   "warmupFrames": 45,
   "pageErrors": [],
@@ -18,10 +17,10 @@
       "averageFps": 240.05,
       "p95Ms": 4.3,
       "p99Ms": 4.3,
-      "onePercentLowFps": 181.82,
+      "onePercentLowFps": 227.27,
       "overBudgetFrames": 0,
       "severeFrames": 0,
-      "heapMiB": 6.51
+      "heapMiB": 5.8
     },
     {
       "id": "1080p-120-medium",
@@ -30,14 +29,14 @@
       "enemies": 120,
       "quality": 1,
       "frames": 120,
-      "averageMs": 7.187,
-      "averageFps": 139.15,
-      "p95Ms": 12.6,
-      "p99Ms": 12.6,
-      "onePercentLowFps": 53.05,
+      "averageMs": 6.249,
+      "averageFps": 160.02,
+      "p95Ms": 12.4,
+      "p99Ms": 12.5,
+      "onePercentLowFps": 59.88,
       "overBudgetFrames": 1,
       "severeFrames": 0,
-      "heapMiB": 5.03
+      "heapMiB": 4.76
     }
   ]
 }

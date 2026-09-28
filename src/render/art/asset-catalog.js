@@ -22,7 +22,6 @@ const ART_IDS = Object.freeze({
   ACTOR_RANGER: "actor.ranger.base.v1",
   ACTOR_RANGER_WANDERER_UPPER: "actor.ranger.wanderer.upper.v1",
   ACTOR_RANGER_WANDERER_WALK: "actor.ranger.wanderer.walk.v1",
-  ACTOR_RANGER_WANDERER_JOINTS: "actor.ranger.wanderer.joints.v2",
   ACTOR_RANGER_MECHANIC: "actor.ranger.mechanic.v1",
   ACTOR_RANGER_NIGHTWATCH: "actor.ranger.nightwatch.v2",
   ACTOR_RANGER_PORTRAIT: "actor.ranger.portrait.v1",
@@ -147,14 +146,11 @@ const ART_ASSETS = Object.freeze({
   [ART_IDS.ACTOR_RANGER]: asset(ART_IDS.ACTOR_RANGER, "./assets/actors/ranger-base-v1.webp", "combat-actors", {
     version: "1.5", notes: "Painted survivor base body without a weapon."
   }),
-  [ART_IDS.ACTOR_RANGER_WANDERER_UPPER]: asset(ART_IDS.ACTOR_RANGER_WANDERER_UPPER, "./assets/actors/ranger-wanderer-upper-v1.webp", "legacy", {
-    version: "1.5", active: false, notes: "Archived rigid-leg pilot upper body with dangling arms."
+  [ART_IDS.ACTOR_RANGER_WANDERER_UPPER]: asset(ART_IDS.ACTOR_RANGER_WANDERER_UPPER, "./assets/actors/ranger-wanderer-upper-v1.webp", "combat-actors", {
+    version: "1.5", notes: "Painted upper-body layer for the ranger's default outfit motion pilot."
   }),
-  [ART_IDS.ACTOR_RANGER_WANDERER_WALK]: asset(ART_IDS.ACTOR_RANGER_WANDERER_WALK, "./assets/actors/ranger-wanderer-walk-v1.webp", "legacy", {
-    version: "1.5", active: false, notes: "Archived rigid-leg gait atlas."
-  }),
-  [ART_IDS.ACTOR_RANGER_WANDERER_JOINTS]: asset(ART_IDS.ACTOR_RANGER_WANDERER_JOINTS, "./assets/actors/ranger-wanderer-joints-v2.webp", "combat-actors", {
-    version: "1.5", notes: "Eleven individually painted torso, arm, thigh, shin and boot components for runtime joints."
+  [ART_IDS.ACTOR_RANGER_WANDERER_WALK]: asset(ART_IDS.ACTOR_RANGER_WANDERER_WALK, "./assets/actors/ranger-wanderer-walk-v1.webp", "combat-actors", {
+    version: "1.5", notes: "Twelve compact painted gait frames with independent legs for the ranger's default outfit."
   }),
   [ART_IDS.ACTOR_RANGER_NIGHTWATCH]: asset(ART_IDS.ACTOR_RANGER_NIGHTWATCH, "./assets/actors/ranger-nightwatch-v2.webp", "combat-actors", {
     version: "1.5", notes: "Painted ranger in the legible nightwatch outfit; v1 source archived as too dark."

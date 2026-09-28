@@ -1011,7 +1011,7 @@
     {
       "id": "actor.ranger.wanderer.upper.v1",
       "version": "1.5",
-      "status": "inactive",
+      "status": "active",
       "runtimePath": "web/assets/actors/ranger-wanderer-upper-v1.webp",
       "archivePath": "art/generated/v1.5/source/ranger-wanderer-motion-kit-v1-source.png",
       "width": 160,
@@ -1025,7 +1025,7 @@
     {
       "id": "actor.ranger.wanderer.walk.v1",
       "version": "1.5",
-      "status": "inactive",
+      "status": "active",
       "runtimePath": "web/assets/actors/ranger-wanderer-walk-v1.webp",
       "archivePath": "art/generated/v1.5/source/ranger-wanderer-motion-kit-v1-source.png",
       "width": 640,
@@ -1035,23 +1035,6 @@
       "sha256": "DB2673BFF24EE0B6E9D121277614A7B704B077E96E2A7B83393B2DFCBB76FEB6",
       "generator": "OpenAI ImageGen",
       "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending. Painted three-part motion kit baked into transparent runtime layers by build_ranger_motion_assets.py."
-    },
-    {
-      "id": "actor.ranger.wanderer.joints.v2",
-      "version": "1.5",
-      "status": "active",
-      "runtimePath": "web/assets/actors/ranger-wanderer-joints-v2.webp",
-      "archivePath": "art/generated/v1.5/source/ranger-wanderer-upper-rig-v2-source.png",
-      "width": 512,
-      "height": 384,
-      "pixelFormat": "RGBA",
-      "bytes": 107604,
-      "sha256": "40B1279F63B2A596459ACAFD737B39958AC7719FEE482CA75513D17A641287CD",
-      "generator": "OpenAI ImageGen",
-      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending. Eleven painted joint components packed by build_ranger_joint_assets.py; v1 rigid-leg pilot archived.",
-      "sourcePaths": [
-        "art/generated/v1.5/source/ranger-wanderer-lower-rig-v2-source.png"
-      ]
     }
   ]
 }

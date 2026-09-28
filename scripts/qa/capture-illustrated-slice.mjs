@@ -322,12 +322,9 @@ try {
   ]) {
     await page.evaluate((weaponId) => {
       const game = window.__WASTELAND_GAME__;
-      game.model.startRun({ seed: 20260924, duration: 180, mapId: "echo_district", heroId: "ranger", skinId: "wanderer", weaponId, tutorial: false });
+      game.model.startRun({ seed: 20260924, duration: 180, mapId: "echo_district", heroId: "ranger", weaponId, tutorial: false });
     }, weaponId);
-    await page.waitForFunction((artId) => {
-      const store = window.__WASTELAND_GAME__?.renderer?.artStore;
-      return store?.ready(artId) && store?.ready("actor.ranger.wanderer.joints.v2");
-    }, artId);
+    await page.waitForFunction((artId) => window.__WASTELAND_GAME__?.renderer?.artStore?.ready(artId), artId);
     await page.screenshot({ path: path.join(output, `weapon-${weaponId}-detail.png`), clip: { x: 540, y: 260, width: 200, height: 200 } });
   }
   console.log(JSON.stringify({ output, screenshots: 94, errors, metrics }));

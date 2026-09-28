@@ -44,6 +44,6 @@
     "wornEquipment": "dedicated character layers pending",
     "mapObjects": "5 painted map-object assets; other collision objects remain programmatic",
     "upgradeIcons": "26 code-drawn symbols pending visual unification",
-    "actorMotion": "ranger/wanderer eleven-part elbow-and-knee rig pilot; other hero outfits and enemies retain static body cutouts"
+    "actorMotion": "ranger/wanderer layered walk pilot; other hero outfits and enemies retain static body cutouts"
   }
 }

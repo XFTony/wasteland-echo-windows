@@ -40,7 +40,7 @@ try {
   });
   await page.waitForFunction(() => {
     const store = window.__WASTELAND_GAME__?.renderer?.artStore;
-    return store?.ready("actor.ranger.wanderer.joints.v2");
+    return store?.ready("actor.ranger.wanderer.upper.v1") && store?.ready("actor.ranger.wanderer.walk.v1");
   });
   await page.waitForTimeout(100);
   const clip = { x: 540, y: 260, width: 200, height: 200 };
@@ -57,32 +57,13 @@ try {
         y: game.model.run.player.y,
         elapsed: game.model.run.elapsed,
         phase: game.renderer.rangerMotionState?.phase,
-        blend: game.renderer.rangerMotionState?.blend
+        moving: game.renderer.rangerMotionState?.moving
       };
     }));
   }
   await page.keyboard.up("d");
   await page.waitForTimeout(120);
   await page.screenshot({ path: path.join(output, "stopped.png"), clip });
-  await page.evaluate(() => { window.__WASTELAND_GAME__.model.save.settings.autoAim = false; });
-  for (const [name, x, y] of [["right", 760, 360], ["left", 520, 360], ["up", 640, 250], ["down", 640, 470]]) {
-    await page.mouse.move(x, y);
-    await page.waitForTimeout(90);
-    await page.screenshot({ path: path.join(output, `aim-${name}.png`), clip });
-  }
-  for (const [name, key] of [["left", "a"], ["up", "w"], ["down", "s"]]) {
-    await page.evaluate(() => {
-      const game = window.__WASTELAND_GAME__;
-      game.model.startRun({ seed: 20260928, duration: 180, mapId: "echo_district", heroId: "ranger", skinId: "wanderer", weaponId: "scrap_pistol", tutorial: false });
-      game.model.run.player.x = 1030;
-      game.model.run.player.y = 1110;
-      game.model.run.tutorial = null;
-    });
-    await page.keyboard.down(key);
-    await page.waitForTimeout(350);
-    await page.screenshot({ path: path.join(output, `run-${name}.png`), clip });
-    await page.keyboard.up(key);
-  }
   if (errors.length || new Set(samples.map((sample) => Math.floor((sample.phase || 0) * 12))).size < 4) {
     throw new Error(`Motion QA failed: ${JSON.stringify({ errors, samples })}`);
   }

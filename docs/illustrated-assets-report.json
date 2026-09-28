@@ -866,25 +866,40 @@
       "sha256": "01D64B947380EF0EE00364C6AC58A2D8F68E2FDC6EB1DF8F397F2B718C7EAFB7"
     },
     {
-      "source": "art/generated/v1.5/source/ranger-wanderer-upper-rig-v2-source.png",
-      "sourcePaths": [
-        "art/generated/v1.5/source/ranger-wanderer-lower-rig-v2-source.png"
-      ],
-      "runtime": "web/assets/actors/ranger-wanderer-joints-v2.webp",
+      "source": "art/generated/v1.5/source/ranger-wanderer-motion-kit-v1-source.png",
+      "runtime": "web/assets/actors/ranger-wanderer-upper-v1.webp",
       "kind": "cutout",
       "sourceWidth": 1536,
       "sourceHeight": 1024,
       "crop": [
         0,
         0,
+        836,
+        1024
+      ],
+      "width": 160,
+      "height": 160,
+      "sourceBytes": 2351839,
+      "runtimeBytes": 15618,
+      "sha256": "40E309390B2A585EEC0FD1D55638A1C7E5FABAA3404218E01CE780599193921F"
+    },
+    {
+      "source": "art/generated/v1.5/source/ranger-wanderer-motion-kit-v1-source.png",
+      "runtime": "web/assets/actors/ranger-wanderer-walk-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "crop": [
+        908,
+        0,
         1536,
         1024
       ],
-      "width": 512,
-      "height": 384,
-      "sourceBytes": 4236084,
-      "runtimeBytes": 107604,
-      "sha256": "40B1279F63B2A596459ACAFD737B39958AC7719FEE482CA75513D17A641287CD"
+      "width": 640,
+      "height": 480,
+      "sourceBytes": 2351839,
+      "runtimeBytes": 53620,
+      "sha256": "DB2673BFF24EE0B6E9D121277614A7B704B077E96E2A7B83393B2DFCBB76FEB6"
     },
     {
       "source": "art/generated/v1.5/source/echo-ground-v1-source.png",
@@ -941,5 +956,5 @@
       "sha256": "8EC0EC4F73191C8E2112C1656672E1ED31025D23D74D8DB0954AA6046F3847AA"
     }
   ],
-  "runtimeBytes": 7581838
+  "runtimeBytes": 7543472
 }
