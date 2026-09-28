@@ -19,6 +19,8 @@ IDS = {
     "cover-survivor-v3.webp": "cover.survivor.v3",
     "ranger-armed-portrait-v1.webp": "actor.ranger.portrait.v1",
     "ranger-base-v1.webp": "actor.ranger.base.v1",
+    "ranger-wanderer-upper-v1.webp": "actor.ranger.wanderer.upper.v1",
+    "ranger-wanderer-walk-v1.webp": "actor.ranger.wanderer.walk.v1",
     "ranger-mechanic-v1.webp": "actor.ranger.mechanic.v1",
     "ranger-nightwatch-v2.webp": "actor.ranger.nightwatch.v2",
     "drifter-v1.webp": "actor.drifter.v1",
@@ -111,6 +113,8 @@ def main() -> None:
         if asset_id == "actor.bulwark.nightwatch.v2":
             record["sourcePaths"] = ["art/generated/v1.5/source/bulwark-nightwatch-v1-source.png"]
             record["notes"] += " First source variant archived but rejected because its checkerboard background had no alpha channel."
+        if asset_id in {"actor.ranger.wanderer.upper.v1", "actor.ranger.wanderer.walk.v1"}:
+            record["notes"] += " Painted three-part motion kit baked into transparent runtime layers by build_ranger_motion_assets.py."
         if asset_id in known:
             known[asset_id].update(record)
         else:

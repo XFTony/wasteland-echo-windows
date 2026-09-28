@@ -234,6 +234,47 @@ test("weapon feedback uses bounded shell and muzzle slots and decays recoil", ()
   assert.ok(renderer.weaponKick < 0.01);
 });
 
+test("default ranger uses compact leg frames under a separate painted upper body", () => {
+  const { canvas, calls } = createMockCanvas();
+  const upper = { complete: true, naturalWidth: 160, naturalHeight: 160 };
+  const legs = { complete: true, naturalWidth: 640, naturalHeight: 480 };
+  const gun = { complete: true, naturalWidth: 128, naturalHeight: 48 };
+  const store = new ArtStore({ images: {
+    [ART_IDS.ACTOR_RANGER_WANDERER_UPPER]: upper,
+    [ART_IDS.ACTOR_RANGER_WANDERER_WALK]: legs,
+    [ART_IDS.WEAPON_SCRAP_PISTOL]: gun
+  } });
+  const renderer = new CanvasRenderer(canvas, { artStore: store });
+  const model = createModel();
+  model.startRun({ seed: 42, heroId: "ranger", skinId: "wanderer", weaponId: "scrap_pistol", tutorial: false });
+  renderer.resize(1280, 720, 1);
+  renderer.drawPlayer(model.run.player, model.run);
+  model.run.player.x += 30;
+  model.run.elapsed += 0.17;
+  calls.length = 0;
+  renderer.drawPlayer(model.run.player, model.run);
+  const legDraw = calls.find((call) => call[0] === "drawImage" && call[1] === legs);
+  assert.deepEqual(legDraw.slice(2, 6), [480, 0, 160, 160]);
+  assert.ok(calls.some((call) => call[0] === "drawImage" && call[1] === upper));
+  assert.ok(calls.some((call) => call[0] === "drawImage" && call[1] === gun));
+});
+
+test("default ranger keeps the static body available while motion art loads", () => {
+  const { canvas, calls } = createMockCanvas();
+  const body = { complete: true, naturalWidth: 353, naturalHeight: 512 };
+  const gun = { complete: true, naturalWidth: 128, naturalHeight: 48 };
+  const store = new ArtStore({ images: {
+    [ART_IDS.ACTOR_RANGER]: body,
+    [ART_IDS.WEAPON_SCRAP_PISTOL]: gun
+  } });
+  const renderer = new CanvasRenderer(canvas, { artStore: store });
+  const model = createModel();
+  model.startRun({ seed: 43, heroId: "ranger", skinId: "wanderer", weaponId: "scrap_pistol", tutorial: false });
+  renderer.resize(1280, 720, 1);
+  renderer.drawPlayer(model.run.player, model.run);
+  assert.ok(calls.some((call) => call[0] === "drawImage" && call[1] === body));
+});
+
 test("ground texture draws only the camera-visible source region", () => {
   const { canvas, calls } = createMockCanvas();
   const renderer = new CanvasRenderer(canvas);
