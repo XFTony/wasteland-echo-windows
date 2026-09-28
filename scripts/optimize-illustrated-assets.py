@@ -6,8 +6,6 @@ from pathlib import Path
 
 from PIL import Image, features
 
-from build_ranger_motion_assets import build as build_ranger_motion_assets
-
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "art" / "generated" / "v1.5" / "source"
 MENU = (
@@ -134,7 +132,6 @@ def main() -> None:
         raise RuntimeError("Pillow WebP support is required")
     entries = [optimize(source, target, "menu") for source, target in MENU]
     entries += [optimize(source, target, "cutout") for source, target in CUTOUTS]
-    entries += build_ranger_motion_assets()
     entries += [optimize(source, target, "texture") for source, target in TEXTURES]
     report = {
         "style": "stylized-painted-wasteland-v1.5",

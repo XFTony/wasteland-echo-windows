@@ -1,7 +1,6 @@
 "use strict";
 
 const { ART_IDS } = require("./art/asset-catalog");
-const { FRAME_SIZE, rangerMotionFrame } = require("./ranger-motion");
 
 const HERO_SKIN_ART = Object.freeze({
   ranger: Object.freeze({ wanderer: ART_IDS.ACTOR_RANGER, mechanic: ART_IDS.ACTOR_RANGER_MECHANIC, nightwatch: ART_IDS.ACTOR_RANGER_NIGHTWATCH }),
@@ -66,47 +65,19 @@ function drawIllustratedSurvivor(renderer, player, run, flicker) {
   const weaponArt = WEAPON_ART[player.weaponId];
   if (!heroArt || !weaponArt) return false;
   const store = renderer.artStore;
-  if (!store || !store.ready(weaponArt)) return false;
-  const rangerPilot = player.heroId === "ranger" && player.skinId === "wanderer";
-  const layered = rangerPilot
-    && store.ready(ART_IDS.ACTOR_RANGER_WANDERER_UPPER)
-    && store.ready(ART_IDS.ACTOR_RANGER_WANDERER_WALK);
-  if (!layered && !store.ready(heroArt)) return false;
+  if (!store || !store.ready(heroArt) || !store.ready(weaponArt)) return false;
+  const body = store.get(heroArt);
   const weapon = store.get(weaponArt);
   const position = renderer.worldToScreen(player.x, player.y, renderer.screenPoint);
+  const moving = Math.hypot(run.input.moveX, run.input.moveY) > 0.12;
+  const bob = moving ? Math.sin(run.elapsed * 13) * 2.1 : Math.sin(run.elapsed * 2.2) * 0.7;
   const ctx = renderer.ctx;
   paintedShadow(ctx, position.x, position.y, 17);
-  let bob;
-  if (layered) {
-    const motion = rangerMotionFrame(renderer, run, player);
-    const atlas = store.get(ART_IDS.ACTOR_RANGER_WANDERER_WALK);
-    const upper = store.get(ART_IDS.ACTOR_RANGER_WANDERER_UPPER);
-    const alpha = flicker ? 0.48 : 1;
-    bob = motion.bob;
-    ctx.save();
-    ctx.translate(position.x, position.y);
-    if (motion.mirror) ctx.scale(-1, 1);
-    ctx.globalAlpha *= alpha;
-    ctx.imageSmoothingEnabled = true;
-    ctx.drawImage(atlas, (motion.frame % 4) * FRAME_SIZE, Math.floor(motion.frame / 4) * FRAME_SIZE,
-      FRAME_SIZE, FRAME_SIZE, -40, -70, 80, 80);
-    ctx.restore();
-    ctx.save();
-    ctx.translate(position.x, position.y);
-    if (player.lastAimX < -0.2) ctx.scale(-1, 1);
-    ctx.globalAlpha *= alpha;
-    ctx.imageSmoothingEnabled = true;
-    ctx.drawImage(upper, -40, -70 + bob, 80, 80);
-    ctx.restore();
-  } else {
-    const moving = Math.hypot(run.input.moveX, run.input.moveY) > 0.12;
-    bob = moving ? Math.sin(run.elapsed * 13) * 2.1 : Math.sin(run.elapsed * 2.2) * 0.7;
-    drawCutout(ctx, store.get(heroArt), position.x, position.y, 76, {
-      bob,
-      mirror: player.lastAimX < -0.2,
-      alpha: flicker ? 0.48 : 1
-    });
-  }
+  drawCutout(ctx, body, position.x, position.y, 76, {
+    bob,
+    mirror: player.lastAimX < -0.2,
+    alpha: flicker ? 0.48 : 1
+  });
   ctx.save();
   const sideAnchor = player.heroId === "bulwark" ? 16 : player.heroId === "mechanic" ? 11 : 0;
   const weaponAnchorX = player.lastAimX < 0 ? -sideAnchor : sideAnchor;

@@ -41,7 +41,7 @@ const report = {
     wornEquipment: "dedicated character layers pending",
     mapObjects: `${mapPropIds.length} painted map-object assets; other collision objects remain programmatic`,
     upgradeIcons: `${Object.keys(UPGRADES).length} code-drawn symbols pending visual unification`,
-    actorMotion: "ranger/wanderer layered walk pilot; other hero outfits and enemies retain static body cutouts"
+    actorMotion: "static body cutouts with procedural bob pending action states"
   }
 };
 

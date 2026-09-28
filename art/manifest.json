@@ -1007,34 +1007,6 @@
       "sha256": "01D64B947380EF0EE00364C6AC58A2D8F68E2FDC6EB1DF8F397F2B718C7EAFB7",
       "generator": "OpenAI ImageGen",
       "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
-    },
-    {
-      "id": "actor.ranger.wanderer.upper.v1",
-      "version": "1.5",
-      "status": "active",
-      "runtimePath": "web/assets/actors/ranger-wanderer-upper-v1.webp",
-      "archivePath": "art/generated/v1.5/source/ranger-wanderer-motion-kit-v1-source.png",
-      "width": 160,
-      "height": 160,
-      "pixelFormat": "RGBA",
-      "bytes": 15618,
-      "sha256": "40E309390B2A585EEC0FD1D55638A1C7E5FABAA3404218E01CE780599193921F",
-      "generator": "OpenAI ImageGen",
-      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending. Painted three-part motion kit baked into transparent runtime layers by build_ranger_motion_assets.py."
-    },
-    {
-      "id": "actor.ranger.wanderer.walk.v1",
-      "version": "1.5",
-      "status": "active",
-      "runtimePath": "web/assets/actors/ranger-wanderer-walk-v1.webp",
-      "archivePath": "art/generated/v1.5/source/ranger-wanderer-motion-kit-v1-source.png",
-      "width": 640,
-      "height": 480,
-      "pixelFormat": "RGBA",
-      "bytes": 53620,
-      "sha256": "DB2673BFF24EE0B6E9D121277614A7B704B077E96E2A7B83393B2DFCBB76FEB6",
-      "generator": "OpenAI ImageGen",
-      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending. Painted three-part motion kit baked into transparent runtime layers by build_ranger_motion_assets.py."
     }
   ]
 }
