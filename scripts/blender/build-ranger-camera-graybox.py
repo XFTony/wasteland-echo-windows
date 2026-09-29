@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = ROOT / "output/animation/ranger/camera-v1"
 BLEND = ROOT / "art/animation/ranger/ranger-graybox-camera-v1.blend"
 ELEVATIONS = (35, 42, 50)
-AZIMUTH = 22
+AZIMUTH = 35
 
 
 def material(name: str, value: float) -> bpy.types.Material:
@@ -80,8 +80,8 @@ def build_character() -> None:
     sphere("gas_mask_canister", (0, -0.36, 1.64), (0.10, 0.10, 0.09), metal)
     box("scarf_band", (0, -0.20, 1.54), (0.44, 0.17, 0.13), trim)
     for side, name in ((-1, "left"), (1, "right")):
-        bpy.ops.mesh.primitive_cone_add(vertices=5, radius1=0.24, radius2=0.13, depth=0.87,
-                                        location=(side * 0.16, -0.10, 0.83))
+        bpy.ops.mesh.primitive_cone_add(vertices=5, radius1=0.18, radius2=0.12, depth=0.80,
+                                        location=(side * 0.21, -0.08, 0.87))
         panel = assign(bpy.context.object, f"coat_tail_{name}", coat)
         panel.rotation_euler[1] = side * 0.10
     box("belt", (0, -0.19, 1.08), (0.49, 0.11, 0.10), trim)
