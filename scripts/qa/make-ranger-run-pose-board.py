@@ -1,5 +1,6 @@
-"""Compare the eight authored graybox run key poses at game display sizes."""
+"""Compare eight authored ranger run key poses at game display sizes."""
 
+import argparse
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -23,19 +24,31 @@ POSES = (
 def shared_crop(images: list[Image.Image]) -> tuple[int, int, int, int]:
     bounds = []
     for image in images:
-        box = image.getchannel("A").point(lambda value: 255 if value >= 8 else 0).getbbox()
+        box = (
+            image.getchannel("A")
+            .point(lambda value: 255 if value >= 8 else 0)
+            .getbbox()
+        )
         if box is None:
             raise ValueError("A key pose has no visible character")
         bounds.append(box)
-    return (min(box[0] for box in bounds), min(box[1] for box in bounds),
-            max(box[2] for box in bounds), max(box[3] for box in bounds))
+    return (
+        min(box[0] for box in bounds),
+        min(box[1] for box in bounds),
+        max(box[2] for box in bounds),
+        max(box[3] for box in bounds),
+    )
 
 
-def make_board(size: int, panel_width: int, panel_height: int) -> Image.Image:
-    images = [Image.open(INPUT / filename).convert("RGBA") for _, filename in POSES]
+def make_board(
+    size: int, panel_width: int, panel_height: int, input_dir: Path
+) -> Image.Image:
+    images = [Image.open(input_dir / filename).convert("RGBA") for _, filename in POSES]
     crop = shared_crop(images)
     ground = Image.open(SCREENSHOT).convert("RGB").crop((8, 355, 288, 655))
-    background = ground.resize((panel_width, panel_height - 30), Image.Resampling.LANCZOS).convert("RGBA")
+    background = ground.resize(
+        (panel_width, panel_height - 30), Image.Resampling.LANCZOS
+    ).convert("RGBA")
     board = Image.new("RGBA", (panel_width * 4, panel_height * 2), (0, 0, 0, 255))
     draw = ImageDraw.Draw(board)
     for index, (label, _) in enumerate(POSES):
@@ -43,22 +56,39 @@ def make_board(size: int, panel_width: int, panel_height: int) -> Image.Image:
         y = (index // 4) * panel_height
         board.alpha_composite(background, (x, y + 30))
         draw.rectangle((x, y, x + panel_width - 1, y + 29), fill=(20, 20, 19, 255))
-        draw.text((x + 9, y + 8), label, fill=(238, 232, 215), font=ImageFont.load_default())
+        draw.text(
+            (x + 9, y + 8), label, fill=(238, 232, 215), font=ImageFont.load_default()
+        )
         character = images[index].crop(crop)
         width = round(character.width * size / character.height)
         character = character.resize((width, size), Image.Resampling.LANCZOS)
         center = x + panel_width // 2
         foot = y + panel_height - 32
-        draw.ellipse((center - 16, foot - 4, center + 16, foot + 4), fill=(13, 12, 11, 110))
+        draw.ellipse(
+            (center - 16, foot - 4, center + 16, foot + 4), fill=(13, 12, 11, 110)
+        )
         board.alpha_composite(character, (center - width // 2, foot - size))
-        draw.rectangle((x, y + 30, x + panel_width - 1, y + panel_height - 1), outline=(180, 171, 146), width=1)
+        draw.rectangle(
+            (x, y + 30, x + panel_width - 1, y + panel_height - 1),
+            outline=(180, 171, 146),
+            width=1,
+        )
     return board
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--input",
+        type=Path,
+        default=INPUT,
+        help="Directory containing the eight rendered pose PNGs",
+    )
+    args = parser.parse_args()
+    input_dir = args.input.resolve()
     for size, width, height in ((76, 220, 220), (152, 320, 350)):
-        target = INPUT / f"run-key-poses-{size}px.png"
-        make_board(size, width, height).save(target)
+        target = input_dir / f"run-key-poses-{size}px.png"
+        make_board(size, width, height, input_dir).save(target)
         print(target.relative_to(ROOT).as_posix())
 
 
