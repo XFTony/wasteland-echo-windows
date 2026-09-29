@@ -1,6 +1,6 @@
 # 巡线者 Blender 灰模：镜头与比例关口
 
-状态：2026-09-29 技术及体块样板，**未通过角色造型或跑步动作验收**。本目录的 `.blend` 只包含灰色体块、固定相机和灯光；活动游戏仍使用原有静态巡线者。
+状态：2026-09-29 技术及体块样板，**未通过角色造型或跑步动作验收**。本目录的 `.blend` 是灰色体块、固定相机及骨架的可编辑源；活动游戏仍使用原有静态巡线者。
 
 ## 目的与输入
 
@@ -25,6 +25,21 @@ python scripts/qa/make-ranger-camera-board.py
 - 初版灰模头太圆、靴子过宽且外套太短；修订版改成尖兜帽、窄靴与更长的下摆。它仍只有粗略体积，不能作为最终人物审美依据。
 - `ranger-graybox-run-keys-v1.blend` 是八个跑步关键姿势的失败试验：76px 对照里接触、下沉、经过和腾空不易分辨，双腿常被外套遮住。该源仅用于分析，不是通过验收的动作，也没有进入活动游戏。重建命令见下方；结果与外部动作参考的比较见[动作试验复盘](../../../docs/ranger-motion-reference-review-2026-09-29.md)。
 - 下一次先修正骨架和动作设计，明确脚掌接触、双腿剪影、骨盆位移与持枪上身的关系，再制作新的关键姿势。**当前 A 镜头未获玩家确认，B 动作未通过。**未通过前不制作厚涂材质、不导入活动角色素材。
+
+## 固定骨长的骨架基础
+
+`ranger-rig-graybox-v1.blend` 新增 16 根真实 Blender 骨骼：根、骨盆、躯干、头、左右大腿/小腿/脚和上臂/前臂/手。25 件灰模部件绑定到对应骨骼，左右脚由 `foot_ik.L/R` 与 `knee_pole.L/R` 控制；`hand_grip.L/R` 和 `weapon_muzzle` 是后续双手持枪的参考点，**目前尚未形成持枪动作**。整个源文件约 138 KB，不含第三方模型。
+
+用以下命令重建及验证；第二条只核对四个技术姿势的脚踝落点和固定骨长，不能证明跑步好看：
+
+```powershell
+& $env:WASTELAND_BLENDER_BIN --disable-autoexec --background --factory-startup --python scripts/blender/build-ranger-rig-graybox.py
+& $env:WASTELAND_BLENDER_BIN --disable-autoexec --background art/animation/ranger/ranger-rig-graybox-v1.blend --python scripts/blender/verify-ranger-rig-graybox.py
+```
+
+验证输出为 `RIG_VERIFIED poses=4 bones=16 max_foot_error_m=0.00000`。`output/animation/ranger/rig-v1/technical-poses-76px.png` 的目视结论仍是步态不清晰：当前体块的外套、头肩和手臂仍盖住腿部，尚须重做可变形衣摆、人物比例和人工姿势。该 `.blend` 是下一次建模与动作修整的**技术底座**，不是通过验收的动画。
+
+旧姿势仍可用于复盘，重建命令如下：
 
 ```powershell
 & $env:WASTELAND_BLENDER_BIN --disable-autoexec --background --factory-startup --python scripts/blender/pose-ranger-run-graybox.py
