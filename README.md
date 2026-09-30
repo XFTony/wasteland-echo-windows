@@ -7,6 +7,7 @@ Windows 桌面优先的俯视角废土生存射击 Roguelite。当前开发线�
 组件目录与安全修改指南：[docs/component-catalog.md](./docs/component-catalog.md)
 v1.5 路线图：[docs/optimization-roadmap-v1.5.md](./docs/optimization-roadmap-v1.5.md)
 2026-09-23 全面复审与优先级计划：[docs/optimization-plan-2026-09-23.md](./docs/optimization-plan-2026-09-23.md)
+2026-09-30 当前完成情况、发布问题与执行顺序：[docs/project-completion-audit-and-execution-plan-2026-09-30.md](./docs/project-completion-audit-and-execution-plan-2026-09-30.md)
 v1.5 真人试玩记录表：[docs/playtest-v1.5-field-sheet.md](./docs/playtest-v1.5-field-sheet.md)
 外部审查逐项复核：[docs/external-review-validation-2026-09-23.md](./docs/external-review-validation-2026-09-23.md)
 Git 与版本发布规则：[docs/versioning-and-release.md](./docs/versioning-and-release.md)
@@ -29,10 +30,10 @@ Git 与版本发布规则：[docs/versioning-and-release.md](./docs/versioning-a
 - 封面主视觉改用完整主体优先的 contain 构图，16:9 与 1080p 不再裁掉最大变异体头部；
 - 正文改用 Windows 系统易读字体，Fusion Pixel Font 仅负责标题和短标签；关键文字组合由自动测试校验至少 4.5:1 对比度；
 - 默认仅锁定进入当前枪械有效范围的最近存活敌人；范围外不自动开火，关闭辅助后可手动瞄准；
-- 7 把拥有独立像素轮廓、枪声和固有机制的枪械，覆盖近程、中程、远程；另有 8 类敌人、14 项基础升级、6 张事件触发机制卡、6 项需要 Lv6 熟练度许可的终局进化、3 种模式、3 名主角、3 套皮肤；升级时可选四张卡，也可拆解本轮换取废料；
+- 7 把拥有独立插画、枪声和固有机制的枪械，覆盖近程、中程、远程；另有 8 类敌人、14 项基础升级、6 张事件触发机制卡、6 项需要 Lv6 熟练度许可的终局进化、3 种模式、3 名主角、3 套皮肤；升级时可选四张卡，也可拆解本轮换取废料；
 - 3 个关卡与 3 张 3072～4096 单位地图，支持坚守、撤离和不会自动结算的无尽模式；
-- 四部位护甲每槽至少两件选择，并同步改变生命、护甲、移动、增伤等实战参数与人物像素外形；背包预览和开局战斗复用同一属性合成函数；
-- 幸存者与感染者按头部、躯干、四肢、武器/职业饰件分层组合，升级选择使用可动的收藏卡式表现；
+- 四部位护甲每槽至少两件选择，并同步改变生命、护甲、移动、增伤等实战参数；背包预览和开局战斗复用同一属性合成函数；插画人物的独立护具穿戴层尚未完成；
+- 当前幸存者与感染者使用静态整身插画和浮动效果，武器独立旋转；巡线者 Blender 跑步与双手持枪仅为内部样板，尚未接入游戏；
 - 枪械后坐、枪口焰、抛壳、伤害数字和分层合成枪声；
 - 城市战区由旧城商店街、环城服务区、废弃主干道、南线铁轨货场和拆车场组成；三图分别数据化道路细节，并提供爆炸桶、补给箱和电磁减速区；
 - 默认一局为 180 秒，坚守模式按“试探、累积、冲击、喘息、围攻、终局”六个阶段递增敌群；
@@ -44,7 +45,7 @@ Git 与版本发布规则：[docs/versioning-and-release.md](./docs/versioning-a
 - 固定 60 Hz 逻辑步、最多 4 步追帧、空间网格、对象池和动态画质；
 - 模式、枪械、敌人、机制、Boss、升级、解锁规则、挑战协议、皮肤、主角、地图、关卡、装备与商店项目共用内容注册表；跨目录 ID、Boss 阶段和专属进化映射在启动时校验；
 - schema v9 存档保留旧废料、武器、皮肤、设置与战绩，并把 v5 装备迁移到四部位护甲；新增蓝图、挑战协议、已完成规则、已领取熟练度奖励、专属进化权限和精通铭牌，异常数组会安全归一化；
-- 10 个当前运行美术资源使用 WebP，约 24.64 MB 的 PNG 原图压缩为约 4.55 MB；PNG 与停用素材只保存在 `art/`，不再重复放进活动 Web 树；
+- 截至 2026-09-30，活动 Catalog 有 54 张图片，压缩文件合计约 9.38 MiB；其中两份旧 UI 图片已无实际绘制用途，待单独停用；PNG 源图保存在 `art/`，资源按场景请求与释放；
 - 可选 FPS、帧耗时、实体数量和补帧丢弃诊断面板；
 - 完整离线运行；标题图、地表纹理、页面底板和中文像素标题字体均随本地包提供，不依赖远程图片、字体、音频或接口。
 
@@ -96,6 +97,8 @@ npm.cmd run build:installer
 ```
 
 当前 alpha 对应产物为 `output/builds/v1.5.0-alpha.1/WastelandEcho-v1.5.0-alpha.1-win-x64-setup.exe` 和同目录 portable zip。外壳与安装分发决策见 [ADR-001](./docs/adr-001-windows-desktop-shell.md) 和 [ADR-002](./docs/adr-002-windows-installer-and-release-layout.md)。
+
+2026-09-30 审核发现此目录的独立 exe 已更新，但 setup、zip 与 SHA 清单仍为旧构建，发布候选校验失败。当前几份文件不能作为同一候选版对外分享；体验最新静态插画请使用上方 `npm.cmd run play`，Windows 候选需从同一源码重新统一构建。
 
 ## 操作
 
