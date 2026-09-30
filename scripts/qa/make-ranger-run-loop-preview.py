@@ -1,12 +1,13 @@
 """Make 76px/152px animated GIF reviews from rendered ranger loop frames."""
 
+import argparse
 from pathlib import Path
 
 from PIL import Image, ImageDraw
 
 
 ROOT = Path(__file__).resolve().parents[2]
-INPUT = ROOT / "output/animation/ranger/run-ik-v2/loop"
+DEFAULT_INPUT = ROOT / "output/animation/ranger/run-ik-v2"
 SCREENSHOT = ROOT / "output/playwright/v15-painted/echo-combat-1280x720.png"
 
 
@@ -23,8 +24,16 @@ def shared_crop(images: list[Image.Image]) -> tuple[int, int, int, int]:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--input",
+        type=Path,
+        default=DEFAULT_INPUT,
+        help="Ranger motion output directory containing loop/",
+    )
+    input_dir = parser.parse_args().input.resolve() / "loop"
     images = [
-        Image.open(INPUT / f"frame_{frame:02d}.png").convert("RGBA")
+        Image.open(input_dir / f"frame_{frame:02d}.png").convert("RGBA")
         for frame in range(1, 25)
     ]
     crop = shared_crop(images)
@@ -47,7 +56,7 @@ def main() -> None:
             sprite = sprite.resize((sprite_width, size), Image.Resampling.LANCZOS)
             panel.alpha_composite(sprite, (center - sprite_width // 2, foot - size))
             frames.append(panel.convert("RGB"))
-        target = INPUT / f"run-loop-{size}px.gif"
+        target = input_dir / f"run-loop-{size}px.gif"
         frames[0].save(
             target,
             save_all=True,

@@ -72,6 +72,11 @@ def main() -> None:
                     raise AssertionError(
                         f"frame {frame}: {side} {segment} changed length"
                     )
+            mount = bpy.data.objects.get(f"weapon_mount.{side}")
+            if mount is not None:
+                wrist = rig.matrix_world @ rig.pose.bones[f"hand.{side}"].head
+                if (mount.matrix_world.translation - wrist).length > MAX_TARGET_ERROR:
+                    raise AssertionError(f"frame {frame}: {side} weapon mount detached")
             sole = boot_sole_z(label, depsgraph)
             min_sole = min(min_sole, sole)
             if sole < -MAX_GROUND_ERROR:
