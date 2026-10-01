@@ -96,3 +96,9 @@ python scripts/qa/build-ranger-run-review-page.py
 & $env:WASTELAND_BLENDER_BIN --disable-autoexec --background --factory-startup --python scripts/blender/pose-ranger-run-graybox.py
 python scripts/qa/make-ranger-run-pose-board.py
 ```
+
+## 2026-10-01 · 二维精细像素试作
+
+用户已选择尝试精细像素路线。当前新交付为 [巡线者静态像素风样稿](./pixel-lookdev/README.md)：保留现有角色身份与双手持枪，源图、完整提示词和元数据均已保存。它尚未整理成正式低分辨率像素源或连续动作，登记为 inactive study，不进入活动游戏。
+
+运行 `python scripts/qa/build-ranger-pixel-review.py` 后，打开 `output/animation/ranger/pixel-lookdev-v1/review.html` 查看 76px、152px 和 304px 地图对照。后续优先使用二维关键帧、连续像素帧与紧凑图集；Blender 模型和骨架保留作可选姿势参考，精细建模不再是本试验的前置条件。

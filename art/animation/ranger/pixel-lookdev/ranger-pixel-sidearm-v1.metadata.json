@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-01",
+  "generator": "OpenAI ImageGen built-in",
+  "role": "static style study",
+  "status": "inactive",
+  "runtimeIntegrated": false,
+  "animationComplete": false,
+  "visualApproved": false,
+  "images": {
+    "pixel": {
+      "path": "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "pixelFormat": "RGBA",
+      "bbox": [
+        358,
+        34,
+        970,
+        1234
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparentPixels": 1136395,
+      "bytes": 864484,
+      "sha256": "37B53BBEA947258D8388CE5EAA70A0A196DB8B636FD08A4CF2550BFA77ECBF18"
+    },
+    "painting": {
+      "path": "web/assets/actors/ranger-base-v1.webp",
+      "width": 353,
+      "height": 512,
+      "pixelFormat": "RGBA",
+      "bbox": [
+        64,
+        9,
+        290,
+        497
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparentPixels": 118599,
+      "bytes": 113272,
+      "sha256": "FC35DE7B512F3161462FD84C26B267DB6A58EB005D01BA7EC2637D2D1E8A4E7F"
+    },
+    "map": {
+      "path": "output/playwright/v15-painted/echo-combat-1280x720.png",
+      "width": 1280,
+      "height": 720,
+      "pixelFormat": "RGBA",
+      "bbox": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "alphaRange": [
+        255,
+        255
+      ],
+      "transparentPixels": 0,
+      "bytes": 1162606,
+      "sha256": "87532F941723B93AF24665F5B9EFDBB5D23173E3ADDADCF1EB7D2F067D836A2C"
+    }
+  }
+}

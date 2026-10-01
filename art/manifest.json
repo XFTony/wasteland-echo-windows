@@ -1024,6 +1024,23 @@
       "sha256": "BD4C487CEB9AB9B3124DA3F5AFACE791EBD059EE56C519F94ECA11F0230DDC28",
       "generator": "OpenAI ImageGen",
       "notes": "Single-frame art quality target only; includes a painted pistol. Not runtime body art or a finished animation. Prompt and references in art/animation/ranger/lookdev/. Commercial terms review pending."
+    },
+    {
+      "id": "study.ranger.pixel-sidearm.v1",
+      "version": "1.5-pixel-lookdev",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
+      "sourcePaths": [
+        "art/generated/v1.5/source/ranger-base-v1-source.png",
+        "art/animation/ranger/lookdev/ranger-sidearm-quality-target-v1.png"
+      ],
+      "width": 1254,
+      "height": 1254,
+      "pixelFormat": "RGBA",
+      "bytes": 864484,
+      "sha256": "37B53BBEA947258D8388CE5EAA70A0A196DB8B636FD08A4CF2550BFA77ECBF18",
+      "generator": "OpenAI ImageGen",
+      "notes": "Static detailed pixel-style study with baked pistol, not a native low-resolution pixel master or finished action atlas. Prompt, transparent bounds and review status recorded in art/animation/ranger/pixel-lookdev/. Commercial terms review pending."
     }
   ]
 }
