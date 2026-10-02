@@ -4,3 +4,5 @@
 *.ico binary
 *.woff2 binary
 *.zip binary
+*.gif binary
+*.aseprite binary

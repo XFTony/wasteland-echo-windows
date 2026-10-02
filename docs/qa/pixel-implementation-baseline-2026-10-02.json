@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-02",
+  "baselineSourceCommit": "18fe898",
+  "archived3DCommit": "bd9987a",
+  "command": "npm.cmd run check",
+  "exitCode": 0,
+  "tests": 208,
+  "passed": 208,
+  "failed": 0,
+  "bundleBytes": 566134,
+  "bundleModules": 77,
+  "stagedFiles": 59,
+  "stagedBytes": 10428913,
+  "activeRuntimeImages": 54,
+  "newRuntimeAnimationIntegrated": false,
+  "logPath": "output/pixel-implementation-2026-10-02/check.log",
+  "logSHA256": "24F3C5C4D4EC448D235E0EB83306025DE1EF8EF91DB0F18955376F1839FB5C4E",
+  "reviewBrowser": {
+    "uniqueFrames": 8,
+    "frameStep": true,
+    "playback": true,
+    "pageErrors": []
+  },
+  "exportNegativeChecksRejected": [
+    "missing-frame",
+    "out-of-bounds",
+    "invalid-duration",
+    "invalid-root",
+    "bad-hash",
+    "premature-runtime-ready"
+  ],
+  "unverified": [
+    "native gait/identity visual approval",
+    "real WebView2 animation long session",
+    "physical controller matrix"
+  ],
+  "artifactManifestSHA256": "ABA123CA30B7129D34C12719E7B7C0CE077039DC374EC812E55D5460F5B498A1",
+  "testedRunCandidateVersions": [
+    "v1",
+    "v2"
+  ],
+  "runtimeSourceChanged": false
+}

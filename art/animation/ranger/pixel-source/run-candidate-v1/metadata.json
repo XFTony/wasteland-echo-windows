@@ -1,0 +1,356 @@
+{
+  "date": "2026-10-02",
+  "role": "generated key-pose native review candidate",
+  "source": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v1.png",
+  "sourceSha256": "EBCBF4BB036ADC153124761B2A6F3999A9581549416952C11B1D6176D0156B1C",
+  "nativePath": "art/animation/ranger/pixel-source/run-candidate-v1/ranger-run-candidate-v1.aseprite",
+  "atlasPath": "art/animation/ranger/pixel-source/run-candidate-v1/ranger-run-candidate-v1.png",
+  "gifPath": "art/animation/ranger/pixel-source/run-candidate-v1/ranger-run-candidate-v1.gif",
+  "canvas": [
+    128,
+    128
+  ],
+  "atlasSize": [
+    1024,
+    128
+  ],
+  "opaquePalette": [
+    "#17110e",
+    "#231a16",
+    "#2f231b",
+    "#3f2b1f",
+    "#4f3420",
+    "#5e3e23",
+    "#6f4a29",
+    "#825a31",
+    "#95683d",
+    "#ab7d4d",
+    "#c39867",
+    "#d6b281",
+    "#e6c799",
+    "#f7dcab",
+    "#3e180e",
+    "#581f0e",
+    "#792c10",
+    "#993a11",
+    "#b84c16",
+    "#d96c21",
+    "#f39539",
+    "#201f1f",
+    "#2e2c2a",
+    "#3e3b36",
+    "#514c44",
+    "#665f53",
+    "#827968",
+    "#9c917d",
+    "#b6ac97",
+    "#d2cab2",
+    "#eee7d0",
+    "#b96c36"
+  ],
+  "paletteColors": 32,
+  "frames": [
+    {
+      "index": 0,
+      "durationMs": 50,
+      "root": [
+        64,
+        110
+      ],
+      "sourceCell": [
+        0,
+        0,
+        384,
+        512
+      ],
+      "sourceOpaqueBox": [
+        70,
+        26,
+        365,
+        492
+      ],
+      "sourceHoodCenterX": 238.384,
+      "alignmentShiftSourcePixels": 15.554,
+      "opaqueBox": [
+        41,
+        36,
+        89,
+        113
+      ],
+      "rect": [
+        0,
+        0,
+        128,
+        128
+      ]
+    },
+    {
+      "index": 1,
+      "durationMs": 50,
+      "root": [
+        64,
+        110
+      ],
+      "sourceCell": [
+        384,
+        0,
+        384,
+        512
+      ],
+      "sourceOpaqueBox": [
+        71,
+        23,
+        362,
+        486
+      ],
+      "sourceHoodCenterX": 234.822,
+      "alignmentShiftSourcePixels": 11.991,
+      "opaqueBox": [
+        42,
+        36,
+        89,
+        112
+      ],
+      "rect": [
+        128,
+        0,
+        128,
+        128
+      ]
+    },
+    {
+      "index": 2,
+      "durationMs": 50,
+      "root": [
+        64,
+        110
+      ],
+      "sourceCell": [
+        768,
+        0,
+        384,
+        512
+      ],
+      "sourceOpaqueBox": [
+        57,
+        27,
+        339,
+        486
+      ],
+      "sourceHoodCenterX": 208.845,
+      "alignmentShiftSourcePixels": -13.986,
+      "opaqueBox": [
+        43,
+        37,
+        89,
+        112
+      ],
+      "rect": [
+        256,
+        0,
+        128,
+        128
+      ]
+    },
+    {
+      "index": 3,
+      "durationMs": 50,
+      "root": [
+        64,
+        110
+      ],
+      "sourceCell": [
+        1152,
+        0,
+        384,
+        512
+      ],
+      "sourceOpaqueBox": [
+        39,
+        25,
+        343,
+        486
+      ],
+      "sourceHoodCenterX": 206.661,
+      "alignmentShiftSourcePixels": -16.17,
+      "opaqueBox": [
+        40,
+        36,
+        90,
+        112
+      ],
+      "rect": [
+        384,
+        0,
+        128,
+        128
+      ]
+    },
+    {
+      "index": 4,
+      "durationMs": 50,
+      "root": [
+        64,
+        110
+      ],
+      "sourceCell": [
+        0,
+        512,
+        384,
+        512
+      ],
+      "sourceOpaqueBox": [
+        47,
+        15,
+        362,
+        471
+      ],
+      "sourceHoodCenterX": 225.567,
+      "alignmentShiftSourcePixels": 2.736,
+      "opaqueBox": [
+        39,
+        35,
+        90,
+        110
+      ],
+      "rect": [
+        512,
+        0,
+        128,
+        128
+      ]
+    },
+    {
+      "index": 5,
+      "durationMs": 50,
+      "root": [
+        64,
+        110
+      ],
+      "sourceCell": [
+        384,
+        512,
+        384,
+        512
+      ],
+      "sourceOpaqueBox": [
+        61,
+        14,
+        364,
+        477
+      ],
+      "sourceHoodCenterX": 227.096,
+      "alignmentShiftSourcePixels": 4.265,
+      "opaqueBox": [
+        41,
+        35,
+        91,
+        111
+      ],
+      "rect": [
+        640,
+        0,
+        128,
+        128
+      ]
+    },
+    {
+      "index": 6,
+      "durationMs": 50,
+      "root": [
+        64,
+        110
+      ],
+      "sourceCell": [
+        768,
+        512,
+        384,
+        512
+      ],
+      "sourceOpaqueBox": [
+        46,
+        15,
+        350,
+        477
+      ],
+      "sourceHoodCenterX": 220.094,
+      "alignmentShiftSourcePixels": -2.736,
+      "opaqueBox": [
+        39,
+        35,
+        89,
+        111
+      ],
+      "rect": [
+        768,
+        0,
+        128,
+        128
+      ]
+    },
+    {
+      "index": 7,
+      "durationMs": 50,
+      "root": [
+        64,
+        110
+      ],
+      "sourceCell": [
+        1152,
+        512,
+        384,
+        512
+      ],
+      "sourceOpaqueBox": [
+        38,
+        15,
+        354,
+        477
+      ],
+      "sourceHoodCenterX": 216.952,
+      "alignmentShiftSourcePixels": -5.879,
+      "opaqueBox": [
+        39,
+        35,
+        91,
+        111
+      ],
+      "rect": [
+        896,
+        0,
+        128,
+        128
+      ]
+    }
+  ],
+  "root": [
+    64,
+    110
+  ],
+  "referenceWorkingBodyPixels": 76,
+  "worldScale": 1,
+  "sharedStudyScale": 0.1645021645021645,
+  "alphaThreshold": 200,
+  "headAlignmentMethod": "upper warm hood centroid, shared scale and fixed root",
+  "sourceFrames": 8,
+  "totalDurationMs": 400,
+  "nativeRoundtripExact": true,
+  "atlasSha256": "D994CBA4B603E122066C0E7C5394DB5548A7DCE08505149267B12C2BA60CE9E2",
+  "nativeSha256": "57AAA5A32FE3168C86D23B67FFC889795D4A27CEB32A94914F5933980938BA8C",
+  "gifSha256": "287BB5B3C374ADF8C0CA25ACA92F7869A44744991F11B5D4BD3391752E235ABC",
+  "assetBytes": 36967,
+  "decodedRGBABytes": 524288,
+  "handRetouched": false,
+  "bakedWeapon": true,
+  "visualApproved": false,
+  "runtimeIntegrated": false,
+  "complete": false,
+  "exportFilesComplete": true,
+  "pending": [
+    "human leg support and phase review",
+    "loop seam and identity consistency",
+    "foot contact and stride measurement",
+    "editable body/weapon layers",
+    "continuous aim"
+  ]
+}

@@ -1,0 +1,18 @@
+Use case: precise-object-edit.
+Edit the supplied 4x2 eight-pose ranger sprite study. Preserve the 1536x1024 grid, all eight cell positions, scale, hood, face, mask, orange lenses, scarf, upper coat, BOTH arms, hand grip, and pistol as closely as possible. Keep one fixed slight top-down right-facing game camera. No gunfire, no extra limbs, no labels.
+CHANGE ONLY the legs, boots, and necessary lower coat occlusion to make one complete alternating TWO-STEP run cycle. The last four frames MUST be the opposite leg phase of the first four, not a repeat of the same leading boot.
+Use the existing leg identity as an unmistakable guide:
+LEG A = the leg with the ORANGE cloth band at the upper boot / below the knee.
+LEG B = the leg with NO orange band and the brown leather thigh strap.
+Keep those accessories attached to the same anatomical legs in every frame.
+Read left-to-right top row then bottom row:
+1. ORANGE-BAND LEG A is ahead and landing, knee softly bent; LEG B trails with heel raised.
+2. LEG A bears weight planted underneath pelvis; LEG B heel lifts completely and knee begins recovery.
+3. LEG A remains the support leg behind pelvis, foot still on the floor; LEG B knee passes forward, lower leg folded, boot airborne. Do NOT make LEG A suddenly airborne in this frame.
+4. LEG B reaches forward for landing, shin extending; LEG A pushes off behind. Both boots may be slightly airborne during a short flight, but LEG B is clearly the forward-reaching boot.
+5. NO-BAND LEG B is ahead and landing, knee softly bent; ORANGE-BAND LEG A trails with heel raised. Clearly reverse the visible forward-leg relationship of frame 1.
+6. LEG B bears weight planted underneath pelvis; LEG A heel lifts completely and knee begins recovery.
+7. LEG B remains the support leg behind pelvis, foot still on floor; LEG A knee passes forward, lower leg folded, orange-band boot airborne.
+8. ORANGE-BAND LEG A reaches forward for landing, shin extending; LEG B pushes off behind. This must lead naturally back into frame 1.
+Physically coherent hips, knees and ankles, adult proportions, consistent leg lengths, no bent-back knees, no tangled ankles. Keep heel-to-toe contacts, restrained pelvis motion. Boots point in the right-facing travel direction when contacting the floor, and may flex naturally while airborne.
+Keep the tan/charcoal/orange/leather pixel-art styling and clean transparent separation between equal cells. Genuine transparent RGBA. No floor, no cast shadow, no new backdrop, no opaque checkerboard, no glow added. This is a targeted gait correction, not a new character or a new upper-body pose.

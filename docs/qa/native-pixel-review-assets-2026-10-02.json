@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-02",
+  "densityCandidates": 2,
+  "runVersions": {
+    "v1": {
+      "frames": 8,
+      "distinctFrames": 8,
+      "binaryAlpha": true,
+      "paletteValid": true,
+      "hashesValid": true,
+      "gifTimingValid": true,
+      "nativeRoundtripExact": true,
+      "visualApproved": false,
+      "runtimeIntegrated": false
+    },
+    "v2": {
+      "frames": 8,
+      "distinctFrames": 8,
+      "binaryAlpha": true,
+      "paletteValid": true,
+      "hashesValid": true,
+      "gifTimingValid": true,
+      "nativeRoundtripExact": true,
+      "visualApproved": false,
+      "runtimeIntegrated": false
+    }
+  },
+  "role": "file/source gate only; contact/gait/identity review pending"
+}

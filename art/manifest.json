@@ -1041,6 +1041,107 @@
       "sha256": "37B53BBEA947258D8388CE5EAA70A0A196DB8B636FD08A4CF2550BFA77ECBF18",
       "generator": "OpenAI ImageGen",
       "notes": "Static detailed pixel-style study with baked pistol, not a native low-resolution pixel master or finished action atlas. Prompt, transparent bounds and review status recorded in art/animation/ranger/pixel-lookdev/. Commercial terms review pending."
+    },
+    {
+      "id": "study.ranger.pixel-density-38.v1",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/ranger-density-38-v1.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
+        "art/animation/ranger/pixel-source/ranger-density-38-v1.aseprite"
+      ],
+      "width": 64,
+      "height": 96,
+      "pixelFormat": "RGBA",
+      "bytes": 1701,
+      "sha256": "E6FAFA4072B3BA08B248CCE4F1ABCE34D919ECC7AE00EE59DF8421EC0FBA5282",
+      "generator": "LibreSprite + native pixel workflow",
+      "notes": "Density/palette draft only; one combined layer with baked pistol. Native source and exact editor export recorded; not finished actor art."
+    },
+    {
+      "id": "study.ranger.pixel-density-76.v1",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/ranger-density-76-v1.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
+        "art/animation/ranger/pixel-source/ranger-density-76-v1.aseprite"
+      ],
+      "width": 128,
+      "height": 128,
+      "pixelFormat": "RGBA",
+      "bytes": 5162,
+      "sha256": "01C8DECBDDE80ACE56F998D55CF7EAA3BA62D6CDD2A60E7E30714F6803499D8F",
+      "generator": "LibreSprite + native pixel workflow",
+      "notes": "Density/palette draft only; one combined layer with baked pistol. Native source and exact editor export recorded; not finished actor art."
+    },
+    {
+      "id": "study.ranger.run-keyposes.v1",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v1.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
+        "art/animation/ranger/pixel-source/ranger-density-76-v1.png"
+      ],
+      "width": 1536,
+      "height": 1024,
+      "pixelFormat": "RGBA",
+      "bytes": 2360940,
+      "sha256": "EBCBF4BB036ADC153124761B2A6F3999A9581549416952C11B1D6176D0156B1C",
+      "generator": "OpenAI ImageGen",
+      "notes": "Eight generated key-pose studies; half-transparent warm edges; human gait and identity review pending. Prompt saved beside source."
+    },
+    {
+      "id": "study.ranger.native-run-candidate.v1",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v1/ranger-run-candidate-v1.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v1.png",
+        "art/animation/ranger/pixel-source/run-candidate-v1/ranger-run-candidate-v1.aseprite"
+      ],
+      "width": 1024,
+      "height": 128,
+      "pixelFormat": "RGBA",
+      "bytes": 36967,
+      "sha256": "D994CBA4B603E122066C0E7C5394DB5548A7DCE08505149267B12C2BA60CE9E2",
+      "generator": "LibreSprite + native pixel workflow",
+      "notes": "Eight native review frames, shared scale and declared alignment; baked pistol, foot/stride and loop review pending. Not runtime-integrated or visually approved."
+    },
+    {
+      "id": "study.ranger.run-keyposes.v2",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v1.png"
+      ],
+      "width": 1536,
+      "height": 1024,
+      "pixelFormat": "RGBA",
+      "bytes": 2394288,
+      "sha256": "793F5E0DF46C632460AABB4B6AC266020E78985C8E543331E40FC2C08C08EF2E",
+      "generator": "OpenAI ImageGen",
+      "notes": "Targeted leg-phase study revision; upper-body reference retained, contact and loop review still pending."
+    },
+    {
+      "id": "study.ranger.native-run-candidate.v2",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v2/ranger-run-candidate-v2.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+        "art/animation/ranger/pixel-source/run-candidate-v2/ranger-run-candidate-v2.aseprite"
+      ],
+      "width": 1024,
+      "height": 128,
+      "pixelFormat": "RGBA",
+      "bytes": 37209,
+      "sha256": "D40AA1D61F85A4F18D7D9AE6D6AF1CA0A27301D3A69E4483649D8C1C320FE4A0",
+      "generator": "LibreSprite + native pixel workflow",
+      "notes": "Current native eight-pose review candidate. Partial phase correction only; gait, loop, layers and runtime integration remain pending."
     }
   ]
 }
