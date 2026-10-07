@@ -21,13 +21,14 @@ def verify_candidate(data):
         assert set(frame.getchannel('A').getdata()).issubset({0,255})
         assert {p[:3] for p in frame.getdata() if p[3]}.issubset(palette)
         seen.add(hashlib.sha256(frame.tobytes()).hexdigest())
-    assert len(seen)==len(data['frames'])==8
-    gif=Image.open(ROOT/data['gifPath']);assert gif.n_frames==8
+    count=data.get('sourceFrames',8)
+    assert 1<=count<=128 and len(seen)==len(data['frames'])==count
+    gif=Image.open(ROOT/data['gifPath']);assert gif.n_frames==count
     for index,row in enumerate(data['frames']):
         gif.seek(index);assert gif.info['duration']==row['durationMs']
     assert data['exportFilesComplete'] and data['nativeRoundtripExact']
     assert not data['visualApproved'] and not data['runtimeIntegrated'] and not data['complete']
-    return {'frames':8,'distinctFrames':8,'binaryAlpha':True,'paletteValid':True,'hashesValid':True,
+    return {'frames':count,'distinctFrames':count,'binaryAlpha':True,'paletteValid':True,'hashesValid':True,
             'gifTimingValid':True,'nativeRoundtripExact':True,'visualApproved':False,'runtimeIntegrated':False}
 
 
@@ -40,13 +41,13 @@ def main():
         assert hashlib.sha256(p.read_bytes()).hexdigest().upper()==c['pngSha256']
         assert c['editorRoundtripExact']
     versions={}
-    for version in ('v1','v2'):
+    for version in ('v1','v2','v3'):
         path=ROOT/f'art/animation/ranger/pixel-source/run-candidate-{version}/metadata.json'
         if path.is_file(): versions[version]=verify_candidate(json.loads(path.read_text()))
     assert 'v1' in versions
-    proof={'date':'2026-10-02','densityCandidates':2,'runVersions':versions,
+    proof={'date':'2026-10-07' if 'v3' in versions else '2026-10-02','densityCandidates':2,'runVersions':versions,
            'role':'file/source gate only; contact/gait/identity review pending'}
-    (ROOT/'docs/qa/native-pixel-review-assets-2026-10-02.json').write_text(json.dumps(proof,indent=2),encoding='utf-8')
+    (ROOT/f"docs/qa/native-pixel-review-assets-{proof['date']}.json").write_text(json.dumps(proof,indent=2),encoding='utf-8')
     print(json.dumps(proof))
 
 

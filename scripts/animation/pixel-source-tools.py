@@ -45,6 +45,35 @@ def write_source(path, frames, durations, layer_name='draft'):
     path.write_bytes(bytes(header)+b''.join(bodies))
 
 
+def write_layered_source(path, layers, durations):
+    """Write visible, separately editable layers with identical frame canvases."""
+    if not layers or not durations: raise ValueError('Layers and durations required')
+    count=len(durations);size=layers[0]['frames'][0].size
+    if any(len(layer['frames'])!=count for layer in layers): raise ValueError('Layer frame count mismatch')
+    if any(image.size!=size for layer in layers for image in layer['frames']): raise ValueError('Layer canvas mismatch')
+    if any(not 1<=duration<=65535 for duration in durations): raise ValueError('Invalid duration')
+    names=[layer['name'] for layer in layers]
+    if len(names)!=len(set(names)): raise ValueError('Duplicate layer name')
+    layer_chunks=[]
+    for name in names:
+        encoded=name.encode('utf-8')
+        layer_chunks.append(chunk(0x2004,struct.pack('<6HB3sH',1,0,0,0,0,0,255,b'\0'*3,len(encoded))+encoded))
+    bodies=[]
+    for i,duration in enumerate(durations):
+        pieces=list(layer_chunks) if i==0 else []
+        for index,layer in enumerate(layers):
+            rgba=layer['frames'][i].convert('RGBA').tobytes()
+            payload=struct.pack('<HhhBHh5sHH',index,0,0,255,2,0,b'\0'*5,*size)+zlib.compress(rgba)
+            pieces.append(chunk(0x2005,payload))
+        payload=b''.join(pieces)
+        bodies.append(struct.pack('<IHHH2sI',16+len(payload),0xF1FA,len(pieces),duration,b'\0\0',len(pieces))+payload)
+    header=bytearray(128)
+    struct.pack_into('<IHHHHHI',header,0,128+sum(map(len,bodies)),0xA5E0,count,*size,32,1)
+    struct.pack_into('<H',header,18,durations[0]);struct.pack_into('<HBBhhHH',header,32,0,1,1,0,0,16,16)
+    target=Path(path);target.parent.mkdir(parents=True,exist_ok=True)
+    target.write_bytes(bytes(header)+b''.join(bodies))
+
+
 def run_editor(arguments):
     if not TOOL.is_file(): raise FileNotFoundError(f'Project-local LibreSprite missing: {TOOL}')
     TOOL_DATA.mkdir(parents=True,exist_ok=True)

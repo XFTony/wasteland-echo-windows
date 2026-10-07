@@ -1142,6 +1142,24 @@
       "sha256": "D40AA1D61F85A4F18D7D9AE6D6AF1CA0A27301D3A69E4483649D8C1C320FE4A0",
       "generator": "LibreSprite + native pixel workflow",
       "notes": "Current native eight-pose review candidate. Partial phase correction only; gait, loop, layers and runtime integration remain pending."
+    },
+    {
+      "id": "study.ranger.native-run-continuous.v3",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v3/ranger-run-candidate-v3.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-density-76-v1.png",
+        "art/animation/ranger/pixel-source/run-candidate-v3/ranger-run-candidate-v3.aseprite",
+        "art/animation/ranger/pixel-source/run-candidate-v3/rig-source.json"
+      ],
+      "width": 2560,
+      "height": 128,
+      "pixelFormat": "RGBA",
+      "bytes": 24059,
+      "sha256": "157F3965B84C399B027BEA9D8B302AA5FE200B8720A4F884E3E52B9FE2E8966E",
+      "generator": "Native pixel source + authored periodic joint motion",
+      "notes": "20-frame closed-cycle native review candidate; six editable layers, fixed leg identity and bones. Loop endpoints and stance verified, visual polish and runtime integration pending."
     }
   ]
 }

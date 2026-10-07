@@ -1,6 +1,6 @@
 # 巡线者原生像素制作源与候选
 
-日期：2026-10-02。按最终计划2.0实施；以下候选均未接入活动游戏。
+更新时间：2026-10-07。按最终计划2.0实施；以下候选均未接入活动游戏。
 
 ## 工具与密度
 
@@ -22,11 +22,15 @@ LibreSprite官方发行v1.1便携程序自报`1.1-dev`，存放于`output/toolin
 
 ## 重建与查看
 
+2026-10-07新增 [20帧连续关节版本v3](./run-candidate-v3/README.md)，默认预览已切换至v3，同时保留原八帧对照。详见新源说明、闭环验证与分层源；v1/v2仍是历史生成姿势候选。
+
 ```powershell
 python scripts/animation/pixel-source-tools.py
 python scripts/animation/build-pixel-density-candidates.py
 python scripts/animation/build-ranger-run-candidate.py
 python scripts/animation/build-ranger-run-candidate.py --version v2
+python scripts/animation/build-ranger-continuous-run.py
+python scripts/animation/verify-ranger-continuous-loop.py
 python scripts/animation/build-ranger-run-candidate.py --version v2
 python scripts/animation/verify-native-review-assets.py
 python scripts/qa/build-pixel-production-review.py
