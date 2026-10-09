@@ -1160,6 +1160,89 @@
       "sha256": "157F3965B84C399B027BEA9D8B302AA5FE200B8720A4F884E3E52B9FE2E8966E",
       "generator": "Native pixel source + authored periodic joint motion",
       "notes": "20-frame closed-cycle native review candidate; six editable layers, fixed leg identity and bones. Loop endpoints and stance verified, visual polish and runtime integration pending."
+    },
+    {
+      "id": "study.ranger.drawn-inbetweens.v4.part1",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-1-to-4.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png"
+      ],
+      "width": 768,
+      "height": 2048,
+      "pixelFormat": "RGBA",
+      "bytes": 2432870,
+      "sha256": "4B644D6BAE1E3F10276ED8B51D4755C4DB965F0BBE03DF5A7EBA6EA691E33CCD",
+      "generator": "OpenAI ImageGen",
+      "notes": "Eight complete-character inbetween drawings for key pairs 1 to 4; three-pose revision overrides declared in metadata."
+    },
+    {
+      "id": "study.ranger.drawn-inbetweens.v4.part2",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-5-to-8.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png"
+      ],
+      "width": 768,
+      "height": 2048,
+      "pixelFormat": "RGBA",
+      "bytes": 2423263,
+      "sha256": "FA348A78AA373C2F6AD884D1AC8CDB3C8B1FD1FFF9ED4A3173DFED120809321A",
+      "generator": "OpenAI ImageGen",
+      "notes": "Eight complete-character inbetween drawings including the 8 to 1 loop seam; one pose overridden by revision."
+    },
+    {
+      "id": "study.ranger.drawn-inbetweens.v4.revision",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/three-pose-revision.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png"
+      ],
+      "width": 1881,
+      "height": 836,
+      "pixelFormat": "RGBA",
+      "bytes": 1505386,
+      "sha256": "71679DDB5329537BB1E9A26465391FD2407B16404D57BEB96DCFCDB0C237F12D",
+      "generator": "OpenAI ImageGen",
+      "notes": "Three targeted full-character drawing revisions; source assignment and registration saved."
+    },
+    {
+      "id": "study.ranger.native-drawn-run.v4",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v4/ranger-run-candidate-v4.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+        "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-1-to-4.png",
+        "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-5-to-8.png",
+        "art/animation/ranger/pixel-source/run-candidate-v4/source/three-pose-revision.png"
+      ],
+      "width": 3072,
+      "height": 128,
+      "pixelFormat": "RGBA",
+      "bytes": 107449,
+      "sha256": "0446CC9E43C18614230DFD2DF54FFCC3A0EAE1189507A44F603CC54401CE571B",
+      "generator": "ImageGen drawings + LibreSprite import",
+      "notes": "24 illustrated frames: original eight keys byte-identical plus 16 inbetweens; 400ms; inactive review only."
+    },
+    {
+      "id": "study.ranger.drawn-art-atlas.v4",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v4/ranger-run-drawn-art-v4.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png"
+      ],
+      "width": 12288,
+      "height": 512,
+      "pixelFormat": "RGBA",
+      "bytes": 4269502,
+      "sha256": "D8B67A499A1C2D37F1BA1067F3D52C5AD2294F1147F69729A47171BD9C8E521D",
+      "generator": "ImageGen drawings + whole-image registration",
+      "notes": "Offline high-resolution review atlas; not a runtime texture; visual consistency still pending."
     }
   ]
 }

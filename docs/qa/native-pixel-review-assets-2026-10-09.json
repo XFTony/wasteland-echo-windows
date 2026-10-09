@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-09",
+  "densityCandidates": 2,
+  "runVersions": {
+    "v1": {
+      "frames": 8,
+      "distinctFrames": 8,
+      "binaryAlpha": true,
+      "paletteValid": true,
+      "hashesValid": true,
+      "gifTimingValid": true,
+      "nativeRoundtripExact": true,
+      "visualApproved": false,
+      "runtimeIntegrated": false
+    },
+    "v2": {
+      "frames": 8,
+      "distinctFrames": 8,
+      "binaryAlpha": true,
+      "paletteValid": true,
+      "hashesValid": true,
+      "gifTimingValid": true,
+      "nativeRoundtripExact": true,
+      "visualApproved": false,
+      "runtimeIntegrated": false
+    },
+    "v3": {
+      "frames": 20,
+      "distinctFrames": 20,
+      "binaryAlpha": true,
+      "paletteValid": true,
+      "hashesValid": true,
+      "gifTimingValid": true,
+      "nativeRoundtripExact": true,
+      "visualApproved": false,
+      "runtimeIntegrated": false
+    },
+    "v4": {
+      "frames": 24,
+      "distinctFrames": 24,
+      "binaryAlpha": true,
+      "paletteValid": true,
+      "hashesValid": true,
+      "gifTimingValid": true,
+      "nativeRoundtripExact": true,
+      "visualApproved": false,
+      "runtimeIntegrated": false
+    }
+  },
+  "role": "file/source gate only; contact/gait/identity review pending"
+}

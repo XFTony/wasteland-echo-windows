@@ -25,7 +25,13 @@ def verify_candidate(data):
     assert 1<=count<=128 and len(seen)==len(data['frames'])==count
     gif=Image.open(ROOT/data['gifPath']);assert gif.n_frames==count
     for index,row in enumerate(data['frames']):
-        gif.seek(index);assert gif.info['duration']==row['durationMs']
+        gif.seek(index);assert gif.info['duration']==data.get('gifDurationsMs',[r['durationMs'] for r in data['frames']])[index]
+    assert sum(row['durationMs'] for row in data['frames'])==data['totalDurationMs']
+    if data.get('webpPath'):
+        assert hashlib.sha256((ROOT/data['webpPath']).read_bytes()).hexdigest().upper()==data['webpSha256']
+        webp=Image.open(ROOT/data['webpPath']);assert webp.n_frames==count
+        for index,row in enumerate(data['frames']):
+            webp.seek(index);webp.load();assert webp.info['duration']==row['durationMs']
     assert data['exportFilesComplete'] and data['nativeRoundtripExact']
     assert not data['visualApproved'] and not data['runtimeIntegrated'] and not data['complete']
     return {'frames':count,'distinctFrames':count,'binaryAlpha':True,'paletteValid':True,'hashesValid':True,
@@ -41,11 +47,11 @@ def main():
         assert hashlib.sha256(p.read_bytes()).hexdigest().upper()==c['pngSha256']
         assert c['editorRoundtripExact']
     versions={}
-    for version in ('v1','v2','v3'):
+    for version in ('v1','v2','v3','v4'):
         path=ROOT/f'art/animation/ranger/pixel-source/run-candidate-{version}/metadata.json'
         if path.is_file(): versions[version]=verify_candidate(json.loads(path.read_text()))
     assert 'v1' in versions
-    proof={'date':'2026-10-07' if 'v3' in versions else '2026-10-02','densityCandidates':2,'runVersions':versions,
+    proof={'date':'2026-10-09' if 'v4' in versions else '2026-10-07' if 'v3' in versions else '2026-10-02','densityCandidates':2,'runVersions':versions,
            'role':'file/source gate only; contact/gait/identity review pending'}
     (ROOT/f"docs/qa/native-pixel-review-assets-{proof['date']}.json").write_text(json.dumps(proof,indent=2),encoding='utf-8')
     print(json.dumps(proof))

@@ -1,41 +1,42 @@
 # 巡线者原生像素制作源与候选
 
-更新时间：2026-10-07。按最终计划2.0实施；以下候选均未接入活动游戏。
+更新时间：2026-10-09。按最终计划2.0与用户本轮纠正实施；以下候选均未接入活动游戏。
+
+## 当前制作路线
+
+用户明确要求：按照原八帧的完整人物绘画方法，补绘更细致的中间步态，再顺序合成循环。当前默认为[24帧逐帧补绘样板v4](./run-candidate-v4/README.md)。
+
+v4保留原v2八张关键帧的原生像素，在每对相邻帧之间补绘两张完整人物，共24帧。第8→1帧也补两张，末尾不复制第一张。正常预览、源与WebP保持400ms；兼容GIF为480ms。原图、提示词、逐帧来源、对齐量、原生源和所有导出文件均保留。
+
+新增姿态来自内置ImageGen绘图。导入代码只整理分辨率、整张人物对齐、透明边缘及色板；不以骨骼变形、简化腿部或透明叠化生成动作。原画细节与游戏像素尺寸可在同一预览切换。文件通过不代表自然步态、服饰纹理及配饰一致性已获视觉批准。
+
+## 历史候选
+
+- v1/v2：4×2八张完整人物生成参考，导入128×128原生网格、32色、共享尺度，保存合并层`.aseprite`、PNG、GIF和元数据。v2八张原帧作为v4关键帧保留。
+- v3：[20帧连续关节试验](./run-candidate-v3/README.md)，六层部件、固定骨长、数学闭环。用户于2026-10-09指出制作方法偏离要求，因此退出当前路线，保留供历史对照；不能把闭环验证当作当前人物动画已完成。
+- v4：八张原关键帧＋16张完整人物补绘，当前默认样板；依然`visualApproved=false`、`runtimeIntegrated=false`、`complete=false`。
 
 ## 工具与密度
 
-LibreSprite官方发行v1.1便携程序自报`1.1-dev`，存放于`output/tooling/`，不进入运行包。子进程配置重定向到同一项目目录。验证报告在`docs/qa/pixel-source-tool-verification-2026-10-01.json`：两帧诊断的80/120ms、RGBA和透明导出一致。彩色诊断仅验证工具。
+LibreSprite官方发行v1.1便携程序自报`1.1-dev`，存放于`output/tooling/`，不进入运行包；子进程配置重定向到项目目录。验证报告`docs/qa/pixel-source-tool-verification-2026-10-01.json`证明两帧工具诊断的时序、RGBA和透明导出一致，不代表人物动作已经完成。
 
-`ranger-density-38-v1.aseprite`和`ranger-density-76-v1.aseprite`是密度/色板草稿：从已有样稿缩减尺寸和固定32色映射，尚未完整逐像素修画、身体分层或枪械分离。真实轮廓37/75px，名义工作规格38/76px；用2/1整数倍，避免为了凑身高而非整数拉伸。资源数据在`density-study-v1.json`。
-
-## 跑步姿势候选
-
-`ranger-run-keyposes-study-v1.png`由内置ImageGen生成；同目录提示词保存全部要求与输入参考。它包含4×2八个不同姿势，有真实透明通道和半透明暖色边缘；生成结果不能直接视作已验收人体动作。
-
-`run-candidate-v1/`将这组姿势整理为128×128原生网格、共享尺度、固定根和32色的可编辑候选；包含`.aseprite`、八帧图集、GIF与元数据。图集1024×128，RGBA像素估算0.5MiB；GIF循环400ms，每帧50ms。PNG导出与原生帧完全一致，八帧不同。
-
-随后进行了仅针对腿部／下摆的一次参考修订，保留为`ranger-run-keyposes-study-v2.png`及提示词；对应`run-candidate-v2/`为当前默认预览。部分后半周期的腿部身份更明确，但左右支撑、4→5及8→1接缝仍需原生源中逐帧标定与修画，不能宣布完整双步循环已通过。已保留两版，不再继续批量生成来替代该检查。
-
-随后进行了仅针对腿部／下摆的一次参考修订，保留为`ranger-run-keyposes-study-v2.png`及提示词；对应`run-candidate-v2/`为当前默认预览。部分后半周期的腿部身份更明确，但左右支撑、4→5及8→1接缝仍需原生源中逐帧标定与修画，不能宣布完整双步循环已通过。已保留两版，不再继续批量生成来替代该检查。
-
-候选进行过声明的头部横向对齐、固定色板和二值透明转换。它仍是合并层，武器烘焙，支撑脚/步长、循环接缝、角色身份和持续瞄准待审，`complete=false`、`visualApproved=false`、`runtimeIntegrated=false`。文件完整通过只表示可以评审，不能替代G1/G2。
+两份38/76px密度草稿仍保留。真实轮廓37/75px，名义工作规格38/76px，用2/1整数倍；尚非专业人工逐像素修画主源。数据在`density-study-v1.json`。v4同时保存较大原画图集以便检查绘画细节。
 
 ## 重建与查看
 
-2026-10-07新增 [20帧连续关节版本v3](./run-candidate-v3/README.md)，默认预览已切换至v3，同时保留原八帧对照。详见新源说明、闭环验证与分层源；v1/v2仍是历史生成姿势候选。
-
 ```powershell
-python scripts/animation/pixel-source-tools.py
-python scripts/animation/build-pixel-density-candidates.py
-python scripts/animation/build-ranger-run-candidate.py
-python scripts/animation/build-ranger-run-candidate.py --version v2
-python scripts/animation/build-ranger-continuous-run.py
-python scripts/animation/verify-ranger-continuous-loop.py
-python scripts/animation/build-ranger-run-candidate.py --version v2
+python scripts/animation/build-ranger-drawn-inbetweens.py
 python scripts/animation/verify-native-review-assets.py
+python scripts/animation/verify-ranger-drawn-inbetweens.py
+python scripts/qa/build-pixel-production-review.py
+node scripts/qa/verify-ranger-drawn-review.mjs
 python scripts/qa/build-pixel-production-review.py
 ```
 
-打开`output/animation/ranger/pixel-production-review/review.html`：同尺寸密度对照，八帧正常/慢速/逐帧、上一帧叠图和根锚点；下载同源GIF或可编辑源。根锚点不是地面碰撞线。
+打开`output/animation/ranger/pixel-production-review/review.html`。默认新版24帧，支持原画／游戏尺寸、新旧对比、逐帧／慢放／叠图、接缝片段，并提供视频、WebP、GIF、逐帧源和总览链接。根锚点是绘制参考，不是地面碰撞线。
 
-下一步依据具体帧的评审修整支撑、步相、比例、衣物和双手，完善身体/枪械源，再接实际位移与射击。旧三维实验在独立归档分支保存，不混入这些源。
+## 待办边界
+
+仍需依据具体帧修整腿部身份、支撑、步态、衣物纹理和双手；必要时修改原关键帧，而非无限增加中间帧。随后再做身体／枪械源、射击、实际位移步相和其他方向。人物与枪械当前仍是合并画面。旧三维实验在独立归档分支保存。
+
+绘图模型补绘、程序整理及工具检查不宣称专业人工逐像素完成。当前游戏仍使用原静态插画。

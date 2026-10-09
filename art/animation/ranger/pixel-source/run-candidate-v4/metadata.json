@@ -1,0 +1,1220 @@
+{
+  "date": "2026-10-09",
+  "sourceRevision": "v4",
+  "role": "illustrated full-character inbetween review",
+  "sourceFrames": 24,
+  "originalKeyFrames": 8,
+  "newDrawnFrames": 16,
+  "originalKeysByteIdentical": true,
+  "poseMethod": "ImageGen full-character drawings; no skeletal pose generation",
+  "sharedStudyScale": 0.16344086021505377,
+  "worldScale": 1,
+  "referenceWorkingBodyPixels": 76,
+  "sourcePaths": [
+    "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+    "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-1-to-4.png",
+    "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-5-to-8.png",
+    "art/animation/ranger/pixel-source/run-candidate-v4/source/three-pose-revision.png"
+  ],
+  "sourceHashes": {
+    "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png": "793F5E0DF46C632460AABB4B6AC266020E78985C8E543331E40FC2C08C08EF2E",
+    "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-1-to-4.png": "4B644D6BAE1E3F10276ED8B51D4755C4DB965F0BBE03DF5A7EBA6EA691E33CCD",
+    "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-5-to-8.png": "FA348A78AA373C2F6AD884D1AC8CDB3C8B1FD1FFF9ED4A3173DFED120809321A",
+    "art/animation/ranger/pixel-source/run-candidate-v4/source/three-pose-revision.png": "71679DDB5329537BB1E9A26465391FD2407B16404D57BEB96DCFCDB0C237F12D"
+  },
+  "nativePath": "art/animation/ranger/pixel-source/run-candidate-v4/ranger-run-candidate-v4.aseprite",
+  "nativeSha256": "8EE9B76F8FC75A499D3EA3D6D71D4DB0C21E961AF06A37D05322D5DEA27F97A3",
+  "atlasPath": "art/animation/ranger/pixel-source/run-candidate-v4/ranger-run-candidate-v4.png",
+  "atlasSha256": "0446CC9E43C18614230DFD2DF54FFCC3A0EAE1189507A44F603CC54401CE571B",
+  "gifPath": "art/animation/ranger/pixel-source/run-candidate-v4/ranger-run-candidate-v4.gif",
+  "gifSha256": "EFC128A9F0A42C3747BBCE65342B0FA68E6B520C12F67483AEAB7CCAED03AD24",
+  "gifDurationsMs": [
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20
+  ],
+  "gifTotalDurationMs": 480,
+  "webpPath": "art/animation/ranger/pixel-source/run-candidate-v4/ranger-run-candidate-v4.webp",
+  "webpSha256": "3E48D43A60F755280D117338FB0C56A378C7708D4700D4CEFFEA9D01D92C0C03",
+  "artAtlasPath": "art/animation/ranger/pixel-source/run-candidate-v4/ranger-run-drawn-art-v4.png",
+  "artAtlasSha256": "D8B67A499A1C2D37F1BA1067F3D52C5AD2294F1147F69729A47171BD9C8E521D",
+  "artWorldScale": 0.16344086021505377,
+  "contactSheetPath": "art/animation/ranger/pixel-source/run-candidate-v4/ranger-run-contact-sheet-v4.png",
+  "canvas": [
+    128,
+    128
+  ],
+  "atlasSize": [
+    3072,
+    128
+  ],
+  "root": [
+    64,
+    110
+  ],
+  "opaquePalette": [
+    "#17110e",
+    "#231a16",
+    "#2f231b",
+    "#3f2b1f",
+    "#4f3420",
+    "#5e3e23",
+    "#6f4a29",
+    "#825a31",
+    "#95683d",
+    "#ab7d4d",
+    "#c39867",
+    "#d6b281",
+    "#e6c799",
+    "#f7dcab",
+    "#3e180e",
+    "#581f0e",
+    "#792c10",
+    "#993a11",
+    "#b84c16",
+    "#d96c21",
+    "#f39539",
+    "#201f1f",
+    "#2e2c2a",
+    "#3e3b36",
+    "#514c44",
+    "#665f53",
+    "#827968",
+    "#9c917d",
+    "#b6ac97",
+    "#d2cab2",
+    "#eee7d0",
+    "#b96c36"
+  ],
+  "paletteColors": 32,
+  "frames": [
+    {
+      "kind": "original-key",
+      "originalKey": 1,
+      "sourcePath": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+      "sourceCell": 0,
+      "originalNativePixelsExact": true,
+      "index": 0,
+      "rect": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "root": [
+        64,
+        110
+      ],
+      "durationMs": 17,
+      "artRect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "artRoot": [
+        256,
+        476
+      ],
+      "opaqueBox": [
+        39,
+        37,
+        89,
+        113
+      ]
+    },
+    {
+      "kind": "drawn-inbetween",
+      "fromKey": 1,
+      "toKey": 2,
+      "transitionFraction": 0.3333333333333333,
+      "sourcePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-1-to-4.png",
+      "sourceCell": 0,
+      "sourceComponentBox": [
+        46,
+        23,
+        365,
+        495
+      ],
+      "sheetResolutionScale": 1.0,
+      "sourceHoodCenterX": 227.57478448275862,
+      "sourceTopY": 23.0,
+      "registeredTopY": 25.0,
+      "sourceRoot": [
+        205.57478448275862,
+        474.0
+      ],
+      "index": 1,
+      "rect": [
+        128,
+        0,
+        128,
+        128
+      ],
+      "root": [
+        64,
+        110
+      ],
+      "durationMs": 16,
+      "artRect": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "artRoot": [
+        256,
+        476
+      ],
+      "opaqueBox": [
+        38,
+        37,
+        90,
+        114
+      ]
+    },
+    {
+      "kind": "drawn-inbetween",
+      "fromKey": 1,
+      "toKey": 2,
+      "transitionFraction": 0.6666666666666666,
+      "sourcePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-1-to-4.png",
+      "sourceCell": 1,
+      "sourceComponentBox": [
+        432,
+        23,
+        749,
+        496
+      ],
+      "sheetResolutionScale": 1.0,
+      "sourceHoodCenterX": 226.9640795381655,
+      "sourceTopY": 23.0,
+      "registeredTopY": 24.0,
+      "sourceRoot": [
+        204.9640795381655,
+        475.0
+      ],
+      "index": 2,
+      "rect": [
+        256,
+        0,
+        128,
+        128
+      ],
+      "root": [
+        64,
+        110
+      ],
+      "durationMs": 17,
+      "artRect": [
+        1024,
+        0,
+        512,
+        512
+      ],
+      "artRoot": [
+        256,
+        476
+      ],
+      "opaqueBox": [
+        39,
+        37,
+        91,
+        114
+      ]
+    },
+    {
+      "kind": "original-key",
+      "originalKey": 2,
+      "sourcePath": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+      "sourceCell": 1,
+      "originalNativePixelsExact": true,
+      "index": 3,
+      "rect": [
+        384,
+        0,
+        128,
+        128
+      ],
+      "root": [
+        64,
+        110
+      ],
+      "durationMs": 17,
+      "artRect": [
+        1536,
+        0,
+        512,
+        512
+      ],
+      "artRoot": [
+        256,
+        476
+      ],
+      "opaqueBox": [
+        40,
+        36,
+        89,
+        113
+      ]
+    },
+    {
+      "kind": "drawn-inbetween",
+      "fromKey": 2,
+      "toKey": 3,
+      "transitionFraction": 0.3333333333333333,
+      "sourcePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-1-to-4.png",
+      "sourceCell": 2,
+      "sourceComponentBox": [
+        47,
+        531,
+        367,
+        1005
+      ],
+      "sheetResolutionScale": 1.0,
+      "sourceHoodCenterX": 228.5619328972357,
+      "sourceTopY": 19.0,
+      "registeredTopY": 24.0,
+      "sourceRoot": [
+        206.5619328972357,
+        471.0
+      ],
+      "index": 4,
+      "rect": [
+        512,
+        0,
+        128,
+        128
+      ],
+      "root": [
+        64,
+        110
+      ],
+      "durationMs": 16,
+      "artRect": [
+        2048,
+        0,
+        512,
+        512
+      ],
+      "artRoot": [
+        256,
+        476
+      ],
+      "opaqueBox": [
+        38,
+        37,
+        91,
+        114
+      ]
+    },
+    {
+      "kind": "drawn-inbetween",
+      "fromKey": 2,
+      "toKey": 3,
+      "transitionFraction": 0.6666666666666666,
+      "sourcePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-1-to-4.png",
+      "sourceCell": 3,
+      "sourceComponentBox": [
+        426,
+        531,
+        746,
+        1008
+      ],
+      "sheetResolutionScale": 1.0,
+      "sourceHoodCenterX": 221.63716245177886,
+      "sourceTopY": 19.0,
+      "registeredTopY": 25.0,
+      "sourceRoot": [
+        199.63716245177886,
+        470.0
+      ],
+      "index": 5,
+      "rect": [
+        640,
+        0,
+        128,
+        128
+      ],
+      "root": [
+        64,
+        110
+      ],
+      "durationMs": 17,
+      "artRect": [
+        2560,
+        0,
+        512,
+        512
+      ],
+      "artRoot": [
+        256,
+        476
+      ],
+      "opaqueBox": [
+        39,
+        37,
+        91,
+        115
+      ]
+    },
+    {
+      "kind": "original-key",
+      "originalKey": 3,
+      "sourcePath": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+      "sourceCell": 2,
+      "originalNativePixelsExact": true,
+      "index": 6,
+      "rect": [
+        768,
+        0,
+        128,
+        128
+      ],
+      "root": [
+        64,
+        110
+      ],
+      "durationMs": 17,
+      "artRect": [
+        3072,
+        0,
+        512,
+        512
+      ],
+      "artRoot": [
+        256,
+        476
+      ],
+      "opaqueBox": [
+        42,
+        37,
+        89,
+        113
+      ]
+    },
+    {
+      "kind": "drawn-inbetween",
+      "fromKey": 3,
+      "toKey": 4,
+      "transitionFraction": 0.3333333333333333,
+      "sourcePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/three-pose-revision.png",
+      "sourceCell": 0,
+      "sourceComponentBox": [
+        56,
+        44,
+        609,
+        768
+      ],
+      "sheetResolutionScale": 0.6124401913875598,
+      "sourceHoodCenterX": 228.66329876375295,
+      "sourceTopY": 26.94736842105263,
+      "registeredTopY": 25.333333333333336,
+      "sourceRoot": [
+        206.66329876375295,
+        477.6140350877193
+      ],
+      "index": 7,
+      "rect": [
+        896,
+        0,
+        128,
+        128
+      ],
+      "root": [
+        64,
+        110
+      ],
+      "durationMs": 16,
+      "artRect": [
+        3584,
+        0,
+        512,
+        512
+      ],
+      "artRoot": [
+        256,
+        476
+      ],
+      "opaqueBox": [
+        36,
+        37,
+        92,
+        109
+      ]
+    },
+    {
+      "kind": "drawn-inbetween",
+      "fromKey": 3,
+      "toKey": 4,
+      "transitionFraction": 0.6666666666666666,
+      "sourcePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/three-pose-revision.png",
+      "sourceCell": 1,
+      "sourceComponentBox": [
+        665,
+        44,
+        1262,
+        775
+      ],
+      "sheetResolutionScale": 0.6124401913875598,
+      "sourceHoodCenterX": 217.32015524245762,
+      "sourceTopY": 26.94736842105263,
+      "registeredTopY": 24.666666666666668,
+      "sourceRoot": [
+        195.32015524245762,
+        478.2807017543859
+      ],
+      "index": 8,
+      "rect": [
+        1024,
+        0,
+        128,
+        128
+      ],
+      "root": [
+        64,
+        110
+      ],
+      "durationMs": 17,
+      "artRect": [
+        4096,
+        0,
+        512,
+        512
+      ],
+      "artRoot": [
+        256,
+        476
+      ],
+      "opaqueBox": [
+        36,
+        37,
+        96,
+        110
+      ]
+    },
+    {
+      "kind": "original-key",
+      "originalKey": 4,
+      "sourcePath": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+      "sourceCell": 3,
+      "originalNativePixelsExact": true,
+      "index": 9,
+      "rect": [
+        1152,
+        0,
+        128,
+        128
+      ],
+      "root": [
+        64,
+        110
+      ],
+      "durationMs": 17,
+      "artRect": [
+        4608,
+        0,
+        512,
+        512
+      ],
+      "artRoot": [
+        256,
+        476
+      ],
+      "opaqueBox": [
+        40,
+        37,
+        91,
+        112
+      ]
+    },
+    {
+      "kind": "drawn-inbetween",
+      "fromKey": 4,
+      "toKey": 5,
+      "transitionFraction": 0.3333333333333333,
+      "sourcePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-1-to-4.png",
+      "sourceCell": 6,
+      "sourceComponentBox": [
+        47,
+        1544,
+        370,
+        2015
+      ],
+      "sheetResolutionScale": 1.0,
+      "sourceHoodCenterX": 232.0683269476373,
+      "sourceTopY": 8.0,
+      "registeredTopY": 20.0,
+      "sourceRoot": [
+        210.0683269476373,
+        464.0
+      ],
+      "index": 10,
+      "rect": [
+        1280,
+        0,
+        128,
+        128
+      ],
+      "root": [
+        64,
+        110
+      ],
+      "durationMs": 16,
+      "artRect": [
+        5120,
+        0,
+        512,
+        512
+      ],
+      "artRoot": [
+        256,
+        476
+      ],
+      "opaqueBox": [
+        38,
+        36,
+        91,
+        113
+      ]
+    },
+    {
+      "kind": "drawn-inbetween",
+      "fromKey": 4,
+      "toKey": 5,
+      "transitionFraction": 0.6666666666666666,
+      "sourcePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-1-to-4.png",
+      "sourceCell": 7,
+      "sourceComponentBox": [
+        433,
+        1544,
+        753,
+        2008
+      ],
+      "sheetResolutionScale": 1.0,
+      "sourceHoodCenterX": 231.52286617492098,
+      "sourceTopY": 8.0,
+      "registeredTopY": 16.0,
+      "sourceRoot": [
+        209.52286617492098,
+        468.0
+      ],
+      "index": 11,
+      "rect": [
+        1408,
+        0,
+        128,
+        128
+      ],
+      "root": [
+        64,
+        110
+      ],
+      "durationMs": 17,
+      "artRect": [
+        5632,
+        0,
+        512,
+        512
+      ],
+      "artRoot": [
+        256,
+        476
+      ],
+      "opaqueBox": [
+        38,
+        35,
+        90,
+        111
+      ]
+    },
+    {
+      "kind": "original-key",
+      "originalKey": 5,
+      "sourcePath": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+      "sourceCell": 4,
+      "originalNativePixelsExact": true,
+      "index": 12,
+      "rect": [
+        1536,
+        0,
+        128,
+        128
+      ],
+      "root": [
+        64,
+        110
+      ],
+      "durationMs": 17,
+      "artRect": [
+        6144,
+        0,
+        512,
+        512
+      ],
+      "artRoot": [
+        256,
+        476
+      ],
+      "opaqueBox": [
+        39,
+        35,
+        90,
+        110
+      ]
+    },
+    {
+      "kind": "drawn-inbetween",
+      "fromKey": 5,
+      "toKey": 6,
+      "transitionFraction": 0.3333333333333333,
+      "sourcePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-5-to-8.png",
+      "sourceCell": 0,
+      "sourceComponentBox": [
+        43,
+        14,
+        366,
+        479
+      ],
+      "sheetResolutionScale": 1.0,
+      "sourceHoodCenterX": 228.3067920585162,
+      "sourceTopY": 14.0,
+      "registeredTopY": 12.0,
+      "sourceRoot": [
+        206.3067920585162,
+        478.0
+      ],
+      "index": 13,
+      "rect": [
+        1664,
+        0,
+        128,
+        128
+      ],
+      "root": [
+        64,
+        110
+      ],
+      "durationMs": 16,
+      "artRect": [
+        6656,
+        0,
+        512,
+        512
+      ],
+      "artRoot": [
+        256,
+        476
+      ],
+      "opaqueBox": [
+        38,
+        35,
+        91,
+        111
+      ]
+    },
+    {
+      "kind": "drawn-inbetween",
+      "fromKey": 5,
+      "toKey": 6,
+      "transitionFraction": 0.6666666666666666,
+      "sourcePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-5-to-8.png",
+      "sourceCell": 1,
+      "sourceComponentBox": [
+        434,
+        15,
+        751,
+        479
+      ],
+      "sheetResolutionScale": 1.0,
+      "sourceHoodCenterX": 230.69639153878063,
+      "sourceTopY": 15.0,
+      "registeredTopY": 12.0,
+      "sourceRoot": [
+        208.69639153878063,
+        479.0
+      ],
+      "index": 14,
+      "rect": [
+        1792,
+        0,
+        128,
+        128
+      ],
+      "root": [
+        64,
+        110
+      ],
+      "durationMs": 17,
+      "artRect": [
+        7168,
+        0,
+        512,
+        512
+      ],
+      "artRoot": [
+        256,
+        476
+      ],
+      "opaqueBox": [
+        38,
+        35,
+        90,
+        110
+      ]
+    },
+    {
+      "kind": "original-key",
+      "originalKey": 6,
+      "sourcePath": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+      "sourceCell": 5,
+      "originalNativePixelsExact": true,
+      "index": 15,
+      "rect": [
+        1920,
+        0,
+        128,
+        128
+      ],
+      "root": [
+        64,
+        110
+      ],
+      "durationMs": 17,
+      "artRect": [
+        7680,
+        0,
+        512,
+        512
+      ],
+      "artRoot": [
+        256,
+        476
+      ],
+      "opaqueBox": [
+        40,
+        35,
+        90,
+        111
+      ]
+    },
+    {
+      "kind": "drawn-inbetween",
+      "fromKey": 6,
+      "toKey": 7,
+      "transitionFraction": 0.3333333333333333,
+      "sourcePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/three-pose-revision.png",
+      "sourceCell": 2,
+      "sourceComponentBox": [
+        1319,
+        44,
+        1868,
+        798
+      ],
+      "sheetResolutionScale": 0.6124401913875598,
+      "sourceHoodCenterX": 234.06824938478823,
+      "sourceTopY": 26.94736842105263,
+      "registeredTopY": 12.333333333333332,
+      "sourceRoot": [
+        212.06824938478823,
+        490.6140350877193
+      ],
+      "index": 16,
+      "rect": [
+        2048,
+        0,
+        128,
+        128
+      ],
+      "root": [
+        64,
+        110
+      ],
+      "durationMs": 16,
+      "artRect": [
+        8192,
+        0,
+        512,
+        512
+      ],
+      "artRoot": [
+        256,
+        476
+      ],
+      "opaqueBox": [
+        36,
+        35,
+        91,
+        110
+      ]
+    },
+    {
+      "kind": "drawn-inbetween",
+      "fromKey": 6,
+      "toKey": 7,
+      "transitionFraction": 0.6666666666666666,
+      "sourcePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-5-to-8.png",
+      "sourceCell": 3,
+      "sourceComponentBox": [
+        425,
+        525,
+        748,
+        1006
+      ],
+      "sheetResolutionScale": 1.0,
+      "sourceHoodCenterX": 226.66549076571903,
+      "sourceTopY": 13.0,
+      "registeredTopY": 12.666666666666666,
+      "sourceRoot": [
+        204.66549076571903,
+        476.3333333333333
+      ],
+      "index": 17,
+      "rect": [
+        2176,
+        0,
+        128,
+        128
+      ],
+      "root": [
+        64,
+        110
+      ],
+      "durationMs": 17,
+      "artRect": [
+        8704,
+        0,
+        512,
+        512
+      ],
+      "artRoot": [
+        256,
+        476
+      ],
+      "opaqueBox": [
+        38,
+        35,
+        90,
+        113
+      ]
+    },
+    {
+      "kind": "original-key",
+      "originalKey": 7,
+      "sourcePath": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+      "sourceCell": 6,
+      "originalNativePixelsExact": true,
+      "index": 18,
+      "rect": [
+        2304,
+        0,
+        128,
+        128
+      ],
+      "root": [
+        64,
+        110
+      ],
+      "durationMs": 17,
+      "artRect": [
+        9216,
+        0,
+        512,
+        512
+      ],
+      "artRoot": [
+        256,
+        476
+      ],
+      "opaqueBox": [
+        40,
+        35,
+        90,
+        111
+      ]
+    },
+    {
+      "kind": "drawn-inbetween",
+      "fromKey": 7,
+      "toKey": 8,
+      "transitionFraction": 0.3333333333333333,
+      "sourcePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-5-to-8.png",
+      "sourceCell": 4,
+      "sourceComponentBox": [
+        38,
+        1041,
+        367,
+        1499
+      ],
+      "sheetResolutionScale": 1.0,
+      "sourceHoodCenterX": 227.21079638752053,
+      "sourceTopY": 17.0,
+      "registeredTopY": 13.0,
+      "sourceRoot": [
+        205.21079638752053,
+        480.0
+      ],
+      "index": 19,
+      "rect": [
+        2432,
+        0,
+        128,
+        128
+      ],
+      "root": [
+        64,
+        110
+      ],
+      "durationMs": 16,
+      "artRect": [
+        9728,
+        0,
+        512,
+        512
+      ],
+      "artRoot": [
+        256,
+        476
+      ],
+      "opaqueBox": [
+        38,
+        35,
+        91,
+        110
+      ]
+    },
+    {
+      "kind": "drawn-inbetween",
+      "fromKey": 7,
+      "toKey": 8,
+      "transitionFraction": 0.6666666666666666,
+      "sourcePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-5-to-8.png",
+      "sourceCell": 5,
+      "sourceComponentBox": [
+        412,
+        1042,
+        750,
+        1494
+      ],
+      "sheetResolutionScale": 1.0,
+      "sourceHoodCenterX": 222.73853398853396,
+      "sourceTopY": 18.0,
+      "registeredTopY": 13.0,
+      "sourceRoot": [
+        200.73853398853396,
+        481.0
+      ],
+      "index": 20,
+      "rect": [
+        2560,
+        0,
+        128,
+        128
+      ],
+      "root": [
+        64,
+        110
+      ],
+      "durationMs": 17,
+      "artRect": [
+        10240,
+        0,
+        512,
+        512
+      ],
+      "artRoot": [
+        256,
+        476
+      ],
+      "opaqueBox": [
+        36,
+        35,
+        91,
+        109
+      ]
+    },
+    {
+      "kind": "original-key",
+      "originalKey": 8,
+      "sourcePath": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+      "sourceCell": 7,
+      "originalNativePixelsExact": true,
+      "index": 21,
+      "rect": [
+        2688,
+        0,
+        128,
+        128
+      ],
+      "root": [
+        64,
+        110
+      ],
+      "durationMs": 17,
+      "artRect": [
+        10752,
+        0,
+        512,
+        512
+      ],
+      "artRoot": [
+        256,
+        476
+      ],
+      "opaqueBox": [
+        39,
+        35,
+        91,
+        110
+      ]
+    },
+    {
+      "kind": "drawn-inbetween",
+      "fromKey": 8,
+      "toKey": 1,
+      "transitionFraction": 0.3333333333333333,
+      "sourcePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-5-to-8.png",
+      "sourceCell": 6,
+      "sourceComponentBox": [
+        38,
+        1543,
+        365,
+        2007
+      ],
+      "sheetResolutionScale": 1.0,
+      "sourceHoodCenterX": 226.94077306733166,
+      "sourceTopY": 7.0,
+      "registeredTopY": 17.333333333333336,
+      "sourceRoot": [
+        204.94077306733166,
+        465.6666666666667
+      ],
+      "index": 22,
+      "rect": [
+        2816,
+        0,
+        128,
+        128
+      ],
+      "root": [
+        64,
+        110
+      ],
+      "durationMs": 16,
+      "artRect": [
+        11264,
+        0,
+        512,
+        512
+      ],
+      "artRoot": [
+        256,
+        476
+      ],
+      "opaqueBox": [
+        38,
+        35,
+        91,
+        111
+      ]
+    },
+    {
+      "kind": "drawn-inbetween",
+      "fromKey": 8,
+      "toKey": 1,
+      "transitionFraction": 0.6666666666666666,
+      "sourcePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-5-to-8.png",
+      "sourceCell": 7,
+      "sourceComponentBox": [
+        427,
+        1543,
+        749,
+        2010
+      ],
+      "sheetResolutionScale": 1.0,
+      "sourceHoodCenterX": 228.53494854202404,
+      "sourceTopY": 7.0,
+      "registeredTopY": 21.666666666666664,
+      "sourceRoot": [
+        206.53494854202404,
+        461.3333333333333
+      ],
+      "index": 23,
+      "rect": [
+        2944,
+        0,
+        128,
+        128
+      ],
+      "root": [
+        64,
+        110
+      ],
+      "durationMs": 17,
+      "artRect": [
+        11776,
+        0,
+        512,
+        512
+      ],
+      "artRoot": [
+        256,
+        476
+      ],
+      "opaqueBox": [
+        38,
+        36,
+        90,
+        113
+      ]
+    }
+  ],
+  "totalDurationMs": 400,
+  "assetBytes": 107449,
+  "decodedRGBABytes": 1572864,
+  "nativeRoundtripExact": true,
+  "complete": false,
+  "exportFilesComplete": true,
+  "visualApproved": false,
+  "runtimeIntegrated": false,
+  "handRetouched": false,
+  "bakedWeapon": true,
+  "loopBridge": {
+    "fromOriginalKey": 8,
+    "toOriginalKey": 1,
+    "inbetweenIndices": [
+      22,
+      23
+    ],
+    "duplicateEndFrame": false
+  },
+  "pending": [
+    "visual continuity and clothing consistency review",
+    "original gait key corrections if needed",
+    "independent weapon layers",
+    "runtime distance-driven playback"
+  ],
+  "videoPath": "output/animation/ranger/pixel-run-candidate-v4/ranger-drawn-run-v4.webm",
+  "videoSha256": "8D7E16B3EE34615101C7CCDF508BF2A158F7D0A9D66B975904F79202C1816AF6"
+}
