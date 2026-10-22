@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-09-30",
+  "updatedAt": "2026-10-22",
   "policy": {
     "deleteInactiveAssets": false,
     "runtimeCatalog": "src/render/art/asset-catalog.js",
@@ -1243,6 +1243,22 @@
       "sha256": "D8B67A499A1C2D37F1BA1067F3D52C5AD2294F1147F69729A47171BD9C8E521D",
       "generator": "ImageGen drawings + whole-image registration",
       "notes": "Offline high-resolution review atlas; not a runtime texture; visual consistency still pending."
+    },
+    {
+      "id": "study.ranger.compact-pixel.v1",
+      "version": "1.5-compact-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-pixel-v1/ranger-compact-v1.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png"
+      ],
+      "width": 1254,
+      "height": 1254,
+      "pixelFormat": "RGBA",
+      "bytes": 704622,
+      "sha256": "22E0B12A2E4546D69A37AD9D7CD5869A82757C8FA20DB701380EFCC06A64A6C1",
+      "generator": "OpenAI ImageGen built-in",
+      "notes": "Static Soul Knight-inspired compact ranger design; large head and short body; original tan/orange character identity; grid cleanup and visual approval pending; not runtime integrated."
     }
   ]
 }
