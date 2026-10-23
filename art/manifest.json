@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-10-22",
+  "updatedAt": "2026-10-23",
   "policy": {
     "deleteInactiveAssets": false,
     "runtimeCatalog": "src/render/art/asset-catalog.js",
@@ -1259,6 +1259,91 @@
       "sha256": "22E0B12A2E4546D69A37AD9D7CD5869A82757C8FA20DB701380EFCC06A64A6C1",
       "generator": "OpenAI ImageGen built-in",
       "notes": "Static Soul Knight-inspired compact ranger design; large head and short body; original tan/orange character identity; grid cleanup and visual approval pending; not runtime integrated."
+    },
+    {
+      "id": "study.ranger.compact-motion.body.v1",
+      "version": "1.5-compact-motion-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-motion-v1/body-atlas.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-pixel-v1/ranger-compact-v1.png",
+        "art/characters/ranger/compact-motion-v1/metadata.json"
+      ],
+      "width": 576,
+      "height": 64,
+      "pixelFormat": "RGBA",
+      "bytes": 6290,
+      "sha256": "EF9EACDE2FFECE1D75C59363854AA029E8CD770A85C2341E55F498982A051B5B",
+      "generator": "Native pixel import + ImageGen drawings",
+      "notes": "64x64 idle and eight drawn short-step frames; stable head/chest and distinct lower-body pixels; inactive pilot."
+    },
+    {
+      "id": "study.ranger.compact-motion.grip.v1",
+      "version": "1.5-compact-motion-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-motion-v1/sidearm-grip.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-pixel-v1/ranger-compact-v1.png",
+        "art/characters/ranger/compact-motion-v1/metadata.json"
+      ],
+      "width": 36,
+      "height": 20,
+      "pixelFormat": "RGBA",
+      "bytes": 825,
+      "sha256": "BFEC8BD9C9364B1601FFBB1E8AC1A2CC80A92BB51DA62CE5E6D3FAA4CA33859B",
+      "generator": "Native pixel import + ImageGen drawings",
+      "notes": "Independent compact pistol with both gripping hands; same transform controls muzzle and feedback; inactive pilot."
+    },
+    {
+      "id": "study.ranger.compact-motion.source-walk.v1",
+      "version": "1.5-compact-motion-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-motion-v1/source/body-walk-drawings.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-pixel-v1/ranger-compact-v1.png",
+        "art/characters/ranger/compact-motion-v1/metadata.json"
+      ],
+      "width": 1536,
+      "height": 1024,
+      "pixelFormat": "RGBA",
+      "bytes": 1757198,
+      "sha256": "CC4BE0A9C559D2737A67999491A5042C76B100F6E5368FDCC2B8BBFF3238226F",
+      "generator": "OpenAI ImageGen built-in",
+      "notes": "Eight body-only pose drawings for compact character; source ordering and imported layers declared."
+    },
+    {
+      "id": "study.ranger.compact-motion.source-idle.v1",
+      "version": "1.5-compact-motion-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-motion-v1/source/body-idle-drawing.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-pixel-v1/ranger-compact-v1.png",
+        "art/characters/ranger/compact-motion-v1/metadata.json"
+      ],
+      "width": 1086,
+      "height": 1448,
+      "pixelFormat": "RGBA",
+      "bytes": 479888,
+      "sha256": "FCA7D2B1E1AE0E63C97C325CA68F31CF35B2F92F559843223972A8132E37E87F",
+      "generator": "OpenAI ImageGen built-in",
+      "notes": "Neutral idle body drawing with both boots planted; separate gripping component."
+    },
+    {
+      "id": "study.ranger.compact-motion.source-grip.v1",
+      "version": "1.5-compact-motion-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-motion-v1/source/sidearm-grip-drawing.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-pixel-v1/ranger-compact-v1.png",
+        "art/characters/ranger/compact-motion-v1/metadata.json"
+      ],
+      "width": 1683,
+      "height": 935,
+      "pixelFormat": "RGBA",
+      "bytes": 434917,
+      "sha256": "20F9AF740D5C6609381E645DA7CE5A946DC76FDA8381E8BDC312DFC69535050C",
+      "generator": "OpenAI ImageGen built-in",
+      "notes": "Separate pistol and two gloved hands; source artwork for freely aimed compact weapon component."
     }
   ]
 }

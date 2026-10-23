@@ -1,6 +1,6 @@
 # 荒原回响 · Wasteland Echo
 
-2026-10-22 人物美术方向：参考《元气骑士》的紧凑像素主角，当前仅制作[静态形象与大小对照](./art/characters/ranger/compact-pixel-v1/review.html)。旧高精细人物动作路线停止推进；新形象尚未接入游戏。
+2026-10-23 人物美术进展：参考《元气骑士》的紧凑像素主角已制作[可操作的移动、转向与持枪样板](./art/characters/ranger/compact-motion-v1/review.html)，并保留[静态形象对照](./art/characters/ranger/compact-pixel-v1/review.html)。旧高精细人物动作路线停止推进；新动作尚未接入主游戏。
 
 Windows 桌面优先的俯视角废土生存射击 Roguelite。当前开发线为 v1.5.0-alpha.1，稳定发布基线为 v1.4.0。游戏运行时仍是零 JavaScript 依赖的 Canvas 2D + CommonJS；既可在 Edge、Chrome 中运行，也可构建 Tauri 2 + WebView2 便携版和 NSIS 安装版。
 

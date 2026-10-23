@@ -1,0 +1,18 @@
+Use case: style-transfer / animation sprite production.
+REFERENCE: the attached compact ranger is the approved NEW character identity, proportions and pixel style. Keep the oversized tan hood, dark respirator with orange eye lenses, orange scarf, short coat, tiny torso and stubby boots. NOT the old tall adult ranger.
+Produce ONE uniform 4-column by 2-row sprite sheet of EIGHT sequential SMALL IN-GAME walk/run body drawings, left-to-right top row then bottom. Exact intended canvas 1536x1024, equal cells 384x512, transparent RGBA. Each complete body is centered at the SAME x and same floor level inside its cell, with at least 30 source-pixel padding. Same height approximately 400 source pixels, same head width, same camera, same pixel clusters and palette.
+IMPORTANT FOR INDEPENDENT GUN AIM: all eight are BODY ONLY. REMOVE THE PISTOL, ALL HANDS/GLOVES and projecting forearms from the source pose; reconstruct the short coat/chest behind them. Keep only tiny shoulder/sleeve attachment nubs close against the torso. Do not leave two arms hanging at sides. No visible glove or fist anywhere on this sheet. Weapon + two holding hands will be a SEPARATE asset. No gun-shaped hole in torso.
+STYLE: Soul Knight / 元气骑士 gameplay-character animation language, compact two-heads-tall chibi body, head roughly half height, VERY SHORT BOOTS / LEGS. Chunky clean square pixel clusters, about 40-44 logical pixels tall in a 64x64 frame. Limited ~16-24 colors, flat 2-3 stepped shades per material, clean dark pixel outline. Short coat, few large simple patches, orange scarf short tails. Do not add details, change to smooth vector, return adult proportions, long legs, elaborate fabric textures, joints or realistic anatomy.
+VIEW: fixed front-three-quarter character facing screen RIGHT throughout, slightly top-down. Show the same two orange eyes every frame. No camera turn, no head redesign, no face/goggle drift, no changing coat patch or pouch sides. Head and upper torso remain almost identical aside from restrained 0-1 logical pixel rise/fall. Genuine leg pose changes rather than translating a still image. Clear alternating feet and small scarf / hem follow-through.
+
+EIGHT-POSE LOOP:
+1. near/right-screen boot slightly forward/right and down touching floor; far boot just behind and raised.
+2. near boot supports below hips, far boot folds and lifts.
+3. far boot passes under center while near boot begins pushing behind.
+4. far boot reaches forward/right and lowers, near boot behind with heel up.
+5. far boot forward/right down touching floor; near boot just behind and raised. Opposite lead compared with 1.
+6. far boot supports below hips, near boot folds and lifts.
+7. near boot passes under center while far boot begins pushing behind.
+8. near boot reaches forward/right down just before touching floor; far boot behind heel up. This naturally flows into pose 1 without duplicating it.
+Minimal compact chibi strides, never giant adult lunges. Keep each boot attached to its own leg, never change gear sides or add extra legs. The feet must visibly alternate; bottom row is NOT same leg lead as top row.
+Fixed ground baseline, fixed character scale, smooth looping coat/scarf movement returning to pose 1. Full head and both feet inside each cell. No floor, shadows, background scenery, labels, numbers, borders or baked checkerboard. Precisely eight distinct poses, no additional items.

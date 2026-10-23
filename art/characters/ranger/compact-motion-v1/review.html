@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>荒原回响 · 巡线者动作试作</title>
+<style>
+:root{font-family:system-ui,"Microsoft YaHei",sans-serif;color-scheme:dark;background:#151b20;color:#eee5d4}*{box-sizing:border-box}body{margin:0}main{max-width:1180px;margin:auto;padding:26px 24px}header{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:20px}h1{font-size:28px;margin:6px 0 8px}p{margin:5px 0;color:#b4bfc3;line-height:1.7}.eyebrow{color:#e9a168;font-size:12px;letter-spacing:.15em}.badge{border:1px solid #5e675d;padding:6px 11px;border-radius:20px;white-space:nowrap;color:#c6d3be;font-size:12px}.panel{background:#20292f;border:1px solid #43515a;border-radius:9px;padding:15px;margin-bottom:14px}.toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}button,select{font:inherit;font-size:14px;padding:9px 12px;border-radius:5px;color:#eee5d4;background:#2c383e;border:1px solid #637277}button{cursor:pointer}button:hover{border-color:#eeb77d}button.primary{background:#9b512d;border-color:#c7834c}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #ffcb8b;outline-offset:3px}label{font-size:14px;display:inline-flex;align-items:center;gap:7px}input{accent-color:#e6a268}select{max-width:200px}.viewer{padding:0;overflow:hidden;position:relative;background:#28343a}canvas{display:block;width:100%;height:auto;image-rendering:pixelated;touch-action:none;outline:none}canvas:focus-visible{box-shadow:inset 0 0 0 3px #e9b173}.viewer-note{position:absolute;left:14px;top:11px;color:#d0d8d1;font-size:12px;pointer-events:none;background:#192329ba;padding:5px 8px;border-radius:4px}.lower{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}.keys{display:flex;gap:12px;flex-wrap:wrap;color:#cbd1ca;font-size:13px}kbd{font:inherit;border:1px solid #6d7b7c;border-bottom-width:2px;background:#1e292f;border-radius:4px;padding:1px 6px;color:#f5d9ae}.directions{display:grid;grid-template-columns:repeat(3,42px);gap:5px}.directions button{padding:7px}.directions span{display:grid;place-items:center;font-size:10px;color:#a3b2b3}.stats{font-size:13px;color:#b4c4bf;margin-top:12px;min-height:20px}a{color:#eeb77d}footer{margin:14px 0;font-size:13px;color:#9bacaf}.small{font-size:13px}.error{color:#ffbd95}#status{color:#deb283}@media(max-width:760px){main{padding:18px 12px}header{display:block}.badge{display:inline-block;margin-top:8px}.lower{grid-template-columns:1fr}.directions{grid-template-columns:repeat(8,36px);gap:4px}.directions span{display:none}.toolbar{gap:8px}h1{font-size:23px}}
+</style>
+<main>
+<header><div><div class="eyebrow">荒原回响 / 动作试作 01</div><h1>巡线者 · 转向与持枪</h1><p>紧凑像素人物，短步移动、全周瞄准和独立开火反馈。</p></div><span class="badge">主角内部样板</span></header>
+<div class="panel toolbar">
+<label>演示 <select id="mode"><option value="moving">移动＋射击</option><option value="turn">原地环绕瞄准</option><option value="strafe">横移瞄准</option><option value="reverse">反向移动射击</option><option value="free">自由操作</option></select></label>
+<button id="free" class="primary">亲自操作</button><button id="pause">暂停</button><button id="reset">重置</button>
+<label>速度 <select id="speed"><option value="1">正常</option><option value="0.5">半速</option><option value="0.25">慢放</option></select></label>
+<label>人物大小 <select id="zoom"><option value="1">小尺寸</option><option value="2" selected>游戏参考尺寸</option><option value="3">放大观察</option></select></label>
+<label><input id="shoot" type="checkbox" checked>演示开火</label><label><input id="guides" type="checkbox">瞄准参考线</label>
+</div>
+<div class="panel viewer"><canvas id="stage" width="960" height="560" tabindex="0" aria-label="主角动作试验场，可以使用WASD移动、鼠标瞄准和左键射击"></canvas><span class="viewer-note" id="sceneLabel">素材加载中</span></div>
+<div class="panel lower"><div><div class="keys"><span><kbd>WASD</kbd> / <kbd>方向键</kbd> 移动</span><span>鼠标 瞄准</span><span><kbd>左键</kbd> / <kbd>空格</kbd> 射击</span><span><kbd>P</kbd> 暂停</span></div><p class="small">右侧可固定查看八个方向。向上瞄准时，枪从头侧露出；灰色箱体可用于检查撞墙停步与子弹阻挡。</p><div id="status" class="stats" role="status" aria-live="polite">正在准备人物素材…</div></div><div class="directions" aria-label="固定瞄准方向"><button data-angle="-135" aria-label="左上">↖</button><button data-angle="-90" aria-label="正上">↑</button><button data-angle="-45" aria-label="右上">↗</button><button data-angle="180" aria-label="正左">←</button><span>方向</span><button data-angle="0" aria-label="正右">→</button><button data-angle="135" aria-label="左下">↙</button><button data-angle="90" aria-label="正下">↓</button><button data-angle="45" aria-label="右下">↘</button></div></div>
+<footer><a href="../compact-pixel-v1/review.html">查看静态形象</a> · <a href="README.md">查看本轮设计与制作记录</a> · <a id="videoLink" href="../../../../output/compact-motion-2026-10-23/compact-ranger-motion.webm">观看演示视频</a><p>该页用于检查主角动作，当前尚未接入正式游戏。左右身体翻面是本轮采用的二维表现方式。</p></footer>
+</main>
+<script src="asset-data.js"></script>
+<script src="../../../../scripts/animation/compact-ranger-motion.js"></script>
+<script src="review-controller.js"></script>
+</html>
