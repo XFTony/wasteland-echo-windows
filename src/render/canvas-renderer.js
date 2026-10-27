@@ -259,7 +259,7 @@ class CanvasRenderer {
     this.drawHud(model);
     if (model.screen === "running") {
       this.drawTutorial(model);
-      if (model.save.settings.showControlHints) this.drawDesktopControlHint();
+      if (model.save.settings.showControlHints) this.drawDesktopControlHint(model);
     }
     if (model.save.settings.showFps) this.drawDiagnostics(model);
   }

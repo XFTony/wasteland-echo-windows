@@ -1,0 +1,51 @@
+[
+  {
+    "id": "swarm_smg",
+    "file": "swarm-smg",
+    "name": "蜂群冲锋枪",
+    "width": 40,
+    "height": 22,
+    "pivot": 13
+  },
+  {
+    "id": "breaker_shotgun",
+    "file": "breaker-shotgun",
+    "name": "破门霰弹枪",
+    "width": 48,
+    "height": 22,
+    "pivot": 16
+  },
+  {
+    "id": "needle_rifle",
+    "file": "needle-rifle",
+    "name": "针刺步枪",
+    "width": 52,
+    "height": 22,
+    "pivot": 17,
+    "styleOnly": true
+  },
+  {
+    "id": "rust_revolver",
+    "file": "rust-revolver",
+    "name": "锈痕左轮",
+    "width": 38,
+    "height": 22,
+    "pivot": 11
+  },
+  {
+    "id": "ember_carbine",
+    "file": "ember-carbine",
+    "name": "余烬卡宾枪",
+    "width": 46,
+    "height": 22,
+    "pivot": 15
+  },
+  {
+    "id": "coil_cannon",
+    "file": "coil-cannon",
+    "name": "荒雷线圈炮",
+    "width": 50,
+    "height": 28,
+    "pivot": 17
+  }
+]

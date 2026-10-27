@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-10-23",
+  "updatedAt": "2026-10-27",
   "policy": {
     "deleteInactiveAssets": false,
     "runtimeCatalog": "src/render/art/asset-catalog.js",
@@ -1344,6 +1344,204 @@
       "sha256": "20F9AF740D5C6609381E645DA7CE5A946DC76FDA8381E8BDC312DFC69535050C",
       "generator": "OpenAI ImageGen built-in",
       "notes": "Separate pistol and two gloved hands; source artwork for freely aimed compact weapon component."
+    },
+    {
+      "id": "study.ranger.compact-arsenal.swarm_smg.source.v2",
+      "version": "1.5-compact-arsenal-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-arsenal-v2/source/swarm_smg.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-motion-v1/source/sidearm-grip-drawing.png"
+      ],
+      "width": 1691,
+      "height": 930,
+      "pixelFormat": "RGBA",
+      "bytes": 505993,
+      "sha256": "7C85CCB5D2451CA24E01534707D8D47C818CDCDEC93BE190CDE2C059CDCB6EA5",
+      "generator": "OpenAI ImageGen built-in",
+      "notes": "Compact two-hand swarm_smg source; automatic-combat pilot; visual review pending; not active game art."
+    },
+    {
+      "id": "study.ranger.compact-arsenal.swarm_smg.grip.v2",
+      "version": "1.5-compact-arsenal-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-arsenal-v2/weapons/swarm_smg.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-arsenal-v2/source/swarm_smg.png",
+        "art/characters/ranger/compact-arsenal-v2/weapons/swarm_smg.aseprite"
+      ],
+      "width": 40,
+      "height": 22,
+      "pixelFormat": "RGBA",
+      "bytes": 929,
+      "sha256": "7500953D2DF0145C81E6AF12FABC7FD304A5A5E658FA8DB1F5043DFB9CE777E4",
+      "generator": "Native pixel import + LibreSprite",
+      "notes": "Compact two-hand swarm_smg grip; automatic-combat pilot; visual review pending; not active game art."
+    },
+    {
+      "id": "study.ranger.compact-arsenal.breaker_shotgun.source.v2",
+      "version": "1.5-compact-arsenal-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-arsenal-v2/source/breaker_shotgun.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-motion-v1/source/sidearm-grip-drawing.png"
+      ],
+      "width": 1855,
+      "height": 848,
+      "pixelFormat": "RGBA",
+      "bytes": 547504,
+      "sha256": "2DF8057FCAD20B75E7A828C19105B7F50779F9442C6BA4087D3F349127653A6B",
+      "generator": "OpenAI ImageGen built-in",
+      "notes": "Compact two-hand breaker_shotgun source; automatic-combat pilot; visual review pending; not active game art."
+    },
+    {
+      "id": "study.ranger.compact-arsenal.breaker_shotgun.grip.v2",
+      "version": "1.5-compact-arsenal-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-arsenal-v2/weapons/breaker_shotgun.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-arsenal-v2/source/breaker_shotgun.png",
+        "art/characters/ranger/compact-arsenal-v2/weapons/breaker_shotgun.aseprite"
+      ],
+      "width": 48,
+      "height": 22,
+      "pixelFormat": "RGBA",
+      "bytes": 899,
+      "sha256": "C750CE7D27AAC0D813F030D6D3238447D43615A6E782BC87DB3818AE88F7B07E",
+      "generator": "Native pixel import + LibreSprite",
+      "notes": "Compact two-hand breaker_shotgun grip; automatic-combat pilot; visual review pending; not active game art."
+    },
+    {
+      "id": "study.ranger.compact-arsenal.needle_rifle.source.v2",
+      "version": "1.5-compact-arsenal-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-arsenal-v2/source/needle_rifle.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-motion-v1/source/sidearm-grip-drawing.png"
+      ],
+      "width": 1774,
+      "height": 887,
+      "pixelFormat": "RGBA",
+      "bytes": 385385,
+      "sha256": "7AB0C31DD684229191C6FC236A977CAECDB56181279A4E4F4F8F9B0A81704BE7",
+      "generator": "OpenAI ImageGen built-in",
+      "notes": "Compact two-hand needle_rifle source; automatic-combat pilot; visual review pending; not active game art."
+    },
+    {
+      "id": "study.ranger.compact-arsenal.needle_rifle.grip.v2",
+      "version": "1.5-compact-arsenal-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-arsenal-v2/weapons/needle_rifle.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-arsenal-v2/source/needle_rifle.png",
+        "art/characters/ranger/compact-arsenal-v2/weapons/needle_rifle.aseprite"
+      ],
+      "width": 52,
+      "height": 22,
+      "pixelFormat": "RGBA",
+      "bytes": 876,
+      "sha256": "4BC80F9498257438ACAB62A70A26A6E7A427897948EEBE216D560DAC4CD96251",
+      "generator": "Native pixel import + LibreSprite",
+      "notes": "Compact two-hand needle_rifle grip; automatic-combat pilot; visual review pending; not active game art."
+    },
+    {
+      "id": "study.ranger.compact-arsenal.rust_revolver.source.v2",
+      "version": "1.5-compact-arsenal-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-arsenal-v2/source/rust_revolver.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-motion-v1/source/sidearm-grip-drawing.png"
+      ],
+      "width": 1660,
+      "height": 948,
+      "pixelFormat": "RGBA",
+      "bytes": 474896,
+      "sha256": "37F23B7E8F23006A97ECB8BF56665592D139C716B291DE327B3798FA220AD8B7",
+      "generator": "OpenAI ImageGen built-in",
+      "notes": "Compact two-hand rust_revolver source; automatic-combat pilot; visual review pending; not active game art."
+    },
+    {
+      "id": "study.ranger.compact-arsenal.rust_revolver.grip.v2",
+      "version": "1.5-compact-arsenal-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-arsenal-v2/weapons/rust_revolver.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-arsenal-v2/source/rust_revolver.png",
+        "art/characters/ranger/compact-arsenal-v2/weapons/rust_revolver.aseprite"
+      ],
+      "width": 38,
+      "height": 22,
+      "pixelFormat": "RGBA",
+      "bytes": 1061,
+      "sha256": "3B03243FCBF9B9A95467389CC531541137FB66A5AC7BCA2C85F4782D4410CF48",
+      "generator": "Native pixel import + LibreSprite",
+      "notes": "Compact two-hand rust_revolver grip; automatic-combat pilot; visual review pending; not active game art."
+    },
+    {
+      "id": "study.ranger.compact-arsenal.ember_carbine.source.v2",
+      "version": "1.5-compact-arsenal-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-arsenal-v2/source/ember_carbine.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-motion-v1/source/sidearm-grip-drawing.png"
+      ],
+      "width": 1808,
+      "height": 870,
+      "pixelFormat": "RGBA",
+      "bytes": 558169,
+      "sha256": "AFB2D0992649A6EDD02C12FF5F979CAA9F9B361CF11DCEB10811C88059DB041C",
+      "generator": "OpenAI ImageGen built-in",
+      "notes": "Compact two-hand ember_carbine source; automatic-combat pilot; visual review pending; not active game art."
+    },
+    {
+      "id": "study.ranger.compact-arsenal.ember_carbine.grip.v2",
+      "version": "1.5-compact-arsenal-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-arsenal-v2/weapons/ember_carbine.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-arsenal-v2/source/ember_carbine.png",
+        "art/characters/ranger/compact-arsenal-v2/weapons/ember_carbine.aseprite"
+      ],
+      "width": 46,
+      "height": 22,
+      "pixelFormat": "RGBA",
+      "bytes": 974,
+      "sha256": "BDBED671A237492ACB347FF8B28B7384B2C5AA8AC6AE50691A882FDFFF7C3F96",
+      "generator": "Native pixel import + LibreSprite",
+      "notes": "Compact two-hand ember_carbine grip; automatic-combat pilot; visual review pending; not active game art."
+    },
+    {
+      "id": "study.ranger.compact-arsenal.coil_cannon.source.v2",
+      "version": "1.5-compact-arsenal-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-arsenal-v2/source/coil_cannon.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-motion-v1/source/sidearm-grip-drawing.png"
+      ],
+      "width": 1672,
+      "height": 941,
+      "pixelFormat": "RGBA",
+      "bytes": 617665,
+      "sha256": "B744BC362C839450EA87B58DEB8D18B651C0C2C6575C3747F53E0AB0F4C4464B",
+      "generator": "OpenAI ImageGen built-in",
+      "notes": "Compact two-hand coil_cannon source; automatic-combat pilot; visual review pending; not active game art."
+    },
+    {
+      "id": "study.ranger.compact-arsenal.coil_cannon.grip.v2",
+      "version": "1.5-compact-arsenal-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-arsenal-v2/weapons/coil_cannon.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-arsenal-v2/source/coil_cannon.png",
+        "art/characters/ranger/compact-arsenal-v2/weapons/coil_cannon.aseprite"
+      ],
+      "width": 50,
+      "height": 28,
+      "pixelFormat": "RGBA",
+      "bytes": 1378,
+      "sha256": "3CE8382F4F48EF11505AF4AA865C81E27183791546DC918C5BB421F8151FA463",
+      "generator": "Native pixel import + LibreSprite",
+      "notes": "Compact two-hand coil_cannon grip; automatic-combat pilot; visual review pending; not active game art."
     }
   ]
 }

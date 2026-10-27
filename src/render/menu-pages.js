@@ -269,7 +269,7 @@ const MENU_METHODS = {
       ["sfx", "战斗音效", `${Math.round(settings.sfx * 100)}%`, "range", settings.sfxMuted],
       ["uiScale", "界面缩放", `${Math.round(settings.uiScale * 100)}%`, "range", false],
       ["autoAim", "自动瞄准（新档默认开）", settings.autoAim ? "开" : "关", "toggle"],
-      ["autoFire", "自动开火", settings.autoFire ? "开" : "关", "toggle"],
+      ["autoFire", "自动开火（新档默认开）", settings.autoFire ? "开" : "关", "toggle"],
       ["screenShake", "屏幕抖动", { off: "关", low: "低", high: "高" }[settings.screenShake], "toggle"],
       ["flashes", "闪光强度", { off: "关", low: "低", high: "高" }[settings.flashes], "toggle"],
       ["gamepadEnabled", "手柄输入", settings.gamepadEnabled ? "开" : "关", "toggle"],
@@ -327,11 +327,9 @@ const MENU_METHODS = {
         role: "ui"
       });
       const lineY = guideY + (compact ? 42 : 61);
-      const keyboardGuide = settings.autoAim
-        ? "键鼠  WASD 移动  ·  范围内自动锁敌 / Space 射击  ·  Esc 暂停"
-        : "键鼠  WASD 移动  ·  鼠标瞄准 / 左键射击  ·  Esc 暂停";
+      const keyboardGuide = `键鼠  WASD 移动  ·  ${settings.autoAim ? "自动锁敌" : "鼠标瞄准"} / ${settings.autoFire ? "自动射击" : "左键射击"}  ·  Esc 暂停`;
       this.fitText(keyboardGuide, guideX + 14, lineY, compact ? 10 : 13, contentWidth * 0.56, UI_COLORS.paper, "left", "700", 10);
-      this.fitText("手柄  左摇杆移动  ·  RT / RB 射击  ·  A 确认  ·  B 返回", guideX + contentWidth - 14, lineY, compact ? 10 : 13, contentWidth * 0.4, UI_COLORS.paper, "right", "700", 10);
+      this.fitText(`手柄  左摇杆移动  ·  ${settings.autoFire ? "自动射击" : "RT / RB 射击"}  ·  A 确认  ·  B 返回`, guideX + contentWidth - 14, lineY, compact ? 10 : 13, contentWidth * 0.4, UI_COLORS.paper, "right", "700", 10);
     }
     drawFieldButton(this, "fullscreen", "切换全屏  F", this.width / 2 - (compact ? 157 : 180), footerY, compact ? 148 : 168, compact ? 34 : 42, { accent: UI_COLORS.cyan });
     drawFieldButton(this, "back", "返回营地", this.width / 2 + (compact ? 9 : 12), footerY, compact ? 148 : 168, compact ? 34 : 42, { accent: UI_COLORS.gold });

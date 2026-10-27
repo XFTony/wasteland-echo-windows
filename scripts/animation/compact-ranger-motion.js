@@ -27,7 +27,10 @@
       config: { body, weapon, strideLength: Math.max(1, finite(options.strideLength, 34 * pixelScale)),
         shotInterval: Math.max(.05, finite(options.shotInterval, .28)),
         bulletSpeed: Math.max(1, finite(options.bulletSpeed, 420)),
-        bulletLife: Math.max(.1, finite(options.bulletLife, 1.6)) },
+        bulletLife: Math.max(.1, finite(options.bulletLife, 1.6)), damage:1, projectileCount:1,
+        spread:0, pierce:0, lockRange:520, color:"#ffcf72", flashLife:.065, flashLength:7, flashWidth:3 },
+      weaponDefinitions: Object.fromEntries((options.weapons || []).map(w=>[w.id,w])), weaponId:null,
+      autoCombat: options.autoCombat === true, aimTargetId:null,
       phase: 0, distance: 0, elapsed: 0, angle: 0, facing: 1, depth: "front",
       walking: false, paused: false, recoil: 0, flash: 0, fireCooldown: 0,
       lastDx: 0, lastDy: 0, shotsFired: 0, hits: 0,
@@ -35,13 +38,42 @@
       targets: (options.targets || []).map((target, index) => ({
         id: target.id == null ? index : target.id, x: target.x, y: target.y,
         radius: Math.max(1, finite(target.radius, finite(target.r, 12))),
-        hp: Math.max(1, finite(target.hp, 5)), maxHp: Math.max(1, finite(target.hp, 5)), hitFlash: 0
+        hp: Math.max(1, finite(target.hp, 5)), maxHp: Math.max(1, finite(target.hp, 5)), hitFlash: 0,
+        active:target.active!==false
       }))
     };
     state.x = clamp(state.x, state.radius, state.world.width - state.radius);
     state.y = clamp(state.y, state.radius, state.world.height - state.radius);
     setAimAngle(state, finite(options.angle, 0));
+    if(options.weapons?.length)setWeapon(state,options.weaponId || options.weapons[0].id);
     return state;
+  }
+
+  function setWeapon(state, id) {
+    const definition=state.weaponDefinitions[id];
+    if(!definition)throw new Error('Unknown compact weapon: '+id);
+    state.weaponId=id;state.config.weapon=Object.assign({},state.config.weapon,definition.rig);
+    for(const key of ['damage','projectileCount','spread','pierce','lockRange','color','flashLife','flashLength','flashWidth']){
+      if(definition[key]!==undefined)state.config[key]=definition[key];
+    }
+    state.config.shotInterval=definition.interval;
+    state.config.bulletSpeed=definition.projectileSpeed;
+    state.config.bulletLife=definition.ttl;
+    state.aimTargetId=null;state.recoil=0;state.flash=0;
+    state.fireCooldown=Math.max(state.fireCooldown,definition.interval*.15);
+    return state;
+  }
+
+  function selectTarget(state) {
+    const rangeSq=state.config.lockRange**2;
+    const valid=state.targets.filter(t=>t.active!==false&&t.hp>0&&
+      (t.x-state.x)**2+(t.y-state.y)**2<=rangeSq&&
+      !state.world.boxes.some(box=>segmentBox(state.x,state.y,t.x-state.x,t.y-state.y,box)!==null));
+    valid.sort((a,b)=>((a.x-state.x)**2+(a.y-state.y)**2)-((b.x-state.x)**2+(b.y-state.y)**2));
+    const nearest=valid[0];if(!nearest)return null;
+    const retained=valid.find(t=>t.id===state.aimTargetId);
+    if(retained&&Math.hypot(retained.x-state.x,retained.y-state.y)<=Math.hypot(nearest.x-state.x,nearest.y-state.y)*1.12)return retained;
+    return nearest;
   }
 
   function setAimAngle(state, radians) {
@@ -155,27 +187,32 @@
     const remaining = [];
     for (const bullet of state.bullets) {
       bullet.prevX = bullet.x; bullet.prevY = bullet.y;
-      const dx = bullet.vx * dt, dy = bullet.vy * dt;
-      let first = Infinity, targetHit = null;
+      const endX=bullet.x+bullet.vx*dt,endY=bullet.y+bullet.vy*dt;
+      const originX=bullet.barrelStartX??bullet.x,originY=bullet.barrelStartY??bullet.y;
+      const dx=endX-originX,dy=endY-originY;
+      delete bullet.barrelStartX;delete bullet.barrelStartY;
+      let wall = Infinity;
       for (const box of state.world.boxes) {
-        const t = segmentBox(bullet.x, bullet.y, dx, dy, box);
-        if (t !== null && t < first) { first = t; targetHit = null; }
+        const t = segmentBox(originX, originY, dx, dy, box);
+        if (t !== null && t < wall) wall=t;
       }
+      const contacts=[];
       for (const target of state.targets) {
-        if (target.hp <= 0) continue;
-        const t = segmentCircle(bullet.x, bullet.y, dx, dy, target);
-        if (t !== null && t < first) { first = t; targetHit = target; }
+        if (target.hp <= 0 || target.active===false || bullet.hitIds?.includes(target.id)) continue;
+        const t = segmentCircle(originX, originY, dx, dy, target);
+        if(t!==null&&t<wall)contacts.push({t,target});
       }
-      if (first !== Infinity) {
-        const x = bullet.x + dx * first, y = bullet.y + dy * first;
-        state.impacts.push({ x, y, life: .18, target: Boolean(targetHit) });
-        if (targetHit) {
-          targetHit.hp = Math.max(0, targetHit.hp - 1); targetHit.hitFlash = .14; state.hits++;
-          state.events.push({ type: "hit", targetId: targetHit.id, x, y });
-        }
-        continue;
+      contacts.sort((a,b)=>a.t-b.t);let stopped=false;
+      for(const contact of contacts){
+        const target=contact.target,x=originX+dx*contact.t,y=originY+dy*contact.t;
+        target.hp=Math.max(0,target.hp-(bullet.damage||1));target.hitFlash=.14;state.hits++;
+        (bullet.hitIds||(bullet.hitIds=[])).push(target.id);
+        state.impacts.push({x,y,life:.18,target:true});state.events.push({type:'hit',targetId:target.id,x,y,weaponId:bullet.weaponId});
+        if(!(bullet.pierce>0)){stopped=true;break;}bullet.pierce--;
       }
-      bullet.x += dx; bullet.y += dy; bullet.life -= dt;
+      if(stopped)continue;
+      if(wall!==Infinity){state.impacts.push({x:originX+dx*wall,y:originY+dy*wall,life:.18,target:false});continue;}
+      bullet.x=endX;bullet.y=endY;bullet.life -= dt;
       if (bullet.life > 0 && bullet.x >= 0 && bullet.y >= 0 && bullet.x <= state.world.width && bullet.y <= state.world.height) remaining.push(bullet);
     }
     state.bullets = remaining.slice(-64);
@@ -202,19 +239,30 @@
       dx = mx / length * state.speed * dt; dy = my / length * state.speed * dt;
     }
     move(state, dx, dy);
-    if (Number.isFinite(input.targetX) && Number.isFinite(input.targetY)) {
+    updateBullets(state, dt);
+    let automaticTarget=null;
+    if(state.autoCombat){
+      automaticTarget=selectTarget(state);state.aimTargetId=automaticTarget?automaticTarget.id:null;
+      if(automaticTarget)aimAt(state,automaticTarget.x,automaticTarget.y);
+      else if(state.walking)setAimAngle(state,Math.atan2(state.lastDy,state.lastDx));
+    }else if (Number.isFinite(input.targetX) && Number.isFinite(input.targetY)) {
       const aimX = input.targetX - state.x, aimY = input.targetY - state.y;
       if (Math.hypot(aimX, aimY) > 1) aimAt(state, input.targetX, input.targetY);
     } else if (Number.isFinite(input.angle)) setAimAngle(state, input.angle);
-    updateBullets(state, dt);
-    if (input.firing && state.fireCooldown <= 0) {
-      state.recoil = 1; state.flash = .065; state.fireCooldown = state.config.shotInterval;
+    if ((state.autoCombat?Boolean(automaticTarget):input.firing) && state.fireCooldown <= 0) {
+      state.recoil = 1; state.flash = state.config.flashLife; state.fireCooldown = state.config.shotInterval;
       const current = pose(state), weapon = current.weapon;
       const shot = { type: "shot", x: weapon.muzzleX, y: weapon.muzzleY,
-        angle: weapon.angle, aimX: Math.cos(weapon.angle), aimY: Math.sin(weapon.angle) };
-      state.bullets.push({ x: shot.x, y: shot.y, prevX: shot.x, prevY: shot.y,
-        vx: shot.aimX * state.config.bulletSpeed, vy: shot.aimY * state.config.bulletSpeed,
-        life: state.config.bulletLife });
+        angle: weapon.angle, aimX: Math.cos(weapon.angle), aimY: Math.sin(weapon.angle),weaponId:state.weaponId };
+      const obstruction=state.world.boxes.map(box=>segmentBox(state.x,state.y,shot.x-state.x,shot.y-state.y,box)).filter(t=>t!==null).sort((a,b)=>a-b)[0];
+      if(obstruction!==undefined){state.flash=0;state.impacts.push({x:state.x+(shot.x-state.x)*obstruction,y:state.y+(shot.y-state.y)*obstruction,life:.18,target:false});}
+      else for(let i=0;i<state.config.projectileCount;i++){
+        const spread=state.config.projectileCount===1?0:(i/(state.config.projectileCount-1)-.5)*state.config.spread*Math.PI/180;
+        const angle=shot.angle+spread;
+        state.bullets.push({x:shot.x,y:shot.y,prevX:shot.x,prevY:shot.y,vx:Math.cos(angle)*state.config.bulletSpeed,vy:Math.sin(angle)*state.config.bulletSpeed,
+          life:state.config.bulletLife,damage:state.config.damage,pierce:state.config.pierce,color:state.config.color,weaponId:state.weaponId,hitIds:[],
+          barrelStartX:weapon.anchorX-shot.aimX*state.radius,barrelStartY:weapon.anchorY-shot.aimY*state.radius});
+      }
       state.lastShot = shot; state.events.push(shot); state.shotsFired++;
     }
     return state;
@@ -257,9 +305,18 @@
         body.width, body.height, -body.root[0], -body.root[1], body.width, body.height); ctx.restore();
     }
     if (current.depth === "front") drawWeapon();
+    // Long stocks may pass behind the large head while barrel/hands stay in front.
+    // Reuse the exact body head pixels instead of letting a stock paint over the face.
+    if(bodyReady&&current.depth==='front'&&state.config.body.headOcclusionRows>0){
+      const body=state.config.body,frame=current.bodyFrame,rows=body.headOcclusionRows;
+      ctx.save();ctx.translate(state.x,state.y);ctx.scale(scale*current.facing,scale);
+      ctx.drawImage(assets.body,frame%body.columns*body.width,Math.floor(frame/body.columns)*body.height,body.width,rows,
+        -body.root[0],-body.root[1],body.width,rows);ctx.restore();
+    }
     if (options.drawProjectiles !== false) {
-      ctx.strokeStyle = "#ffcf72"; ctx.lineWidth = Math.max(2, scale);
+      ctx.lineWidth = Math.max(2, scale);
       for (const bullet of state.bullets) {
+        ctx.strokeStyle=bullet.color||"#ffcf72";
         ctx.beginPath(); ctx.moveTo(bullet.prevX, bullet.prevY); ctx.lineTo(bullet.x, bullet.y); ctx.stroke();
       }
     }
@@ -271,12 +328,13 @@
     if (weaponReady && options.drawFlash !== false && state.flash > 0) {
       const weapon = current.weapon;
       ctx.save(); ctx.translate(weapon.muzzleX, weapon.muzzleY); ctx.rotate(weapon.angle);
-      ctx.fillStyle = "#e6913b"; ctx.fillRect(0, -3 * scale, 7 * scale, 6 * scale);
-      ctx.fillStyle = "#ffe7a0"; ctx.fillRect(0, -scale, 5 * scale, 2 * scale); ctx.restore();
+      const length=state.config.flashLength,half=state.config.flashWidth;
+      ctx.fillStyle = state.weaponId==='coil_cannon'?"#39bfc6":"#e6913b"; ctx.fillRect(0, -half * scale, length * scale, half*2 * scale);
+      ctx.fillStyle = state.weaponId==='coil_cannon'?"#d5fff3":"#ffe7a0"; ctx.fillRect(0, -scale, Math.max(3,length-2) * scale, 2 * scale); ctx.restore();
     }
     ctx.restore();
     return Object.assign(current, { bodyReady, weaponReady, drawn: bodyReady && weaponReady });
   }
 
-  return { createState, step, pose, draw, setAimAngle, aimAt, weaponPoint };
+  return { createState, step, pose, draw, setAimAngle, aimAt, weaponPoint, setWeapon, selectTarget };
 });

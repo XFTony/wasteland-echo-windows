@@ -28,7 +28,7 @@ const DEFAULT_SETTINGS = Object.freeze({
   screenShake: "low",
   flashes: "low",
   autoAim: true,
-  autoFire: false
+  autoFire: true
 });
 
 function normalizeSettings(candidate) {

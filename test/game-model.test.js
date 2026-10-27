@@ -259,6 +259,16 @@ test("the desktop default run is three minutes", () => {
   assert.equal(DEFAULT_RUN_DURATION, 180);
 });
 
+test("fresh games automatically aim and shoot every existing gun without firing or aim input",()=>{
+  for(const weapon of Object.values(WEAPONS)){
+    const model=createModel();model.startRun({weaponId:weapon.id,seed:7});model.enemies.length=0;
+    assert.equal(model.save.settings.autoAim,true);assert.equal(model.save.settings.autoFire,true);
+    const p=model.run.player;const enemy=model.spawnEnemy('drifter',p.x+70,p.y+30);
+    model.setInput({firing:false,aimX:-1,aimY:0,aimActive:true});model.updatePlayer(0);
+    assert.equal(p.aimTargetId,enemy.id,weapon.id);assert.equal(model.projectiles.length,weapon.projectileCount,weapon.id);
+  }
+});
+
 test("automatic aim locks and fires only at the nearest enemy inside weapon range", () => {
   const model = createModel();
   model.startRun({ seed: 78 });

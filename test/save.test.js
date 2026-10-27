@@ -13,6 +13,7 @@ test("default save contains required unlocks and settings", () => {
   assert.deepEqual(save.equippedEquipment, { helmet: null, chest: "field_vest", legs: null, boots: null });
   assert.deepEqual(save.currencies, { copper: 250, gold: 0 });
   assert.equal(save.settings.autoAim, true);
+  assert.equal(save.settings.autoFire, true);
   assert.equal(save.settings.gamepadEnabled, true);
   assert.equal(save.settings.gamepadDeadzone, 0.18);
   assert.equal(save.settings.musicMuted, false);
@@ -90,9 +91,14 @@ test("normalization migrates partial saves without losing progress", () => {
   assert.deepEqual(save.unlockedWeapons.sort(), ["scrap_pistol", "swarm_smg"]);
   assert.equal(save.settings.music, 0);
   assert.equal(save.settings.autoAim, true, "an explicit legacy preference must be preserved");
-  assert.equal(save.settings.autoFire, false);
+  assert.equal(save.settings.autoFire, true, "missing combat preference receives the new automatic default");
   assert.equal(save.settings.gamepadVibration, true);
   assert.equal(save.selectedMode, "survival");
+});
+
+test("explicit manual shooting preferences are retained when the automatic defaults change",()=>{
+  const save=normalizeSave({schemaVersion:CURRENT_SCHEMA_VERSION,settings:{autoAim:false,autoFire:false}});
+  assert.equal(save.settings.autoAim,false);assert.equal(save.settings.autoFire,false);
 });
 
 test("pre-v3 saves receive nearest-target lock without losing their progress", () => {

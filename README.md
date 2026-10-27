@@ -1,6 +1,6 @@
 # 荒原回响 · Wasteland Echo
 
-2026-10-23 人物美术进展：参考《元气骑士》的紧凑像素主角已制作[可操作的移动、转向与持枪样板](./art/characters/ranger/compact-motion-v1/review.html)，并保留[静态形象对照](./art/characters/ranger/compact-pixel-v1/review.html)。旧高精细人物动作路线停止推进；新动作尚未接入主游戏。
+2026-10-27 进展：主角视觉参考《元气骑士》，操控方向参考《土豆兄弟》。现有七把枪已制作[自动瞄准与射击样板](./art/characters/ranger/compact-arsenal-v2/review.html)，默认只需移动。主游戏新档默认开启自动瞄准／自动开火；旧档已有设置保留。新人物与七枪像素图目前仍在独立样板中。[玩法调研与范围](./docs/brotato-controls-and-seven-weapons-2026-10-27.md)。
 
 Windows 桌面优先的俯视角废土生存射击 Roguelite。当前开发线为 v1.5.0-alpha.1，稳定发布基线为 v1.4.0。游戏运行时仍是零 JavaScript 依赖的 Canvas 2D + CommonJS；既可在 Edge、Chrome 中运行，也可构建 Tauri 2 + WebView2 便携版和 NSIS 安装版。
 

@@ -102,7 +102,9 @@ const HUD_METHODS = {
     });
     this.trackedText(`荒原手册  ${tutorial.stepIndex + 1}/${TUTORIAL_STEPS.length}`, x + 14, y + 15, 9, PALETTE.amber, 1);
     this.displayText(step.title, x + 14, y + 40, 20, PALETTE.cream, "left");
-    this.fitText(step.detail, x + 14, y + 66, 11, width - 28, "#d7cfb6", "left", "700", 9);
+    const settings=model.save.settings;
+    const detail=step.id==='fire'?`${settings.autoAim?"射程内自动锁敌":"使用鼠标或右摇杆瞄准"}；${settings.autoFire?"武器自动射击":"使用射击键开火"}，完成3次攻击。`:step.detail;
+    this.fitText(detail, x + 14, y + 66, 11, width - 28, "#d7cfb6", "left", "700", 9);
     const barX = x + 14;
     const barY = y + 88;
     const barW = width - 112;
@@ -140,9 +142,12 @@ const HUD_METHODS = {
     this.text(`${distance}m`, x, y + 17, 9, PALETTE.cyan, "center", "bold");
   },
 
-  drawDesktopControlHint() {
+  drawDesktopControlHint(model) {
     const gamepad = this.activeInputDevice === INPUT_DEVICES.GAMEPAD;
-    const label = gamepad ? "手柄  LS 移动  ·  RS 瞄准  ·  RT / RB 射击  ·  Menu 暂停" : "键鼠  WASD 移动  ·  鼠标瞄准  ·  左键 / 空格射击  ·  Esc 暂停";
+    const settings = model && model.save.settings || {};
+    const aim = settings.autoAim ? "自动锁敌" : gamepad ? "RS 瞄准" : "鼠标瞄准";
+    const fire = settings.autoFire ? "自动射击" : gamepad ? "RT / RB 射击" : "左键 / 空格射击";
+    const label = gamepad ? `手柄  LS 移动  ·  ${aim}  ·  ${fire}  ·  Menu 暂停` : `键鼠  WASD 移动  ·  ${aim}  ·  ${fire}  ·  Esc 暂停`;
     const width = Math.min(gamepad ? 530 : 570, this.width - 28);
     const x = 14;
     const y = this.height - 35;
