@@ -2,6 +2,8 @@
 
 2026-10-27 进展：主角视觉参考《元气骑士》，操控方向参考《土豆兄弟》。现有七把枪已制作[自动瞄准与射击样板](./art/characters/ranger/compact-arsenal-v2/review.html)，默认只需移动。主游戏新档默认开启自动瞄准／自动开火；旧档已有设置保留。新人物与七枪像素图目前仍在独立样板中。[玩法调研与范围](./docs/brotato-controls-and-seven-weapons-2026-10-27.md)。
 
+材料兼容性已推进至[可替换手型与袖口的分层样板v3](./art/characters/ranger/modular-grips-v3/review.html)：七枪完整枪体、人物手图、服饰袖口独立，切换时合成缓存；原默认像素保留。[制作与编辑流程](./art/characters/ranger/modular-grips-v3/README.md)。
+
 Windows 桌面优先的俯视角废土生存射击 Roguelite。当前开发线为 v1.5.0-alpha.1，稳定发布基线为 v1.4.0。游戏运行时仍是零 JavaScript 依赖的 Canvas 2D + CommonJS；既可在 Edge、Chrome 中运行，也可构建 Tauri 2 + WebView2 便携版和 NSIS 安装版。
 
 现行规格：[wasteland-survivor-windows-game-spec.md](./wasteland-survivor-windows-game-spec.md)  

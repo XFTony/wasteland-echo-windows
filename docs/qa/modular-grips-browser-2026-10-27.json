@@ -1,0 +1,2990 @@
+{
+  "date": "2026-10-27",
+  "pilot": false,
+  "defaultReconstructionExact": true,
+  "renderedABExact": true,
+  "records": [
+    {
+      "id": "scrap_pistol",
+      "defaultNativeMismatch": 0,
+      "renderedABExact": true,
+      "variants": [
+        {
+          "handId": "ranger-cloth",
+          "cuffId": "ranger-coat",
+          "alphaChanges": 0,
+          "colorChanges": 0,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        },
+        {
+          "handId": "ranger-cloth",
+          "cuffId": "steel-test",
+          "alphaChanges": 0,
+          "colorChanges": 18,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        },
+        {
+          "handId": "plated-test",
+          "cuffId": "ranger-coat",
+          "alphaChanges": 16,
+          "colorChanges": 364,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        },
+        {
+          "handId": "plated-test",
+          "cuffId": "steel-test",
+          "alphaChanges": 16,
+          "colorChanges": 382,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "swarm_smg",
+      "defaultNativeMismatch": 0,
+      "renderedABExact": true,
+      "variants": [
+        {
+          "handId": "ranger-cloth",
+          "cuffId": "ranger-coat",
+          "alphaChanges": 0,
+          "colorChanges": 0,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        },
+        {
+          "handId": "ranger-cloth",
+          "cuffId": "steel-test",
+          "alphaChanges": 0,
+          "colorChanges": 9,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        },
+        {
+          "handId": "plated-test",
+          "cuffId": "ranger-coat",
+          "alphaChanges": 25,
+          "colorChanges": 255,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        },
+        {
+          "handId": "plated-test",
+          "cuffId": "steel-test",
+          "alphaChanges": 25,
+          "colorChanges": 264,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "breaker_shotgun",
+      "defaultNativeMismatch": 0,
+      "renderedABExact": true,
+      "variants": [
+        {
+          "handId": "ranger-cloth",
+          "cuffId": "ranger-coat",
+          "alphaChanges": 0,
+          "colorChanges": 0,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        },
+        {
+          "handId": "ranger-cloth",
+          "cuffId": "steel-test",
+          "alphaChanges": 0,
+          "colorChanges": 18,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        },
+        {
+          "handId": "plated-test",
+          "cuffId": "ranger-coat",
+          "alphaChanges": 24,
+          "colorChanges": 249,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        },
+        {
+          "handId": "plated-test",
+          "cuffId": "steel-test",
+          "alphaChanges": 24,
+          "colorChanges": 267,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "needle_rifle",
+      "defaultNativeMismatch": 0,
+      "renderedABExact": true,
+      "variants": [
+        {
+          "handId": "ranger-cloth",
+          "cuffId": "ranger-coat",
+          "alphaChanges": 0,
+          "colorChanges": 0,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        },
+        {
+          "handId": "ranger-cloth",
+          "cuffId": "steel-test",
+          "alphaChanges": 0,
+          "colorChanges": 27,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        },
+        {
+          "handId": "plated-test",
+          "cuffId": "ranger-coat",
+          "alphaChanges": 10,
+          "colorChanges": 242,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        },
+        {
+          "handId": "plated-test",
+          "cuffId": "steel-test",
+          "alphaChanges": 10,
+          "colorChanges": 269,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rust_revolver",
+      "defaultNativeMismatch": 0,
+      "renderedABExact": true,
+      "variants": [
+        {
+          "handId": "ranger-cloth",
+          "cuffId": "ranger-coat",
+          "alphaChanges": 0,
+          "colorChanges": 0,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        },
+        {
+          "handId": "ranger-cloth",
+          "cuffId": "steel-test",
+          "alphaChanges": 0,
+          "colorChanges": 30,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        },
+        {
+          "handId": "plated-test",
+          "cuffId": "ranger-coat",
+          "alphaChanges": 19,
+          "colorChanges": 364,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        },
+        {
+          "handId": "plated-test",
+          "cuffId": "steel-test",
+          "alphaChanges": 19,
+          "colorChanges": 394,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ember_carbine",
+      "defaultNativeMismatch": 0,
+      "renderedABExact": true,
+      "variants": [
+        {
+          "handId": "ranger-cloth",
+          "cuffId": "ranger-coat",
+          "alphaChanges": 0,
+          "colorChanges": 0,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        },
+        {
+          "handId": "ranger-cloth",
+          "cuffId": "steel-test",
+          "alphaChanges": 0,
+          "colorChanges": 24,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        },
+        {
+          "handId": "plated-test",
+          "cuffId": "ranger-coat",
+          "alphaChanges": 22,
+          "colorChanges": 259,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        },
+        {
+          "handId": "plated-test",
+          "cuffId": "steel-test",
+          "alphaChanges": 22,
+          "colorChanges": 283,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "coil_cannon",
+      "defaultNativeMismatch": 0,
+      "renderedABExact": true,
+      "variants": [
+        {
+          "handId": "ranger-cloth",
+          "cuffId": "ranger-coat",
+          "alphaChanges": 0,
+          "colorChanges": 0,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        },
+        {
+          "handId": "ranger-cloth",
+          "cuffId": "steel-test",
+          "alphaChanges": 0,
+          "colorChanges": 18,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        },
+        {
+          "handId": "plated-test",
+          "cuffId": "ranger-coat",
+          "alphaChanges": 11,
+          "colorChanges": 239,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        },
+        {
+          "handId": "plated-test",
+          "cuffId": "steel-test",
+          "alphaChanges": 11,
+          "colorChanges": 257,
+          "checks": [
+            {
+              "degrees": 0,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 0,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": 45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": 180,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": null
+            },
+            {
+              "degrees": -135,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -135,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -90,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 0,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            },
+            {
+              "degrees": -45,
+              "recoil": 1,
+              "faceErrors": 0,
+              "muzzleAlpha": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "cases": 448,
+  "cache": {
+    "builds": 29,
+    "hits": 193,
+    "evictions": 20,
+    "entries": 8,
+    "limit": 8,
+    "bytes": 38592
+  },
+  "noPerFrameBuild": true,
+  "appearancePreservesGameplay": true,
+  "readyMs": 162,
+  "decodedOwnedAssetPixelsBytes": 41796,
+  "pageErrors": [],
+  "video": {
+    "bytes": 12178671,
+    "decodeAndPlay": true,
+    "width": 960,
+    "height": 560
+  },
+  "limits": "Same ranger body with two hand appearances and two cuff appearances; no second character body art claimed."
+}

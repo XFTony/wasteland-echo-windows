@@ -1542,6 +1542,193 @@
       "sha256": "3CE8382F4F48EF11505AF4AA865C81E27183791546DC918C5BB421F8151FA463",
       "generator": "Native pixel import + LibreSprite",
       "notes": "Compact two-hand coil_cannon grip; automatic-combat pilot; visual review pending; not active game art."
+    },
+    {
+      "id": "material.compact-modular.weapon.scrap_pistol.v1",
+      "version": "1.5-modular-grip-study",
+      "status": "inactive",
+      "archivePath": "art/weapons/compact-modular-v1/scrap_pistol/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/scrap_pistol/weapon-base.aseprite",
+        "art/characters/ranger/modular-grips-v3/source/regions.json"
+      ],
+      "width": 36,
+      "height": 20,
+      "pixelFormat": "RGBA",
+      "bytes": 586,
+      "sha256": "F1ACDEEBA0C4A94198240DB235361C119427E258F648AB903B75F2A6EB301136",
+      "generator": "Project native pixel source migration",
+      "notes": "Independent weapon.scrap_pistol material; derived from existing registered compact sprites; cached composition; original default pixels preserved; not active main-game art."
+    },
+    {
+      "id": "material.compact-modular.weapon.swarm_smg.v1",
+      "version": "1.5-modular-grip-study",
+      "status": "inactive",
+      "archivePath": "art/weapons/compact-modular-v1/swarm_smg/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/swarm_smg/weapon-base.aseprite",
+        "art/characters/ranger/modular-grips-v3/source/regions.json"
+      ],
+      "width": 40,
+      "height": 22,
+      "pixelFormat": "RGBA",
+      "bytes": 808,
+      "sha256": "E5A804C287D1A4419AAE9F00CFE8DAC75ADA3900BDF14A4DE3052EF056E7602B",
+      "generator": "Project native pixel source migration",
+      "notes": "Independent weapon.swarm_smg material; derived from existing registered compact sprites; cached composition; original default pixels preserved; not active main-game art."
+    },
+    {
+      "id": "material.compact-modular.weapon.breaker_shotgun.v1",
+      "version": "1.5-modular-grip-study",
+      "status": "inactive",
+      "archivePath": "art/weapons/compact-modular-v1/breaker_shotgun/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/breaker_shotgun/weapon-base.aseprite",
+        "art/characters/ranger/modular-grips-v3/source/regions.json"
+      ],
+      "width": 48,
+      "height": 22,
+      "pixelFormat": "RGBA",
+      "bytes": 858,
+      "sha256": "2907E8D2E5D2FA80D738681C5434D8B28D515617FE48435D7B98B602938A95FA",
+      "generator": "Project native pixel source migration",
+      "notes": "Independent weapon.breaker_shotgun material; derived from existing registered compact sprites; cached composition; original default pixels preserved; not active main-game art."
+    },
+    {
+      "id": "material.compact-modular.weapon.needle_rifle.v1",
+      "version": "1.5-modular-grip-study",
+      "status": "inactive",
+      "archivePath": "art/weapons/compact-modular-v1/needle_rifle/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/needle_rifle/weapon-base.aseprite",
+        "art/characters/ranger/modular-grips-v3/source/regions.json"
+      ],
+      "width": 52,
+      "height": 22,
+      "pixelFormat": "RGBA",
+      "bytes": 721,
+      "sha256": "7E91A8C85AFF2EE08FFA835A8C8CDDFA00E2BD45B1BFB79164D5A8D3E8FCC4FF",
+      "generator": "Project native pixel source migration",
+      "notes": "Independent weapon.needle_rifle material; derived from existing registered compact sprites; cached composition; original default pixels preserved; not active main-game art."
+    },
+    {
+      "id": "material.compact-modular.weapon.rust_revolver.v1",
+      "version": "1.5-modular-grip-study",
+      "status": "inactive",
+      "archivePath": "art/weapons/compact-modular-v1/rust_revolver/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/rust_revolver/weapon-base.aseprite",
+        "art/characters/ranger/modular-grips-v3/source/regions.json"
+      ],
+      "width": 38,
+      "height": 22,
+      "pixelFormat": "RGBA",
+      "bytes": 922,
+      "sha256": "15A2144B16950FC1409C3CA67508D60D386E95BD296D06A9B77CA4853AEF93A1",
+      "generator": "Project native pixel source migration",
+      "notes": "Independent weapon.rust_revolver material; derived from existing registered compact sprites; cached composition; original default pixels preserved; not active main-game art."
+    },
+    {
+      "id": "material.compact-modular.weapon.ember_carbine.v1",
+      "version": "1.5-modular-grip-study",
+      "status": "inactive",
+      "archivePath": "art/weapons/compact-modular-v1/ember_carbine/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/ember_carbine/weapon-base.aseprite",
+        "art/characters/ranger/modular-grips-v3/source/regions.json"
+      ],
+      "width": 46,
+      "height": 22,
+      "pixelFormat": "RGBA",
+      "bytes": 902,
+      "sha256": "65184878F0DDBDCD73219A86AF861501BE5954E3903749FFF220803035016CE6",
+      "generator": "Project native pixel source migration",
+      "notes": "Independent weapon.ember_carbine material; derived from existing registered compact sprites; cached composition; original default pixels preserved; not active main-game art."
+    },
+    {
+      "id": "material.compact-modular.weapon.coil_cannon.v1",
+      "version": "1.5-modular-grip-study",
+      "status": "inactive",
+      "archivePath": "art/weapons/compact-modular-v1/coil_cannon/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/coil_cannon/weapon-base.aseprite",
+        "art/characters/ranger/modular-grips-v3/source/regions.json"
+      ],
+      "width": 50,
+      "height": 28,
+      "pixelFormat": "RGBA",
+      "bytes": 1291,
+      "sha256": "621CA9206C28761C39C27E3E492C1DAF81285BAF7D64C04D85FC2A3B2C93C618",
+      "generator": "Project native pixel source migration",
+      "notes": "Independent weapon.coil_cannon material; derived from existing registered compact sprites; cached composition; original default pixels preserved; not active main-game art."
+    },
+    {
+      "id": "material.compact-modular.hands.ranger-cloth.v1",
+      "version": "1.5-modular-grip-study",
+      "status": "inactive",
+      "archivePath": "art/characters/hand-sets/compact-v1/ranger-cloth/poses.png",
+      "sourcePaths": [
+        "art/characters/hand-sets/compact-v1/ranger-cloth/poses.aseprite",
+        "art/characters/ranger/modular-grips-v3/source/regions.json"
+      ],
+      "width": 109,
+      "height": 9,
+      "pixelFormat": "RGBA",
+      "bytes": 1199,
+      "sha256": "59E48D44C40BBEAA9A18B25456A214326F616E0D147FFC77BBCC62F1119F7B6D",
+      "generator": "Project native pixel source migration",
+      "notes": "Independent hands.ranger-cloth material; derived from existing registered compact sprites; cached composition; original default pixels preserved; not active main-game art."
+    },
+    {
+      "id": "material.compact-modular.cuffs.ranger-coat.v1",
+      "version": "1.5-modular-grip-study",
+      "status": "inactive",
+      "archivePath": "art/characters/cuff-sets/compact-v1/ranger-coat/poses.png",
+      "sourcePaths": [
+        "art/characters/cuff-sets/compact-v1/ranger-coat/poses.aseprite",
+        "art/characters/ranger/modular-grips-v3/source/regions.json"
+      ],
+      "width": 57,
+      "height": 10,
+      "pixelFormat": "RGBA",
+      "bytes": 580,
+      "sha256": "183AC05DB3789F40CDE1EC0471C7E74B26BD1C19B9116D841DA02A9B67B99F55",
+      "generator": "Project native pixel source migration",
+      "notes": "Independent cuffs.ranger-coat material; derived from existing registered compact sprites; cached composition; original default pixels preserved; not active main-game art."
+    },
+    {
+      "id": "material.compact-modular.hands.plated-test.v1",
+      "version": "1.5-modular-grip-study",
+      "status": "inactive",
+      "archivePath": "art/characters/hand-sets/compact-v1/plated-test/poses.png",
+      "sourcePaths": [
+        "art/characters/hand-sets/compact-v1/plated-test/poses.aseprite",
+        "art/characters/ranger/modular-grips-v3/source/regions.json"
+      ],
+      "width": 128,
+      "height": 10,
+      "pixelFormat": "RGBA",
+      "bytes": 557,
+      "sha256": "B007C7D89E9D23A1DEDB87A5F2F091E1564073EF74038704EF8FEB1369F92B56",
+      "generator": "Project native pixel source migration",
+      "notes": "Independent hands.plated-test material; derived from existing registered compact sprites; cached composition; original default pixels preserved; not active main-game art."
+    },
+    {
+      "id": "material.compact-modular.cuffs.steel-test.v1",
+      "version": "1.5-modular-grip-study",
+      "status": "inactive",
+      "archivePath": "art/characters/cuff-sets/compact-v1/steel-test/poses.png",
+      "sourcePaths": [
+        "art/characters/cuff-sets/compact-v1/steel-test/poses.aseprite",
+        "art/characters/ranger/modular-grips-v3/source/regions.json"
+      ],
+      "width": 57,
+      "height": 10,
+      "pixelFormat": "RGBA",
+      "bytes": 566,
+      "sha256": "C32B23F061D0D172975811552F840D22D36FDC51FBFED0DD742271B11DD3AC2B",
+      "generator": "Project native pixel source migration",
+      "notes": "Independent cuffs.steel-test material; derived from existing registered compact sprites; cached composition; original default pixels preserved; not active main-game art."
     }
   ]
 }

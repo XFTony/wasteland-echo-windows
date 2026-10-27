@@ -1,6 +1,7 @@
 (function(){
  'use strict';
  const D=window.COMPACT_ARSENAL_DATA,M=window.CompactRangerMotion,q=id=>document.getElementById(id),canvas=q('stage'),ctx=canvas.getContext('2d');
+ const appearance=window.MODULAR_GRIP_APPEARANCE||null;
  const assets={weapons:{}},keys=new Set(),boxes=[{x:0,y:0,w:960,h:100},{x:0,y:510,w:960,h:50},{x:0,y:0,w:68,h:560},{x:892,y:0,w:68,h:560},{x:548,y:272,w:86,h:68}];
  const spawns=[[560,375],[680,185],[760,430],[240,180],[155,425],[395,165],[825,340]];
  let state,ready=false,mode='battle',paused=false,clock=0,carry=0,last=0,live=true,mouse=null,firing=false,fixedAngle=0,statusTime=0;
@@ -10,8 +11,9 @@
   world:{width:960,height:560,boxes},targets:spawns.map(([x,y],i)=>({id:'enemy-'+i,x,y,radius:13,hp:120}))});}
  function clear(){keys.clear();mouse=null;firing=false;}
  function labels(){q('mode').value=mode;q('pause').textContent=paused?'继续':'暂停';q('sceneLabel').textContent=names[mode]+(paused?' · 已暂停':'');const w=state.weaponDefinitions[state.weaponId];q('weapon').value=w.id;q('weaponNote').textContent=`${w.name} · ${w.projectileCount>1?w.projectileCount+'发散射':'单发弹道'} · 射击间隔 ${w.interval}秒 · 锁定范围 ${w.lockRange}`;}
- function setMode(value,reset=true){mode=value;clear();clock=0;paused=false;carry=0;if(reset)state=create();state.paused=false;state.autoCombat=mode!=='inspect';labels();render();}
- function setWeapon(id){M.setWeapon(state,id);q('weapon').value=id;labels();render();}
+ function syncAppearance(){assets.activeWeapon=appearance?appearance.apply(state,assets.weapons[state.weaponId]):assets.weapons[state.weaponId];}
+ function setMode(value,reset=true){mode=value;clear();clock=0;paused=false;carry=0;if(reset)state=create();state.paused=false;state.autoCombat=mode!=='inspect';syncAppearance();labels();render();}
+ function setWeapon(id){M.setWeapon(state,id);q('weapon').value=id;syncAppearance();labels();render();}
  function setPaused(value){paused=Boolean(value);state.paused=paused;clear();carry=0;labels();render();}
  function background(){
   ctx.fillStyle='#29373d';ctx.fillRect(0,0,960,560);ctx.strokeStyle='#35464c';ctx.lineWidth=1;
@@ -20,7 +22,7 @@
   for(const b of boxes){ctx.fillStyle='#1a282e';ctx.fillRect(b.x,b.y,b.w,b.h);ctx.strokeStyle='#4c5d63';ctx.strokeRect(b.x+.5,b.y+.5,b.w-1,b.h-1);}
   const b=boxes[4];ctx.fillStyle='#4b5a5f';ctx.fillRect(b.x+5,b.y+5,b.w-10,b.h-10);ctx.strokeStyle='#728080';ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(b.x+12,b.y+12);ctx.lineTo(b.x+b.w-12,b.y+b.h-12);ctx.moveTo(b.x+b.w-12,b.y+12);ctx.lineTo(b.x+12,b.y+b.h-12);ctx.stroke();
  }
- function render(){if(!ready)return;background();const pose=M.draw(ctx,state,{body:assets.body,weapon:assets.weapons[state.weaponId]},{drawTargets:mode!=='inspect'});
+ function render(){if(!ready)return;background();const pose=M.draw(ctx,state,{body:assets.body,weapon:assets.activeWeapon||assets.weapons[state.weaponId]},{drawTargets:mode!=='inspect'});
   if(mode!=='inspect')for(const t of state.targets){if(t.hp<=0)continue;ctx.fillStyle='#112126';ctx.fillRect(t.x-15,t.y-23,30,3);ctx.fillStyle=t.id===state.aimTargetId?'#edb66b':'#829e8d';ctx.fillRect(t.x-15,t.y-23,30*t.hp/t.maxHp,3);}
   if(q('guides').checked){ctx.strokeStyle='#f3c28299';ctx.lineWidth=1;ctx.setLineDash([4,6]);ctx.beginPath();ctx.moveTo(pose.weapon.muzzleX,pose.weapon.muzzleY);ctx.lineTo(pose.weapon.muzzleX+Math.cos(state.angle)*180,pose.weapon.muzzleY+Math.sin(state.angle)*180);ctx.stroke();ctx.setLineDash([]);}
   if(statusTime<=0){const target=state.targets.find(t=>t.id===state.aimTargetId);q('status').textContent=`${state.walking?'移动中':'已站稳'} · ${mode==='inspect'?'姿态检查':target?'自动锁定中':'范围内无可攻击目标'} · ${state.shotsFired}次开火 · ${state.hits}次命中`;statusTime=.15;}
@@ -47,10 +49,10 @@
  window.addEventListener('keydown',e=>{if(!ready||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;if(e.code==='KeyP'&&!e.repeat){setPaused(!paused);e.preventDefault();return;}if(['KeyW','KeyA','KeyS','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Space'].includes(e.code)){keys.add(e.code);e.preventDefault();}});
  window.addEventListener('keyup',e=>keys.delete(e.code));window.addEventListener('blur',()=>{if(ready)setPaused(true);});document.addEventListener('visibilitychange',()=>{if(document.hidden&&ready)setPaused(true);});
  function load(key,url){return new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>{if(key==='body')assets.body=im;else assets.weapons[key]=im;resolve();};im.onerror=()=>reject(new Error('素材未能加载，请重新打开预览页。'));im.src=url;});}
- Promise.all([load('body',D.bodyAtlas),...D.weapons.map(w=>load(w.id,w.image))]).then(()=>{ready=true;state=create();labels();q('status').dataset.ready='true';render();requestAnimationFrame(loop);}).catch(e=>{q('status').textContent=e.message;q('status').dataset.ready='false';});
- window.arsenalReview={get ready(){return ready;},get state(){return state;},get assets(){return assets;},get mode(){return mode;},setMode,setWeapon,setPaused,tick,render,freeze(v=true){live=!v;carry=0;},
+ Promise.all([load('body',D.bodyAtlas),...D.weapons.map(w=>load(w.id,w.image))]).then(async()=>{if(appearance)await appearance.init();ready=true;state=create();syncAppearance();labels();q('status').dataset.ready='true';render();requestAnimationFrame(loop);}).catch(e=>{q('status').textContent=e.message;q('status').dataset.ready='false';});
+ window.arsenalReview={get ready(){return ready;},get state(){return state;},get assets(){return assets;},get mode(){return mode;},setMode,setWeapon,setPaused,tick,render,refreshAppearance(){syncAppearance();labels();render();},freeze(v=true){live=!v;carry=0;},
   setAngle(d){setMode('inspect',false);fixedAngle=d*Math.PI/180;M.setAimAngle(state,fixedAngle);render();},
   snapshot(){const p=M.pose(state);return{x:state.x,y:state.y,phase:state.phase,walking:state.walking,weaponId:state.weaponId,autoCombat:state.autoCombat,targetId:state.aimTargetId,shots:state.shotsFired,hits:state.hits,angle:state.angle,bodyFrame:p.bodyFrame,weapon:p.weapon,paused:state.paused};},
-  async useEmbeddedAssets(data){await Promise.all([load('body',data.body),...D.weapons.map(w=>load(w.id,data.weapons[w.id]))]);canvas.width=960;render();}
+  async useEmbeddedAssets(data){await Promise.all([load('body',data.body),...D.weapons.map(w=>load(w.id,data.weapons[w.id]))]);if(appearance&&data.parts)await appearance.replaceTextures(data.parts);syncAppearance();canvas.width=960;render();}
  };
 })();
