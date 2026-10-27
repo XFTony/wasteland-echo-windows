@@ -15,6 +15,7 @@ v1.5 路线图：[docs/optimization-roadmap-v1.5.md](./docs/optimization-roadmap
 v1.5 真人试玩记录表：[docs/playtest-v1.5-field-sheet.md](./docs/playtest-v1.5-field-sheet.md)
 外部审查逐项复核：[docs/external-review-validation-2026-09-23.md](./docs/external-review-validation-2026-09-23.md)
 Git 与版本发布规则：[docs/versioning-and-release.md](./docs/versioning-and-release.md)
+Git 传输配置、实测与故障处理：[docs/git-transport-reliability.md](./docs/git-transport-reliability.md)
 玩家可见更新：[CHANGELOG.md](./CHANGELOG.md)
 材料与冗余审计：[docs/project-material-audit-v1.5-alpha.md](./docs/project-material-audit-v1.5-alpha.md)
 美术方向与界面规范：[docs/art-direction-v1.2-full-page-scenes.md](./docs/art-direction-v1.2-full-page-scenes.md)
