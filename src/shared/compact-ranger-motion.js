@@ -122,7 +122,7 @@
     const weapon = {
       anchorX: state.x + offsetX * scale - x * recoil,
       anchorY: state.y + offsetY * scale - y * recoil,
-      angle: state.angle, mirrorY: state.facing, scale,
+      angle: state.angle + finite(state.visualAngle, 0), mirrorY: state.facing, scale,
       width: config.weapon.width, height: config.weapon.height,
       pivot: config.weapon.pivot.slice(), muzzle: config.weapon.muzzle.slice()
     };

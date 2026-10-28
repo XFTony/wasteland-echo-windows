@@ -614,6 +614,13 @@ class GameModel {
         player.y,
         getWeaponLockRange(weapon, player.projectileRangeMultiplier * player.lockRangeMultiplier)
       );
+      const retained = player.aimTargetId === null ? null : this.enemies.find(enemy => enemy.active && enemy.hp > 0 && enemy.id === player.aimTargetId);
+      if (target && retained) {
+        const range = getWeaponLockRange(weapon, player.projectileRangeMultiplier * player.lockRangeMultiplier);
+        const retainedDistance = distanceSq(player.x, player.y, retained.x, retained.y);
+        const nearestDistance = distanceSq(player.x, player.y, target.x, target.y);
+        if (retainedDistance <= range * range && retainedDistance <= nearestDistance * 1.12 * 1.12) target = retained;
+      }
       if (target) {
         const targetX = target.x - player.x;
         const targetY = target.y - player.y;

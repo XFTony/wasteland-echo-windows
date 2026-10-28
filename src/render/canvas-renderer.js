@@ -24,6 +24,7 @@ const { MENU_METHODS } = require("./menu-pages");
 const { drawMenuPage } = require("./menu-view");
 const { hash2 } = require("./render-hash");
 const { formatTime } = require("./format");
+const { drawWeaponFlash, drawWeaponImpact } = require("./weapon-feedback");
 const { CompactActorView } = require("./compact-actors");
 
 const FONT_STACKS = Object.freeze({
@@ -495,16 +496,16 @@ class CanvasRenderer {
 
     for (const pickup of model.pickups) this.drawPickup(pickup);
     for (const projectile of model.projectiles) this.drawProjectile(projectile);
-    for (const shot of model.enemyShots) this.drawProjectile(shot);
     for (const enemy of model.enemies) this.drawEnemy(enemy, run.elapsed);
     this.drawPlayer(player, run);
+    for (const shot of model.enemyShots) this.drawProjectile(shot);
     this.drawAimReticle(model);
-    this.drawWorldEffects();
+    this.drawWorldEffects(model);
     this.drawAtmosphere(run.elapsed);
     ctx.restore();
   }
 
-  drawWorldEffects() {
+  drawWorldEffects(model = null) {
     const ctx = this.ctx;
     const particleStep = this.qualityLevel === 0 ? 2 : 1;
     for (let index = 0; index < this.particles.length; index += particleStep) {
@@ -517,6 +518,11 @@ class CanvasRenderer {
       ctx.fillRect(point.x, point.y, particle.size, particle.size);
     }
     ctx.globalAlpha = 1;
+    for (const impact of this.impacts) {
+      if (!impact.active) continue;
+      const point = this.worldToScreen(impact.x, impact.y, this.screenPoint);
+      drawWeaponImpact(ctx, impact, point.x, point.y);
+    }
     for (let index = 0; index < this.shells.length; index += 1) {
       const shell = this.shells[index];
       if (!shell.active) continue;
@@ -535,24 +541,12 @@ class CanvasRenderer {
     ctx.globalAlpha = 1;
     for (let index = 0; index < this.muzzleFlashes.length; index += 1) {
       const flash = this.muzzleFlashes[index];
-      if (!flash.active) continue;
-      const point = this.worldToScreen(flash.x, flash.y, this.screenPoint);
-      const lifeScale = clamp(flash.life / flash.maxLife, 0, 1);
-      ctx.save();
-      ctx.translate(point.x, point.y);
-      ctx.rotate(flash.angle);
-      ctx.globalAlpha = lifeScale;
-      ctx.fillStyle = "#fff2b0";
-      ctx.fillRect(-2, -3, flash.length * 0.56, 6);
-      ctx.fillStyle = flash.color;
-      ctx.beginPath();
-      ctx.moveTo(1, 0);
-      ctx.lineTo(flash.length, -5 * lifeScale);
-      ctx.lineTo(flash.length * 0.64, 0);
-      ctx.lineTo(flash.length, 5 * lifeScale);
-      ctx.closePath();
-      ctx.fill();
-      ctx.restore();
+      if (!flash.active || this.flashSetting === "off") continue;
+      const live = model && model.run && this.compactActors.playerRun === model.run &&
+        this.compactActors.lastDraw && this.compactActors.lastDraw.weaponId === flash.weaponId
+        ? this.compactActors.lastDraw : null;
+      const point = this.worldToScreen(live ? live.muzzleX : flash.x, live ? live.muzzleY : flash.y, this.screenPoint);
+      drawWeaponFlash(ctx, flash, point.x, point.y, live ? live.weaponAngle : flash.angle);
     }
     ctx.globalAlpha = 1;
     for (let index = 0; index < this.floatTexts.length; index += 1) {

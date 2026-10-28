@@ -208,11 +208,11 @@ test("weapon feedback uses bounded shell and muzzle slots and decays recoil", ()
   const renderer = new CanvasRenderer(canvas);
   const model = createModel();
   renderer.resize(960, 540, 1);
-  model.startRun({ seed: 8, weaponId: "breaker_shotgun" });
+  model.startRun({ seed: 8, weaponId: "scrap_pistol" });
   const player = model.run.player;
   const shots = Array.from({ length: 40 }, () => ({
     type: "shot",
-    weaponId: "breaker_shotgun",
+    weaponId: "scrap_pistol",
     x: player.x,
     y: player.y,
     aimX: 1,
@@ -231,6 +231,66 @@ test("weapon feedback uses bounded shell and muzzle slots and decays recoil", ()
   assert.equal(renderer.shells.some((shell) => shell.active), false);
   assert.equal(renderer.muzzleFlashes.some((flash) => flash.active), false);
   assert.ok(renderer.weaponKick < 0.01);
+});
+
+test("revolver and coil shots never eject conventional shells", () => {
+  const { canvas } = createMockCanvas();
+  const renderer = new CanvasRenderer(canvas);
+  const model = createModel();
+  for (const weaponId of ["rust_revolver", "coil_cannon"]) {
+    model.startRun({ seed: 8, weaponId });
+    renderer.handleEvents(model.drainEvents(), model);
+    const player = model.run.player;
+    renderer.handleEvents([{ type: "shot", weaponId, x: player.x, y: player.y, aimX: 1, aimY: 0 }], model);
+    model.run.elapsed += 1;
+    renderer.updateEffects(1 / 60, model);
+    assert.equal(renderer.shells.some(shell => shell.active), false, weaponId);
+    assert.equal(renderer.pendingShells.some(shell => shell.active), false, weaponId);
+  }
+});
+
+test("shotgun ejection follows run time, pauses safely and clears on a new run", () => {
+  const { canvas } = createMockCanvas();
+  const renderer = new CanvasRenderer(canvas);
+  const model = createModel();
+  model.startRun({ seed: 8, weaponId: "breaker_shotgun" });
+  renderer.handleEvents(model.drainEvents(), model);
+  const shot = () => renderer.handleEvents([{ type: "shot", weaponId: "breaker_shotgun", x: model.run.player.x, y: model.run.player.y, aimX: 1, aimY: 0 }], model);
+  shot();
+  assert.equal(renderer.shells.some(shell => shell.active), false);
+  assert.equal(renderer.pendingShells.filter(shell => shell.active).length, 1);
+  model.run.elapsed = .1;
+  renderer.updateEffects(1 / 60, model);
+  assert.equal(renderer.shells.some(shell => shell.active), false);
+  model.screen = "paused";
+  model.run.elapsed = .2;
+  renderer.updateEffects(1 / 60, model);
+  assert.equal(renderer.shells.some(shell => shell.active), false);
+  model.screen = "running";
+  renderer.updateEffects(1 / 60, model);
+  assert.equal(renderer.shells.filter(shell => shell.active).length, 1);
+  assert.equal(renderer.pendingShells.some(shell => shell.active), false);
+  shot();
+  model.startRun({ seed: 9, weaponId: "scrap_pistol" });
+  renderer.handleEvents(model.drainEvents(), model);
+  renderer.updateEffects(1 / 60, model);
+  assert.equal(renderer.shells.some(shell => shell.active), false);
+  assert.equal(renderer.pendingShells.some(shell => shell.active), false);
+});
+
+test("catch-up frames preserve the actual shot time for recovery and mechanical ejection", () => {
+  const { canvas } = createMockCanvas();
+  const renderer = new CanvasRenderer(canvas);
+  const model = createModel();
+  model.startRun({ seed: 8, weaponId: "breaker_shotgun" });
+  renderer.handleEvents(model.drainEvents(), model);
+  model.run.elapsed = 1.2;
+  renderer.handleEvents([{ type: "shot", weaponId: "breaker_shotgun", elapsed: 1,
+    x: model.run.player.x, y: model.run.player.y, aimX: 1, aimY: 0 }], model);
+  assert.equal(renderer.shotFeedback.elapsed, 1);
+  renderer.updateEffects(1 / 60, model);
+  assert.equal(renderer.shells.filter(shell => shell.active).length, 1);
+  assert.equal(renderer.pendingShells.some(shell => shell.active), false);
 });
 
 test("ground texture draws only the camera-visible source region", () => {

@@ -1,6 +1,6 @@
 asset_id,asset_type,local_path,source_url,creator,license,download_date,modified,attribution_text,commercial_ok,review_status
 procedural-pixel-art,art,src/render/pixel-actors.js; src/render/canvas-renderer.js,,Wasteland Echo project,Project original,2026-09-08,true,,true,approved
-procedural-synth-audio,audio,src/platform/audio-engine.js,,Wasteland Echo project,Project original,2026-09-08,true,,true,approved
+procedural-synth-audio,audio,src/platform/audio-engine.js; src/platform/weapon-sounds.js,,Wasteland Echo project,Project original,2026-09-08,true,,true,approved
 wasteland-pulse-score,music,src/platform/music-score.js,,Wasteland Echo project,Project original,2026-09-08,false,,true,approved
 wasteland-pulse-composition,source,docs/wasteland-pulse-composition.json,,Wasteland Echo project,Project original,2026-09-08,false,,true,approved
 wasteland-ground-texture-v1,art,art/generated/v1.0/runtime-snapshot/wasteland-ground-texture-v1.png,,OpenAI ImageGen,Generated project asset; verify applicable service terms before commercial release,2026-09-08,true,Generated for Wasteland Echo; no public attribution planned,review-required,provisional

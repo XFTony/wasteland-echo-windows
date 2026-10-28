@@ -4,6 +4,7 @@ const Motion = require("../shared/compact-ranger-motion");
 const Grip = require("../shared/modular-grip-compositor");
 const { HERO, MATERIALS, PART_ASSETS, ENEMY_SPRITES } = require("../content/compact-actors");
 const { DEFINITIONS, usesCompactPlayer } = require("../core/compact-weapon-pose");
+const { sampleWeaponFeedback } = require("./weapon-feedback");
 
 function sampleTravel(state, entity, elapsed, stride) {
   if (state.sampleId !== entity.id || state.sampleElapsed === undefined || elapsed < state.sampleElapsed) {
@@ -108,8 +109,9 @@ class CompactActorView {
     state.facing = player.compactFacing || state.facing;
     state.depth = player.compactDepth || state.depth;
     Motion.setAimAngle(state, Math.atan2(player.lastAimY, player.lastAimX));
-    const weapon = renderer.content.get("weapons", player.weaponId);
-    state.recoil = Math.min(1, renderer.weaponKick / Math.max(0.01, weapon.recoil));
+    const feedback = sampleWeaponFeedback(renderer.shotFeedback, run.elapsed, player.weaponId, state.facing, state.angle);
+    state.recoil = feedback.offset / Math.max(.01, state.config.weapon.recoil * state.pixelScale);
+    state.visualAngle = feedback.angle;
     shadow(renderer.ctx, point.x, point.y, 15);
     // A stable foot marker identifies the player without enlarging the hitbox.
     renderer.ctx.save();
@@ -125,7 +127,9 @@ class CompactActorView {
     });
     this.lastDraw = { heroId: player.heroId, weaponId: player.weaponId, frame: pose.bodyFrame,
       phase: state.phase, walking: state.walking, worldX: player.x, worldY: player.y,
-      muzzleX: pose.weapon.muzzleX + renderer.camera.x, muzzleY: pose.weapon.muzzleY + renderer.camera.y };
+      muzzleX: pose.weapon.muzzleX + renderer.camera.x, muzzleY: pose.weapon.muzzleY + renderer.camera.y,
+      gripX: pose.weapon.anchorX + renderer.camera.x, gripY: pose.weapon.anchorY + renderer.camera.y,
+      weaponAngle: pose.weapon.angle, feedback };
     return true;
   }
 
@@ -171,6 +175,7 @@ class CompactActorView {
     state.walking = false;
     state.phase = 0;
     state.recoil = 0;
+    state.visualAngle = 0;
     Motion.setAimAngle(state, -0.16);
     Motion.draw(renderer.ctx, state, { body, weapon: grip.image }, { drawTargets: false,
       drawShadow: false, drawProjectiles: false, drawImpacts: false, drawFlash: false });

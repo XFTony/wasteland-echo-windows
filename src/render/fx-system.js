@@ -2,6 +2,9 @@
 
 const { PALETTE } = require("../config");
 const { UPGRADE_FAMILY_STYLES } = require("./ui/theme");
+const { feedbackFor } = require("./weapon-feedback");
+const { compactShotPose } = require("../core/compact-weapon-pose");
+const { mergeFeedbackHits } = require("../shared/combat-feedback-events");
 
 function hash2(x, y) {
   let value = Math.imul(x, 374761393) + Math.imul(y, 668265263);
@@ -27,28 +30,47 @@ function initializeFx(renderer) {
   renderer.upgradeFlash = 0;
   renderer.upgradeFlashColor = PALETTE.amber;
   renderer.upgradeFlashName = "";
+  renderer.shotFeedback = null;
+  renderer.pendingShells = Array.from({ length: 16 }, () => ({ active: false, run: null }));
+  renderer.impacts = Array.from({ length: 40 }, () => ({ active: false, x: 0, y: 0, life: 0, maxLife: .12, angle: 0, radius: 5, color: "#ddc997", family: "pistol" }));
+  renderer.nextImpact = 0;
+  renderer.lastProcBannerAt = -Infinity;
 }
 
 const FX_METHODS = {
   handleEvents(events, model) {
-    for (const event of events) {
+    for (const event of mergeFeedbackHits(events)) {
       if (event.type === "shot" && model.run) {
         const player = model.run.player;
         const weapon = this.content.get("weapons", event.weaponId, this.content.defaults.weapon);
+        const profile = feedbackFor(weapon.id);
         const aimX = Number.isFinite(event.aimX) ? event.aimX : player.lastAimX;
         const aimY = Number.isFinite(event.aimY) ? event.aimY : player.lastAimY;
         const x = Number.isFinite(event.muzzleX) ? event.muzzleX : event.x + aimX * weapon.muzzleLength;
         const y = Number.isFinite(event.muzzleY) ? event.muzzleY : event.y + aimY * weapon.muzzleLength;
-        this.spawnBurst(x, y, weapon.color, weapon.muzzleParticles, 88, aimX, aimY);
-        this.spawnShell(Number.isFinite(event.gripX) ? event.gripX : event.x,
-          Number.isFinite(event.gripY) ? event.gripY : event.y, weapon, aimX, aimY);
+        this.spawnBurst(x, y, profile.color, Math.min(6, weapon.muzzleParticles), 60, aimX, aimY);
+        this.shotFeedback = { weaponId: weapon.id, elapsed: Number.isFinite(event.elapsed) ? event.elapsed : model.run.elapsed,
+          interval: event.interval || weapon.interval / player.fireRateMultiplier, empowered: Boolean(event.empowered) };
+        if (profile.shell !== "none") {
+          const delay = Math.min(profile.ejectDelay, this.shotFeedback.interval * .5);
+          if (delay > 0) {
+            const queued = this.pendingShells.find(slot => !slot.active) || this.pendingShells[0];
+            Object.assign(queued, { active: true, run: model.run, due: this.shotFeedback.elapsed + delay, weaponId: weapon.id });
+          } else this.spawnShell(Number.isFinite(event.gripX) ? event.gripX : event.x,
+            Number.isFinite(event.gripY) ? event.gripY : event.y, weapon, aimX, aimY);
+        }
         this.spawnMuzzleFlash(x, y, weapon, aimX, aimY);
         this.weaponKick = Math.min(14, Math.max(this.weaponKick, weapon.recoil));
-        this.cameraKick = Math.min(7, this.cameraKick + weapon.recoil * 0.32);
+        this.cameraKick = Math.min(2, this.cameraKick + profile.camera);
         this.recoilAimX = aimX;
         this.recoilAimY = aimY;
       } else if (event.type === "hit") {
-        this.spawnBurst(event.x, event.y, event.elite ? PALETTE.amber : "#c6b27d", event.elite ? 8 : 4, 86);
+        const profile = feedbackFor(event.weaponId);
+        this.spawnBurst(event.x, event.y, profile.impact, event.critical ? 5 : 3, 55, -(event.aimX || 0), -(event.aimY || 0));
+        const impact = this.impacts[this.nextImpact++ % this.impacts.length];
+        Object.assign(impact, { active: true, x: event.x, y: event.y, life: profile.family === "coil" ? .16 : .10,
+          maxLife: profile.family === "coil" ? .16 : .10, radius: profile.family === "coil" ? 9 : profile.family === "slug" ? 7 : 5,
+          family: profile.family, color: profile.impact, angle: Math.atan2(event.aimY || 0, event.aimX || 1) });
         this.spawnFloatText(event.x, event.y - 12, event.critical ? `✦${Math.round(event.damage)}` : Math.round(event.damage), event.critical ? PALETTE.danger : event.elite ? PALETTE.amber : PALETTE.cream, Boolean(event.critical));
       } else if (event.type === "kill") {
         this.spawnBurst(event.x, event.y, event.boss ? PALETTE.rust : "#76684d", event.elite ? 14 : 7, event.elite ? 120 : 74);
@@ -80,8 +102,10 @@ const FX_METHODS = {
       } else if (event.type === "mechanicReady") {
         this.showBanner(event.label || "机制已充能", "下一次射击将触发强化", PALETTE.cyan, 1.35);
       } else if (event.type === "mechanicProc") {
-        this.spawnBurst(event.x, event.y, PALETTE.cyan, Math.max(5, Number(event.hits) * 2 || 5), 96);
-        if (this.upgradeFlash <= 0.12) {
+        if (event.hits > 0) this.spawnBurst(event.x, event.y, PALETTE.cyan, Math.min(8, Math.max(3, Number(event.hits) * 2)), 72);
+        const now = model.run ? model.run.elapsed : 0;
+        if (this.upgradeFlash <= 0.12 && now - this.lastProcBannerAt > 1.4) {
+          this.lastProcBannerAt = now;
           this.upgradeFlash = 0.34;
           this.upgradeFlashColor = PALETTE.cyan;
           this.upgradeFlashName = event.label || "机制触发";
@@ -89,6 +113,10 @@ const FX_METHODS = {
       } else if (event.type === "upgradeSalvage") {
         this.showBanner("战地拆解", `回收 ${Number(event.value) || 0} 废料`, PALETTE.amber, 1.35);
       } else if (event.type === "runStart") {
+        this.shotFeedback = null;
+        this.lastProcBannerAt = -Infinity;
+        for (const queued of this.pendingShells) { queued.active = false; queued.run = null; }
+        for (const impact of this.impacts) impact.active = false;
         this.weaponKick = 0;
         this.cameraKick = 0;
         this.damageVignette = 0;
@@ -162,6 +190,8 @@ const FX_METHODS = {
     slot.maxLife = weapon.muzzleFlashLife;
     slot.length = weapon.muzzleFlashLength;
     slot.color = weapon.color;
+    slot.weaponId = weapon.id;
+    slot.shape = feedbackFor(weapon.id).flash;
     slot.life = slot.maxLife;
   },
 
@@ -187,7 +217,24 @@ const FX_METHODS = {
     this.banner.life = duration;
   },
 
-  updateEffects(dt) {
+  updateEffects(dt, model = null) {
+    if (model) for (const queued of this.pendingShells) {
+      if (!queued.active) continue;
+      if (!model.run || queued.run !== model.run) { queued.active = false; queued.run = null; continue; }
+      if (model.screen !== "running" || model.run.elapsed < queued.due) continue;
+      const player = model.run.player;
+      if (player.weaponId === queued.weaponId) {
+        const pose = compactShotPose(player, player.lastAimX, player.lastAimY);
+        this.spawnShell(pose ? pose.anchorX : player.x, pose ? pose.anchorY : player.y,
+          this.content.get("weapons", player.weaponId), player.lastAimX, player.lastAimY);
+      }
+      queued.active = false; queued.run = null;
+    }
+    for (const impact of this.impacts) {
+      if (!impact.active) continue;
+      impact.life -= dt;
+      if (impact.life <= 0) impact.active = false;
+    }
     for (const particle of this.particles) {
       if (!particle.active) continue;
       particle.life -= dt;

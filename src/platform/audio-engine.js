@@ -15,54 +15,8 @@ const TONES = Object.freeze({
   lose: { frequency: 180, end: 48, duration: 0.74, gain: 0.06, wave: "sawtooth" }
 });
 
-const SHOT_PROFILES = Object.freeze({
-  scrap_pistol: Object.freeze({
-    body: [158, 52, 0.105, 0.09, "sawtooth"],
-    crack: [1180, 330, 0.032, 0.035, "square"],
-    noise: [0.07, 0.08, 1750],
-    mechanism: [760, 390, 0.045, 0.024, "triangle", 0.065]
-  }),
-  swarm_smg: Object.freeze({
-    body: [205, 74, 0.064, 0.055, "square"],
-    crack: [1450, 430, 0.022, 0.025, "square"],
-    noise: [0.042, 0.045, 2300],
-    mechanism: [940, 510, 0.032, 0.02, "triangle", 0.04]
-  }),
-  breaker_shotgun: Object.freeze({
-    body: [92, 34, 0.19, 0.145, "sawtooth"],
-    crack: [820, 180, 0.055, 0.055, "square"],
-    noise: [0.16, 0.14, 1050],
-    mechanism: [520, 190, 0.085, 0.032, "triangle", 0.13],
-    echo: [64, 38, 0.16, 0.065, "triangle", 0.035]
-  }),
-  needle_rifle: Object.freeze({
-    body: [255, 58, 0.125, 0.105, "sawtooth"],
-    crack: [1860, 280, 0.046, 0.05, "square"],
-    noise: [0.085, 0.09, 2900],
-    mechanism: [1120, 420, 0.07, 0.03, "triangle", 0.09],
-    echo: [310, 82, 0.13, 0.035, "triangle", 0.024]
-  }),
-  rust_revolver: Object.freeze({
-    body: [132, 42, 0.15, 0.12, "sawtooth"],
-    crack: [1320, 240, 0.045, 0.048, "square"],
-    noise: [0.1, 0.105, 1500],
-    mechanism: [640, 280, 0.08, 0.03, "triangle", 0.095],
-    echo: [88, 48, 0.11, 0.03, "triangle", 0.025]
-  }),
-  ember_carbine: Object.freeze({
-    body: [188, 54, 0.09, 0.075, "sawtooth"],
-    crack: [1580, 350, 0.034, 0.038, "square"],
-    noise: [0.065, 0.07, 2350],
-    mechanism: [890, 360, 0.052, 0.026, "triangle", 0.062]
-  }),
-  coil_cannon: Object.freeze({
-    body: [74, 29, 0.24, 0.15, "sawtooth"],
-    crack: [2140, 170, 0.075, 0.06, "square"],
-    noise: [0.19, 0.14, 3200],
-    mechanism: [1240, 210, 0.14, 0.036, "triangle", 0.15],
-    echo: [420, 48, 0.22, 0.055, "sine", 0.04]
-  })
-});
+const { SHOT_PROFILES } = require("./weapon-sounds");
+const { mergeFeedbackHits } = require("../shared/combat-feedback-events");
 
 function midiToFrequency(note) {
   return 440 * Math.pow(2, (note - 69) / 12);
@@ -93,10 +47,19 @@ class AudioEngine {
     this.lastShotAt = -Infinity;
     this.noiseBuffer = null;
     this.noiseContext = null;
+    this.sfxBus = null;
+    this.sfxBusContext = null;
+    this.voiceWindows = [];
+    this.shotCounters = Object.create(null);
+    this.lastShotIds = Object.create(null);
+    this.lastImpactAt = -Infinity;
+    this.soundStats = { shots: 0, voices: 0, dropped: 0 };
   }
 
   setSettings(settings) {
     this.settings = { ...this.settings, ...settings };
+    if (this.sfxBus && this.context) setParam(this.sfxBus.gain,
+      this.settings.sfxMuted || !(this.settings.sfx > 0) ? 0 : .82, this.context.currentTime || 0);
   }
 
   unlock() {
@@ -106,7 +69,10 @@ class AudioEngine {
         this.noiseBuffer = null;
         this.noiseContext = null;
       }
-      if (this.context && typeof this.context.resume === "function") this.context.resume();
+      if (this.context && typeof this.context.resume === "function") {
+        const resumed = this.context.resume();
+        if (resumed && typeof resumed.catch === "function") resumed.catch(() => {});
+      }
     } catch (_error) {
       this.context = null;
     }
@@ -124,6 +90,7 @@ class AudioEngine {
     const context = this.context;
     const busVolume = Number(this.settings[bus]);
     if (!context || this.settings[`${bus}Muted`] === true || !(busVolume > 0) || typeof context.createOscillator !== "function" || typeof context.createGain !== "function") return false;
+    if (!this.reserveVoice(duration, delay, bus)) return false;
     try {
       const oscillator = context.createOscillator();
       const gain = context.createGain();
@@ -137,7 +104,11 @@ class AudioEngine {
       rampParam(gain.gain, Math.max(0.0001, gainAmount * busVolume), start + Math.min(0.008, duration * 0.2));
       rampParam(gain.gain, 0.0001, finish, true);
       oscillator.connect(gain);
-      gain.connect(context.destination);
+      gain.connect(bus === "sfx" ? this.sfxDestination() : context.destination);
+      oscillator.onended = () => {
+        if (typeof oscillator.disconnect === "function") oscillator.disconnect();
+        if (typeof gain.disconnect === "function") gain.disconnect();
+      };
       oscillator.start(start);
       oscillator.stop(finish + 0.02);
       return true;
@@ -152,7 +123,7 @@ class AudioEngine {
     if (this.noiseBuffer && this.noiseContext === context) return this.noiseBuffer;
     try {
       const sampleRate = context.sampleRate || 44100;
-      const length = Math.ceil(sampleRate * 0.22);
+      const length = Math.ceil(sampleRate * 0.36);
       const buffer = context.createBuffer(1, length, sampleRate);
       const data = buffer.getChannelData(0);
       let state = 0x6d2b79f5;
@@ -177,6 +148,7 @@ class AudioEngine {
     }
     const buffer = this.ensureNoiseBuffer();
     if (!buffer) return this.playVoice(filterFrequency, Math.max(120, filterFrequency * 0.25), duration, gainAmount * 0.35, "sawtooth", delay, bus);
+    if (!this.reserveVoice(duration, delay, bus)) return false;
     try {
       const source = context.createBufferSource();
       const gain = context.createGain();
@@ -196,8 +168,15 @@ class AudioEngine {
       setParam(gain.gain, Math.max(0.0001, gainAmount * busVolume), start);
       rampParam(gain.gain, 0.0001, finish, true);
       tail.connect(gain);
-      gain.connect(context.destination);
-      source.start(start);
+      gain.connect(bus === "sfx" ? this.sfxDestination() : context.destination);
+      source.onended = () => {
+        if (typeof source.disconnect === "function") source.disconnect();
+        if (typeof gain.disconnect === "function") gain.disconnect();
+        if (tail !== source && typeof tail.disconnect === "function") tail.disconnect();
+      };
+      const room = Math.max(0, (buffer.duration || 0) - duration - .005);
+      const offset = room * ((this.soundStats.voices * 0.381966) % 1);
+      source.start(start, offset);
       source.stop(finish + 0.01);
       return true;
     } catch (_error) {
@@ -219,13 +198,48 @@ class AudioEngine {
     );
   }
 
-  playShot(weaponId) {
+  reserveVoice(duration, delay, bus) {
+    if (bus !== "sfx") return true;
+    const now = this.context.currentTime || 0, start = now + delay, end = start + duration + .025;
+    this.voiceWindows = this.voiceWindows.filter(voice => voice.end > now);
+    const overlap = this.voiceWindows.filter(voice => voice.start < end && voice.end > start).length;
+    if (overlap >= 48 || this.voiceWindows.length >= 96) { this.soundStats.dropped++; return false; }
+    this.voiceWindows.push({ start, end });this.soundStats.voices++;
+    return true;
+  }
+
+  sfxDestination() {
+    const context = this.context;
+    if (this.sfxBus && this.sfxBusContext === context) return this.sfxBus;
+    const gain = context.createGain();
+    setParam(gain.gain, this.settings.sfxMuted ? 0 : .82, context.currentTime || 0);
+    if (typeof context.createDynamicsCompressor === "function") {
+      const compressor = context.createDynamicsCompressor();
+      for (const [key, value] of Object.entries({ threshold: -10, knee: 16, ratio: 5, attack: .003, release: .12 })) setParam(compressor[key], value, context.currentTime || 0);
+      gain.connect(compressor);compressor.connect(context.destination);
+    } else gain.connect(context.destination);
+    this.sfxBus = gain;this.sfxBusContext = context;
+    return gain;
+  }
+
+  playShot(weaponId, options = {}) {
+    if (!this.context || this.settings.sfxMuted || !(this.settings.sfx > 0)) return false;
     const profile = SHOT_PROFILES[weaponId] || SHOT_PROFILES.scrap_pistol;
-    this.playVoice(...profile.body, 0, "sfx");
-    this.playVoice(...profile.crack, 0, "sfx");
-    this.playNoise(profile.noise[0], profile.noise[1], profile.noise[2], 0, "sfx");
-    this.playVoice(...profile.mechanism, "sfx");
-    if (profile.echo) this.playVoice(...profile.echo, "sfx");
+    const count = (this.shotCounters[weaponId] || 0) + 1;
+    this.shotCounters[weaponId] = count;this.soundStats.shots++;
+    const pitch = 1 + ((count * 7 % 11) - 5) * .003;
+    const gain = options.empowered ? 1.08 : 1;
+    const delay = Math.max(0, Number(options.delay) || 0);
+    const voice = (part, mechanical = false) => {
+      const ownDelay = mechanical ? Math.min(part[5] || 0, Number(options.interval) > 0 ? options.interval * .5 : Infinity) : part[5] || 0;
+      return this.playVoice(part[0] * pitch, part[1] * pitch, part[2], part[3] * gain, part[4], delay + ownDelay, "sfx");
+    };
+    const played = voice(profile.body);
+    voice(profile.crack);
+    this.playNoise(profile.noise[0], profile.noise[1] * gain, profile.noise[2] * pitch, delay, "sfx");
+    voice(profile.mechanism, true);
+    if (profile.echo) voice(profile.echo);
+    return played;
   }
 
   playMusicStep(run) {
@@ -293,22 +307,31 @@ class AudioEngine {
   }
 
   handle(events) {
-    for (const event of events) {
+    const firstShot = events.find(event => event.type === "shot" && Number.isFinite(event.elapsed));
+    for (const event of mergeFeedbackHits(events)) {
       if (event.type === "runStart") {
         this.musicClock = 0;
         this.musicStep = 0;
         this.musicBoost = 0;
         this.currentScoreId = null;
         this.lastShotAt = -Infinity;
+        this.lastShotIds = Object.create(null);
+        this.lastImpactAt = -Infinity;
       }
       if (event.type === "shot") {
-        const now = Date.now();
-        if (now - this.lastShotAt < 28) continue;
-        this.lastShotAt = now;
-        this.playShot(event.weaponId);
+        if (event.attackId > 0 && this.lastShotIds[event.weaponId] === event.attackId) continue;
+        this.lastShotIds[event.weaponId] = event.attackId;
+        this.playShot(event.weaponId, { interval: event.interval, empowered: event.empowered,
+          delay: firstShot && Number.isFinite(event.elapsed) ? Math.min(.08, Math.max(0, event.elapsed - firstShot.elapsed)) : 0 });
       }
       if (event.type === "hit") {
-        this.tone(event.critical ? "criticalHit" : "hit", event.elite ? 1.45 : 0.72);
+        const now = this.context ? this.context.currentTime || 0 : 0;
+        if (now - this.lastImpactAt >= (event.critical ? .016 : .028)) {
+          this.lastImpactAt = now;
+          const energy = event.weaponId === "coil_cannon";
+          this.playNoise(energy ? .04 : .022, event.elite ? .025 : .015, energy ? 2900 : 1050);
+          if (event.critical) this.tone("criticalHit", .65);
+        }
       }
       if (event.type === "pickup") this.tone("pickup", event.pickupType === "scrap" ? 1.3 : 0.72);
       if (event.type === "levelup") this.tone("levelup");

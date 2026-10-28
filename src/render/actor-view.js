@@ -5,6 +5,7 @@ const { clamp } = require("../core/math");
 const { drawSurvivorActor, drawZombieActor } = require("./pixel-actors");
 const { drawIllustratedSurvivor, drawIllustratedEnemy } = require("./illustrated-actors");
 const { usesCompactPlayer } = require("../core/compact-weapon-pose");
+const { drawWeaponProjectile } = require("./weapon-feedback");
 
 const ACTOR_METHODS = {
   drawExtraction(run) {
@@ -118,16 +119,7 @@ const ACTOR_METHODS = {
     if (p.x < -10 || p.y < -10 || p.x > this.width + 10 || p.y > this.height + 10) return;
     ctx.fillStyle = projectile.color;
     if (projectile.owner === "player") {
-      const length = Math.max(4, Math.min(11, Math.hypot(projectile.vx, projectile.vy) / 80));
-      const angle = Math.atan2(projectile.vy, projectile.vx);
-      ctx.save();
-      ctx.translate(p.x, p.y);
-      ctx.rotate(angle);
-      ctx.globalAlpha = 0.24;
-      ctx.fillRect(-length * 1.8, -1, length * 1.7, 2);
-      ctx.globalAlpha = 1;
-      ctx.fillRect(-length / 2, -2, length, 4);
-      ctx.restore();
+      drawWeaponProjectile(ctx, projectile, p.x, p.y);
     } else {
       ctx.fillRect(p.x - 4, p.y - 4, 8, 8);
       ctx.fillStyle = "rgba(216,112,85,0.25)";

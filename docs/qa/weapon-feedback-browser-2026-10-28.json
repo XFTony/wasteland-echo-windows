@@ -1,0 +1,2070 @@
+{
+  "date": "2026-10-28",
+  "pageErrors": [],
+  "weapons": [
+    {
+      "id": "scrap_pistol",
+      "targets": [
+        {
+          "type": "drifter",
+          "shots": 6,
+          "hits": 6,
+          "damage": 94.8,
+          "displacement": 41.33196983731053,
+          "peakOffset": 1.7014493772861963,
+          "shells": 2
+        },
+        {
+          "type": "brute",
+          "shots": 6,
+          "hits": 6,
+          "damage": 94.8,
+          "displacement": 11.859707991138858,
+          "peakOffset": 1.7014493772861963,
+          "shells": 2
+        },
+        {
+          "type": "iron_colossus",
+          "shots": 6,
+          "hits": 6,
+          "damage": 94.8,
+          "displacement": 1.5802228097329067,
+          "peakOffset": 1.7014493772861963,
+          "shells": 2
+        }
+      ]
+    },
+    {
+      "id": "swarm_smg",
+      "targets": [
+        {
+          "type": "drifter",
+          "shots": 18,
+          "hits": 17,
+          "damage": 90.59999999999997,
+          "displacement": 46.319730959002676,
+          "peakOffset": 0.6761192750271195,
+          "shells": 4
+        },
+        {
+          "type": "brute",
+          "shots": 18,
+          "hits": 17,
+          "damage": 90.59999999999997,
+          "displacement": 13.420243400711177,
+          "peakOffset": 0.6761192750271195,
+          "shells": 4
+        },
+        {
+          "type": "iron_colossus",
+          "shots": 18,
+          "hits": 18,
+          "damage": 96.11999999999996,
+          "displacement": 1.3963695563796934,
+          "peakOffset": 0.6761192750271195,
+          "shells": 4
+        }
+      ]
+    },
+    {
+      "id": "breaker_shotgun",
+      "targets": [
+        {
+          "type": "drifter",
+          "shots": 3,
+          "hits": 14,
+          "damage": 102.06000000000003,
+          "displacement": 62.7054511341972,
+          "peakOffset": 3.466502504127511,
+          "shells": 1
+        },
+        {
+          "type": "brute",
+          "shots": 3,
+          "hits": 18,
+          "damage": 131.22000000000006,
+          "displacement": 17.62375534133729,
+          "peakOffset": 3.466502504127511,
+          "shells": 1
+        },
+        {
+          "type": "iron_colossus",
+          "shots": 3,
+          "hits": 18,
+          "damage": 131.22000000000006,
+          "displacement": 2.4376036768300575,
+          "peakOffset": 3.466502504127511,
+          "shells": 1
+        }
+      ]
+    },
+    {
+      "id": "needle_rifle",
+      "targets": [
+        {
+          "type": "drifter",
+          "shots": 3,
+          "hits": 3,
+          "damage": 98,
+          "displacement": 18.144285264397432,
+          "peakOffset": 2.1469572848853153,
+          "shells": 1
+        },
+        {
+          "type": "brute",
+          "shots": 3,
+          "hits": 3,
+          "damage": 98,
+          "displacement": 5.0136583690682945,
+          "peakOffset": 2.1469572848853153,
+          "shells": 1
+        },
+        {
+          "type": "iron_colossus",
+          "shots": 3,
+          "hits": 3,
+          "damage": 98,
+          "displacement": 0.6308593773500812,
+          "peakOffset": 2.1469572848853153,
+          "shells": 1
+        }
+      ]
+    },
+    {
+      "id": "rust_revolver",
+      "targets": [
+        {
+          "type": "drifter",
+          "shots": 4,
+          "hits": 4,
+          "damage": 84,
+          "displacement": 36.40728790038045,
+          "peakOffset": 2.0311538110122136,
+          "shells": 0
+        },
+        {
+          "type": "brute",
+          "shots": 4,
+          "hits": 4,
+          "damage": 84,
+          "displacement": 10.196920312637527,
+          "peakOffset": 2.0311538110122136,
+          "shells": 0
+        },
+        {
+          "type": "iron_colossus",
+          "shots": 4,
+          "hits": 4,
+          "damage": 84,
+          "displacement": 1.3616232104550279,
+          "peakOffset": 2.0311538110122136,
+          "shells": 0
+        }
+      ]
+    },
+    {
+      "id": "ember_carbine",
+      "targets": [
+        {
+          "type": "drifter",
+          "shots": 9,
+          "hits": 9,
+          "damage": 94.5,
+          "displacement": 40.848823048534115,
+          "peakOffset": 1.1168661522267165,
+          "shells": 2
+        },
+        {
+          "type": "brute",
+          "shots": 9,
+          "hits": 9,
+          "damage": 94.5,
+          "displacement": 11.777757117445667,
+          "peakOffset": 1.1168661522267165,
+          "shells": 2
+        },
+        {
+          "type": "iron_colossus",
+          "shots": 9,
+          "hits": 9,
+          "damage": 94.5,
+          "displacement": 1.485576192389821,
+          "peakOffset": 1.1168661522267165,
+          "shells": 2
+        }
+      ]
+    },
+    {
+      "id": "coil_cannon",
+      "targets": [
+        {
+          "type": "drifter",
+          "shots": 2,
+          "hits": 2,
+          "damage": 116,
+          "displacement": 39.62034353282364,
+          "peakOffset": 3.4104254283802122,
+          "shells": 0
+        },
+        {
+          "type": "brute",
+          "shots": 2,
+          "hits": 2,
+          "damage": 116,
+          "displacement": 11.052097971578515,
+          "peakOffset": 3.4104254283802122,
+          "shells": 0
+        },
+        {
+          "type": "iron_colossus",
+          "shots": 2,
+          "hits": 2,
+          "damage": 116,
+          "displacement": 1.5256575773285372,
+          "peakOffset": 3.4104254283802122,
+          "shells": 0
+        }
+      ]
+    }
+  ],
+  "poses": [
+    {
+      "id": "scrap_pistol",
+      "degrees": 0,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "scrap_pistol",
+      "degrees": 0,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 1.7919999999999914,
+      "phase": 0
+    },
+    {
+      "id": "scrap_pistol",
+      "degrees": 0,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "scrap_pistol",
+      "degrees": 45,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "scrap_pistol",
+      "degrees": 45,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 1.7919999999999914,
+      "phase": 0
+    },
+    {
+      "id": "scrap_pistol",
+      "degrees": 45,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "scrap_pistol",
+      "degrees": 90,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "scrap_pistol",
+      "degrees": 90,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 1.7919999999999914,
+      "phase": 0
+    },
+    {
+      "id": "scrap_pistol",
+      "degrees": 90,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "scrap_pistol",
+      "degrees": 135,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "scrap_pistol",
+      "degrees": 135,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 1.7919999999999914,
+      "phase": 0
+    },
+    {
+      "id": "scrap_pistol",
+      "degrees": 135,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "scrap_pistol",
+      "degrees": 180,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "scrap_pistol",
+      "degrees": 180,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 1.7919999999999914,
+      "phase": 0
+    },
+    {
+      "id": "scrap_pistol",
+      "degrees": 180,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "scrap_pistol",
+      "degrees": -135,
+      "age": 0,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "scrap_pistol",
+      "degrees": -135,
+      "age": 0.012,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 1.7919999999999914,
+      "phase": 0
+    },
+    {
+      "id": "scrap_pistol",
+      "degrees": -135,
+      "age": 1.2,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "scrap_pistol",
+      "degrees": -90,
+      "age": 0,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "scrap_pistol",
+      "degrees": -90,
+      "age": 0.012,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 1.7919999999999914,
+      "phase": 0
+    },
+    {
+      "id": "scrap_pistol",
+      "degrees": -90,
+      "age": 1.2,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "scrap_pistol",
+      "degrees": -45,
+      "age": 0,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "scrap_pistol",
+      "degrees": -45,
+      "age": 0.012,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 1.7919999999999914,
+      "phase": 0
+    },
+    {
+      "id": "scrap_pistol",
+      "degrees": -45,
+      "age": 1.2,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "swarm_smg",
+      "degrees": 0,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "swarm_smg",
+      "degrees": 0,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0.8399999999999916,
+      "phase": 0
+    },
+    {
+      "id": "swarm_smg",
+      "degrees": 0,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "swarm_smg",
+      "degrees": 45,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "swarm_smg",
+      "degrees": 45,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0.8399999999999916,
+      "phase": 0
+    },
+    {
+      "id": "swarm_smg",
+      "degrees": 45,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "swarm_smg",
+      "degrees": 90,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "swarm_smg",
+      "degrees": 90,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0.8399999999999916,
+      "phase": 0
+    },
+    {
+      "id": "swarm_smg",
+      "degrees": 90,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "swarm_smg",
+      "degrees": 135,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "swarm_smg",
+      "degrees": 135,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0.8399999999999916,
+      "phase": 0
+    },
+    {
+      "id": "swarm_smg",
+      "degrees": 135,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "swarm_smg",
+      "degrees": 180,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "swarm_smg",
+      "degrees": 180,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0.8399999999999916,
+      "phase": 0
+    },
+    {
+      "id": "swarm_smg",
+      "degrees": 180,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "swarm_smg",
+      "degrees": -135,
+      "age": 0,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "swarm_smg",
+      "degrees": -135,
+      "age": 0.012,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0.8399999999999916,
+      "phase": 0
+    },
+    {
+      "id": "swarm_smg",
+      "degrees": -135,
+      "age": 1.2,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "swarm_smg",
+      "degrees": -90,
+      "age": 0,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "swarm_smg",
+      "degrees": -90,
+      "age": 0.012,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0.8399999999999916,
+      "phase": 0
+    },
+    {
+      "id": "swarm_smg",
+      "degrees": -90,
+      "age": 1.2,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "swarm_smg",
+      "degrees": -45,
+      "age": 0,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "swarm_smg",
+      "degrees": -45,
+      "age": 0.012,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0.8399999999999916,
+      "phase": 0
+    },
+    {
+      "id": "swarm_smg",
+      "degrees": -45,
+      "age": 1.2,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "breaker_shotgun",
+      "degrees": 0,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "breaker_shotgun",
+      "degrees": 0,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 3.583999999999989,
+      "phase": 0
+    },
+    {
+      "id": "breaker_shotgun",
+      "degrees": 0,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "breaker_shotgun",
+      "degrees": 45,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "breaker_shotgun",
+      "degrees": 45,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 3.583999999999989,
+      "phase": 0
+    },
+    {
+      "id": "breaker_shotgun",
+      "degrees": 45,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "breaker_shotgun",
+      "degrees": 90,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "breaker_shotgun",
+      "degrees": 90,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 3.583999999999989,
+      "phase": 0
+    },
+    {
+      "id": "breaker_shotgun",
+      "degrees": 90,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "breaker_shotgun",
+      "degrees": 135,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "breaker_shotgun",
+      "degrees": 135,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 3.583999999999989,
+      "phase": 0
+    },
+    {
+      "id": "breaker_shotgun",
+      "degrees": 135,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "breaker_shotgun",
+      "degrees": 180,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "breaker_shotgun",
+      "degrees": 180,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 3.583999999999989,
+      "phase": 0
+    },
+    {
+      "id": "breaker_shotgun",
+      "degrees": 180,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "breaker_shotgun",
+      "degrees": -135,
+      "age": 0,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "breaker_shotgun",
+      "degrees": -135,
+      "age": 0.012,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 3.583999999999989,
+      "phase": 0
+    },
+    {
+      "id": "breaker_shotgun",
+      "degrees": -135,
+      "age": 1.2,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "breaker_shotgun",
+      "degrees": -90,
+      "age": 0,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "breaker_shotgun",
+      "degrees": -90,
+      "age": 0.012,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 3.583999999999989,
+      "phase": 0
+    },
+    {
+      "id": "breaker_shotgun",
+      "degrees": -90,
+      "age": 1.2,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "breaker_shotgun",
+      "degrees": -45,
+      "age": 0,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "breaker_shotgun",
+      "degrees": -45,
+      "age": 0.012,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 3.583999999999989,
+      "phase": 0
+    },
+    {
+      "id": "breaker_shotgun",
+      "degrees": -45,
+      "age": 1.2,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "needle_rifle",
+      "degrees": 0,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "needle_rifle",
+      "degrees": 0,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 2.239999999999991,
+      "phase": 0
+    },
+    {
+      "id": "needle_rifle",
+      "degrees": 0,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "needle_rifle",
+      "degrees": 45,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "needle_rifle",
+      "degrees": 45,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 2.239999999999991,
+      "phase": 0
+    },
+    {
+      "id": "needle_rifle",
+      "degrees": 45,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "needle_rifle",
+      "degrees": 90,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "needle_rifle",
+      "degrees": 90,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 2.239999999999991,
+      "phase": 0
+    },
+    {
+      "id": "needle_rifle",
+      "degrees": 90,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "needle_rifle",
+      "degrees": 135,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "needle_rifle",
+      "degrees": 135,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 2.239999999999991,
+      "phase": 0
+    },
+    {
+      "id": "needle_rifle",
+      "degrees": 135,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "needle_rifle",
+      "degrees": 180,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "needle_rifle",
+      "degrees": 180,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 2.239999999999991,
+      "phase": 0
+    },
+    {
+      "id": "needle_rifle",
+      "degrees": 180,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "needle_rifle",
+      "degrees": -135,
+      "age": 0,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "needle_rifle",
+      "degrees": -135,
+      "age": 0.012,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 2.239999999999991,
+      "phase": 0
+    },
+    {
+      "id": "needle_rifle",
+      "degrees": -135,
+      "age": 1.2,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "needle_rifle",
+      "degrees": -90,
+      "age": 0,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "needle_rifle",
+      "degrees": -90,
+      "age": 0.012,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 2.239999999999991,
+      "phase": 0
+    },
+    {
+      "id": "needle_rifle",
+      "degrees": -90,
+      "age": 1.2,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "needle_rifle",
+      "degrees": -45,
+      "age": 0,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "needle_rifle",
+      "degrees": -45,
+      "age": 0.012,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 2.239999999999991,
+      "phase": 0
+    },
+    {
+      "id": "needle_rifle",
+      "degrees": -45,
+      "age": 1.2,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "rust_revolver",
+      "degrees": 0,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "rust_revolver",
+      "degrees": 0,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 2.3519999999999928,
+      "phase": 0
+    },
+    {
+      "id": "rust_revolver",
+      "degrees": 0,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "rust_revolver",
+      "degrees": 45,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "rust_revolver",
+      "degrees": 45,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 2.3519999999999928,
+      "phase": 0
+    },
+    {
+      "id": "rust_revolver",
+      "degrees": 45,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "rust_revolver",
+      "degrees": 90,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "rust_revolver",
+      "degrees": 90,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 2.3519999999999928,
+      "phase": 0
+    },
+    {
+      "id": "rust_revolver",
+      "degrees": 90,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "rust_revolver",
+      "degrees": 135,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "rust_revolver",
+      "degrees": 135,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 2.3519999999999928,
+      "phase": 0
+    },
+    {
+      "id": "rust_revolver",
+      "degrees": 135,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "rust_revolver",
+      "degrees": 180,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "rust_revolver",
+      "degrees": 180,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 2.3519999999999928,
+      "phase": 0
+    },
+    {
+      "id": "rust_revolver",
+      "degrees": 180,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "rust_revolver",
+      "degrees": -135,
+      "age": 0,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "rust_revolver",
+      "degrees": -135,
+      "age": 0.012,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 2.3519999999999928,
+      "phase": 0
+    },
+    {
+      "id": "rust_revolver",
+      "degrees": -135,
+      "age": 1.2,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "rust_revolver",
+      "degrees": -90,
+      "age": 0,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "rust_revolver",
+      "degrees": -90,
+      "age": 0.012,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 2.3519999999999928,
+      "phase": 0
+    },
+    {
+      "id": "rust_revolver",
+      "degrees": -90,
+      "age": 1.2,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "rust_revolver",
+      "degrees": -45,
+      "age": 0,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "rust_revolver",
+      "degrees": -45,
+      "age": 0.012,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 2.3519999999999928,
+      "phase": 0
+    },
+    {
+      "id": "rust_revolver",
+      "degrees": -45,
+      "age": 1.2,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "ember_carbine",
+      "degrees": 0,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "ember_carbine",
+      "degrees": 0,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 1.3439999999999905,
+      "phase": 0
+    },
+    {
+      "id": "ember_carbine",
+      "degrees": 0,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "ember_carbine",
+      "degrees": 45,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "ember_carbine",
+      "degrees": 45,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 1.3439999999999905,
+      "phase": 0
+    },
+    {
+      "id": "ember_carbine",
+      "degrees": 45,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "ember_carbine",
+      "degrees": 90,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "ember_carbine",
+      "degrees": 90,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 1.3439999999999905,
+      "phase": 0
+    },
+    {
+      "id": "ember_carbine",
+      "degrees": 90,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "ember_carbine",
+      "degrees": 135,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "ember_carbine",
+      "degrees": 135,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 1.3439999999999905,
+      "phase": 0
+    },
+    {
+      "id": "ember_carbine",
+      "degrees": 135,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "ember_carbine",
+      "degrees": 180,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "ember_carbine",
+      "degrees": 180,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 1.3439999999999905,
+      "phase": 0
+    },
+    {
+      "id": "ember_carbine",
+      "degrees": 180,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "ember_carbine",
+      "degrees": -135,
+      "age": 0,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "ember_carbine",
+      "degrees": -135,
+      "age": 0.012,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 1.3439999999999905,
+      "phase": 0
+    },
+    {
+      "id": "ember_carbine",
+      "degrees": -135,
+      "age": 1.2,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "ember_carbine",
+      "degrees": -90,
+      "age": 0,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "ember_carbine",
+      "degrees": -90,
+      "age": 0.012,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 1.3439999999999905,
+      "phase": 0
+    },
+    {
+      "id": "ember_carbine",
+      "degrees": -90,
+      "age": 1.2,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "ember_carbine",
+      "degrees": -45,
+      "age": 0,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "ember_carbine",
+      "degrees": -45,
+      "age": 0.012,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 1.3439999999999905,
+      "phase": 0
+    },
+    {
+      "id": "ember_carbine",
+      "degrees": -45,
+      "age": 1.2,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "coil_cannon",
+      "degrees": 0,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "coil_cannon",
+      "degrees": 0,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 3.9199999999999906,
+      "phase": 0
+    },
+    {
+      "id": "coil_cannon",
+      "degrees": 0,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "coil_cannon",
+      "degrees": 45,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "coil_cannon",
+      "degrees": 45,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 3.9199999999999906,
+      "phase": 0
+    },
+    {
+      "id": "coil_cannon",
+      "degrees": 45,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "coil_cannon",
+      "degrees": 90,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "coil_cannon",
+      "degrees": 90,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 3.9199999999999906,
+      "phase": 0
+    },
+    {
+      "id": "coil_cannon",
+      "degrees": 90,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "coil_cannon",
+      "degrees": 135,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "coil_cannon",
+      "degrees": 135,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 3.9199999999999906,
+      "phase": 0
+    },
+    {
+      "id": "coil_cannon",
+      "degrees": 135,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "coil_cannon",
+      "degrees": 180,
+      "age": 0,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "coil_cannon",
+      "degrees": 180,
+      "age": 0.012,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 3.9199999999999906,
+      "phase": 0
+    },
+    {
+      "id": "coil_cannon",
+      "degrees": 180,
+      "age": 1.2,
+      "depth": "front",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "coil_cannon",
+      "degrees": -135,
+      "age": 0,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "coil_cannon",
+      "degrees": -135,
+      "age": 0.012,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 3.9199999999999906,
+      "phase": 0
+    },
+    {
+      "id": "coil_cannon",
+      "degrees": -135,
+      "age": 1.2,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "coil_cannon",
+      "degrees": -90,
+      "age": 0,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "coil_cannon",
+      "degrees": -90,
+      "age": 0.012,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 3.9199999999999906,
+      "phase": 0
+    },
+    {
+      "id": "coil_cannon",
+      "degrees": -90,
+      "age": 1.2,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "coil_cannon",
+      "degrees": -45,
+      "age": 0,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    },
+    {
+      "id": "coil_cannon",
+      "degrees": -45,
+      "age": 0.012,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 3.9199999999999906,
+      "phase": 0
+    },
+    {
+      "id": "coil_cannon",
+      "degrees": -45,
+      "age": 1.2,
+      "depth": "back",
+      "muzzleAlpha": 0,
+      "faceErrors": 0,
+      "offset": 0,
+      "phase": 0
+    }
+  ],
+  "effects": {
+    "muzzleFollows": true,
+    "phase": 0,
+    "phaseAfterMovement": 0.058823529411764705,
+    "phaseAfterShot": 0.058823529411764705,
+    "hitsWithFeedbackOff": 3
+  },
+  "audio": [
+    {
+      "id": "scrap_pistol",
+      "name": "废料手枪",
+      "seconds": 3.5,
+      "peak": 0.10307254642248154,
+      "rms": 0.006764318186850115,
+      "clipped": 0,
+      "invalid": 0,
+      "stats": {
+        "shots": 5,
+        "voices": 20,
+        "dropped": 0
+      }
+    },
+    {
+      "id": "swarm_smg",
+      "name": "蜂群冲锋枪",
+      "seconds": 3.5,
+      "peak": 0.05496600270271301,
+      "rms": 0.0028064428786925546,
+      "clipped": 0,
+      "invalid": 0,
+      "stats": {
+        "shots": 5,
+        "voices": 20,
+        "dropped": 0
+      }
+    },
+    {
+      "id": "breaker_shotgun",
+      "name": "破门霰弹枪",
+      "seconds": 4.0600226757369615,
+      "peak": 0.17317157983779907,
+      "rms": 0.01326820367523979,
+      "clipped": 0,
+      "invalid": 0,
+      "stats": {
+        "shots": 5,
+        "voices": 25,
+        "dropped": 0
+      }
+    },
+    {
+      "id": "needle_rifle",
+      "name": "针刺步枪",
+      "seconds": 3.76,
+      "peak": 0.1145634800195694,
+      "rms": 0.006224523674489821,
+      "clipped": 0,
+      "invalid": 0,
+      "stats": {
+        "shots": 5,
+        "voices": 25,
+        "dropped": 0
+      }
+    },
+    {
+      "id": "rust_revolver",
+      "name": "锈痕左轮",
+      "seconds": 3.5,
+      "peak": 0.13924016058444977,
+      "rms": 0.010533117800775958,
+      "clipped": 0,
+      "invalid": 0,
+      "stats": {
+        "shots": 5,
+        "voices": 25,
+        "dropped": 0
+      }
+    },
+    {
+      "id": "ember_carbine",
+      "name": "余烬卡宾枪",
+      "seconds": 3.5,
+      "peak": 0.0822003036737442,
+      "rms": 0.004609929875142503,
+      "clipped": 0,
+      "invalid": 0,
+      "stats": {
+        "shots": 5,
+        "voices": 20,
+        "dropped": 0
+      }
+    },
+    {
+      "id": "coil_cannon",
+      "name": "荒雷线圈炮",
+      "seconds": 5.140022675736962,
+      "peak": 0.1515699177980423,
+      "rms": 0.01140074256652561,
+      "clipped": 0,
+      "invalid": 0,
+      "stats": {
+        "shots": 5,
+        "voices": 25,
+        "dropped": 0
+      }
+    }
+  ],
+  "audioStress": {
+    "peak": 0.07135041058063507,
+    "clipped": 0,
+    "maximumReservations": 14,
+    "stats": {
+      "shots": 200,
+      "voices": 960,
+      "dropped": 0
+    },
+    "shotsPerSecond": 40,
+    "seconds": 6
+  },
+  "video": {
+    "bytes": 2506745,
+    "decoded": true,
+    "width": 1280,
+    "height": 680,
+    "seconds": 14,
+    "audio": false
+  },
+  "resolutions": [
+    {
+      "width": 960,
+      "height": 540,
+      "worldWidth": 960,
+      "worldHeight": 540,
+      "compactPlayer": true
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "worldWidth": 1280,
+      "worldHeight": 720,
+      "compactPlayer": true
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "worldWidth": 1280,
+      "worldHeight": 720,
+      "compactPlayer": true
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "worldWidth": 1280,
+      "worldHeight": 720,
+      "compactPlayer": true
+    }
+  ],
+  "limits": "Scripted isolated Edge/browser and real WebAudio waveform checks; stationary high-HP range targets. No human sound/taste approval, physical controller acceptance, or real WebView2 long-session acceptance."
+}

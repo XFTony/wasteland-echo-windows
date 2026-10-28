@@ -3,6 +3,8 @@
 const { clamp, distanceSq, circleRectPushOut } = require("./math");
 const { profileFor, computeEnemySteering } = require("./enemy-brain");
 const { compactShotPose } = require("./compact-weapon-pose");
+const { segmentCircleTime } = require("./projectile-geometry");
+const { addKnockback, advanceKnockback } = require("./knockback");
 
 const EPSILON = 0.00000001;
 const ENEMY_SEPARATION_ITERATIONS = 2;
@@ -21,6 +23,8 @@ class CombatSim {
   constructor(host, content) {
     this.host = assertCombatHost(host);
     this.content = content;
+    this.contacts = [];
+    this.resolveForImpulse = this.resolveEnemyWorldCollision.bind(this);
   }
 
   fireWeapon(aimX, aimY) {
@@ -33,6 +37,7 @@ class CombatSim {
     const mechanic = host.mechanicSystem.beforeShot(run, weapon, targetDistance);
     const count = weapon.projectileCount + player.projectileBonus;
     const baseAngle = Math.atan2(aimY, aimX);
+    const attackId = run.shotsFired + 1;
     const compact = compactShotPose(player, aimX, aimY);
     const spreadRadians = (weapon.spread * Math.PI) / 180;
     const projectileSpeed = weapon.projectileSpeed * player.projectileSpeedMultiplier * mechanic.projectileSpeedMultiplier;
@@ -62,6 +67,9 @@ class CombatSim {
         knockback: weapon.knockback * player.knockbackMultiplier * mechanic.knockbackMultiplier,
         color: weapon.color,
         owner: "player",
+        weaponId: weapon.id,
+        attackId,
+        empowered: Boolean(mechanic.forceCritical || mechanic.procLabel && mechanic.damageMultiplier >= 1.25),
         critical
       });
       host.projectiles.push(projectile);
@@ -73,6 +81,8 @@ class CombatSim {
     host.mechanicSystem.afterShot(run);
     player.weaponCooldown = weapon.interval / player.fireRateMultiplier;
     host.emit("shot", { weaponId: weapon.id, x: player.x, y: player.y, aimX, aimY,
+      attackId, elapsed: run.elapsed, interval: player.weaponCooldown,
+      empowered: Boolean(mechanic.forceCritical || mechanic.procLabel && mechanic.damageMultiplier >= 1.25),
       muzzleX: compact ? compact.muzzleX : null, muzzleY: compact ? compact.muzzleY : null,
       gripX: compact ? compact.anchorX : null, gripY: compact ? compact.anchorY : null });
     if (mechanic.procLabel) {
@@ -193,6 +203,7 @@ class CombatSim {
       enemy.y += enemy.vy * dt;
       enemy.heading = Math.atan2(directionY, directionX);
       this.resolveEnemyWorldCollision(enemy);
+      advanceKnockback(enemy, dt, this.resolveForImpulse);
     }
 
     this.resolveEnemySeparation();
@@ -331,77 +342,64 @@ class CombatSim {
     const host = this.host;
     for (const projectile of host.projectiles) {
       if (!projectile.active) continue;
-      const barrelX = projectile.barrelStartX;
-      const barrelY = projectile.barrelStartY;
+      const lifetime = Math.max(0, Math.min(dt, projectile.ttl));
+      const startX = Number.isFinite(projectile.barrelStartX) ? projectile.barrelStartX : projectile.x;
+      const startY = Number.isFinite(projectile.barrelStartY) ? projectile.barrelStartY : projectile.y;
       projectile.barrelStartX = null;
       projectile.barrelStartY = null;
-      projectile.x += projectile.vx * dt;
-      projectile.y += projectile.vy * dt;
-      projectile.ttl -= dt;
-      if (projectile.ttl <= 0) {
-        host.projectilePool.release(projectile);
-        continue;
-      }
-      if (this.hitExplosiveInteractive(projectile)) {
-        host.projectilePool.release(projectile);
-        continue;
-      }
-      const barrelSweep = Number.isFinite(barrelX) && Number.isFinite(barrelY);
-      const queryX = barrelSweep ? (barrelX + projectile.x) / 2 : projectile.x;
-      const queryY = barrelSweep ? (barrelY + projectile.y) / 2 : projectile.y;
-      const queryRadius = barrelSweep ? Math.hypot(projectile.x - barrelX, projectile.y - barrelY) / 2 + 40 : 40;
-      const candidates = host.enemyGrid.queryCircle(queryX, queryY, queryRadius, host.collisionCandidates);
-      for (let index = 0; index < candidates.length; index += 1) {
-        const enemy = candidates[index];
+      const endX = projectile.x + projectile.vx * lifetime;
+      const endY = projectile.y + projectile.vy * lifetime;
+      const dx = endX - startX, dy = endY - startY;
+      projectile.x = endX; projectile.y = endY; projectile.ttl -= dt;
+      const contacts = this.contacts;
+      contacts.length = 0;
+      const candidates = host.enemyGrid.queryCircle((startX + endX) / 2, (startY + endY) / 2,
+        Math.hypot(dx, dy) / 2 + host.maximumEnemyRadius + projectile.radius, host.collisionCandidates);
+      for (const enemy of candidates) {
         if (!enemy.active || projectile.hitIds.has(enemy.id)) continue;
-        const hitRadius = projectile.radius + enemy.radius;
-        let hit = distanceSq(projectile.x, projectile.y, enemy.x, enemy.y) <= hitRadius * hitRadius;
-        if (!hit && barrelSweep) {
-          const dx = projectile.x - barrelX, dy = projectile.y - barrelY;
-          const lengthSq = dx * dx + dy * dy;
-          const t = lengthSq > EPSILON ? clamp(((enemy.x - barrelX) * dx + (enemy.y - barrelY) * dy) / lengthSq, 0, 1) : 0;
-          hit = distanceSq(barrelX + dx * t, barrelY + dy * t, enemy.x, enemy.y) <= hitRadius * hitRadius;
-        }
-        if (hit) {
-          projectile.hitIds.add(enemy.id);
-          this.damageEnemy(enemy, projectile.damage, projectile);
-          if (projectile.pierce <= 0) {
-            host.projectilePool.release(projectile);
-            break;
-          }
-          projectile.pierce -= 1;
-        }
+        const time = segmentCircleTime(startX, startY, dx, dy, enemy.x, enemy.y, projectile.radius + enemy.radius);
+        if (Number.isFinite(time)) contacts.push({ enemy, time });
       }
+      for (const interactive of host.interactives) {
+        if (!interactive.active || interactive.type !== "explosiveBarrel") continue;
+        const time = segmentCircleTime(startX, startY, dx, dy, interactive.x, interactive.y, interactive.radius + projectile.radius);
+        if (Number.isFinite(time)) contacts.push({ interactive, time });
+      }
+      contacts.sort((a, b) => a.time - b.time || (a.enemy?.id || 0) - (b.enemy?.id || 0));
+      for (const contact of contacts) {
+        if (!projectile.active) break;
+        if (contact.interactive) {
+          if (!contact.interactive.active) continue;
+          this.triggerInteractive(contact.interactive);
+          host.projectilePool.release(projectile);
+          break;
+        }
+        const enemy = contact.enemy;
+        if (!enemy.active || projectile.hitIds.has(enemy.id)) continue;
+        projectile.hitIds.add(enemy.id);
+        projectile.hitX = startX + dx * contact.time;
+        projectile.hitY = startY + dy * contact.time;
+        this.damageEnemy(enemy, projectile.damage, projectile);
+        if (projectile.pierce <= 0) {
+          host.projectilePool.release(projectile);
+          break;
+        }
+        projectile.pierce -= 1;
+      }
+      if (projectile.active && projectile.ttl <= 0) host.projectilePool.release(projectile);
     }
-
     const player = host.run.player;
     for (const shot of host.enemyShots) {
       if (!shot.active) continue;
-      shot.x += shot.vx * dt;
-      shot.y += shot.vy * dt;
-      shot.ttl -= dt;
-      if (shot.ttl <= 0) {
+      const lifetime = Math.max(0, Math.min(dt, shot.ttl));
+      const startX = shot.x, startY = shot.y, dx = shot.vx * lifetime, dy = shot.vy * lifetime;
+      shot.x += dx; shot.y += dy; shot.ttl -= dt;
+      const time = segmentCircleTime(startX, startY, dx, dy, player.x, player.y, shot.radius + player.radius);
+      if (Number.isFinite(time)) {
         host.projectilePool.release(shot);
-        continue;
-      }
-      const hitRadius = shot.radius + player.radius;
-      if (distanceSq(shot.x, shot.y, player.x, player.y) <= hitRadius * hitRadius) {
-        host.projectilePool.release(shot);
-        this.damagePlayer(shot.damage, shot.x, shot.y, shot);
-      }
+        this.damagePlayer(shot.damage, startX + dx * time, startY + dy * time, shot);
+      } else if (shot.ttl <= 0) host.projectilePool.release(shot);
     }
-  }
-
-  hitExplosiveInteractive(projectile) {
-    const host = this.host;
-    for (const interactive of host.interactives) {
-      if (!interactive.active || interactive.type !== "explosiveBarrel") continue;
-      const hitRadius = projectile.radius + interactive.radius;
-      if (distanceSq(projectile.x, projectile.y, interactive.x, interactive.y) > hitRadius * hitRadius) continue;
-      this.triggerInteractive(interactive);
-      return true;
-    }
-    return false;
   }
 
   triggerInteractive(interactive) {
@@ -452,19 +450,18 @@ class CombatSim {
     enemy.hp -= requestedDamage;
     enemy.hitFlash = 0.09;
     const source = projectile || host.environmentHit;
-    const push = (Number(source.knockback) || 0) * (1 - enemy.knockbackResistance);
-    const velocityLengthSq = source.vx * source.vx + source.vy * source.vy;
-    if (velocityLengthSq > EPSILON) {
-      const pushScale = (push * 0.18) / Math.sqrt(velocityLengthSq);
-      enemy.x += source.vx * pushScale;
-      enemy.y += source.vy * pushScale;
-    }
+    const appliedKnockback = addKnockback(enemy, source);
     host.run.damageDealt += appliedDamage;
     if (source.owner === "player") {
       host.run.hits += 1;
       if (source.critical) host.run.criticalHits += 1;
     }
-    host.emit("hit", { x: enemy.x, y: enemy.y, damage: appliedDamage, elite: enemy.elite, critical: source.critical });
+    host.emit("hit", { x: Number.isFinite(source.hitX) ? source.hitX : enemy.x,
+      y: Number.isFinite(source.hitY) ? source.hitY : enemy.y,
+      damage: appliedDamage, elite: enemy.elite, critical: source.critical,
+      weaponId: source.weaponId || null, attackId: source.attackId || 0, enemyId: enemy.id,
+      aimX: source.vx / (Math.hypot(source.vx, source.vy) || 1),
+      aimY: source.vy / (Math.hypot(source.vx, source.vy) || 1), appliedKnockback });
     if (source.owner === "player" && source.critical) host.mechanicSystem.onCriticalHit(host.run, enemy, source, appliedDamage);
     if (enemy.hp <= 0) this.killEnemy(enemy);
   }

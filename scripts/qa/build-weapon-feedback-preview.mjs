@@ -1,0 +1,14 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {createRequire} from 'node:module';
+import {spawnSync} from 'node:child_process';
+
+const root=path.resolve(import.meta.dirname,'../..'),out=path.join(root,'output/weapon-feel-2026-10-28/review');
+const require=createRequire(import.meta.url),{ART_ASSETS}=require('../../src/render/art/asset-catalog');
+const assets={};
+for(const asset of Object.values(ART_ASSETS))if(asset.active&&asset.group.startsWith('compact-'))assets[asset.id]='data:image/webp;base64,'+(await fs.readFile(path.join(root,'web',asset.src))).toString('base64');
+await fs.mkdir(out,{recursive:true});
+const result=spawnSync(process.execPath,[path.join(root,'scripts/build-web.mjs'),'--entry','scripts/qa/weapon-feedback-preview.js','--out','output/weapon-feel-2026-10-28/review/review.bundle.js'],{cwd:root,encoding:'utf8',windowsHide:true});
+if(result.status!==0)throw new Error(result.stderr);process.stdout.write(result.stdout);
+const html=`<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>荒原回响 · 七枪试射</title><style>*{box-sizing:border-box}body{margin:0;background:#18241e;color:#ead9ad;font:14px "Microsoft YaHei UI",sans-serif}header{padding:18px 24px;background:#242e24}h1{font-size:23px;margin:0 0 12px}.controls{display:flex;gap:12px;flex-wrap:wrap;align-items:center}button,select{background:#d9c49a;color:#29241e;border:1px solid #948064;padding:7px 10px;font:inherit;border-radius:4px}p{margin:8px 0;color:#bdb69b}.stage{height:calc(100dvh - 220px);min-height:360px}canvas{display:block;outline:none}footer{padding:8px 24px;color:#c6b894}#status{font-size:12px}@media(max-width:800px){.stage{height:calc(100dvh - 280px)}} </style><header><h1>七枪试射 · 射击、命中与声音对照</h1><div class="controls"><select id="weapon"></select><label>靶子 <select id="target"><option value="drifter">普通感染者</option><option value="brute">重甲者</option><option value="iron_colossus">铁幕巨像</option></select></label><label>距离 <select id="range"><option value="70">贴近</option><option value="180" selected>近中距离</option><option value="340">中距离</option><option value="560">远距离</option></select></label><label><input id="automatic" type="checkbox" checked>自动射击</label><label><input id="shake" type="checkbox">镜头轻震</label><button id="sound">开启声音</button><button id="reset">复位靶子</button></div><p id="description"></p><p><span id="facts"></span> · <span id="mechanical"></span></p><span id="status">加载中</span></header><div class="stage"><canvas id="game" tabindex="0"></canvas></div><footer>WASD走位 · 取消自动射击后按空格或点击开火 · Esc暂停　<span id="result"></span><p>靶子固定站位且提高生命供观察，使用主游戏相同的弹道、伤害、击退与表现程序；不代表正常对局难度。</p></footer><script>window.WEAPON_REVIEW_ASSETS=${JSON.stringify(assets)};</script><script src="review.bundle.js"></script></html>`;
+await fs.writeFile(path.join(out,'index.html'),html);console.log('Saved '+path.relative(root,out));

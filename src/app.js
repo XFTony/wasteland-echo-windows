@@ -122,7 +122,7 @@ class GameApp {
     this.inputManager.handleFeedback(events, this.model.save.settings, time);
     if (typeof this.renderer.updatePerformance === "function") this.renderer.updatePerformance(timing.dt);
     if (typeof this.renderer.handleEvents === "function") this.renderer.handleEvents(events, this.model);
-    if (typeof this.renderer.updateEffects === "function") this.renderer.updateEffects(timing.dt);
+    if (typeof this.renderer.updateEffects === "function") this.renderer.updateEffects(timing.dt, this.model);
 
     const frameMs = timing.dt * 1000;
     this.metrics.frameMs += (frameMs - this.metrics.frameMs) * 0.08;

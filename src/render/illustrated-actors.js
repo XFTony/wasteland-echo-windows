@@ -1,6 +1,7 @@
 "use strict";
 
 const { ART_IDS } = require("./art/asset-catalog");
+const { sampleWeaponFeedback } = require("./weapon-feedback");
 
 const HERO_SKIN_ART = Object.freeze({
   ranger: Object.freeze({ wanderer: ART_IDS.ACTOR_RANGER, mechanic: ART_IDS.ACTOR_RANGER_MECHANIC, nightwatch: ART_IDS.ACTOR_RANGER_NIGHTWATCH }),
@@ -82,8 +83,11 @@ function drawIllustratedSurvivor(renderer, player, run, flicker) {
   const sideAnchor = player.heroId === "bulwark" ? 16 : player.heroId === "mechanic" ? 11 : 0;
   const weaponAnchorX = player.lastAimX < 0 ? -sideAnchor : sideAnchor;
   const weaponAnchorY = player.heroId === "ranger" ? -30 : -23;
-  ctx.translate(position.x + weaponAnchorX, position.y + weaponAnchorY + bob);
-  ctx.rotate(Math.atan2(player.lastAimY, player.lastAimX));
+  const angle = Math.atan2(player.lastAimY, player.lastAimX);
+  const response = sampleWeaponFeedback(renderer.shotFeedback, run.elapsed, player.weaponId, player.lastAimX < 0 ? -1 : 1, angle);
+  ctx.translate(position.x + weaponAnchorX - player.lastAimX * response.offset,
+    position.y + weaponAnchorY + bob - player.lastAimY * response.offset);
+  ctx.rotate(angle + response.angle);
   if (player.lastAimX < 0) ctx.scale(1, -1);
   ctx.globalAlpha *= flicker ? 0.48 : 1;
   ctx.imageSmoothingEnabled = true;

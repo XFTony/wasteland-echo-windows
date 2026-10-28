@@ -14,7 +14,12 @@ function createAudioContext() {
     noiseSources: 0,
     gainNodes: 0,
     resumes: 0,
-    suspends: 0
+    suspends: 0,
+    oscillatorTimes: [],
+    bufferAllocations: 0,
+    noiseOffsets: [],
+    compressorNodes: 0,
+    gains: []
   };
   const parameter = () => ({
     value: 0,
@@ -35,21 +40,28 @@ function createAudioContext() {
         ...connectable(),
         type: "sine",
         frequency: parameter(),
-        start() { stats.oscillatorStarts += 1; },
+        start(time) { stats.oscillatorStarts += 1; stats.oscillatorTimes.push(time); },
         stop() { stats.oscillatorStops += 1; }
       };
     },
     createGain() {
       stats.gainNodes += 1;
-      return { ...connectable(), gain: parameter() };
+      const gain = { ...connectable(), gain: parameter() };
+      stats.gains.push(gain);
+      return gain;
     },
     createBuffer(_channels, length) {
+      stats.bufferAllocations += 1;
       const samples = new Float32Array(length);
-      return { getChannelData: () => samples };
+      return { getChannelData: () => samples, duration: length / context.sampleRate };
     },
     createBufferSource() {
       stats.noiseSources += 1;
-      return { ...connectable(), buffer: null, start() {}, stop() {} };
+      return { ...connectable(), buffer: null, start(_time, offset) { stats.noiseOffsets.push(offset); }, stop() {} };
+    },
+    createDynamicsCompressor() {
+      stats.compressorNodes += 1;
+      return { ...connectable(), threshold: parameter(), knee: parameter(), ratio: parameter(), attack: parameter(), release: parameter() };
     },
     createBiquadFilter() {
       return { ...connectable(), type: "bandpass", frequency: parameter(), Q: parameter() };
@@ -164,4 +176,71 @@ test("limited WebAudio implementations fail soft", () => {
     engine.update(1 / 60, true, { duration: 60, elapsed: 10, extraction: { active: false } });
     engine.suspend();
   });
+});
+
+test("shot events deduplicate an attack but retain rapid and catch-up shots", () => {
+  const { context, stats } = createAudioContext();
+  const engine = new AudioEngine(() => context);
+  engine.unlock();
+  const shot = (id, elapsed) => ({ type: "shot", weaponId: "swarm_smg", attackId: id, elapsed, interval: .02 });
+  engine.handle([shot(1, 1), shot(1, 1), shot(2, 1.02), shot(3, 1.04)]);
+  assert.equal(engine.soundStats.shots, 3, "there is no global time gate dropping valid attacks");
+  const starts = [...new Set(stats.oscillatorTimes)].sort();
+  assert.ok(starts.some(time => Math.abs(time - 2.02) < 1e-6));
+  assert.ok(starts.some(time => Math.abs(time - 2.04) < 1e-6));
+  engine.handle([{ type: "runStart" }, shot(1, 0)]);
+  assert.equal(engine.soundStats.shots, 4, "new run resets attack numbering");
+});
+
+test("SFX use one cached mix bus and noise buffer with varied texture offsets", () => {
+  const { context, stats } = createAudioContext();
+  const engine = new AudioEngine(() => context);
+  engine.unlock();
+  engine.playShot("scrap_pistol");
+  const bus = engine.sfxBus;
+  context.currentTime += .5;
+  engine.playShot("scrap_pistol");
+  assert.equal(engine.sfxBus, bus);
+  assert.equal(stats.compressorNodes, 1);
+  assert.equal(stats.bufferAllocations, 1);
+  assert.notEqual(stats.noiseOffsets[0], stats.noiseOffsets[1]);
+  engine.setSettings({ sfxMuted: true });
+  assert.equal(bus.gain.value, 0, "mute also silences previously scheduled mechanical voices");
+  const count = stats.oscillatorStarts;
+  engine.playShot("coil_cannon");
+  assert.equal(stats.oscillatorStarts, count);
+  engine.setSettings({ sfxMuted: false });
+  assert.equal(bus.gain.value, .82);
+});
+
+test("sound overload stays bounded and recovers after scheduled voices finish", () => {
+  const { context, stats } = createAudioContext();
+  const engine = new AudioEngine(() => context);
+  engine.unlock();
+  for (let i = 0; i < 200; i++) engine.playShot("coil_cannon");
+  assert.ok(engine.voiceWindows.length <= 96, "future reservations have their own bounded queue");
+  const concurrent = Math.max(...engine.voiceWindows.map(voice => engine.voiceWindows.filter(other => other.start <= voice.start && other.end > voice.start).length));
+  assert.ok(concurrent <= 48, "simultaneous voices respect the mix budget");
+  assert.ok(engine.soundStats.dropped > 0);
+  const voices = stats.oscillatorStarts + stats.noiseSources;
+  context.currentTime += 1;
+  assert.equal(engine.playShot("scrap_pistol"), true);
+  assert.ok(stats.oscillatorStarts + stats.noiseSources > voices);
+  assert.ok(engine.voiceWindows.length <= 5);
+});
+
+test("a six-pellet hit produces one impact sound and leaves gameplay events intact", () => {
+  const { context, stats } = createAudioContext();
+  const engine = new AudioEngine(() => context);
+  engine.unlock();
+  const events = Array.from({ length: 6 }, () => ({ type: "hit", weaponId: "breaker_shotgun", attackId: 3, enemyId: 8, x: 10, y: 20, damage: 10 }));
+  engine.handle(events);
+  assert.equal(stats.noiseSources, 1);
+  assert.equal(events.length, 6);
+  assert.equal(events[0].damage, 10);
+  engine.handle([{ ...events[0], attackId: 4 }]);
+  assert.equal(stats.noiseSources, 1, "impact cadence has an independent budget");
+  context.currentTime += .04;
+  engine.handle([{ ...events[0], attackId: 5 }]);
+  assert.equal(stats.noiseSources, 2);
 });
