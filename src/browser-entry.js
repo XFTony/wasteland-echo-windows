@@ -29,6 +29,7 @@ const runtime = createGameRuntime({
   canvas,
   storage,
   platform,
+  startup: !requestedMenu,
   modelOptions,
   audioContextFactory: () => (AudioContextClass ? new AudioContextClass() : null)
 });
@@ -48,7 +49,6 @@ if (document.fonts && typeof document.fonts.load === "function") {
   Promise.all([
     document.fonts.load('12px "Fusion Pixel 12"'),
     document.fonts.load('900 24px "Fusion Pixel 12"')
-  ]).catch(() => {}).finally(() => runtime.app.start());
-} else {
-  runtime.app.start();
+  ]).catch(() => {});
 }
+runtime.app.start();

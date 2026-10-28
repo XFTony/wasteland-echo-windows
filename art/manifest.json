@@ -136,7 +136,7 @@
     {
       "id": "ui.field-plate.v2",
       "version": "1.2",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/ui/shared/ui-field-plate-v2.webp",
       "archivePath": "art/generated/v1.2/runtime/ui-field-plate-v2.png",
       "sourcePaths": [
@@ -197,7 +197,7 @@
     {
       "id": "deployment.convoy.v1",
       "version": "1.1",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/ui/deployment/deployment-convoy-vignette-v1.webp",
       "archivePath": "art/generated/v1.1/runtime/deployment-convoy-vignette-v1.png",
       "sourcePaths": [
@@ -288,7 +288,7 @@
     {
       "id": "menu.backdrop.main.v3",
       "version": "1.5",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/ui/backdrops/menu-main-v3.webp",
       "archivePath": "art/generated/v1.5/source/menu-main-keyart-v3-source.png",
       "width": 1672,
@@ -302,7 +302,7 @@
     {
       "id": "menu.backdrop.deployment.v3",
       "version": "1.5",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/ui/backdrops/deployment-command-garage-v3.webp",
       "archivePath": "art/generated/v1.5/source/deployment-command-garage-v3-source.png",
       "width": 1672,
@@ -316,7 +316,7 @@
     {
       "id": "menu.backdrop.inventory.v3",
       "version": "1.5",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/ui/backdrops/inventory-armory-v3.webp",
       "archivePath": "art/generated/v1.5/source/inventory-armory-v3-source.png",
       "width": 1672,
@@ -330,7 +330,7 @@
     {
       "id": "menu.backdrop.shop.v3",
       "version": "1.5",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/ui/backdrops/shop-quartermaster-v3.webp",
       "archivePath": "art/generated/v1.5/source/shop-quartermaster-v3-source.png",
       "width": 1672,
@@ -344,7 +344,7 @@
     {
       "id": "menu.backdrop.settings.v3",
       "version": "1.5",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/ui/backdrops/settings-radio-room-v3.webp",
       "archivePath": "art/generated/v1.5/source/settings-radio-room-v3-source.png",
       "width": 1672,
@@ -358,7 +358,7 @@
     {
       "id": "menu.backdrop.credits.v3",
       "version": "1.5",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/ui/backdrops/credits-archive-v3.webp",
       "archivePath": "art/generated/v1.5/source/credits-archive-v3-source.png",
       "width": 1672,
@@ -372,7 +372,7 @@
     {
       "id": "cover.survivor.v3",
       "version": "1.5",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/ui/characters/cover-survivor-v3.webp",
       "archivePath": "art/generated/v1.5/source/cover-survivor-v3-source.png",
       "width": 767,
@@ -2033,6 +2033,40 @@
       "sha256": "4268795312BBB0525BD4403FEEC4BEB70DF2914585D9E830152FFD2CB99FE647",
       "generator": "OpenAI ImageGen + project native pixel import",
       "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "menu.radio.camp.v1",
+      "version": "radio-v1",
+      "status": "active",
+      "runtimePath": "web/assets/ui/radio-v1/camp.webp",
+      "archivePath": "art/ui/radio-v1/source/camp.png",
+      "sourcePaths": [
+        "art/ui/radio-v1/source/generation-record.json"
+      ],
+      "width": 1536,
+      "height": 1024,
+      "bytes": 224856,
+      "sha256": "0144B3C1551031AF32AF60798D4B4A198AC0B2160FCE7C207AB0592EE9B81F5D",
+      "generator": "OpenAI built-in ImageGen",
+      "normalizedRms": 0.015286600805746304,
+      "notes": "Reusable crop-safe pixel environment; all text, buttons and animation remain code-drawn."
+    },
+    {
+      "id": "menu.radio.desk.v1",
+      "version": "radio-v1",
+      "status": "active",
+      "runtimePath": "web/assets/ui/radio-v1/desk.webp",
+      "archivePath": "art/ui/radio-v1/source/desk.png",
+      "sourcePaths": [
+        "art/ui/radio-v1/source/generation-record.json"
+      ],
+      "width": 1536,
+      "height": 1024,
+      "bytes": 267702,
+      "sha256": "9CC9FC4E5AD1E0A0BB11F1C626D4EE09C5EAFD35A6006DA5DAC7FB78F0331C21",
+      "generator": "OpenAI built-in ImageGen",
+      "normalizedRms": 0.013549004493229317,
+      "notes": "Reusable crop-safe pixel environment; all text, buttons and animation remain code-drawn."
     }
   ]
 }

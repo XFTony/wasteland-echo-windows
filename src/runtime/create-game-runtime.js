@@ -48,7 +48,7 @@ function createGameRuntime(options = {}) {
   assertRuntimeMember("Renderer", renderer, content, world);
   const audio = options.audio || new AudioEngine(options.audioContextFactory);
   const input = options.input || new InputManager();
-  const app = new GameApp({ model, renderer, audio, input, platform: options.platform });
+  const app = new GameApp({ model, renderer, audio, input, platform: options.platform, startup: options.startup });
   return { app, model, renderer, audio, input, saveManager, content, world };
 }
 

@@ -1,6 +1,7 @@
 "use strict";
 
 const { SCREENS, UI_COMMANDS } = require("../core/contracts");
+const { StartupSequence } = require("../core/startup-sequence");
 
 function executeUiCommand(app, command) {
   if (!command) return;
@@ -59,6 +60,12 @@ function parseAction(action) {
 }
 
 const ACTION_HANDLERS = Object.freeze({
+  skipStartup(app) { if (app.startup) app.startup.skip(); },
+  replayStartup(app) {
+    app.model.goToMenu();
+    app.resetInput({ resetAim: true });
+    app.startup = new StartupSequence({ enabled: true, reducedMotion: Boolean(app.platform.reducedMotion) });
+  },
   start(app) {
     app.resetInput({ resetAim: true });
     app.model.setMenuPage("loadout");

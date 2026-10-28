@@ -3,6 +3,8 @@
 const { COMPACT_IDS, COMPACT_ASSETS } = require("./compact-asset-catalog");
 
 const ART_IDS = Object.freeze({
+  RADIO_CAMP: "menu.radio.camp.v1",
+  RADIO_DESK: "menu.radio.desk.v1",
   ...COMPACT_IDS,
   GROUND: "world.ground.v1",
   GROUND_ECHO: "world.ground.echo.v1",
@@ -72,14 +74,17 @@ const MAP_GROUND_ART = Object.freeze({
   red_basin: ART_IDS.GROUND_RED_BASIN
 });
 
-const RETIRED_ENEMY_ART = new Set([
+const RETIRED_ART = new Set([
   ART_IDS.ACTOR_DRIFTER, ART_IDS.ACTOR_RUNNER, ART_IDS.ACTOR_SPITTER,
   ART_IDS.ACTOR_BRUTE, ART_IDS.ACTOR_SCREECHER, ART_IDS.ACTOR_CRAWLER,
-  ART_IDS.ACTOR_WARDEN, ART_IDS.ACTOR_IRON_COLOSSUS
+  ART_IDS.ACTOR_WARDEN, ART_IDS.ACTOR_IRON_COLOSSUS,
+  ART_IDS.BACKDROP_MAIN, ART_IDS.BACKDROP_DEPLOYMENT, ART_IDS.BACKDROP_INVENTORY,
+  ART_IDS.BACKDROP_SHOP, ART_IDS.BACKDROP_SETTINGS, ART_IDS.BACKDROP_CREDITS,
+  ART_IDS.TITLE_KEY_ART, ART_IDS.UI_FIELD_PLATE, ART_IDS.DEPLOYMENT_CONVOY
 ]);
 
 function asset(id, src, group, options = {}) {
-  const retired = RETIRED_ENEMY_ART.has(id);
+  const retired = RETIRED_ART.has(id);
   return Object.freeze({
     id,
     src,
@@ -94,6 +99,12 @@ function asset(id, src, group, options = {}) {
 }
 
 const ART_ASSETS = Object.freeze({
+  [ART_IDS.RADIO_CAMP]: asset(ART_IDS.RADIO_CAMP, "./assets/ui/radio-v1/camp.webp", "menu-backdrop", {
+    version: "radio-v1", eager: true, notes: "Pixel radio outpost; shared by startup and the main menu."
+  }),
+  [ART_IDS.RADIO_DESK]: asset(ART_IDS.RADIO_DESK, "./assets/ui/radio-v1/desk.webp", "menu-backdrop", {
+    version: "radio-v1", notes: "Quiet pixel field desk reused by functional menu pages."
+  }),
   ...COMPACT_ASSETS,
   [ART_IDS.GROUND]: asset(ART_IDS.GROUND, "./assets/wasteland-ground-texture-v1.webp", "world", {
     eager: true, notes: "Legacy shared ground until every map has a painted material."

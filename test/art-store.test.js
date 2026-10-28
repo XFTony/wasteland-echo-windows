@@ -109,20 +109,21 @@ test("painted hero outfit variants retain independent weapons", () => {
 
 test("art store loads active definitions once and supports injected images", () => {
   const store = new ArtStore({ ImageCtor: FakeImage });
-  assert.equal(store.ready(ART_IDS.UI_FIELD_PLATE), true);
+  assert.equal(store.ready(ART_IDS.RADIO_CAMP), true);
+  assert.equal(store.ready(ART_IDS.UI_FIELD_PLATE), false);
   const injected = { complete: true, naturalWidth: 640, naturalHeight: 360 };
-  const injectedStore = new ArtStore({ images: { [ART_IDS.BACKDROP_DEPLOYMENT]: injected } });
-  assert.equal(injectedStore.get(ART_IDS.BACKDROP_DEPLOYMENT), injected);
+  const injectedStore = new ArtStore({ images: { [ART_IDS.RADIO_DESK]: injected } });
+  assert.equal(injectedStore.get(ART_IDS.RADIO_DESK), injected);
 });
 
 test("art store releases inactive menu backgrounds while retaining the current page", () => {
   const store = new ArtStore({ ImageCtor: FakeImage });
-  store.request(ART_IDS.BACKDROP_DEPLOYMENT);
-  store.request(ART_IDS.BACKDROP_INVENTORY);
-  const released = store.releaseGroup("menu-backdrop", ART_IDS.BACKDROP_INVENTORY);
+  store.request(ART_IDS.RADIO_CAMP);
+  store.request(ART_IDS.RADIO_DESK);
+  const released = store.releaseGroup("menu-backdrop", ART_IDS.RADIO_DESK);
   assert.ok(released >= 1);
-  assert.equal(store.get(ART_IDS.BACKDROP_DEPLOYMENT), null);
-  assert.ok(store.get(ART_IDS.BACKDROP_INVENTORY));
+  assert.equal(store.get(ART_IDS.RADIO_CAMP), null);
+  assert.ok(store.get(ART_IDS.RADIO_DESK));
 });
 
 test("world group release can retain the fallback and current map texture", () => {
@@ -136,7 +137,7 @@ test("world group release can retain the fallback and current map texture", () =
 });
 
 test("image primitives contain complete art and preserve nine-slice corners", () => {
-  const store = new ArtStore({ ImageCtor: FakeImage });
+  const store = new ArtStore({ images: { [ART_IDS.UI_FIELD_PLATE]: new FakeImage() } });
   const renderer = rendererWith(store);
   const contained = drawAssetContain(renderer, ART_IDS.UI_FIELD_PLATE, 10, 20, 500, 300);
   assert.ok(contained.x >= 10 && contained.y >= 20);

@@ -28,7 +28,8 @@ const versions = {
   "package-lock.json": packageLock.version,
   "package-lock.json root package": packageLock.packages?.[""]?.version,
   "src/version.js": captured(sourceVersion, /\bGAME_VERSION\s*=\s*["']([^"']+)["']/, "src/version.js"),
-  "web/index.html": captured(html, /WINDOWS DESKTOP\s*·\s*v([^\s<]+)/, "web/index.html"),
+  "web/index.html": captured(html, /data-game-version=["']([^"']+)["']/, "web/index.html"),
+  "web/index.html display": captured(html, /class="build-badge"[^>]*>v([^\s<]+)/, "web/index.html display"),
   "src-tauri/tauri.conf.json": tauri.version,
   "src-tauri/Cargo.toml": captured(cargoManifest, /^\[package\][\s\S]*?^version\s*=\s*"([^"]+)"/m, "src-tauri/Cargo.toml"),
   "src-tauri/Cargo.lock": captured(cargoLock, /^\[\[package\]\]\r?\nname = "wasteland-echo"\r?\nversion = "([^"]+)"/m, "src-tauri/Cargo.lock")

@@ -3,6 +3,7 @@
 const { clamp } = require("../../core/math");
 const { UPGRADE_FAMILY_STYLES, UPGRADE_RARITIES, UI_COLORS } = require("./theme");
 const { drawEchoMark, focusBrackets } = require("./art-primitives");
+const { surface, paperClip } = require("./radio-materials");
 const OFFSCREEN_POINTER = Object.freeze({ x: -1000, y: -1000, down: false });
 
 function effectLines(detail, compact) {
@@ -20,13 +21,10 @@ function drawCard(renderer, option, index, level, x, y, w, h, family, rarity, ac
   const visualScale = compact ? 1 : Math.min(1.55, Math.max(1, renderer.height / 720));
   const pad = compact ? 10 : 20 * visualScale;
   const footerY = y + h - (compact ? 34 : 46 * visualScale);
-  ctx.fillStyle = active ? "rgba(39,36,29,0.98)" : "rgba(28,27,23,0.97)";
-  ctx.fillRect(x, y, w, h);
-  ctx.strokeStyle = active ? UI_COLORS.white : "rgba(202,187,152,0.62)";
-  ctx.lineWidth = (active ? 3 : 2) * visualScale;
-  ctx.strokeRect(x + 1, y + 1, w - 2, h - 2);
+  surface(ctx, x, y, w, h, { active, raised: true, fill: active ? "#383b2c" : "#252a22", accent: family.color });
+  if (!compact) paperClip(ctx, x + w / 2 - 13, y + 6);
   ctx.fillStyle = rarity.color;
-  ctx.fillRect(x + 1, y + 1, w - 2, compact ? 3 : 4 * visualScale);
+  ctx.fillRect(x + pad, y + (compact ? 4 : 8), Math.min(w * 0.26, 70), 3);
   ctx.fillStyle = family.color;
   ctx.fillRect(x + pad, y + (compact ? 37 : 47 * visualScale), Math.min(compact ? 25 : 38 * visualScale, w * 0.24), 2 * visualScale);
 

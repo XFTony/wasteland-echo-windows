@@ -7,6 +7,7 @@ function createBrowserPlatform(windowObject, documentObject, canvas) {
   const doc = documentObject;
   return {
     profile: "windows-desktop",
+    reducedMotion: Boolean(typeof win.matchMedia === "function" && win.matchMedia("(prefers-reduced-motion: reduce)").matches),
     viewport: () => ({
       width: win.innerWidth,
       height: win.innerHeight,

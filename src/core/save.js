@@ -28,7 +28,8 @@ const DEFAULT_SETTINGS = Object.freeze({
   screenShake: "low",
   flashes: "low",
   autoAim: true,
-  autoFire: true
+  autoFire: true,
+  introAnimation: true
 });
 
 function normalizeSettings(candidate) {
@@ -40,7 +41,7 @@ function normalizeSettings(candidate) {
   settings.uiScale = Math.max(0.8, Math.min(1.2, Number(settings.uiScale) || 1));
   if (!["off", "low", "high"].includes(settings.screenShake)) settings.screenShake = DEFAULT_SETTINGS.screenShake;
   if (!["off", "low", "high"].includes(settings.flashes)) settings.flashes = DEFAULT_SETTINGS.flashes;
-  for (const key of ["musicMuted", "sfxMuted", "gamepadEnabled", "gamepadVibration", "showControlHints", "showFps", "autoAim", "autoFire"]) {
+  for (const key of ["musicMuted", "sfxMuted", "gamepadEnabled", "gamepadVibration", "showControlHints", "showFps", "autoAim", "autoFire", "introAnimation"]) {
     settings[key] = typeof source[key] === "boolean" ? source[key] : DEFAULT_SETTINGS[key];
   }
   return settings;

@@ -13,7 +13,8 @@ const {
   focusBrackets
 } = require("./ui/art-primitives");
 const { drawUpgradeDraft } = require("./ui/upgrade-cards");
-const { drawFieldPlate } = require("./ui/field-surfaces");
+const { drawFieldPlate, drawFieldButton } = require("./ui/field-surfaces");
+const { drawStartup } = require("./ui/startup-view");
 const { initializeFx, FX_METHODS } = require("./fx-system");
 const { HUD_METHODS } = require("./hud-view");
 const { TERRAIN_METHODS } = require("./terrain-view");
@@ -29,7 +30,8 @@ const FONT_STACKS = Object.freeze({
   ui: '"Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif',
   display: '"Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif',
   card: '"Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif',
-  mono: '"Cascadia Mono", Consolas, monospace'
+  mono: '"Cascadia Mono", Consolas, monospace',
+  brand: '"Fusion Pixel 12", "Microsoft YaHei UI", sans-serif'
 });
 const OFFSCREEN_POINTER = Object.freeze({ x: -1000, y: -1000, down: false });
 class CanvasRenderer {
@@ -198,6 +200,8 @@ class CanvasRenderer {
     this.activeInputDevice = inputState.activeDevice || INPUT_DEVICES.KEYBOARD_MOUSE;
     this.gamepadConnected = Boolean(inputState.gamepadConnected);
     this.gamepadId = inputState.gamepadId || "";
+    this.uiTime = Number.isFinite(inputState.uiTime) ? inputState.uiTime : this.frame / 60;
+    this.reducedMotion = Boolean(inputState.reducedMotion);
     this.metrics = inputState.metrics || null;
     this.uiScale = model.save && model.save.settings ? Number(model.save.settings.uiScale) || 1 : 1;
     this.flashSetting = model.save && model.save.settings ? model.save.settings.flashes : "low";
@@ -234,6 +238,14 @@ class CanvasRenderer {
     ctx.imageSmoothingEnabled = false;
     ctx.clearRect(0, 0, this.width, this.height);
 
+    if (inputState.startup && inputState.startup.active && !model.run) {
+      this.drawMenuBackdrop("main");
+      this.startupState = inputState.startup;
+      this.drawScaledInterface(model, "startup");
+      if (this.canvas.style) this.canvas.style.cursor = "default";
+      return;
+    }
+
     if (model.run) {
       this.mapLayout = this.resolveMapLayout(model.run.mapId);
       this.drawWorld(model);
@@ -254,10 +266,20 @@ class CanvasRenderer {
     }
 
     this.drawSaveStatus(model);
+    if (this.canvas.style) this.canvas.style.cursor = model.screen === "running" && !model.save.settings.autoAim ? "crosshair"
+      : this.regions.some(r => this.pointerState.x >= r.x && this.pointerState.x <= r.x + r.w && this.pointerState.y >= r.y && this.pointerState.y <= r.y + r.h) ? "pointer" : "default";
     if (this.width < 800 || this.height < 450 || this.width / this.height < 1.15) this.drawWindowNotice();
   }
 
+  startupReady() {
+    return this.artStore.ready(ART_IDS.RADIO_CAMP);
+  }
+
   drawInterfaceLayer(model, kind) {
+    if (kind === "startup") {
+      drawStartup(this, this.startupState);
+      return;
+    }
     if (kind === "menu") {
       drawMenuPage(this, model);
       return;
@@ -420,37 +442,9 @@ class CanvasRenderer {
   }
 
   button(action, label, x, y, w, h, style = "primary") {
-    const ctx = this.ctx;
-    const pointer = this.pointerState || OFFSCREEN_POINTER;
-    const hovered = pointer.x >= x && pointer.x <= x + w && pointer.y >= y && pointer.y <= y + h;
-    const pressed = hovered && pointer.down;
-    const focused = this.focusAction === action;
-    const baseFill = style === "primary" ? "#9f4935" : style === "danger" ? "#74312f" : "#3b3932";
-    const hoverFill = style === "primary" ? "#b85b3f" : style === "danger" ? "#91413b" : "#504b40";
-    const fill = hovered || focused ? hoverFill : baseFill;
-    const stroke = style === "primary" ? UI_COLORS.gold : style === "danger" ? "#b96858" : UI_COLORS.ironLight;
-    const offset = pressed ? 2 : 0;
-    drawFieldPlate(this, x, y + offset, w, h - offset, {
-      fill,
-      stroke,
-      accent: stroke,
-      active: hovered || focused,
-      raised: hovered || focused,
-      lineWidth: focused ? 3 : 2
-    });
-    const innerX = Math.max(8, w * 0.08);
-    const innerY = Math.max(6, h * 0.22);
-    ctx.fillStyle = style === "primary" ? (hovered || focused ? "rgba(169,71,47,0.84)" : "rgba(116,49,36,0.8)")
-      : style === "danger" ? "rgba(112,43,40,0.78)"
-        : "rgba(28,28,23,0.38)";
-    ctx.fillRect(x + innerX, y + offset + innerY, w - innerX * 2, Math.max(3, h - innerY * 2 - offset));
-    if (focused) focusBrackets(this, x - 3, y - 3, w + 6, h + 6, UI_COLORS.gold, 2, Math.min(15, h * 0.35));
-    ctx.fillStyle = hovered ? "#b3a17b" : "#817766";
-    ctx.fillRect(x + 4, y + 4 + offset, w - 8, 2);
-    ctx.fillStyle = style === "primary" ? "#6f3328" : "#272620";
-    ctx.fillRect(x + 4, y + h - 5, w - 8, 2);
-    this.text(label, x + w / 2, y + h / 2 + 1 + offset, Math.max(13, Math.min(19, h * 0.38)), PALETTE.white, "center", "900", "ui");
-    this.addRegion(action, x, y, w, h);
+    return drawFieldButton(this, action, label, x, y, w, h, { primary: style === "primary",
+      accent: style === "danger" ? UI_COLORS.danger : UI_COLORS.gold,
+      fill: style === "danger" ? "#5e352d" : undefined });
   }
 
   drawWorld(model) {

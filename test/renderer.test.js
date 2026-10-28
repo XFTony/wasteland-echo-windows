@@ -70,22 +70,21 @@ test("renderer delegates combat effects and HUD overlays to stable modules", () 
   assert.equal(CanvasRenderer.prototype.drawResult, HUD_METHODS.drawResult);
 });
 
-test("main menu keeps the complete title art inside the viewport beside the menu", () => {
+test("radio menu uses a crop-safe scene and keeps the command strip beneath the title", () => {
   const { canvas, calls } = createMockCanvas();
-  const renderer = new CanvasRenderer(canvas);
+  const image = { complete: true, naturalWidth: 1536, naturalHeight: 1024 };
+  const store = new ArtStore({ images: { [ART_IDS.RADIO_CAMP]: image } });
+  const renderer = new CanvasRenderer(canvas, { artStore: store });
   const model = createModel();
-  renderer.coverArt = { complete: true, naturalWidth: 1228, naturalHeight: 1228 };
   renderer.resize(1280, 720, 1);
   renderer.render(model, { focusAction: "start" });
-  const artCall = calls.find((call) => call[0] === "drawImage");
-  assert.ok(artCall, "the loaded title art should be drawn on the menu canvas");
-  const [, , artX, artY, artW, artH] = artCall;
-  const start = renderer.regions.find((region) => region.action === "start");
-  assert.ok(artW >= 1280 * 0.45, "the complete art should still remain a primary visual");
-  assert.ok(artH >= 720 * 0.9);
-  assert.ok(artX >= 0 && artY >= 0, "contain framing must not crop the top or left edges");
-  assert.ok(artX + artW <= 1280 && artY + artH <= 720, "contain framing must not crop the monster head or lower silhouettes");
-  assert.ok(start.x + start.w < artX, "menu copy and complete art should keep a readable safety gap");
+  const call = calls.find(call => call[0] === "drawImage" && call[1] === image);
+  assert.ok(call, "the current radio scene is drawn");
+  const [, , sx, sy, sw, sh, dx, dy, dw, dh] = call;
+  assert.ok(sx >= 0 && sy >= 0 && sx + sw <= image.naturalWidth && sy + sh <= image.naturalHeight);
+  assert.deepEqual([dx, dy, dw, dh], [0, 0, 1280, 720]);
+  assert.equal(renderer.regions.length, 4);
+  assert.ok(renderer.regions.every(region => region.y > 720 * 0.7));
 });
 
 test("all primary screens render without exceptions and expose expected actions", () => {
@@ -406,7 +405,8 @@ test("568x320 desktop layout keeps compact controls navigable and on-screen", ()
   model.setMenuPage("settings");
   renderer.render(model);
   const toggles = renderer.regions.filter((region) => region.action.startsWith("toggle:"));
-  assert.equal(toggles.length, 11);
+  assert.equal(toggles.length, 12);
+  assert.ok(renderer.regions.some(region => region.action === "replayStartup"));
   assert.ok(toggles.every((region) => region.h >= 31));
   assert.ok(toggles.every((region) => region.x >= 0 && region.y >= 0 && region.x + region.w <= 568 && region.y + region.h <= 320));
   assert.equal(renderer.regions.some((region) => region.action === "fullscreen"), true);
@@ -476,7 +476,7 @@ test("Windows 720p and 1080p layouts keep every desktop action inside the viewpo
     model.setMenuPage("settings");
     renderer.render(model, { activeDevice: "gamepad", gamepadConnected: true, gamepadId: "Xbox Controller" });
     const actions = renderer.regions;
-    assert.equal(actions.filter((region) => region.action.startsWith("toggle:")).length, 11);
+    assert.equal(actions.filter((region) => region.action.startsWith("toggle:")).length, 12);
     assert.equal(actions.some((region) => region.action === "fullscreen"), true);
     assert.equal(actions.some((region) => region.action === "back"), true);
     for (const region of actions) {
@@ -638,11 +638,11 @@ test("switching maps and returning to menu releases unused decoded art", () => {
   const model = createModel();
   renderer.resize(1280, 720, 1);
   renderer.render(model);
-  assert.ok(store.get(ART_IDS.BACKDROP_MAIN));
+  assert.ok(store.get(ART_IDS.RADIO_CAMP));
   store.request(ART_IDS.PROP_ECHO_APOTHECARY);
   model.startRun({ seed: 31, mapId: "freight_nexus", tutorial: false });
   renderer.render(model);
-  assert.equal(store.get(ART_IDS.BACKDROP_MAIN), null);
+  assert.equal(store.get(ART_IDS.RADIO_CAMP), null);
   assert.equal(store.get(ART_IDS.PROP_ECHO_APOTHECARY), null);
   assert.ok(store.get(ART_IDS.GROUND_FREIGHT));
   model.startRun({ seed: 32, mapId: "red_basin", tutorial: false });
@@ -654,7 +654,7 @@ test("switching maps and returning to menu releases unused decoded art", () => {
   renderer.render(model);
   assert.equal(store.get(ART_IDS.GROUND_RED_BASIN), null);
   assert.equal(store.get(ART_IDS.ACTOR_DRIFTER), null);
-  assert.ok(store.get(ART_IDS.BACKDROP_MAIN));
+  assert.ok(store.get(ART_IDS.RADIO_CAMP));
 });
 
 test("world framing stays fixed across desktop resolutions", () => {

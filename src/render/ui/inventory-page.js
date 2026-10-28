@@ -3,6 +3,7 @@
 const { drawSurvivorActor } = require("../pixel-actors");
 const { drawIllustratedPortrait } = require("../illustrated-actors");
 const { usesCompactPlayer } = require("../../core/compact-weapon-pose");
+const { paperClip } = require("./radio-materials");
 const { createBasePlayerStats } = require("../../core/run-state");
 const {
   calculateLoadoutStats,
@@ -216,6 +217,7 @@ function drawWardrobe(renderer, model, x, y, w, h, compact) {
   const alcoveX = slotX + slotW + sideGap;
   const alcoveW = Math.max(55, rightX - sideGap - alcoveX);
   drawTextScrim(renderer, alcoveX, workY, alcoveW, workH, { fill: "rgba(15,14,11,0.48)" });
+  paperClip(ctx, alcoveX + alcoveW / 2 - 13, workY + 7);
   ctx.fillStyle = "#594a34";
   ctx.fillRect(alcoveX + 7, workY + workH - (compact ? 12 : 18), alcoveW - 14, compact ? 4 : 6);
   const actorX = alcoveX + alcoveW / 2;
@@ -298,7 +300,8 @@ function drawEntryInfo(renderer, model, entry, x, y, w, h, compact) {
   renderer.fitText(entry.item.name, x + (compact ? 65 : 92), y + (compact ? 15 : 23), compact ? 13 : 21, w - (compact ? 78 : 108), UI_COLORS.white, "left", "900", 11, "display");
   renderer.fitText(entryMeta(entry), x + 14, y + (compact ? 36 : 51), compact ? 10 : 14, w - 28, UI_COLORS.paper, "left", "800", 10);
   if (compact) {
-    renderer.fitText(mastery || entryStats(entry), x + 14, y + h - 13, 11, w - 28, mastery ? accent : UI_COLORS.muted, "left", mastery ? "900" : "700", 10);
+    renderer.fitText(entryStats(entry), x + 14, y + 57, 11, w - 28, UI_COLORS.paper, "left", "700", 10);
+    if (mastery && h >= 98) renderer.fitText(mastery, x + 14, y + h - 15, 11, w - 28, accent, "left", "700", 10);
     return;
   }
   renderer.fitText(entryStats(entry), x + 14, y + 79, 15, w - 28, UI_COLORS.paper, "left", "700", 11);
@@ -326,7 +329,7 @@ function drawInventoryGrid(renderer, model, x, y, w, h, compact) {
     renderer.button(`inventoryPage:${next}`, "›", x + w - (compact ? 30 : 42), y + (compact ? 4 : 7), compact ? 26 : 34, compact ? 26 : 36, "secondary");
   }
 
-  const infoH = compact ? 72 : 144;
+  const infoH = compact ? 106 : 150;
   const gap = compact ? 4 : 8;
   const gridX = x + (compact ? 7 : 11);
   const gridY = y + headerH + gap;

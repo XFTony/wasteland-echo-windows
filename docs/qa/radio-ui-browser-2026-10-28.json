@@ -1,0 +1,974 @@
+{
+  "date": "2026-10-28",
+  "records": [
+    {
+      "menu": "main",
+      "width": 1280,
+      "height": 720,
+      "actions": [
+        {
+          "action": "start",
+          "x": 64,
+          "y": 554,
+          "w": 334.08,
+          "h": 88
+        },
+        {
+          "action": "shop",
+          "x": 412.08,
+          "y": 554,
+          "w": 258.64000000000004,
+          "h": 88
+        },
+        {
+          "action": "settings",
+          "x": 684.72,
+          "y": 554,
+          "w": 258.64000000000004,
+          "h": 88
+        },
+        {
+          "action": "credits",
+          "x": 957.3600000000001,
+          "y": 554,
+          "w": 258.64000000000004,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "menu": "loadout",
+      "width": 1280,
+      "height": 720,
+      "actions": [
+        {
+          "action": "back",
+          "x": 1093.2,
+          "y": 31,
+          "w": 142,
+          "h": 48
+        },
+        {
+          "action": "inventory",
+          "x": 44.800000000000004,
+          "y": 600,
+          "w": 428.54400000000004,
+          "h": 98
+        },
+        {
+          "action": "stagePrev",
+          "x": 515.8240000000001,
+          "y": 159.37,
+          "w": 41.593333333333334,
+          "h": 41.593333333333334
+        },
+        {
+          "action": "stageNext",
+          "x": 1171.6066666666668,
+          "y": 159.37,
+          "w": 41.593333333333334,
+          "h": 41.593333333333334
+        },
+        {
+          "action": "modePrev",
+          "x": 515.8240000000001,
+          "y": 291.7033333333333,
+          "w": 41.593333333333334,
+          "h": 41.593333333333334
+        },
+        {
+          "action": "modeNext",
+          "x": 1171.6066666666668,
+          "y": 291.7033333333333,
+          "w": 41.593333333333334,
+          "h": 41.593333333333334
+        },
+        {
+          "action": "mapPrev",
+          "x": 515.8240000000001,
+          "y": 424.03666666666663,
+          "w": 41.593333333333334,
+          "h": 41.593333333333334
+        },
+        {
+          "action": "mapNext",
+          "x": 1171.6066666666668,
+          "y": 424.03666666666663,
+          "w": 41.593333333333334,
+          "h": 41.593333333333334
+        },
+        {
+          "action": "deploy",
+          "x": 493.82400000000007,
+          "y": 595,
+          "w": 741.376,
+          "h": 68
+        }
+      ]
+    },
+    {
+      "menu": "inventory",
+      "width": 1280,
+      "height": 720,
+      "actions": [
+        {
+          "action": "deployment",
+          "x": 1109,
+          "y": 36,
+          "w": 134,
+          "h": 48
+        },
+        {
+          "action": "heroPrev",
+          "x": 51,
+          "y": 106,
+          "w": 40,
+          "h": 40
+        },
+        {
+          "action": "heroNext",
+          "x": 483.79999999999995,
+          "y": 106,
+          "w": 40,
+          "h": 40
+        },
+        {
+          "action": "unequip:chest",
+          "x": 54,
+          "y": 256,
+          "w": 100,
+          "h": 90
+        },
+        {
+          "action": "selectWeapon:scrap_pistol",
+          "x": 558.8,
+          "y": 159,
+          "w": 160.8,
+          "h": 132
+        },
+        {
+          "action": "selectSkin:wanderer",
+          "x": 727.5999999999999,
+          "y": 159,
+          "w": 160.8,
+          "h": 132
+        },
+        {
+          "action": "equip:field_vest",
+          "x": 896.4,
+          "y": 159,
+          "w": 160.8,
+          "h": 132
+        }
+      ]
+    },
+    {
+      "menu": "shop",
+      "width": 1280,
+      "height": 720,
+      "actions": [
+        {
+          "action": "back",
+          "x": 1108,
+          "y": 28,
+          "w": 134,
+          "h": 44
+        },
+        {
+          "action": "shopCategoryPrev",
+          "x": 30,
+          "y": 107,
+          "w": 36,
+          "h": 36
+        },
+        {
+          "action": "shopCategoryNext",
+          "x": 300,
+          "y": 107,
+          "w": 36,
+          "h": 36
+        },
+        {
+          "action": "buy:buy_swarm_smg",
+          "x": 511,
+          "y": 275,
+          "w": 108,
+          "h": 36
+        },
+        {
+          "action": "buy:buy_rust_revolver",
+          "x": 1129,
+          "y": 275,
+          "w": 108,
+          "h": 36
+        },
+        {
+          "action": "buy:buy_breaker_shotgun",
+          "x": 511,
+          "y": 458,
+          "w": 108,
+          "h": 36
+        },
+        {
+          "action": "buy:buy_ember_carbine",
+          "x": 1129,
+          "y": 458,
+          "w": 108,
+          "h": 36
+        },
+        {
+          "action": "buy:buy_needle_rifle",
+          "x": 511,
+          "y": 641,
+          "w": 108,
+          "h": 36
+        },
+        {
+          "action": "buy:buy_coil_cannon",
+          "x": 1129,
+          "y": 641,
+          "w": 108,
+          "h": 36
+        }
+      ]
+    },
+    {
+      "menu": "settings",
+      "width": 1280,
+      "height": 720,
+      "actions": [
+        {
+          "action": "settingsSection:general",
+          "x": 997,
+          "y": 40,
+          "w": 118,
+          "h": 38
+        },
+        {
+          "action": "settingsSection:controls",
+          "x": 1121,
+          "y": 40,
+          "w": 118,
+          "h": 38
+        },
+        {
+          "action": "adjust:music:-1",
+          "x": 446,
+          "y": 127.57142857142857,
+          "w": 38,
+          "h": 46
+        },
+        {
+          "action": "toggle:musicMuted",
+          "x": 488,
+          "y": 127.57142857142857,
+          "w": 92,
+          "h": 46
+        },
+        {
+          "action": "adjust:music:1",
+          "x": 584,
+          "y": 127.57142857142857,
+          "w": 38,
+          "h": 46
+        },
+        {
+          "action": "adjust:sfx:-1",
+          "x": 446,
+          "y": 194.71428571428572,
+          "w": 38,
+          "h": 46
+        },
+        {
+          "action": "toggle:sfxMuted",
+          "x": 488,
+          "y": 194.71428571428572,
+          "w": 92,
+          "h": 46
+        },
+        {
+          "action": "adjust:sfx:1",
+          "x": 584,
+          "y": 194.71428571428572,
+          "w": 38,
+          "h": 46
+        },
+        {
+          "action": "adjust:uiScale:-1",
+          "x": 446,
+          "y": 261.85714285714283,
+          "w": 38,
+          "h": 46
+        },
+        {
+          "action": "adjust:uiScale:1",
+          "x": 584,
+          "y": 261.85714285714283,
+          "w": 38,
+          "h": 46
+        },
+        {
+          "action": "toggle:autoAim",
+          "x": 522,
+          "y": 329,
+          "w": 100,
+          "h": 46
+        },
+        {
+          "action": "toggle:autoFire",
+          "x": 522,
+          "y": 396.1428571428571,
+          "w": 100,
+          "h": 46
+        },
+        {
+          "action": "toggle:screenShake",
+          "x": 522,
+          "y": 463.2857142857142,
+          "w": 100,
+          "h": 46
+        },
+        {
+          "action": "toggle:flashes",
+          "x": 522,
+          "y": 530.4285714285714,
+          "w": 100,
+          "h": 46
+        },
+        {
+          "action": "toggle:gamepadEnabled",
+          "x": 1113,
+          "y": 127.57142857142857,
+          "w": 100,
+          "h": 46
+        },
+        {
+          "action": "toggle:gamepadVibration",
+          "x": 1113,
+          "y": 194.71428571428572,
+          "w": 100,
+          "h": 46
+        },
+        {
+          "action": "toggle:gamepadDeadzone",
+          "x": 1113,
+          "y": 261.85714285714283,
+          "w": 100,
+          "h": 46
+        },
+        {
+          "action": "toggle:showControlHints",
+          "x": 1113,
+          "y": 329,
+          "w": 100,
+          "h": 46
+        },
+        {
+          "action": "toggle:showFps",
+          "x": 1113,
+          "y": 396.1428571428571,
+          "w": 100,
+          "h": 46
+        },
+        {
+          "action": "toggle:introAnimation",
+          "x": 1113,
+          "y": 463.2857142857142,
+          "w": 100,
+          "h": 46
+        },
+        {
+          "action": "replayStartup",
+          "x": 1113,
+          "y": 530.4285714285714,
+          "w": 100,
+          "h": 46
+        },
+        {
+          "action": "fullscreen",
+          "x": 460,
+          "y": 645,
+          "w": 168,
+          "h": 42
+        },
+        {
+          "action": "back",
+          "x": 652,
+          "y": 645,
+          "w": 168,
+          "h": 42
+        }
+      ]
+    },
+    {
+      "menu": "credits",
+      "width": 1280,
+      "height": 720,
+      "actions": [
+        {
+          "action": "back",
+          "x": 560,
+          "y": 641,
+          "w": 160,
+          "h": 42
+        }
+      ]
+    },
+    {
+      "menu": "main",
+      "width": 960,
+      "height": 540,
+      "actions": [
+        {
+          "action": "start",
+          "x": 28,
+          "y": 414,
+          "w": 262.15999999999997,
+          "h": 72
+        },
+        {
+          "action": "shop",
+          "x": 304.15999999999997,
+          "y": 414,
+          "w": 199.9466666666667,
+          "h": 72
+        },
+        {
+          "action": "settings",
+          "x": 518.1066666666667,
+          "y": 414,
+          "w": 199.9466666666667,
+          "h": 72
+        },
+        {
+          "action": "credits",
+          "x": 732.0533333333333,
+          "y": 414,
+          "w": 199.9466666666667,
+          "h": 72
+        }
+      ]
+    },
+    {
+      "menu": "inventory",
+      "width": 960,
+      "height": 540,
+      "actions": [
+        {
+          "action": "deployment",
+          "x": 846,
+          "y": 15,
+          "w": 100,
+          "h": 34
+        },
+        {
+          "action": "heroPrev",
+          "x": 21,
+          "y": 62,
+          "w": 28,
+          "h": 26
+        },
+        {
+          "action": "heroNext",
+          "x": 347,
+          "y": 62,
+          "w": 28,
+          "h": 26
+        },
+        {
+          "action": "unequip:chest",
+          "x": 20,
+          "y": 179.75,
+          "w": 60,
+          "h": 80.75
+        },
+        {
+          "action": "selectWeapon:scrap_pistol",
+          "x": 398,
+          "y": 96,
+          "w": 132.5,
+          "h": 82
+        },
+        {
+          "action": "selectSkin:wanderer",
+          "x": 534.5,
+          "y": 96,
+          "w": 132.5,
+          "h": 82
+        },
+        {
+          "action": "equip:field_vest",
+          "x": 671,
+          "y": 96,
+          "w": 132.5,
+          "h": 82
+        }
+      ]
+    },
+    {
+      "menu": "shop",
+      "width": 960,
+      "height": 540,
+      "actions": [
+        {
+          "action": "back",
+          "x": 830,
+          "y": 16,
+          "w": 108,
+          "h": 36
+        },
+        {
+          "action": "shopCategoryPrev",
+          "x": 14,
+          "y": 74,
+          "w": 30,
+          "h": 30
+        },
+        {
+          "action": "shopCategoryNext",
+          "x": 219,
+          "y": 74,
+          "w": 30,
+          "h": 30
+        },
+        {
+          "action": "buy:buy_swarm_smg",
+          "x": 354,
+          "y": 195,
+          "w": 108,
+          "h": 36
+        },
+        {
+          "action": "buy:buy_rust_revolver",
+          "x": 825,
+          "y": 195,
+          "w": 108,
+          "h": 36
+        },
+        {
+          "action": "buy:buy_breaker_shotgun",
+          "x": 354,
+          "y": 336,
+          "w": 108,
+          "h": 36
+        },
+        {
+          "action": "buy:buy_ember_carbine",
+          "x": 825,
+          "y": 336,
+          "w": 108,
+          "h": 36
+        },
+        {
+          "action": "buy:buy_needle_rifle",
+          "x": 354,
+          "y": 477,
+          "w": 108,
+          "h": 36
+        },
+        {
+          "action": "buy:buy_coil_cannon",
+          "x": 825,
+          "y": 477,
+          "w": 108,
+          "h": 36
+        }
+      ]
+    },
+    {
+      "menu": "settings",
+      "width": 960,
+      "height": 540,
+      "actions": [
+        {
+          "action": "settingsSection:general",
+          "x": 766,
+          "y": 18,
+          "w": 88,
+          "h": 30
+        },
+        {
+          "action": "settingsSection:controls",
+          "x": 858,
+          "y": 18,
+          "w": 88,
+          "h": 30
+        },
+        {
+          "action": "adjust:music:-1",
+          "x": 330,
+          "y": 85,
+          "w": 32,
+          "h": 38
+        },
+        {
+          "action": "toggle:musicMuted",
+          "x": 366,
+          "y": 85,
+          "w": 68,
+          "h": 38
+        },
+        {
+          "action": "adjust:music:1",
+          "x": 438,
+          "y": 85,
+          "w": 32,
+          "h": 38
+        },
+        {
+          "action": "adjust:sfx:-1",
+          "x": 330,
+          "y": 137,
+          "w": 32,
+          "h": 38
+        },
+        {
+          "action": "toggle:sfxMuted",
+          "x": 366,
+          "y": 137,
+          "w": 68,
+          "h": 38
+        },
+        {
+          "action": "adjust:sfx:1",
+          "x": 438,
+          "y": 137,
+          "w": 32,
+          "h": 38
+        },
+        {
+          "action": "adjust:uiScale:-1",
+          "x": 330,
+          "y": 189,
+          "w": 32,
+          "h": 38
+        },
+        {
+          "action": "adjust:uiScale:1",
+          "x": 438,
+          "y": 189,
+          "w": 32,
+          "h": 38
+        },
+        {
+          "action": "toggle:autoAim",
+          "x": 398,
+          "y": 241,
+          "w": 72,
+          "h": 38
+        },
+        {
+          "action": "toggle:autoFire",
+          "x": 398,
+          "y": 293,
+          "w": 72,
+          "h": 38
+        },
+        {
+          "action": "toggle:screenShake",
+          "x": 398,
+          "y": 345,
+          "w": 72,
+          "h": 38
+        },
+        {
+          "action": "toggle:flashes",
+          "x": 398,
+          "y": 397,
+          "w": 72,
+          "h": 38
+        },
+        {
+          "action": "toggle:gamepadEnabled",
+          "x": 858,
+          "y": 85,
+          "w": 72,
+          "h": 38
+        },
+        {
+          "action": "toggle:gamepadVibration",
+          "x": 858,
+          "y": 137,
+          "w": 72,
+          "h": 38
+        },
+        {
+          "action": "toggle:gamepadDeadzone",
+          "x": 858,
+          "y": 189,
+          "w": 72,
+          "h": 38
+        },
+        {
+          "action": "toggle:showControlHints",
+          "x": 858,
+          "y": 241,
+          "w": 72,
+          "h": 38
+        },
+        {
+          "action": "toggle:showFps",
+          "x": 858,
+          "y": 293,
+          "w": 72,
+          "h": 38
+        },
+        {
+          "action": "toggle:introAnimation",
+          "x": 858,
+          "y": 345,
+          "w": 72,
+          "h": 38
+        },
+        {
+          "action": "replayStartup",
+          "x": 858,
+          "y": 397,
+          "w": 72,
+          "h": 38
+        },
+        {
+          "action": "fullscreen",
+          "x": 323,
+          "y": 489,
+          "w": 148,
+          "h": 34
+        },
+        {
+          "action": "back",
+          "x": 489,
+          "y": 489,
+          "w": 148,
+          "h": 34
+        }
+      ]
+    },
+    {
+      "menu": "main",
+      "width": 1920,
+      "height": 1080,
+      "actions": [
+        {
+          "action": "start",
+          "x": 96,
+          "y": 831,
+          "w": 501.12,
+          "h": 132
+        },
+        {
+          "action": "shop",
+          "x": 618.12,
+          "y": 831,
+          "w": 387.96000000000004,
+          "h": 132
+        },
+        {
+          "action": "settings",
+          "x": 1027.08,
+          "y": 831,
+          "w": 387.96000000000004,
+          "h": 132
+        },
+        {
+          "action": "credits",
+          "x": 1436.0400000000002,
+          "y": 831,
+          "w": 387.96000000000004,
+          "h": 132
+        }
+      ]
+    },
+    {
+      "menu": "loadout",
+      "width": 1920,
+      "height": 1080,
+      "actions": [
+        {
+          "action": "back",
+          "x": 1639.8000000000002,
+          "y": 46.5,
+          "w": 213,
+          "h": 72
+        },
+        {
+          "action": "inventory",
+          "x": 67.2,
+          "y": 900,
+          "w": 642.816,
+          "h": 147
+        },
+        {
+          "action": "stagePrev",
+          "x": 773.7360000000001,
+          "y": 239.055,
+          "w": 62.39,
+          "h": 62.39
+        },
+        {
+          "action": "stageNext",
+          "x": 1757.4100000000003,
+          "y": 239.055,
+          "w": 62.39,
+          "h": 62.39
+        },
+        {
+          "action": "modePrev",
+          "x": 773.7360000000001,
+          "y": 437.55499999999995,
+          "w": 62.39,
+          "h": 62.39
+        },
+        {
+          "action": "modeNext",
+          "x": 1757.4100000000003,
+          "y": 437.55499999999995,
+          "w": 62.39,
+          "h": 62.39
+        },
+        {
+          "action": "mapPrev",
+          "x": 773.7360000000001,
+          "y": 636.055,
+          "w": 62.39,
+          "h": 62.39
+        },
+        {
+          "action": "mapNext",
+          "x": 1757.4100000000003,
+          "y": 636.055,
+          "w": 62.39,
+          "h": 62.39
+        },
+        {
+          "action": "deploy",
+          "x": 740.7360000000001,
+          "y": 892.5,
+          "w": 1112.0639999999999,
+          "h": 102
+        }
+      ]
+    },
+    {
+      "menu": "main",
+      "width": 2560,
+      "height": 1440,
+      "actions": [
+        {
+          "action": "start",
+          "x": 128,
+          "y": 1108,
+          "w": 668.16,
+          "h": 176
+        },
+        {
+          "action": "shop",
+          "x": 824.16,
+          "y": 1108,
+          "w": 517.2800000000001,
+          "h": 176
+        },
+        {
+          "action": "settings",
+          "x": 1369.44,
+          "y": 1108,
+          "w": 517.2800000000001,
+          "h": 176
+        },
+        {
+          "action": "credits",
+          "x": 1914.7200000000003,
+          "y": 1108,
+          "w": 517.2800000000001,
+          "h": 176
+        }
+      ]
+    },
+    {
+      "menu": "shop",
+      "width": 2560,
+      "height": 1440,
+      "actions": [
+        {
+          "action": "back",
+          "x": 2216,
+          "y": 56,
+          "w": 268,
+          "h": 88
+        },
+        {
+          "action": "shopCategoryPrev",
+          "x": 60,
+          "y": 214,
+          "w": 72,
+          "h": 72
+        },
+        {
+          "action": "shopCategoryNext",
+          "x": 600,
+          "y": 214,
+          "w": 72,
+          "h": 72
+        },
+        {
+          "action": "buy:buy_swarm_smg",
+          "x": 1022,
+          "y": 550,
+          "w": 216,
+          "h": 72
+        },
+        {
+          "action": "buy:buy_rust_revolver",
+          "x": 2258,
+          "y": 550,
+          "w": 216,
+          "h": 72
+        },
+        {
+          "action": "buy:buy_breaker_shotgun",
+          "x": 1022,
+          "y": 916,
+          "w": 216,
+          "h": 72
+        },
+        {
+          "action": "buy:buy_ember_carbine",
+          "x": 2258,
+          "y": 916,
+          "w": 216,
+          "h": 72
+        },
+        {
+          "action": "buy:buy_needle_rifle",
+          "x": 1022,
+          "y": 1282,
+          "w": 216,
+          "h": 72
+        },
+        {
+          "action": "buy:buy_coil_cannon",
+          "x": 2258,
+          "y": 1282,
+          "w": 216,
+          "h": 72
+        }
+      ]
+    }
+  ],
+  "pageErrors": [],
+  "interaction": {
+    "disabledSettingPersists": true,
+    "keyboardMenuDeployPauseResume": true,
+    "mouseSkipDoesNotActivate": true,
+    "reducedMotionBypassesIntro": true,
+    "missingBackgroundExits": true,
+    "missingFallbackMs": 3279
+  },
+  "video": {
+    "bytes": 1445707,
+    "decoded": true,
+    "width": 1280,
+    "height": 720,
+    "seconds": 7
+  },
+  "limits": "Isolated Edge/browser checks, not physical gamepad or real WebView2 long-run acceptance."
+}

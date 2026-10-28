@@ -7,6 +7,7 @@ const { UI_COLORS } = require("./ui/theme");
 const { drawEchoMark, sectionPlate } = require("./ui/art-primitives");
 const { drawFieldPlate, drawTextScrim } = require("./ui/field-surfaces");
 const { formatTime } = require("./format");
+const { surface, paperClip } = require("./ui/radio-materials");
 const { TUTORIAL_STEPS, currentTutorialStep, tutorialProgressRatio } = require("../core/tutorial");
 
 function wrapResultNote(value, maxChars) {
@@ -181,9 +182,8 @@ const HUD_METHODS = {
     const x = (this.width - w) / 2;
     const y = (this.height - h) / 2;
     drawTextScrim(this, x, y, w, h, { fill: "rgba(20,19,16,0.97)", accent: UI_COLORS.gold });
-    this.ctx.strokeStyle = "#766b59";
-    this.ctx.lineWidth = 1;
-    this.ctx.strokeRect(x + 0.5, y + 0.5, w - 1, h - 1);
+    surface(this.ctx, x, y, w, h, { raised: true, fill: "#232820" });
+    paperClip(this.ctx, x + w / 2 - 13, y + 6);
     drawEchoMark(this, x + 22, y + 18, UI_COLORS.gold, compact ? 0.7 : 0.9);
     this.displayText("行动暂停", x + 61, y + (compact ? 34 : 43), compact ? 26 : 34, PALETTE.white, "left");
     this.text("战场时间已冻结", x + 24, y + (compact ? 66 : 80), compact ? 11 : 14, PALETTE.muted, "left", "700");
@@ -213,9 +213,8 @@ const HUD_METHODS = {
     const inset = compact ? 18 : 28 * visualScale;
     const accent = won ? PALETTE.cyan : PALETTE.rust;
     drawTextScrim(this, x, y, w, h, { fill: "rgba(19,18,15,0.98)", accent });
-    this.ctx.strokeStyle = "#766b59";
-    this.ctx.lineWidth = 1;
-    this.ctx.strokeRect(x + 0.5, y + 0.5, w - 1, h - 1);
+    surface(this.ctx, x, y, w, h, { raised: true, fill: "#232820" });
+    paperClip(this.ctx, x + w / 2 - 13, y + 6);
     drawEchoMark(this, x + inset, y + (compact ? 15 : 18 * visualScale), accent, compact ? 0.72 : 0.9 * visualScale);
     const title = won ? run.rule === "extract" ? "撤离成功" : "坚守成功" : run.endless ? "尸潮压境" : "信号中断";
     this.displayText(title, x + inset + (compact ? 40 : 54 * visualScale), y + (compact ? 35 : 44 * visualScale), compact ? 27 : 37 * visualScale, accent, "left");
