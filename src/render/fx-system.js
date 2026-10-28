@@ -37,10 +37,11 @@ const FX_METHODS = {
         const weapon = this.content.get("weapons", event.weaponId, this.content.defaults.weapon);
         const aimX = Number.isFinite(event.aimX) ? event.aimX : player.lastAimX;
         const aimY = Number.isFinite(event.aimY) ? event.aimY : player.lastAimY;
-        const x = event.x + aimX * weapon.muzzleLength;
-        const y = event.y + aimY * weapon.muzzleLength;
+        const x = Number.isFinite(event.muzzleX) ? event.muzzleX : event.x + aimX * weapon.muzzleLength;
+        const y = Number.isFinite(event.muzzleY) ? event.muzzleY : event.y + aimY * weapon.muzzleLength;
         this.spawnBurst(x, y, weapon.color, weapon.muzzleParticles, 88, aimX, aimY);
-        this.spawnShell(event.x, event.y, weapon, aimX, aimY);
+        this.spawnShell(Number.isFinite(event.gripX) ? event.gripX : event.x,
+          Number.isFinite(event.gripY) ? event.gripY : event.y, weapon, aimX, aimY);
         this.spawnMuzzleFlash(x, y, weapon, aimX, aimY);
         this.weaponKick = Math.min(14, Math.max(this.weaponKick, weapon.recoil));
         this.cameraKick = Math.min(7, this.cameraKick + weapon.recoil * 0.32);

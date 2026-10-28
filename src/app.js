@@ -86,6 +86,7 @@ class GameApp {
     inputOptions.height = viewport.height;
     inputOptions.aimOriginX = viewport.aimOriginX;
     inputOptions.aimOriginY = viewport.aimOriginY;
+    inputOptions.aimScale = this.renderer.camera && this.renderer.camera.zoom || 1;
     inputOptions.now = time;
     this.inputManager.update(inputOptions);
     for (const rawCommand of this.inputManager.drainGamepadCommands()) {
@@ -131,6 +132,7 @@ class GameApp {
     inputOptions.height = viewport.height;
     inputOptions.aimOriginX = viewport.aimOriginX;
     inputOptions.aimOriginY = viewport.aimOriginY;
+    inputOptions.aimScale = this.renderer.camera && this.renderer.camera.zoom || 1;
     inputOptions.now = this.platform.now();
     this.inputManager.update(inputOptions);
   }

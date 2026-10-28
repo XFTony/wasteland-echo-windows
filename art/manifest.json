@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-10-27",
+  "updatedAt": "2026-10-28",
   "policy": {
     "deleteInactiveAssets": false,
     "runtimeCatalog": "src/render/art/asset-catalog.js",
@@ -414,7 +414,7 @@
     {
       "id": "actor.drifter.v1",
       "version": "1.5",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/actors/drifter-v1.webp",
       "archivePath": "art/generated/v1.5/source/drifter-v1-source.png",
       "width": 319,
@@ -428,7 +428,7 @@
     {
       "id": "actor.iron-colossus.v1",
       "version": "1.5",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/actors/iron-colossus-v1.webp",
       "archivePath": "art/generated/v1.5/source/iron-colossus-v1-source.png",
       "width": 493,
@@ -498,7 +498,7 @@
     {
       "id": "actor.runner.v1",
       "version": "1.5",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/actors/runner-v1.webp",
       "archivePath": "art/generated/v1.5/source/runner-v1-source.png",
       "width": 328,
@@ -512,7 +512,7 @@
     {
       "id": "actor.spitter.v1",
       "version": "1.5",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/actors/spitter-v1.webp",
       "archivePath": "art/generated/v1.5/source/spitter-v1-source.png",
       "width": 428,
@@ -526,7 +526,7 @@
     {
       "id": "actor.brute.v1",
       "version": "1.5",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/actors/brute-v1.webp",
       "archivePath": "art/generated/v1.5/source/brute-v1-source.png",
       "width": 490,
@@ -540,7 +540,7 @@
     {
       "id": "actor.screecher.v1",
       "version": "1.5",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/actors/screecher-v1.webp",
       "archivePath": "art/generated/v1.5/source/screecher-v1-source.png",
       "width": 366,
@@ -554,7 +554,7 @@
     {
       "id": "actor.crawler.v1",
       "version": "1.5",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/actors/crawler-v1.webp",
       "archivePath": "art/generated/v1.5/source/crawler-v1-source.png",
       "width": 512,
@@ -568,7 +568,7 @@
     {
       "id": "actor.warden.v1",
       "version": "1.5",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/actors/warden-v1.webp",
       "archivePath": "art/generated/v1.5/source/warden-v1-source.png",
       "width": 420,
@@ -1729,6 +1729,310 @@
       "sha256": "C32B23F061D0D172975811552F840D22D36FDC51FBFED0DD742271B11DD3AC2B",
       "generator": "Project native pixel source migration",
       "notes": "Independent cuffs.steel-test material; derived from existing registered compact sprites; cached composition; original default pixels preserved; not active main-game art."
+    },
+    {
+      "id": "actor.compact.ranger.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/ranger-body.webp",
+      "archivePath": "art/characters/ranger/compact-motion-v1/body-atlas.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-motion-v1/body-frames.aseprite"
+      ],
+      "width": 576,
+      "height": 64,
+      "bytes": 1806,
+      "sha256": "AF5FEC108E71611FE01EAC9F935A960E6854B2DAF56CF09D9D7D47FD1D0FA8F8",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "compact.part.cuffs.ranger-coat.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/cuffs-ranger-coat.webp",
+      "archivePath": "art/characters/cuff-sets/compact-v1/ranger-coat/poses.png",
+      "sourcePaths": [
+        "art/characters/cuff-sets/compact-v1/ranger-coat/poses.aseprite"
+      ],
+      "width": 57,
+      "height": 10,
+      "bytes": 248,
+      "sha256": "F1ABEAA5586CA86694D92366F0DF5D65C2C37ADFDDB029C8FBE6029E025C6C14",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "compact.part.hands.ranger-cloth.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/hands-ranger-cloth.webp",
+      "archivePath": "art/characters/hand-sets/compact-v1/ranger-cloth/poses.png",
+      "sourcePaths": [
+        "art/characters/hand-sets/compact-v1/ranger-cloth/poses.aseprite"
+      ],
+      "width": 109,
+      "height": 9,
+      "bytes": 380,
+      "sha256": "8C289F4ED8A4D1AE0DA787A3F5EC47DCFD38F03366D791E890C6C0E4BCCD6735",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "compact.part.weapon.breaker_shotgun.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/weapon-breaker-shotgun.webp",
+      "archivePath": "art/weapons/compact-modular-v1/breaker_shotgun/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/breaker_shotgun/weapon-base.aseprite"
+      ],
+      "width": 48,
+      "height": 22,
+      "bytes": 306,
+      "sha256": "BE3B9949529995D5C478F9B729D206AD9E2BC877DFF8461FB907CB3581F6FBAB",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "compact.part.weapon.coil_cannon.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/weapon-coil-cannon.webp",
+      "archivePath": "art/weapons/compact-modular-v1/coil_cannon/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/coil_cannon/weapon-base.aseprite"
+      ],
+      "width": 50,
+      "height": 28,
+      "bytes": 436,
+      "sha256": "26B99CD7EE8E96FA12070C006372428B975CB2D7B22BA1F389EE395F1E0DE970",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "compact.part.weapon.ember_carbine.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/weapon-ember-carbine.webp",
+      "archivePath": "art/weapons/compact-modular-v1/ember_carbine/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/ember_carbine/weapon-base.aseprite"
+      ],
+      "width": 46,
+      "height": 22,
+      "bytes": 312,
+      "sha256": "62344F015B355D45D15746BA8553804834F01FE474EAC552AE3E2C36CFFD82FE",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "compact.part.weapon.needle_rifle.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/weapon-needle-rifle.webp",
+      "archivePath": "art/weapons/compact-modular-v1/needle_rifle/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/needle_rifle/weapon-base.aseprite"
+      ],
+      "width": 52,
+      "height": 22,
+      "bytes": 278,
+      "sha256": "1BE14572BE1F059EC922DDC6539242A465C0E9CF183F2754F4B0324392F803F2",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "compact.part.weapon.rust_revolver.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/weapon-rust-revolver.webp",
+      "archivePath": "art/weapons/compact-modular-v1/rust_revolver/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/rust_revolver/weapon-base.aseprite"
+      ],
+      "width": 38,
+      "height": 22,
+      "bytes": 332,
+      "sha256": "C660079EE1B4EEEF43A17B32E60AC65CEA3610F969BD7A778DBA553841EE2732",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "compact.part.weapon.scrap_pistol.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/weapon-scrap-pistol.webp",
+      "archivePath": "art/weapons/compact-modular-v1/scrap_pistol/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/scrap_pistol/weapon-base.aseprite"
+      ],
+      "width": 36,
+      "height": 20,
+      "bytes": 248,
+      "sha256": "BAB0E0706A27BC86D254F408DB25C855127F2C384D7217237B444111FE9B96A4",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "compact.part.weapon.swarm_smg.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/weapon-swarm-smg.webp",
+      "archivePath": "art/weapons/compact-modular-v1/swarm_smg/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/swarm_smg/weapon-base.aseprite"
+      ],
+      "width": 40,
+      "height": 22,
+      "bytes": 280,
+      "sha256": "17DA58DE487F3D3EE6EDF459659452938300605EE501D6F908F903A695ACA272",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "actor.compact.drifter.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/drifter-atlas.webp",
+      "archivePath": "art/enemies/compact-v1/drifter-atlas.png",
+      "sourcePaths": [
+        "art/enemies/compact-v1/drifter.aseprite",
+        "art/enemies/compact-v1/source/drifter-walk.png",
+        "art/enemies/compact-v1/source/generation-record.json"
+      ],
+      "width": 512,
+      "height": 64,
+      "bytes": 2908,
+      "sha256": "B81681CF22BB8FE712792ACD8BA2F080A5A7361CA3998ABDCD8C2078558E962A",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "actor.compact.runner.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/runner-atlas.webp",
+      "archivePath": "art/enemies/compact-v1/runner-atlas.png",
+      "sourcePaths": [
+        "art/enemies/compact-v1/runner.aseprite",
+        "art/enemies/compact-v1/source/runner-walk.png",
+        "art/enemies/compact-v1/source/generation-record.json"
+      ],
+      "width": 512,
+      "height": 64,
+      "bytes": 2712,
+      "sha256": "6A5002F1EF2412866A385ABC88985BD72102B2D331034CB2221B0608BF4EE6B6",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "actor.compact.spitter.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/spitter-atlas.webp",
+      "archivePath": "art/enemies/compact-v1/spitter-atlas.png",
+      "sourcePaths": [
+        "art/enemies/compact-v1/spitter.aseprite",
+        "art/enemies/compact-v1/source/spitter-walk.png",
+        "art/enemies/compact-v1/source/generation-record.json"
+      ],
+      "width": 512,
+      "height": 64,
+      "bytes": 3866,
+      "sha256": "62632393F47806A26392E4AB15FAF883C8F3650B11DCF144B5786F7DBCCF71DC",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "actor.compact.brute.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/brute-atlas.webp",
+      "archivePath": "art/enemies/compact-v1/brute-atlas.png",
+      "sourcePaths": [
+        "art/enemies/compact-v1/brute.aseprite",
+        "art/enemies/compact-v1/source/brute-walk.png",
+        "art/enemies/compact-v1/source/generation-record.json"
+      ],
+      "width": 640,
+      "height": 80,
+      "bytes": 6068,
+      "sha256": "B2A9A66134B29C802CA487DFBF061C60DE3AADD67548D046696068C94EF04229",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "actor.compact.screecher.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/screecher-atlas.webp",
+      "archivePath": "art/enemies/compact-v1/screecher-atlas.png",
+      "sourcePaths": [
+        "art/enemies/compact-v1/screecher.aseprite",
+        "art/enemies/compact-v1/source/screecher-walk.png",
+        "art/enemies/compact-v1/source/generation-record.json"
+      ],
+      "width": 512,
+      "height": 64,
+      "bytes": 3678,
+      "sha256": "9C70391684B1C5ED236D2B98F4B9D9B039D22EEC854E6CC20DD6DD132CF839BA",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "actor.compact.crawler.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/crawler-atlas.webp",
+      "archivePath": "art/enemies/compact-v1/crawler-atlas.png",
+      "sourcePaths": [
+        "art/enemies/compact-v1/crawler.aseprite",
+        "art/enemies/compact-v1/source/crawler-walk.png",
+        "art/enemies/compact-v1/source/generation-record.json"
+      ],
+      "width": 512,
+      "height": 64,
+      "bytes": 2364,
+      "sha256": "4E185C8DB2BA808F604AC4AC5892454C0A77C1004A180ED1DDB2167A98334C2F",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "actor.compact.warden.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/warden-atlas.webp",
+      "archivePath": "art/enemies/compact-v1/warden-atlas.png",
+      "sourcePaths": [
+        "art/enemies/compact-v1/warden.aseprite",
+        "art/enemies/compact-v1/source/warden-walk.png",
+        "art/enemies/compact-v1/source/generation-record.json"
+      ],
+      "width": 640,
+      "height": 80,
+      "bytes": 6438,
+      "sha256": "ACB6422F79C756CEE85DD07BCDF56EFCEAA110B762F22418C72746022C718793",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "actor.compact.iron_colossus.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/iron_colossus-atlas.webp",
+      "archivePath": "art/enemies/compact-v1/iron_colossus-atlas.png",
+      "sourcePaths": [
+        "art/enemies/compact-v1/iron_colossus.aseprite",
+        "art/enemies/compact-v1/source/iron_colossus-walk.png",
+        "art/enemies/compact-v1/source/generation-record.json"
+      ],
+      "width": 768,
+      "height": 96,
+      "bytes": 12854,
+      "sha256": "4268795312BBB0525BD4403FEEC4BEB70DF2914585D9E830152FFD2CB99FE647",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
     }
   ]
 }

@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-28",
+  "kind": "internal-playtest",
+  "branch": "codex/compact-enemies-live",
+  "sourceBase": "d434a0552ed9ccd2b6ce98a7a7d61874b41b917c",
+  "sourceWorktreeIncludesCurrentChanges": true,
+  "version": "1.5.0-alpha.1",
+  "file": "output/compact-enemies-2026-10-28/windows/WastelandEcho-v1.5.0-alpha.1-win-x64.exe",
+  "bytes": 17291264,
+  "sha256": "95D964C4C662CCFB3EA4A2E1032E96219D0F29B9440DDFC75E54C13805F300E7",
+  "bundleSha256": "F1A2990EF3E31694E7416B4885A74113B2C3299F2229688DF9D4DE27530D88E0",
+  "runtimeManifestSha256": "0CAEF6D430CE1371BEB7AC1DD00F9C700F19706D6738AA783A66A28EE1490639",
+  "runtimePayloadBytes": 9349078,
+  "activeCompactTextureBytes": 45514,
+  "allCompactTextureRGBABytes": 1541724,
+  "automatedTests": 248,
+  "browserDirectionCases": 56,
+  "nativeGameLaunchVerified": false,
+  "realWebView2LongRunVerified": false,
+  "physicalGamepadVerified": false,
+  "publicReleaseCreated": false,
+  "tagCreated": false
+}

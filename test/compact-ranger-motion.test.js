@@ -9,7 +9,8 @@ const near = (a, b, epsilon = 1e-8) => assert.ok(Math.abs(a - b) < epsilon, `${a
 
 test("offline motion exposes CommonJS and browser UMD without DOM dependencies", () => {
   const context = { Math, Number, Object, Boolean, Infinity };
-  vm.runInNewContext(fs.readFileSync(require.resolve("../scripts/animation/compact-ranger-motion"), "utf8"), context);
+  vm.runInNewContext(fs.readFileSync(require.resolve("../src/shared/compact-ranger-motion"), "utf8"), context);
+  assert.equal(Motion, require("../src/shared/compact-ranger-motion"));
   for (const name of ["createState", "step", "pose", "draw", "setAimAngle"]) assert.equal(typeof context.CompactRangerMotion[name], "function");
 });
 

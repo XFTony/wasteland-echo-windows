@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-28",
+  "enemies": {
+    "drifter": {
+      "distinctFrames": 8,
+      "canvas": 64,
+      "root": [
+        32,
+        56
+      ],
+      "runtimeBytes": 2908,
+      "hashesMatch": true
+    },
+    "runner": {
+      "distinctFrames": 8,
+      "canvas": 64,
+      "root": [
+        32,
+        56
+      ],
+      "runtimeBytes": 2712,
+      "hashesMatch": true
+    },
+    "spitter": {
+      "distinctFrames": 8,
+      "canvas": 64,
+      "root": [
+        32,
+        56
+      ],
+      "runtimeBytes": 3866,
+      "hashesMatch": true
+    },
+    "brute": {
+      "distinctFrames": 8,
+      "canvas": 80,
+      "root": [
+        40,
+        70
+      ],
+      "runtimeBytes": 6068,
+      "hashesMatch": true
+    },
+    "screecher": {
+      "distinctFrames": 8,
+      "canvas": 64,
+      "root": [
+        32,
+        56
+      ],
+      "runtimeBytes": 3678,
+      "hashesMatch": true
+    },
+    "crawler": {
+      "distinctFrames": 8,
+      "canvas": 64,
+      "root": [
+        32,
+        56
+      ],
+      "runtimeBytes": 2364,
+      "hashesMatch": true
+    },
+    "warden": {
+      "distinctFrames": 8,
+      "canvas": 80,
+      "root": [
+        40,
+        70
+      ],
+      "runtimeBytes": 6438,
+      "hashesMatch": true
+    },
+    "iron_colossus": {
+      "distinctFrames": 8,
+      "canvas": 96,
+      "root": [
+        48,
+        84
+      ],
+      "runtimeBytes": 12854,
+      "hashesMatch": true
+    }
+  },
+  "runtimeBytes": 40888,
+  "decodedRGBABytes": 1359872,
+  "method": "native exporter verifies distinct poses, canvas, source export and exact lossless runtime pixels; file hashes rechecked at delivery"
+}

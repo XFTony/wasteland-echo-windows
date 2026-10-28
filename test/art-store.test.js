@@ -62,7 +62,14 @@ test("every base hero, enemy, weapon, outfit and equipment resolves to registere
   assert.deepEqual(Object.keys(SKIN_ART).sort(), Object.keys(SKINS).sort());
   assert.deepEqual(Object.keys(EQUIPMENT_ART).sort(), Object.keys(EQUIPMENT).sort());
   assert.deepEqual(Object.keys(MAP_GROUND_ART).sort(), Object.keys(MAPS).sort());
-  for (const id of [...Object.values(HERO_SKIN_ART).map((skins) => skins.wanderer), ...Object.values(ENEMY_ART), ...Object.values(WEAPON_ART), ...Object.values(SKIN_ART), ...Object.values(EQUIPMENT_ART), ...Object.values(MAP_GROUND_ART)]) {
+  for (const id of Object.values(ENEMY_ART)) {
+    assert.equal(ART_ASSETS[id].active, false, "retired illustrated enemies stay archived");
+    assert.equal(ART_ASSETS[id].group, "legacy");
+    assert.ok(fs.existsSync(path.join(root, "web", ART_ASSETS[id].src.slice(2))));
+  }
+  const { ENEMY_SPRITES } = require("../src/content/compact-actors");
+  assert.deepEqual(Object.keys(ENEMY_SPRITES).sort(), Object.keys(ENEMIES).sort());
+  for (const id of [...Object.values(ENEMY_SPRITES).map(enemy => enemy.assetId), ...Object.values(HERO_SKIN_ART).map((skins) => skins.wanderer), ...Object.values(WEAPON_ART), ...Object.values(SKIN_ART), ...Object.values(EQUIPMENT_ART), ...Object.values(MAP_GROUND_ART)]) {
     assert.equal(ART_ASSETS[id].active, true, `${id} must be active`);
     assert.ok(fs.existsSync(path.join(root, "web", ART_ASSETS[id].src.slice(2))), `${id} runtime sprite must exist`);
   }

@@ -23,6 +23,7 @@ const { MENU_METHODS } = require("./menu-pages");
 const { drawMenuPage } = require("./menu-view");
 const { hash2 } = require("./render-hash");
 const { formatTime } = require("./format");
+const { CompactActorView } = require("./compact-actors");
 
 const FONT_STACKS = Object.freeze({
   ui: '"Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif',
@@ -77,6 +78,7 @@ class CanvasRenderer {
     this.lastScreen = null;
     this.screenEnteredFrame = 0;
     this.artStore = options.artStore || createDefaultArtStore();
+    this.compactActors = new CompactActorView({ canvasFactory: options.canvasFactory });
     this.groundTexture = this.artStore.get(ART_IDS.GROUND);
     this.paintedGround = false;
     this.coverArt = this.artStore.get(ART_IDS.TITLE_KEY_ART);
@@ -209,7 +211,11 @@ class CanvasRenderer {
         this.activeMenuBackdrop = null;
       }
       if (model.screen === "menu") {
+        this.compactActors.clear();
         if (typeof this.artStore.releaseGroup === "function") {
+          this.artStore.releaseGroup("compact-actors");
+          this.artStore.releaseGroup("compact-enemies");
+          this.artStore.releaseGroup("compact-parts");
           this.artStore.releaseGroup("world", ART_IDS.GROUND);
           this.artStore.releaseGroup("world-props");
           this.artStore.releaseGroup("combat-actors");

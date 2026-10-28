@@ -1,6 +1,9 @@
 "use strict";
 
+const { COMPACT_IDS, COMPACT_ASSETS } = require("./compact-asset-catalog");
+
 const ART_IDS = Object.freeze({
+  ...COMPACT_IDS,
   GROUND: "world.ground.v1",
   GROUND_ECHO: "world.ground.echo.v1",
   GROUND_FREIGHT: "world.ground.freight.v1",
@@ -69,14 +72,21 @@ const MAP_GROUND_ART = Object.freeze({
   red_basin: ART_IDS.GROUND_RED_BASIN
 });
 
+const RETIRED_ENEMY_ART = new Set([
+  ART_IDS.ACTOR_DRIFTER, ART_IDS.ACTOR_RUNNER, ART_IDS.ACTOR_SPITTER,
+  ART_IDS.ACTOR_BRUTE, ART_IDS.ACTOR_SCREECHER, ART_IDS.ACTOR_CRAWLER,
+  ART_IDS.ACTOR_WARDEN, ART_IDS.ACTOR_IRON_COLOSSUS
+]);
+
 function asset(id, src, group, options = {}) {
+  const retired = RETIRED_ENEMY_ART.has(id);
   return Object.freeze({
     id,
     src,
-    group,
+    group: retired ? "legacy" : group,
     version: options.version || "1.0",
     optional: options.optional !== false,
-    active: options.active !== false,
+    active: !retired && options.active !== false,
     eager: options.eager === true,
     nineSlice: options.nineSlice ? Object.freeze({ ...options.nineSlice }) : null,
     notes: options.notes || ""
@@ -84,6 +94,7 @@ function asset(id, src, group, options = {}) {
 }
 
 const ART_ASSETS = Object.freeze({
+  ...COMPACT_ASSETS,
   [ART_IDS.GROUND]: asset(ART_IDS.GROUND, "./assets/wasteland-ground-texture-v1.webp", "world", {
     eager: true, notes: "Legacy shared ground until every map has a painted material."
   }),

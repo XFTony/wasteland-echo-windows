@@ -235,14 +235,20 @@ test("nearest-target lock takes priority while automatic aim is enabled", () => 
   model.spawnEnemy("drifter", model.run.player.x + 100, model.run.player.y);
   model.setInput({ aimX: 0, aimY: -1, aimActive: true, firing: false });
   model.updatePlayer(0);
-  assert.ok(model.run.player.lastAimX > 0.99);
-  assert.ok(Math.abs(model.run.player.lastAimY) < 0.01);
+  const assertMuzzleRay = () => {
+    const player = model.run.player, target = model.enemies[0];
+    const pose = require("../src/core/compact-weapon-pose").compactShotPose(player, player.lastAimX, player.lastAimY);
+    const dx = target.x - pose.muzzleX, dy = target.y - pose.muzzleY;
+    assert.ok(Math.abs(dx * player.lastAimY - dy * player.lastAimX) < 0.001,
+      "automatic aim must pass through the hostile from the actual offset muzzle");
+    assert.ok(dx * player.lastAimX + dy * player.lastAimY > 0);
+  };
+  assertMuzzleRay();
   assert.equal(model.run.player.aimTargetId, model.enemies[0].id);
 
   model.setInput({ aimX: 0, aimY: -1, aimActive: false, firing: false });
   model.updatePlayer(0);
-  assert.ok(model.run.player.lastAimX > 0.99);
-  assert.ok(Math.abs(model.run.player.lastAimY) < 0.01);
+  assertMuzzleRay();
 
   model.save.settings.autoAim = false;
   model.setInput({ aimX: 0, aimY: -1, aimActive: true, firing: false });
@@ -288,8 +294,11 @@ test("automatic aim locks and fires only at the nearest enemy inside weapon rang
   model.updatePlayer(0);
   assert.equal(model.run.player.aimTargetId, nearest.id);
   assert.notEqual(model.run.player.aimTargetId, outside.id);
-  assert.ok(model.run.player.lastAimX > 0.97);
-  assert.ok(model.run.player.lastAimY > 0.17 && model.run.player.lastAimY < 0.25);
+  const shot = model.projectiles[0];
+  const dx = nearest.x - shot.x, dy = nearest.y - shot.y;
+  assert.ok(Math.abs(dx * shot.vy - dy * shot.vx) < 0.001,
+    "the live projectile ray must reach the selected target from the held muzzle");
+  assert.ok(dx * shot.vx + dy * shot.vy > 0);
   assert.equal(model.projectiles.length, 1);
 });
 

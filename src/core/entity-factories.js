@@ -50,6 +50,8 @@ function makeProjectile() {
     owner: "player",
     sourceType: null,
     sourceRole: null,
+    barrelStartX: null,
+    barrelStartY: null,
     critical: false,
     hitIds: new Set()
   };
@@ -60,6 +62,8 @@ function resetProjectile(item, values) {
   item.critical = Boolean(values.critical);
   item.sourceType = values.sourceType || null;
   item.sourceRole = values.sourceRole || null;
+  item.barrelStartX = Number.isFinite(values.barrelStartX) ? values.barrelStartX : null;
+  item.barrelStartY = Number.isFinite(values.barrelStartY) ? values.barrelStartY : null;
   item.hitIds.clear();
 }
 

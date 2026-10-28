@@ -2,6 +2,7 @@
 
 const { clamp, distanceSq, circleRectPushOut } = require("./math");
 const { profileFor, computeEnemySteering } = require("./enemy-brain");
+const { compactShotPose } = require("./compact-weapon-pose");
 
 const EPSILON = 0.00000001;
 const ENEMY_SEPARATION_ITERATIONS = 2;
@@ -32,6 +33,7 @@ class CombatSim {
     const mechanic = host.mechanicSystem.beforeShot(run, weapon, targetDistance);
     const count = weapon.projectileCount + player.projectileBonus;
     const baseAngle = Math.atan2(aimY, aimX);
+    const compact = compactShotPose(player, aimX, aimY);
     const spreadRadians = (weapon.spread * Math.PI) / 180;
     const projectileSpeed = weapon.projectileSpeed * player.projectileSpeedMultiplier * mechanic.projectileSpeedMultiplier;
     const projectileTtl = weapon.ttl * player.projectileRangeMultiplier;
@@ -47,8 +49,10 @@ class CombatSim {
       const critical = mechanic.forceCritical || (player.criticalChance > 0 && host.random.next() < player.criticalChance);
       const projectile = host.projectilePool.acquire({
         id: host.entityId++,
-        x: player.x + directionX * 14,
-        y: player.y + directionY * 14,
+        x: compact ? compact.muzzleX : player.x + directionX * 14,
+        y: compact ? compact.muzzleY : player.y + directionY * 14,
+        barrelStartX: compact ? compact.anchorX - aimX * player.radius : null,
+        barrelStartY: compact ? compact.anchorY - aimY * player.radius : null,
         vx: directionX * projectileSpeed,
         vy: directionY * projectileSpeed,
         radius: baseRadius + player.projectileRadiusBonus + mechanic.radiusBonus,
@@ -68,7 +72,9 @@ class CombatSim {
     host.progressTutorial("fire", 1);
     host.mechanicSystem.afterShot(run);
     player.weaponCooldown = weapon.interval / player.fireRateMultiplier;
-    host.emit("shot", { weaponId: weapon.id, x: player.x, y: player.y, aimX, aimY });
+    host.emit("shot", { weaponId: weapon.id, x: player.x, y: player.y, aimX, aimY,
+      muzzleX: compact ? compact.muzzleX : null, muzzleY: compact ? compact.muzzleY : null,
+      gripX: compact ? compact.anchorX : null, gripY: compact ? compact.anchorY : null });
     if (mechanic.procLabel) {
       host.emit("mechanicProc", { mechanicId: weapon.mechanicId, label: mechanic.procLabel, x: player.x, y: player.y, hits: 0 });
     }
@@ -325,6 +331,10 @@ class CombatSim {
     const host = this.host;
     for (const projectile of host.projectiles) {
       if (!projectile.active) continue;
+      const barrelX = projectile.barrelStartX;
+      const barrelY = projectile.barrelStartY;
+      projectile.barrelStartX = null;
+      projectile.barrelStartY = null;
       projectile.x += projectile.vx * dt;
       projectile.y += projectile.vy * dt;
       projectile.ttl -= dt;
@@ -336,12 +346,23 @@ class CombatSim {
         host.projectilePool.release(projectile);
         continue;
       }
-      const candidates = host.enemyGrid.queryCircle(projectile.x, projectile.y, 40, host.collisionCandidates);
+      const barrelSweep = Number.isFinite(barrelX) && Number.isFinite(barrelY);
+      const queryX = barrelSweep ? (barrelX + projectile.x) / 2 : projectile.x;
+      const queryY = barrelSweep ? (barrelY + projectile.y) / 2 : projectile.y;
+      const queryRadius = barrelSweep ? Math.hypot(projectile.x - barrelX, projectile.y - barrelY) / 2 + 40 : 40;
+      const candidates = host.enemyGrid.queryCircle(queryX, queryY, queryRadius, host.collisionCandidates);
       for (let index = 0; index < candidates.length; index += 1) {
         const enemy = candidates[index];
         if (!enemy.active || projectile.hitIds.has(enemy.id)) continue;
         const hitRadius = projectile.radius + enemy.radius;
-        if (distanceSq(projectile.x, projectile.y, enemy.x, enemy.y) <= hitRadius * hitRadius) {
+        let hit = distanceSq(projectile.x, projectile.y, enemy.x, enemy.y) <= hitRadius * hitRadius;
+        if (!hit && barrelSweep) {
+          const dx = projectile.x - barrelX, dy = projectile.y - barrelY;
+          const lengthSq = dx * dx + dy * dy;
+          const t = lengthSq > EPSILON ? clamp(((enemy.x - barrelX) * dx + (enemy.y - barrelY) * dy) / lengthSq, 0, 1) : 0;
+          hit = distanceSq(barrelX + dx * t, barrelY + dy * t, enemy.x, enemy.y) <= hitRadius * hitRadius;
+        }
+        if (hit) {
           projectile.hitIds.add(enemy.id);
           this.damageEnemy(enemy, projectile.damage, projectile);
           if (projectile.pierce <= 0) {

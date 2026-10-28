@@ -47,6 +47,7 @@ const { UnlockSystem } = require("./unlock-system");
 const { MasterySystem } = require("./mastery-system");
 
 const NORMALIZE_EPSILON = 0.00000001;
+const { compactAimAt } = require("./compact-weapon-pose");
 const NAVIGATION_REFRESH_SECONDS = 0.35;
 function getWeaponLockRange(weapon, rangeMultiplier = 1) {
   const configured = Number(weapon && weapon.lockRange);
@@ -637,6 +638,15 @@ class GameModel {
       aimY = player.lastAimY;
     }
     player.aimTargetId = target ? target.id : null;
+    if (target && hasAim) {
+      const corrected = compactAimAt(player, target);
+      if (corrected) { aimX = corrected.x; aimY = corrected.y; }
+    } else if (!this.save.settings.autoAim && hasAim && input.aimActive &&
+        input.aimX * input.aimX + input.aimY * input.aimY > 1.0001) {
+      // Mouse vectors retain world distance; sticks retain unit direction.
+      const corrected = compactAimAt(player, { x: player.x + input.aimX, y: player.y + input.aimY });
+      if (corrected) { aimX = corrected.x; aimY = corrected.y; }
+    }
     if (hasAim) {
       player.lastAimX = aimX;
       player.lastAimY = aimY;

@@ -3,6 +3,7 @@
 const { UI_COLORS } = require("./theme");
 const { WEAPON_ART } = require("../illustrated-actors");
 const { ART_IDS } = require("../art/asset-catalog");
+const { PART_ASSETS } = require("../../content/compact-actors");
 
 const SKIN_ART = Object.freeze({
   wanderer: ART_IDS.OUTFIT_WANDERER,
@@ -271,6 +272,17 @@ function drawEquipmentIcon(ctx, item, x, y, size, accent = UI_COLORS.green) {
 function drawGrantIcon(renderer, grantType, grantId, x, y, size, accent) {
   if (grantType === "weapon") {
     const weapon = renderer.content.get("weapons", grantId, renderer.content.defaults.weapon);
+    const compactId = PART_ASSETS['weapon.' + weapon.id];
+    if (compactId && renderer.artStore && renderer.artStore.ready(compactId)) {
+      const image = renderer.artStore.get(compactId);
+      const scale = Math.min(size * 0.95 / image.naturalWidth, size * 0.72 / image.naturalHeight);
+      renderer.ctx.save();
+      renderer.ctx.imageSmoothingEnabled = false;
+      renderer.ctx.drawImage(image, x - image.naturalWidth * scale / 2, y - image.naturalHeight * scale / 2,
+        image.naturalWidth * scale, image.naturalHeight * scale);
+      renderer.ctx.restore();
+      return;
+    }
     const artId = WEAPON_ART[weapon.id];
     if (artId && renderer.artStore && renderer.artStore.ready(artId)) {
       const image = renderer.artStore.get(artId);

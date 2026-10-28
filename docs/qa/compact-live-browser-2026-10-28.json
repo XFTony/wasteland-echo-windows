@@ -1,0 +1,1356 @@
+{
+  "date": "2026-10-28",
+  "scenes": [
+    {
+      "mapId": "echo_district",
+      "hero": {
+        "playerIntegrated": true,
+        "enemies": 8,
+        "gripCache": {
+          "builds": 1,
+          "hits": 1,
+          "evictions": 0,
+          "entries": 1,
+          "limit": 8,
+          "bytes": 2880
+        },
+        "lastDraw": {
+          "heroId": "ranger",
+          "weaponId": "scrap_pistol",
+          "frame": 0,
+          "phase": 0,
+          "walking": false,
+          "worldX": 1536,
+          "worldY": 1536,
+          "muzzleX": 1576.5,
+          "muzzleY": 1512
+        }
+      },
+      "enemyTypes": [
+        "drifter",
+        "runner",
+        "spitter",
+        "brute",
+        "screecher",
+        "crawler",
+        "warden",
+        "iron_colossus"
+      ],
+      "loaded": [
+        "world.ground.v1",
+        "cover.survivor.v3",
+        "ui.field-plate.v2",
+        "compact.part.weapon.scrap_pistol.v1",
+        "weapon.scrap-pistol.v1",
+        "actor.compact.ranger.v1",
+        "compact.part.hands.ranger-cloth.v1",
+        "compact.part.cuffs.ranger-coat.v1",
+        "world.ground.echo.v1",
+        "actor.compact.drifter.v1",
+        "actor.compact.runner.v1",
+        "actor.compact.spitter.v1",
+        "actor.compact.brute.v1",
+        "actor.compact.screecher.v1",
+        "actor.compact.crawler.v1",
+        "actor.compact.warden.v1",
+        "actor.compact.iron_colossus.v1",
+        "world.prop.echo.railcar.v1",
+        "world.prop.echo.container.v1",
+        "world.prop.echo.apothecary-roof.v1",
+        "world.prop.echo.shop-roof.v1"
+      ]
+    },
+    {
+      "mapId": "freight_nexus",
+      "hero": {
+        "playerIntegrated": true,
+        "enemies": 8,
+        "gripCache": {
+          "builds": 1,
+          "hits": 2,
+          "evictions": 0,
+          "entries": 1,
+          "limit": 8,
+          "bytes": 2880
+        },
+        "lastDraw": {
+          "heroId": "ranger",
+          "weaponId": "scrap_pistol",
+          "frame": 0,
+          "phase": 0,
+          "walking": false,
+          "worldX": 1792,
+          "worldY": 1792,
+          "muzzleX": 1832.5,
+          "muzzleY": 1768
+        }
+      },
+      "enemyTypes": [
+        "drifter",
+        "runner",
+        "spitter",
+        "brute",
+        "screecher",
+        "crawler",
+        "warden",
+        "iron_colossus"
+      ],
+      "loaded": [
+        "world.ground.v1",
+        "cover.survivor.v3",
+        "ui.field-plate.v2",
+        "compact.part.weapon.scrap_pistol.v1",
+        "weapon.scrap-pistol.v1",
+        "actor.compact.ranger.v1",
+        "compact.part.hands.ranger-cloth.v1",
+        "compact.part.cuffs.ranger-coat.v1",
+        "actor.compact.drifter.v1",
+        "actor.compact.runner.v1",
+        "actor.compact.spitter.v1",
+        "actor.compact.brute.v1",
+        "actor.compact.screecher.v1",
+        "actor.compact.crawler.v1",
+        "actor.compact.warden.v1",
+        "actor.compact.iron_colossus.v1",
+        "world.ground.freight.v1"
+      ]
+    },
+    {
+      "mapId": "red_basin",
+      "hero": {
+        "playerIntegrated": true,
+        "enemies": 8,
+        "gripCache": {
+          "builds": 1,
+          "hits": 3,
+          "evictions": 0,
+          "entries": 1,
+          "limit": 8,
+          "bytes": 2880
+        },
+        "lastDraw": {
+          "heroId": "ranger",
+          "weaponId": "scrap_pistol",
+          "frame": 0,
+          "phase": 0,
+          "walking": false,
+          "worldX": 2048,
+          "worldY": 2048,
+          "muzzleX": 2088.5,
+          "muzzleY": 2024
+        }
+      },
+      "enemyTypes": [
+        "drifter",
+        "runner",
+        "spitter",
+        "brute",
+        "screecher",
+        "crawler",
+        "warden",
+        "iron_colossus"
+      ],
+      "loaded": [
+        "world.ground.v1",
+        "cover.survivor.v3",
+        "ui.field-plate.v2",
+        "compact.part.weapon.scrap_pistol.v1",
+        "weapon.scrap-pistol.v1",
+        "actor.compact.ranger.v1",
+        "compact.part.hands.ranger-cloth.v1",
+        "compact.part.cuffs.ranger-coat.v1",
+        "actor.compact.drifter.v1",
+        "actor.compact.runner.v1",
+        "actor.compact.spitter.v1",
+        "actor.compact.brute.v1",
+        "actor.compact.screecher.v1",
+        "actor.compact.crawler.v1",
+        "actor.compact.warden.v1",
+        "actor.compact.iron_colossus.v1",
+        "world.ground.red-basin.v1"
+      ]
+    }
+  ],
+  "directionCases": 56,
+  "directions": [
+    {
+      "weaponId": "scrap_pistol",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "scrap_pistol",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1576.126705932317,
+        "muzzleY": 1516.8765477383117
+      },
+      "shot": {
+        "x": 1576.126705932317,
+        "y": 1516.8765477383117
+      },
+      "delta": 0,
+      "direction": 0
+    },
+    {
+      "weaponId": "scrap_pistol",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "scrap_pistol",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1561.7261628640895,
+        "muzzleY": 1539.8041054865719
+      },
+      "shot": {
+        "x": 1561.7261628640895,
+        "y": 1539.8041054865719
+      },
+      "delta": 0,
+      "direction": 1
+    },
+    {
+      "weaponId": "scrap_pistol",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "scrap_pistol",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1536,
+        "muzzleY": 1548
+      },
+      "shot": {
+        "x": 1536,
+        "y": 1548
+      },
+      "delta": 0,
+      "direction": 2
+    },
+    {
+      "weaponId": "scrap_pistol",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "scrap_pistol",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1510.2738371359105,
+        "muzzleY": 1539.804105486572
+      },
+      "shot": {
+        "x": 1510.2738371359105,
+        "y": 1539.8041054865719
+      },
+      "delta": 2.2737367544323206e-13,
+      "direction": 3
+    },
+    {
+      "weaponId": "scrap_pistol",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "scrap_pistol",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1495.873294067683,
+        "muzzleY": 1516.8765477383117
+      },
+      "shot": {
+        "x": 1495.873294067683,
+        "y": 1516.8765477383117
+      },
+      "delta": 0,
+      "direction": 4
+    },
+    {
+      "weaponId": "scrap_pistol",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "scrap_pistol",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1507.5602808876563,
+        "muzzleY": 1483.1304981679143
+      },
+      "shot": {
+        "x": 1507.5602808876563,
+        "y": 1483.1304981679143
+      },
+      "delta": 0,
+      "direction": 5
+    },
+    {
+      "weaponId": "scrap_pistol",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "scrap_pistol",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1548.8544018171597,
+        "muzzleY": 1464.334368979675
+      },
+      "shot": {
+        "x": 1548.85440181716,
+        "y": 1464.334368979675
+      },
+      "delta": 2.2737367544323206e-13,
+      "direction": 6
+    },
+    {
+      "weaponId": "scrap_pistol",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "scrap_pistol",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1572.0004953018238,
+        "muzzleY": 1481.960470933429
+      },
+      "shot": {
+        "x": 1572.0004953018235,
+        "y": 1481.960470933429
+      },
+      "delta": 2.2737367544323206e-13,
+      "direction": 7
+    },
+    {
+      "weaponId": "swarm_smg",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "swarm_smg",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1579.099054519896,
+        "muzzleY": 1517.2829267165043
+      },
+      "shot": {
+        "x": 1579.099054519896,
+        "y": 1517.2829267165043
+      },
+      "delta": 0,
+      "direction": 0
+    },
+    {
+      "weaponId": "swarm_smg",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "swarm_smg",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1563.631804557726,
+        "muzzleY": 1542.1211142771197
+      },
+      "shot": {
+        "x": 1563.6318045577257,
+        "y": 1542.1211142771197
+      },
+      "delta": 2.2737367544323206e-13,
+      "direction": 1
+    },
+    {
+      "weaponId": "swarm_smg",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "swarm_smg",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1536,
+        "muzzleY": 1551
+      },
+      "shot": {
+        "x": 1536,
+        "y": 1551
+      },
+      "delta": 0,
+      "direction": 2
+    },
+    {
+      "weaponId": "swarm_smg",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "swarm_smg",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1508.3681954422743,
+        "muzzleY": 1542.1211142771197
+      },
+      "shot": {
+        "x": 1508.3681954422743,
+        "y": 1542.1211142771197
+      },
+      "delta": 0,
+      "direction": 3
+    },
+    {
+      "weaponId": "swarm_smg",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "swarm_smg",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1492.900945480104,
+        "muzzleY": 1517.2829267165043
+      },
+      "shot": {
+        "x": 1492.900945480104,
+        "y": 1517.2829267165043
+      },
+      "delta": 0,
+      "direction": 4
+    },
+    {
+      "weaponId": "swarm_smg",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "swarm_smg",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1504.463684227029,
+        "muzzleY": 1480.6186669913673
+      },
+      "shot": {
+        "x": 1504.463684227029,
+        "y": 1480.6186669913673
+      },
+      "delta": 0,
+      "direction": 5
+    },
+    {
+      "weaponId": "swarm_smg",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "swarm_smg",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1546.4339783235077,
+        "muzzleY": 1460.001036059582
+      },
+      "shot": {
+        "x": 1546.4339783235077,
+        "y": 1460.0010360595818
+      },
+      "delta": 2.2737367544323206e-13,
+      "direction": 6
+    },
+    {
+      "weaponId": "swarm_smg",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "swarm_smg",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1573.6985957778506,
+        "muzzleY": 1479.5789058867729
+      },
+      "shot": {
+        "x": 1573.6985957778504,
+        "y": 1479.5789058867729
+      },
+      "delta": 2.2737367544323206e-13,
+      "direction": 7
+    },
+    {
+      "weaponId": "breaker_shotgun",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "breaker_shotgun",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1586.5299259888438,
+        "muzzleY": 1518.298874161986
+      },
+      "shot": {
+        "x": 1586.5299259888436,
+        "y": 1518.298874161986
+      },
+      "delta": 2.2737367544323206e-13,
+      "direction": 0
+    },
+    {
+      "weaponId": "breaker_shotgun",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "breaker_shotgun",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1568.3959087918165,
+        "muzzleY": 1547.9136362534887
+      },
+      "shot": {
+        "x": 1568.3959087918165,
+        "y": 1547.9136362534887
+      },
+      "delta": 0,
+      "direction": 1
+    },
+    {
+      "weaponId": "breaker_shotgun",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "breaker_shotgun",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1536,
+        "muzzleY": 1558.5
+      },
+      "shot": {
+        "x": 1536,
+        "y": 1558.5
+      },
+      "delta": 0,
+      "direction": 2
+    },
+    {
+      "weaponId": "breaker_shotgun",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "breaker_shotgun",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1503.6040912081835,
+        "muzzleY": 1547.9136362534887
+      },
+      "shot": {
+        "x": 1503.6040912081837,
+        "y": 1547.913636253489
+      },
+      "delta": 3.2155493553843715e-13,
+      "direction": 3
+    },
+    {
+      "weaponId": "breaker_shotgun",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "breaker_shotgun",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1485.4700740111562,
+        "muzzleY": 1518.298874161986
+      },
+      "shot": {
+        "x": 1485.4700740111564,
+        "y": 1518.298874161986
+      },
+      "delta": 2.2737367544323206e-13,
+      "direction": 4
+    },
+    {
+      "weaponId": "breaker_shotgun",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "breaker_shotgun",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1498.951259900009,
+        "muzzleY": 1478.048570182637
+      },
+      "shot": {
+        "x": 1498.951259900009,
+        "y": 1478.0485701826367
+      },
+      "delta": 2.2737367544323206e-13,
+      "direction": 5
+    },
+    {
+      "weaponId": "breaker_shotgun",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "breaker_shotgun",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1545.8265696127278,
+        "muzzleY": 1456.5392740041264
+      },
+      "shot": {
+        "x": 1545.8265696127278,
+        "y": 1456.5392740041264
+      },
+      "delta": 0,
+      "direction": 6
+    },
+    {
+      "weaponId": "breaker_shotgun",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "breaker_shotgun",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1579.348540786511,
+        "muzzleY": 1476.873075032485
+      },
+      "shot": {
+        "x": 1579.3485407865112,
+        "y": 1476.873075032485
+      },
+      "delta": 2.2737367544323206e-13,
+      "direction": 7
+    },
+    {
+      "weaponId": "needle_rifle",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "needle_rifle",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1590.9884488702123,
+        "muzzleY": 1518.908442629275
+      },
+      "shot": {
+        "x": 1590.988448870212,
+        "y": 1518.908442629275
+      },
+      "delta": 2.2737367544323206e-13,
+      "direction": 0
+    },
+    {
+      "weaponId": "needle_rifle",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "needle_rifle",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1571.2543713322707,
+        "muzzleY": 1551.3891494393101
+      },
+      "shot": {
+        "x": 1571.2543713322707,
+        "y": 1551.3891494393101
+      },
+      "delta": 0,
+      "direction": 1
+    },
+    {
+      "weaponId": "needle_rifle",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "needle_rifle",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1536,
+        "muzzleY": 1563
+      },
+      "shot": {
+        "x": 1536,
+        "y": 1563
+      },
+      "delta": 0,
+      "direction": 2
+    },
+    {
+      "weaponId": "needle_rifle",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "needle_rifle",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1500.7456286677293,
+        "muzzleY": 1551.3891494393104
+      },
+      "shot": {
+        "x": 1500.7456286677293,
+        "y": 1551.3891494393104
+      },
+      "delta": 0,
+      "direction": 3
+    },
+    {
+      "weaponId": "needle_rifle",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "needle_rifle",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1481.0115511297877,
+        "muzzleY": 1518.908442629275
+      },
+      "shot": {
+        "x": 1481.011551129788,
+        "y": 1518.908442629275
+      },
+      "delta": 2.2737367544323206e-13,
+      "direction": 4
+    },
+    {
+      "weaponId": "needle_rifle",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "needle_rifle",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1496.148372716706,
+        "muzzleY": 1478.1587858646617
+      },
+      "shot": {
+        "x": 1496.1483727167063,
+        "y": 1478.158785864662
+      },
+      "delta": 3.2155493553843715e-13,
+      "direction": 5
+    },
+    {
+      "weaponId": "needle_rifle",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "needle_rifle",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1545.5955249848594,
+        "muzzleY": 1457.8274912562197
+      },
+      "shot": {
+        "x": 1545.5955249848594,
+        "y": 1457.8274912562197
+      },
+      "delta": 0,
+      "direction": 6
+    },
+    {
+      "weaponId": "needle_rifle",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "needle_rifle",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1582.4426728447,
+        "muzzleY": 1476.9145781565535
+      },
+      "shot": {
+        "x": 1582.4426728447,
+        "y": 1476.9145781565535
+      },
+      "delta": 0,
+      "direction": 7
+    },
+    {
+      "weaponId": "rust_revolver",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "rust_revolver",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1579.099054519896,
+        "muzzleY": 1517.2829267165043
+      },
+      "shot": {
+        "x": 1579.099054519896,
+        "y": 1517.2829267165043
+      },
+      "delta": 0,
+      "direction": 0
+    },
+    {
+      "weaponId": "rust_revolver",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "rust_revolver",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1563.631804557726,
+        "muzzleY": 1542.1211142771197
+      },
+      "shot": {
+        "x": 1563.6318045577257,
+        "y": 1542.1211142771197
+      },
+      "delta": 2.2737367544323206e-13,
+      "direction": 1
+    },
+    {
+      "weaponId": "rust_revolver",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "rust_revolver",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1536,
+        "muzzleY": 1551
+      },
+      "shot": {
+        "x": 1536,
+        "y": 1551
+      },
+      "delta": 0,
+      "direction": 2
+    },
+    {
+      "weaponId": "rust_revolver",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "rust_revolver",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1508.3681954422743,
+        "muzzleY": 1542.1211142771197
+      },
+      "shot": {
+        "x": 1508.3681954422743,
+        "y": 1542.1211142771197
+      },
+      "delta": 0,
+      "direction": 3
+    },
+    {
+      "weaponId": "rust_revolver",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "rust_revolver",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1492.900945480104,
+        "muzzleY": 1517.2829267165043
+      },
+      "shot": {
+        "x": 1492.900945480104,
+        "y": 1517.2829267165043
+      },
+      "delta": 0,
+      "direction": 4
+    },
+    {
+      "weaponId": "rust_revolver",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "rust_revolver",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1504.198202676973,
+        "muzzleY": 1479.4052200410324
+      },
+      "shot": {
+        "x": 1504.198202676973,
+        "y": 1479.4052200410324
+      },
+      "delta": 0,
+      "direction": 5
+    },
+    {
+      "weaponId": "rust_revolver",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "rust_revolver",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1546.3543331805665,
+        "muzzleY": 1457.5028177620902
+      },
+      "shot": {
+        "x": 1546.3543331805668,
+        "y": 1457.5028177620902
+      },
+      "delta": 2.2737367544323206e-13,
+      "direction": 6
+    },
+    {
+      "weaponId": "rust_revolver",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "rust_revolver",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1573.8039773390453,
+        "muzzleY": 1478.3554465708999
+      },
+      "shot": {
+        "x": 1573.803977339045,
+        "y": 1478.3554465708999
+      },
+      "delta": 2.2737367544323206e-13,
+      "direction": 7
+    },
+    {
+      "weaponId": "ember_carbine",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "ember_carbine",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1585.0437516950542,
+        "muzzleY": 1518.0956846728895
+      },
+      "shot": {
+        "x": 1585.043751695054,
+        "y": 1518.0956846728898
+      },
+      "delta": 3.2155493553843715e-13,
+      "direction": 0
+    },
+    {
+      "weaponId": "ember_carbine",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "ember_carbine",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1567.4430879449983,
+        "muzzleY": 1546.755131858215
+      },
+      "shot": {
+        "x": 1567.4430879449983,
+        "y": 1546.755131858215
+      },
+      "delta": 0,
+      "direction": 1
+    },
+    {
+      "weaponId": "ember_carbine",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "ember_carbine",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1536,
+        "muzzleY": 1557
+      },
+      "shot": {
+        "x": 1536,
+        "y": 1557
+      },
+      "delta": 0,
+      "direction": 2
+    },
+    {
+      "weaponId": "ember_carbine",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "ember_carbine",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1504.5569120550017,
+        "muzzleY": 1546.755131858215
+      },
+      "shot": {
+        "x": 1504.5569120550017,
+        "y": 1546.755131858215
+      },
+      "delta": 0,
+      "direction": 3
+    },
+    {
+      "weaponId": "ember_carbine",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "ember_carbine",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1486.9562483049458,
+        "muzzleY": 1518.0956846728895
+      },
+      "shot": {
+        "x": 1486.956248304946,
+        "y": 1518.0956846728898
+      },
+      "delta": 3.2155493553843715e-13,
+      "direction": 4
+    },
+    {
+      "weaponId": "ember_carbine",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "ember_carbine",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1500.2690608453677,
+        "muzzleY": 1479.4916824622312
+      },
+      "shot": {
+        "x": 1500.2690608453674,
+        "y": 1479.4916824622312
+      },
+      "delta": 2.2737367544323206e-13,
+      "direction": 5
+    },
+    {
+      "weaponId": "ember_carbine",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "ember_carbine",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1546.0078295159594,
+        "muzzleY": 1459.0961750775687
+      },
+      "shot": {
+        "x": 1546.0078295159594,
+        "y": 1459.0961750775684
+      },
+      "delta": 2.2737367544323206e-13,
+      "direction": 6
+    },
+    {
+      "weaponId": "ember_carbine",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "ember_carbine",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1578.1245490748843,
+        "muzzleY": 1478.3532673433117
+      },
+      "shot": {
+        "x": 1578.124549074884,
+        "y": 1478.3532673433117
+      },
+      "delta": 2.2737367544323206e-13,
+      "direction": 7
+    },
+    {
+      "weaponId": "coil_cannon",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "coil_cannon",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1588.0739625581302,
+        "muzzleY": 1519.6026378811816
+      },
+      "shot": {
+        "x": 1588.07396255813,
+        "y": 1519.6026378811819
+      },
+      "delta": 3.2155493553843715e-13,
+      "direction": 0
+    },
+    {
+      "weaponId": "coil_cannon",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "coil_cannon",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1569.544074244505,
+        "muzzleY": 1550.424524951809
+      },
+      "shot": {
+        "x": 1569.544074244505,
+        "y": 1550.424524951809
+      },
+      "delta": 0,
+      "direction": 1
+    },
+    {
+      "weaponId": "coil_cannon",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "coil_cannon",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1536,
+        "muzzleY": 1561.5
+      },
+      "shot": {
+        "x": 1536,
+        "y": 1561.5
+      },
+      "delta": 0,
+      "direction": 2
+    },
+    {
+      "weaponId": "coil_cannon",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "coil_cannon",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1502.455925755495,
+        "muzzleY": 1550.424524951809
+      },
+      "shot": {
+        "x": 1502.4559257554952,
+        "y": 1550.424524951809
+      },
+      "delta": 2.2737367544323206e-13,
+      "direction": 3
+    },
+    {
+      "weaponId": "coil_cannon",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "coil_cannon",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1483.9260374418698,
+        "muzzleY": 1519.6026378811819
+      },
+      "shot": {
+        "x": 1483.92603744187,
+        "y": 1519.6026378811819
+      },
+      "delta": 2.2737367544323206e-13,
+      "direction": 4
+    },
+    {
+      "weaponId": "coil_cannon",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "coil_cannon",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1497.908609014023,
+        "muzzleY": 1477.707846139843
+      },
+      "shot": {
+        "x": 1497.908609014023,
+        "y": 1477.7078461398432
+      },
+      "delta": 2.2737367544323206e-13,
+      "direction": 5
+    },
+    {
+      "weaponId": "coil_cannon",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "coil_cannon",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1545.6887769875982,
+        "muzzleY": 1455.2766183327312
+      },
+      "shot": {
+        "x": 1545.6887769875982,
+        "y": 1455.2766183327312
+      },
+      "delta": 0,
+      "direction": 6
+    },
+    {
+      "weaponId": "coil_cannon",
+      "pose": {
+        "heroId": "ranger",
+        "weaponId": "coil_cannon",
+        "frame": 0,
+        "phase": 0,
+        "walking": false,
+        "worldX": 1536,
+        "worldY": 1536,
+        "muzzleX": 1580.4455969060132,
+        "muzzleY": 1476.4650022607227
+      },
+      "shot": {
+        "x": 1580.4455969060132,
+        "y": 1476.4650022607227
+      },
+      "delta": 0,
+      "direction": 7
+    }
+  ],
+  "movement": {
+    "moving": {
+      "heroId": "ranger",
+      "weaponId": "scrap_pistol",
+      "frame": 1,
+      "phase": 0.09068627450981458,
+      "walking": true,
+      "worldX": 1610.1666666666674,
+      "worldY": 1536,
+      "muzzleX": 1649.872769538942,
+      "muzzleY": 1519.0930545585065
+    },
+    "paused": {
+      "heroId": "ranger",
+      "weaponId": "scrap_pistol",
+      "frame": 1,
+      "phase": 0.09068627450981458,
+      "walking": true,
+      "worldX": 1610.1666666666674,
+      "worldY": 1536,
+      "muzzleX": 1649.872769538942,
+      "muzzleY": 1519.0930545585065
+    },
+    "stopped": {
+      "heroId": "ranger",
+      "weaponId": "scrap_pistol",
+      "frame": 0,
+      "phase": 0.09068627450981458,
+      "walking": false,
+      "worldX": 1610.1666666666674,
+      "worldY": 1536,
+      "muzzleX": 1649.872769538942,
+      "muzzleY": 1519.0930545585065
+    }
+  },
+  "cache": {
+    "before": {
+      "builds": 7,
+      "hits": 54,
+      "evictions": 0,
+      "entries": 7,
+      "limit": 8,
+      "bytes": 28192
+    },
+    "after": {
+      "builds": 7,
+      "hits": 54,
+      "evictions": 0,
+      "entries": 7,
+      "limit": 8,
+      "bytes": 28192
+    }
+  },
+  "cleanup": {
+    "cache": null,
+    "retained": []
+  },
+  "pageErrors": [],
+  "limits": "Staged scenes and isolated browser checks; not physical-controller or real WebView2/minimum-hardware acceptance."
+}

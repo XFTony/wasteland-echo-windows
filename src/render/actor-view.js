@@ -4,6 +4,7 @@ const { PALETTE } = require("../config");
 const { clamp } = require("../core/math");
 const { drawSurvivorActor, drawZombieActor } = require("./pixel-actors");
 const { drawIllustratedSurvivor, drawIllustratedEnemy } = require("./illustrated-actors");
+const { usesCompactPlayer } = require("../core/compact-weapon-pose");
 
 const ACTOR_METHODS = {
   drawExtraction(run) {
@@ -40,7 +41,8 @@ const ACTOR_METHODS = {
     const weapon = this.content.get("weapons", player.weaponId, this.content.defaults.weapon);
     const moving = Math.hypot(run.input.moveX, run.input.moveY) > 0.12;
     const flicker = player.invulnerable > 0 && Math.floor(this.frame / 3) % 2 === 0;
-    if (drawIllustratedSurvivor(this, player, run, flicker)) return;
+    if (this.compactActors && this.compactActors.drawPlayer(this, player, run, flicker)) return;
+    if (!usesCompactPlayer(player) && drawIllustratedSurvivor(this, player, run, flicker)) return;
     drawSurvivorActor(this.ctx, {
       x: p.x,
       y: p.y,
@@ -89,7 +91,9 @@ const ACTOR_METHODS = {
     const ctx = this.ctx;
     const p = this.worldToScreen(enemy.x, enemy.y, this.screenPoint);
     if (p.x < -80 || p.y < -80 || p.x > this.width + 80 || p.y > this.height + 80) return;
-    if (!drawIllustratedEnemy(this, enemy, elapsed)) drawZombieActor(ctx, { enemy, x: p.x, y: p.y, elapsed });
+    if (!(this.compactActors && this.compactActors.drawEnemy(this, enemy, elapsed))) {
+      drawZombieActor(ctx, { enemy, x: p.x, y: p.y, elapsed });
+    }
 
     if (enemy.elite) {
       const barW = enemy.boss ? 64 : 42;

@@ -1,0 +1,119 @@
+{
+  "date": "2026-10-28",
+  "animation": {
+    "drifter": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "runner": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "spitter": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "brute": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "screecher": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "crawler": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "warden": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "iron_colossus": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "viewports": [
+    {
+      "width": 960,
+      "height": 540,
+      "worldWidth": 960,
+      "worldHeight": 540
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "worldWidth": 1280,
+      "worldHeight": 720
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "worldWidth": 1280,
+      "worldHeight": 720
+    }
+  ],
+  "missingArtFallback": {
+    "screen": "running",
+    "moved": true
+  },
+  "legacyPreviewLoads": true,
+  "video": {
+    "bytes": 1651460,
+    "decoded": true,
+    "width": 1280,
+    "height": 720,
+    "seconds": 8,
+    "scope": "scripted visual demonstration with stress health, not normal-health playtest"
+  },
+  "pageErrors": []
+}

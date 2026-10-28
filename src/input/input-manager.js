@@ -108,6 +108,9 @@ class InputManager {
 
     let aimX = this.mouseAimX;
     let aimY = this.mouseAimY;
+    const aimScale = Number.isFinite(options.aimScale) && options.aimScale > 0 ? options.aimScale : 1;
+    aimX /= aimScale;
+    aimY /= aimScale;
     if (gamepad.aimActive) {
       aimX = gamepad.aimX;
       aimY = gamepad.aimY;
