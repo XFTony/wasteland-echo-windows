@@ -1,0 +1,79 @@
+{
+  "reviewDate": "2026-10-28",
+  "captureWindow": "2026-10-27 to 2026-10-28 Asia/Shanghai",
+  "sourceCommit": "d434a0552ed9ccd2b6ce98a7a7d61874b41b917c",
+  "version": "1.5.0-alpha.1",
+  "userPriorities": {
+    "primaryExperience": "movement and survival",
+    "targetAudience": "not yet decided",
+    "sessionLength": "requires research and playtesting",
+    "minimumHardware": "lower is preferred; no concrete validated hardware yet",
+    "productionBudgetAndCapacity": "not provided"
+  },
+  "methods": [
+    "Current source inspection and fresh web build",
+    "Isolated headless Microsoft Edge screenshots of six menus, three staged battle scenes, upgrade, pause, result and modular preview",
+    "Focused controlled model probes; temporary entities and walls created only inside isolated browser state",
+    "Three normal-health deterministic strategy simulations; no changes to game configuration or production saves"
+  ],
+  "browserErrors": [],
+  "probes": {
+    "nearestTargetSwitching": {
+      "eastWestDistances": [[100, 101], [100, 99], [98, 99]],
+      "selectedDirections": ["east", "west", "east"],
+      "currentImplementationHasTargetRetention": false
+    },
+    "ordinaryProjectileAcrossSolidWall": {
+      "weapon": "scrap_pistol",
+      "wallDistanceFromPlayer": 40,
+      "wallWidth": 40,
+      "wallHeight": 200,
+      "targetDistanceFromPlayer": 130,
+      "initialTargetHp": 16,
+      "finalTargetHp": 4,
+      "targetSelectedAcrossWall": true,
+      "interpretation": "Observed current rule, not proof that all projectiles should use an identical future wall policy"
+    },
+    "survivalExpiryWithLiveBoss": {
+      "screen": "resultWin",
+      "bossAlive": true,
+      "interpretation": "Consistent with current timed-survival rule; clarify player expectations rather than assume a missing kill check"
+    },
+    "bossCooldownExpiry": {
+      "enemyShotsInSameUpdate": 12,
+      "events": ["bossPhase", "enemyAction"],
+      "currentImplementationHasPerAttackWindupState": false
+    }
+  },
+  "normalHealthPacingSamples": [
+    {"seed": 17, "duration": 180, "strategy": "default", "result": "resultWin", "level": 6, "kills": 212, "upgradeTimes": [14.17, 70.73, 114.25, 150.83, 176.2], "largestConsecutiveUpgradeGap": 56.56, "bossKilled": false},
+    {"seed": 20260907, "duration": 180, "strategy": "default", "result": "resultWin", "level": 6, "kills": 269, "upgradeTimes": [32.97, 98.82, 152.52, 165.58, 174.03], "largestConsecutiveUpgradeGap": 65.85, "bossKilled": false},
+    {"seed": 20261027, "duration": 180, "strategy": "default", "result": "resultWin", "level": 5, "kills": 256, "upgradeTimes": [28.95, 67.4, 138.97, 153.48], "largestConsecutiveUpgradeGap": 71.57, "bossKilled": false}
+  ],
+  "resolutionChecks": [
+    {"viewport": [1280, 720], "rendererDpr": 1, "worldZoom": 1, "visibleWorld": [1280, 720]},
+    {"viewport": [1920, 1080], "rendererDpr": 1.25, "worldZoom": 1.5, "visibleWorld": [1280, 720]},
+    {"viewport": [2560, 1440], "rendererDpr": 1, "worldZoom": 2, "visibleWorld": [1280, 720]}
+  ],
+  "visualFindings": {
+    "confirmed": [
+      "960x540 shop cards have overlapping type, description and stat text",
+      "Current live combat uses static illustrated bodies, not the modular compact character preview",
+      "Track sleepers, fence grids and textured ground compete with brown-grey actor silhouettes",
+      "Stable upgrade layouts are readable at the sampled 720p, 1080p and 1440p viewports"
+    ],
+    "discardedCaptureArtifacts": [
+      "First upgrade screenshot was during entry animation; replaced for review by upgrade-settled screenshots",
+      "First 540p inventory screenshot was during viewport resize; settled recapture rendered normally"
+    ]
+  },
+  "activeImages": {"count": 54, "compressedBytes": 9832928, "isProcessMemory": false},
+  "localIgnoredArtifacts": "output/playwright/project-review-2026-10-27/",
+  "limitations": [
+    "Staged battle screenshots are visual diagnostics, not natural spawn sequences or completed human playthroughs",
+    "Strategy results are not human win rates or representative difficulty research",
+    "Renderer DPR setting is not a physical Windows DPI test",
+    "No new real WebView2 performance, minimum-spec hardware or physical-controller acceptance completed",
+    "No gameplay, accepted character art, save schema or published release changed by this review"
+  ]
+}
