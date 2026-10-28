@@ -504,6 +504,8 @@ test("enemy pursuit routes around a solid obstacle without crossing it", () => {
   model.run.player.x = obstacle.x + obstacle.w + 160;
   model.run.player.y = enemy.y;
 
+  model.updateNavigation(0, true);
+
   for (let frame = 0; frame < 900; frame += 1) {
     model.updateEnemies(1 / 60);
     assert.equal(circleOverlapsRect(enemy, obstacle), false, `enemy entered the obstacle on frame ${frame}`);

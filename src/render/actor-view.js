@@ -6,6 +6,7 @@ const { drawSurvivorActor, drawZombieActor } = require("./pixel-actors");
 const { drawIllustratedSurvivor, drawIllustratedEnemy } = require("./illustrated-actors");
 const { usesCompactPlayer } = require("../core/compact-weapon-pose");
 const { drawWeaponProjectile } = require("./weapon-feedback");
+const { drawCoin } = require("./ui/upgrade-illustrations");
 
 const ACTOR_METHODS = {
   drawExtraction(run) {
@@ -137,10 +138,8 @@ const ACTOR_METHODS = {
       ctx.fillStyle = "#c1f1d3";
       ctx.fillRect(p.x - 1, p.y - 3 + bob, 2, 3);
     } else if (pickup.type === "scrap") {
-      ctx.fillStyle = PALETTE.amber;
-      ctx.fillRect(p.x - 5, p.y - 4 + bob, 10, 8);
-      ctx.fillStyle = "#664128";
-      ctx.fillRect(p.x - 1, p.y - 4 + bob, 2, 8);
+      if (pickup.value > 1) drawCoin(ctx, p.x + 3, p.y + 2 + bob, 5);
+      drawCoin(ctx, p.x, p.y + bob, 6);
     } else {
       ctx.fillStyle = "#d9d2b7";
       ctx.fillRect(p.x - 7, p.y - 6 + bob, 14, 12);

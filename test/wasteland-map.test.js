@@ -36,7 +36,7 @@ test("all selectable maps are larger, distinct, and remain inside their own boun
     assert.ok(layout.obstacles.length >= 15);
     assert.ok(layout.roadDetails.some((detail) => detail.type === "crosswalk"), `${layout.id} has a map-specific crosswalk`);
     assert.ok(layout.roadDetails.some((detail) => detail.type === "crack"), `${layout.id} has map-specific road wear`);
-    assert.deepEqual(new Set(layout.interactives.map((item) => item.type)), new Set(["explosiveBarrel", "supplyCache", "electricField"]), `${layout.id} exposes all baseline interaction types`);
+    for (const type of ["explosiveBarrel", "supplyCache", "electricField"]) assert.ok(layout.interactives.some(item => item.type === type), `${layout.id} exposes ${type}`);
     for (const detail of layout.roadDetails) {
       assert.ok(detail.x >= 0 && detail.y >= 0);
       assert.ok(detail.x + detail.w <= layout.worldSize, `${layout.id}/${detail.id} fits width`);

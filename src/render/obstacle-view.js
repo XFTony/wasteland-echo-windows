@@ -3,17 +3,38 @@
 const { PALETTE } = require("../config");
 const { ART_IDS } = require("./art/asset-catalog");
 const { hash2 } = require("./render-hash");
+const { ECHO_PROP_RECTS } = require("../content/echo-props");
 
 const OBSTACLE_METHODS = {
   drawObstacles(obstacles) {
     const ctx = this.ctx;
     for (const obstacle of obstacles) {
+      if (obstacle.kind === "interactiveBody") continue;
       const point = this.worldToScreen(obstacle.x, obstacle.y, this.screenPoint);
       if (point.x + obstacle.w < -20 || point.y + obstacle.h < -20 || point.x > this.width + 20 || point.y > this.height + 20) continue;
       ctx.fillStyle = "rgba(20,18,15,0.28)";
       ctx.fillRect(point.x + 8, point.y + 9, obstacle.w, obstacle.h);
+      const sprite = ECHO_PROP_RECTS[obstacle.kind];
+      if (this.mapLayout.id === "echo_district" && sprite && this.artStore.ready(ART_IDS.PROP_ECHO_SALVAGE_KIT)) {
+        ctx.save(); ctx.imageSmoothingEnabled = false;
+        ctx.drawImage(this.artStore.get(ART_IDS.PROP_ECHO_SALVAGE_KIT), ...sprite, point.x, point.y, obstacle.w, obstacle.h);
+        ctx.restore(); continue;
+      }
+      if (obstacle.kind === "tradePost") {
+        if (this.artStore.ready(ART_IDS.PROP_ECHO_MARKET)) {
+          ctx.save(); ctx.imageSmoothingEnabled = false;
+          ctx.drawImage(this.artStore.get(ART_IDS.PROP_ECHO_MARKET), point.x, point.y, obstacle.w, obstacle.h); ctx.restore();
+        } else {
+          ctx.fillStyle = "#514b39"; ctx.fillRect(point.x, point.y, obstacle.w, obstacle.h);
+          ctx.fillStyle = "#c2a05d"; ctx.fillRect(point.x + 4, point.y + 4, obstacle.w - 8, obstacle.h * .4);
+          ctx.fillStyle = "#272c24"; ctx.fillRect(point.x + 12, point.y + obstacle.h * .48, obstacle.w - 24, obstacle.h * .32);
+          ctx.fillStyle = "#ac8251"; ctx.fillRect(point.x + 5, point.y + obstacle.h - 12, obstacle.w - 10, 9);
+        }
+        this.text("余火交易站", point.x + obstacle.w / 2, point.y + obstacle.h + 11, 12, "#e9d39e", "center", "bold");
+        continue;
+      }
       if (this.mapLayout.id === "echo_district" && obstacle.kind === "shop") {
-        const roofId = obstacle.sign === "药房" ? ART_IDS.PROP_ECHO_APOTHECARY : ART_IDS.PROP_ECHO_SHOP;
+        const roofId = String(obstacle.sign || "").includes("药房") ? ART_IDS.PROP_ECHO_APOTHECARY : ART_IDS.PROP_ECHO_SHOP;
         if (this.artStore && this.artStore.ready(roofId)) {
           const roof = this.artStore.get(roofId);
           ctx.save();

@@ -62,6 +62,47 @@ function createModel() {
   return new GameModel(manager, { duration: 60, seed: 42 });
 }
 
+test("short road markings and railway ties never extend beyond their registered segments", () => {
+  const { canvas } = createMockCanvas(), r = new CanvasRenderer(canvas), fills = [];
+  r.resize(1280, 720, 1); r.camera.x = r.camera.y = 0;
+  r.ctx.fillRect = (x, y, w, h) => fills.push({ x, y, w, h, color: r.ctx.fillStyle });
+  r.mapLayout = { theme: { asphalt: "#333" }, roads: [{ x: 200, y: 200, w: 100, h: 100, orientation: "horizontal" }],
+    tracks: [{ x: 300, y: 400, w: 90, h: 100, lines: 1, spacing: 48, orientation: "horizontal" }] };
+  r.drawRoadNetwork(); r.drawRailNetwork();
+  const markings = fills.filter(fill => fill.color === "#c3a663"), ties = fills.filter(fill => fill.color === "#8c7654");
+  assert(markings.length > 0 && ties.length > 0);
+  assert(markings.every(fill => fill.x >= 200 && fill.x + fill.w <= 300));
+  assert(ties.every(fill => fill.x >= 300 && fill.x + fill.w <= 390));
+});
+
+test("the four new prop sprites fit their collision rectangles and remain scoped to Echo", () => {
+  const { canvas, calls } = createMockCanvas(), image = { complete: true, naturalWidth: 512, naturalHeight: 384 };
+  const store = new ArtStore({ images: { [ART_IDS.PROP_ECHO_SALVAGE_KIT]: image } });
+  const r = new CanvasRenderer(canvas, { artStore: store }); r.resize(1280, 720, 1);
+  r.mapLayout = r.world.get("echo_district");
+  const props = ["bus", "car", "wreck", "scrap"].map((kind, i) => ({ kind, x: 10 + i * 220, y: 150, w: 180, h: 70 }));
+  r.drawObstacles(props);
+  const drawn = calls.filter(call => call[0] === "drawImage" && call[1] === image);
+  assert.equal(drawn.length, 4);
+  for (let i = 0; i < 4; i++) {
+    assert.deepEqual(drawn[i].slice(-4), [props[i].x, props[i].y, props[i].w, props[i].h]);
+    const [, , x, y, w, h] = drawn[i]; assert(x >= 0 && y >= 0 && x + w <= 512 && y + h <= 384);
+  }
+  r.mapLayout = r.world.get("freight_nexus"); r.drawObstacles(props);
+  assert.equal(calls.filter(call => call[0] === "drawImage" && call[1] === image).length, 4);
+});
+
+test("card entry animation samples time consistently across rendering frame rates", () => {
+  function sample(frames) {
+    const { canvas } = createMockCanvas(), r = new CanvasRenderer(canvas), m = createModel();
+    r.resize(1280, 720, 1); m.startRun({ seed: 42, tutorial: false });
+    m.run.player.xp = m.run.player.xpNext; m.checkLevelUp(); r.render(m, { uiTime: 0 });
+    for (let i = 1; i <= frames; i++) r.render(m, { uiTime: .5 * i / frames });
+    return r.draftCards.map(card => card.shape);
+  }
+  assert.deepEqual(sample(2), sample(60));
+});
+
 test("renderer delegates combat effects and HUD overlays to stable modules", () => {
   assert.equal(CanvasRenderer.prototype.handleEvents, FX_METHODS.handleEvents);
   assert.equal(CanvasRenderer.prototype.updateEffects, FX_METHODS.updateEffects);
@@ -133,7 +174,7 @@ test("all primary screens render without exceptions and expose expected actions"
   assert.equal(renderer.regions.some((region) => region.action === "toggle:musicMuted"), true);
   model.setSettingsSection("controls");
   renderer.render(model);
-  assert.equal(renderer.regions.filter((region) => region.action.startsWith("bind:")).length, 13);
+  assert.equal(renderer.regions.filter((region) => region.action.startsWith("bind:")).length, 14);
   assert.equal(renderer.regions.some((region) => region.action === "resetBindings"), true);
 
   model.startRun({ duration: 60, seed: 42 });
@@ -472,7 +513,7 @@ test("568x320 desktop layout keeps compact controls navigable and on-screen", ()
   assert.equal(renderer.regions.some((region) => region.action === "fullscreen"), true);
   model.setSettingsSection("controls");
   renderer.render(model);
-  assert.equal(renderer.regions.filter((region) => region.action.startsWith("bind:")).length, 13);
+  assert.equal(renderer.regions.filter((region) => region.action.startsWith("bind:")).length, 14);
   assert.ok(renderer.regions.every((region) => region.x >= 0 && region.y >= 0 && region.x + region.w <= 568 && region.y + region.h <= 320));
 
   model.setMenuPage("main");
@@ -545,7 +586,7 @@ test("Windows 720p and 1080p layouts keep every desktop action inside the viewpo
 
     model.setSettingsSection("controls");
     renderer.render(model, { activeDevice: "gamepad", gamepadConnected: true, gamepadId: "Xbox Controller" });
-    assert.equal(renderer.regions.filter((region) => region.action.startsWith("bind:")).length, 13);
+    assert.equal(renderer.regions.filter((region) => region.action.startsWith("bind:")).length, 14);
     assert.equal(renderer.regions.some((region) => region.action === "resetBindings"), true);
     for (const region of renderer.regions) assert.ok(region.x >= 0 && region.y >= 0 && region.x + region.w <= width && region.y + region.h <= height);
 

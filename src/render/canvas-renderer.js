@@ -12,7 +12,9 @@ const {
   cutCornerPath,
   focusBrackets
 } = require("./ui/art-primitives");
-const { drawUpgradeDraft } = require("./ui/upgrade-cards");
+const { drawUpgradeDraft, drawUpgradeReceipt } = require("./ui/upgrade-cards");
+const { pointInCard } = require("./ui/card-motion");
+const { drawFieldShop, drawMarketHint } = require("./ui/field-market-view");
 const { drawFieldPlate, drawFieldButton } = require("./ui/field-surfaces");
 const { drawStartup } = require("./ui/startup-view");
 const { initializeFx, FX_METHODS } = require("./fx-system");
@@ -171,13 +173,14 @@ class CanvasRenderer {
     for (let index = this.regions.length - 1; index >= 0; index -= 1) {
       const region = this.regions[index];
       if (x >= region.x && x <= region.x + region.w && y >= region.y && y <= region.y + region.h) {
+        if (region.cardShape && !pointInCard(region.cardShape, x, y)) continue;
         return region.action;
       }
     }
     return null;
   }
 
-  addRegion(action, x, y, w, h) {
+  addRegion(action, x, y, w, h, cardShape = null) {
     let region = this.regionPool[this.regionCount];
     if (!region) {
       region = { action: "", x: 0, y: 0, w: 0, h: 0 };
@@ -189,6 +192,7 @@ class CanvasRenderer {
     region.y = y * scale;
     region.w = w * scale;
     region.h = h * scale;
+    region.cardShape = cardShape ? { ...cardShape, cx: cardShape.cx * scale, cy: cardShape.cy * scale, w: cardShape.w * scale, h: cardShape.h * scale } : null;
     this.regionCount += 1;
     this.regions.push(region);
   }
@@ -232,6 +236,7 @@ class CanvasRenderer {
       }
       this.lastScreen = model.screen;
       this.screenEnteredFrame = this.frame;
+      this.screenEnteredTime = this.uiTime;
     }
     this.regions.length = 0;
     this.regionCount = 0;
@@ -259,7 +264,10 @@ class CanvasRenderer {
     if (model.screen === "menu") {
       this.drawScaledInterface(model, "menu");
     } else if (model.screen === "levelup") {
-      drawUpgradeDraft(this, model);
+      this.drawScaledInterface(model, "upgrade");
+    } else if (model.screen === "fieldShop") {
+      this.regions.length = 0; this.regionCount = 0;
+      this.drawScaledInterface(model, "fieldShop");
     } else if (model.screen === "paused") {
       this.drawPause();
     } else if (model.screen === "resultWin" || model.screen === "resultLose") {
@@ -267,8 +275,9 @@ class CanvasRenderer {
     }
 
     this.drawSaveStatus(model);
+    drawUpgradeReceipt(this);
     if (this.canvas.style) this.canvas.style.cursor = model.screen === "running" && !model.save.settings.autoAim ? "crosshair"
-      : this.regions.some(r => this.pointerState.x >= r.x && this.pointerState.x <= r.x + r.w && this.pointerState.y >= r.y && this.pointerState.y <= r.y + r.h) ? "pointer" : "default";
+      : this.hitTest(this.pointerState.x, this.pointerState.y) ? "pointer" : "default";
     if (this.width < 800 || this.height < 450 || this.width / this.height < 1.15) this.drawWindowNotice();
   }
 
@@ -277,6 +286,8 @@ class CanvasRenderer {
   }
 
   drawInterfaceLayer(model, kind) {
+    if (kind === "upgrade") { drawUpgradeDraft(this, model); return; }
+    if (kind === "fieldShop") { drawFieldShop(this, model); return; }
     if (kind === "startup") {
       drawStartup(this, this.startupState);
       return;
@@ -286,6 +297,7 @@ class CanvasRenderer {
       return;
     }
     this.drawHud(model);
+    drawMarketHint(this, model);
     if (model.screen === "running") {
       this.drawTutorial(model);
       if (model.save.settings.showControlHints) this.drawDesktopControlHint(model);
@@ -499,6 +511,7 @@ class CanvasRenderer {
     for (const enemy of model.enemies) this.drawEnemy(enemy, run.elapsed);
     this.drawPlayer(player, run);
     for (const shot of model.enemyShots) this.drawProjectile(shot);
+    this.drawInteractionLabels(model);
     this.drawAimReticle(model);
     this.drawWorldEffects(model);
     this.drawAtmosphere(run.elapsed);

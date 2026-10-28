@@ -15,8 +15,8 @@ test("keyboard mappings separate gameplay movement from desktop UI navigation", 
   assert.deepEqual(keyboardCommand("KeyF", { screen: "running" }), { type: "fullscreen" });
 });
 
-test("gamepad confirmation is ignored during combat but active in Canvas menus", () => {
-  assert.equal(gamepadCommand({ type: "confirm" }, { screen: "running" }), null);
+test("gamepad confirmation interacts during combat and activates Canvas menus", () => {
+  assert.deepEqual(gamepadCommand({ type: "confirm" }, { screen: "running" }), { type: "interact" });
   assert.deepEqual(gamepadCommand({ type: "confirm" }, { screen: "menu" }), { type: "activate" });
   assert.deepEqual(gamepadCommand({ type: "cancel" }, { screen: "paused" }), { type: "pause" });
   assert.deepEqual(gamepadCommand({ type: "pause" }, { screen: "running" }), { type: "pause" });

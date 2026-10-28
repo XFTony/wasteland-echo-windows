@@ -29,7 +29,9 @@ const HUD_METHODS = {
     this.text(`LV ${player.level}`, margin + 13, margin + 17, 13, PALETTE.amber, "left", "900");
     const weapon = this.content.get("weapons", player.weaponId, this.content.defaults.weapon);
     const mechanicStatus = model.mechanicSystem && model.mechanicSystem.status(run, weapon);
-    const weaponLabel = mechanicStatus ? `${weapon.name} · ${mechanicStatus.label} ${Math.round(mechanicStatus.value * 100)}%` : weapon.name;
+    const calibration = run.fieldMarket && run.fieldMarket.purchases.weaponCalibration || 0;
+    const weaponName = weapon.name + (calibration ? ` +${calibration}` : "");
+    const weaponLabel = mechanicStatus ? `${weaponName} · ${mechanicStatus.label} ${Math.round(mechanicStatus.value * 100)}%` : weaponName;
     this.fitText(weaponLabel, margin + 72, margin + 17, 13, 186, PALETTE.cream, "left", "900", 9);
     this.ctx.fillStyle = "#312521";
     this.ctx.fillRect(margin + 12, margin + 31, 246, 13);
@@ -76,7 +78,7 @@ const HUD_METHODS = {
     const rightW = 170;
     sectionPlate(this, this.width - rightW - margin, margin, rightW, 54, { material: "iron", fill: "#211f1a", stroke: "#9a8152", accent: UI_COLORS.copper, raised: true });
     this.text(`击败 ${run.kills}`, this.width - rightW, margin + 17, 13, PALETTE.cream, "left", "900");
-    this.text(`回收物 ${run.scrap}`, this.width - rightW, margin + 38, 12, PALETTE.amber, "left", "900");
+    this.text(`拾荒币 ${run.scrap}`, this.width - rightW, margin + 38, 12, PALETTE.amber, "left", "900");
     this.button("pause", "Ⅱ", this.width - 48, 17, 32, 32, "secondary");
     if (run.extraction.active) {
       const progress = Math.round((run.extraction.hold / run.extraction.required) * 100);

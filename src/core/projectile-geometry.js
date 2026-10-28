@@ -11,4 +11,29 @@ function segmentCircleTime(x, y, dx, dy, cx, cy, radius) {
   return t >= 0 && t <= 1 ? t : Infinity;
 }
 
-module.exports = { segmentCircleTime };
+function segmentRectTime(x, y, dx, dy, rect, padding = 0) {
+  let low = 0, high = 1;
+  for (let axis = 0; axis < 2; axis++) {
+    const start = axis === 0 ? x : y, delta = axis === 0 ? dx : dy;
+    const minimum = (axis === 0 ? rect.x : rect.y) - padding;
+    const maximum = minimum + (axis === 0 ? rect.w : rect.h) + padding * 2;
+    if (Math.abs(delta) < 1e-10) { if (start < minimum || start > maximum) return Infinity; }
+    else {
+      const a = (minimum - start) / delta, b = (maximum - start) / delta;
+      low = Math.max(low, Math.min(a, b)); high = Math.min(high, Math.max(a, b));
+      if (low > high) return Infinity;
+    }
+  }
+  return low;
+}
+
+function firstObstacleTime(obstacles, x, y, dx, dy, padding = 0, skipInteractiveBodies = false) {
+  let first = Infinity;
+  for (const obstacle of obstacles) {
+    if (skipInteractiveBodies && obstacle.interactiveId && (skipInteractiveBodies !== "aim" || !obstacle.blocksAim)) continue;
+    first = Math.min(first, segmentRectTime(x, y, dx, dy, obstacle, padding));
+  }
+  return first;
+}
+
+module.exports = { segmentCircleTime, segmentRectTime, firstObstacleTime };

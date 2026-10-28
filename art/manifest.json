@@ -2067,6 +2067,73 @@
       "generator": "OpenAI built-in ImageGen",
       "normalizedRms": 0.013549004493229317,
       "notes": "Reusable crop-safe pixel environment; all text, buttons and animation remain code-drawn."
+    },
+    {
+      "id": "world.prop.echo.market.v1",
+      "version": "echo-market-v1",
+      "status": "active",
+      "runtimePath": "web/assets/world/echo-market-v1/trade-post.webp",
+      "archivePath": "art/world/echo-market-v1/source/trade-post.png",
+      "sourcePaths": [
+        "art/world/echo-market-v1/source/generation-record.json",
+        "art/world/echo-market-v1/README.md"
+      ],
+      "width": 380,
+      "height": 272,
+      "bytes": 160304,
+      "sha256": "2E37223BA934525EB55DB29168ED53EAE185AB8318E3ECA97CFA77DE7583ED37",
+      "generator": "OpenAI built-in ImageGen",
+      "sourceAlphaBounds": [
+        114,
+        103,
+        1345,
+        985
+      ],
+      "notes": "Transparent source trimmed to alpha bounds and nearest-neighbor exported. Solid footprint and counter interaction remain world data; text and icons are code-drawn."
+    },
+    {
+      "id": "world.prop.echo.salvage-kit.v1",
+      "version": "echo-market-v1",
+      "status": "active",
+      "runtimePath": "web/assets/world/echo-market-v1/salvage-kit.webp",
+      "archivePath": "art/world/echo-market-v1/source/salvage-kit.png",
+      "sourcePaths": [
+        "art/world/echo-market-v1/source/salvage-kit-generation.json",
+        "art/world/echo-market-v1/README.md",
+        "src/content/echo-props.js"
+      ],
+      "width": 512,
+      "height": 384,
+      "bytes": 202026,
+      "sha256": "81546139F5BB5FB28D9515471236F4CAC9E7533F568C08F730E5B5783A7FAF87",
+      "generator": "OpenAI built-in ImageGen",
+      "spriteRects": {
+        "bus": [
+          8,
+          53,
+          240,
+          85
+        ],
+        "car": [
+          264,
+          36,
+          240,
+          120
+        ],
+        "wreck": [
+          8,
+          243,
+          240,
+          89
+        ],
+        "scrap": [
+          264,
+          213,
+          240,
+          149
+        ]
+      },
+      "notes": "Four alpha-cropped prop sprites packed with gutters; lossless nearest-neighbor export. No collision embedded in the image."
     }
   ]
 }

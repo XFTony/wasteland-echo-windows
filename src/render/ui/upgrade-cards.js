@@ -1,134 +1,125 @@
 "use strict";
 
 const { clamp } = require("../../core/math");
-const { UPGRADE_FAMILY_STYLES, UPGRADE_RARITIES, UI_COLORS } = require("./theme");
-const { drawEchoMark, focusBrackets } = require("./art-primitives");
-const { surface, paperClip } = require("./radio-materials");
-const OFFSCREEN_POINTER = Object.freeze({ x: -1000, y: -1000, down: false });
+const { UPGRADE_FAMILY_STYLES, UPGRADE_RARITIES } = require("./theme");
+const { surface, paperClip, focusInk, RADIO } = require("./radio-materials");
+const { drawUpgradeIllustration } = require("./upgrade-illustrations");
+const { pointInCard, cardBounds } = require("./card-motion");
 
-function effectLines(detail, compact) {
-  const text = String(detail || "");
-  const parts = text.split(" · ");
-  if (parts.length > 1) return parts;
-  if (!compact || text.length <= 12) return [text];
-  const chars = Array.from(text);
-  const midpoint = Math.ceil(chars.length / 2);
-  return [chars.slice(0, midpoint).join(""), chars.slice(midpoint).join("")];
+function effectLines(detail, width = 14) {
+  const parts = String(detail || "").split(" · "), lines = [];
+  for (const part of parts) {
+    const chars = Array.from(part);
+    while (chars.length) lines.push(chars.splice(0, width).join(""));
+  }
+  return lines.slice(0, 3);
 }
 
-function drawCard(renderer, option, index, level, x, y, w, h, family, rarity, active, compact) {
-  const ctx = renderer.ctx;
-  const visualScale = compact ? 1 : Math.min(1.55, Math.max(1, renderer.height / 720));
-  const pad = compact ? 10 : 20 * visualScale;
-  const footerY = y + h - (compact ? 34 : 46 * visualScale);
-  surface(ctx, x, y, w, h, { active, raised: true, fill: active ? "#383b2c" : "#252a22", accent: family.color });
-  if (!compact) paperClip(ctx, x + w / 2 - 13, y + 6);
-  ctx.fillStyle = rarity.color;
-  ctx.fillRect(x + pad, y + (compact ? 4 : 8), Math.min(w * 0.26, 70), 3);
-  ctx.fillStyle = family.color;
-  ctx.fillRect(x + pad, y + (compact ? 37 : 47 * visualScale), Math.min(compact ? 25 : 38 * visualScale, w * 0.24), 2 * visualScale);
+function drawCard(r, option, index, level, x, y, w, h, family, rarity, active, compact) {
+  const ctx = r.ctx, tiny = h < 170;
+  const pad = Math.max(10, Math.min(22, w * .075));
+  surface(ctx, x, y, w, h, { fill: "#41382a", raised: true });
+  surface(ctx, x + 4, y + 4, w - 8, h - 8, { material: "paper", fill: active ? "#f0dfb7" : "#ddc69a" });
+  ctx.fillStyle = "#766247"; ctx.fillRect(x + 10, y + 10, 5, Math.max(15, h - 20));
+  ctx.fillStyle = family.fill; ctx.fillRect(x + pad + 2, y + 13, w - pad * 2 - 4, tiny ? 20 : 28);
+  r.text(String(index + 1), x + pad + 10, y + (tiny ? 23 : 27), tiny ? 11 : 15, "#f7e7c3", "left", "900", "mono");
+  r.fitText(`${family.label} / ${rarity.label}`, x + w - pad - 10, y + (tiny ? 23 : 27), tiny ? 10 : 12, w - pad * 2 - 35, "#f7e7c3", "right", "800", 9);
+  if (!tiny) paperClip(ctx, x + w / 2 - 12, y + 3, 24);
+  const iconSize = tiny ? Math.min(50, h * .55) : Math.min(w * .6, h * .31, 144);
+  const iconX = tiny ? x + 41 : x + w / 2, iconY = tiny ? y + h * .6 : y + h * .30;
+  if (!tiny) {
+    ctx.fillStyle = "rgba(130,106,63,.10)"; ctx.fillRect(x + pad, y + h * .14, w - pad * 2, h * .32);
+    ctx.fillStyle = "rgba(94,75,45,.14)";
+    for (let i = 0; i < 4; i++) ctx.fillRect(x + pad + 6, y + h * .19 + i * 15, 18 + i * 4, 1);
+  }
+  drawUpgradeIllustration(ctx, option.id, iconX, iconY, iconSize, option.family);
+  const textX = tiny ? x + 77 : x + w / 2, align = tiny ? "left" : "center";
+  const textW = tiny ? w - 88 : w - pad * 2;
+  r.fitText(option.name, textX, y + h * (tiny ? .49 : .51), tiny ? 13 : Math.min(24, w * .092), textW, RADIO.ink, align, "900", tiny ? 10 : 16);
+  if (!tiny) r.text("装 配 效 果", x + w / 2, y + h * .60, 10, "#6b583a", "center", "800");
+  const lines = effectLines(option.detail, tiny ? 17 : Math.max(10, Math.floor((w - pad * 2) / 15)));
+  lines.forEach((line, i) => r.fitText(line, textX, y + h * (tiny ? .71 : .68) + i * (tiny ? 13 : 22), tiny ? 10 : 16, textW, "#3e3424", align, "800", tiny ? 9 : 12));
+  if (!tiny) {
+    if (option.flavor && lines.length < 3) r.fitText(option.flavor, x + w / 2, y + h * .83, 12, w - pad * 2, "#685334", "center", "600", 10);
+    const footer = y + h - 43;
+    ctx.fillStyle = "#aa9064"; ctx.fillRect(x + pad, footer - 5, w - pad * 2, 1);
+    r.text(`装配 ${Math.min(level + 1, option.max)}/${option.max}`, x + pad, footer + 13, 12, "#513f29", "left", "900");
+    const count = Math.min(8, option.max), pip = Math.min(8, (w * .43 - count * 3) / count);
+    for (let i = 0; i < count; i++) { ctx.fillStyle = i <= level ? family.fill : "#b6a17a"; ctx.fillRect(x + w - pad - (count - i) * (pip + 3), footer + 8, pip, 8); }
+  }
+  if (active) focusInk(ctx, x + 9, y + 5, w - 18, h - 12, family.dark, 3);
+}
 
-  renderer.text(String(index + 1), x + pad, y + (compact ? 20 : 27 * visualScale), compact ? 13 : 16 * visualScale, rarity.color, "left", "900", "mono");
-  renderer.fitText(rarity.label, x + pad + (compact ? 20 : 28 * visualScale), y + (compact ? 20 : 27 * visualScale), compact ? 10 : 13 * visualScale, w * 0.54, UI_COLORS.paper, "left", "800", 9);
-  renderer.text(family.label, x + w - pad, y + (compact ? 20 : 27 * visualScale), compact ? 10 : 12 * visualScale, family.color, "right", "800");
-
-  const iconSize = Math.min(compact ? 50 : 92 * visualScale, h * (compact ? 0.27 : 0.23), w * 0.48);
-  const iconY = y + h * (compact ? 0.36 : 0.36);
-  renderer.drawUpgradeIcon(option.id, x + w / 2, iconY, iconSize, family.color);
-  renderer.fitText(option.name, x + w / 2, y + h * (compact ? 0.55 : 0.58), compact ? 14 : 24 * visualScale, w - pad * 2, UI_COLORS.white, "center", "900", compact ? 11 : 17 * visualScale, "display");
-
-  const lines = effectLines(option.detail, compact);
-  const lineGap = compact ? 14 : 23 * visualScale;
-  const detailY = y + h * (compact ? 0.65 : 0.68);
-  lines.forEach((line, lineIndex) => {
-    renderer.fitText(line, x + w / 2, detailY + lineIndex * lineGap, compact ? 11 : 17 * visualScale, w - pad * 2, UI_COLORS.paper, "center", "800", compact ? 9 : 13 * visualScale);
+function drawUpgradeDraft(r, model) {
+  r.regions.length = 0; r.regionCount = 0;
+  r.drawOverlay();
+  const options = model.run.upgradeOptions, twoRows = r.width < 780 || r.height < 430;
+  const columns = twoRows ? 2 : 4, rows = Math.ceil(options.length / columns);
+  const narrow = r.height < 600, top = twoRows ? 48 : narrow ? 82 : 124;
+  const footer = twoRows ? 40 : narrow ? 55 : 86, gap = twoRows ? 8 : 14;
+  const totalW = Math.min(1340, r.width - (twoRows ? 20 : 44));
+  const w = (totalW - gap * (columns - 1)) / columns;
+  const h = Math.min(twoRows ? 180 : 478, (r.height - top - footer - gap * (rows - 1) - 18) / rows);
+  const startX = (r.width - totalW) / 2, dt = clamp(r.uiTime - (r.draftLastTime ?? r.uiTime), 0, .1);
+  r.draftLastTime = r.uiTime;
+  if (r.draftRun !== model.run || r.draftOptions !== options) {
+    r.draftRun = model.run; r.draftOptions = options; r.draftHovers = options.map(() => 0);
+    r.draftCards = []; r.draftStarted = r.uiTime;
+  }
+  r.displayText("战地改造 · 装配新改件", r.width / 2, twoRows ? 20 : narrow ? 32 : 48, twoRows ? 20 : narrow ? 28 : 36, "#efddb7", "center");
+  if (!twoRows) r.text(`生存计时暂停 · 等级 ${model.run.player.level} · 选择一项立即生效`, r.width / 2, narrow ? 61 : 83, narrow ? 12 : 15, "#cbb791", "center", "700");
+  const pointer = r.pointerState || { x: -1000, y: -1000 }, age = Math.max(0, r.uiTime - r.draftStarted);
+  if (pointer.x !== r.draftPointerX || pointer.y !== r.draftPointerY) r.draftPointerPriority = true;
+  if (r.focusAction !== r.draftLastFocus || r.activeInputDevice === "gamepad") r.draftPointerPriority = false;
+  r.draftPointerX = pointer.x; r.draftPointerY = pointer.y; r.draftLastFocus = r.focusAction;
+  const pointerIndex = options.findIndex((option, i) => {
+    const prior = r.draftCards.find(card => card.option.id === option.id);
+    const x = startX + i % columns * (w + gap), y = top + Math.floor(i / columns) * (h + gap);
+    return prior && pointInCard(prior.shape, pointer.x, pointer.y) || pointer.x >= x && pointer.x <= x + w && pointer.y >= y && pointer.y <= y + h;
   });
-  if (!compact && option.flavor) {
-    renderer.fitText(option.flavor, x + w / 2, y + h * 0.85, 12 * visualScale, w - pad * 2, UI_COLORS.muted, "center", "600", 10 * visualScale);
+  const activeIndex = r.draftPointerPriority && pointerIndex >= 0 ? pointerIndex : options.findIndex(option => r.focusAction === `upgrade:${option.id}`);
+  const cards = options.map((option, i) => {
+    const x = startX + i % columns * (w + gap), y = top + Math.floor(i / columns) * (h + gap);
+    const hovered = activeIndex === i;
+    r.draftHovers[i] += ((hovered ? 1 : 0) - r.draftHovers[i]) * (r.reducedMotion ? 1 : 1 - Math.exp(-dt * 19));
+    const hover = r.draftHovers[i], progress = r.reducedMotion ? 1 : clamp((age - i * .045) / .27, 0, 1);
+    const ease = 1 - (1 - progress) ** 3;
+    const shape = { cx: x + w / 2, cy: y + h / 2 + (1 - ease) * 16 - hover * (twoRows ? 3 : 12),
+      w, h, angle: twoRows || r.reducedMotion ? 0 : (i - 1.5) * .022 * (1 - hover * .85), scale: .94 + ease * .06 + hover * .012 };
+    return { option, i, shape, hovered, progress, family: UPGRADE_FAMILY_STYLES[option.family] || UPGRADE_FAMILY_STYLES.utility,
+      rarity: UPGRADE_RARITIES[option.rarity] || UPGRADE_RARITIES.standard };
+  });
+  const order = cards.slice().sort((a, b) => a.hovered - b.hovered);
+  for (const card of order) {
+    const { shape: s, option, i } = card;
+    r.ctx.save(); r.ctx.globalAlpha = .2 + card.progress * .8;
+    r.ctx.translate(s.cx, s.cy); r.ctx.rotate(s.angle); r.ctx.scale(s.scale, s.scale);
+    drawCard(r, option, i, model.run.upgrades[option.id] || 0, -w / 2, -h / 2, w, h, card.family, card.rarity, card.hovered, twoRows);
+    r.ctx.restore();
+    const bounds = cardBounds(s);
+    r.addRegion(`upgrade:${option.id}`, bounds.x, bounds.y, bounds.w, bounds.h, s);
+    card.screenShape = r.regions[r.regions.length - 1].cardShape;
   }
-
-  ctx.fillStyle = "rgba(196,178,141,0.26)";
-  ctx.fillRect(x + pad, footerY, w - pad * 2, visualScale);
-  renderer.text(`${level}/${option.max}`, x + pad, footerY + (compact ? 18 : 23 * visualScale), compact ? 10 : 12 * visualScale, family.color, "left", "900", "mono");
-  const pipSize = compact ? 6 : 9 * visualScale;
-  const pipGap = compact ? 3 : 4 * visualScale;
-  const pipsW = option.max * pipSize + (option.max - 1) * pipGap;
-  const pipX = x + w - pad - pipsW;
-  for (let pip = 0; pip < option.max; pip += 1) {
-    ctx.fillStyle = pip < level ? family.color : "#5d594e";
-    ctx.fillRect(pipX + pip * (pipSize + pipGap), footerY + (compact ? 15 : 20 * visualScale), pipSize, compact ? 5 : 6 * visualScale);
-  }
-  if (active) focusBrackets(renderer, x - 4, y - 4, w + 8, h + 8, UI_COLORS.gold, 3 * visualScale, compact ? 10 : 15 * visualScale);
+  r.draftCards = cards;
+  const salvageW = Math.min(250, r.width * .44), salvageH = twoRows ? 27 : 36;
+  const salvageY = r.height - salvageH - (twoRows ? 5 : 12);
+  r.button("upgradeSalvage", `拆解本轮 · +${model.upgradeSalvageValue()} 拾荒币`, r.width / 2 - salvageW / 2, salvageY, salvageW, salvageH, "secondary");
+  if (!twoRows) r.fitText(r.gamepadConnected ? "方向键选卡 · A装配" : "悬停查看 · 点击或数字键1—4装配", r.width / 2, salvageY - 16, 12, r.width - 40, "#cbb994", "center", "700", 10);
 }
 
-function drawUpgradeDraft(renderer, model) {
-  renderer.drawOverlay();
-  const options = model.run.upgradeOptions;
-  const compact = renderer.height < 560 || renderer.width < 900;
-  const visualScale = compact ? 1 : Math.min(1.55, Math.max(1, renderer.height / 720));
-  const age = Math.max(0, renderer.frame - renderer.screenEnteredFrame);
-  drawEchoMark(renderer, renderer.width / 2 - (compact ? 114 : 154 * visualScale), compact ? 17 : 27 * visualScale, UI_COLORS.gold, compact ? 0.68 : 0.9 * visualScale);
-  renderer.displayText("选择战地改造", renderer.width / 2, compact ? 29 : 43 * visualScale, compact ? 26 : 38 * visualScale, UI_COLORS.white, "center");
-  renderer.text(
-    `等级 ${String(model.run.player.level).padStart(2, "0")}  ·  从四张改造卡中选择一张`,
-    renderer.width / 2,
-    compact ? 55 : 78 * visualScale,
-    compact ? 11 : 14 * visualScale,
-    UI_COLORS.gold,
-    "center",
-    "800",
-    "card"
-  );
-  const gap = compact ? 6 : 14 * visualScale;
-  const totalW = Math.min(1420 * visualScale, renderer.width - (compact ? 12 : 64));
-  const cardW = (totalW - gap * 3) / 4;
-  const footerH = compact ? 54 : 72 * visualScale;
-  const preferredCardH = compact ? 330 : 480 * visualScale;
-  const top = compact ? 68 : Math.max(103 * visualScale, (renderer.height - preferredCardH - footerH - 30 * visualScale) / 2);
-  const cardH = Math.min(preferredCardH, renderer.height - top - footerH);
-  const startX = (renderer.width - totalW) / 2;
-  const pointer = renderer.pointerState || OFFSCREEN_POINTER;
-  let activeIndex = -1;
-  for (let index = 0; index < options.length; index += 1) {
-    const x = startX + index * (cardW + gap);
-    if (renderer.focusAction === `upgrade:${options[index].id}` || (pointer.x >= x && pointer.x <= x + cardW && pointer.y >= top && pointer.y <= top + cardH)) {
-      activeIndex = index;
-      break;
-    }
-  }
-  for (let index = 0; index < options.length; index += 1) {
-    const option = options[index];
-    const x = startX + index * (cardW + gap);
-    const family = UPGRADE_FAMILY_STYLES[option.family] || UPGRADE_FAMILY_STYLES.utility;
-    const rarity = UPGRADE_RARITIES[option.rarity] || UPGRADE_RARITIES.standard;
-    const focused = renderer.focusAction === `upgrade:${option.id}`;
-    const hovered = focused || (pointer.x >= x && pointer.x <= x + cardW && pointer.y >= top && pointer.y <= top + cardH);
-    const pressed = hovered && pointer.down;
-    const progress = clamp((age - index * 5) / 20, 0, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const fanDrop = compact ? 0 : Math.abs(index - 1.5) * 11 * visualScale;
-    const lift = pressed ? 4 : hovered ? (compact ? -7 : -17 * visualScale) : 0;
-    const cardY = top + fanDrop + (1 - eased) * Math.min(150, cardH * 0.55) + lift;
-    const angle = compact ? 0 : (index - 1.5) * 0.035 * (hovered ? 0.18 : 1);
-    renderer.ctx.save();
-    const dim = activeIndex >= 0 && activeIndex !== index ? 0.82 : 1;
-    renderer.ctx.globalAlpha = (0.12 + progress * 0.88) * dim;
-    renderer.ctx.translate(x + cardW / 2, cardY + cardH / 2);
-    renderer.ctx.rotate(angle);
-    drawCard(renderer, option, index, model.run.upgrades[option.id] || 0, -cardW / 2, -cardH / 2, cardW, cardH, family, rarity, hovered, compact);
-    renderer.ctx.restore();
-    renderer.addRegion(`upgrade:${option.id}`, x, top, cardW, cardH);
-  }
-  const salvageValue = model.upgradeSalvageValue();
-  const salvageW = Math.min(compact ? 188 : 250 * visualScale, renderer.width * 0.3);
-  const salvageH = compact ? 30 : 40 * visualScale;
-  const bottomSalvageY = renderer.height - salvageH - (compact ? 7 : 14 * visualScale);
-  const salvageY = compact ? bottomSalvageY : Math.min(bottomSalvageY, Math.max(top + cardH + 40 * visualScale, bottomSalvageY - 90 * visualScale));
-  renderer.button("upgradeSalvage", `拆解本轮 · +${salvageValue} 废料`, renderer.width / 2 - salvageW / 2, salvageY, salvageW, salvageH, "secondary");
-  if (!compact) {
-    const hint = renderer.gamepadConnected ? "十字键选择 · A 装配" : "鼠标悬浮查看 · 点击或数字键 1—4 装配";
-    renderer.fitText(hint, renderer.width / 2 - salvageW / 2 - 18 * visualScale, salvageY + salvageH / 2, 12 * visualScale, Math.max(140, renderer.width / 2 - salvageW / 2 - 44), UI_COLORS.muted, "right", "700", 10);
-  }
+function drawUpgradeReceipt(r) {
+  const receipt = r.cardReceipt;
+  if (!receipt || receipt.life <= 0) return;
+  const progress = 1 - receipt.life / receipt.duration, ease = progress * progress * (3 - 2 * progress);
+  const x = r.reducedMotion ? r.width / 2 - 120 : receipt.x * (1 - ease) + 170 * ease - 120;
+  const y = r.reducedMotion ? 115 : receipt.y * (1 - ease) + 120 * ease - 35;
+  r.ctx.save(); r.ctx.globalAlpha = Math.min(1, receipt.life / .12);
+  surface(r.ctx, x, y, 240, 70, { material: "paper", raised: true });
+  r.ctx.strokeStyle = "#86503b"; r.ctx.lineWidth = 2; r.ctx.beginPath(); r.ctx.arc(x + 33, y + 34, 22, 0, Math.PI * 2); r.ctx.stroke();
+  r.text("装配", x + 33, y + 34, 13, "#81432e", "center", "900");
+  r.fitText(receipt.name, x + 68, y + 28, 17, 158, RADIO.ink, "left", "900", 12);
+  r.text("改件已生效", x + 68, y + 49, 11, "#665033", "left", "700");
+  r.ctx.restore();
 }
 
-module.exports = { drawUpgradeDraft, drawCard };
+module.exports = { drawUpgradeDraft, drawCard, drawUpgradeReceipt };

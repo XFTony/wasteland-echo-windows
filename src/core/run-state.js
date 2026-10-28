@@ -39,6 +39,7 @@ function createRunState({ duration, worldSize, weaponId, skinId, modeId, heroId 
     kills: 0,
     eliteKills: 0,
     scrap: 0,
+    fieldMarket: { stationId: null, purchases: {}, spent: 0, message: "" },
     hitCount: 0,
     shotsFired: 0,
     projectilesFired: 0,

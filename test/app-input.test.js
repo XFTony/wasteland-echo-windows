@@ -35,6 +35,18 @@ function createApp() {
   return new GameApp({ model, renderer, audio, platform });
 }
 
+test("holding the interaction key cannot toggle the shop after an input reset", () => {
+  const app = createApp();
+  app.model.fieldMarket = {
+    open() { app.model.screen = "fieldShop"; return true; },
+    close() { app.model.screen = "running"; return true; }
+  };
+  app.keyDown("KeyE"); assert.equal(app.model.screen, "fieldShop");
+  app.keyDown("KeyE", { repeat: true }); assert.equal(app.model.screen, "fieldShop");
+  app.keyUp("KeyE"); app.keyDown("Escape"); assert.equal(app.model.screen, "running");
+  app.keyDown("Escape", { repeat: true }); assert.equal(app.model.screen, "running");
+});
+
 test("releasing the final WASD key resets movement to zero", () => {
   const app = createApp();
   app.keyDown("KeyW");

@@ -18,10 +18,12 @@ function executeUiCommand(app, command) {
     return;
   }
   if (command.type === UI_COMMANDS.BACK) {
-    if (app.model.screen === SCREENS.MENU && app.model.menuPage !== "main") dispatchAction(app, "back");
+    if (app.model.screen === SCREENS.FIELD_SHOP) dispatchAction(app, "fieldClose");
+    else if (app.model.screen === SCREENS.MENU && app.model.menuPage !== "main") dispatchAction(app, "back");
     else if (app.model.screen === SCREENS.RESULT_WIN || app.model.screen === SCREENS.RESULT_LOSE) dispatchAction(app, "menu");
     return;
   }
+  if (command.type === UI_COMMANDS.INTERACT) return dispatchAction(app, "fieldOpen");
   if (command.type === UI_COMMANDS.PAUSE) return dispatchAction(app, app.model.screen === SCREENS.PAUSED ? "resume" : "pause");
   if (command.type === UI_COMMANDS.QUIT) return dispatchAction(app, "quit");
   if (command.type === UI_COMMANDS.RESTART) return dispatchAction(app, "restart");
@@ -41,7 +43,7 @@ function executeUiCommand(app, command) {
 }
 
 const VALUE_ACTIONS = new Set([
-  "settingsSection", "upgrade", "buy", "equip", "unequip",
+  "settingsSection", "upgrade", "buy", "fieldBuy", "equip", "unequip",
   "selectWeapon", "selectSkin", "selectHero", "inventoryPage", "bind", "toggle"
 ]);
 
@@ -116,6 +118,9 @@ const ACTION_HANDLERS = Object.freeze({
   upgrade: (app, command) => app.model.chooseUpgrade(command.value),
   upgradeSalvage: (app) => app.model.salvageUpgradeOptions(),
   buy: (app, command) => app.model.buyShopItem(command.value),
+  fieldOpen(app) { if (app.model.fieldMarket.open()) app.resetInput(); },
+  fieldClose(app) { if (app.model.fieldMarket.close()) app.resetInput(); },
+  fieldBuy: (app, command) => app.model.fieldMarket.purchase(command.value),
   equip: (app, command) => app.model.equip(command.value),
   unequip: (app, command) => app.model.unequip(command.value),
   selectWeapon: (app, command) => app.model.selectWeapon(command.value),

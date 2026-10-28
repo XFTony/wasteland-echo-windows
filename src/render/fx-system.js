@@ -112,7 +112,13 @@ const FX_METHODS = {
         }
       } else if (event.type === "upgradeSalvage") {
         this.showBanner("战地拆解", `回收 ${Number(event.value) || 0} 废料`, PALETTE.amber, 1.35);
+      } else if (event.type === "upgrade") {
+        const card = this.draftCards && this.draftCards.find(card => card.option.id === event.id);
+        if (card) this.cardReceipt = { name: card.option.name, x: card.screenShape.cx, y: card.screenShape.cy, life: .28, duration: .28 };
+      } else if (event.type === "worldHit") {
+        this.spawnBurst(event.x, event.y, "#aa9775", 2, 34);
       } else if (event.type === "runStart") {
+        this.cardReceipt = null;
         this.shotFeedback = null;
         this.lastProcBannerAt = -Infinity;
         for (const queued of this.pendingShells) { queued.active = false; queued.run = null; }
@@ -218,6 +224,7 @@ const FX_METHODS = {
   },
 
   updateEffects(dt, model = null) {
+    if (this.cardReceipt) { this.cardReceipt.life -= dt; if (this.cardReceipt.life <= 0) this.cardReceipt = null; }
     if (model) for (const queued of this.pendingShells) {
       if (!queued.active) continue;
       if (!model.run || queued.run !== model.run) { queued.active = false; queued.run = null; continue; }

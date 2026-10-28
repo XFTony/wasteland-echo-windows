@@ -15,6 +15,8 @@ const ART_IDS = Object.freeze({
   PROP_ECHO_WAREHOUSE: "world.prop.echo.warehouse-roof.v1",
   PROP_ECHO_CONTAINER: "world.prop.echo.container.v1",
   PROP_ECHO_RAILCAR: "world.prop.echo.railcar.v1",
+  PROP_ECHO_MARKET: "world.prop.echo.market.v1",
+  PROP_ECHO_SALVAGE_KIT: "world.prop.echo.salvage-kit.v1",
   TITLE_KEY_ART: "cover.survivor.v3",
   BACKDROP_MAIN: "menu.backdrop.main.v3",
   BACKDROP_DEPLOYMENT: "menu.backdrop.deployment.v3",
@@ -132,6 +134,12 @@ const ART_ASSETS = Object.freeze({
   }),
   [ART_IDS.PROP_ECHO_APOTHECARY]: asset(ART_IDS.PROP_ECHO_APOTHECARY, "./assets/world/props/echo-apothecary-roof-v1.webp", "world-props", {
     version: "1.5", notes: "Painted overhead apothecary roof aligned to its registered collision footprint."
+  }),
+  [ART_IDS.PROP_ECHO_MARKET]: asset(ART_IDS.PROP_ECHO_MARKET, "./assets/world/echo-market-v1/trade-post.webp", "world-props", {
+    version: "echo-market-v1", notes: "Original pixel salvage kiosk; fitted to the solid registered tradePost rectangle."
+  }),
+  [ART_IDS.PROP_ECHO_SALVAGE_KIT]: asset(ART_IDS.PROP_ECHO_SALVAGE_KIT, "./assets/world/echo-market-v1/salvage-kit.webp", "world-props", {
+    version: "echo-market-v1", notes: "Shared transparent bus, sedan, wreck and scrap atlas for the first-map prototype."
   }),
   [ART_IDS.TITLE_KEY_ART]: asset(ART_IDS.TITLE_KEY_ART, "./assets/ui/characters/cover-survivor-v3.webp", "cover", {
     version: "1.5", eager: true,

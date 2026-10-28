@@ -513,7 +513,7 @@ const MAPS = Object.freeze({
   echo_district: {
     id: "echo_district",
     name: "回声旧城",
-    description: "商店街、主干道与南线货场交错的废弃城区。",
+    description: "广播广场设有战地交易站，环路与货场适合迂回生存。",
     layoutId: "echo_district",
     worldSize: 3072,
     threat: 1,

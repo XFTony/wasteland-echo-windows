@@ -3,7 +3,7 @@
 const { clamp, distanceSq, circleRectPushOut } = require("./math");
 const { profileFor, computeEnemySteering } = require("./enemy-brain");
 const { compactShotPose } = require("./compact-weapon-pose");
-const { segmentCircleTime } = require("./projectile-geometry");
+const { segmentCircleTime, firstObstacleTime } = require("./projectile-geometry");
 const { addKnockback, advanceKnockback } = require("./knockback");
 
 const EPSILON = 0.00000001;
@@ -353,6 +353,9 @@ class CombatSim {
       projectile.x = endX; projectile.y = endY; projectile.ttl -= dt;
       const contacts = this.contacts;
       contacts.length = 0;
+      const wallTime = host.mapLayout.blocksProjectiles
+        ? firstObstacleTime(host.obstacles, startX, startY, dx, dy, projectile.radius, true) : Infinity;
+      if (Number.isFinite(wallTime)) contacts.push({ wall: true, time: wallTime });
       const candidates = host.enemyGrid.queryCircle((startX + endX) / 2, (startY + endY) / 2,
         Math.hypot(dx, dy) / 2 + host.maximumEnemyRadius + projectile.radius, host.collisionCandidates);
       for (const enemy of candidates) {
@@ -361,16 +364,20 @@ class CombatSim {
         if (Number.isFinite(time)) contacts.push({ enemy, time });
       }
       for (const interactive of host.interactives) {
-        if (!interactive.active || interactive.type !== "explosiveBarrel") continue;
+        if (!interactive.active || (interactive.type !== "explosiveBarrel" && !(interactive.solidRadius > 0))) continue;
         const time = segmentCircleTime(startX, startY, dx, dy, interactive.x, interactive.y, interactive.radius + projectile.radius);
         if (Number.isFinite(time)) contacts.push({ interactive, time });
       }
       contacts.sort((a, b) => a.time - b.time || (a.enemy?.id || 0) - (b.enemy?.id || 0));
       for (const contact of contacts) {
         if (!projectile.active) break;
+        if (contact.wall) {
+          host.emit("worldHit", { x: startX + dx * contact.time, y: startY + dy * contact.time });
+          host.projectilePool.release(projectile); break;
+        }
         if (contact.interactive) {
           if (!contact.interactive.active) continue;
-          this.triggerInteractive(contact.interactive);
+          if (contact.interactive.type === "explosiveBarrel") this.triggerInteractive(contact.interactive);
           host.projectilePool.release(projectile);
           break;
         }
@@ -395,7 +402,12 @@ class CombatSim {
       const startX = shot.x, startY = shot.y, dx = shot.vx * lifetime, dy = shot.vy * lifetime;
       shot.x += dx; shot.y += dy; shot.ttl -= dt;
       const time = segmentCircleTime(startX, startY, dx, dy, player.x, player.y, shot.radius + player.radius);
-      if (Number.isFinite(time)) {
+      const wallTime = host.mapLayout.blocksProjectiles
+        ? firstObstacleTime(host.obstacles, startX, startY, dx, dy, shot.radius) : Infinity;
+      if (Number.isFinite(wallTime) && wallTime <= time) {
+        host.emit("worldHit", { x: startX + dx * wallTime, y: startY + dy * wallTime });
+        host.projectilePool.release(shot);
+      } else if (Number.isFinite(time)) {
         host.projectilePool.release(shot);
         this.damagePlayer(shot.damage, startX + dx * time, startY + dy * time, shot);
       } else if (shot.ttl <= 0) host.projectilePool.release(shot);
@@ -407,6 +419,7 @@ class CombatSim {
     if (!interactive || !interactive.active) return false;
     if (interactive.type === "explosiveBarrel") {
       interactive.active = false;
+      host.removeInteractiveObstacle(interactive.id);
       const radius = Number(interactive.effectRadius) || 120;
       const damage = Number(interactive.damage) || 60;
       for (const enemy of host.enemies) {
@@ -423,6 +436,7 @@ class CombatSim {
     }
     if (interactive.type === "supplyCache") {
       interactive.active = false;
+      host.removeInteractiveObstacle(interactive.id);
       this.spawnPickup("scrap", interactive.x - 8, interactive.y, Number(interactive.scrap) || 6);
       this.spawnPickup("medkit", interactive.x + 10, interactive.y, Number(interactive.healing) || 24);
       host.emit("environment", { action: "supply", x: interactive.x, y: interactive.y });
@@ -501,7 +515,8 @@ class CombatSim {
     host.mechanicSystem.onKill(host.run);
     this.spawnPickup("xp", enemy.x, enemy.y, enemy.xp);
     if (enemy.bossDefinitionId) host.bossSystem.drop(enemy);
-    if (host.random.next() < Math.min(1, enemy.scrapChance + host.run.player.scrapChanceBonus)) {
+    const baseDropChance = Math.max(enemy.scrapChance, Number(host.mapLayout.scrapChanceFloor) || 0);
+    if (host.random.next() < Math.min(1, baseDropChance + host.run.player.scrapChanceBonus)) {
       const baseScrap = enemy.elite ? 8 : 1;
       const value = Math.max(1, Math.round(baseScrap * host.run.player.scrapMultiplier));
       this.spawnPickup("scrap", enemy.x + host.random.range(-8, 8), enemy.y + host.random.range(-8, 8), value);
@@ -552,7 +567,7 @@ class CombatSim {
       const deltaX = player.x - pickup.x;
       const deltaY = player.y - pickup.y;
       const distanceSquared = deltaX * deltaX + deltaY * deltaY;
-      if (distanceSquared < pickupRadiusSquared) {
+      if (distanceSquared < pickupRadiusSquared && host.hasLineOfSight(pickup.x, pickup.y, player.x, player.y)) {
         const distance = Math.sqrt(distanceSquared);
         if (distance > 0) {
           const speedScale = ((150 + (player.pickupRadius - distance) * 5) * dt) / distance;

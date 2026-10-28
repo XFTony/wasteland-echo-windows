@@ -4,6 +4,7 @@ const SCREENS = Object.freeze({
   MENU: "menu",
   RUNNING: "running",
   LEVEL_UP: "levelup",
+  FIELD_SHOP: "fieldShop",
   PAUSED: "paused",
   RESULT_WIN: "resultWin",
   RESULT_LOSE: "resultLose"
@@ -16,6 +17,7 @@ const INPUT_DEVICES = Object.freeze({
 
 const UI_COMMANDS = Object.freeze({
   ACTIVATE: "activate",
+  INTERACT: "interact",
   BACK: "back",
   NAVIGATE: "navigate",
   PAUSE: "pause",

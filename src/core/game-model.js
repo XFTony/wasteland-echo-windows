@@ -48,6 +48,8 @@ const { MasterySystem } = require("./mastery-system");
 
 const NORMALIZE_EPSILON = 0.00000001;
 const { compactAimAt } = require("./compact-weapon-pose");
+const { firstObstacleTime } = require("./projectile-geometry");
+const { FieldMarket } = require("./field-market");
 const NAVIGATION_REFRESH_SECONDS = 0.35;
 function getWeaponLockRange(weapon, rangeMultiplier = 1) {
   const configured = Number(weapon && weapon.lockRange);
@@ -150,6 +152,7 @@ class GameModel {
     this.bossSystem = new BossSystem(this, this.content);
     this.combatSim = new CombatSim(this, this.content);
     this.spawnSystem = new SpawnSystem(this, this.content);
+    this.fieldMarket = new FieldMarket(this, this.content);
   }
 
   resolveMapLayout(mapId) {
@@ -191,9 +194,14 @@ class GameModel {
   }
 
   createObstacles() {
-    return this.mapLayout.obstacles
+    const fixed = this.mapLayout.obstacles
       .filter((obstacle) => obstacle.x < this.worldSize && obstacle.y < this.worldSize)
       .map((obstacle) => ({ ...obstacle }));
+    for (const item of this.mapLayout.interactives || []) if (item.solidRadius > 0 && item.x < this.worldSize && item.y < this.worldSize) {
+      fixed.push({ interactiveId: item.id, kind: "interactiveBody", blocksAim: item.type === "supplyCache", x: item.x - item.solidRadius, y: item.y - item.solidRadius,
+        w: item.solidRadius * 2, h: item.solidRadius * 2 });
+    }
+    return fixed;
   }
 
   createInteractives() {
@@ -210,7 +218,8 @@ class GameModel {
     };
     const navigations = {};
     for (const [sizeClass, clearance] of Object.entries(this.navigationClearanceByClass)) {
-      const cacheKey = `${this.mapLayout.id}:${this.worldSize}:${this.navigationCellSize}:${clearance}`;
+      const bodies = this.obstacles.filter(item => item.interactiveId).map(item => item.interactiveId).join(",");
+      const cacheKey = `${this.mapLayout.id}:${this.worldSize}:${this.navigationCellSize}:${clearance}:${bodies}`;
       let navigation = this.navigationCache.get(cacheKey);
       if (!navigation) {
         navigation = createNavigation(layout, {
@@ -525,6 +534,16 @@ class GameModel {
     }
   }
 
+  hasLineOfSight(ax, ay, bx, by) {
+    return !this.mapLayout.blocksProjectiles || !Number.isFinite(firstObstacleTime(this.obstacles, ax, ay, bx - ax, by - ay, 0, "aim"));
+  }
+
+  removeInteractiveObstacle(id) {
+    const index = this.obstacles.findIndex(item => item.interactiveId === id);
+    if (index < 0) return;
+    this.obstacles.splice(index, 1); this.rebuildObstacleGrid(); this.setupNavigation();
+  }
+
   goToMenu() {
     this.releaseAllEntities();
     this.run = null;
@@ -619,7 +638,8 @@ class GameModel {
         const range = getWeaponLockRange(weapon, player.projectileRangeMultiplier * player.lockRangeMultiplier);
         const retainedDistance = distanceSq(player.x, player.y, retained.x, retained.y);
         const nearestDistance = distanceSq(player.x, player.y, target.x, target.y);
-        if (retainedDistance <= range * range && retainedDistance <= nearestDistance * 1.12 * 1.12) target = retained;
+        if (retainedDistance <= range * range && retainedDistance <= nearestDistance * 1.12 * 1.12
+          && this.hasLineOfSight(player.x, player.y, retained.x, retained.y)) target = retained;
       }
       if (target) {
         const targetX = target.x - player.x;
@@ -907,7 +927,7 @@ class GameModel {
     for (const enemy of candidates) {
       if (!enemy.active) continue;
       const distance = distanceSq(x, y, enemy.x, enemy.y);
-      if (distance < best) {
+      if (distance < best && this.hasLineOfSight(x, y, enemy.x, enemy.y)) {
         best = distance;
         nearest = enemy;
       }

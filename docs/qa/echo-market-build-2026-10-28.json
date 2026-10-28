@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-28",
+  "kind": "internal-echo-market-and-cards-playtest",
+  "branch": "codex/echo-map-market-cards",
+  "sourceBase": "a3a3a517dfef458681151a21710704a928f97038",
+  "sourceWorktreeIncludesCurrentChanges": true,
+  "sourceTreeSha256": "291BC8919D38B1BAC954C28846BBEDCE3D2569F45F49AE401BE803B19AD4BB16",
+  "version": "1.5.0-alpha.1",
+  "file": "output/echo-market-2026-10-28/windows/WastelandEcho-v1.5.0-alpha.1-win-x64.exe",
+  "bytes": 14829568,
+  "sha256": "4B8C039E582C1F4036315914835455A2AD3501375C2166B292207945DE968B66",
+  "bundleSha256": "E34CAF8A048E292A632B67DA10C62861615D954F28586FE8322C1A8D65247C8C",
+  "bundleBytes": 702279,
+  "runtimeManifestSha256": "32E5764084D2017CB6C516D524A10648D828AEE9103C5CE16D490C258689E540",
+  "runtimePayloadBytes": 6929113,
+  "runtimeFiles": 64,
+  "activeImages": 59,
+  "activeImageBytes": 6196962,
+  "newRuntimeImageBytes": 362330,
+  "newDecodedRgbaBytes": 1199872,
+  "automatedTests": 284,
+  "browserResolutions": 4,
+  "browserScaling": [
+    {
+      "dpr": 1.25,
+      "balance": 25
+    },
+    {
+      "dpr": 1.5,
+      "balance": 25
+    }
+  ],
+  "headlessPerformance": {
+    "generatedAt": "2026-10-28T10:07:55.353Z",
+    "browser": "Microsoft Edge via playwright-core",
+    "headless": true,
+    "sampleFrames": 120,
+    "warmupFrames": 45,
+    "pageErrors": [],
+    "results": [
+      {
+        "id": "720p-80-high",
+        "width": 1280,
+        "height": 720,
+        "enemies": 80,
+        "quality": 2,
+        "frames": 120,
+        "averageMs": 7.177,
+        "averageFps": 139.34,
+        "p95Ms": 7,
+        "p99Ms": 7.1,
+        "onePercentLowFps": 47.96,
+        "overBudgetFrames": 1,
+        "severeFrames": 0,
+        "heapMiB": 6.99
+      },
+      {
+        "id": "1080p-120-medium",
+        "width": 1920,
+        "height": 1080,
+        "enemies": 120,
+        "quality": 1,
+        "frames": 120,
+        "averageMs": 7.003,
+        "averageFps": 142.81,
+        "p95Ms": 7.1,
+        "p99Ms": 7.3,
+        "onePercentLowFps": 94.34,
+        "overBudgetFrames": 0,
+        "severeFrames": 0,
+        "heapMiB": 4.96
+      }
+    ]
+  },
+  "nativeGameLaunchVerified": false,
+  "realWebView2LongRunVerified": false,
+  "physicalGamepadVerified": false,
+  "minimumSpecVerified": false,
+  "humanBalanceApproved": false,
+  "publicReleaseCreated": false,
+  "tagCreated": false,
+  "deploymentMap": "回声旧城 / echo_district",
+  "limits": "Internal portable build; scripted browser interaction and proxy DPI checks do not replace native Windows long-session, physical controller, low-spec hardware, or human balance acceptance."
+}

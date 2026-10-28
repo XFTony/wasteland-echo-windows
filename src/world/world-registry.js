@@ -58,7 +58,8 @@ function validateCollectionEntry(collection, entry, label, worldSize) {
   } else if (collection === "interactives") {
     requireString(entry.id, label + ".id");
     requireString(entry.type, label + ".type");
-    if (!new Set(["explosiveBarrel", "supplyCache", "electricField"]).has(entry.type)) throw new Error(label + ".type is not supported");
+    if (!new Set(["explosiveBarrel", "supplyCache", "electricField", "tradePost"]).has(entry.type)) throw new Error(label + ".type is not supported");
+    if (entry.type === "tradePost") requireString(entry.obstacleId, label + ".obstacleId");
     requireFinite(entry.radius, label + ".radius", Number.EPSILON);
     if (Number(entry.x) + Number(entry.radius) > worldSize || Number(entry.y) + Number(entry.radius) > worldSize) {
       throw new RangeError(label + " radius must remain inside the world boundary");
@@ -129,6 +130,9 @@ function validateLayoutCatalog(layouts) {
       for (let index = 0; index < entries.length; index += 1) {
         validateCollectionEntry(collection, entries[index], label + "." + collection + "[" + index + "]", worldSize);
       }
+    }
+    for (const entry of layout.interactives || []) {
+      if (entry.type === "tradePost" && !layout.obstacles.some(obstacle => obstacle.id === entry.obstacleId && obstacle.kind === "tradePost")) throw new Error(label + " tradePost must reference its solid landmark");
     }
     validateLayoutConnectivity(layout, label);
   }

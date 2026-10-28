@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-28",
+  "tool": "OpenAI built-in ImageGen",
+  "transparentBackground": true,
+  "prompt": "Create ONE transparent 2x2 environmental SPRITE ATLAS for Wasteland Echo, an original top-down wasteland survival shooter. Four separated objects, one per equal quadrant, no overlap across quadrants. TOP LEFT: a long horizontal abandoned olive-ochre city bus with broken dark windows, weathered roof and wheels, length-to-width about 3:1. TOP RIGHT: a horizontal compact olive-gray sedan seen from overhead, about 2:1. BOTTOM LEFT: a horizontal rusty stripped car wreck with collapsed roof and exposed engine, about 2:1. BOTTOM RIGHT: a compact low mound of salvaged steel plates, dented wheel and rusty mechanical scrap, about 1.2:1. Each object fully visible centered in its own quarter with ample genuinely transparent margins; no labels, no letters or numbers, no borders or grid, no ground/floor/backdrop, no extra items or characters, no headlights beam, no smoke or animation effects. Near-orthographic overhead three-quarter camera consistent across all four sprites, roofs and top surfaces dominate, front edge faces bottom of screen. Do NOT make an isometric diamond or eye-level side view. Use the attached ranger sheet only as a STYLE REFERENCE for dense deliberate PIXEL ART and the attached trading kiosk for palette/material continuity: muted olive, warm ochre, oxidized copper/rust, dark umber outlines, readable pixel clusters, soft daylight from top left expressed with discrete colors. Crisp hand-crafted game-sprite edges, detailed readable small silhouettes, no photorealism, no airbrushing, no neon. These are solid collision props displayed around 90 to 190 pixels wide. Avoid thin sprawling arms outside the main silhouette and avoid baked shadows extending the footprint. One coherent game asset sheet, four distinct collision props, true transparent RGBA background.",
+  "references": [
+    "web/assets/actors/compact-v1/ranger-body.webp",
+    "art/world/echo-market-v1/source/trade-post.png"
+  ],
+  "sourceRegions": {
+    "bus": [
+      0,
+      0,
+      980,
+      512
+    ],
+    "car": [
+      980,
+      0,
+      1536,
+      512
+    ],
+    "wreck": [
+      0,
+      512,
+      980,
+      1024
+    ],
+    "scrap": [
+      980,
+      512,
+      1536,
+      1024
+    ]
+  }
+}

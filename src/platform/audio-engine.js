@@ -336,6 +336,7 @@ class AudioEngine {
       if (event.type === "pickup") this.tone("pickup", event.pickupType === "scrap" ? 1.3 : 0.72);
       if (event.type === "levelup") this.tone("levelup");
       if (event.type === "upgrade" || event.type === "ui") this.tone("ui");
+      if (event.type === "fieldMarketOpen" || event.type === "fieldPurchase") this.tone("ui");
       if (event.type === "finalWave") {
         this.musicBoost = 1;
         this.tone("boss", 0.72);

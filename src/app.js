@@ -174,7 +174,7 @@ class GameApp {
     const state = this.inputManager.keyDown(code);
     this.updateKeyboard();
     this.audio.unlock();
-    if (!state.alreadyPressed) {
+    if (!state.alreadyPressed && !options.repeat) {
       const command = keyboardCommand(code, {
         screen: this.model.screen,
         menuPage: this.model.menuPage,
