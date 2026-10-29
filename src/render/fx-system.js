@@ -64,6 +64,13 @@ const FX_METHODS = {
         this.cameraKick = Math.min(2, this.cameraKick + profile.camera);
         this.recoilAimX = aimX;
         this.recoilAimY = aimY;
+      } else if (event.type === "turretShot") {
+        const weapon = this.content.get("weapons", "scrap_pistol", this.content.defaults.weapon);
+        this.spawnMuzzleFlash(event.x, event.y, weapon, event.aimX, event.aimY, event.structureId);
+      } else if (event.type === "structurePlaced") {
+        this.showBanner("守望塔台已部署", "可被敌人破坏 · 靠近按交互键回收", PALETTE.mint, 1.5);
+      } else if (event.type === "structureDestroyed") {
+        this.spawnBurst(event.x, event.y, "#9b8060", 8, 65);
       } else if (event.type === "hit") {
         const profile = feedbackFor(event.weaponId);
         this.spawnBurst(event.x, event.y, profile.impact, event.critical ? 5 : 3, 55, -(event.aimX || 0), -(event.aimY || 0));
@@ -186,19 +193,24 @@ const FX_METHODS = {
     slot.life = slot.maxLife;
   },
 
-  spawnMuzzleFlash(x, y, weapon, aimX, aimY) {
+  spawnMuzzleFlash(x, y, weapon, aimX, aimY, structureId = null) {
+    if (!structureId) for (const flash of this.muzzleFlashes) if (!flash.structureId) flash.active = false;
     const slot = this.muzzleFlashes[this.nextMuzzleFlash];
     this.nextMuzzleFlash = (this.nextMuzzleFlash + 1) % this.muzzleFlashes.length;
     slot.active = this.flashSetting !== "off";
     slot.x = x;
     slot.y = y;
     slot.angle = Math.atan2(aimY, aimX);
-    slot.maxLife = weapon.muzzleFlashLife;
+    slot.maxLife = Math.min(weapon.muzzleFlashLife, weapon.id === "coil_cannon" ? .095 : .065);
+    slot.structureId = structureId; slot.fresh = true;
     slot.length = weapon.muzzleFlashLength;
     slot.color = weapon.color;
     slot.weaponId = weapon.id;
     slot.shape = feedbackFor(weapon.id).flash;
     slot.life = slot.maxLife;
+    const smoke = this.particles[this.nextParticle++ % this.particles.length];
+    Object.assign(smoke, { active: true, x, y, vx: aimX * 12, vy: aimY * 12 - 14, life: .22, maxLife: .22, size: 3, color: "#8e8873", gravity: -12 });
+    this.nextParticle %= this.particles.length;
   },
 
   spawnFloatText(x, y, value, color, critical = false) {
@@ -263,6 +275,7 @@ const FX_METHODS = {
     }
     for (const flash of this.muzzleFlashes) {
       if (!flash.active) continue;
+      if (flash.fresh) { flash.fresh = false; continue; }
       flash.life -= dt;
       if (flash.life <= 0) flash.active = false;
     }

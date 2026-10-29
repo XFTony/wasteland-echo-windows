@@ -109,6 +109,7 @@ const MAP_LAYOUTS = Object.freeze({
   echo_district: mapLayout(ECHO_DISTRICT),
   freight_nexus: mapLayout({
     id: "freight_nexus",
+    blocksProjectiles: true,
     worldSize: 3584,
     zones: [
       { id: "north-depot", label: "北部机务段", x: 260, y: 180, w: 2900, h: 720, surface: "concrete" },
@@ -131,6 +132,7 @@ const MAP_LAYOUTS = Object.freeze({
       { id: "freight-crack-05", type: "crack", x: 1630, y: 2760, w: 22, h: 64, seed: 101 }
     ],
     interactives: [
+      { id: "freight-trade-post", type: "tradePost", x: 1665, y: 1940, radius: 78, name: "余火交易站", obstacleId: "freight-market-booth" },
       { id: "freight-barrel-loop", type: "explosiveBarrel", x: 2080, y: 1810, radius: 14, effectRadius: 138, damage: 78 },
       { id: "freight-supply-workers", type: "supplyCache", x: 1120, y: 2680, radius: 20, scrap: 10, healing: 24 },
       { id: "freight-grid-depot", type: "electricField", x: 2820, y: 720, radius: 108, slow: 0.52 }
@@ -140,6 +142,7 @@ const MAP_LAYOUTS = Object.freeze({
       { id: "freight-loop", orientation: "vertical", x: 2140, y: 340, w: 420, h: 2940, lines: 5, spacing: 58 }
     ],
     obstacles: [
+      { id: "freight-market-booth", x: 1570, y: 1760, w: 190, h: 136, kind: "tradePost", sign: "余火交易站" },
       ...shifted(WASTELAND_OBSTACLES, 610, 650),
       ...shifted(WASTELAND_OBSTACLES, 1510, 140, (item) => ["railcar", "container", "warehouse", "scrap"].includes(item.kind)),
       { x: 370, y: 390, w: 380, h: 160, kind: "station", sign: "NORTH DEPOT" },
@@ -156,6 +159,7 @@ const MAP_LAYOUTS = Object.freeze({
   }),
   red_basin: mapLayout({
     id: "red_basin",
+    blocksProjectiles: true,
     worldSize: 4096,
     zones: [
       { id: "red-dunes", label: "赤砂盆地", x: 100, y: 100, w: 3896, h: 3896, surface: "scrap" },
@@ -177,6 +181,7 @@ const MAP_LAYOUTS = Object.freeze({
       { id: "basin-crack-06", type: "crack", x: 1980, y: 3320, w: 28, h: 68, seed: 157 }
     ],
     interactives: [
+      { id: "basin-trade-post", type: "tradePost", x: 2215, y: 1990, radius: 78, name: "余火交易站", obstacleId: "basin-market-booth" },
       { id: "basin-barrel-lab", type: "explosiveBarrel", x: 1840, y: 1530, radius: 14, effectRadius: 150, damage: 84 },
       { id: "basin-supply-quarantine", type: "supplyCache", x: 2520, y: 2380, radius: 20, scrap: 12, healing: 34 },
       { id: "basin-grid-ring", type: "electricField", x: 2210, y: 1700, radius: 118, slow: 0.48 }
@@ -185,6 +190,7 @@ const MAP_LAYOUTS = Object.freeze({
       { id: "basin-dry-rail", orientation: "horizontal", x: 260, y: 3010, w: 3400, h: 260, lines: 4, spacing: 52 }
     ],
     obstacles: [
+      { id: "basin-market-booth", x: 2120, y: 1810, w: 190, h: 136, kind: "tradePost", sign: "余火交易站" },
       ...shifted(WASTELAND_OBSTACLES, 1000, 880, (item) => item.kind !== "shop"),
       ...shifted(WASTELAND_OBSTACLES, 2040, 1490, (item) => ["warehouse", "container", "scrap", "wreck"].includes(item.kind)),
       { x: 1480, y: 1400, w: 340, h: 170, kind: "warehouse", sign: "LAB 04" },

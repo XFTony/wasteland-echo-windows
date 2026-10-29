@@ -403,6 +403,12 @@ const ENEMIES = Object.freeze({
 });
 
 const UPGRADES = Object.freeze({
+  engineering: { id: "engineering", name: "守望工程", detail: "塔台伤害 +25%基础值 · 耐久 +15%基础值", family: "utility", rarity: "advanced", max: 6, requires: { structures: true } },
+  turretRepair: { id: "turretRepair", name: "维护回路", detail: "塔台8秒未受击后 · 每秒修复1%最大耐久", family: "utility", rarity: "prototype", max: 3, requires: { structures: true } },
+  endlessPower: { id: "endlessPower", name: "持续火力", detail: "伤害 +5%", family: "firepower", rarity: "standard", max: Number.MAX_SAFE_INTEGER, repeatable: true, fallback: true },
+  endlessVitality: { id: "endlessVitality", name: "生存韧性", detail: "最大生命 +8 · 回复8", family: "survival", rarity: "standard", max: Number.MAX_SAFE_INTEGER, repeatable: true, fallback: true },
+  endlessSupplies: { id: "endlessSupplies", name: "搜集补给", detail: "获得10拾荒币", family: "utility", rarity: "standard", max: Number.MAX_SAFE_INTEGER, repeatable: true, fallback: true },
+  endlessAid: { id: "endlessAid", name: "紧急整备", detail: "回复15%最大生命 · 获得4拾荒币", family: "survival", rarity: "standard", max: Number.MAX_SAFE_INTEGER, repeatable: true, fallback: true },
   damage: { id: "damage", name: "高压弹头", detail: "伤害 +15%", flavor: "让每一发都更有分量", family: "firepower", rarity: "standard", max: 5 },
   fireRate: { id: "fireRate", name: "快速机件", detail: "射速 +12%", flavor: "缩短枪机复位间隔", family: "firepower", rarity: "standard", max: 5 },
   projectile: { id: "projectile", name: "分流枪机", detail: "弹丸 +1", flavor: "一次扣动，多路火力", family: "firepower", rarity: "prototype", max: 2 },

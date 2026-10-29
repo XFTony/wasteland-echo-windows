@@ -50,6 +50,9 @@ const NORMALIZE_EPSILON = 0.00000001;
 const { compactAimAt } = require("./compact-weapon-pose");
 const { firstObstacleTime } = require("./projectile-geometry");
 const { FieldMarket } = require("./field-market");
+const { Arsenal } = require("./arsenal");
+const { StructureSystem } = require("./structures");
+const { getSurvivalPressure, survivalProfile, clampSurvivorStats } = require("../content/survival");
 const NAVIGATION_REFRESH_SECONDS = 0.35;
 function getWeaponLockRange(weapon, rangeMultiplier = 1) {
   const configured = Number(weapon && weapon.lockRange);
@@ -58,6 +61,10 @@ function getWeaponLockRange(weapon, rangeMultiplier = 1) {
   const projectileSpeed = Number(weapon && weapon.projectileSpeed) || 420;
   const ttl = Number(weapon && weapon.ttl) || 0.75;
   return Math.max(160, projectileSpeed * ttl * 0.82) * safeMultiplier;
+}
+
+function obstacleSignature(obstacles) {
+  return obstacles.map(o => `${o.x},${o.y},${o.w},${o.h}`).join(";");
 }
 
 class GameModel {
@@ -107,6 +114,8 @@ class GameModel {
       large: this.navigationClearance
     });
     this.navigationCache = new Map();
+    this.baseNavigationCache = new Map();
+    this.baseNavigationKey = null;
     this.navigation = null;
     this.navigations = null;
     this.navigationRefreshCooldown = 0;
@@ -153,6 +162,8 @@ class GameModel {
     this.combatSim = new CombatSim(this, this.content);
     this.spawnSystem = new SpawnSystem(this, this.content);
     this.fieldMarket = new FieldMarket(this, this.content);
+    this.arsenal = new Arsenal(this, this.content);
+    this.structures = new StructureSystem(this);
   }
 
   resolveMapLayout(mapId) {
@@ -211,23 +222,30 @@ class GameModel {
   }
 
   setupNavigation() {
+    // Retain the current three grids plus one three-grid static baseline. This
+    // reuses a clean restart without retaining consumed-prop/turret histories.
+    this.navigationCache.clear();
     const layout = {
       id: this.mapLayout.id,
       worldSize: this.worldSize,
       obstacles: this.obstacles
     };
     const navigations = {};
+    const signature = obstacleSignature(this.obstacles);
+    const base = signature === this.baseNavigationSignature;
+    const worldKey = `${this.mapLayout.id}:${this.worldSize}:${this.navigationCellSize}:${signature}`;
+    if (base && this.baseNavigationKey !== worldKey) { this.baseNavigationCache.clear(); this.baseNavigationKey = worldKey; }
     for (const [sizeClass, clearance] of Object.entries(this.navigationClearanceByClass)) {
-      const bodies = this.obstacles.filter(item => item.interactiveId).map(item => item.interactiveId).join(",");
-      const cacheKey = `${this.mapLayout.id}:${this.worldSize}:${this.navigationCellSize}:${clearance}:${bodies}`;
-      let navigation = this.navigationCache.get(cacheKey);
+      const cacheKey = `${sizeClass}:${clearance}`;
+      let navigation = base ? this.baseNavigationCache.get(cacheKey) : null;
       if (!navigation) {
         navigation = createNavigation(layout, {
           cellSize: this.navigationCellSize,
           clearance
         });
-        this.navigationCache.set(cacheKey, navigation);
+        if (base) this.baseNavigationCache.set(cacheKey, navigation);
       }
+      this.navigationCache.set(cacheKey, navigation);
       navigations[sizeClass] = navigation;
     }
     this.navigations = navigations;
@@ -435,6 +453,7 @@ class GameModel {
     this.mapLayout = this.resolveMapLayout(mapId);
     this.worldSize = this.worldSizeOverride || Number(map.worldSize) || this.mapLayout.worldSize;
     this.obstacles = this.createObstacles();
+    this.baseNavigationSignature = obstacleSignature(this.obstacles);
     this.rebuildObstacleGrid();
     this.interactives = this.createInteractives();
     this.duration = Number(options.duration) > 0 ? Number(options.duration) : this.durationOverride || Number(stage.duration) || DEFAULT_RUN_DURATION;
@@ -446,8 +465,8 @@ class GameModel {
       modeId,
       heroId,
       mapId,
-      stageId,
-      difficulty: (Number(stage.difficulty) || 1) * (Number(map.threat) || 1),
+      stageId: mode.rule === "endless" ? null : stageId,
+      difficulty: (mode.rule === "endless" ? 1 : Number(stage.difficulty) || 1) * (Number(map.threat) || 1),
       seed: this.seed,
       mode
     });
@@ -455,7 +474,7 @@ class GameModel {
       || (options.tutorial !== false && !this.save.tutorialCompleted && !this.save.tutorialSkipped);
     this.run.tutorial = createTutorialState(tutorialEnabled);
     const equipped = applyHeroAndEquipment(this.run.player, hero, this.save, this.content);
-    this.masterySystem.applyPerks(this.run.player, this.save, weaponId);
+    this.arsenal.applyMastery(weaponId);
     this.run.equipmentIds = equipped.map((item) => item.id);
     this.run.equipmentLoadout = Object.fromEntries(equipped.map((item) => [item.slot, item]));
     this.setupNavigation();
@@ -468,9 +487,9 @@ class GameModel {
       modeId,
       heroId,
       mapId,
-      stageId,
-      radioTitle: stage.radioTitle,
-      radioDetail: stage.radioDetail
+      stageId: this.run.stageId,
+      radioTitle: mode.rule === "endless" ? survivalProfile(mapId).radioTitle : stage.radioTitle,
+      radioDetail: mode.rule === "endless" ? survivalProfile(mapId).radioDetail : stage.radioDetail
     });
     this.spawnEnemy("drifter", this.run.player.x + 220, this.run.player.y);
     if (this.run.rule === "extract") this.spawnEnemy("drifter", this.run.player.x - 210, this.run.player.y + 80);
@@ -478,6 +497,7 @@ class GameModel {
   }
 
   releaseAllEntities() {
+    if (this.run) this.run.activeBosses = 0;
     for (const item of this.projectiles) this.projectilePool.release(item);
     for (const item of this.enemyShots) this.projectilePool.release(item);
     for (const item of this.enemies) this.enemyPool.release(item);
@@ -524,6 +544,7 @@ class GameModel {
   }
 
   togglePause() {
+    this.structures.cancel();
     if (this.screen === "running") {
       this.progressTutorial("pause", 1);
       this.screen = "paused";
@@ -545,6 +566,7 @@ class GameModel {
   }
 
   goToMenu() {
+    if (this.run?.endless && !this.run.result) this.finishRun("retire");
     this.releaseAllEntities();
     this.run = null;
     this.screen = "menu";
@@ -559,6 +581,7 @@ class GameModel {
     const player = run.player;
 
     run.elapsed += step;
+    if (run.endless) run.threatLevel = getSurvivalPressure(run.elapsed).level;
     player.noHitTime += step;
     run.maxNoHitTime = Math.max(run.maxNoHitTime, player.noHitTime);
     player.invulnerable = Math.max(0, player.invulnerable - step);
@@ -577,6 +600,8 @@ class GameModel {
     if (run.rule === "extract") this.updateExtraction(step);
     this.updateSpawner(step);
     this.updateEnemies(step);
+    if (this.screen !== "running") { this.compactEntities(); return; }
+    this.structures.update(step);
     this.updateProjectiles(step);
     this.updateInteractives(step);
     this.updatePickups(step);
@@ -787,6 +812,7 @@ class GameModel {
     player.level += 1;
     player.xpNext = 10 + player.level * 8;
     this.run.upgradeOptions = this.createUpgradeOptions();
+    this.structures.cancel();
     this.screen = "levelup";
     this.emit("levelup", { level: player.level });
   }
@@ -794,12 +820,13 @@ class GameModel {
   createUpgradeOptions() {
     const pool = this.upgradeCandidateBuffer;
     pool.length = 0;
-    const evolutions = [];
+    const evolutions = [], fallback = [];
     for (const upgradeId of this.content.ids("upgrades")) {
       const upgrade = this.content.upgrades[upgradeId];
       const level = this.run.upgrades[upgrade.id] || 0;
       if (level >= upgrade.max || typeof this.upgradeEffects[upgrade.id] !== "function" || !this.upgradeRequirementsMet(upgrade)) continue;
-      if (upgrade.evolution) evolutions.push(upgrade);
+      if (upgrade.fallback) fallback.push(upgrade);
+      else if (upgrade.evolution) evolutions.push(upgrade);
       else pool.push(upgrade);
     }
     const choices = [];
@@ -816,6 +843,7 @@ class GameModel {
       pool[index] = pool[pool.length - 1];
       pool.length -= 1;
     }
+    while (choices.length < 4 && fallback.length) choices.push(fallback.splice(this.random.int(0, fallback.length - 1), 1)[0]);
     return choices;
   }
 
@@ -832,6 +860,7 @@ class GameModel {
 
   upgradeRequirementsMet(upgrade) {
     if (!upgrade.requires) return true;
+    if (upgrade.requires.structures && !this.structures.ownedCount()) return false;
     const requirements = upgrade.requires.upgrades || {};
     for (const [requiredId, requiredLevel] of Object.entries(requirements)) {
       if ((this.run.upgrades[requiredId] || 0) < requiredLevel) return false;
@@ -865,8 +894,10 @@ class GameModel {
     const applyEffect = this.upgradeEffects[id];
     if (typeof applyEffect !== "function") return false;
     applyEffect(player, this.run, this);
+    clampSurvivorStats(player);
     this.run.upgrades[id] = current + 1;
     this.run.upgradeOrder.push({ id, level: current + 1, elapsed: this.run.elapsed });
+    if (this.run.upgradeOrder.length > 128) this.run.upgradeOrder.shift();
     this.run.upgradeOptions = [];
     this.screen = "running";
     this.progressTutorial("upgrade", 1);
@@ -879,6 +910,7 @@ class GameModel {
     const value = this.upgradeSalvageValue();
     this.run.scrap += value;
     this.run.upgradeOrder.push({ id: "salvage", level: 1, elapsed: this.run.elapsed, value });
+    if (this.run.upgradeOrder.length > 128) this.run.upgradeOrder.shift();
     this.run.upgradeOptions = [];
     this.screen = "running";
     this.progressTutorial("upgrade", 1);
@@ -897,12 +929,13 @@ class GameModel {
 
   finishRun(result) {
     if (!this.run || this.run.result) return;
+    this.structures.cancel();
     const run = this.run;
     run.result = result;
-    run.advice = buildRunAdvice(run, result, this.content);
+    run.advice = result === "retire" ? [] : buildRunAdvice(run, result, this.content);
     this.screen = result === "win" ? "resultWin" : "resultLose";
     const mode = this.content.get("modes", run.modeId, this.content.defaults.mode);
-    const stage = this.content.get("stages", run.stageId, this.content.defaults.stage);
+    const stage = run.endless ? null : this.content.get("stages", run.stageId, this.content.defaults.stage);
     const progress = applyRunProgress(this.save, run, this.duration, mode, result, this.content, stage, {
       masterySystem: this.masterySystem,
       unlockSystem: this.unlockSystem
@@ -963,6 +996,8 @@ class GameModel {
       enemies: this.enemies.length,
       projectiles: this.projectiles.length + this.enemyShots.length,
       pickups: this.pickups.length,
+      structures: this.run ? this.run.structures.length : 0,
+      navigationCache: this.navigationCache.size,
       pools: {
         enemies: this.enemyPool.stats(),
         projectiles: this.projectilePool.stats(),

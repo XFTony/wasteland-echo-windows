@@ -2,6 +2,7 @@
 
 const { WASTELAND_SCORE, getScoreForStage } = require("./music-score");
 const { DEFAULT_RUN_DURATION } = require("../config");
+const { AudioBank, MusicStream } = require("./audio-bank");
 
 const TONES = Object.freeze({
   ui: { frequency: 420, end: 560, duration: 0.055, gain: 0.035, wave: "square" },
@@ -36,9 +37,12 @@ function rampParam(param, value, time, exponential = false) {
 }
 
 class AudioEngine {
-  constructor(contextFactory) {
+  constructor(contextFactory, ports = {}) {
     this.contextFactory = contextFactory;
     this.context = null;
+    this.bank = new AudioBank(ports.loadBytes);
+    this.music = new MusicStream(ports.createMusic);
+    this.currentWeapon = "scrap_pistol";
     this.settings = { music: 0.55, sfx: 0.75 };
     this.musicClock = 0;
     this.musicStep = 0;
@@ -53,16 +57,18 @@ class AudioEngine {
     this.shotCounters = Object.create(null);
     this.lastShotIds = Object.create(null);
     this.lastImpactAt = -Infinity;
-    this.soundStats = { shots: 0, voices: 0, dropped: 0 };
+    this.soundStats = { shots: 0, voices: 0, dropped: 0, recorded: 0, fallback: 0 };
   }
 
   setSettings(settings) {
     this.settings = { ...this.settings, ...settings };
+    this.music.setVolume(this.settings.musicMuted ? 0 : this.settings.music);
     if (this.sfxBus && this.context) setParam(this.sfxBus.gain,
       this.settings.sfxMuted || !(this.settings.sfx > 0) ? 0 : .82, this.context.currentTime || 0);
   }
 
   unlock() {
+    this.music.unlock();
     try {
       if (!this.context) {
         this.context = this.contextFactory && this.contextFactory();
@@ -73,12 +79,14 @@ class AudioEngine {
         const resumed = this.context.resume();
         if (resumed && typeof resumed.catch === "function") resumed.catch(() => {});
       }
+      this.prepareWeapon(this.currentWeapon);
     } catch (_error) {
       this.context = null;
     }
   }
 
   suspend() {
+    this.music.suspend();
     try {
       if (this.context && typeof this.context.suspend === "function") this.context.suspend();
     } catch (_error) {
@@ -230,6 +238,14 @@ class AudioEngine {
     const pitch = 1 + ((count * 7 % 11) - 5) * .003;
     const gain = options.empowered ? 1.08 : 1;
     const delay = Math.max(0, Number(options.delay) || 0);
+    this.prepareWeapon(weaponId);
+    if (this.playSample(weaponId, pitch, gain, delay)) {
+      this.soundStats.recorded++;
+      const mechanical = ["breaker_shotgun", "rust_revolver", "coil_cannon"].includes(weaponId) ? "mechanical_heavy" : "mechanical_light";
+      this.playSample(mechanical, pitch, .28, delay + Math.min(.085, (options.interval || .3) * .4));
+      return true;
+    }
+    this.soundStats.fallback++;
     const voice = (part, mechanical = false) => {
       const ownDelay = mechanical ? Math.min(part[5] || 0, Number(options.interval) > 0 ? options.interval * .5 : Infinity) : part[5] || 0;
       return this.playVoice(part[0] * pitch, part[1] * pitch, part[2], part[3] * gain, part[4], delay + ownDelay, "sfx");
@@ -240,6 +256,26 @@ class AudioEngine {
     voice(profile.mechanism, true);
     if (profile.echo) voice(profile.echo);
     return played;
+  }
+
+  prepareWeapon(id) {
+    this.currentWeapon = id;
+    this.bank.prepare(this.context, id);
+    this.bank.prepare(this.context, "mechanical_light"); this.bank.prepare(this.context, "mechanical_heavy");
+  }
+
+  playSample(id, pitch = 1, scale = 1, delay = 0) {
+    const buffer = this.bank.get(id), c = this.context;
+    if (!buffer || !c || !c.createBufferSource || this.settings.sfxMuted || !(this.settings.sfx > 0)) return false;
+    if (!this.reserveVoice(buffer.duration / pitch, delay, "sfx")) return true;
+    try {
+      const source = c.createBufferSource(), gain = c.createGain(), start = (c.currentTime || 0) + delay;
+      source.buffer = buffer; setParam(source.playbackRate, pitch, start);
+      setParam(gain.gain, this.settings.sfx * scale * .68, start);
+      source.connect(gain); gain.connect(this.sfxDestination());
+      source.onended = () => { source.disconnect?.(); gain.disconnect?.(); };
+      source.start(start); source.stop(start + buffer.duration / pitch + .01); return true;
+    } catch (_error) { return false; }
   }
 
   playMusicStep(run) {
@@ -291,7 +327,12 @@ class AudioEngine {
     this.musicStep = (this.musicStep + 1) % score.length;
   }
 
-  update(dt, isRunning, run = null) {
+  update(dt, isRunning, run = null, screen = isRunning ? "running" : run ? "paused" : "menu") {
+    const volume = this.settings.musicMuted ? 0 : this.settings.music;
+    const id = screen === "menu" || screen === "resultWin" || screen === "resultLose" ? "theme_menu"
+      : screen === "paused" ? null : run && (run.activeBosses > 0 || run.threatLevel >= 8) ? "theme_pressure" : "theme_combat";
+    this.music.update(dt, id, volume * (["levelup", "fieldShop"].includes(screen) ? .38 : 1));
+    if (this.music.createAudio && !this.music.failed) return;
     if (!isRunning || !run) return;
     const score = getScoreForStage(run.stageId);
     const stepDuration = 60 / score.bpm / score.stepsPerBeat;
@@ -310,6 +351,7 @@ class AudioEngine {
     const firstShot = events.find(event => event.type === "shot" && Number.isFinite(event.elapsed));
     for (const event of mergeFeedbackHits(events)) {
       if (event.type === "runStart") {
+        this.prepareWeapon(event.weaponId);
         this.musicClock = 0;
         this.musicStep = 0;
         this.musicBoost = 0;
@@ -318,6 +360,8 @@ class AudioEngine {
         this.lastShotIds = Object.create(null);
         this.lastImpactAt = -Infinity;
       }
+      if (event.type === "weaponChanged") this.prepareWeapon(event.weaponId);
+      if (event.type === "turretShot") this.playShot("scrap_pistol", { interval: .85 });
       if (event.type === "shot") {
         if (event.attackId > 0 && this.lastShotIds[event.weaponId] === event.attackId) continue;
         this.lastShotIds[event.weaponId] = event.attackId;
@@ -349,7 +393,7 @@ class AudioEngine {
         this.tone("playerHit");
       }
       if (event.type === "result") {
-        this.tone(event.result === "win" ? "win" : "lose");
+        this.tone(event.result === "retire" ? "ui" : event.result === "win" ? "win" : "lose");
         this.musicBoost = 0;
       }
     }

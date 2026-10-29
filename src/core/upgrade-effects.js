@@ -8,6 +8,12 @@ function enableMechanicUpgrade(id) {
 }
 
 const DEFAULT_UPGRADE_EFFECTS = Object.freeze({
+  engineering(_p, run) { run.engineering++; },
+  turretRepair(_p, run) { run.turretRegen++; },
+  endlessPower(p) { p.damageMultiplier *= 1.05; },
+  endlessVitality(p) { p.maxHp += 8; p.hp += 8; },
+  endlessSupplies(_p, run) { run.scrap += 10; },
+  endlessAid(p, run) { p.hp = Math.min(p.maxHp, p.hp + p.maxHp * .15); run.scrap += 4; },
   damage(player) { player.damageMultiplier *= 1.15; },
   fireRate(player) { player.fireRateMultiplier *= 1.12; },
   projectile(player) { player.projectileBonus += 1; },

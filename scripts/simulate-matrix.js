@@ -10,6 +10,9 @@ const duration = Number.isFinite(requestedDuration) && requestedDuration > 0 ? r
 const seedOption = process.argv.find((argument) => argument.startsWith("--seed="));
 const seed = seedOption ? Number(seedOption.slice(7)) || 20260907 : 20260907;
 const scenarios = [
+  { id: "continuous-echo", modeId: "endless", mapId: "echo_district", strategy: "default" },
+  { id: "continuous-freight", modeId: "endless", mapId: "freight_nexus", strategy: "kite" },
+  { id: "continuous-basin", modeId: "endless", mapId: "red_basin", strategy: "random-upgrade" },
   { id: "survival-default", modeId: "survival", strategy: "default" },
   { id: "survival-kite", modeId: "survival", strategy: "kite" },
   { id: "survival-facehug", modeId: "survival", strategy: "facehug" },
@@ -24,6 +27,7 @@ const results = scenarios.map((scenario) => ({
     duration,
     seed,
     modeId: scenario.modeId,
+    mapId: scenario.mapId,
     strategy: scenario.strategy,
     healthProfile: "normal"
   })

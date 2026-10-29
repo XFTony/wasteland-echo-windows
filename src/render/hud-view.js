@@ -29,8 +29,8 @@ const HUD_METHODS = {
     this.text(`LV ${player.level}`, margin + 13, margin + 17, 13, PALETTE.amber, "left", "900");
     const weapon = this.content.get("weapons", player.weaponId, this.content.defaults.weapon);
     const mechanicStatus = model.mechanicSystem && model.mechanicSystem.status(run, weapon);
-    const calibration = run.fieldMarket && run.fieldMarket.purchases.weaponCalibration || 0;
-    const weaponName = weapon.name + (calibration ? ` +${calibration}` : "");
+    const refit = run.arsenal && run.arsenal[player.weaponId], calibration = refit?.calibration || 0;
+    const weaponName = weapon.name + (refit && refit.tier > 1 ? ` ${refit.tier}阶` : "") + (calibration ? ` +${calibration}` : "");
     const weaponLabel = mechanicStatus ? `${weaponName} · ${mechanicStatus.label} ${Math.round(mechanicStatus.value * 100)}%` : weaponName;
     this.fitText(weaponLabel, margin + 72, margin + 17, 13, 186, PALETTE.cream, "left", "900", 9);
     this.ctx.fillStyle = "#312521";
@@ -42,7 +42,7 @@ const HUD_METHODS = {
     this.ctx.fillRect(margin + 12, margin + 50, 246, 8);
     this.ctx.fillStyle = PALETTE.mint;
     this.ctx.fillRect(margin + 12, margin + 50, 246 * clamp(player.xp / player.xpNext, 0, 1), 8);
-    this.fitText(`${stage.name} · ${map.name}`, margin + 12, margin + 69, 10, 246, "#d9d3ba", "left", "800", 9);
+    this.fitText(run.endless ? `${map.name} · 威胁${run.threatLevel}` : `${stage.name} · ${map.name}`, margin + 12, margin + 69, 10, 246, "#d9d3ba", "left", "800", 9);
 
     const remaining = run.elapsed < run.duration ? run.duration - run.elapsed : 0;
     const centerX = this.width / 2;
@@ -51,7 +51,7 @@ const HUD_METHODS = {
     sectionPlate(this, centerX - 86, 12, 172, 58, { material: "iron", fill: "#211f1a", stroke: timerAccent, accent: timerAccent, raised: true });
     const timerText = run.endless ? `∞ ${formatTime(run.elapsed)}` : run.elapsed >= run.duration ? `加时 ${formatTime(run.overtime)}` : formatTime(remaining);
     this.text(timerText, centerX, 33, 23, run.extraction.active ? PALETTE.cyan : finalWave ? PALETTE.amber : PALETTE.white, "center", "900");
-    const objective = run.endless ? "无尽尸潮" : run.extraction.active ? "前往撤离区" : finalWave ? "最终攻势" : mode.objective;
+    const objective = run.endless ? `连续生存 · 首领击败 ${run.bossesDefeated}` : run.extraction.active ? "前往撤离区" : finalWave ? "最终攻势" : mode.objective;
     this.text(objective, centerX, 55, 11, PALETTE.muted, "center", "900");
 
     const boss = model.enemies.find((enemy) => enemy.active && enemy.boss);
@@ -197,7 +197,7 @@ const HUD_METHODS = {
     const firstY = y + (compact ? 98 : 120);
     this.button("resume", "继续战斗", this.width / 2 - buttonW / 2, firstY, buttonW, buttonH, "primary");
     this.button("restart", "重新开始", this.width / 2 - buttonW / 2, firstY + buttonH + gap, buttonW, buttonH, "secondary");
-    this.button("quit", "退出本局", this.width / 2 - buttonW / 2, firstY + (buttonH + gap) * 2, buttonW, buttonH, "danger");
+    this.button("quit", "结算本局", this.width / 2 - buttonW / 2, firstY + (buttonH + gap) * 2, buttonW, buttonH, "danger");
     const hint = this.activeInputDevice === INPUT_DEVICES.GAMEPAD ? "手柄 Menu / B 继续 · A 确认" : "P / Esc 继续 · Q 退出 · R 重开";
     this.fitText(hint, this.width / 2, y + h - 20, compact ? 10 : 12, w - 36, PALETTE.muted, "center", "700", 9);
   },
@@ -218,7 +218,7 @@ const HUD_METHODS = {
     surface(this.ctx, x, y, w, h, { raised: true, fill: "#232820" });
     paperClip(this.ctx, x + w / 2 - 13, y + 6);
     drawEchoMark(this, x + inset, y + (compact ? 15 : 18 * visualScale), accent, compact ? 0.72 : 0.9 * visualScale);
-    const title = won ? run.rule === "extract" ? "撤离成功" : "坚守成功" : run.endless ? "尸潮压境" : "信号中断";
+    const title = run.result === "retire" ? "生存记录已归档" : won ? run.rule === "extract" ? "撤离成功" : "坚守成功" : run.endless ? "尸潮压境" : "信号中断";
     this.displayText(title, x + inset + (compact ? 40 : 54 * visualScale), y + (compact ? 35 : 44 * visualScale), compact ? 27 : 37 * visualScale, accent, "left");
     this.text(`SEED ${run.seed}`, x + w - inset, y + (compact ? 31 : 34 * visualScale), compact ? 9 : 11 * visualScale, PALETTE.muted, "right", "800", "mono");
     const summary = won ? run.rule === "extract" ? "你把废土的回声带了回来" : "信号穿过了最后一轮沙暴" : "本局战利品已结算；下面记录关键战况";

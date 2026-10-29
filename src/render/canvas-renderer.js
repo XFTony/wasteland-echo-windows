@@ -28,6 +28,7 @@ const { hash2 } = require("./render-hash");
 const { formatTime } = require("./format");
 const { drawWeaponFlash, drawWeaponImpact } = require("./weapon-feedback");
 const { CompactActorView } = require("./compact-actors");
+const { drawStructures } = require("./structure-view");
 
 const FONT_STACKS = Object.freeze({
   ui: '"Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif',
@@ -509,11 +510,12 @@ class CanvasRenderer {
     for (const pickup of model.pickups) this.drawPickup(pickup);
     for (const projectile of model.projectiles) this.drawProjectile(projectile);
     for (const enemy of model.enemies) this.drawEnemy(enemy, run.elapsed);
+    drawStructures(this, model);
     this.drawPlayer(player, run);
-    for (const shot of model.enemyShots) this.drawProjectile(shot);
     this.drawInteractionLabels(model);
     this.drawAimReticle(model);
     this.drawWorldEffects(model);
+    for (const shot of model.enemyShots) this.drawProjectile(shot);
     this.drawAtmosphere(run.elapsed);
     ctx.restore();
   }
@@ -555,11 +557,14 @@ class CanvasRenderer {
     for (let index = 0; index < this.muzzleFlashes.length; index += 1) {
       const flash = this.muzzleFlashes[index];
       if (!flash.active || this.flashSetting === "off") continue;
-      const live = model && model.run && this.compactActors.playerRun === model.run &&
+      const live = !flash.structureId && model && model.run && this.compactActors.playerRun === model.run &&
         this.compactActors.lastDraw && this.compactActors.lastDraw.weaponId === flash.weaponId
         ? this.compactActors.lastDraw : null;
-      const point = this.worldToScreen(live ? live.muzzleX : flash.x, live ? live.muzzleY : flash.y, this.screenPoint);
-      drawWeaponFlash(ctx, flash, point.x, point.y, live ? live.weaponAngle : flash.angle);
+      const tower = flash.structureId && model?.run?.structures.find(t => t.id === flash.structureId);
+      const reach = tower ? 38 - Math.max(0, 1 - (model.run.elapsed - tower.lastShotAt) / .1) * 2 : 0;
+      const point = this.worldToScreen(tower ? tower.x + Math.cos(tower.angle) * reach : live ? live.muzzleX : flash.x,
+        tower ? tower.y - 20 + Math.sin(tower.angle) * reach : live ? live.muzzleY : flash.y, this.screenPoint);
+      drawWeaponFlash(ctx, flash, point.x, point.y, tower ? tower.angle : live ? live.weaponAngle : flash.angle);
     }
     ctx.globalAlpha = 1;
     for (let index = 0; index < this.floatTexts.length; index += 1) {

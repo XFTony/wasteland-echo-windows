@@ -9,7 +9,9 @@ const webRoot = path.join(root, "web");
 const distRoot = path.join(root, "dist");
 const require = createRequire(import.meta.url);
 const { ART_ASSETS } = require("../src/render/art/asset-catalog");
+const { AUDIO_ASSETS } = require("../src/content/audio-assets");
 
+if (path.resolve(distRoot) !== path.join(root, "dist") || path.dirname(distRoot) !== root) throw new Error("Unsafe staging destination");
 fs.rmSync(distRoot, { recursive: true, force: true });
 fs.mkdirSync(distRoot, { recursive: true });
 
@@ -22,6 +24,7 @@ function copy(relative) {
 }
 
 for (const relative of ["index.html", "styles.css", "game.bundle.js"]) copy(relative);
+for (const definition of AUDIO_ASSETS) copy(definition.src.replace(/^\.\//, ""));
 for (const file of fs.readdirSync(path.join(webRoot, "assets", "fonts"))) copy(path.join("assets", "fonts", file));
 for (const definition of Object.values(ART_ASSETS)) {
   if (!definition.active) continue;

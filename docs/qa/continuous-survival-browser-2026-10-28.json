@@ -1,0 +1,297 @@
+{
+  "date": "2026-10-29",
+  "pageErrors": [],
+  "missingAssets": [],
+  "isolatedProfile": true,
+  "layouts": [
+    {
+      "width": 960,
+      "height": 540,
+      "deployment": [
+        "back",
+        "inventory",
+        "mapPrev",
+        "mapNext",
+        "deploy"
+      ],
+      "tabs": [
+        {
+          "tab": "supplies",
+          "actions": [
+            "fieldTab:supplies",
+            "fieldTab:arsenal",
+            "fieldTab:support",
+            "fieldBuy:weaponCalibration",
+            "fieldBuy:fieldMedkit",
+            "fieldBuy:runnerStrap",
+            "fieldBuy:ballisticLining",
+            "fieldBuy:salvageMagnet",
+            "fieldClose"
+          ]
+        },
+        {
+          "tab": "arsenal",
+          "actions": [
+            "fieldTab:supplies",
+            "fieldTab:arsenal",
+            "fieldTab:support",
+            "arsenalEquip:scrap_pistol",
+            "arsenalImprove:scrap_pistol",
+            "arsenalBuy:swarm_smg",
+            "arsenalBuy:breaker_shotgun",
+            "arsenalBuy:needle_rifle",
+            "arsenalBuy:rust_revolver",
+            "arsenalBuy:ember_carbine",
+            "fieldPage:1",
+            "fieldClose"
+          ]
+        },
+        {
+          "tab": "support",
+          "actions": [
+            "fieldTab:supplies",
+            "fieldTab:arsenal",
+            "fieldTab:support",
+            "fieldBuy:turretKit",
+            "fieldBuy:engineeringKit",
+            "fieldClose"
+          ]
+        }
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "deployment": [
+        "back",
+        "inventory",
+        "mapPrev",
+        "mapNext",
+        "deploy"
+      ],
+      "tabs": [
+        {
+          "tab": "supplies",
+          "actions": [
+            "fieldTab:supplies",
+            "fieldTab:arsenal",
+            "fieldTab:support",
+            "fieldBuy:weaponCalibration",
+            "fieldBuy:fieldMedkit",
+            "fieldBuy:runnerStrap",
+            "fieldBuy:ballisticLining",
+            "fieldBuy:salvageMagnet",
+            "fieldClose"
+          ]
+        },
+        {
+          "tab": "arsenal",
+          "actions": [
+            "fieldTab:supplies",
+            "fieldTab:arsenal",
+            "fieldTab:support",
+            "arsenalEquip:scrap_pistol",
+            "arsenalImprove:scrap_pistol",
+            "arsenalBuy:swarm_smg",
+            "arsenalBuy:breaker_shotgun",
+            "arsenalBuy:needle_rifle",
+            "arsenalBuy:rust_revolver",
+            "arsenalBuy:ember_carbine",
+            "fieldPage:1",
+            "fieldClose"
+          ]
+        },
+        {
+          "tab": "support",
+          "actions": [
+            "fieldTab:supplies",
+            "fieldTab:arsenal",
+            "fieldTab:support",
+            "fieldBuy:turretKit",
+            "fieldBuy:engineeringKit",
+            "fieldClose"
+          ]
+        }
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "deployment": [
+        "back",
+        "inventory",
+        "mapPrev",
+        "mapNext",
+        "deploy"
+      ],
+      "tabs": [
+        {
+          "tab": "supplies",
+          "actions": [
+            "fieldTab:supplies",
+            "fieldTab:arsenal",
+            "fieldTab:support",
+            "fieldBuy:weaponCalibration",
+            "fieldBuy:fieldMedkit",
+            "fieldBuy:runnerStrap",
+            "fieldBuy:ballisticLining",
+            "fieldBuy:salvageMagnet",
+            "fieldClose"
+          ]
+        },
+        {
+          "tab": "arsenal",
+          "actions": [
+            "fieldTab:supplies",
+            "fieldTab:arsenal",
+            "fieldTab:support",
+            "arsenalEquip:scrap_pistol",
+            "arsenalImprove:scrap_pistol",
+            "arsenalBuy:swarm_smg",
+            "arsenalBuy:breaker_shotgun",
+            "arsenalBuy:needle_rifle",
+            "arsenalBuy:rust_revolver",
+            "arsenalBuy:ember_carbine",
+            "fieldPage:1",
+            "fieldClose"
+          ]
+        },
+        {
+          "tab": "support",
+          "actions": [
+            "fieldTab:supplies",
+            "fieldTab:arsenal",
+            "fieldTab:support",
+            "fieldBuy:turretKit",
+            "fieldBuy:engineeringKit",
+            "fieldClose"
+          ]
+        }
+      ]
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "deployment": [
+        "back",
+        "inventory",
+        "mapPrev",
+        "mapNext",
+        "deploy"
+      ],
+      "tabs": [
+        {
+          "tab": "supplies",
+          "actions": [
+            "fieldTab:supplies",
+            "fieldTab:arsenal",
+            "fieldTab:support",
+            "fieldBuy:weaponCalibration",
+            "fieldBuy:fieldMedkit",
+            "fieldBuy:runnerStrap",
+            "fieldBuy:ballisticLining",
+            "fieldBuy:salvageMagnet",
+            "fieldClose"
+          ]
+        },
+        {
+          "tab": "arsenal",
+          "actions": [
+            "fieldTab:supplies",
+            "fieldTab:arsenal",
+            "fieldTab:support",
+            "arsenalEquip:scrap_pistol",
+            "arsenalImprove:scrap_pistol",
+            "arsenalBuy:swarm_smg",
+            "arsenalBuy:breaker_shotgun",
+            "arsenalBuy:needle_rifle",
+            "arsenalBuy:rust_revolver",
+            "arsenalBuy:ember_carbine",
+            "fieldPage:1",
+            "fieldClose"
+          ]
+        },
+        {
+          "tab": "support",
+          "actions": [
+            "fieldTab:supplies",
+            "fieldTab:arsenal",
+            "fieldTab:support",
+            "fieldBuy:turretKit",
+            "fieldBuy:engineeringKit",
+            "fieldClose"
+          ]
+        }
+      ]
+    }
+  ],
+  "maps": [
+    {
+      "id": "echo_district",
+      "endless": true,
+      "stage": null,
+      "stationAccessible": true
+    },
+    {
+      "id": "freight_nexus",
+      "endless": true,
+      "stage": null,
+      "stationAccessible": true
+    },
+    {
+      "id": "red_basin",
+      "endless": true,
+      "stage": null,
+      "stationAccessible": true
+    }
+  ],
+  "audio": {
+    "decoded": {
+      "loaded": 9,
+      "failed": 0,
+      "decodedBytes": 449248
+    },
+    "recordedShots": 9,
+    "fallbackShots": 0,
+    "maxMusicChannels": 2,
+    "musicAdvances": true,
+    "muteVerified": true,
+    "hideVerified": true
+  },
+  "audioRequests": [
+    "/assets/audio/survival-v1/scrap_pistol.wav",
+    "/assets/audio/survival-v1/mechanical_light.wav",
+    "/assets/audio/survival-v1/mechanical_heavy.wav",
+    "/assets/audio/survival-v1/theme-combat.ogg",
+    "/assets/audio/survival-v1/theme-menu.ogg",
+    "/assets/audio/survival-v1/breaker_shotgun.wav",
+    "/assets/audio/survival-v1/swarm_smg.wav",
+    "/assets/audio/survival-v1/needle_rifle.wav",
+    "/assets/audio/survival-v1/rust_revolver.wav",
+    "/assets/audio/survival-v1/ember_carbine.wav",
+    "/assets/audio/survival-v1/coil_cannon.wav",
+    "/assets/audio/survival-v1/theme-pressure.ogg"
+  ],
+  "video": {
+    "decoded": true,
+    "width": 1280,
+    "height": 720,
+    "audioTracks": 1,
+    "bytes": 3451044
+  },
+  "scaling": [
+    {
+      "dpr": 1.25,
+      "clickVerified": true
+    },
+    {
+      "dpr": 1.5,
+      "clickVerified": true
+    }
+  ],
+  "keyboardAndPointerDeployment": true,
+  "shopFreezesClock": true,
+  "retirement": true,
+  "realGamepadVerified": false,
+  "realWebViewLongRunVerified": false
+}

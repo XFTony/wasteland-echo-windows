@@ -98,6 +98,7 @@ function makeEnemy() {
     elite: false,
     boss: false,
     bossDefinitionId: null,
+    targetStructureId: null,
     bossPhaseId: null,
     hitFlash: 0,
     hitCooldown: 0,
@@ -126,6 +127,7 @@ function resetEnemy(item, values) {
   item.navigationTime = 0;
   item.bossPhase = 0;
   item.bossDefinitionId = values.bossDefinitionId || null;
+  item.targetStructureId = null;
   item.bossPhaseId = null;
   item.knockbackVX = 0;
   item.knockbackVY = 0;

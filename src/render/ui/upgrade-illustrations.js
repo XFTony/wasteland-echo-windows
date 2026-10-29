@@ -7,7 +7,12 @@ function drawUpgradeIllustration(ctx, id, x, y, size, family = "utility") {
   const rect = (x, y, w, h, color) => { ctx.fillStyle = color; ctx.fillRect(x, y, w, h); };
   const dark = "#252a23", edge = "#493a2a", copper = "#b68b50", light = "#e5c17b", steel = "#788079", cloth = "#707451";
   rect(8, 53, 49, 5, "rgba(36,31,23,.22)");
-  if (/vitality|regen|recovery|fieldMedkit/i.test(id)) {
+  if (/engineering|turretRepair|turretKit/i.test(id)) {
+    rect(10, 47, 10, 10, dark); rect(44, 47, 10, 10, dark); rect(16, 38, 32, 11, cloth);
+    rect(27, 26, 10, 24, dark); rect(29, 28, 6, 18, steel); rect(12, 16, 33, 14, dark); rect(15, 18, 28, 10, steel);
+    rect(41, 20, 17, 7, dark); rect(43, 21, 13, 4, copper); rect(18, 18, 4, 10, light);
+    rect(18, 32, 8, 13, copper); rect(20, 34, 3, 9, light); rect(36, 31, 5, 6, "#8cad9a");
+  } else if (/vitality|regen|recovery|fieldMedkit/i.test(id)) {
     rect(10, 20, 44, 34, dark); rect(13, 22, 38, 29, "#d2c298");
     rect(23, 12, 20, 9, edge); rect(27, 15, 12, 6, "#b5a281");
     rect(28, 27, 8, 19, "#9c4836"); rect(22, 33, 20, 7, "#9c4836");

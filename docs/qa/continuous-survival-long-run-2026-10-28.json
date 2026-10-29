@@ -1,0 +1,430 @@
+{
+  "date": "2026-10-29",
+  "fixture": "Boosted HP and coins, periodic supply teleports; resource/lifecycle test, not human balance or native FPS proof",
+  "secondsPerMap": 1800,
+  "results": [
+    {
+      "mapId": "echo_district",
+      "seconds": 1799.9999999986917,
+      "kills": 7729,
+      "bossesDefeated": 11,
+      "level": 109,
+      "placements": 17,
+      "recoveries": 1,
+      "refits": 16,
+      "peak": {
+        "enemies": 105,
+        "bullets": 68,
+        "pickups": 140,
+        "towers": 2,
+        "navigationCache": 3,
+        "upgradeOrder": 108
+      },
+      "samples": [
+        {
+          "time": 120,
+          "heap": 7229368,
+          "external": 2155304,
+          "towers": 2,
+          "nav": 3
+        },
+        {
+          "time": 240,
+          "heap": 7574656,
+          "external": 1994024,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 360,
+          "heap": 6389888,
+          "external": 2071010,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 480,
+          "heap": 6433632,
+          "external": 2068706,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 600,
+          "heap": 6502184,
+          "external": 2119394,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 720,
+          "heap": 6623192,
+          "external": 2068706,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 840,
+          "heap": 6531296,
+          "external": 2144738,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 960,
+          "heap": 6632552,
+          "external": 2068706,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 1080,
+          "heap": 6726584,
+          "external": 2144738,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 1200,
+          "heap": 6767760,
+          "external": 2144738,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 1320,
+          "heap": 6709064,
+          "external": 2144738,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 1440,
+          "heap": 6715304,
+          "external": 2144738,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 1560,
+          "heap": 6726704,
+          "external": 2119394,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 1680,
+          "heap": 6728096,
+          "external": 2068706,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 1800,
+          "heap": 6750440,
+          "external": 2068706,
+          "towers": 1,
+          "nav": 3
+        }
+      ],
+      "heapGrowthAfterGC": 348848,
+      "wallMs": 15697.8008,
+      "pools": {
+        "enemies": {
+          "created": 105,
+          "free": 21
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 86
+        },
+        "pickups": {
+          "created": 140,
+          "free": 2
+        }
+      }
+    },
+    {
+      "mapId": "freight_nexus",
+      "seconds": 1799.9999999986917,
+      "kills": 5945,
+      "bossesDefeated": 10,
+      "level": 101,
+      "placements": 17,
+      "recoveries": 1,
+      "refits": 16,
+      "peak": {
+        "enemies": 104,
+        "bullets": 77,
+        "pickups": 140,
+        "towers": 2,
+        "navigationCache": 3,
+        "upgradeOrder": 100
+      },
+      "samples": [
+        {
+          "time": 120,
+          "heap": 6686144,
+          "external": 2358050,
+          "towers": 2,
+          "nav": 3
+        },
+        {
+          "time": 240,
+          "heap": 6772400,
+          "external": 2151074,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 360,
+          "heap": 6803112,
+          "external": 2047586,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 480,
+          "heap": 6820640,
+          "external": 2047586,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 600,
+          "heap": 6790864,
+          "external": 2151074,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 720,
+          "heap": 6869360,
+          "external": 2047586,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 840,
+          "heap": 6871976,
+          "external": 2116578,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 960,
+          "heap": 6890016,
+          "external": 2151074,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 1080,
+          "heap": 6916512,
+          "external": 2151074,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 1200,
+          "heap": 6912448,
+          "external": 2047586,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 1320,
+          "heap": 6926976,
+          "external": 2151074,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 1440,
+          "heap": 6932192,
+          "external": 2047586,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 1560,
+          "heap": 6946200,
+          "external": 2151074,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 1680,
+          "heap": 6947744,
+          "external": 2047586,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 1800,
+          "heap": 6958896,
+          "external": 2151074,
+          "towers": 1,
+          "nav": 3
+        }
+      ],
+      "heapGrowthAfterGC": 576400,
+      "wallMs": 21670.209199999998,
+      "pools": {
+        "enemies": {
+          "created": 105,
+          "free": 7
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 69
+        },
+        "pickups": {
+          "created": 140,
+          "free": 0
+        }
+      }
+    },
+    {
+      "mapId": "red_basin",
+      "seconds": 1799.9999999986917,
+      "kills": 3794,
+      "bossesDefeated": 8,
+      "level": 77,
+      "placements": 16,
+      "recoveries": 0,
+      "refits": 16,
+      "peak": {
+        "enemies": 105,
+        "bullets": 77,
+        "pickups": 140,
+        "towers": 1,
+        "navigationCache": 3,
+        "upgradeOrder": 76
+      },
+      "samples": [
+        {
+          "time": 120,
+          "heap": 6807232,
+          "external": 2246114,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 240,
+          "heap": 6830640,
+          "external": 2110946,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 360,
+          "heap": 6851416,
+          "external": 2110946,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 480,
+          "heap": 6798936,
+          "external": 2246114,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 600,
+          "heap": 6801440,
+          "external": 2246114,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 720,
+          "heap": 6830040,
+          "external": 2246114,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 840,
+          "heap": 6826304,
+          "external": 2246114,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 960,
+          "heap": 6834832,
+          "external": 2246114,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 1080,
+          "heap": 6876320,
+          "external": 2246114,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 1200,
+          "heap": 6878064,
+          "external": 2246114,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 1320,
+          "heap": 6883792,
+          "external": 2246114,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 1440,
+          "heap": 6886936,
+          "external": 2246114,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 1560,
+          "heap": 6888424,
+          "external": 2246114,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 1680,
+          "heap": 6876624,
+          "external": 2246114,
+          "towers": 1,
+          "nav": 3
+        },
+        {
+          "time": 1800,
+          "heap": 6896040,
+          "external": 2246114,
+          "towers": 1,
+          "nav": 3
+        }
+      ],
+      "heapGrowthAfterGC": 91512,
+      "wallMs": 26983.226199999997,
+      "pools": {
+        "enemies": {
+          "created": 105,
+          "free": 3
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 69
+        },
+        "pickups": {
+          "created": 140,
+          "free": 0
+        }
+      }
+    }
+  ]
+}

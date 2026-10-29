@@ -15,7 +15,8 @@ const port = 4186;
 const baseUrl = "http://127.0.0.1:" + port + "/";
 const quickScenarios = [
   { id: "720p-80-high", width: 1280, height: 720, enemies: 80, quality: 2 },
-  { id: "1080p-120-medium", width: 1920, height: 1080, enemies: 120, quality: 1 }
+  { id: "1080p-120-medium", width: 1920, height: 1080, enemies: 120, quality: 1 },
+  { id: "720p-104-four-turrets", width: 1280, height: 720, enemies: 104, quality: 1, turrets: 4 }
 ];
 const fullScenarios = [];
 for (const [width, height, label] of [[1280, 720, "720p"], [1920, 1080, "1080p"]]) {
@@ -89,9 +90,20 @@ try {
       model.updateSpawner = () => {};
       model.run.player.hp = 1000000;
       model.run.player.maxHp = 1000000;
+      model.run.player.xpNext = 1000000000;
       model.save.settings.autoAim = true;
       model.save.settings.autoFire = true;
       const player = model.run.player;
+      const originalX = player.x, originalY = player.y;
+      if (config.turrets) {
+        for (const [dx,dy] of [[140,140],[-140,140],[260,140],[-260,140],[140,260],[-140,260],[260,-160],[-260,-160]]) {
+          if (model.run.structures.length >= config.turrets) break;
+          Object.assign(player,{x:originalX+dx-90,y:originalY+dy,lastAimX:1,lastAimY:0});
+          model.run.turretKits=1;model.run.turretKitHealth=[1];model.structures.begin();model.structures.confirm();model.structures.cancel();
+        }
+        if (model.run.structures.length !== config.turrets) throw new Error("Benchmark needs four real deployed turrets");
+        model.run.turretKits=0;model.run.turretKitHealth=[];Object.assign(player,{x:originalX,y:originalY});
+      }
       const types = ["drifter", "runner", "spitter", "brute", "screecher", "crawler"];
       for (let index = 0; index < config.enemies; index += 1) {
         const angle = index / config.enemies * Math.PI * 2;

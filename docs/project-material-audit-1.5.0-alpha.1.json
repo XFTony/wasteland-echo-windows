@@ -1,14 +1,16 @@
 {
-  "generatedAt": "2026-09-22T13:28:41.258Z",
+  "generatedAt": "2026-10-29T02:04:15.745Z",
   "version": "1.5.0-alpha.1",
   "summary": {
-    "sourceModules": 76,
-    "bundledModules": 76,
+    "sourceModules": 105,
+    "bundledModules": 105,
     "unbundledSourceModules": 0,
-    "catalogAssets": 10,
-    "activeCatalogAssets": 10,
-    "inactiveCatalogAssets": 0,
-    "webAssets": 12,
+    "catalogAssets": 83,
+    "activeCatalogAssets": 59,
+    "inactiveCatalogAssets": 24,
+    "webAssets": 97,
+    "audioAssets": 12,
+    "audioBytes": 542600,
     "unregisteredWebAssets": 0,
     "missingManifestPaths": 0,
     "duplicateGroups": 8,
@@ -22,22 +24,31 @@
       "src/app.js",
       "src/browser-entry.js",
       "src/config.js",
+      "src/content/audio-assets.js",
       "src/content/boss-definitions.js",
+      "src/content/compact-actors.js",
+      "src/content/echo-props.js",
+      "src/content/field-goods.js",
       "src/content/mastery-rewards.js",
       "src/content/run-modifiers.js",
+      "src/content/survival.js",
       "src/content/unlock-rules.js",
       "src/content/weapon-mechanics.js",
+      "src/core/arsenal.js",
       "src/core/boss-system.js",
       "src/core/campaign.js",
       "src/core/combat-sim.js",
+      "src/core/compact-weapon-pose.js",
       "src/core/content-registry.js",
       "src/core/contracts.js",
       "src/core/economy.js",
       "src/core/enemy-brain.js",
       "src/core/entity-factories.js",
       "src/core/equipment.js",
+      "src/core/field-market.js",
       "src/core/fixed-step-clock.js",
       "src/core/game-model.js",
+      "src/core/knockback.js",
       "src/core/loadout-selection.js",
       "src/core/mastery-system.js",
       "src/core/math.js",
@@ -45,6 +56,7 @@
       "src/core/menu-session.js",
       "src/core/pool.js",
       "src/core/progression.js",
+      "src/core/projectile-geometry.js",
       "src/core/random.js",
       "src/core/run-advice.js",
       "src/core/run-state.js",
@@ -52,6 +64,8 @@
       "src/core/spatial-grid.js",
       "src/core/spawn-director.js",
       "src/core/spawn-system.js",
+      "src/core/startup-sequence.js",
+      "src/core/structures.js",
       "src/core/tutorial.js",
       "src/core/unlock-system.js",
       "src/core/upgrade-effects.js",
@@ -60,38 +74,55 @@
       "src/input/input-manager.js",
       "src/input/key-bindings.js",
       "src/input/ui-navigator.js",
+      "src/platform/audio-bank.js",
       "src/platform/audio-engine.js",
       "src/platform/browser-bindings.js",
       "src/platform/browser-platform.js",
       "src/platform/music-score.js",
+      "src/platform/weapon-sounds.js",
       "src/render/actor-view.js",
       "src/render/art/art-store.js",
       "src/render/art/asset-catalog.js",
+      "src/render/art/compact-asset-catalog.js",
       "src/render/canvas-renderer.js",
+      "src/render/compact-actors.js",
       "src/render/format.js",
       "src/render/fx-system.js",
       "src/render/hud-view.js",
+      "src/render/illustrated-actors.js",
       "src/render/menu-pages.js",
       "src/render/menu-view.js",
       "src/render/obstacle-view.js",
       "src/render/pixel-actors.js",
       "src/render/render-hash.js",
+      "src/render/structure-view.js",
       "src/render/terrain-view.js",
       "src/render/ui/art-primitives.js",
+      "src/render/ui/card-motion.js",
       "src/render/ui/deployment-bunker.js",
       "src/render/ui/deployment-page.js",
       "src/render/ui/equipment-presentation.js",
+      "src/render/ui/field-market-view.js",
       "src/render/ui/field-surfaces.js",
       "src/render/ui/image-primitives.js",
       "src/render/ui/inventory-page.js",
       "src/render/ui/item-icons.js",
+      "src/render/ui/radio-main-menu.js",
+      "src/render/ui/radio-materials.js",
       "src/render/ui/shop-page.js",
+      "src/render/ui/startup-view.js",
       "src/render/ui/theme.js",
       "src/render/ui/upgrade-cards.js",
+      "src/render/ui/upgrade-illustrations.js",
+      "src/render/weapon-feedback.js",
       "src/render/world-view.js",
       "src/runtime/action-router.js",
       "src/runtime/create-game-runtime.js",
+      "src/shared/combat-feedback-events.js",
+      "src/shared/compact-ranger-motion.js",
+      "src/shared/modular-grip-compositor.js",
       "src/version.js",
+      "src/world/echo-district.js",
       "src/world/navigation-grid.js",
       "src/world/wasteland-map.js",
       "src/world/world-registry.js"
@@ -100,22 +131,31 @@
       "src/app.js",
       "src/browser-entry.js",
       "src/config.js",
+      "src/content/audio-assets.js",
       "src/content/boss-definitions.js",
+      "src/content/compact-actors.js",
+      "src/content/echo-props.js",
+      "src/content/field-goods.js",
       "src/content/mastery-rewards.js",
       "src/content/run-modifiers.js",
+      "src/content/survival.js",
       "src/content/unlock-rules.js",
       "src/content/weapon-mechanics.js",
+      "src/core/arsenal.js",
       "src/core/boss-system.js",
       "src/core/campaign.js",
       "src/core/combat-sim.js",
+      "src/core/compact-weapon-pose.js",
       "src/core/content-registry.js",
       "src/core/contracts.js",
       "src/core/economy.js",
       "src/core/enemy-brain.js",
       "src/core/entity-factories.js",
       "src/core/equipment.js",
+      "src/core/field-market.js",
       "src/core/fixed-step-clock.js",
       "src/core/game-model.js",
+      "src/core/knockback.js",
       "src/core/loadout-selection.js",
       "src/core/mastery-system.js",
       "src/core/math.js",
@@ -123,6 +163,7 @@
       "src/core/menu-session.js",
       "src/core/pool.js",
       "src/core/progression.js",
+      "src/core/projectile-geometry.js",
       "src/core/random.js",
       "src/core/run-advice.js",
       "src/core/run-state.js",
@@ -130,6 +171,8 @@
       "src/core/spatial-grid.js",
       "src/core/spawn-director.js",
       "src/core/spawn-system.js",
+      "src/core/startup-sequence.js",
+      "src/core/structures.js",
       "src/core/tutorial.js",
       "src/core/unlock-system.js",
       "src/core/upgrade-effects.js",
@@ -138,46 +181,301 @@
       "src/input/input-manager.js",
       "src/input/key-bindings.js",
       "src/input/ui-navigator.js",
+      "src/platform/audio-bank.js",
       "src/platform/audio-engine.js",
       "src/platform/browser-bindings.js",
       "src/platform/browser-platform.js",
       "src/platform/music-score.js",
+      "src/platform/weapon-sounds.js",
       "src/render/actor-view.js",
       "src/render/art/art-store.js",
       "src/render/art/asset-catalog.js",
+      "src/render/art/compact-asset-catalog.js",
       "src/render/canvas-renderer.js",
+      "src/render/compact-actors.js",
       "src/render/format.js",
       "src/render/fx-system.js",
       "src/render/hud-view.js",
+      "src/render/illustrated-actors.js",
       "src/render/menu-pages.js",
       "src/render/menu-view.js",
       "src/render/obstacle-view.js",
       "src/render/pixel-actors.js",
       "src/render/render-hash.js",
+      "src/render/structure-view.js",
       "src/render/terrain-view.js",
       "src/render/ui/art-primitives.js",
+      "src/render/ui/card-motion.js",
       "src/render/ui/deployment-bunker.js",
       "src/render/ui/deployment-page.js",
       "src/render/ui/equipment-presentation.js",
+      "src/render/ui/field-market-view.js",
       "src/render/ui/field-surfaces.js",
       "src/render/ui/image-primitives.js",
       "src/render/ui/inventory-page.js",
       "src/render/ui/item-icons.js",
+      "src/render/ui/radio-main-menu.js",
+      "src/render/ui/radio-materials.js",
       "src/render/ui/shop-page.js",
+      "src/render/ui/startup-view.js",
       "src/render/ui/theme.js",
       "src/render/ui/upgrade-cards.js",
+      "src/render/ui/upgrade-illustrations.js",
+      "src/render/weapon-feedback.js",
       "src/render/world-view.js",
       "src/runtime/action-router.js",
       "src/runtime/create-game-runtime.js",
+      "src/shared/combat-feedback-events.js",
+      "src/shared/compact-ranger-motion.js",
+      "src/shared/modular-grip-compositor.js",
       "src/version.js",
+      "src/world/echo-district.js",
       "src/world/navigation-grid.js",
       "src/world/wasteland-map.js",
       "src/world/world-registry.js"
     ],
     "unbundledModules": []
   },
+  "audio": {
+    "provenance": "art/audio/survival-v1/source-provenance.json",
+    "assets": [
+      {
+        "id": "scrap_pistol",
+        "src": "./assets/audio/survival-v1/scrap_pistol.wav",
+        "role": "shot",
+        "seconds": 0.3,
+        "source": "SnakeF8 isolated pistol",
+        "peak": 0.72,
+        "bytes": 13310,
+        "sha256": "04DF545F81C495788FAED16730A5E287869A343F43C68BF852FE80BCFE8346AE"
+      },
+      {
+        "id": "swarm_smg",
+        "src": "./assets/audio/survival-v1/swarm_smg.wav",
+        "role": "shot",
+        "seconds": 0.145,
+        "source": "SnakeF8 isolated pistol",
+        "peak": 0.48999999999999994,
+        "bytes": 6474,
+        "sha256": "39D6872486718DF7B3534DF4694E0045A26A1EEE8BBD3833D05C2099F0789DFB"
+      },
+      {
+        "id": "breaker_shotgun",
+        "src": "./assets/audio/survival-v1/breaker_shotgun.wav",
+        "role": "shot",
+        "seconds": 0.43,
+        "source": "SnakeF8 isolated shotgun",
+        "peak": 0.87,
+        "bytes": 19042,
+        "sha256": "655EACB14E4324FCB474E967887DA60D5D37B4EA87163E2A2D079C88838C569E"
+      },
+      {
+        "id": "needle_rifle",
+        "src": "./assets/audio/survival-v1/needle_rifle.wav",
+        "role": "shot",
+        "seconds": 0.29,
+        "source": "SnakeF8 isolated rifle",
+        "peak": 0.78,
+        "bytes": 12868,
+        "sha256": "11FAC2C372D6BD84C6AA11BB4563A1C7FF34EDF09195C79C136ECFECEC4DF400"
+      },
+      {
+        "id": "rust_revolver",
+        "src": "./assets/audio/survival-v1/rust_revolver.wav",
+        "role": "shot",
+        "seconds": 0.36,
+        "source": "SnakeF8 isolated rifle",
+        "peak": 0.8299999999999998,
+        "bytes": 15956,
+        "sha256": "C44B6AFF75D59A0890E2E5BF707B58B1DB61DD80DFF475F6E7AD7BE6CAE7340B"
+      },
+      {
+        "id": "ember_carbine",
+        "src": "./assets/audio/survival-v1/ember_carbine.wav",
+        "role": "shot",
+        "seconds": 0.205,
+        "source": "SnakeF8 isolated rifle",
+        "peak": 0.65,
+        "bytes": 9120,
+        "sha256": "A40A0CF9627E87C97FFBCE4EA3D91D471D6B8918D2B0D969752E1F0935CE09F5"
+      },
+      {
+        "id": "coil_cannon",
+        "src": "./assets/audio/survival-v1/coil_cannon.wav",
+        "role": "shot",
+        "seconds": 0.36,
+        "source": "SnakeF8 isolated shotgun",
+        "peak": 0.8,
+        "bytes": 15956,
+        "sha256": "4B01241B2CE5E5ECE8CEE1F4DFEFA5F24DEE4C27AF38A586951A1F8A0FA67CC6"
+      },
+      {
+        "id": "mechanical_light",
+        "src": "./assets/audio/survival-v1/mechanical_light.wav",
+        "role": "mechanical",
+        "seconds": 0.11,
+        "bytes": 4930,
+        "sha256": "1D0D31A6F0021BC847491EE14964498EAE25BE24321B84F18247887EE49361C8"
+      },
+      {
+        "id": "mechanical_heavy",
+        "src": "./assets/audio/survival-v1/mechanical_heavy.wav",
+        "role": "mechanical",
+        "seconds": 0.14,
+        "bytes": 6254,
+        "sha256": "F6E58F670BC233655CDB9D3A3848FA1A413C8CCC328D1ADDA70204E78CEDB454"
+      },
+      {
+        "id": "theme_menu",
+        "src": "./assets/audio/survival-v1/theme-menu.ogg",
+        "role": "music",
+        "seconds": 41.73913043478261,
+        "bpm": 92,
+        "bytes": 127168,
+        "sha256": "941ECD2BBC2F49E14FEB215B00D4D3191705F77130653DA18367E937F9D3D2B8"
+      },
+      {
+        "id": "theme_combat",
+        "src": "./assets/audio/survival-v1/theme-combat.ogg",
+        "role": "music",
+        "seconds": 41.73913043478261,
+        "bpm": 92,
+        "bytes": 146011,
+        "sha256": "9EC80574610BE1FBF8D873C29B3DA5E9224F62D174FDC45A4E1864A2969E8005"
+      },
+      {
+        "id": "theme_pressure",
+        "src": "./assets/audio/survival-v1/theme-pressure.ogg",
+        "role": "music",
+        "seconds": 41.73913043478261,
+        "bpm": 92,
+        "bytes": 165511,
+        "sha256": "48FBC845545328062BF1A80B26B781032640D72D073116F465E30F213BAC000E"
+      }
+    ]
+  },
   "art": {
     "catalog": [
+      {
+        "id": "menu.radio.camp.v1",
+        "path": "web/assets/ui/radio-v1/camp.webp",
+        "active": true,
+        "eager": true
+      },
+      {
+        "id": "menu.radio.desk.v1",
+        "path": "web/assets/ui/radio-v1/desk.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "actor.compact.ranger.v1",
+        "path": "web/assets/actors/compact-v1/ranger-body.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "compact.part.cuffs.ranger-coat.v1",
+        "path": "web/assets/actors/compact-v1/cuffs-ranger-coat.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "compact.part.hands.ranger-cloth.v1",
+        "path": "web/assets/actors/compact-v1/hands-ranger-cloth.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "compact.part.weapon.breaker_shotgun.v1",
+        "path": "web/assets/actors/compact-v1/weapon-breaker-shotgun.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "compact.part.weapon.coil_cannon.v1",
+        "path": "web/assets/actors/compact-v1/weapon-coil-cannon.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "compact.part.weapon.ember_carbine.v1",
+        "path": "web/assets/actors/compact-v1/weapon-ember-carbine.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "compact.part.weapon.needle_rifle.v1",
+        "path": "web/assets/actors/compact-v1/weapon-needle-rifle.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "compact.part.weapon.rust_revolver.v1",
+        "path": "web/assets/actors/compact-v1/weapon-rust-revolver.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "compact.part.weapon.scrap_pistol.v1",
+        "path": "web/assets/actors/compact-v1/weapon-scrap-pistol.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "compact.part.weapon.swarm_smg.v1",
+        "path": "web/assets/actors/compact-v1/weapon-swarm-smg.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "actor.compact.drifter.v1",
+        "path": "web/assets/actors/compact-v1/drifter-atlas.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "actor.compact.runner.v1",
+        "path": "web/assets/actors/compact-v1/runner-atlas.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "actor.compact.spitter.v1",
+        "path": "web/assets/actors/compact-v1/spitter-atlas.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "actor.compact.brute.v1",
+        "path": "web/assets/actors/compact-v1/brute-atlas.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "actor.compact.screecher.v1",
+        "path": "web/assets/actors/compact-v1/screecher-atlas.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "actor.compact.crawler.v1",
+        "path": "web/assets/actors/compact-v1/crawler-atlas.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "actor.compact.warden.v1",
+        "path": "web/assets/actors/compact-v1/warden-atlas.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "actor.compact.iron_colossus.v1",
+        "path": "web/assets/actors/compact-v1/iron_colossus-atlas.webp",
+        "active": true,
+        "eager": false
+      },
       {
         "id": "world.ground.v1",
         "path": "web/assets/wasteland-ground-texture-v1.webp",
@@ -185,57 +483,375 @@
         "eager": true
       },
       {
-        "id": "cover.keyart.v1",
-        "path": "web/assets/wasteland-title-keyart-v1.webp",
+        "id": "world.ground.echo.v1",
+        "path": "web/assets/world/echo-ground-v1.webp",
         "active": true,
+        "eager": false
+      },
+      {
+        "id": "world.ground.freight.v1",
+        "path": "web/assets/world/freight-ground-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "world.ground.red-basin.v1",
+        "path": "web/assets/world/red-basin-ground-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "world.prop.echo.shop-roof.v1",
+        "path": "web/assets/world/props/echo-shop-roof-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "world.prop.echo.warehouse-roof.v1",
+        "path": "web/assets/world/props/echo-warehouse-roof-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "world.prop.echo.container.v1",
+        "path": "web/assets/world/props/echo-container-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "world.prop.echo.railcar.v1",
+        "path": "web/assets/world/props/echo-railcar-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "world.prop.echo.apothecary-roof.v1",
+        "path": "web/assets/world/props/echo-apothecary-roof-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "world.prop.echo.market.v1",
+        "path": "web/assets/world/echo-market-v1/trade-post.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "world.prop.echo.salvage-kit.v1",
+        "path": "web/assets/world/echo-market-v1/salvage-kit.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "cover.survivor.v3",
+        "path": "web/assets/ui/characters/cover-survivor-v3.webp",
+        "active": false,
         "eager": true
       },
       {
-        "id": "menu.backdrop.main.v2",
-        "path": "web/assets/ui/backdrops/menu-main-camp-v2.webp",
-        "active": true,
+        "id": "menu.backdrop.main.v3",
+        "path": "web/assets/ui/backdrops/menu-main-v3.webp",
+        "active": false,
         "eager": true
       },
       {
-        "id": "menu.backdrop.deployment.v2",
-        "path": "web/assets/ui/backdrops/deployment-command-bunker-v2.webp",
-        "active": true,
+        "id": "menu.backdrop.deployment.v3",
+        "path": "web/assets/ui/backdrops/deployment-command-garage-v3.webp",
+        "active": false,
         "eager": false
       },
       {
-        "id": "menu.backdrop.inventory.v2",
-        "path": "web/assets/ui/backdrops/inventory-armory-v2.webp",
-        "active": true,
+        "id": "menu.backdrop.inventory.v3",
+        "path": "web/assets/ui/backdrops/inventory-armory-v3.webp",
+        "active": false,
         "eager": false
       },
       {
-        "id": "menu.backdrop.shop.v2",
-        "path": "web/assets/ui/backdrops/shop-quartermaster-v2.webp",
-        "active": true,
+        "id": "menu.backdrop.shop.v3",
+        "path": "web/assets/ui/backdrops/shop-quartermaster-v3.webp",
+        "active": false,
         "eager": false
       },
       {
-        "id": "menu.backdrop.settings.v2",
-        "path": "web/assets/ui/backdrops/settings-radio-room-v2.webp",
-        "active": true,
+        "id": "menu.backdrop.settings.v3",
+        "path": "web/assets/ui/backdrops/settings-radio-room-v3.webp",
+        "active": false,
         "eager": false
       },
       {
-        "id": "menu.backdrop.credits.v2",
-        "path": "web/assets/ui/backdrops/credits-archive-v2.webp",
-        "active": true,
+        "id": "menu.backdrop.credits.v3",
+        "path": "web/assets/ui/backdrops/credits-archive-v3.webp",
+        "active": false,
         "eager": false
       },
       {
         "id": "ui.field-plate.v2",
         "path": "web/assets/ui/shared/ui-field-plate-v2.webp",
-        "active": true,
+        "active": false,
         "eager": true
       },
       {
         "id": "deployment.convoy.v1",
         "path": "web/assets/ui/deployment/deployment-convoy-vignette-v1.webp",
+        "active": false,
+        "eager": false
+      },
+      {
+        "id": "actor.ranger.base.v1",
+        "path": "web/assets/actors/ranger-base-v1.webp",
         "active": true,
+        "eager": false
+      },
+      {
+        "id": "actor.ranger.nightwatch.v2",
+        "path": "web/assets/actors/ranger-nightwatch-v2.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "actor.ranger.mechanic.v1",
+        "path": "web/assets/actors/ranger-mechanic-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "actor.ranger.portrait.v1",
+        "path": "web/assets/actors/ranger-armed-portrait-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "actor.drifter.v1",
+        "path": "web/assets/actors/drifter-v1.webp",
+        "active": false,
+        "eager": false
+      },
+      {
+        "id": "actor.mechanic.base.v1",
+        "path": "web/assets/actors/mechanic-base-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "actor.mechanic.nightwatch.v1",
+        "path": "web/assets/actors/mechanic-nightwatch-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "actor.mechanic.mechanic.v2",
+        "path": "web/assets/actors/mechanic-mechanic-v2.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "actor.bulwark.nightwatch.v2",
+        "path": "web/assets/actors/bulwark-nightwatch-v2.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "actor.bulwark.mechanic.v1",
+        "path": "web/assets/actors/bulwark-mechanic-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "actor.bulwark.base.v1",
+        "path": "web/assets/actors/bulwark-base-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "actor.runner.v1",
+        "path": "web/assets/actors/runner-v1.webp",
+        "active": false,
+        "eager": false
+      },
+      {
+        "id": "actor.spitter.v1",
+        "path": "web/assets/actors/spitter-v1.webp",
+        "active": false,
+        "eager": false
+      },
+      {
+        "id": "actor.brute.v1",
+        "path": "web/assets/actors/brute-v1.webp",
+        "active": false,
+        "eager": false
+      },
+      {
+        "id": "actor.screecher.v1",
+        "path": "web/assets/actors/screecher-v1.webp",
+        "active": false,
+        "eager": false
+      },
+      {
+        "id": "actor.crawler.v1",
+        "path": "web/assets/actors/crawler-v1.webp",
+        "active": false,
+        "eager": false
+      },
+      {
+        "id": "actor.warden.v1",
+        "path": "web/assets/actors/warden-v1.webp",
+        "active": false,
+        "eager": false
+      },
+      {
+        "id": "actor.iron-colossus.v1",
+        "path": "web/assets/actors/iron-colossus-v1.webp",
+        "active": false,
+        "eager": false
+      },
+      {
+        "id": "weapon.scrap-pistol.v1",
+        "path": "web/assets/weapons/scrap-pistol-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "weapon.swarm-smg.v1",
+        "path": "web/assets/weapons/swarm-smg-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "weapon.breaker-shotgun.v1",
+        "path": "web/assets/weapons/breaker-shotgun-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "weapon.needle-rifle.v1",
+        "path": "web/assets/weapons/needle-rifle-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "weapon.rust-revolver.v1",
+        "path": "web/assets/weapons/rust-revolver-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "weapon.ember-carbine.v1",
+        "path": "web/assets/weapons/ember-carbine-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "weapon.coil-cannon.v1",
+        "path": "web/assets/weapons/coil-cannon-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "outfit.wanderer.v1",
+        "path": "web/assets/outfits/wanderer-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "outfit.mechanic.v1",
+        "path": "web/assets/outfits/mechanic-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "outfit.nightwatch.v1",
+        "path": "web/assets/outfits/nightwatch-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "equipment.field-vest.v1",
+        "path": "web/assets/equipment/field-vest-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "equipment.iron-plate.v1",
+        "path": "web/assets/equipment/iron-plate-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "equipment.runner-boots.v1",
+        "path": "web/assets/equipment/runner-boots-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "equipment.magnet-helm.v1",
+        "path": "web/assets/equipment/magnet-helm-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "equipment.ammo-rig.v1",
+        "path": "web/assets/equipment/ammo-rig-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "equipment.signal-helm.v1",
+        "path": "web/assets/equipment/signal-helm-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "equipment.servo-greaves.v1",
+        "path": "web/assets/equipment/servo-greaves-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "equipment.stormstep-boots.v1",
+        "path": "web/assets/equipment/stormstep-boots-v1.webp",
+        "active": true,
+        "eager": false
+      },
+      {
+        "id": "cover.keyart.v1",
+        "path": "web/assets/wasteland-title-keyart-v1.webp",
+        "active": false,
+        "eager": false
+      },
+      {
+        "id": "menu.backdrop.main.v2",
+        "path": "web/assets/ui/backdrops/menu-main-camp-v2.webp",
+        "active": false,
+        "eager": false
+      },
+      {
+        "id": "menu.backdrop.deployment.v2",
+        "path": "web/assets/ui/backdrops/deployment-command-bunker-v2.webp",
+        "active": false,
+        "eager": false
+      },
+      {
+        "id": "menu.backdrop.inventory.v2",
+        "path": "web/assets/ui/backdrops/inventory-armory-v2.webp",
+        "active": false,
+        "eager": false
+      },
+      {
+        "id": "menu.backdrop.shop.v2",
+        "path": "web/assets/ui/backdrops/shop-quartermaster-v2.webp",
+        "active": false,
+        "eager": false
+      },
+      {
+        "id": "menu.backdrop.settings.v2",
+        "path": "web/assets/ui/backdrops/settings-radio-room-v2.webp",
+        "active": false,
+        "eager": false
+      },
+      {
+        "id": "menu.backdrop.credits.v2",
+        "path": "web/assets/ui/backdrops/credits-archive-v2.webp",
+        "active": false,
         "eager": false
       }
     ],
@@ -347,33 +963,33 @@
   "directories": [
     {
       "directory": "src",
-      "files": 76,
-      "bytes": 523305
+      "files": 105,
+      "bytes": 748880
     },
     {
       "directory": "test",
-      "files": 36,
-      "bytes": 170336
+      "files": 45,
+      "bytes": 258814
     },
     {
       "directory": "scripts",
-      "files": 23,
-      "bytes": 67291
+      "files": 130,
+      "bytes": 978181
     },
     {
       "directory": "web",
-      "files": 16,
-      "bytes": 5111786
+      "files": 101,
+      "bytes": 14255594
     },
     {
       "directory": "dist",
-      "files": 16,
-      "bytes": 5051695
+      "files": 77,
+      "bytes": 7530199
     },
     {
       "directory": "art",
-      "files": 42,
-      "bytes": 83848185
+      "files": 291,
+      "bytes": 236735250
     },
     {
       "directory": "archive",
@@ -382,13 +998,13 @@
     },
     {
       "directory": "docs",
-      "files": 41,
-      "bytes": 4228226
+      "files": 116,
+      "bytes": 5849907
     },
     {
       "directory": "output",
-      "files": 153,
-      "bytes": 110729294
+      "files": 1860,
+      "bytes": 1048748083
     },
     {
       "directory": "release",
@@ -397,8 +1013,8 @@
     },
     {
       "directory": "src-tauri",
-      "files": 3696,
-      "bytes": 1498610824
+      "files": 7116,
+      "bytes": 2864182748
     },
     {
       "directory": ".playwright-cli",

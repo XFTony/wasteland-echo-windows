@@ -94,6 +94,7 @@ class GameApp {
     inputOptions.now = time;
     this.inputManager.update(inputOptions);
     for (const rawCommand of this.inputManager.drainGamepadCommands()) {
+      this.audio.unlock();
       const command = gamepadCommand(rawCommand, this.model);
       if (command) this.executeCommand(command);
     }
@@ -118,7 +119,7 @@ class GameApp {
     const events = this.model.drainEvents();
     if (events.some((event) => event.type === "setting")) this.audio.setSettings(this.model.save.settings);
     this.audio.handle(events);
-    this.audio.update(timing.dt, this.model.screen === SCREENS.RUNNING, this.model.run);
+    this.audio.update(timing.dt, this.model.screen === SCREENS.RUNNING, this.model.run, this.model.screen);
     this.inputManager.handleFeedback(events, this.model.save.settings, time);
     if (typeof this.renderer.updatePerformance === "function") this.renderer.updatePerformance(timing.dt);
     if (typeof this.renderer.handleEvents === "function") this.renderer.handleEvents(events, this.model);
@@ -179,7 +180,8 @@ class GameApp {
         screen: this.model.screen,
         menuPage: this.model.menuPage,
         keyBindings: this.model.save.keyBindings,
-        shiftKey: Boolean(options.shiftKey)
+        shiftKey: Boolean(options.shiftKey),
+        placement: Boolean(this.model.run && this.model.run.placement)
       });
       if (command) this.executeCommand(command);
     }
@@ -211,6 +213,9 @@ class GameApp {
       return;
     }
     this.updateKeyboard();
+    if (this.model.screen === SCREENS.RUNNING && this.model.run?.placement) {
+      this.model.setInput(this.input); this.model.structures.confirm(); this.inputManager.mouseUp();
+    }
   }
 
   mouseMove(x, y) {
@@ -247,6 +252,7 @@ class GameApp {
 
   onShow() {
     this.clock.reset(this.platform.now());
+    this.audio.unlock();
   }
 }
 

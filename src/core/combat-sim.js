@@ -3,8 +3,10 @@
 const { clamp, distanceSq, circleRectPushOut } = require("./math");
 const { profileFor, computeEnemySteering } = require("./enemy-brain");
 const { compactShotPose } = require("./compact-weapon-pose");
-const { segmentCircleTime, firstObstacleTime } = require("./projectile-geometry");
+const { segmentCircleTime, segmentRectTime, firstObstacleTime } = require("./projectile-geometry");
 const { addKnockback, advanceKnockback } = require("./knockback");
+const { getSurvivalPressure } = require("../content/survival");
+const { weaponModifiers } = require("./arsenal");
 
 const EPSILON = 0.00000001;
 const ENEMY_SEPARATION_ITERATIONS = 2;
@@ -32,6 +34,7 @@ class CombatSim {
     const run = host.run;
     const player = run.player;
     const weapon = this.content.get("weapons", player.weaponId, this.content.defaults.weapon);
+    const refit = weaponModifiers(run, weapon.id);
     const target = player.aimTargetId === null ? null : host.enemies.find((enemy) => enemy.active && enemy.id === player.aimTargetId);
     const targetDistance = target ? Math.hypot(target.x - player.x, target.y - player.y) : Infinity;
     const mechanic = host.mechanicSystem.beforeShot(run, weapon, targetDistance);
@@ -62,7 +65,7 @@ class CombatSim {
         vy: directionY * projectileSpeed,
         radius: baseRadius + player.projectileRadiusBonus + mechanic.radiusBonus,
         ttl: projectileTtl,
-        damage: weapon.damage * player.damageMultiplier * mechanic.damageMultiplier * (critical ? player.criticalMultiplier : 1),
+        damage: weapon.damage * refit.damage * player.damageMultiplier * mechanic.damageMultiplier * (critical ? player.criticalMultiplier : 1),
         pierce: weapon.pierce + player.pierceBonus + mechanic.pierceBonus,
         knockback: weapon.knockback * player.knockbackMultiplier * mechanic.knockbackMultiplier,
         color: weapon.color,
@@ -76,10 +79,12 @@ class CombatSim {
       spawned += 1;
     }
     run.shotsFired += 1;
+    const weaponStats = run.weaponStats[weapon.id] || (run.weaponStats[weapon.id] = { shots: 0, kills: 0, damage: 0, eliteKills: 0 });
+    weaponStats.shots++;
     run.projectilesFired += spawned;
     host.progressTutorial("fire", 1);
     host.mechanicSystem.afterShot(run);
-    player.weaponCooldown = weapon.interval / player.fireRateMultiplier;
+    player.weaponCooldown = Math.max(1 / 60, weapon.interval / (player.fireRateMultiplier * refit.rate));
     host.emit("shot", { weaponId: weapon.id, x: player.x, y: player.y, aimX, aimY,
       attackId, elapsed: run.elapsed, interval: player.weaponCooldown,
       empowered: Boolean(mechanic.forceCritical || mechanic.procLabel && mechanic.damageMultiplier >= 1.25),
@@ -101,7 +106,8 @@ class CombatSim {
       ? this.content.get("modes", host.run.modeId, this.content.defaults.mode)
       : this.content.get("modes", this.content.defaults.mode);
     const difficulty = host.run ? host.run.difficulty : 1;
-    const hpScale = (1 + progress * mode.hpGrowth) * difficulty;
+    const pressure = host.run && host.run.endless ? getSurvivalPressure(host.run.elapsed) : null;
+    const hpScale = (pressure ? pressure.hp : 1 + progress * mode.hpGrowth) * difficulty;
     const bossDefinition = this.content.bossForEnemy(definition.id);
     const enemy = host.enemyPool.acquire({
       id: host.entityId++,
@@ -110,10 +116,10 @@ class CombatSim {
       y,
       hp: definition.hp * hpScale,
       maxHp: definition.hp * hpScale,
-      speed: definition.speed * (1 + progress * mode.speedGrowth) * Math.min(1.2, Math.sqrt(difficulty)),
-      damage: definition.damage * Math.min(1.45, difficulty),
+      speed: definition.speed * (pressure ? pressure.speed : 1 + progress * mode.speedGrowth) * Math.min(1.2, Math.sqrt(difficulty)),
+      damage: definition.damage * (pressure ? pressure.damage * difficulty : Math.min(1.45, difficulty)),
       radius: definition.radius,
-      xp: definition.xp,
+      xp: Math.max(1, Math.round(definition.xp * (pressure ? pressure.xp : 1))),
       scrapChance: definition.scrapChance,
       color: definition.color,
       role: definition.role,
@@ -126,6 +132,7 @@ class CombatSim {
     });
     this.resolveEnemyWorldCollision(enemy);
     host.enemies.push(enemy);
+    if (enemy.boss) host.run.activeBosses++;
     return enemy;
   }
 
@@ -144,7 +151,8 @@ class CombatSim {
       enemy.actionCooldown -= dt;
       enemy.navigationTime = Math.max(0, enemy.navigationTime - dt);
 
-      const steering = computeEnemySteering(enemy, player, host.navigationForEnemy(enemy), host.enemySteering);
+      const goal = host.structures.targetFor(enemy, player);
+      const steering = computeEnemySteering(enemy, goal, enemy.targetStructureId ? null : host.navigationForEnemy(enemy), host.enemySteering);
       const profile = profileFor(enemy.role);
       const distance = steering.distance;
       const towardX = steering.towardX;
@@ -211,6 +219,10 @@ class CombatSim {
 
     for (const enemy of host.enemies) {
       if (!enemy.active) continue;
+      const tower = enemy.targetStructureId && host.run.structures.find(t => t.id === enemy.targetStructureId && t.active);
+      if (tower && Math.hypot(enemy.x - tower.x, enemy.y - tower.y) < enemy.radius + tower.radius + 9 && enemy.hitCooldown <= 0) {
+        enemy.hitCooldown = .7; host.structures.damage(tower, enemy.damage); continue;
+      }
       const contactRadius = enemy.radius + player.radius + 2;
       if (distanceSq(enemy.x, enemy.y, player.x, player.y) < contactRadius * contactRadius && enemy.hitCooldown <= 0) {
         enemy.hitCooldown = 0.7;
@@ -327,7 +339,7 @@ class CombatSim {
       vy: dy * speed,
       radius: 4,
       ttl,
-      damage,
+      damage: damage * (enemy.damage / (this.content.get("enemies", enemy.type)?.damage || enemy.damage || 1)),
       pierce: 0,
       knockback: 0,
       color,
@@ -404,7 +416,14 @@ class CombatSim {
       const time = segmentCircleTime(startX, startY, dx, dy, player.x, player.y, shot.radius + player.radius);
       const wallTime = host.mapLayout.blocksProjectiles
         ? firstObstacleTime(host.obstacles, startX, startY, dx, dy, shot.radius) : Infinity;
-      if (Number.isFinite(wallTime) && wallTime <= time) {
+      let tower = null, towerTime = Infinity;
+      for (const t of host.run.structures) {
+        const hit = segmentRectTime(startX, startY, dx, dy, { x: t.x - t.radius, y: t.y - t.radius, w: t.radius * 2, h: t.radius * 2 }, shot.radius);
+        if (hit < towerTime) { towerTime = hit; tower = t; }
+      }
+      if (tower && towerTime <= time && towerTime <= wallTime + 1e-8) {
+        host.projectilePool.release(shot); host.structures.damage(tower, shot.damage);
+      } else if (Number.isFinite(wallTime) && wallTime <= time) {
         host.emit("worldHit", { x: startX + dx * wallTime, y: startY + dy * wallTime });
         host.projectilePool.release(shot);
       } else if (Number.isFinite(time)) {
@@ -469,7 +488,9 @@ class CombatSim {
     if (source.owner === "player") {
       host.run.hits += 1;
       if (source.critical) host.run.criticalHits += 1;
+      if (source.weaponId && host.run.weaponStats[source.weaponId]) host.run.weaponStats[source.weaponId].damage += appliedDamage;
     }
+    if (source.owner === "turret") host.run.turretDamage += appliedDamage;
     host.emit("hit", { x: Number.isFinite(source.hitX) ? source.hitX : enemy.x,
       y: Number.isFinite(source.hitY) ? source.hitY : enemy.y,
       damage: appliedDamage, elite: enemy.elite, critical: source.critical,
@@ -477,7 +498,7 @@ class CombatSim {
       aimX: source.vx / (Math.hypot(source.vx, source.vy) || 1),
       aimY: source.vy / (Math.hypot(source.vx, source.vy) || 1), appliedKnockback });
     if (source.owner === "player" && source.critical) host.mechanicSystem.onCriticalHit(host.run, enemy, source, appliedDamage);
-    if (enemy.hp <= 0) this.killEnemy(enemy);
+    if (enemy.hp <= 0) this.killEnemy(enemy, source);
   }
 
   damagePlayer(amount, sourceX, sourceY, source = null) {
@@ -507,18 +528,25 @@ class CombatSim {
     if (player.hp <= 0) host.finishRun("lose");
   }
 
-  killEnemy(enemy) {
+  killEnemy(enemy, source = null) {
     const host = this.host;
     if (!enemy.active) return;
     host.run.kills += 1;
+    if (source?.owner === "player" && source.weaponId && host.run.weaponStats[source.weaponId]) {
+      host.run.weaponStats[source.weaponId].kills++;
+      if (enemy.elite) host.run.weaponStats[source.weaponId].eliteKills++;
+    }
+    if (source?.owner === "turret") host.run.turretKills++;
+    if (enemy.boss) { host.run.bossesDefeated++; host.run.activeBosses = Math.max(0, host.run.activeBosses - 1); }
     if (enemy.elite) host.run.eliteKills += 1;
-    host.mechanicSystem.onKill(host.run);
+    if (source?.owner !== "turret") host.mechanicSystem.onKill(host.run);
     this.spawnPickup("xp", enemy.x, enemy.y, enemy.xp);
     if (enemy.bossDefinitionId) host.bossSystem.drop(enemy);
-    const baseDropChance = Math.max(enemy.scrapChance, Number(host.mapLayout.scrapChanceFloor) || 0);
+    const baseDropChance = Math.max(enemy.scrapChance, host.run.endless ? .22 : Number(host.mapLayout.scrapChanceFloor) || 0);
     if (host.random.next() < Math.min(1, baseDropChance + host.run.player.scrapChanceBonus)) {
       const baseScrap = enemy.elite ? 8 : 1;
-      const value = Math.max(1, Math.round(baseScrap * host.run.player.scrapMultiplier));
+      const reward = host.run.endless ? getSurvivalPressure(host.run.elapsed).reward : 1;
+      const value = Math.max(1, Math.round(baseScrap * host.run.player.scrapMultiplier * reward));
       this.spawnPickup("scrap", enemy.x + host.random.range(-8, 8), enemy.y + host.random.range(-8, 8), value);
     }
     if (enemy.elite && host.random.next() < 0.55) {

@@ -36,7 +36,7 @@ function saveManager(initial = null) {
 
 test("default content registry exposes stable IDs shared by model and renderer", () => {
   assert.equal(DEFAULT_CONTENT.get("weapons", "scrap_pistol").name, "废料手枪");
-  assert.equal(DEFAULT_CONTENT.defaults.mode, "survival");
+  assert.equal(DEFAULT_CONTENT.defaults.mode, "endless");
   assert.ok(DEFAULT_CONTENT.ids("upgrades").length >= 14);
   assert.equal(DEFAULT_CONTENT.ids("heroes").length, 3);
   assert.equal(DEFAULT_CONTENT.ids("maps").length, 3);
@@ -191,7 +191,7 @@ test("a new upgrade effect can be injected through the extension contract", () =
 
 test("save IDs are resolved by the active registry instead of a hard-coded save allowlist", () => {
   const fallback = new GameModel(saveManager({ selectedMode: "retired-mode" }), { duration: 60, seed: 9 });
-  assert.equal(fallback.selectedMode, "survival");
+  assert.equal(fallback.selectedMode, "endless");
 
   const patrol = {
     ...GAME_MODES.survival,

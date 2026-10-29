@@ -61,10 +61,10 @@ function drawWeaponFlash(ctx, flash, x, y, angle) {
     ctx.lineTo(length, 0);ctx.lineTo(length * .58, 2);ctx.lineTo(length * .8, 6 * life);ctx.closePath();ctx.fill();
     ctx.fillStyle = profile.core;ctx.fillRect(-1, -2, length * .5, 4);
   } else {
-    const half = profile.flash === "needle" ? 1.5 : 2;
-    ctx.fillRect(0, -half, length, half * 2);
-    ctx.fillStyle = profile.core;ctx.fillRect(0, -1, length * .6, 2);
-    if (profile.flash !== "short") { ctx.fillStyle = profile.color;ctx.fillRect(3, -4, 3, 1);ctx.fillRect(6, 3, 3, 1); }
+    const half = profile.flash === "needle" ? 2.5 : profile.flash === "short" ? 3 : 4;
+    ctx.beginPath(); ctx.moveTo(-1, 0); ctx.lineTo(3, -half); ctx.lineTo(length * .45, -half * .5);
+    ctx.lineTo(length, -1); ctx.lineTo(length * .65, 1); ctx.lineTo(length * .4, half); ctx.lineTo(1, half * .55); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = profile.core; ctx.beginPath(); ctx.moveTo(0, -1.5); ctx.lineTo(length * .65, 0); ctx.lineTo(2, 2); ctx.closePath(); ctx.fill();
   }
   ctx.restore();
 }

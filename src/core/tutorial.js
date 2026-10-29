@@ -6,7 +6,7 @@ const TUTORIAL_STEPS = Object.freeze([
   Object.freeze({ id: "fire", title: "自动锁定与射击", detail: "默认自动瞄准并射击，移动靠近敌人完成 3 次开火；自动控制可在设置中调整。", target: 3 }),
   Object.freeze({ id: "pickup", title: "回收战利品", detail: "靠近经验、废料或医疗包完成拾取。", target: 1 }),
   Object.freeze({ id: "upgrade", title: "战地改造", detail: "升级时从四张卡中选择；满足前置条件后会出现终局进化。", target: 1 }),
-  Object.freeze({ id: "pause", title: "暂停与撤离", detail: "按 Esc 或 P 暂停。撤离模式还需在终局进入蓝色信标圈。", target: 1 })
+  Object.freeze({ id: "pause", title: "补给与生存记录", detail: "E/A进入地图交易站；购入塔台后T/Y部署。Esc/P暂停，可结算本局记录。", target: 1 })
 ]);
 
 function createTutorialState(enabled) {

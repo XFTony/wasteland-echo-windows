@@ -43,9 +43,13 @@ test("field purchases are atomic, bounded and never spend permanent currencies",
   m.fieldMarket.open();
   for (let i = 0; i < 3; i++) assert.equal(m.fieldMarket.purchase("weaponCalibration").ok, true);
   assert.equal(m.run.scrap, 44); assert.equal(m.run.fieldMarket.spent, 56);
-  assert(Math.abs(m.run.player.damageMultiplier - damage * 1.12 ** 3) < 1e-9);
+  assert.equal(m.run.player.damageMultiplier, damage, "calibration belongs to the selected gun");
+  assert.equal(m.run.arsenal.scrap_pistol.calibration, 3);
+  m.run.scrap = 10000;
+  for (let i = 3; i < 8; i++) assert(m.fieldMarket.purchase("weaponCalibration").ok);
+  const cappedBalance = m.run.scrap;
   assert.equal(m.fieldMarket.purchase("weaponCalibration").status, "soldOut");
-  assert.equal(m.run.scrap, 44); assert.equal(JSON.stringify(m.save.currencies), wallet);
+  assert.equal(m.run.scrap, cappedBalance); assert.equal(JSON.stringify(m.save.currencies), wallet);
   assert.equal(m.fieldMarket.purchase("missing").ok, false);
 });
 

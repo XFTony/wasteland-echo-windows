@@ -19,7 +19,7 @@ test("default save contains required unlocks and settings", () => {
   assert.equal(save.settings.musicMuted, false);
   assert.equal(save.settings.uiScale, 1);
   assert.equal(save.keyBindings.moveUp, "KeyW");
-  assert.equal(save.selectedMode, "survival");
+  assert.equal(save.selectedMode, "endless");
   assert.equal(save.tutorialCompleted, false);
   assert.equal(save.tutorialSkipped, false);
   assert.deepEqual(save.weaponMastery, {});
@@ -73,7 +73,7 @@ test("schema v8 migrates and sanitizes rule and mastery reward state", () => {
     masteryBadges: ["scrap_pistol", false],
     weaponMastery: { scrap_pistol: { kills: 1, runs: 1, experience: 999999, level: 99 } }
   });
-  assert.equal(save.schemaVersion, 9);
+  assert.equal(save.schemaVersion, CURRENT_SCHEMA_VERSION);
   assert.deepEqual(save.unlockedBlueprints, ["buy_breaker_shotgun"]);
   assert.deepEqual(save.unlockedModifiers, []);
   assert.deepEqual(save.completedUnlockRules, ["blueprint_breaker"]);
@@ -93,7 +93,7 @@ test("normalization migrates partial saves without losing progress", () => {
   assert.equal(save.settings.autoAim, true, "an explicit legacy preference must be preserved");
   assert.equal(save.settings.autoFire, true, "missing combat preference receives the new automatic default");
   assert.equal(save.settings.gamepadVibration, true);
-  assert.equal(save.selectedMode, "survival");
+  assert.equal(save.selectedMode, "endless");
 });
 
 test("explicit manual shooting preferences are retained when the automatic defaults change",()=>{
@@ -157,7 +157,7 @@ test("normalization retains well-formed content IDs for a later registry to reso
   const extraction = normalizeSave({ selectedMode: "extraction" });
   const endless = normalizeSave({ selectedMode: "endless" });
   const invalid = normalizeSave({ selectedMode: "unknown-mode" });
-  assert.equal(extraction.selectedMode, "extraction");
+  assert.equal(extraction.selectedMode, "endless", "legacy finite selections migrate to continuous survival");
   assert.equal(endless.selectedMode, "endless");
   assert.equal(invalid.selectedMode, "unknown-mode");
 });

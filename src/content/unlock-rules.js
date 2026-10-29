@@ -19,22 +19,22 @@ const UNLOCK_RULES = Object.freeze({
   blueprint_ember: rule({
     id: "blueprint_ember",
     name: "余烬许可",
-    description: "完成 2 次章节",
-    conditions: [{ metric: "wins", gte: 2 }],
+    description: "单局生存达到 3 分钟",
+    conditions: [{ metric: "bestTime", gte: 180 }],
     reward: { kind: "shopBlueprint", id: "buy_ember_carbine" }
   }),
   blueprint_needle: rule({
     id: "blueprint_needle",
     name: "针刺许可",
-    description: "完成第二章并累计击败 400 名感染者",
-    conditions: [{ metric: "completedStage", id: "dead_rail" }, { metric: "totalKills", gte: 400 }],
+    description: "单局生存达到 6 分钟且累计击败 400 名感染者",
+    conditions: [{ metric: "bestTime", gte: 360 }, { metric: "totalKills", gte: 400 }],
     reward: { kind: "shopBlueprint", id: "buy_needle_rifle" }
   }),
   blueprint_coil: rule({
     id: "blueprint_coil",
     name: "荒雷许可",
-    description: "单局击退 3 波无尽 Boss",
-    conditions: [{ metric: "endlessBossWave", gte: 3 }],
+    description: "单局实际击败 3 名首领",
+    conditions: [{ metric: "bossesDefeated", gte: 3 }],
     reward: { kind: "shopBlueprint", id: "buy_coil_cannon" }
   }),
   blueprint_nightwatch: rule({
@@ -54,15 +54,15 @@ const UNLOCK_RULES = Object.freeze({
   blueprint_ammo: rule({
     id: "blueprint_ammo",
     name: "速装许可",
-    description: "完成 2 次章节",
-    conditions: [{ metric: "wins", gte: 2 }],
+    description: "单局生存达到 3 分钟",
+    conditions: [{ metric: "bestTime", gte: 180 }],
     reward: { kind: "shopBlueprint", id: "buy_ammo_rig" }
   }),
   blueprint_signal: rule({
     id: "blueprint_signal",
     name: "远讯许可",
-    description: "完成第三章",
-    conditions: [{ metric: "completedStage", id: "red_storm" }],
+    description: "单局生存达到 10 分钟",
+    conditions: [{ metric: "bestTime", gte: 600 }],
     reward: { kind: "shopBlueprint", id: "buy_signal_charm" }
   }),
   blueprint_servo: rule({
@@ -82,15 +82,15 @@ const UNLOCK_RULES = Object.freeze({
   hero_bulwark: rule({
     id: "hero_bulwark",
     name: "铁卫归队",
-    description: "完成第二章“死亡铁轨”",
-    conditions: [{ metric: "completedStage", id: "dead_rail" }],
+    description: "单局生存达到 5 分钟",
+    conditions: [{ metric: "bestTime", gte: 300 }],
     reward: { kind: "hero", id: "bulwark" }
   }),
   modifier_scarcity: rule({
     id: "modifier_scarcity",
     name: "匮乏协议",
-    description: "完成 3 次章节",
-    conditions: [{ metric: "wins", gte: 3 }],
+    description: "结算3次有效生存（30秒或击败10名敌人）",
+    conditions: [{ metric: "settledRuns", gte: 3 }],
     reward: { kind: "modifier", id: "scarcity" }
   }),
   modifier_redline: rule({
@@ -110,8 +110,8 @@ const UNLOCK_RULES = Object.freeze({
   modifier_boss_rush: rule({
     id: "modifier_boss_rush",
     name: "巨像回声",
-    description: "完成第三章且任意武器精通达到 Lv6",
-    conditions: [{ metric: "completedStage", id: "red_storm" }, { metric: "masteryAny", gte: 6 }],
+    description: "单局生存达到 10 分钟且任意武器精通达到 Lv6",
+    conditions: [{ metric: "bestTime", gte: 600 }, { metric: "masteryAny", gte: 6 }],
     reward: { kind: "modifier", id: "boss_rush" }
   })
 });

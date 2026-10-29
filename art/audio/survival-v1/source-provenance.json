@@ -1,0 +1,193 @@
+{
+  "date": "2026-10-28",
+  "shots": {
+    "author": "SnakeF8",
+    "page": "https://f8studios.itch.io/snakes-second-authentic-gun-sounds-pack",
+    "license": "Public domain / CC0 per author statement",
+    "permission": "All sounds can be used commercially, and credit is not needed",
+    "authorPublicDomainComment": "https://itch.io/post/9421534",
+    "authorCC0Reply": "https://itch.io/post/9424504",
+    "changes": "Selected isolated recordings, trimmed attack/silence, bandpass, short tail fade, normalized peak. Coil adds original filtered noise. Weapon names are fictional and not claims of caliber-accurate recordings."
+  },
+  "music": {
+    "title": "余火信号 / Afterglow Signal",
+    "composition": "Original project 16-bar D-minor motif, 92 BPM, plucked-string harmonics, pads, bass and percussion; three arrangements",
+    "ambienceAuthor": "Juhani Junkala / SubspaceAudio",
+    "ambiencePage": "https://opengameart.org/content/horror-atmosphere",
+    "ambienceLicense": "CC0 1.0",
+    "ambienceExcerpt": "43s to 67s of original loop, downsampled to mono FLAC; low-level environment layer",
+    "motifMidi": [
+      62,
+      57,
+      60,
+      55,
+      62,
+      65,
+      60,
+      57,
+      62,
+      57,
+      60,
+      53,
+      55,
+      57,
+      60,
+      62
+    ],
+    "rootsMidi": [
+      38,
+      34,
+      41,
+      36
+    ],
+    "bpm": 92,
+    "beats": 64
+  },
+  "runtime": [
+    {
+      "id": "scrap_pistol",
+      "src": "./assets/audio/survival-v1/scrap_pistol.wav",
+      "role": "shot",
+      "seconds": 0.3,
+      "source": "SnakeF8 isolated pistol",
+      "peak": 0.72,
+      "bytes": 13310,
+      "sha256": "04DF545F81C495788FAED16730A5E287869A343F43C68BF852FE80BCFE8346AE"
+    },
+    {
+      "id": "swarm_smg",
+      "src": "./assets/audio/survival-v1/swarm_smg.wav",
+      "role": "shot",
+      "seconds": 0.145,
+      "source": "SnakeF8 isolated pistol",
+      "peak": 0.48999999999999994,
+      "bytes": 6474,
+      "sha256": "39D6872486718DF7B3534DF4694E0045A26A1EEE8BBD3833D05C2099F0789DFB"
+    },
+    {
+      "id": "breaker_shotgun",
+      "src": "./assets/audio/survival-v1/breaker_shotgun.wav",
+      "role": "shot",
+      "seconds": 0.43,
+      "source": "SnakeF8 isolated shotgun",
+      "peak": 0.87,
+      "bytes": 19042,
+      "sha256": "655EACB14E4324FCB474E967887DA60D5D37B4EA87163E2A2D079C88838C569E"
+    },
+    {
+      "id": "needle_rifle",
+      "src": "./assets/audio/survival-v1/needle_rifle.wav",
+      "role": "shot",
+      "seconds": 0.29,
+      "source": "SnakeF8 isolated rifle",
+      "peak": 0.78,
+      "bytes": 12868,
+      "sha256": "11FAC2C372D6BD84C6AA11BB4563A1C7FF34EDF09195C79C136ECFECEC4DF400"
+    },
+    {
+      "id": "rust_revolver",
+      "src": "./assets/audio/survival-v1/rust_revolver.wav",
+      "role": "shot",
+      "seconds": 0.36,
+      "source": "SnakeF8 isolated rifle",
+      "peak": 0.8299999999999998,
+      "bytes": 15956,
+      "sha256": "C44B6AFF75D59A0890E2E5BF707B58B1DB61DD80DFF475F6E7AD7BE6CAE7340B"
+    },
+    {
+      "id": "ember_carbine",
+      "src": "./assets/audio/survival-v1/ember_carbine.wav",
+      "role": "shot",
+      "seconds": 0.205,
+      "source": "SnakeF8 isolated rifle",
+      "peak": 0.65,
+      "bytes": 9120,
+      "sha256": "A40A0CF9627E87C97FFBCE4EA3D91D471D6B8918D2B0D969752E1F0935CE09F5"
+    },
+    {
+      "id": "coil_cannon",
+      "src": "./assets/audio/survival-v1/coil_cannon.wav",
+      "role": "shot",
+      "seconds": 0.36,
+      "source": "SnakeF8 isolated shotgun",
+      "peak": 0.8,
+      "bytes": 15956,
+      "sha256": "4B01241B2CE5E5ECE8CEE1F4DFEFA5F24DEE4C27AF38A586951A1F8A0FA67CC6"
+    },
+    {
+      "id": "mechanical_light",
+      "src": "./assets/audio/survival-v1/mechanical_light.wav",
+      "role": "mechanical",
+      "seconds": 0.11,
+      "bytes": 4930,
+      "sha256": "1D0D31A6F0021BC847491EE14964498EAE25BE24321B84F18247887EE49361C8"
+    },
+    {
+      "id": "mechanical_heavy",
+      "src": "./assets/audio/survival-v1/mechanical_heavy.wav",
+      "role": "mechanical",
+      "seconds": 0.14,
+      "bytes": 6254,
+      "sha256": "F6E58F670BC233655CDB9D3A3848FA1A413C8CCC328D1ADDA70204E78CEDB454"
+    },
+    {
+      "id": "theme_menu",
+      "src": "./assets/audio/survival-v1/theme-menu.ogg",
+      "role": "music",
+      "seconds": 41.73913043478261,
+      "bpm": 92,
+      "bytes": 127168,
+      "sha256": "941ECD2BBC2F49E14FEB215B00D4D3191705F77130653DA18367E937F9D3D2B8"
+    },
+    {
+      "id": "theme_combat",
+      "src": "./assets/audio/survival-v1/theme-combat.ogg",
+      "role": "music",
+      "seconds": 41.73913043478261,
+      "bpm": 92,
+      "bytes": 146011,
+      "sha256": "9EC80574610BE1FBF8D873C29B3DA5E9224F62D174FDC45A4E1864A2969E8005"
+    },
+    {
+      "id": "theme_pressure",
+      "src": "./assets/audio/survival-v1/theme-pressure.ogg",
+      "role": "music",
+      "seconds": 41.73913043478261,
+      "bpm": 92,
+      "bytes": 165511,
+      "sha256": "48FBC845545328062BF1A80B26B781032640D72D073116F465E30F213BAC000E"
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "source/ambience-excerpt.flac",
+      "bytes": 782058,
+      "sha256": "337F89C816885430FB5439A36C0D9BF03FD68EB776EF62C4A8E3B5DC4842EA84"
+    },
+    {
+      "path": "source/recording-20g.wav",
+      "bytes": 445096,
+      "sha256": "491073BFF2E8F28C6419094D72331EFA610E3FD0FF896B3418122E375F296049"
+    },
+    {
+      "path": "source/recording-308.wav",
+      "bytes": 414228,
+      "sha256": "69BFFF345872A586A7551BC5EDC9076658034D6322BFD1BD4219EBAC61A323AF"
+    },
+    {
+      "path": "source/recording-9mm.wav",
+      "bytes": 356896,
+      "sha256": "AC0E0AC774F0155D049E9BCDFC8B7AAFFECDA72C10D86BC6025212D32F169B47"
+    },
+    {
+      "path": "source/recording-hammer.wav",
+      "bytes": 92296,
+      "sha256": "1FF46B3B223FB2CA5C4872244C08949CAE3038E912B125C4FC44E9B7B18926E2"
+    },
+    {
+      "path": "source/recording-slide.wav",
+      "bytes": 87704,
+      "sha256": "7D6A721836B4C0B4939E9932E7E0B32875D71BE50E2509BC3CE16874920722EC"
+    }
+  ]
+}

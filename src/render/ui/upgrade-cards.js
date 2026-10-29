@@ -43,8 +43,8 @@ function drawCard(r, option, index, level, x, y, w, h, family, rarity, active, c
     if (option.flavor && lines.length < 3) r.fitText(option.flavor, x + w / 2, y + h * .83, 12, w - pad * 2, "#685334", "center", "600", 10);
     const footer = y + h - 43;
     ctx.fillStyle = "#aa9064"; ctx.fillRect(x + pad, footer - 5, w - pad * 2, 1);
-    r.text(`装配 ${Math.min(level + 1, option.max)}/${option.max}`, x + pad, footer + 13, 12, "#513f29", "left", "900");
-    const count = Math.min(8, option.max), pip = Math.min(8, (w * .43 - count * 3) / count);
+    r.text(option.repeatable ? `可重复 · 第${level + 1}次` : `装配 ${Math.min(level + 1, option.max)}/${option.max}`, x + pad, footer + 13, 12, "#513f29", "left", "900");
+    const count = option.repeatable ? 0 : Math.min(8, option.max), pip = Math.min(8, (w * .43 - count * 3) / Math.max(1, count));
     for (let i = 0; i < count; i++) { ctx.fillStyle = i <= level ? family.fill : "#b6a17a"; ctx.fillRect(x + w - pad - (count - i) * (pip + 3), footer + 8, pip, 8); }
   }
   if (active) focusInk(ctx, x + 9, y + 5, w - 18, h - 12, family.dark, 3);

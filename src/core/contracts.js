@@ -18,6 +18,7 @@ const INPUT_DEVICES = Object.freeze({
 const UI_COMMANDS = Object.freeze({
   ACTIVATE: "activate",
   INTERACT: "interact",
+  DEPLOY: "deploy",
   BACK: "back",
   NAVIGATE: "navigate",
   PAUSE: "pause",

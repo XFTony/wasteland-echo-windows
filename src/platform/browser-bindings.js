@@ -15,6 +15,7 @@ function bindBrowserEvents({ windowObject, documentObject, canvas, app }) {
 
   listen(canvas, "pointerdown", (event) => {
     if (event.pointerType && event.pointerType !== "mouse") return;
+    if (event.button === 2) { if (app.model.run?.placement) app.model.structures.cancel(); event.preventDefault(); return; }
     if (event.button !== undefined && event.button !== 0) return;
     if (typeof canvas.focus === "function") canvas.focus({ preventScroll: true });
     if (typeof canvas.setPointerCapture === "function") canvas.setPointerCapture(event.pointerId);

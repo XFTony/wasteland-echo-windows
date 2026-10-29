@@ -51,7 +51,7 @@ test("all weapons define range, unique visuals, recoil, muzzle and casing feedba
     assert.match(weapon.shellColor, /^#[0-9a-f]{6}$/i);
   }
   assert.deepEqual([...rangeBands].sort(), ["close", "long", "mid"]);
-  assert.equal(Object.keys(UPGRADES).length, 26);
+  assert.equal(Object.keys(UPGRADES).length, 32);
 });
 
 test("inventory selections accept unlocked IDs and reject locked IDs", () => {
@@ -194,7 +194,7 @@ test("pickup pressure stays inside its preallocated pool and merges value", () =
 
 test("enemy roster changes as stage progress increases", () => {
   const model = createModel({ duration: 100 });
-  model.startRun({ seed: 22, duration: 100 });
+  model.startRun({ seed: 22, duration: 100, modeId: "survival" });
   const early = new Set(Array.from({ length: 25 }, () => model.chooseEnemyType(0.05)));
   assert.deepEqual([...early], ["drifter"]);
   const late = new Set(Array.from({ length: 200 }, () => model.chooseEnemyType(0.8)));
@@ -340,7 +340,7 @@ test("hero, equipment and map selections are composed into a run", () => {
 
 test("spawn phases build pressure, permit a brief respite, then escalate", () => {
   const model = createModel({ duration: 180 });
-  model.startRun({ seed: 91, duration: 180 });
+  model.startRun({ seed: 91, duration: 180, modeId: "survival" });
   model.drainEvents();
   model.run.elapsed = 180 * 0.61;
   model.updateSpawner(0);
@@ -364,6 +364,8 @@ test("endless boss waves advance once per successful threshold spawn", () => {
     assert.equal(waveEvents[0].phase, expectedWave);
     assert.equal(model.run.endlessBossWave, expectedWave);
     spawnedTypes.push(waveEvents[0].enemyType);
+    for (const boss of model.enemies.filter(e => e.active && e.boss)) model.killEnemy(boss);
+    model.compactEntities();
 
     model.updateSpawner(0);
     assert.equal(model.drainEvents().some((event) => event.type === "boss"), false, "the same threshold must not repeat");

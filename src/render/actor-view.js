@@ -119,7 +119,7 @@ const ACTOR_METHODS = {
     const p = this.worldToScreen(projectile.x, projectile.y, this.screenPoint);
     if (p.x < -10 || p.y < -10 || p.x > this.width + 10 || p.y > this.height + 10) return;
     ctx.fillStyle = projectile.color;
-    if (projectile.owner === "player") {
+    if (projectile.owner === "player" || projectile.owner === "turret") {
       drawWeaponProjectile(ctx, projectile, p.x, p.y);
     } else {
       ctx.fillRect(p.x - 4, p.y - 4, 8, 8);

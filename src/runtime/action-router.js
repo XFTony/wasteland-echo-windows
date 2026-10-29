@@ -18,12 +18,14 @@ function executeUiCommand(app, command) {
     return;
   }
   if (command.type === UI_COMMANDS.BACK) {
+    if (app.model.screen === SCREENS.RUNNING && app.model.run?.placement) { app.model.structures.cancel(); return; }
     if (app.model.screen === SCREENS.FIELD_SHOP) dispatchAction(app, "fieldClose");
     else if (app.model.screen === SCREENS.MENU && app.model.menuPage !== "main") dispatchAction(app, "back");
     else if (app.model.screen === SCREENS.RESULT_WIN || app.model.screen === SCREENS.RESULT_LOSE) dispatchAction(app, "menu");
     return;
   }
-  if (command.type === UI_COMMANDS.INTERACT) return dispatchAction(app, "fieldOpen");
+  if (command.type === UI_COMMANDS.INTERACT) return dispatchAction(app, app.model.run?.placement ? "deployTurret" : "fieldOpen");
+  if (command.type === UI_COMMANDS.DEPLOY) return dispatchAction(app, "deployTurret");
   if (command.type === UI_COMMANDS.PAUSE) return dispatchAction(app, app.model.screen === SCREENS.PAUSED ? "resume" : "pause");
   if (command.type === UI_COMMANDS.QUIT) return dispatchAction(app, "quit");
   if (command.type === UI_COMMANDS.RESTART) return dispatchAction(app, "restart");
@@ -43,7 +45,7 @@ function executeUiCommand(app, command) {
 }
 
 const VALUE_ACTIONS = new Set([
-  "settingsSection", "upgrade", "buy", "fieldBuy", "equip", "unequip",
+  "settingsSection", "upgrade", "buy", "fieldBuy", "fieldTab", "fieldPage", "arsenalBuy", "arsenalEquip", "arsenalImprove", "equip", "unequip",
   "selectWeapon", "selectSkin", "selectHero", "inventoryPage", "bind", "toggle"
 ]);
 
@@ -74,6 +76,7 @@ const ACTION_HANDLERS = Object.freeze({
   },
   deploy(app) {
     app.resetInput({ resetAim: true });
+    app.model.selectedMode = "endless";
     app.model.startRun();
   },
   weaponPrev: (app) => app.model.cycleWeapon(-1),
@@ -110,7 +113,8 @@ const ACTION_HANDLERS = Object.freeze({
   },
   quit(app) {
     app.resetInput({ resetAim: true });
-    app.model.goToMenu();
+    if (app.model.run?.endless && !app.model.run.result) app.model.finishRun("retire");
+    else app.model.goToMenu();
   },
   fullscreen(app) {
     if (typeof app.platform.toggleFullscreen === "function") app.platform.toggleFullscreen();
@@ -118,9 +122,18 @@ const ACTION_HANDLERS = Object.freeze({
   upgrade: (app, command) => app.model.chooseUpgrade(command.value),
   upgradeSalvage: (app) => app.model.salvageUpgradeOptions(),
   buy: (app, command) => app.model.buyShopItem(command.value),
-  fieldOpen(app) { if (app.model.fieldMarket.open()) app.resetInput(); },
+  fieldOpen(app) { if (app.model.fieldMarket.open()) app.resetInput(); else app.model.structures.recover(); },
   fieldClose(app) { if (app.model.fieldMarket.close()) app.resetInput(); },
   fieldBuy: (app, command) => app.model.fieldMarket.purchase(command.value),
+  fieldTab(app, command) {
+    if (app.model.screen !== "fieldShop" || !["supplies", "arsenal", "support"].includes(command.value)) return;
+    app.model.run.fieldMarket.tab = command.value; app.model.run.fieldMarket.page = 0;
+  },
+  fieldPage(app, command) { if (app.model.screen === "fieldShop") app.model.run.fieldMarket.page = Math.max(0, Math.min(1, Number(command.value) || 0)); },
+  arsenalBuy: (app, c) => app.model.arsenal.buy(c.value),
+  arsenalEquip: (app, c) => app.model.arsenal.equip(c.value),
+  arsenalImprove: (app, c) => app.model.arsenal.improve(c.value),
+  deployTurret: (app) => app.model.structures.begin(),
   equip: (app, command) => app.model.equip(command.value),
   unequip: (app, command) => app.model.unequip(command.value),
   selectWeapon: (app, command) => app.model.selectWeapon(command.value),

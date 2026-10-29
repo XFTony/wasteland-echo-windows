@@ -118,6 +118,9 @@ test("generated browser bundle boots, renders menu, and starts a run", () => {
     clientY: quit.y + quit.h / 2,
     preventDefault() {}
   });
+  assert.equal(game.model.screen, "resultLose");
+  assert.equal(game.model.run.result, "retire");
+  game.app.handleAction("menu");
   assert.equal(game.model.screen, "menu");
 });
 

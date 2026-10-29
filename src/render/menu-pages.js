@@ -344,13 +344,13 @@ const MENU_METHODS = {
       : "下一目标：全部规则已完成";
     const lines = [
       "当前版本：v1.5 技术重构预览",
-      `生存档案：成就 ${Object.keys(model.save.achievements || {}).length}/8 · 胜利 ${model.save.wins} · 击败 ${model.save.totalKills}`,
+      `生存档案：成就 ${Object.keys(model.save.achievements || {}).length}/8 · 结算 ${model.save.settledRuns} · 击败 ${model.save.totalKills}`,
       rulesLine,
       nextRuleLine,
       "游戏设计、战斗内核与像素角色：本项目原创",
       "像素人物、营地与桌面场景：项目生成素材，经原生像素整理",
       "字标采用 Fusion Pixel；中文正文采用系统字体，许可见素材台账",
-      "音乐与音效：原创编曲 + WebAudio 程序化合成，无外部采样",
+      "音频：原创主题编曲；实录枪声 SnakeF8；氛围 SubspaceAudio（CC0）",
       "输入：可重绑定键盘鼠标 + 标准 Gamepad API 手柄",
       "完整来源、许可与修改记录：查看 CREDITS.md 和素材台账"
     ];

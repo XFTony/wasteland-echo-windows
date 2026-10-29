@@ -9,7 +9,7 @@ const OBSTACLE_METHODS = {
   drawObstacles(obstacles) {
     const ctx = this.ctx;
     for (const obstacle of obstacles) {
-      if (obstacle.kind === "interactiveBody") continue;
+      if (obstacle.kind === "interactiveBody" || obstacle.kind === "turretBody") continue;
       const point = this.worldToScreen(obstacle.x, obstacle.y, this.screenPoint);
       if (point.x + obstacle.w < -20 || point.y + obstacle.h < -20 || point.x > this.width + 20 || point.y > this.height + 20) continue;
       ctx.fillStyle = "rgba(20,18,15,0.28)";

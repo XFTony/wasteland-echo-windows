@@ -82,7 +82,7 @@ class ContentRegistry {
     this.fieldGoods = validateCatalog("fieldGoods", source.fieldGoods || FIELD_GOODS, CONTENT_REQUIREMENTS.fieldGoods);
     for (const item of Object.values(this.fieldGoods)) {
       if (!Array.isArray(item.prices) || !item.prices.length || item.prices.some(price => !Number.isInteger(price) || price <= 0)) throw new Error("fieldGoods prices must be positive integers");
-      if (!["weapon", "heal", "speed", "armor", "magnet"].includes(item.effect)) throw new Error("Unknown fieldGoods effect");
+      if (!["weapon", "heal", "speed", "armor", "magnet", "turret", "engineering"].includes(item.effect)) throw new Error("Unknown fieldGoods effect");
     }
     this.skins = validateCatalog("skins", source.skins || SKINS, CONTENT_REQUIREMENTS.skins);
     this.heroes = validateCatalog("heroes", source.heroes || HEROES, CONTENT_REQUIREMENTS.heroes);
@@ -252,7 +252,7 @@ class ContentRegistry {
       }
     }
     this.defaults = Object.freeze({
-      mode: this.modes.survival ? "survival" : Object.keys(this.modes)[0],
+      mode: this.modes.endless ? "endless" : this.modes.survival ? "survival" : Object.keys(this.modes)[0],
       weapon: this.weapons.scrap_pistol ? "scrap_pistol" : Object.keys(this.weapons)[0],
       skin: this.skins.wanderer ? "wanderer" : Object.keys(this.skins)[0],
       enemy: this.enemies.drifter ? "drifter" : Object.keys(this.enemies)[0],

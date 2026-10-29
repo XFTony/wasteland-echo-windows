@@ -76,11 +76,11 @@ function drawReadout(renderer, model, x, y, w, h, compact) {
   const mode = renderer.content.get("modes", model.selectedMode, renderer.content.defaults.mode);
   const map = renderer.content.get("maps", model.selectedMap, renderer.content.defaults.map);
   const duration = mode.rule === "endless" ? "无限" : `${Math.round(stage.duration / 60)} 分钟`;
-  const threat = Math.round((Number(stage.difficulty) || 1) * (Number(map.threat) || 1) * 100);
+  const threat = Math.round((Number(map.threat) || 1) * 100);
   const stats = [
-    ["时限", duration, UI_COLORS.white],
+    ["生存", "持续计时", UI_COLORS.white],
     ["威胁", `${threat}%`, threat >= 150 ? UI_COLORS.danger : UI_COLORS.orange],
-    ["目标", mode.objective, UI_COLORS.cyan]
+    ["补给", "地图交易站", UI_COLORS.cyan]
   ];
   drawTextScrim(renderer, x, y, w, h, { fill: "rgba(16,15,12,0.92)", accent: UI_COLORS.gold });
   const cellW = w / 3;
@@ -127,15 +127,17 @@ function drawDeploymentBunkerPage(renderer, model) {
   const readoutH = compact ? 34 : 76;
   const actionH = compact ? 42 : 68;
   const hintH = compact ? 14 : 25;
-  const selectorH = (contentH - readoutH - actionH - hintH - contentGap * 5) / 3;
-  drawSelector(renderer, model, "stage", rightX, contentY, rightW, selectorH, compact);
-  drawSelector(renderer, model, "mode", rightX, contentY + selectorH + contentGap, rightW, selectorH, compact);
-  drawSelector(renderer, model, "map", rightX, contentY + (selectorH + contentGap) * 2, rightW, selectorH, compact);
-
-  const readoutY = contentY + (selectorH + contentGap) * 3;
+  const selectorArea = contentH - readoutH - actionH - hintH - contentGap * 5;
+  const selectorH = selectorArea * .44;
+  drawSelector(renderer, model, "map", rightX, contentY, rightW, selectorH, compact);
+  const textX = rightX + (compact ? 18 : 30), detailY = contentY + selectorH + contentGap;
+  renderer.displayText("连续生存", textX, detailY + 18, compact ? 19 : 27, UI_COLORS.gold);
+  const details = renderer.height < 430 ? ["移动生存 · 拾取经验与金币", "回交易站购枪、改装与部署塔台"] : ["移动躲避 · 自动瞄准射击", "捡拾经验与金币 · 升级技能", "返回交易站购枪改装 · 部署塔台", "威胁随时间增强 · 暂停可结算本局"];
+  details.forEach((line, index) => renderer.fitText(line, textX, detailY + (compact ? 46 : 60) + index * (compact ? 20 : 28), compact ? 12 : 16, rightW - 45, UI_COLORS.paper, "left", "700", 10));
+  const readoutY = contentY + selectorArea + contentGap * 3;
   drawReadout(renderer, model, rightX, readoutY, rightW, readoutH, compact);
   const mode = renderer.content.get("modes", model.selectedMode, renderer.content.defaults.mode);
-  const label = mode.rule === "endless" ? "进入无尽尸潮" : mode.rule === "extract" ? "确认出征 · 撤离行动" : "确认出征 · 坚守行动";
+  const label = "进入地图 · 连续生存";
   const actionY = readoutY + readoutH + contentGap;
   drawFieldButton(renderer, "deploy", label, rightX, actionY, rightW, actionH, { accent: UI_COLORS.orange, primary: true, role: "display", size: compact ? 15 : 21 });
   const hint = renderer.gamepadConnected

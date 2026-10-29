@@ -144,12 +144,12 @@ test("all primary screens render without exceptions and expose expected actions"
   renderer.render(model);
   assert.equal(renderer.regions.some((region) => region.action === "deploy"), true);
   assert.equal(renderer.regions.some((region) => region.action === "inventory"), true);
-  assert.equal(renderer.regions.some((region) => region.action === "modePrev"), true);
-  assert.equal(renderer.regions.some((region) => region.action === "modeNext"), true);
+  assert.equal(renderer.regions.some((region) => region.action === "modePrev"), false);
+  assert.equal(renderer.regions.some((region) => region.action === "modeNext"), false);
   assert.equal(renderer.regions.some((region) => region.action === "heroNext"), false);
   assert.equal(renderer.regions.some((region) => region.action === "weaponNext"), false);
   assert.equal(renderer.regions.some((region) => region.action === "skinNext"), false);
-  assert.equal(renderer.regions.some((region) => region.action === "stageNext"), true);
+  assert.equal(renderer.regions.some((region) => region.action === "stageNext"), false);
   assert.equal(renderer.regions.some((region) => region.action === "mapNext"), true);
 
   model.setMenuPage("inventory");
@@ -174,7 +174,7 @@ test("all primary screens render without exceptions and expose expected actions"
   assert.equal(renderer.regions.some((region) => region.action === "toggle:musicMuted"), true);
   model.setSettingsSection("controls");
   renderer.render(model);
-  assert.equal(renderer.regions.filter((region) => region.action.startsWith("bind:")).length, 14);
+  assert.equal(renderer.regions.filter((region) => region.action.startsWith("bind:")).length, 15);
   assert.equal(renderer.regions.some((region) => region.action === "resetBindings"), true);
 
   model.startRun({ duration: 60, seed: 42 });
@@ -264,10 +264,12 @@ test("weapon feedback uses bounded shell and muzzle slots and decays recoil", ()
   assert.equal(renderer.shells.length, 32);
   assert.equal(renderer.shells.filter((shell) => shell.active).length, 32);
   assert.equal(renderer.muzzleFlashes.length, 12);
-  assert.equal(renderer.muzzleFlashes.filter((flash) => flash.active).length, 12);
+  assert.equal(renderer.muzzleFlashes.filter((flash) => flash.active).length, 1, "rapid shots keep only the latest main muzzle flash");
   assert.ok(renderer.weaponKick > 0);
   assert.ok(renderer.cameraKick > 0);
 
+  renderer.updateEffects(1 / 60);
+  assert.equal(renderer.muzzleFlashes.some((flash) => flash.active), true, "a new flash survives its first render");
   renderer.updateEffects(1);
   assert.equal(renderer.shells.some((shell) => shell.active), false);
   assert.equal(renderer.muzzleFlashes.some((flash) => flash.active), false);
@@ -492,7 +494,7 @@ test("568x320 desktop layout keeps compact controls navigable and on-screen", ()
 
   model.setMenuPage("loadout");
   renderer.render(model);
-  for (const action of ["deploy", "inventory", "modePrev", "modeNext", "stagePrev", "stageNext", "mapPrev", "mapNext", "back"]) {
+  for (const action of ["deploy", "inventory", "mapPrev", "mapNext", "back"]) {
     assert.equal(renderer.regions.some((region) => region.action === action), true, `${action} should be visible`);
   }
 
@@ -513,7 +515,7 @@ test("568x320 desktop layout keeps compact controls navigable and on-screen", ()
   assert.equal(renderer.regions.some((region) => region.action === "fullscreen"), true);
   model.setSettingsSection("controls");
   renderer.render(model);
-  assert.equal(renderer.regions.filter((region) => region.action.startsWith("bind:")).length, 14);
+  assert.equal(renderer.regions.filter((region) => region.action.startsWith("bind:")).length, 15);
   assert.ok(renderer.regions.every((region) => region.x >= 0 && region.y >= 0 && region.x + region.w <= 568 && region.y + region.h <= 320));
 
   model.setMenuPage("main");
@@ -558,7 +560,7 @@ test("Windows 720p and 1080p layouts keep every desktop action inside the viewpo
 
     model.setMenuPage("loadout");
     renderer.render(model, { activeDevice: "gamepad", gamepadConnected: true, gamepadId: "Xbox Controller" });
-    assert.ok(renderer.regions.length >= 8);
+    assert.ok(renderer.regions.length >= 5);
     assert.equal(renderer.regions.some((region) => region.action === "inventory"), true);
     for (const region of renderer.regions) {
       assert.ok(region.x >= 0 && region.y >= 0 && region.x + region.w <= width && region.y + region.h <= height);
@@ -586,7 +588,7 @@ test("Windows 720p and 1080p layouts keep every desktop action inside the viewpo
 
     model.setSettingsSection("controls");
     renderer.render(model, { activeDevice: "gamepad", gamepadConnected: true, gamepadId: "Xbox Controller" });
-    assert.equal(renderer.regions.filter((region) => region.action.startsWith("bind:")).length, 14);
+    assert.equal(renderer.regions.filter((region) => region.action.startsWith("bind:")).length, 15);
     assert.equal(renderer.regions.some((region) => region.action === "resetBindings"), true);
     for (const region of renderer.regions) assert.ok(region.x >= 0 && region.y >= 0 && region.x + region.w <= width && region.y + region.h <= height);
 
