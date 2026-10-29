@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_f7tkl"]
+
+[resource]
+script = ExtResource("1_f7tkl")
+content_id = &"phaseAegis"
+category = &"upgrades"
+display_name = "相位壁垒"
+source_data = {
+"detail": "减伤 +10% · 无敌时间 +0.12 秒 · 移速 +8%",
+"evolution": true,
+"family": "survival",
+"flavor": "护甲不再承受冲击，而是让冲击短暂落空",
+"id": "phaseAegis",
+"max": 1.0,
+"name": "相位壁垒",
+"rarity": "evolution",
+"requires": {
+"masteryUnlock": true,
+"upgrades": {
+"armor": 3.0,
+"phaseLining": 2.0
+},
+"weaponClasses": ["shotgun", "heavy", "hammer"]
+}
+}

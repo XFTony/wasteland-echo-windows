@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_xf14g"]
+
+[resource]
+script = ExtResource("1_xf14g")
+content_id = &"runnerStrap"
+category = &"fieldGoods"
+display_name = "轻便绑带"
+source_data = {
+"detail": "移动速度 +6%",
+"effect": "speed",
+"family": "mobility",
+"icon": "speed",
+"id": "runnerStrap",
+"name": "轻便绑带",
+"prices": [9.0, 14.0]
+}

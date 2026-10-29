@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_mt5qa"]
+
+[resource]
+script = ExtResource("1_mt5qa")
+content_id = &"kineticLoop"
+category = &"upgrades"
+display_name = "动能回路"
+source_data = {
+"detail": "移速 +16% · 无敌时间 +0.1 秒 · 暴击 +5%",
+"evolution": true,
+"family": "mobility",
+"flavor": "每一次脱身都为下一次突进储能",
+"id": "kineticLoop",
+"max": 1.0,
+"name": "动能回路",
+"rarity": "evolution",
+"requires": {
+"masteryUnlock": true,
+"upgrades": {
+"phaseLining": 2.0,
+"speed": 3.0
+},
+"weaponClasses": ["sidearm", "revolver", "shotgun", "blade", "disc"]
+}
+}

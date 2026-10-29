@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/enemy_definition.gd" id="1_5vcu0"]
+
+[resource]
+script = ExtResource("1_5vcu0")
+max_health = 12.0
+speed = 59.0
+damage = 6.0
+content_id = &"screecher"
+category = &"enemies"
+display_name = "警报者"
+source_data = {
+"color": "#8c6aa2",
+"damage": 6.0,
+"hp": 12.0,
+"id": "screecher",
+"name": "警报者",
+"radius": 10.0,
+"role": "buffer",
+"scrapChance": 0.15,
+"speed": 59.0,
+"xp": 7.0
+}

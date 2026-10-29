@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_eh0km"]
+
+[resource]
+script = ExtResource("1_eh0km")
+content_id = &"cascadeRounds"
+category = &"upgrades"
+display_name = "电弧跳弹"
+source_data = {
+"detail": "暴击会向附近目标传导伤害",
+"family": "utility",
+"flavor": "一次命中，在尸群中继续寻找出口",
+"id": "cascadeRounds",
+"max": 3.0,
+"name": "电弧跳弹",
+"rarity": "prototype"
+}

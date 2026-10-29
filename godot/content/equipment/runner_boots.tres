@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_owqi8"]
+
+[resource]
+script = ExtResource("1_owqi8")
+content_id = &"runner_boots"
+category = &"equipment"
+display_name = "疾行战靴"
+source_data = {
+"description": "旧运动鞋底与军靴绑带的实用组合。",
+"id": "runner_boots",
+"name": "疾行战靴",
+"rarity": "standard",
+"slot": "boots",
+"stats": {
+"armor": 0.01,
+"speedMultiplier": 1.07
+},
+"visualId": "runner-wrap-boots"
+}

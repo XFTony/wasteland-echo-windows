@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_sdgwd"]
+
+[resource]
+script = ExtResource("1_sdgwd")
+content_id = &"blastRadius"
+category = &"upgrades"
+display_name = "扩散整形"
+source_data = {
+"detail": "爆炸／砸地半径 +10%基础值",
+"family": "utility",
+"id": "blastRadius",
+"max": 3.0,
+"name": "扩散整形",
+"rarity": "advanced",
+"requires": {
+"attackTypes": ["explosive", "slam"]
+}
+}

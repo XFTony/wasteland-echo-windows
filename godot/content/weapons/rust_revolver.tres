@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/weapon_definition.gd" id="1_66q3h"]
+
+[resource]
+script = ExtResource("1_66q3h")
+damage = 21.0
+interval = 0.58
+projectile_speed = 730.0
+lock_range = 500.0
+lifetime = 0.86
+pierce = 1
+knockback = 58.0
+recoil = 7.2
+content_id = &"rust_revolver"
+category = &"weapons"
+display_name = "锈痕左轮"
+source_data = {
+"color": "#f08a4b",
+"damage": 21.0,
+"description": "沉重六发弹巢，单击威力与击退兼备",
+"id": "rust_revolver",
+"interval": 0.58,
+"knockback": 58.0,
+"lockRange": 500.0,
+"mechanicId": "sixth_chamber",
+"muzzleFlashLength": 15.0,
+"muzzleFlashLife": 0.08,
+"muzzleLength": 29.0,
+"muzzleParticles": 6.0,
+"name": "锈痕左轮",
+"pierce": 1.0,
+"projectileCount": 1.0,
+"projectileSpeed": 730.0,
+"rangeBand": "mid",
+"recoil": 7.2,
+"shellColor": "#d7a757",
+"shellLength": 5.0,
+"shellLife": 0.64,
+"spread": 1.5,
+"ttl": 0.86,
+"visualId": "rust-revolver",
+"weaponClass": "revolver"
+}

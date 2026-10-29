@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_5u6lj"]
+
+[resource]
+script = ExtResource("1_5u6lj")
+content_id = &"modifier_ironman"
+category = &"unlockRules"
+display_name = "无伤协议"
+source_data = {
+"conditions": [{
+"gte": 120.0,
+"metric": "bestNoHitTime"
+}],
+"description": "最长无伤达到 120 秒",
+"id": "modifier_ironman",
+"name": "无伤协议",
+"reward": {
+"id": "ironman",
+"kind": "modifier"
+}
+}

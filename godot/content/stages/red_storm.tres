@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_asow6"]
+
+[resource]
+script = ExtResource("1_asow6")
+content_id = &"red_storm"
+category = &"stages"
+display_name = "第三章：赤色风暴"
+source_data = {
+"copperMultiplier": 1.55,
+"description": "深入沉降区，面对完成进化的感染体。",
+"difficulty": 1.34,
+"duration": 210.0,
+"goldReward": 3.0,
+"id": "red_storm",
+"mapId": "red_basin",
+"name": "第三章：赤色风暴",
+"order": 3.0,
+"radioDetail": "风暴墙已经合拢，所有变异信号都指向中心。",
+"radioTitle": "远征电台 · 赤风频段",
+"unlockWins": 3.0
+}

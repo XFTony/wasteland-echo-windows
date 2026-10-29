@@ -1,5 +1,7 @@
 # Installed dependencies and reproducible build caches
 /node_modules/
+/tools/godot-mcp/node_modules/
+/.codex/config.toml
 /src-tauri/target/
 /src-tauri/gen/
 /dist/

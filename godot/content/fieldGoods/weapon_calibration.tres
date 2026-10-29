@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_llajl"]
+
+[resource]
+script = ExtResource("1_llajl")
+content_id = &"weaponCalibration"
+category = &"fieldGoods"
+display_name = "当前武器调校"
+source_data = {
+"cap": 8.0,
+"detail": "本武器伤害 +12% · 攻速 +3%",
+"effect": "weapon",
+"family": "firepower",
+"icon": "damage",
+"id": "weaponCalibration",
+"name": "当前武器调校",
+"prices": [10.0, 18.0, 28.0],
+"repeat": true
+}

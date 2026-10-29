@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_blqbj"]
+
+[resource]
+script = ExtResource("1_blqbj")
+content_id = &"mechanic"
+category = &"heroes"
+display_name = "废土技师·阿岚"
+source_data = {
+"accent": "#6f9a86",
+"armorBonus": 0.0,
+"callsign": "PATCH-12",
+"copperMultiplier": 1.15,
+"damageMultiplier": 0.98,
+"description": "轻装搜索专家，能从残骸中拆出更多可用零件。",
+"hpMultiplier": 0.95,
+"id": "mechanic",
+"lockRangeMultiplier": 1.0,
+"name": "废土技师·阿岚",
+"passive": "精密回收：拾取范围 +24%，铜币收益 +15%",
+"pickupMultiplier": 1.24,
+"portrait": "mechanic",
+"speedMultiplier": 1.03
+}

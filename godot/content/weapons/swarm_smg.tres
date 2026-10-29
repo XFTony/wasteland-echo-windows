@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/weapon_definition.gd" id="1_irq7t"]
+
+[resource]
+script = ExtResource("1_irq7t")
+damage = 4.8
+interval = 0.105
+projectile_speed = 610.0
+lock_range = 420.0
+lifetime = 0.72
+knockback = 18.0
+recoil = 2.4
+content_id = &"swarm_smg"
+category = &"weapons"
+display_name = "蜂群冲锋枪"
+source_data = {
+"color": "#87976a",
+"damage": 4.8,
+"description": "快速连射，压制成群目标",
+"id": "swarm_smg",
+"interval": 0.105,
+"knockback": 18.0,
+"lockRange": 420.0,
+"mechanicId": "heat_ramp",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.05,
+"muzzleLength": 27.0,
+"muzzleParticles": 3.0,
+"name": "蜂群冲锋枪",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 610.0,
+"rangeBand": "mid",
+"recoil": 2.4,
+"shellColor": "#d4aa57",
+"shellLength": 3.0,
+"shellLife": 0.42,
+"spread": 9.0,
+"ttl": 0.72,
+"visualId": "swarm-compact",
+"weaponClass": "smg"
+}

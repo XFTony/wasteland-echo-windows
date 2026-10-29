@@ -1,0 +1,236 @@
+{
+  "date": "2026-10-29",
+  "stage": "native foundation and first menu implementation",
+  "completeMigration": false,
+  "originalGameTests": 331,
+  "nativeParity": {
+    "checks": 125319,
+    "contentDefinitions": 137,
+    "failures": [],
+    "maximumPoseError": 1.31489350252423e-05,
+    "scope": "Content, RNG, pressure, loadouts, upgrades, shop rules, save codec and recovery"
+  },
+  "uiRegions": {
+    "date": "2026-10-29",
+    "scope": "Default six-menu action IDs and hit rectangles only; not full UI behavior or visual acceptance",
+    "results": [
+      {
+        "page": "main",
+        "width": 960,
+        "height": 540,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 2.2786458316659264e-05,
+        "actions": 4
+      },
+      {
+        "page": "loadout",
+        "width": 960,
+        "height": 540,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 2.929687502728484e-05,
+        "actions": 5
+      },
+      {
+        "page": "inventory",
+        "width": 960,
+        "height": 540,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0,
+        "actions": 7
+      },
+      {
+        "page": "shop",
+        "width": 960,
+        "height": 540,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 1.017252569113225e-05,
+        "actions": 10
+      },
+      {
+        "page": "settings",
+        "width": 960,
+        "height": 540,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0,
+        "actions": 23
+      },
+      {
+        "page": "credits",
+        "width": 960,
+        "height": 540,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0,
+        "actions": 1
+      },
+      {
+        "page": "main",
+        "width": 1280,
+        "height": 720,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 2.929687502728484e-05,
+        "actions": 4
+      },
+      {
+        "page": "loadout",
+        "width": 1280,
+        "height": 720,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 4.8828120043253875e-05,
+        "actions": 5
+      },
+      {
+        "page": "inventory",
+        "width": 1280,
+        "height": 720,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 4.8828124988631316e-05,
+        "actions": 7
+      },
+      {
+        "page": "shop",
+        "width": 1280,
+        "height": 720,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 2.034505234860262e-05,
+        "actions": 10
+      },
+      {
+        "page": "settings",
+        "width": 1280,
+        "height": 720,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 1.7438616509934945e-05,
+        "actions": 23
+      },
+      {
+        "page": "credits",
+        "width": 1280,
+        "height": 720,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0,
+        "actions": 1
+      },
+      {
+        "page": "main",
+        "width": 1920,
+        "height": 1080,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 4.3945309926129994e-05,
+        "actions": 4
+      },
+      {
+        "page": "loadout",
+        "width": 1920,
+        "height": 1080,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 7.324219018300937e-05,
+        "actions": 5
+      },
+      {
+        "page": "inventory",
+        "width": 1920,
+        "height": 1080,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 9.765625009094947e-05,
+        "actions": 7
+      },
+      {
+        "page": "shop",
+        "width": 1920,
+        "height": 1080,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 3.051757806815658e-05,
+        "actions": 10
+      },
+      {
+        "page": "settings",
+        "width": 1920,
+        "height": 1080,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 2.6157923912251135e-05,
+        "actions": 23
+      },
+      {
+        "page": "credits",
+        "width": 1920,
+        "height": 1080,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0,
+        "actions": 1
+      },
+      {
+        "page": "main",
+        "width": 2560,
+        "height": 1440,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 5.859375005456968e-05,
+        "actions": 4
+      },
+      {
+        "page": "loadout",
+        "width": 2560,
+        "height": 1440,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 9.765625009094947e-05,
+        "actions": 5
+      },
+      {
+        "page": "inventory",
+        "width": 2560,
+        "height": 1440,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 9.765624997726263e-05,
+        "actions": 7
+      },
+      {
+        "page": "shop",
+        "width": 2560,
+        "height": 1440,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 4.069010469720524e-05,
+        "actions": 10
+      },
+      {
+        "page": "settings",
+        "width": 2560,
+        "height": 1440,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 3.487723711259605e-05,
+        "actions": 23
+      },
+      {
+        "page": "credits",
+        "width": 2560,
+        "height": 1440,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0,
+        "actions": 1
+      }
+    ]
+  },
+  "pending": "See godot/migration_status.json; UI visual fidelity, battle runtime and all other listed work remain incomplete."
+}

@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/weapon_definition.gd" id="1_y6v0t"]
+
+[resource]
+script = ExtResource("1_y6v0t")
+damage = 10.5
+interval = 0.22
+projectile_speed = 760.0
+lock_range = 570.0
+pierce = 1
+knockback = 30.0
+recoil = 4.1
+content_id = &"ember_carbine"
+category = &"weapons"
+display_name = "余烬卡宾枪"
+source_data = {
+"color": "#ff7956",
+"damage": 10.5,
+"description": "兼顾射速与精度的中程连发平台",
+"id": "ember_carbine",
+"interval": 0.22,
+"knockback": 30.0,
+"lockRange": 570.0,
+"mechanicId": "momentum_feed",
+"muzzleFlashLength": 14.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 35.0,
+"muzzleParticles": 4.0,
+"name": "余烬卡宾枪",
+"pierce": 1.0,
+"projectileCount": 1.0,
+"projectileSpeed": 760.0,
+"rangeBand": "mid",
+"recoil": 4.1,
+"shellColor": "#e0b65d",
+"shellLength": 4.0,
+"shellLife": 0.52,
+"spread": 4.0,
+"ttl": 0.9,
+"visualId": "ember-carbine",
+"weaponClass": "carbine"
+}

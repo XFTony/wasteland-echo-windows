@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_2xa0e"]
+
+[resource]
+script = ExtResource("1_2xa0e")
+content_id = &"blueprint_magnet"
+category = &"unlockRules"
+display_name = "回收许可"
+source_data = {
+"conditions": [{
+"gte": 200.0,
+"metric": "totalKills"
+}],
+"description": "累计击败 200 名感染者",
+"id": "blueprint_magnet",
+"name": "回收许可",
+"reward": {
+"id": "buy_magnet_coil",
+"kind": "shopBlueprint"
+}
+}

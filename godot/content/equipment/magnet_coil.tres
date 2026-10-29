@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_5ndr7"]
+
+[resource]
+script = ExtResource("1_5ndr7")
+content_id = &"magnet_coil"
+category = &"equipment"
+display_name = "回收感应盔"
+source_data = {
+"description": "焊在旧矿盔上的感应线圈，可定位散落物资。",
+"id": "magnet_coil",
+"name": "回收感应盔",
+"rarity": "advanced",
+"slot": "helmet",
+"stats": {
+"armor": 0.01,
+"copperMultiplier": 1.1,
+"pickupMultiplier": 1.3
+},
+"visualId": "salvage-sensor-helm"
+}

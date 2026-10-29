@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_bhi83"]
+
+[resource]
+script = ExtResource("1_bhi83")
+content_id = &"boss_rush"
+category = &"modifiers"
+display_name = "巨像回声"
+source_data = {
+"description": "首领更频繁地进入战场，阶段奖励同步提高。",
+"id": "boss_rush",
+"name": "巨像回声",
+"rewardMultiplier": 1.4
+}

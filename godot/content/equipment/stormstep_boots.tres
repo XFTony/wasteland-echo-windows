@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_q4dpn"]
+
+[resource]
+script = ExtResource("1_q4dpn")
+content_id = &"stormstep_boots"
+category = &"equipment"
+display_name = "踏雷绝缘靴"
+source_data = {
+"description": "隔离电网回流的复合靴底，兼顾疾行与锁定稳定。",
+"id": "stormstep_boots",
+"name": "踏雷绝缘靴",
+"rarity": "prototype",
+"slot": "boots",
+"stats": {
+"armor": 0.02,
+"lockRangeMultiplier": 1.05,
+"speedMultiplier": 1.1
+},
+"visualId": "stormstep-insulated-boots"
+}

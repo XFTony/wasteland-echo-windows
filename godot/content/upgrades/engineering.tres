@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_gajwn"]
+
+[resource]
+script = ExtResource("1_gajwn")
+content_id = &"engineering"
+category = &"upgrades"
+display_name = "守望工程"
+source_data = {
+"detail": "塔台伤害 +25%基础值 · 耐久 +15%基础值",
+"family": "utility",
+"id": "engineering",
+"max": 6.0,
+"name": "守望工程",
+"rarity": "advanced",
+"requires": {
+"structures": true
+}
+}

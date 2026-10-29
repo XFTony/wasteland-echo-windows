@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_jkqmj"]
+
+[resource]
+script = ExtResource("1_jkqmj")
+content_id = &"steady_cycle"
+category = &"mechanics"
+display_name = "四拍稳压"
+source_data = {
+"description": "废料手枪每第 4 次扣动扳机获得强化弹",
+"id": "steady_cycle",
+"name": "四拍稳压"
+}

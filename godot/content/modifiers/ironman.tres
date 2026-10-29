@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_r8xuj"]
+
+[resource]
+script = ExtResource("1_r8xuj")
+content_id = &"ironman"
+category = &"modifiers"
+display_name = "无伤协议"
+source_data = {
+"description": "降低容错，以连续无伤记录换取额外收益。",
+"id": "ironman",
+"name": "无伤协议",
+"rewardMultiplier": 1.35
+}

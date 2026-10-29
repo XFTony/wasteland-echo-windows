@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_hw84w"]
+
+[resource]
+script = ExtResource("1_hw84w")
+content_id = &"buy_magnet_coil"
+category = &"shopItems"
+display_name = "回收感应盔"
+source_data = {
+"category": "equipment",
+"currency": "copper",
+"description": "头盔：拾取 +30%，铜币 +10%。",
+"grantId": "magnet_coil",
+"grantType": "equipment",
+"id": "buy_magnet_coil",
+"name": "回收感应盔",
+"price": 640.0,
+"unlockRuleId": "blueprint_magnet",
+"unlockStage": 2.0
+}

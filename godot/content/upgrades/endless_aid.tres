@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_jrflf"]
+
+[resource]
+script = ExtResource("1_jrflf")
+content_id = &"endlessAid"
+category = &"upgrades"
+display_name = "紧急整备"
+source_data = {
+"detail": "回复15%最大生命 · 获得4拾荒币",
+"fallback": true,
+"family": "survival",
+"id": "endlessAid",
+"max": 9.007199254740991e+15,
+"name": "紧急整备",
+"rarity": "standard",
+"repeatable": true
+}

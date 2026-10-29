@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_2swyk"]
+
+[resource]
+script = ExtResource("1_2swyk")
+content_id = &"servo_greaves"
+category = &"equipment"
+display_name = "助力膝甲"
+source_data = {
+"description": "拆车场液压杆与护膝组合，稳定移动射击姿态。",
+"id": "servo_greaves",
+"name": "助力膝甲",
+"rarity": "advanced",
+"slot": "legs",
+"stats": {
+"armor": 0.03,
+"hp": 10.0,
+"speedMultiplier": 1.03
+},
+"visualId": "servo-braced-greaves"
+}

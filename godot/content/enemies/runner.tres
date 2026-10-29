@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/enemy_definition.gd" id="1_1k4yn"]
+
+[resource]
+script = ExtResource("1_1k4yn")
+max_health = 9.0
+speed = 104.0
+damage = 12.0
+radius = 8.0
+content_id = &"runner"
+category = &"enemies"
+display_name = "突袭者"
+source_data = {
+"color": "#b3764b",
+"damage": 12.0,
+"hp": 9.0,
+"id": "runner",
+"name": "突袭者",
+"radius": 8.0,
+"role": "runner",
+"scrapChance": 0.1,
+"speed": 104.0,
+"xp": 4.0
+}

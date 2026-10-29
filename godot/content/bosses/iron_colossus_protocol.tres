@@ -1,0 +1,74 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_o1fre"]
+
+[resource]
+script = ExtResource("1_o1fre")
+content_id = &"iron_colossus_protocol"
+category = &"bosses"
+display_name = "铁幕巨像"
+source_data = {
+"drop": {
+"healing": 36.0,
+"scrap": 36.0
+},
+"enemyId": "iron_colossus",
+"hudColor": "#d9674e",
+"id": "iron_colossus_protocol",
+"intro": "铁幕巨像逼近",
+"name": "铁幕巨像",
+"phases": [{
+"aimedShot": null,
+"cooldown": 3.1,
+"id": "alert",
+"label": "警戒",
+"minHealthRatio": 0.66,
+"radial": {
+"count": 12.0,
+"damage": 11.0,
+"speed": 160.0
+},
+"summon": null,
+"warning": "环形弹幕正在充能"
+}, {
+"aimedShot": null,
+"cooldown": 2.55,
+"id": "siege",
+"label": "围城",
+"minHealthRatio": 0.33,
+"radial": {
+"count": 16.0,
+"damage": 13.0,
+"speed": 175.0
+},
+"summon": {
+"cap": 75.0,
+"count": 2.0,
+"enemyId": "drifter"
+},
+"warning": "召集感染者并缩短攻击间隔"
+}, {
+"aimedShot": {
+"color": "#ff8b62",
+"damage": 18.0,
+"speed": 235.0,
+"ttl": 2.6
+},
+"cooldown": 1.95,
+"id": "frenzy",
+"label": "狂暴",
+"minHealthRatio": 0.0,
+"radial": {
+"count": 20.0,
+"damage": 15.0,
+"speed": 190.0
+},
+"summon": {
+"cap": 75.0,
+"count": 2.0,
+"enemyId": "drifter"
+},
+"warning": "高密弹幕与追踪重炮已启动"
+}],
+"tactic": "观察阶段预警，保持移动"
+}

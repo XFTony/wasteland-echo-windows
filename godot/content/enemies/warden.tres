@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/enemy_definition.gd" id="1_yfb02"]
+
+[resource]
+script = ExtResource("1_yfb02")
+max_health = 145.0
+speed = 38.0
+damage = 28.0
+radius = 19.0
+content_id = &"warden"
+category = &"enemies"
+display_name = "荒原看守"
+source_data = {
+"color": "#a1473b",
+"damage": 28.0,
+"elite": true,
+"hp": 145.0,
+"id": "warden",
+"knockbackResistance": 0.9,
+"name": "荒原看守",
+"radius": 19.0,
+"role": "elite",
+"scrapChance": 1.0,
+"speed": 38.0,
+"xp": 30.0
+}

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_h7q8r"]
+
+[resource]
+script = ExtResource("1_h7q8r")
+content_id = &"pointBlankRelay"
+category = &"upgrades"
+display_name = "近距继电"
+source_data = {
+"detail": "近距离锁定时提高伤害与击退",
+"family": "firepower",
+"flavor": "距离越危险，继电器输出越高",
+"id": "pointBlankRelay",
+"max": 3.0,
+"name": "近距继电",
+"rarity": "advanced"
+}

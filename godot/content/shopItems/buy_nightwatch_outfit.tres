@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_bsygl"]
+
+[resource]
+script = ExtResource("1_bsygl")
+content_id = &"buy_nightwatch_outfit"
+category = &"shopItems"
+display_name = "夜巡披挂"
+source_data = {
+"category": "outfit",
+"currency": "gold",
+"description": "带信号蓝反光条的夜行装。",
+"grantId": "nightwatch",
+"grantType": "skin",
+"id": "buy_nightwatch_outfit",
+"name": "夜巡披挂",
+"price": 4.0,
+"unlockRuleId": "blueprint_nightwatch",
+"unlockStage": 2.0
+}

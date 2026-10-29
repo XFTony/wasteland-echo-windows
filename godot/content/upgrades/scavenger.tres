@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_xdca0"]
+
+[resource]
+script = ExtResource("1_xdca0")
+content_id = &"scavenger"
+category = &"upgrades"
+display_name = "拾荒协议"
+source_data = {
+"detail": "废料掉率 +8% · 收益 +20%",
+"family": "utility",
+"flavor": "没有一块零件会被浪费",
+"id": "scavenger",
+"max": 4.0,
+"name": "拾荒协议",
+"rarity": "advanced"
+}

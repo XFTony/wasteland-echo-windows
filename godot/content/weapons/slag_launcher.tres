@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/weapon_definition.gd" id="1_01e8o"]
+
+[resource]
+script = ExtResource("1_01e8o")
+damage = 38.0
+interval = 1.05
+projectile_speed = 360.0
+lock_range = 470.0
+lifetime = 1.5
+knockback = 60.0
+recoil = 6.0
+content_id = &"slag_launcher"
+category = &"weapons"
+display_name = "熔渣榴弹器"
+source_data = {
+"attackType": "explosive",
+"blastRadius": 90.0,
+"color": "#e0a064",
+"damage": 38.0,
+"description": "慢速榴弹，接触或到时爆炸；爆炸不能穿墙",
+"id": "slag_launcher",
+"interval": 1.05,
+"knockback": 60.0,
+"lockRange": 470.0,
+"mechanicId": "explosive",
+"muzzleFlashLength": 12.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 38.0,
+"muzzleParticles": 3.0,
+"name": "熔渣榴弹器",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 360.0,
+"rangeBand": "mid",
+"recoil": 6.0,
+"shellColor": "#a7aa84",
+"shellLength": 7.0,
+"shellLife": 0.7,
+"spread": 0.0,
+"ttl": 1.5,
+"visualId": "slag-launcher",
+"weaponClass": "heavy"
+}

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_wfnar"]
+
+[resource]
+script = ExtResource("1_wfnar")
+content_id = &"buy_swarm_smg"
+category = &"shopItems"
+display_name = "蜂群冲锋枪"
+source_data = {
+"category": "weapon",
+"currency": "copper",
+"description": "高射速近中程压制武器。",
+"grantId": "swarm_smg",
+"grantType": "weapon",
+"id": "buy_swarm_smg",
+"name": "蜂群冲锋枪",
+"price": 420.0,
+"unlockStage": 1.0
+}

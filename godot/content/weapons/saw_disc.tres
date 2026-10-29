@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/weapon_definition.gd" id="1_r4cp1"]
+
+[resource]
+script = ExtResource("1_r4cp1")
+damage = 16.0
+interval = 0.48
+projectile_speed = 430.0
+lock_range = 420.0
+lifetime = 1.1
+knockback = 25.0
+recoil = 2.8
+content_id = &"saw_disc"
+category = &"weapons"
+display_name = "锯盘弹射器"
+source_data = {
+"attackType": "disc",
+"bounceRange": 200.0,
+"bounces": 2.0,
+"color": "#c1c5a6",
+"damage": 16.0,
+"description": "最多弹射2次，每跳保留78%伤害；不重复命中",
+"id": "saw_disc",
+"interval": 0.48,
+"knockback": 25.0,
+"lockRange": 420.0,
+"mechanicId": "disc",
+"muzzleFlashLength": 12.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 38.0,
+"muzzleParticles": 3.0,
+"name": "锯盘弹射器",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 430.0,
+"rangeBand": "mid",
+"recoil": 2.8,
+"shellColor": "#c8a870",
+"shellLength": 5.0,
+"shellLife": 0.7,
+"spread": 0.0,
+"ttl": 1.1,
+"visualId": "saw-disc",
+"weaponClass": "disc"
+}

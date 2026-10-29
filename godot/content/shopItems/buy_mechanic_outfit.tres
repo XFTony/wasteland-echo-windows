@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_ybn4y"]
+
+[resource]
+script = ExtResource("1_ybn4y")
+content_id = &"buy_mechanic_outfit"
+category = &"shopItems"
+display_name = "技师工装"
+source_data = {
+"category": "outfit",
+"currency": "copper",
+"description": "高辨识度青绿检修服。",
+"grantId": "mechanic",
+"grantType": "skin",
+"id": "buy_mechanic_outfit",
+"name": "技师工装",
+"price": 360.0,
+"unlockStage": 1.0
+}

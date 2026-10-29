@@ -1,0 +1,6045 @@
+[gd_resource type="Resource" script_class="GameCatalog" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_ovpvi"]
+[ext_resource type="Resource" path="res://content/modes/survival.tres" id="2_y553u"]
+[ext_resource type="Resource" path="res://content/modes/extraction.tres" id="3_2rnui"]
+[ext_resource type="Resource" path="res://content/modes/endless.tres" id="4_lxayq"]
+[ext_resource type="Resource" path="res://content/weapons/prism_laser.tres" id="5_l0d7t"]
+[ext_resource type="Resource" path="res://content/weapons/slag_launcher.tres" id="6_j3n3h"]
+[ext_resource type="Resource" path="res://content/weapons/saw_disc.tres" id="7_nlmbw"]
+[ext_resource type="Resource" path="res://content/weapons/echo_blade.tres" id="8_bp6j5"]
+[ext_resource type="Resource" path="res://content/weapons/shock_hammer.tres" id="9_xwhg2"]
+[ext_resource type="Resource" path="res://content/weapons/scrap_pistol.tres" id="10_3ux03"]
+[ext_resource type="Resource" path="res://content/weapons/swarm_smg.tres" id="11_2ks3m"]
+[ext_resource type="Resource" path="res://content/weapons/breaker_shotgun.tres" id="12_vrv4c"]
+[ext_resource type="Resource" path="res://content/weapons/needle_rifle.tres" id="13_jr5i8"]
+[ext_resource type="Resource" path="res://content/weapons/rust_revolver.tres" id="14_stqoi"]
+[ext_resource type="Resource" path="res://content/weapons/ember_carbine.tres" id="15_3tf7t"]
+[ext_resource type="Resource" path="res://content/weapons/coil_cannon.tres" id="16_yt2e0"]
+[ext_resource type="Resource" path="res://content/enemies/drifter.tres" id="17_gifpc"]
+[ext_resource type="Resource" path="res://content/enemies/runner.tres" id="18_203jw"]
+[ext_resource type="Resource" path="res://content/enemies/spitter.tres" id="19_ot2qp"]
+[ext_resource type="Resource" path="res://content/enemies/brute.tres" id="20_a5tdd"]
+[ext_resource type="Resource" path="res://content/enemies/screecher.tres" id="21_fhcf4"]
+[ext_resource type="Resource" path="res://content/enemies/crawler.tres" id="22_8p545"]
+[ext_resource type="Resource" path="res://content/enemies/warden.tres" id="23_txcrd"]
+[ext_resource type="Resource" path="res://content/enemies/iron_colossus.tres" id="24_ps5uc"]
+[ext_resource type="Resource" path="res://content/mechanics/beam.tres" id="25_vxjln"]
+[ext_resource type="Resource" path="res://content/mechanics/explosive.tres" id="26_aqjij"]
+[ext_resource type="Resource" path="res://content/mechanics/disc.tres" id="27_wkrns"]
+[ext_resource type="Resource" path="res://content/mechanics/slash.tres" id="28_twhwc"]
+[ext_resource type="Resource" path="res://content/mechanics/slam.tres" id="29_6fdd3"]
+[ext_resource type="Resource" path="res://content/mechanics/steady_cycle.tres" id="30_spuub"]
+[ext_resource type="Resource" path="res://content/mechanics/heat_ramp.tres" id="31_esdli"]
+[ext_resource type="Resource" path="res://content/mechanics/breach_cone.tres" id="32_3pkxb"]
+[ext_resource type="Resource" path="res://content/mechanics/focus_lance.tres" id="33_a6vxh"]
+[ext_resource type="Resource" path="res://content/mechanics/sixth_chamber.tres" id="34_wuffr"]
+[ext_resource type="Resource" path="res://content/mechanics/momentum_feed.tres" id="35_xbdfa"]
+[ext_resource type="Resource" path="res://content/mechanics/arc_overload.tres" id="36_fo1do"]
+[ext_resource type="Resource" path="res://content/bosses/warden_protocol.tres" id="37_gkx0y"]
+[ext_resource type="Resource" path="res://content/bosses/iron_colossus_protocol.tres" id="38_bekvc"]
+[ext_resource type="Resource" path="res://content/modifiers/scarcity.tres" id="39_8spkn"]
+[ext_resource type="Resource" path="res://content/modifiers/redline.tres" id="40_33x8r"]
+[ext_resource type="Resource" path="res://content/modifiers/ironman.tres" id="41_1tc2q"]
+[ext_resource type="Resource" path="res://content/modifiers/boss_rush.tres" id="42_wfkyj"]
+[ext_resource type="Resource" path="res://content/unlockRules/blueprint_breaker.tres" id="43_8ok48"]
+[ext_resource type="Resource" path="res://content/unlockRules/blueprint_ember.tres" id="44_xcv5i"]
+[ext_resource type="Resource" path="res://content/unlockRules/blueprint_needle.tres" id="45_xt2r5"]
+[ext_resource type="Resource" path="res://content/unlockRules/blueprint_coil.tres" id="46_vp3u0"]
+[ext_resource type="Resource" path="res://content/unlockRules/blueprint_nightwatch.tres" id="47_nck24"]
+[ext_resource type="Resource" path="res://content/unlockRules/blueprint_magnet.tres" id="48_4juax"]
+[ext_resource type="Resource" path="res://content/unlockRules/blueprint_ammo.tres" id="49_xdgsq"]
+[ext_resource type="Resource" path="res://content/unlockRules/blueprint_signal.tres" id="50_siiqh"]
+[ext_resource type="Resource" path="res://content/unlockRules/blueprint_servo.tres" id="51_yyehl"]
+[ext_resource type="Resource" path="res://content/unlockRules/blueprint_stormstep.tres" id="52_8glry"]
+[ext_resource type="Resource" path="res://content/unlockRules/hero_bulwark.tres" id="53_mbd4s"]
+[ext_resource type="Resource" path="res://content/unlockRules/modifier_scarcity.tres" id="54_jiw88"]
+[ext_resource type="Resource" path="res://content/unlockRules/modifier_redline.tres" id="55_3rqf4"]
+[ext_resource type="Resource" path="res://content/unlockRules/modifier_ironman.tres" id="56_o3esl"]
+[ext_resource type="Resource" path="res://content/unlockRules/modifier_boss_rush.tres" id="57_somyk"]
+[ext_resource type="Resource" path="res://content/upgrades/melee_reach.tres" id="58_dvsoj"]
+[ext_resource type="Resource" path="res://content/upgrades/blast_radius.tres" id="59_qu77i"]
+[ext_resource type="Resource" path="res://content/upgrades/engineering.tres" id="60_g53wi"]
+[ext_resource type="Resource" path="res://content/upgrades/turret_repair.tres" id="61_sjba0"]
+[ext_resource type="Resource" path="res://content/upgrades/endless_power.tres" id="62_gor65"]
+[ext_resource type="Resource" path="res://content/upgrades/endless_vitality.tres" id="63_vla03"]
+[ext_resource type="Resource" path="res://content/upgrades/endless_supplies.tres" id="64_g87ta"]
+[ext_resource type="Resource" path="res://content/upgrades/endless_aid.tres" id="65_g8mdq"]
+[ext_resource type="Resource" path="res://content/upgrades/damage.tres" id="66_si64e"]
+[ext_resource type="Resource" path="res://content/upgrades/fire_rate.tres" id="67_jjjt0"]
+[ext_resource type="Resource" path="res://content/upgrades/projectile.tres" id="68_88dt7"]
+[ext_resource type="Resource" path="res://content/upgrades/pierce.tres" id="69_2jvna"]
+[ext_resource type="Resource" path="res://content/upgrades/velocity.tres" id="70_j2m4b"]
+[ext_resource type="Resource" path="res://content/upgrades/caliber.tres" id="71_ldie3"]
+[ext_resource type="Resource" path="res://content/upgrades/critical.tres" id="72_cpvnb"]
+[ext_resource type="Resource" path="res://content/upgrades/speed.tres" id="73_cwtpy"]
+[ext_resource type="Resource" path="res://content/upgrades/vitality.tres" id="74_1cle8"]
+[ext_resource type="Resource" path="res://content/upgrades/magnet.tres" id="75_4mgc3"]
+[ext_resource type="Resource" path="res://content/upgrades/armor.tres" id="76_ua1xs"]
+[ext_resource type="Resource" path="res://content/upgrades/recovery.tres" id="77_aviub"]
+[ext_resource type="Resource" path="res://content/upgrades/scavenger.tres" id="78_tt50v"]
+[ext_resource type="Resource" path="res://content/upgrades/phase_lining.tres" id="79_rb5h1"]
+[ext_resource type="Resource" path="res://content/upgrades/execution_capacitor.tres" id="80_kii7c"]
+[ext_resource type="Resource" path="res://content/upgrades/reactive_plating.tres" id="81_nvkd3"]
+[ext_resource type="Resource" path="res://content/upgrades/salvage_overdrive.tres" id="82_rtue4"]
+[ext_resource type="Resource" path="res://content/upgrades/point_blank_relay.tres" id="83_7skdo"]
+[ext_resource type="Resource" path="res://content/upgrades/focus_protocol.tres" id="84_vip4r"]
+[ext_resource type="Resource" path="res://content/upgrades/cascade_rounds.tres" id="85_am657"]
+[ext_resource type="Resource" path="res://content/upgrades/penetrator_doctrine.tres" id="86_r1pa3"]
+[ext_resource type="Resource" path="res://content/upgrades/swarm_protocol.tres" id="87_eh67r"]
+[ext_resource type="Resource" path="res://content/upgrades/recovery_field.tres" id="88_e8rms"]
+[ext_resource type="Resource" path="res://content/upgrades/phase_aegis.tres" id="89_ynthu"]
+[ext_resource type="Resource" path="res://content/upgrades/kinetic_loop.tres" id="90_fi8yq"]
+[ext_resource type="Resource" path="res://content/upgrades/arc_network.tres" id="91_fm0dt"]
+[ext_resource type="Resource" path="res://content/fieldGoods/weapon_calibration.tres" id="92_f8uob"]
+[ext_resource type="Resource" path="res://content/fieldGoods/field_medkit.tres" id="93_nlots"]
+[ext_resource type="Resource" path="res://content/fieldGoods/runner_strap.tres" id="94_67gci"]
+[ext_resource type="Resource" path="res://content/fieldGoods/ballistic_lining.tres" id="95_2np4x"]
+[ext_resource type="Resource" path="res://content/fieldGoods/salvage_magnet.tres" id="96_68anw"]
+[ext_resource type="Resource" path="res://content/fieldGoods/turret_kit.tres" id="97_7r3wo"]
+[ext_resource type="Resource" path="res://content/fieldGoods/engineering_kit.tres" id="98_f58it"]
+[ext_resource type="Resource" path="res://content/skins/wanderer.tres" id="99_2lmwj"]
+[ext_resource type="Resource" path="res://content/skins/mechanic.tres" id="100_p4jfc"]
+[ext_resource type="Resource" path="res://content/skins/nightwatch.tres" id="101_phc8e"]
+[ext_resource type="Resource" path="res://content/heroes/ranger.tres" id="102_gjoka"]
+[ext_resource type="Resource" path="res://content/heroes/mechanic.tres" id="103_qypiy"]
+[ext_resource type="Resource" path="res://content/heroes/bulwark.tres" id="104_twbby"]
+[ext_resource type="Resource" path="res://content/maps/echo_district.tres" id="105_e66vn"]
+[ext_resource type="Resource" path="res://content/maps/freight_nexus.tres" id="106_r5can"]
+[ext_resource type="Resource" path="res://content/maps/red_basin.tres" id="107_c8so3"]
+[ext_resource type="Resource" path="res://content/stages/signal_dawn.tres" id="108_5mgu0"]
+[ext_resource type="Resource" path="res://content/stages/dead_rail.tres" id="109_fpwct"]
+[ext_resource type="Resource" path="res://content/stages/red_storm.tres" id="110_sh8wb"]
+[ext_resource type="Resource" path="res://content/equipment/field_vest.tres" id="111_r0o56"]
+[ext_resource type="Resource" path="res://content/equipment/iron_plate.tres" id="112_qr45g"]
+[ext_resource type="Resource" path="res://content/equipment/runner_boots.tres" id="113_1l0qk"]
+[ext_resource type="Resource" path="res://content/equipment/magnet_coil.tres" id="114_qf16q"]
+[ext_resource type="Resource" path="res://content/equipment/ammo_rig.tres" id="115_01ay7"]
+[ext_resource type="Resource" path="res://content/equipment/signal_charm.tres" id="116_62eds"]
+[ext_resource type="Resource" path="res://content/equipment/servo_greaves.tres" id="117_nsbjo"]
+[ext_resource type="Resource" path="res://content/equipment/stormstep_boots.tres" id="118_rv5ua"]
+[ext_resource type="Resource" path="res://content/shopItems/buy_prism_laser.tres" id="119_wopek"]
+[ext_resource type="Resource" path="res://content/shopItems/buy_slag_launcher.tres" id="120_jwm3u"]
+[ext_resource type="Resource" path="res://content/shopItems/buy_saw_disc.tres" id="121_f3wum"]
+[ext_resource type="Resource" path="res://content/shopItems/buy_echo_blade.tres" id="122_jraf7"]
+[ext_resource type="Resource" path="res://content/shopItems/buy_shock_hammer.tres" id="123_tom40"]
+[ext_resource type="Resource" path="res://content/shopItems/buy_swarm_smg.tres" id="124_voqmw"]
+[ext_resource type="Resource" path="res://content/shopItems/buy_rust_revolver.tres" id="125_f46u0"]
+[ext_resource type="Resource" path="res://content/shopItems/buy_breaker_shotgun.tres" id="126_n22qa"]
+[ext_resource type="Resource" path="res://content/shopItems/buy_ember_carbine.tres" id="127_hprmw"]
+[ext_resource type="Resource" path="res://content/shopItems/buy_needle_rifle.tres" id="128_tnetd"]
+[ext_resource type="Resource" path="res://content/shopItems/buy_coil_cannon.tres" id="129_6oje1"]
+[ext_resource type="Resource" path="res://content/shopItems/buy_mechanic_outfit.tres" id="130_4ylw0"]
+[ext_resource type="Resource" path="res://content/shopItems/buy_nightwatch_outfit.tres" id="131_fafuv"]
+[ext_resource type="Resource" path="res://content/shopItems/buy_iron_plate.tres" id="132_usnwl"]
+[ext_resource type="Resource" path="res://content/shopItems/buy_runner_boots.tres" id="133_lytfp"]
+[ext_resource type="Resource" path="res://content/shopItems/buy_magnet_coil.tres" id="134_lppod"]
+[ext_resource type="Resource" path="res://content/shopItems/buy_ammo_rig.tres" id="135_y0c8b"]
+[ext_resource type="Resource" path="res://content/shopItems/buy_signal_charm.tres" id="136_07qym"]
+[ext_resource type="Resource" path="res://content/shopItems/buy_servo_greaves.tres" id="137_ch2xr"]
+[ext_resource type="Resource" path="res://content/shopItems/buy_stormstep_boots.tres" id="138_avqwr"]
+[ext_resource type="Script" path="res://scripts/content/game_catalog.gd" id="139_yrrra"]
+
+[resource]
+script = ExtResource("139_yrrra")
+definitions = Array[ExtResource("1_ovpvi")]([ExtResource("2_y553u"), ExtResource("3_2rnui"), ExtResource("4_lxayq"), ExtResource("5_l0d7t"), ExtResource("6_j3n3h"), ExtResource("7_nlmbw"), ExtResource("8_bp6j5"), ExtResource("9_xwhg2"), ExtResource("10_3ux03"), ExtResource("11_2ks3m"), ExtResource("12_vrv4c"), ExtResource("13_jr5i8"), ExtResource("14_stqoi"), ExtResource("15_3tf7t"), ExtResource("16_yt2e0"), ExtResource("17_gifpc"), ExtResource("18_203jw"), ExtResource("19_ot2qp"), ExtResource("20_a5tdd"), ExtResource("21_fhcf4"), ExtResource("22_8p545"), ExtResource("23_txcrd"), ExtResource("24_ps5uc"), ExtResource("25_vxjln"), ExtResource("26_aqjij"), ExtResource("27_wkrns"), ExtResource("28_twhwc"), ExtResource("29_6fdd3"), ExtResource("30_spuub"), ExtResource("31_esdli"), ExtResource("32_3pkxb"), ExtResource("33_a6vxh"), ExtResource("34_wuffr"), ExtResource("35_xbdfa"), ExtResource("36_fo1do"), ExtResource("37_gkx0y"), ExtResource("38_bekvc"), ExtResource("39_8spkn"), ExtResource("40_33x8r"), ExtResource("41_1tc2q"), ExtResource("42_wfkyj"), ExtResource("43_8ok48"), ExtResource("44_xcv5i"), ExtResource("45_xt2r5"), ExtResource("46_vp3u0"), ExtResource("47_nck24"), ExtResource("48_4juax"), ExtResource("49_xdgsq"), ExtResource("50_siiqh"), ExtResource("51_yyehl"), ExtResource("52_8glry"), ExtResource("53_mbd4s"), ExtResource("54_jiw88"), ExtResource("55_3rqf4"), ExtResource("56_o3esl"), ExtResource("57_somyk"), ExtResource("58_dvsoj"), ExtResource("59_qu77i"), ExtResource("60_g53wi"), ExtResource("61_sjba0"), ExtResource("62_gor65"), ExtResource("63_vla03"), ExtResource("64_g87ta"), ExtResource("65_g8mdq"), ExtResource("66_si64e"), ExtResource("67_jjjt0"), ExtResource("68_88dt7"), ExtResource("69_2jvna"), ExtResource("70_j2m4b"), ExtResource("71_ldie3"), ExtResource("72_cpvnb"), ExtResource("73_cwtpy"), ExtResource("74_1cle8"), ExtResource("75_4mgc3"), ExtResource("76_ua1xs"), ExtResource("77_aviub"), ExtResource("78_tt50v"), ExtResource("79_rb5h1"), ExtResource("80_kii7c"), ExtResource("81_nvkd3"), ExtResource("82_rtue4"), ExtResource("83_7skdo"), ExtResource("84_vip4r"), ExtResource("85_am657"), ExtResource("86_r1pa3"), ExtResource("87_eh67r"), ExtResource("88_e8rms"), ExtResource("89_ynthu"), ExtResource("90_fi8yq"), ExtResource("91_fm0dt"), ExtResource("92_f8uob"), ExtResource("93_nlots"), ExtResource("94_67gci"), ExtResource("95_2np4x"), ExtResource("96_68anw"), ExtResource("97_7r3wo"), ExtResource("98_f58it"), ExtResource("99_2lmwj"), ExtResource("100_p4jfc"), ExtResource("101_phc8e"), ExtResource("102_gjoka"), ExtResource("103_qypiy"), ExtResource("104_twbby"), ExtResource("105_e66vn"), ExtResource("106_r5can"), ExtResource("107_c8so3"), ExtResource("108_5mgu0"), ExtResource("109_fpwct"), ExtResource("110_sh8wb"), ExtResource("111_r0o56"), ExtResource("112_qr45g"), ExtResource("113_1l0qk"), ExtResource("114_qf16q"), ExtResource("115_01ay7"), ExtResource("116_62eds"), ExtResource("117_nsbjo"), ExtResource("118_rv5ua"), ExtResource("119_wopek"), ExtResource("120_jwm3u"), ExtResource("121_f3wum"), ExtResource("122_jraf7"), ExtResource("123_tom40"), ExtResource("124_voqmw"), ExtResource("125_f46u0"), ExtResource("126_n22qa"), ExtResource("127_hprmw"), ExtResource("128_tnetd"), ExtResource("129_6oje1"), ExtResource("130_4ylw0"), ExtResource("131_fafuv"), ExtResource("132_usnwl"), ExtResource("133_lytfp"), ExtResource("134_lppod"), ExtResource("135_y0c8b"), ExtResource("136_07qym"), ExtResource("137_ch2xr"), ExtResource("138_avqwr")])
+defaults = {
+"enemy": "drifter",
+"equipment": "field_vest",
+"hero": "ranger",
+"map": "echo_district",
+"mode": "endless",
+"skin": "wanderer",
+"stage": "signal_dawn",
+"weapon": "scrap_pistol"
+}
+metadata = {
+"actorMetadata": {
+"ENEMY_SPRITES": {
+"brute": {
+"assetId": "actor.compact.brute.v1",
+"canvas": 80.0,
+"columns": 8.0,
+"idleFrame": 1.0,
+"pixelScale": 1.5,
+"referenceHeight": 50.0,
+"root": [40.0, 70.0],
+"stride": 72.0,
+"walkFrames": [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
+},
+"crawler": {
+"assetId": "actor.compact.crawler.v1",
+"canvas": 64.0,
+"columns": 8.0,
+"idleFrame": 1.0,
+"pixelScale": 1.5,
+"referenceHeight": 24.0,
+"root": [32.0, 56.0],
+"stride": 46.0,
+"walkFrames": [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
+},
+"drifter": {
+"assetId": "actor.compact.drifter.v1",
+"canvas": 64.0,
+"columns": 8.0,
+"idleFrame": 1.0,
+"pixelScale": 1.5,
+"referenceHeight": 38.0,
+"root": [32.0, 56.0],
+"stride": 60.0,
+"walkFrames": [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
+},
+"iron_colossus": {
+"assetId": "actor.compact.iron_colossus.v1",
+"canvas": 96.0,
+"columns": 8.0,
+"idleFrame": 1.0,
+"pixelScale": 1.5,
+"referenceHeight": 72.0,
+"root": [48.0, 84.0],
+"stride": 112.0,
+"walkFrames": [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
+},
+"runner": {
+"assetId": "actor.compact.runner.v1",
+"canvas": 64.0,
+"columns": 8.0,
+"idleFrame": 1.0,
+"pixelScale": 1.5,
+"referenceHeight": 37.0,
+"root": [32.0, 56.0],
+"stride": 76.0,
+"walkFrames": [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
+},
+"screecher": {
+"assetId": "actor.compact.screecher.v1",
+"canvas": 64.0,
+"columns": 8.0,
+"idleFrame": 1.0,
+"pixelScale": 1.5,
+"referenceHeight": 42.0,
+"root": [32.0, 56.0],
+"stride": 62.0,
+"walkFrames": [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
+},
+"spitter": {
+"assetId": "actor.compact.spitter.v1",
+"canvas": 64.0,
+"columns": 8.0,
+"idleFrame": 1.0,
+"pixelScale": 1.5,
+"referenceHeight": 40.0,
+"root": [32.0, 56.0],
+"stride": 58.0,
+"walkFrames": [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
+},
+"warden": {
+"assetId": "actor.compact.warden.v1",
+"canvas": 80.0,
+"columns": 8.0,
+"idleFrame": 1.0,
+"pixelScale": 1.5,
+"referenceHeight": 58.0,
+"root": [40.0, 70.0],
+"stride": 88.0,
+"walkFrames": [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
+}
+},
+"HERO": {
+"assetId": "actor.compact.ranger.v1",
+"body": {
+"columns": 9.0,
+"headOcclusionRows": 38.0,
+"height": 64.0,
+"idleFrame": 0.0,
+"root": [32.0, 56.0],
+"walkFrames": [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0],
+"width": 64.0
+},
+"heroId": "ranger",
+"pixelScale": 1.5,
+"skinId": "wanderer",
+"stride": 68.0
+},
+"MATERIALS": {
+"characters": {
+"ranger.compact.v1": {
+"body": {
+"columns": 9.0,
+"headOcclusionRows": 38.0,
+"height": 64.0,
+"idleFrame": 0.0,
+"root": [32.0, 56.0],
+"walkFrames": [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0],
+"width": 64.0
+},
+"bodyAtlas": "../compact-motion-v1/body-atlas.png",
+"defaultCuffs": "ranger-coat",
+"defaultHands": "ranger-cloth",
+"holdByFamily": {
+"heavy": {
+"aimOffsetX": 3.0,
+"chestY": -15.0,
+"upLift": 7.0,
+"upShoulder": 10.0
+},
+"longgun": {
+"aimOffsetX": 3.0,
+"chestY": -16.0,
+"upLift": 2.275,
+"upShoulder": 10.0
+},
+"pistol": {
+"aimOffsetX": 3.0,
+"chestY": -16.0,
+"upLift": 8.0,
+"upShoulder": 12.0
+}
+},
+"holdByWeapon": {
+"breaker_shotgun": {
+"aimOffsetX": 3.0,
+"chestY": -16.0,
+"upLift": 6.15,
+"upShoulder": 10.0
+},
+"coil_cannon": {
+"aimOffsetX": 3.0,
+"chestY": -15.0,
+"upLift": 7.0,
+"upShoulder": 10.0
+},
+"echo_blade": {
+"aimOffsetX": 9.0,
+"chestY": -8.0,
+"upLift": 3.0,
+"upShoulder": 14.0
+},
+"ember_carbine": {
+"aimOffsetX": 3.0,
+"chestY": -16.0,
+"upLift": 5.435,
+"upShoulder": 10.0
+},
+"needle_rifle": {
+"aimOffsetX": 3.0,
+"chestY": -16.0,
+"upLift": 2.275,
+"upShoulder": 10.0
+},
+"prism_laser": {
+"aimOffsetX": 4.0,
+"chestY": -15.0,
+"upLift": 4.0,
+"upShoulder": 12.0
+},
+"rust_revolver": {
+"aimOffsetX": 3.0,
+"chestY": -16.0,
+"upLift": 10.52,
+"upShoulder": 10.0
+},
+"saw_disc": {
+"aimOffsetX": 4.0,
+"chestY": -14.0,
+"upLift": 7.0,
+"upShoulder": 12.0
+},
+"scrap_pistol": {
+"aimOffsetX": 3.0,
+"chestY": -16.0,
+"upLift": 8.0,
+"upShoulder": 12.0
+},
+"shock_hammer": {
+"aimOffsetX": 8.0,
+"chestY": -7.0,
+"upLift": 5.0,
+"upShoulder": 15.0
+},
+"slag_launcher": {
+"aimOffsetX": 4.0,
+"chestY": -14.0,
+"upLift": 7.0,
+"upShoulder": 12.0
+},
+"swarm_smg": {
+"aimOffsetX": 3.0,
+"chestY": -16.0,
+"upLift": 8.84,
+"upShoulder": 10.0
+}
+},
+"id": "ranger.compact.v1"
+}
+},
+"cuffSets": {
+"ranger-coat": {
+"id": "ranger-coat",
+"label": "原沙色袖口",
+"overrides": {
+"breaker_shotgun": {
+"primary": [{
+"anchor": [4.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"rect": [20.0, 0.0, 2.0, 3.0]
+}],
+"support": [{
+"anchor": [3.0, -1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"rect": [23.0, 0.0, 2.0, 2.0]
+}]
+},
+"coil_cannon": {
+"primary": [{
+"anchor": [4.0, 2.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"rect": [50.0, 0.0, 2.0, 5.0]
+}],
+"support": [{
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"rect": [53.0, 0.0, 3.0, 3.0]
+}]
+},
+"ember_carbine": {
+"primary": [{
+"anchor": [4.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"rect": [44.0, 0.0, 2.0, 4.0]
+}],
+"support": [{
+"anchor": [2.0, 0.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"rect": [47.0, 0.0, 2.0, 3.0]
+}]
+},
+"needle_rifle": {
+"primary": [{
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"rect": [26.0, 0.0, 4.0, 5.0]
+}],
+"support": [{
+"anchor": [5.0, 0.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"rect": [31.0, 0.0, 3.0, 4.0]
+}]
+},
+"rust_revolver": {
+"primary": [{
+"anchor": [9.0, 2.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"rect": [35.0, 0.0, 5.0, 6.0]
+}],
+"support": [{
+"anchor": [4.0, -2.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"rect": [41.0, 0.0, 2.0, 3.0]
+}]
+},
+"scrap_pistol": {
+"primary": [{
+"anchor": [13.0, 4.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"rect": [0.0, 0.0, 10.0, 10.0]
+}],
+"support": [{
+"anchor": [4.0, -1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"rect": [11.0, 0.0, 2.0, 2.0]
+}]
+},
+"swarm_smg": {
+"primary": [{
+"anchor": [4.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"rect": [14.0, 0.0, 2.0, 4.0]
+}],
+"support": [{
+"anchor": [1.0, -2.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"rect": [17.0, 0.0, 2.0, 1.0]
+}]
+}
+},
+"poses": {
+"blade": {
+"primary": [{
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"rect": [26.0, 0.0, 4.0, 5.0]
+}],
+"support": []
+},
+"hammer": {
+"primary": [{
+"anchor": [4.0, 2.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"rect": [50.0, 0.0, 2.0, 5.0]
+}],
+"support": [{
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"rect": [53.0, 0.0, 3.0, 3.0]
+}]
+},
+"heavy": {
+"primary": [{
+"anchor": [4.0, 2.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"rect": [50.0, 0.0, 2.0, 5.0]
+}],
+"support": [{
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"rect": [53.0, 0.0, 3.0, 3.0]
+}]
+},
+"longgun": {
+"primary": [{
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"rect": [26.0, 0.0, 4.0, 5.0]
+}],
+"support": [{
+"anchor": [5.0, 0.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"rect": [31.0, 0.0, 3.0, 4.0]
+}]
+},
+"pistol": {
+"primary": [{
+"anchor": [13.0, 4.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"rect": [0.0, 0.0, 10.0, 10.0]
+}],
+"support": [{
+"anchor": [4.0, -1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"rect": [11.0, 0.0, 2.0, 2.0]
+}]
+}
+},
+"version": "74e3f766a85f7699"
+}
+},
+"defaultCharacter": "ranger.compact.v1",
+"defaultCuffs": "ranger-coat",
+"defaultHands": "ranger-cloth",
+"defaultWeapon": "scrap_pistol",
+"handSets": {
+"ranger-cloth": {
+"id": "ranger-cloth",
+"label": "原布手套（逐像素兼容）",
+"overrides": {
+"breaker_shotgun": {
+"primary": [{
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"rect": [33.0, 0.0, 5.0, 5.0]
+}],
+"support": [{
+"anchor": [1.0, 1.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"rect": [39.0, 0.0, 4.0, 4.0]
+}]
+},
+"coil_cannon": {
+"primary": [{
+"anchor": [3.0, 3.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"rect": [92.0, 0.0, 6.0, 7.0]
+}],
+"support": [{
+"anchor": [5.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"rect": [99.0, 0.0, 9.0, 4.0]
+}]
+},
+"ember_carbine": {
+"primary": [{
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"rect": [80.0, 0.0, 6.0, 6.0]
+}],
+"support": [{
+"anchor": [1.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"rect": [87.0, 0.0, 4.0, 5.0]
+}]
+},
+"needle_rifle": {
+"primary": [{
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"rect": [44.0, 0.0, 7.0, 5.0]
+}],
+"support": [{
+"anchor": [2.0, 1.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"rect": [52.0, 0.0, 6.0, 5.0]
+}]
+},
+"rust_revolver": {
+"primary": [{
+"anchor": [6.0, 3.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"rect": [59.0, 0.0, 11.0, 9.0]
+}],
+"support": [{
+"anchor": [3.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"rect": [71.0, 0.0, 8.0, 6.0]
+}]
+},
+"scrap_pistol": {
+"primary": [{
+"anchor": [5.0, 3.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"rect": [0.0, 0.0, 10.0, 8.0]
+}],
+"support": [{
+"anchor": [3.0, 3.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"rect": [11.0, 0.0, 8.0, 5.0]
+}]
+},
+"swarm_smg": {
+"primary": [{
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"rect": [20.0, 0.0, 6.0, 6.0]
+}],
+"support": [{
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"rect": [27.0, 0.0, 5.0, 4.0]
+}]
+}
+},
+"poses": {
+"blade": {
+"primary": [{
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"rect": [44.0, 0.0, 7.0, 5.0]
+}],
+"support": []
+},
+"hammer": {
+"primary": [{
+"anchor": [3.0, 3.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"rect": [92.0, 0.0, 6.0, 7.0]
+}],
+"support": [{
+"anchor": [5.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"rect": [99.0, 0.0, 9.0, 4.0]
+}]
+},
+"heavy": {
+"primary": [{
+"anchor": [3.0, 3.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"rect": [92.0, 0.0, 6.0, 7.0]
+}],
+"support": [{
+"anchor": [5.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"rect": [99.0, 0.0, 9.0, 4.0]
+}]
+},
+"longgun": {
+"primary": [{
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"rect": [44.0, 0.0, 7.0, 5.0]
+}],
+"support": [{
+"anchor": [2.0, 1.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"rect": [52.0, 0.0, 6.0, 5.0]
+}]
+},
+"pistol": {
+"primary": [{
+"anchor": [5.0, 3.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"rect": [0.0, 0.0, 10.0, 8.0]
+}],
+"support": [{
+"anchor": [3.0, 3.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"rect": [11.0, 0.0, 8.0, 5.0]
+}]
+}
+},
+"version": "fdb305d0ed770bb9"
+}
+},
+"schemaVersion": 1.0,
+"weapons": [{
+"combat": {
+"color": "#cfa34f",
+"damage": 12.0,
+"flashLength": 6.0,
+"flashLife": 0.065,
+"flashWidth": 3.0,
+"id": "scrap_pistol",
+"interval": 0.35,
+"lockRange": 520.0,
+"name": "废料手枪",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 660.0,
+"recoil": 1.575,
+"spread": 0.0,
+"ttl": 0.9
+},
+"id": "scrap_pistol",
+"name": "废料手枪",
+"referenceImage": "../compact-motion-v1/sidearm-grip.png",
+"referenceSha256": "BFEC8BD9C9364B1601FFBB1E8AC1A2CC80A92BB51DA62CE5E6D3FAA4CA33859B",
+"version": "2e310c19d5815089",
+"visual": {
+"asset": "weapon.scrap_pistol",
+"family": "pistol",
+"height": 20.0,
+"muzzle": [33.0, 6.0],
+"pivot": [9.0, 6.0],
+"primaryGrip": [14.0, 12.0],
+"supportGrip": [20.0, 15.0],
+"width": 36.0
+}
+}, {
+"combat": {
+"color": "#87976a",
+"damage": 4.8,
+"flashLength": 5.0,
+"flashLife": 0.05,
+"flashWidth": 3.0,
+"id": "swarm_smg",
+"interval": 0.105,
+"lockRange": 420.0,
+"name": "蜂群冲锋枪",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 610.0,
+"recoil": 0.84,
+"spread": 9.0,
+"ttl": 0.72
+},
+"id": "swarm_smg",
+"name": "蜂群冲锋枪",
+"referenceImage": "../compact-arsenal-v2/weapons/swarm_smg.png",
+"referenceSha256": "7500953D2DF0145C81E6AF12FABC7FD304A5A5E658FA8DB1F5043DFB9CE777E4",
+"version": "26a6922c5f1090b4",
+"visual": {
+"asset": "weapon.swarm_smg",
+"family": "longgun",
+"height": 22.0,
+"muzzle": [39.0, 6.0],
+"pivot": [13.0, 6.0],
+"primaryGrip": [17.0, 11.0],
+"supportGrip": [30.0, 10.0],
+"width": 40.0
+}
+}, {
+"combat": {
+"color": "#b85b3f",
+"damage": 5.4,
+"flashLength": 9.5,
+"flashLife": 0.095,
+"flashWidth": 5.0,
+"id": "breaker_shotgun",
+"interval": 0.82,
+"lockRange": 250.0,
+"name": "破门霰弹枪",
+"pierce": 0.0,
+"projectileCount": 6.0,
+"projectileSpeed": 560.0,
+"recoil": 3.15,
+"spread": 34.0,
+"ttl": 0.48
+},
+"id": "breaker_shotgun",
+"name": "破门霰弹枪",
+"referenceImage": "../compact-arsenal-v2/weapons/breaker_shotgun.png",
+"referenceSha256": "C750CE7D27AAC0D813F030D6D3238447D43615A6E782BC87DB3818AE88F7B07E",
+"version": "07a5eae2266f9871",
+"visual": {
+"asset": "weapon.breaker_shotgun",
+"family": "longgun",
+"height": 22.0,
+"muzzle": [47.0, 6.5],
+"pivot": [16.0, 6.5],
+"primaryGrip": [16.0, 11.0],
+"supportGrip": [33.0, 10.0],
+"width": 48.0
+}
+}, {
+"combat": {
+"color": "#6e9892",
+"damage": 28.0,
+"flashLength": 8.0,
+"flashLife": 0.07,
+"flashWidth": 3.0,
+"id": "needle_rifle",
+"interval": 0.72,
+"lockRange": 680.0,
+"name": "针刺步枪",
+"pierce": 3.0,
+"projectileCount": 1.0,
+"projectileSpeed": 940.0,
+"recoil": 2.275,
+"spread": 0.0,
+"ttl": 1.1
+},
+"id": "needle_rifle",
+"name": "针刺步枪",
+"referenceImage": "../compact-arsenal-v2/weapons/needle_rifle.png",
+"referenceSha256": "4BC80F9498257438ACAB62A70A26A6E7A427897948EEBE216D560DAC4CD96251",
+"version": "c5bd316217d3217b",
+"visual": {
+"asset": "weapon.needle_rifle",
+"family": "longgun",
+"height": 22.0,
+"muzzle": [51.0, 9.0],
+"pivot": [17.0, 9.0],
+"primaryGrip": [13.0, 11.0],
+"supportGrip": [29.0, 11.0],
+"width": 52.0
+}
+}, {
+"combat": {
+"color": "#f08a4b",
+"damage": 21.0,
+"flashLength": 7.5,
+"flashLife": 0.08,
+"flashWidth": 3.0,
+"id": "rust_revolver",
+"interval": 0.58,
+"lockRange": 500.0,
+"name": "锈痕左轮",
+"pierce": 1.0,
+"projectileCount": 1.0,
+"projectileSpeed": 730.0,
+"recoil": 2.52,
+"spread": 1.5,
+"ttl": 0.86
+},
+"id": "rust_revolver",
+"name": "锈痕左轮",
+"referenceImage": "../compact-arsenal-v2/weapons/rust_revolver.png",
+"referenceSha256": "3B03243FCBF9B9A95467389CC531541137FB66A5AC7BCA2C85F4782D4410CF48",
+"version": "f2b1bb15860718d8",
+"visual": {
+"asset": "weapon.rust_revolver",
+"family": "pistol",
+"height": 22.0,
+"muzzle": [37.0, 7.0],
+"pivot": [11.0, 7.0],
+"primaryGrip": [10.0, 15.0],
+"supportGrip": [24.0, 13.0],
+"width": 38.0
+}
+}, {
+"combat": {
+"color": "#ff7956",
+"damage": 10.5,
+"flashLength": 7.0,
+"flashLife": 0.06,
+"flashWidth": 3.0,
+"id": "ember_carbine",
+"interval": 0.22,
+"lockRange": 570.0,
+"name": "余烬卡宾枪",
+"pierce": 1.0,
+"projectileCount": 1.0,
+"projectileSpeed": 760.0,
+"recoil": 1.4349999999999998,
+"spread": 4.0,
+"ttl": 0.9
+},
+"id": "ember_carbine",
+"name": "余烬卡宾枪",
+"referenceImage": "../compact-arsenal-v2/weapons/ember_carbine.png",
+"referenceSha256": "BDBED671A237492ACB347FF8B28B7384B2C5AA8AC6AE50691A882FDFFF7C3F96",
+"version": "82d77f088ae2f3c5",
+"visual": {
+"asset": "weapon.ember_carbine",
+"family": "longgun",
+"height": 22.0,
+"muzzle": [45.0, 8.5],
+"pivot": [15.0, 8.5],
+"primaryGrip": [17.0, 13.0],
+"supportGrip": [31.0, 11.0],
+"width": 46.0
+}
+}, {
+"combat": {
+"color": "#58e4ed",
+"damage": 58.0,
+"flashLength": 12.0,
+"flashLife": 0.12,
+"flashWidth": 5.0,
+"id": "coil_cannon",
+"interval": 1.18,
+"lockRange": 760.0,
+"name": "荒雷线圈炮",
+"pierce": 5.0,
+"projectileCount": 1.0,
+"projectileSpeed": 860.0,
+"recoil": 4.0,
+"spread": 0.0,
+"ttl": 1.28
+},
+"id": "coil_cannon",
+"name": "荒雷线圈炮",
+"referenceImage": "../compact-arsenal-v2/weapons/coil_cannon.png",
+"referenceSha256": "3CE8382F4F48EF11505AF4AA865C81E27183791546DC918C5BB421F8151FA463",
+"version": "7e8793c52609fb87",
+"visual": {
+"asset": "weapon.coil_cannon",
+"family": "heavy",
+"height": 28.0,
+"muzzle": [49.0, 10.5],
+"pivot": [17.0, 10.5],
+"primaryGrip": [14.0, 14.0],
+"supportGrip": [33.0, 15.0],
+"width": 50.0
+}
+}, {
+"combat": {
+"attackType": "beam",
+"color": "#77d6cf",
+"damage": 22.0,
+"description": "瞬时贯穿射线，墙体截断；分流最多3束",
+"id": "prism_laser",
+"interval": 0.6,
+"knockback": 4.0,
+"lockRange": 720.0,
+"mechanicId": "beam",
+"muzzleFlashLength": 12.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 38.0,
+"muzzleParticles": 3.0,
+"name": "折光脉冲枪",
+"pierce": 3.0,
+"projectileCount": 1.0,
+"projectileSpeed": 1000.0,
+"rangeBand": "long",
+"recoil": 0.5,
+"shellColor": "#c8a870",
+"shellLength": 5.0,
+"shellLife": 0.7,
+"spread": 0.0,
+"ttl": 0.72,
+"visualId": "prism-laser",
+"weaponClass": "rifle"
+},
+"id": "prism_laser",
+"name": "折光脉冲枪",
+"version": "native-v2-1",
+"visual": {
+"asset": "native.prism_laser",
+"family": "longgun",
+"height": 24.0,
+"hold": {
+"aimOffsetX": 4.0,
+"chestY": -15.0,
+"upLift": 4.0,
+"upShoulder": 12.0
+},
+"muzzle": [50.0, 8.0],
+"pivot": [14.0, 8.0],
+"primaryGrip": [17.0, 15.0],
+"shapes": [[1.0, 5.0, 15.0, 10.0, "ink"], [3.0, 6.0, 10.0, 6.0, "wood"], [11.0, 3.0, 30.0, 15.0, "ink"], [13.0, 5.0, 26.0, 10.0, "dark"], [15.0, 5.0, 4.0, 8.0, "brass"], [21.0, 4.0, 3.0, 10.0, "teal"], [27.0, 4.0, 3.0, 10.0, "teal"], [33.0, 4.0, 3.0, 10.0, "teal"], [20.0, 5.0, 16.0, 2.0, "glow"], [37.0, 5.0, 14.0, 7.0, "ink"], [39.0, 6.0, 10.0, 4.0, "steel"], [47.0, 5.0, 3.0, 7.0, "brass"], [18.0, 15.0, 7.0, 7.0, "ink"], [19.0, 16.0, 4.0, 5.0, "olive"], [10.0, 1.0, 13.0, 3.0, "ink"], [12.0, 1.0, 9.0, 1.0, "steel"]],
+"supportGrip": [34.0, 13.0],
+"width": 52.0
+}
+}, {
+"combat": {
+"attackType": "explosive",
+"blastRadius": 90.0,
+"color": "#e0a064",
+"damage": 38.0,
+"description": "慢速榴弹，接触或到时爆炸；爆炸不能穿墙",
+"id": "slag_launcher",
+"interval": 1.05,
+"knockback": 60.0,
+"lockRange": 470.0,
+"mechanicId": "explosive",
+"muzzleFlashLength": 12.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 38.0,
+"muzzleParticles": 3.0,
+"name": "熔渣榴弹器",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 360.0,
+"rangeBand": "mid",
+"recoil": 2.0999999999999996,
+"shellColor": "#a7aa84",
+"shellLength": 7.0,
+"shellLife": 0.7,
+"spread": 0.0,
+"ttl": 1.5,
+"visualId": "slag-launcher",
+"weaponClass": "heavy"
+},
+"id": "slag_launcher",
+"name": "熔渣榴弹器",
+"version": "native-v2-1",
+"visual": {
+"asset": "native.slag_launcher",
+"family": "heavy",
+"height": 28.0,
+"hold": {
+"aimOffsetX": 4.0,
+"chestY": -14.0,
+"upLift": 7.0,
+"upShoulder": 12.0
+},
+"muzzle": [46.0, 9.0],
+"pivot": [13.0, 9.0],
+"primaryGrip": [17.0, 19.0],
+"shapes": [[1.0, 8.0, 13.0, 10.0, "ink"], [3.0, 9.0, 10.0, 6.0, "wood"], [11.0, 3.0, 36.0, 16.0, "ink"], [13.0, 5.0, 31.0, 11.0, "olive"], [13.0, 5.0, 28.0, 2.0, "steel"], [17.0, 4.0, 4.0, 14.0, "brass"], [36.0, 4.0, 3.0, 14.0, "brass"], [44.0, 5.0, 3.0, 11.0, "dark"], [45.0, 7.0, 2.0, 6.0, "ink"], [20.0, 13.0, 14.0, 10.0, "ink"], [22.0, 15.0, 10.0, 6.0, "rust"], [25.0, 16.0, 2.0, 4.0, "brass"], [15.0, 18.0, 6.0, 8.0, "ink"], [16.0, 19.0, 3.0, 6.0, "wood"], [27.0, 1.0, 8.0, 3.0, "ink"], [29.0, 1.0, 5.0, 1.0, "light"]],
+"supportGrip": [33.0, 18.0],
+"width": 48.0
+}
+}, {
+"combat": {
+"attackType": "disc",
+"bounceRange": 200.0,
+"bounces": 2.0,
+"color": "#c1c5a6",
+"damage": 16.0,
+"description": "最多弹射2次，每跳保留78%伤害；不重复命中",
+"id": "saw_disc",
+"interval": 0.48,
+"knockback": 25.0,
+"lockRange": 420.0,
+"mechanicId": "disc",
+"muzzleFlashLength": 12.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 38.0,
+"muzzleParticles": 3.0,
+"name": "锯盘弹射器",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 430.0,
+"rangeBand": "mid",
+"recoil": 0.98,
+"shellColor": "#c8a870",
+"shellLength": 5.0,
+"shellLife": 0.7,
+"spread": 0.0,
+"ttl": 1.1,
+"visualId": "saw-disc",
+"weaponClass": "disc"
+},
+"id": "saw_disc",
+"name": "锯盘弹射器",
+"version": "native-v2-1",
+"visual": {
+"asset": "native.saw_disc",
+"family": "heavy",
+"height": 28.0,
+"hold": {
+"aimOffsetX": 4.0,
+"chestY": -14.0,
+"upLift": 7.0,
+"upShoulder": 12.0
+},
+"muzzle": [46.0, 9.0],
+"pivot": [13.0, 9.0],
+"primaryGrip": [17.0, 20.0],
+"shapes": [[1.0, 9.0, 13.0, 9.0, "ink"], [3.0, 10.0, 10.0, 6.0, "wood"], [11.0, 5.0, 35.0, 16.0, "ink"], [13.0, 7.0, 30.0, 11.0, "dark"], [29.0, 1.0, 10.0, 23.0, "ink"], [25.0, 5.0, 18.0, 15.0, "steel"], [28.0, 2.0, 12.0, 21.0, "steel"], [24.0, 9.0, 20.0, 7.0, "light"], [30.0, 6.0, 8.0, 13.0, "dark"], [32.0, 9.0, 4.0, 7.0, "brass"], [40.0, 7.0, 7.0, 8.0, "ink"], [42.0, 9.0, 4.0, 4.0, "steel"], [18.0, 19.0, 6.0, 7.0, "ink"], [19.0, 20.0, 3.0, 5.0, "olive"], [14.0, 7.0, 10.0, 2.0, "olive"], [15.0, 12.0, 7.0, 1.0, "brass"], [15.0, 15.0, 7.0, 1.0, "steel"], [23.0, 8.0, 2.0, 2.0, "light"]],
+"supportGrip": [33.0, 19.0],
+"width": 48.0
+}
+}, {
+"combat": {
+"activeTime": 0.14,
+"arc": 1.9198621771937625,
+"attackType": "slash",
+"color": "#a9d9c7",
+"damage": 24.0,
+"description": "110度近身挥扫＋40%伤害剑气；有效挥击可消弹",
+"id": "echo_blade",
+"interval": 0.62,
+"knockback": 42.0,
+"lockRange": 190.0,
+"mechanicId": "slash",
+"muzzleFlashLength": 12.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 38.0,
+"muzzleParticles": 3.0,
+"name": "回响军刀",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 480.0,
+"rangeBand": "close",
+"reach": 80.0,
+"recoil": 0.5,
+"recovery": 0.13,
+"shellColor": "#c8a870",
+"shellLength": 5.0,
+"shellLife": 0.7,
+"spread": 0.0,
+"ttl": 0.5,
+"visualId": "echo-blade",
+"weaponClass": "blade",
+"windup": 0.09
+},
+"id": "echo_blade",
+"name": "回响军刀",
+"version": "native-v2-1",
+"visual": {
+"asset": "native.echo_blade",
+"family": "blade",
+"height": 20.0,
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -8.0,
+"upLift": 3.0,
+"upShoulder": 14.0
+},
+"muzzle": [56.0, 10.0],
+"pivot": [12.0, 10.0],
+"primaryGrip": [13.0, 11.0],
+"shapes": [[1.0, 8.0, 15.0, 6.0, "ink"], [3.0, 9.0, 12.0, 4.0, "wood"], [5.0, 8.0, 2.0, 6.0, "brass"], [10.0, 8.0, 2.0, 6.0, "brass"], [15.0, 3.0, 4.0, 15.0, "ink"], [16.0, 5.0, 2.0, 11.0, "brass"], [18.0, 6.0, 29.0, 9.0, "ink"], [20.0, 7.0, 28.0, 6.0, "steel"], [21.0, 7.0, 25.0, 2.0, "light"], [20.0, 12.0, 24.0, 2.0, "teal"], [46.0, 6.0, 6.0, 8.0, "ink"], [47.0, 7.0, 5.0, 5.0, "steel"], [51.0, 7.0, 3.0, 5.0, "ink"], [52.0, 8.0, 3.0, 3.0, "light"], [55.0, 9.0, 2.0, 1.0, "light"], [24.0, 9.0, 2.0, 2.0, "dark"], [36.0, 9.0, 3.0, 2.0, "dark"]],
+"supportGrip": [13.0, 11.0],
+"width": 58.0
+}
+}, {
+"combat": {
+"activeTime": 0.14,
+"attackType": "slam",
+"blastRadius": 64.0,
+"color": "#cfb685",
+"damage": 46.0,
+"description": "举锤后砸地，范围击退与短时消弹；前摇仍会受伤",
+"id": "shock_hammer",
+"impactOffset": 58.0,
+"interval": 1.25,
+"knockback": 95.0,
+"lockRange": 122.0,
+"mechanicId": "slam",
+"muzzleFlashLength": 12.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 38.0,
+"muzzleParticles": 3.0,
+"name": "铁砧震荡锤",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 1.0,
+"rangeBand": "close",
+"reach": 122.0,
+"recoil": 0.5,
+"recovery": 0.28,
+"shellColor": "#c8a870",
+"shellLength": 5.0,
+"shellLife": 0.7,
+"spread": 0.0,
+"ttl": 0.5,
+"visualId": "shock-hammer",
+"weaponClass": "hammer",
+"windup": 0.22
+},
+"id": "shock_hammer",
+"name": "铁砧震荡锤",
+"version": "native-v2-1",
+"visual": {
+"asset": "native.shock_hammer",
+"family": "hammer",
+"height": 32.0,
+"hold": {
+"aimOffsetX": 8.0,
+"chestY": -7.0,
+"upLift": 5.0,
+"upShoulder": 15.0
+},
+"muzzle": [46.0, 17.0],
+"pivot": [12.0, 17.0],
+"primaryGrip": [14.0, 18.0],
+"shapes": [[1.0, 14.0, 40.0, 7.0, "ink"], [3.0, 16.0, 35.0, 3.0, "wood"], [7.0, 14.0, 3.0, 7.0, "brass"], [18.0, 14.0, 3.0, 7.0, "brass"], [29.0, 14.0, 3.0, 7.0, "brass"], [35.0, 1.0, 16.0, 30.0, "ink"], [37.0, 3.0, 12.0, 26.0, "steel"], [38.0, 4.0, 10.0, 3.0, "light"], [38.0, 8.0, 10.0, 15.0, "dark"], [38.0, 12.0, 10.0, 3.0, "brass"], [39.0, 16.0, 8.0, 2.0, "teal"], [38.0, 24.0, 10.0, 4.0, "olive"], [33.0, 7.0, 4.0, 18.0, "ink"], [50.0, 7.0, 3.0, 18.0, "ink"], [37.0, 28.0, 12.0, 2.0, "dark"], [39.0, 5.0, 2.0, 2.0, "brass"], [45.0, 24.0, 2.0, 2.0, "light"]],
+"supportGrip": [27.0, 18.0],
+"width": 54.0
+}
+}]
+},
+"PART_ASSETS": {
+"cuffs.ranger-coat": "compact.part.cuffs.ranger-coat.v1",
+"hands.ranger-cloth": "compact.part.hands.ranger-cloth.v1",
+"weapon.breaker_shotgun": "compact.part.weapon.breaker_shotgun.v1",
+"weapon.coil_cannon": "compact.part.weapon.coil_cannon.v1",
+"weapon.ember_carbine": "compact.part.weapon.ember_carbine.v1",
+"weapon.needle_rifle": "compact.part.weapon.needle_rifle.v1",
+"weapon.rust_revolver": "compact.part.weapon.rust_revolver.v1",
+"weapon.scrap_pistol": "compact.part.weapon.scrap_pistol.v1",
+"weapon.swarm_smg": "compact.part.weapon.swarm_smg.v1"
+}
+},
+"artMappings": {
+"ART_IDS": {
+"ACTOR_BRUTE": "actor.brute.v1",
+"ACTOR_BULWARK": "actor.bulwark.base.v1",
+"ACTOR_BULWARK_MECHANIC": "actor.bulwark.mechanic.v1",
+"ACTOR_BULWARK_NIGHTWATCH": "actor.bulwark.nightwatch.v2",
+"ACTOR_CRAWLER": "actor.crawler.v1",
+"ACTOR_DRIFTER": "actor.drifter.v1",
+"ACTOR_IRON_COLOSSUS": "actor.iron-colossus.v1",
+"ACTOR_MECHANIC": "actor.mechanic.base.v1",
+"ACTOR_MECHANIC_MECHANIC": "actor.mechanic.mechanic.v2",
+"ACTOR_MECHANIC_NIGHTWATCH": "actor.mechanic.nightwatch.v1",
+"ACTOR_RANGER": "actor.ranger.base.v1",
+"ACTOR_RANGER_MECHANIC": "actor.ranger.mechanic.v1",
+"ACTOR_RANGER_NIGHTWATCH": "actor.ranger.nightwatch.v2",
+"ACTOR_RANGER_PORTRAIT": "actor.ranger.portrait.v1",
+"ACTOR_RUNNER": "actor.runner.v1",
+"ACTOR_SCREECHER": "actor.screecher.v1",
+"ACTOR_SPITTER": "actor.spitter.v1",
+"ACTOR_WARDEN": "actor.warden.v1",
+"BACKDROP_CREDITS": "menu.backdrop.credits.v3",
+"BACKDROP_DEPLOYMENT": "menu.backdrop.deployment.v3",
+"BACKDROP_INVENTORY": "menu.backdrop.inventory.v3",
+"BACKDROP_MAIN": "menu.backdrop.main.v3",
+"BACKDROP_SETTINGS": "menu.backdrop.settings.v3",
+"BACKDROP_SHOP": "menu.backdrop.shop.v3",
+"COMPACT_BRUTE": "actor.compact.brute.v1",
+"COMPACT_CRAWLER": "actor.compact.crawler.v1",
+"COMPACT_CUFFS_RANGER_COAT": "compact.part.cuffs.ranger-coat.v1",
+"COMPACT_DRIFTER": "actor.compact.drifter.v1",
+"COMPACT_HANDS_RANGER_CLOTH": "compact.part.hands.ranger-cloth.v1",
+"COMPACT_IRON_COLOSSUS": "actor.compact.iron_colossus.v1",
+"COMPACT_RANGER": "actor.compact.ranger.v1",
+"COMPACT_RUNNER": "actor.compact.runner.v1",
+"COMPACT_SCREECHER": "actor.compact.screecher.v1",
+"COMPACT_SPITTER": "actor.compact.spitter.v1",
+"COMPACT_WARDEN": "actor.compact.warden.v1",
+"COMPACT_WEAPON_BREAKER_SHOTGUN": "compact.part.weapon.breaker_shotgun.v1",
+"COMPACT_WEAPON_COIL_CANNON": "compact.part.weapon.coil_cannon.v1",
+"COMPACT_WEAPON_EMBER_CARBINE": "compact.part.weapon.ember_carbine.v1",
+"COMPACT_WEAPON_NEEDLE_RIFLE": "compact.part.weapon.needle_rifle.v1",
+"COMPACT_WEAPON_RUST_REVOLVER": "compact.part.weapon.rust_revolver.v1",
+"COMPACT_WEAPON_SCRAP_PISTOL": "compact.part.weapon.scrap_pistol.v1",
+"COMPACT_WEAPON_SWARM_SMG": "compact.part.weapon.swarm_smg.v1",
+"DEPLOYMENT_CONVOY": "deployment.convoy.v1",
+"EQUIPMENT_AMMO_RIG": "equipment.ammo-rig.v1",
+"EQUIPMENT_FIELD_VEST": "equipment.field-vest.v1",
+"EQUIPMENT_IRON_PLATE": "equipment.iron-plate.v1",
+"EQUIPMENT_MAGNET_HELM": "equipment.magnet-helm.v1",
+"EQUIPMENT_RUNNER_BOOTS": "equipment.runner-boots.v1",
+"EQUIPMENT_SERVO_GREAVES": "equipment.servo-greaves.v1",
+"EQUIPMENT_SIGNAL_HELM": "equipment.signal-helm.v1",
+"EQUIPMENT_STORMSTEP_BOOTS": "equipment.stormstep-boots.v1",
+"GROUND": "world.ground.v1",
+"GROUND_ECHO": "world.ground.echo.v1",
+"GROUND_FREIGHT": "world.ground.freight.v1",
+"GROUND_RED_BASIN": "world.ground.red-basin.v1",
+"LEGACY_BACKDROP_CREDITS": "menu.backdrop.credits.v2",
+"LEGACY_BACKDROP_DEPLOYMENT": "menu.backdrop.deployment.v2",
+"LEGACY_BACKDROP_INVENTORY": "menu.backdrop.inventory.v2",
+"LEGACY_BACKDROP_MAIN": "menu.backdrop.main.v2",
+"LEGACY_BACKDROP_SETTINGS": "menu.backdrop.settings.v2",
+"LEGACY_BACKDROP_SHOP": "menu.backdrop.shop.v2",
+"LEGACY_TITLE_KEY_ART": "cover.keyart.v1",
+"OUTFIT_MECHANIC": "outfit.mechanic.v1",
+"OUTFIT_NIGHTWATCH": "outfit.nightwatch.v1",
+"OUTFIT_WANDERER": "outfit.wanderer.v1",
+"PROP_ECHO_APOTHECARY": "world.prop.echo.apothecary-roof.v1",
+"PROP_ECHO_CONTAINER": "world.prop.echo.container.v1",
+"PROP_ECHO_MARKET": "world.prop.echo.market.v1",
+"PROP_ECHO_RAILCAR": "world.prop.echo.railcar.v1",
+"PROP_ECHO_SALVAGE_KIT": "world.prop.echo.salvage-kit.v1",
+"PROP_ECHO_SHOP": "world.prop.echo.shop-roof.v1",
+"PROP_ECHO_WAREHOUSE": "world.prop.echo.warehouse-roof.v1",
+"RADIO_CAMP": "menu.radio.camp.v1",
+"RADIO_DESK": "menu.radio.desk.v1",
+"TITLE_KEY_ART": "cover.survivor.v3",
+"UI_FIELD_PLATE": "ui.field-plate.v2",
+"WEAPON_BREAKER_SHOTGUN": "weapon.breaker-shotgun.v1",
+"WEAPON_COIL_CANNON": "weapon.coil-cannon.v1",
+"WEAPON_EMBER_CARBINE": "weapon.ember-carbine.v1",
+"WEAPON_NEEDLE_RIFLE": "weapon.needle-rifle.v1",
+"WEAPON_RUST_REVOLVER": "weapon.rust-revolver.v1",
+"WEAPON_SCRAP_PISTOL": "weapon.scrap-pistol.v1",
+"WEAPON_SWARM_SMG": "weapon.swarm-smg.v1"
+},
+"MAP_GROUND_ART": {
+"echo_district": "world.ground.echo.v1",
+"freight_nexus": "world.ground.freight.v1",
+"red_basin": "world.ground.red-basin.v1"
+}
+},
+"assets": [{
+"active": true,
+"eager": true,
+"group": "menu-backdrop",
+"id": "menu.radio.camp.v1",
+"nineSlice": null,
+"notes": "Pixel radio outpost; shared by startup and the main menu.",
+"optional": true,
+"resourcePath": "res://assets/ui/radio-v1/camp.webp",
+"src": "./assets/ui/radio-v1/camp.webp",
+"version": "radio-v1"
+}, {
+"active": true,
+"eager": false,
+"group": "menu-backdrop",
+"id": "menu.radio.desk.v1",
+"nineSlice": null,
+"notes": "Quiet pixel field desk reused by functional menu pages.",
+"optional": true,
+"resourcePath": "res://assets/ui/radio-v1/desk.webp",
+"src": "./assets/ui/radio-v1/desk.webp",
+"version": "radio-v1"
+}, {
+"active": true,
+"eager": false,
+"group": "compact-actors",
+"id": "actor.compact.ranger.v1",
+"nineSlice": null,
+"notes": "Compact native pixel art; lossless runtime export; loaded on demand.",
+"optional": true,
+"resourcePath": "res://assets/actors/compact-v1/ranger-body.webp",
+"src": "./assets/actors/compact-v1/ranger-body.webp",
+"version": "compact-v1"
+}, {
+"active": true,
+"eager": false,
+"group": "compact-parts",
+"id": "compact.part.cuffs.ranger-coat.v1",
+"nineSlice": null,
+"notes": "Compact native pixel art; lossless runtime export; loaded on demand.",
+"optional": true,
+"resourcePath": "res://assets/actors/compact-v1/cuffs-ranger-coat.webp",
+"src": "./assets/actors/compact-v1/cuffs-ranger-coat.webp",
+"version": "compact-v1"
+}, {
+"active": true,
+"eager": false,
+"group": "compact-parts",
+"id": "compact.part.hands.ranger-cloth.v1",
+"nineSlice": null,
+"notes": "Compact native pixel art; lossless runtime export; loaded on demand.",
+"optional": true,
+"resourcePath": "res://assets/actors/compact-v1/hands-ranger-cloth.webp",
+"src": "./assets/actors/compact-v1/hands-ranger-cloth.webp",
+"version": "compact-v1"
+}, {
+"active": true,
+"eager": false,
+"group": "compact-parts",
+"id": "compact.part.weapon.breaker_shotgun.v1",
+"nineSlice": null,
+"notes": "Compact native pixel art; lossless runtime export; loaded on demand.",
+"optional": true,
+"resourcePath": "res://assets/actors/compact-v1/weapon-breaker-shotgun.webp",
+"src": "./assets/actors/compact-v1/weapon-breaker-shotgun.webp",
+"version": "compact-v1"
+}, {
+"active": true,
+"eager": false,
+"group": "compact-parts",
+"id": "compact.part.weapon.coil_cannon.v1",
+"nineSlice": null,
+"notes": "Compact native pixel art; lossless runtime export; loaded on demand.",
+"optional": true,
+"resourcePath": "res://assets/actors/compact-v1/weapon-coil-cannon.webp",
+"src": "./assets/actors/compact-v1/weapon-coil-cannon.webp",
+"version": "compact-v1"
+}, {
+"active": true,
+"eager": false,
+"group": "compact-parts",
+"id": "compact.part.weapon.ember_carbine.v1",
+"nineSlice": null,
+"notes": "Compact native pixel art; lossless runtime export; loaded on demand.",
+"optional": true,
+"resourcePath": "res://assets/actors/compact-v1/weapon-ember-carbine.webp",
+"src": "./assets/actors/compact-v1/weapon-ember-carbine.webp",
+"version": "compact-v1"
+}, {
+"active": true,
+"eager": false,
+"group": "compact-parts",
+"id": "compact.part.weapon.needle_rifle.v1",
+"nineSlice": null,
+"notes": "Compact native pixel art; lossless runtime export; loaded on demand.",
+"optional": true,
+"resourcePath": "res://assets/actors/compact-v1/weapon-needle-rifle.webp",
+"src": "./assets/actors/compact-v1/weapon-needle-rifle.webp",
+"version": "compact-v1"
+}, {
+"active": true,
+"eager": false,
+"group": "compact-parts",
+"id": "compact.part.weapon.rust_revolver.v1",
+"nineSlice": null,
+"notes": "Compact native pixel art; lossless runtime export; loaded on demand.",
+"optional": true,
+"resourcePath": "res://assets/actors/compact-v1/weapon-rust-revolver.webp",
+"src": "./assets/actors/compact-v1/weapon-rust-revolver.webp",
+"version": "compact-v1"
+}, {
+"active": true,
+"eager": false,
+"group": "compact-parts",
+"id": "compact.part.weapon.scrap_pistol.v1",
+"nineSlice": null,
+"notes": "Compact native pixel art; lossless runtime export; loaded on demand.",
+"optional": true,
+"resourcePath": "res://assets/actors/compact-v1/weapon-scrap-pistol.webp",
+"src": "./assets/actors/compact-v1/weapon-scrap-pistol.webp",
+"version": "compact-v1"
+}, {
+"active": true,
+"eager": false,
+"group": "compact-parts",
+"id": "compact.part.weapon.swarm_smg.v1",
+"nineSlice": null,
+"notes": "Compact native pixel art; lossless runtime export; loaded on demand.",
+"optional": true,
+"resourcePath": "res://assets/actors/compact-v1/weapon-swarm-smg.webp",
+"src": "./assets/actors/compact-v1/weapon-swarm-smg.webp",
+"version": "compact-v1"
+}, {
+"active": true,
+"eager": false,
+"group": "compact-enemies",
+"id": "actor.compact.drifter.v1",
+"nineSlice": null,
+"notes": "Compact native pixel art; lossless runtime export; loaded on demand.",
+"optional": true,
+"resourcePath": "res://assets/actors/compact-v1/drifter-atlas.webp",
+"src": "./assets/actors/compact-v1/drifter-atlas.webp",
+"version": "compact-v1"
+}, {
+"active": true,
+"eager": false,
+"group": "compact-enemies",
+"id": "actor.compact.runner.v1",
+"nineSlice": null,
+"notes": "Compact native pixel art; lossless runtime export; loaded on demand.",
+"optional": true,
+"resourcePath": "res://assets/actors/compact-v1/runner-atlas.webp",
+"src": "./assets/actors/compact-v1/runner-atlas.webp",
+"version": "compact-v1"
+}, {
+"active": true,
+"eager": false,
+"group": "compact-enemies",
+"id": "actor.compact.spitter.v1",
+"nineSlice": null,
+"notes": "Compact native pixel art; lossless runtime export; loaded on demand.",
+"optional": true,
+"resourcePath": "res://assets/actors/compact-v1/spitter-atlas.webp",
+"src": "./assets/actors/compact-v1/spitter-atlas.webp",
+"version": "compact-v1"
+}, {
+"active": true,
+"eager": false,
+"group": "compact-enemies",
+"id": "actor.compact.brute.v1",
+"nineSlice": null,
+"notes": "Compact native pixel art; lossless runtime export; loaded on demand.",
+"optional": true,
+"resourcePath": "res://assets/actors/compact-v1/brute-atlas.webp",
+"src": "./assets/actors/compact-v1/brute-atlas.webp",
+"version": "compact-v1"
+}, {
+"active": true,
+"eager": false,
+"group": "compact-enemies",
+"id": "actor.compact.screecher.v1",
+"nineSlice": null,
+"notes": "Compact native pixel art; lossless runtime export; loaded on demand.",
+"optional": true,
+"resourcePath": "res://assets/actors/compact-v1/screecher-atlas.webp",
+"src": "./assets/actors/compact-v1/screecher-atlas.webp",
+"version": "compact-v1"
+}, {
+"active": true,
+"eager": false,
+"group": "compact-enemies",
+"id": "actor.compact.crawler.v1",
+"nineSlice": null,
+"notes": "Compact native pixel art; lossless runtime export; loaded on demand.",
+"optional": true,
+"resourcePath": "res://assets/actors/compact-v1/crawler-atlas.webp",
+"src": "./assets/actors/compact-v1/crawler-atlas.webp",
+"version": "compact-v1"
+}, {
+"active": true,
+"eager": false,
+"group": "compact-enemies",
+"id": "actor.compact.warden.v1",
+"nineSlice": null,
+"notes": "Compact native pixel art; lossless runtime export; loaded on demand.",
+"optional": true,
+"resourcePath": "res://assets/actors/compact-v1/warden-atlas.webp",
+"src": "./assets/actors/compact-v1/warden-atlas.webp",
+"version": "compact-v1"
+}, {
+"active": true,
+"eager": false,
+"group": "compact-enemies",
+"id": "actor.compact.iron_colossus.v1",
+"nineSlice": null,
+"notes": "Compact native pixel art; lossless runtime export; loaded on demand.",
+"optional": true,
+"resourcePath": "res://assets/actors/compact-v1/iron_colossus-atlas.webp",
+"src": "./assets/actors/compact-v1/iron_colossus-atlas.webp",
+"version": "compact-v1"
+}, {
+"active": true,
+"eager": true,
+"group": "world",
+"id": "world.ground.v1",
+"nineSlice": null,
+"notes": "Legacy shared ground until every map has a painted material.",
+"optional": true,
+"resourcePath": "res://assets/wasteland-ground-texture-v1.webp",
+"src": "./assets/wasteland-ground-texture-v1.webp",
+"version": "1.0"
+}, {
+"active": true,
+"eager": false,
+"group": "world",
+"id": "world.ground.echo.v1",
+"nineSlice": null,
+"notes": "Painted Echo District overhead ground material, mirrored in world space.",
+"optional": true,
+"resourcePath": "res://assets/world/echo-ground-v1.webp",
+"src": "./assets/world/echo-ground-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "world",
+"id": "world.ground.freight.v1",
+"nineSlice": null,
+"notes": "Painted cool slate rail-yard ground material.",
+"optional": true,
+"resourcePath": "res://assets/world/freight-ground-v1.webp",
+"src": "./assets/world/freight-ground-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "world",
+"id": "world.ground.red-basin.v1",
+"nineSlice": null,
+"notes": "Painted warm cracked-clay desert ground material.",
+"optional": true,
+"resourcePath": "res://assets/world/red-basin-ground-v1.webp",
+"src": "./assets/world/red-basin-ground-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "world-props",
+"id": "world.prop.echo.shop-roof.v1",
+"nineSlice": null,
+"notes": "Reusable overhead Echo District shop roof; game draws the shop name separately.",
+"optional": true,
+"resourcePath": "res://assets/world/props/echo-shop-roof-v1.webp",
+"src": "./assets/world/props/echo-shop-roof-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "world-props",
+"id": "world.prop.echo.warehouse-roof.v1",
+"nineSlice": null,
+"notes": "Overhead Echo District warehouse roof; dimensions come from registered obstacles.",
+"optional": true,
+"resourcePath": "res://assets/world/props/echo-warehouse-roof-v1.webp",
+"src": "./assets/world/props/echo-warehouse-roof-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "world-props",
+"id": "world.prop.echo.container.v1",
+"nineSlice": null,
+"notes": "Overhead Echo District cargo container; collision size comes from registered obstacles.",
+"optional": true,
+"resourcePath": "res://assets/world/props/echo-container-v1.webp",
+"src": "./assets/world/props/echo-container-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "world-props",
+"id": "world.prop.echo.railcar.v1",
+"nineSlice": null,
+"notes": "Overhead Echo District freight wagon; rotated for vertical registered obstacles.",
+"optional": true,
+"resourcePath": "res://assets/world/props/echo-railcar-v1.webp",
+"src": "./assets/world/props/echo-railcar-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "world-props",
+"id": "world.prop.echo.apothecary-roof.v1",
+"nineSlice": null,
+"notes": "Painted overhead apothecary roof aligned to its registered collision footprint.",
+"optional": true,
+"resourcePath": "res://assets/world/props/echo-apothecary-roof-v1.webp",
+"src": "./assets/world/props/echo-apothecary-roof-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "world-props",
+"id": "world.prop.echo.market.v1",
+"nineSlice": null,
+"notes": "Original pixel salvage kiosk; fitted to the solid registered tradePost rectangle.",
+"optional": true,
+"resourcePath": "res://assets/world/echo-market-v1/trade-post.webp",
+"src": "./assets/world/echo-market-v1/trade-post.webp",
+"version": "echo-market-v1"
+}, {
+"active": true,
+"eager": false,
+"group": "world-props",
+"id": "world.prop.echo.salvage-kit.v1",
+"nineSlice": null,
+"notes": "Shared transparent bus, sedan, wreck and scrap atlas for the first-map prototype.",
+"optional": true,
+"resourcePath": "res://assets/world/echo-market-v1/salvage-kit.webp",
+"src": "./assets/world/echo-market-v1/salvage-kit.webp",
+"version": "echo-market-v1"
+}, {
+"active": true,
+"eager": false,
+"group": "combat-actors",
+"id": "actor.ranger.base.v1",
+"nineSlice": null,
+"notes": "Painted survivor base body without a weapon.",
+"optional": true,
+"resourcePath": "res://assets/actors/ranger-base-v1.webp",
+"src": "./assets/actors/ranger-base-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "combat-actors",
+"id": "actor.ranger.nightwatch.v2",
+"nineSlice": null,
+"notes": "Painted ranger in the legible nightwatch outfit; v1 source archived as too dark.",
+"optional": true,
+"resourcePath": "res://assets/actors/ranger-nightwatch-v2.webp",
+"src": "./assets/actors/ranger-nightwatch-v2.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "combat-actors",
+"id": "actor.ranger.mechanic.v1",
+"nineSlice": null,
+"notes": "Painted ranger wearing signal mechanic outfit; internal combination sample.",
+"optional": true,
+"resourcePath": "res://assets/actors/ranger-mechanic-v1.webp",
+"src": "./assets/actors/ranger-mechanic-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "combat-actors",
+"id": "actor.ranger.portrait.v1",
+"nineSlice": null,
+"notes": "Painted armed ranger for inventory and result pages.",
+"optional": true,
+"resourcePath": "res://assets/actors/ranger-armed-portrait-v1.webp",
+"src": "./assets/actors/ranger-armed-portrait-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "combat-actors",
+"id": "actor.mechanic.base.v1",
+"nineSlice": null,
+"notes": "Painted salvage specialist hero body.",
+"optional": true,
+"resourcePath": "res://assets/actors/mechanic-base-v1.webp",
+"src": "./assets/actors/mechanic-base-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "combat-actors",
+"id": "actor.mechanic.nightwatch.v1",
+"nineSlice": null,
+"notes": "Painted mechanic hero in nightwatch gear, retaining visible face and goggles.",
+"optional": true,
+"resourcePath": "res://assets/actors/mechanic-nightwatch-v1.webp",
+"src": "./assets/actors/mechanic-nightwatch-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "combat-actors",
+"id": "actor.mechanic.mechanic.v2",
+"nineSlice": null,
+"notes": "Painted mechanic hero in distinct signal-repair outfit; v1 archived as too similar to default.",
+"optional": true,
+"resourcePath": "res://assets/actors/mechanic-mechanic-v2.webp",
+"src": "./assets/actors/mechanic-mechanic-v2.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "combat-actors",
+"id": "actor.bulwark.nightwatch.v2",
+"nineSlice": null,
+"notes": "Painted heavy bulwark in nightwatch cape; rejected checkerboard v1 archived.",
+"optional": true,
+"resourcePath": "res://assets/actors/bulwark-nightwatch-v2.webp",
+"src": "./assets/actors/bulwark-nightwatch-v2.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "combat-actors",
+"id": "actor.bulwark.mechanic.v1",
+"nineSlice": null,
+"notes": "Painted heavy bulwark in signal-repair field gear; armor silhouette preserved.",
+"optional": true,
+"resourcePath": "res://assets/actors/bulwark-mechanic-v1.webp",
+"src": "./assets/actors/bulwark-mechanic-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "combat-actors",
+"id": "actor.bulwark.base.v1",
+"nineSlice": null,
+"notes": "Painted armored defender hero body.",
+"optional": true,
+"resourcePath": "res://assets/actors/bulwark-base-v1.webp",
+"src": "./assets/actors/bulwark-base-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "combat-weapons",
+"id": "weapon.scrap-pistol.v1",
+"nineSlice": null,
+"notes": "Painted separate starter pistol sprite.",
+"optional": true,
+"resourcePath": "res://assets/weapons/scrap-pistol-v1.webp",
+"src": "./assets/weapons/scrap-pistol-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "combat-weapons",
+"id": "weapon.swarm-smg.v1",
+"nineSlice": null,
+"notes": "Painted standalone swarm-smg sprite for combat and inventory.",
+"optional": true,
+"resourcePath": "res://assets/weapons/swarm-smg-v1.webp",
+"src": "./assets/weapons/swarm-smg-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "combat-weapons",
+"id": "weapon.breaker-shotgun.v1",
+"nineSlice": null,
+"notes": "Painted standalone breaker-shotgun sprite for combat and inventory.",
+"optional": true,
+"resourcePath": "res://assets/weapons/breaker-shotgun-v1.webp",
+"src": "./assets/weapons/breaker-shotgun-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "combat-weapons",
+"id": "weapon.needle-rifle.v1",
+"nineSlice": null,
+"notes": "Painted standalone needle-rifle sprite for combat and inventory.",
+"optional": true,
+"resourcePath": "res://assets/weapons/needle-rifle-v1.webp",
+"src": "./assets/weapons/needle-rifle-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "combat-weapons",
+"id": "weapon.rust-revolver.v1",
+"nineSlice": null,
+"notes": "Painted standalone rust-revolver sprite for combat and inventory.",
+"optional": true,
+"resourcePath": "res://assets/weapons/rust-revolver-v1.webp",
+"src": "./assets/weapons/rust-revolver-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "combat-weapons",
+"id": "weapon.ember-carbine.v1",
+"nineSlice": null,
+"notes": "Painted standalone ember-carbine sprite for combat and inventory.",
+"optional": true,
+"resourcePath": "res://assets/weapons/ember-carbine-v1.webp",
+"src": "./assets/weapons/ember-carbine-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "combat-weapons",
+"id": "weapon.coil-cannon.v1",
+"nineSlice": null,
+"notes": "Painted standalone coil-cannon sprite for combat and inventory.",
+"optional": true,
+"resourcePath": "res://assets/weapons/coil-cannon-v1.webp",
+"src": "./assets/weapons/coil-cannon-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "outfit-icons",
+"id": "outfit.wanderer.v1",
+"nineSlice": null,
+"notes": "Painted inventory and shop item illustration.",
+"optional": true,
+"resourcePath": "res://assets/outfits/wanderer-v1.webp",
+"src": "./assets/outfits/wanderer-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "outfit-icons",
+"id": "outfit.mechanic.v1",
+"nineSlice": null,
+"notes": "Painted inventory and shop item illustration.",
+"optional": true,
+"resourcePath": "res://assets/outfits/mechanic-v1.webp",
+"src": "./assets/outfits/mechanic-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "outfit-icons",
+"id": "outfit.nightwatch.v1",
+"nineSlice": null,
+"notes": "Painted inventory and shop item illustration.",
+"optional": true,
+"resourcePath": "res://assets/outfits/nightwatch-v1.webp",
+"src": "./assets/outfits/nightwatch-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "equipment-icons",
+"id": "equipment.field-vest.v1",
+"nineSlice": null,
+"notes": "Painted inventory and shop item illustration.",
+"optional": true,
+"resourcePath": "res://assets/equipment/field-vest-v1.webp",
+"src": "./assets/equipment/field-vest-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "equipment-icons",
+"id": "equipment.iron-plate.v1",
+"nineSlice": null,
+"notes": "Painted inventory and shop item illustration.",
+"optional": true,
+"resourcePath": "res://assets/equipment/iron-plate-v1.webp",
+"src": "./assets/equipment/iron-plate-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "equipment-icons",
+"id": "equipment.runner-boots.v1",
+"nineSlice": null,
+"notes": "Painted inventory and shop item illustration.",
+"optional": true,
+"resourcePath": "res://assets/equipment/runner-boots-v1.webp",
+"src": "./assets/equipment/runner-boots-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "equipment-icons",
+"id": "equipment.magnet-helm.v1",
+"nineSlice": null,
+"notes": "Painted inventory and shop item illustration.",
+"optional": true,
+"resourcePath": "res://assets/equipment/magnet-helm-v1.webp",
+"src": "./assets/equipment/magnet-helm-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "equipment-icons",
+"id": "equipment.ammo-rig.v1",
+"nineSlice": null,
+"notes": "Painted inventory and shop item illustration.",
+"optional": true,
+"resourcePath": "res://assets/equipment/ammo-rig-v1.webp",
+"src": "./assets/equipment/ammo-rig-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "equipment-icons",
+"id": "equipment.signal-helm.v1",
+"nineSlice": null,
+"notes": "Painted inventory and shop item illustration.",
+"optional": true,
+"resourcePath": "res://assets/equipment/signal-helm-v1.webp",
+"src": "./assets/equipment/signal-helm-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "equipment-icons",
+"id": "equipment.servo-greaves.v1",
+"nineSlice": null,
+"notes": "Painted inventory and shop item illustration.",
+"optional": true,
+"resourcePath": "res://assets/equipment/servo-greaves-v1.webp",
+"src": "./assets/equipment/servo-greaves-v1.webp",
+"version": "1.5"
+}, {
+"active": true,
+"eager": false,
+"group": "equipment-icons",
+"id": "equipment.stormstep-boots.v1",
+"nineSlice": null,
+"notes": "Painted inventory and shop item illustration.",
+"optional": true,
+"resourcePath": "res://assets/equipment/stormstep-boots-v1.webp",
+"src": "./assets/equipment/stormstep-boots-v1.webp",
+"version": "1.5"
+}],
+"audio": [{
+"bytes": 13310.0,
+"id": "scrap_pistol",
+"peak": 0.72,
+"resourcePath": "res://assets/audio/survival-v1/scrap_pistol.wav",
+"role": "shot",
+"seconds": 0.3,
+"sha256": "04DF545F81C495788FAED16730A5E287869A343F43C68BF852FE80BCFE8346AE",
+"source": "SnakeF8 isolated pistol",
+"src": "./assets/audio/survival-v1/scrap_pistol.wav"
+}, {
+"bytes": 6474.0,
+"id": "swarm_smg",
+"peak": 0.48999999999999994,
+"resourcePath": "res://assets/audio/survival-v1/swarm_smg.wav",
+"role": "shot",
+"seconds": 0.145,
+"sha256": "39D6872486718DF7B3534DF4694E0045A26A1EEE8BBD3833D05C2099F0789DFB",
+"source": "SnakeF8 isolated pistol",
+"src": "./assets/audio/survival-v1/swarm_smg.wav"
+}, {
+"bytes": 19042.0,
+"id": "breaker_shotgun",
+"peak": 0.87,
+"resourcePath": "res://assets/audio/survival-v1/breaker_shotgun.wav",
+"role": "shot",
+"seconds": 0.43,
+"sha256": "655EACB14E4324FCB474E967887DA60D5D37B4EA87163E2A2D079C88838C569E",
+"source": "SnakeF8 isolated shotgun",
+"src": "./assets/audio/survival-v1/breaker_shotgun.wav"
+}, {
+"bytes": 12868.0,
+"id": "needle_rifle",
+"peak": 0.78,
+"resourcePath": "res://assets/audio/survival-v1/needle_rifle.wav",
+"role": "shot",
+"seconds": 0.29,
+"sha256": "11FAC2C372D6BD84C6AA11BB4563A1C7FF34EDF09195C79C136ECFECEC4DF400",
+"source": "SnakeF8 isolated rifle",
+"src": "./assets/audio/survival-v1/needle_rifle.wav"
+}, {
+"bytes": 15956.0,
+"id": "rust_revolver",
+"peak": 0.8299999999999998,
+"resourcePath": "res://assets/audio/survival-v1/rust_revolver.wav",
+"role": "shot",
+"seconds": 0.36,
+"sha256": "C44B6AFF75D59A0890E2E5BF707B58B1DB61DD80DFF475F6E7AD7BE6CAE7340B",
+"source": "SnakeF8 isolated rifle",
+"src": "./assets/audio/survival-v1/rust_revolver.wav"
+}, {
+"bytes": 9120.0,
+"id": "ember_carbine",
+"peak": 0.65,
+"resourcePath": "res://assets/audio/survival-v1/ember_carbine.wav",
+"role": "shot",
+"seconds": 0.205,
+"sha256": "A40A0CF9627E87C97FFBCE4EA3D91D471D6B8918D2B0D969752E1F0935CE09F5",
+"source": "SnakeF8 isolated rifle",
+"src": "./assets/audio/survival-v1/ember_carbine.wav"
+}, {
+"bytes": 15956.0,
+"id": "coil_cannon",
+"peak": 0.8,
+"resourcePath": "res://assets/audio/survival-v1/coil_cannon.wav",
+"role": "shot",
+"seconds": 0.36,
+"sha256": "4B01241B2CE5E5ECE8CEE1F4DFEFA5F24DEE4C27AF38A586951A1F8A0FA67CC6",
+"source": "SnakeF8 isolated shotgun",
+"src": "./assets/audio/survival-v1/coil_cannon.wav"
+}, {
+"bytes": 4930.0,
+"id": "mechanical_light",
+"resourcePath": "res://assets/audio/survival-v1/mechanical_light.wav",
+"role": "mechanical",
+"seconds": 0.11,
+"sha256": "1D0D31A6F0021BC847491EE14964498EAE25BE24321B84F18247887EE49361C8",
+"src": "./assets/audio/survival-v1/mechanical_light.wav"
+}, {
+"bytes": 6254.0,
+"id": "mechanical_heavy",
+"resourcePath": "res://assets/audio/survival-v1/mechanical_heavy.wav",
+"role": "mechanical",
+"seconds": 0.14,
+"sha256": "F6E58F670BC233655CDB9D3A3848FA1A413C8CCC328D1ADDA70204E78CEDB454",
+"src": "./assets/audio/survival-v1/mechanical_heavy.wav"
+}, {
+"bpm": 92.0,
+"bytes": 127168.0,
+"id": "theme_menu",
+"resourcePath": "res://assets/audio/survival-v1/theme-menu.ogg",
+"role": "music",
+"seconds": 41.73913043478261,
+"sha256": "941ECD2BBC2F49E14FEB215B00D4D3191705F77130653DA18367E937F9D3D2B8",
+"src": "./assets/audio/survival-v1/theme-menu.ogg"
+}, {
+"bpm": 92.0,
+"bytes": 146011.0,
+"id": "theme_combat",
+"resourcePath": "res://assets/audio/survival-v1/theme-combat.ogg",
+"role": "music",
+"seconds": 41.73913043478261,
+"sha256": "9EC80574610BE1FBF8D873C29B3DA5E9224F62D174FDC45A4E1864A2969E8005",
+"src": "./assets/audio/survival-v1/theme-combat.ogg"
+}, {
+"bpm": 92.0,
+"bytes": 165511.0,
+"id": "theme_pressure",
+"resourcePath": "res://assets/audio/survival-v1/theme-pressure.ogg",
+"role": "music",
+"seconds": 41.73913043478261,
+"sha256": "48FBC845545328062BF1A80B26B781032640D72D073116F465E30F213BAC000E",
+"src": "./assets/audio/survival-v1/theme-pressure.ogg"
+}, {
+"bytes": 10628.0,
+"id": "prism_laser",
+"resourcePath": "res://assets/audio/arsenal-v2/prism_laser.wav",
+"role": "shot",
+"seconds": 0.24,
+"sha256": "4228AF3BC90C90B95DB9C774B64747C87D3A1B460FF3C637AD7AC0F5E12EB9D9",
+"source": "Original filtered discharge and short resonant snap",
+"src": "./assets/audio/arsenal-v2/prism_laser.wav"
+}, {
+"bytes": 13274.0,
+"id": "slag_launcher",
+"resourcePath": "res://assets/audio/arsenal-v2/slag_launcher.wav",
+"role": "shot",
+"seconds": 0.3,
+"sha256": "0C1C806CACEE2E7111CA3A2E01451EB47F615FEB789B4BB3537F14A955B18263",
+"source": "SnakeF8 isolated shotgun, low-pass edit with original pressure layer",
+"src": "./assets/audio/arsenal-v2/slag_launcher.wav"
+}, {
+"bytes": 10628.0,
+"id": "saw_disc",
+"resourcePath": "res://assets/audio/arsenal-v2/saw_disc.wav",
+"role": "shot",
+"seconds": 0.24,
+"sha256": "58D3B91760C7C24819D7CB465DDB76445AC450EEF2C2B734B064D8413F0AF9F1",
+"source": "Original filtered motor snap and metallic partials",
+"src": "./assets/audio/arsenal-v2/saw_disc.wav"
+}, {
+"bytes": 9746.0,
+"id": "echo_blade",
+"resourcePath": "res://assets/audio/arsenal-v2/echo_blade.wav",
+"role": "melee",
+"seconds": 0.22,
+"sha256": "4A57CA402F111863F51BF3FBDC134E621AD829881B5274E162EB31028724DC2B",
+"source": "Original noise-based air sweep, no gun recording",
+"src": "./assets/audio/arsenal-v2/echo_blade.wav"
+}, {
+"bytes": 13274.0,
+"id": "shock_hammer",
+"resourcePath": "res://assets/audio/arsenal-v2/shock_hammer.wav",
+"role": "melee",
+"seconds": 0.3,
+"sha256": "73B7F7525DD532CF43ECF08ACAE1172325EB7F12693B798549D6AB59172FE7E5",
+"source": "Original low air sweep",
+"src": "./assets/audio/arsenal-v2/shock_hammer.wav"
+}, {
+"bytes": 22976.0,
+"id": "explosion",
+"resourcePath": "res://assets/audio/arsenal-v2/explosion.wav",
+"role": "impact",
+"seconds": 0.52,
+"sha256": "F9152DB73386199F4DB1CC46EE7E8605714DB309FAD9C795BA7A9EA448CBD2F2",
+"source": "SnakeF8 isolated shotgun edited; original noise and low impact",
+"src": "./assets/audio/arsenal-v2/explosion.wav"
+}, {
+"bytes": 16802.0,
+"id": "hammer_impact",
+"resourcePath": "res://assets/audio/arsenal-v2/hammer_impact.wav",
+"role": "impact",
+"seconds": 0.38,
+"sha256": "F24B6F7D53200BD2DA9D539B819AD45DA1E872D2BBCC1C9AE48B77B7C70B04E2",
+"source": "SnakeF8 mechanical hammer recording; original thump and debris",
+"src": "./assets/audio/arsenal-v2/hammer_impact.wav"
+}, {
+"bytes": 6218.0,
+"id": "melee_hit",
+"resourcePath": "res://assets/audio/arsenal-v2/melee_hit.wav",
+"role": "impact",
+"seconds": 0.14,
+"sha256": "2904FB824FD18E7C3EAE34E96D52710131A747839BCE37604C3FCC44E6BE9AAE",
+"source": "Original short metal transient",
+"src": "./assets/audio/arsenal-v2/melee_hit.wav"
+}, {
+"bytes": 4454.0,
+"id": "ricochet",
+"resourcePath": "res://assets/audio/arsenal-v2/ricochet.wav",
+"role": "impact",
+"seconds": 0.1,
+"sha256": "20861A6623D6D4D5C479B31B12851C0613673DF555490D6EF46BFAC01180E85C",
+"source": "Original short ricochet transient",
+"src": "./assets/audio/arsenal-v2/ricochet.wav"
+}],
+"baseline": "ef7d50d",
+"casings": {
+"grenade": {
+"bounce": 0.12,
+"color": "#9a9f83",
+"length": 8.0,
+"lift": 25.0,
+"speed": 40.0,
+"spin": 6.0,
+"width": 3.4
+},
+"micro": {
+"bounce": 0.18,
+"color": "#b5a164",
+"length": 3.0,
+"lift": 29.0,
+"speed": 95.0,
+"spin": 23.0,
+"width": 1.5
+},
+"pistol": {
+"bounce": 0.25,
+"color": "#c6a156",
+"length": 4.0,
+"lift": 36.0,
+"speed": 72.0,
+"spin": 14.0,
+"width": 2.0
+},
+"rifle": {
+"bounce": 0.27,
+"color": "#c5a869",
+"length": 6.0,
+"lift": 40.0,
+"speed": 83.0,
+"spin": 18.0,
+"width": 1.6
+},
+"shotgun": {
+"bounce": 0.17,
+"color": "#aa5540",
+"length": 7.0,
+"lift": 32.0,
+"speed": 57.0,
+"spin": 10.0,
+"width": 2.7
+}
+},
+"defaults": {
+"enemy": "drifter",
+"equipment": "field_vest",
+"hero": "ranger",
+"map": "echo_district",
+"mode": "endless",
+"skin": "wanderer",
+"stage": "signal_dawn",
+"weapon": "scrap_pistol"
+},
+"format": 1.0,
+"icons": {
+"equipment": {
+"ammo_rig": "equipment.ammo-rig.v1",
+"field_vest": "equipment.field-vest.v1",
+"iron_plate": "equipment.iron-plate.v1",
+"magnet_coil": "equipment.magnet-helm.v1",
+"runner_boots": "equipment.runner-boots.v1",
+"servo_greaves": "equipment.servo-greaves.v1",
+"signal_charm": "equipment.signal-helm.v1",
+"stormstep_boots": "equipment.stormstep-boots.v1"
+},
+"rangeBands": {
+"close": {
+"color": "#b65b43",
+"label": "近程"
+},
+"long": {
+"color": "#789b95",
+"label": "远程"
+},
+"mid": {
+"color": "#c69b4b",
+"label": "中程"
+}
+},
+"skins": {
+"mechanic": "outfit.mechanic.v1",
+"nightwatch": "outfit.nightwatch.v1",
+"wanderer": "outfit.wanderer.v1"
+},
+"weaponClasses": {
+"blade": "军刀",
+"carbine": "卡宾枪",
+"disc": "锯盘投射器",
+"hammer": "战锤",
+"heavy": "重型武器",
+"revolver": "左轮",
+"rifle": "精确步枪",
+"shotgun": "霰弹枪",
+"sidearm": "副武器",
+"smg": "冲锋枪"
+}
+},
+"illustrated": {
+"enemies": {
+"brute": "actor.brute.v1",
+"crawler": "actor.crawler.v1",
+"drifter": "actor.drifter.v1",
+"iron_colossus": "actor.iron-colossus.v1",
+"runner": "actor.runner.v1",
+"screecher": "actor.screecher.v1",
+"spitter": "actor.spitter.v1",
+"warden": "actor.warden.v1"
+},
+"heroes": {
+"bulwark": {
+"mechanic": "actor.bulwark.mechanic.v1",
+"nightwatch": "actor.bulwark.nightwatch.v2",
+"wanderer": "actor.bulwark.base.v1"
+},
+"mechanic": {
+"mechanic": "actor.mechanic.mechanic.v2",
+"nightwatch": "actor.mechanic.nightwatch.v1",
+"wanderer": "actor.mechanic.base.v1"
+},
+"ranger": {
+"mechanic": "actor.ranger.mechanic.v1",
+"nightwatch": "actor.ranger.nightwatch.v2",
+"wanderer": "actor.ranger.base.v1"
+}
+},
+"weapons": {
+"breaker_shotgun": "weapon.breaker-shotgun.v1",
+"coil_cannon": "weapon.coil-cannon.v1",
+"ember_carbine": "weapon.ember-carbine.v1",
+"needle_rifle": "weapon.needle-rifle.v1",
+"rust_revolver": "weapon.rust-revolver.v1",
+"scrap_pistol": "weapon.scrap-pistol.v1",
+"swarm_smg": "weapon.swarm-smg.v1"
+}
+},
+"layouts": {
+"echo_district": {
+"blocksProjectiles": true,
+"id": "echo_district",
+"interactives": [{
+"id": "echo-trade-post",
+"name": "余火交易站",
+"obstacleId": "echo-market-booth",
+"radius": 78.0,
+"type": "tradePost",
+"x": 1570.0,
+"y": 1390.0
+}, {
+"damage": 72.0,
+"effectRadius": 126.0,
+"id": "echo-barrel-west",
+"radius": 14.0,
+"solidRadius": 12.0,
+"type": "explosiveBarrel",
+"x": 918.0,
+"y": 1300.0
+}, {
+"healing": 28.0,
+"id": "echo-supply-radio",
+"radius": 20.0,
+"scrap": 8.0,
+"solidRadius": 16.0,
+"type": "supplyCache",
+"x": 1810.0,
+"y": 820.0
+}, {
+"id": "echo-grid-service",
+"radius": 96.0,
+"slow": 0.58,
+"type": "electricField",
+"x": 2330.0,
+"y": 1850.0
+}],
+"obstacles": [{
+"h": 136.0,
+"id": "echo-market-booth",
+"kind": "tradePost",
+"sign": "余火交易站",
+"w": 190.0,
+"x": 1475.0,
+"y": 1200.0
+}, {
+"h": 135.0,
+"kind": "shop",
+"sign": "旧药房",
+"w": 210.0,
+"x": 360.0,
+"y": 390.0
+}, {
+"h": 140.0,
+"kind": "shop",
+"sign": "封闭旧铺",
+"w": 224.0,
+"x": 680.0,
+"y": 590.0
+}, {
+"h": 110.0,
+"kind": "warehouse",
+"sign": "仓储",
+"w": 190.0,
+"x": 360.0,
+"y": 780.0
+}, {
+"h": 142.0,
+"kind": "warehouse",
+"sign": "广播机房",
+"w": 280.0,
+"x": 1350.0,
+"y": 430.0
+}, {
+"h": 96.0,
+"kind": "container",
+"w": 154.0,
+"x": 1780.0,
+"y": 570.0
+}, {
+"h": 130.0,
+"kind": "shop",
+"sign": "旧修理间",
+"w": 222.0,
+"x": 2310.0,
+"y": 710.0
+}, {
+"h": 100.0,
+"kind": "warehouse",
+"sign": "配件库",
+"w": 170.0,
+"x": 2590.0,
+"y": 1140.0
+}, {
+"h": 82.0,
+"kind": "container",
+"w": 154.0,
+"x": 2290.0,
+"y": 1420.0
+}, {
+"h": 66.0,
+"kind": "bus",
+"w": 184.0,
+"x": 650.0,
+"y": 1370.0
+}, {
+"h": 56.0,
+"kind": "wreck",
+"w": 150.0,
+"x": 450.0,
+"y": 1730.0
+}, {
+"h": 62.0,
+"kind": "car",
+"w": 122.0,
+"x": 1745.0,
+"y": 1770.0
+}, {
+"h": 76.0,
+"kind": "railcar",
+"w": 250.0,
+"x": 530.0,
+"y": 2300.0
+}, {
+"h": 80.0,
+"kind": "railcar",
+"w": 260.0,
+"x": 1010.0,
+"y": 2490.0
+}, {
+"h": 84.0,
+"kind": "container",
+"w": 155.0,
+"x": 1560.0,
+"y": 2320.0
+}, {
+"h": 140.0,
+"kind": "shop",
+"sign": "旧宿舍",
+"w": 226.0,
+"x": 2370.0,
+"y": 2390.0
+}, {
+"h": 74.0,
+"kind": "scrap",
+"w": 120.0,
+"x": 2700.0,
+"y": 2630.0
+}],
+"roadDetails": [{
+"h": 104.0,
+"id": "echo-crosswalk-square",
+"orientation": "horizontal",
+"stripes": 6.0,
+"type": "crosswalk",
+"w": 140.0,
+"x": 2050.0,
+"y": 1500.0
+}, {
+"h": 112.0,
+"id": "echo-crosswalk-old-quarter",
+"orientation": "vertical",
+"stripes": 7.0,
+"type": "crosswalk",
+"w": 150.0,
+"x": 1000.0,
+"y": 956.0
+}, {
+"h": 18.0,
+"id": "echo-crack-01",
+"seed": 11.0,
+"type": "crack",
+"w": 46.0,
+"x": 1320.0,
+"y": 1010.0
+}, {
+"h": 48.0,
+"id": "echo-crack-02",
+"seed": 23.0,
+"type": "crack",
+"w": 20.0,
+"x": 1054.0,
+"y": 1750.0
+}, {
+"h": 17.0,
+"id": "echo-crack-03",
+"seed": 37.0,
+"type": "crack",
+"w": 58.0,
+"x": 2460.0,
+"y": 2034.0
+}],
+"roads": [{
+"h": 150.0,
+"id": "echo-north-loop",
+"lanes": 1.0,
+"orientation": "horizontal",
+"w": 2570.0,
+"x": 240.0,
+"y": 940.0
+}, {
+"h": 160.0,
+"id": "echo-south-loop",
+"lanes": 1.0,
+"orientation": "horizontal",
+"w": 2570.0,
+"x": 240.0,
+"y": 1960.0
+}, {
+"h": 2500.0,
+"id": "echo-west-loop",
+"lanes": 1.0,
+"orientation": "vertical",
+"w": 150.0,
+"x": 1030.0,
+"y": 270.0
+}, {
+"h": 2500.0,
+"id": "echo-east-loop",
+"lanes": 1.0,
+"orientation": "vertical",
+"w": 160.0,
+"x": 2040.0,
+"y": 270.0
+}, {
+"h": 130.0,
+"id": "echo-square-crossing",
+"lanes": 1.0,
+"orientation": "horizontal",
+"w": 860.0,
+"x": 1180.0,
+"y": 1530.0
+}],
+"scenery": [{
+"type": "antenna",
+"x": 1680.0,
+"y": 720.0
+}, {
+"type": "streetlight",
+"x": 1240.0,
+"y": 1160.0
+}, {
+"type": "streetlight",
+"x": 1900.0,
+"y": 1770.0
+}, {
+"detail": true,
+"type": "rubble",
+"x": 520.0,
+"y": 1000.0
+}, {
+"detail": true,
+"type": "tires",
+"x": 860.0,
+"y": 1820.0
+}, {
+"detail": true,
+"type": "cable",
+"x": 1480.0,
+"y": 1820.0
+}, {
+"type": "railSignal",
+"x": 1700.0,
+"y": 2170.0
+}, {
+"detail": true,
+"type": "scrub",
+"x": 330.0,
+"y": 2640.0
+}, {
+"detail": true,
+"type": "scrub",
+"x": 2800.0,
+"y": 1840.0
+}],
+"scrapChanceFloor": 0.2,
+"theme": {
+"accent": "#d8bb76",
+"asphalt": "#333b37",
+"ballast": "#534c3f",
+"concrete": "#64604e",
+"ground": "#514b39",
+"haze": "#bfa878"
+},
+"tracks": [{
+"h": 360.0,
+"id": "echo-southbound-freight",
+"lines": 5.0,
+"orientation": "horizontal",
+"spacing": 60.0,
+"w": 1620.0,
+"x": 300.0,
+"y": 2240.0
+}],
+"worldSize": 3072.0,
+"zones": [{
+"h": 650.0,
+"id": "old-quarter",
+"label": "西侧旧铺",
+"surface": "pavement",
+"w": 760.0,
+"x": 240.0,
+"y": 300.0
+}, {
+"h": 560.0,
+"id": "radio-yard",
+"label": "旧广播园区",
+"surface": "concrete",
+"w": 790.0,
+"x": 1220.0,
+"y": 280.0
+}, {
+"h": 760.0,
+"id": "signal-square",
+"label": "广播广场 · 战地交易",
+"surface": "concrete",
+"w": 790.0,
+"x": 1190.0,
+"y": 1110.0
+}, {
+"h": 1210.0,
+"id": "service-row",
+"label": "东侧修配巷",
+"surface": "pavement",
+"w": 570.0,
+"x": 2240.0,
+"y": 560.0
+}, {
+"h": 560.0,
+"id": "freight-yard",
+"label": "南线货场",
+"surface": "ballast",
+"w": 1620.0,
+"x": 300.0,
+"y": 2200.0
+}, {
+"h": 480.0,
+"id": "south-housing",
+"label": "南侧避难街",
+"surface": "scrap",
+"w": 570.0,
+"x": 2210.0,
+"y": 2260.0
+}]
+},
+"freight_nexus": {
+"blocksProjectiles": true,
+"id": "freight_nexus",
+"interactives": [{
+"id": "freight-trade-post",
+"name": "余火交易站",
+"obstacleId": "freight-market-booth",
+"radius": 78.0,
+"type": "tradePost",
+"x": 1665.0,
+"y": 1940.0
+}, {
+"damage": 78.0,
+"effectRadius": 138.0,
+"id": "freight-barrel-loop",
+"radius": 14.0,
+"type": "explosiveBarrel",
+"x": 2080.0,
+"y": 1810.0
+}, {
+"healing": 24.0,
+"id": "freight-supply-workers",
+"radius": 20.0,
+"scrap": 10.0,
+"type": "supplyCache",
+"x": 1120.0,
+"y": 2680.0
+}, {
+"id": "freight-grid-depot",
+"radius": 108.0,
+"slow": 0.52,
+"type": "electricField",
+"x": 2820.0,
+"y": 720.0
+}],
+"obstacles": [{
+"h": 136.0,
+"id": "freight-market-booth",
+"kind": "tradePost",
+"sign": "余火交易站",
+"w": 190.0,
+"x": 1570.0,
+"y": 1760.0
+}, {
+"h": 130.0,
+"kind": "shop",
+"sign": "药房",
+"w": 202.0,
+"x": 784.0,
+"y": 900.0
+}, {
+"h": 145.0,
+"kind": "shop",
+"sign": "机件",
+"w": 190.0,
+"x": 1048.0,
+"y": 834.0
+}, {
+"h": 126.0,
+"kind": "shop",
+"sign": "旅社",
+"w": 205.0,
+"x": 1270.0,
+"y": 996.0
+}, {
+"h": 102.0,
+"kind": "station",
+"sign": "FUEL 06",
+"w": 268.0,
+"x": 1874.0,
+"y": 952.0
+}, {
+"h": 116.0,
+"kind": "warehouse",
+"sign": "DEPOT",
+"w": 168.0,
+"x": 2156.0,
+"y": 1148.0
+}, {
+"h": 58.0,
+"kind": "bus",
+"w": 194.0,
+"x": 1178.0,
+"y": 1552.0
+}, {
+"h": 54.0,
+"kind": "car",
+"w": 128.0,
+"x": 934.0,
+"y": 1668.0
+}, {
+"h": 54.0,
+"kind": "wreck",
+"w": 126.0,
+"x": 1930.0,
+"y": 1528.0
+}, {
+"h": 176.0,
+"kind": "fence",
+"w": 74.0,
+"x": 2080.0,
+"y": 1606.0
+}, {
+"h": 132.0,
+"kind": "warehouse",
+"sign": "CARGO",
+"w": 250.0,
+"x": 878.0,
+"y": 2154.0
+}, {
+"h": 190.0,
+"kind": "railcar",
+"w": 92.0,
+"x": 1238.0,
+"y": 2026.0
+}, {
+"h": 76.0,
+"kind": "railcar",
+"w": 232.0,
+"x": 1642.0,
+"y": 2104.0
+}, {
+"h": 72.0,
+"kind": "container",
+"w": 126.0,
+"x": 1918.0,
+"y": 2270.0
+}, {
+"h": 72.0,
+"kind": "container",
+"w": 126.0,
+"x": 2064.0,
+"y": 2198.0
+}, {
+"h": 98.0,
+"kind": "scrap",
+"w": 118.0,
+"x": 2232.0,
+"y": 2012.0
+}, {
+"h": 142.0,
+"kind": "scrap",
+"w": 94.0,
+"x": 2354.0,
+"y": 2164.0
+}, {
+"h": 150.0,
+"kind": "sign",
+"sign": "SOUTH 03",
+"w": 92.0,
+"x": 992.0,
+"y": 1420.0
+}, {
+"h": 116.0,
+"kind": "warehouse",
+"sign": "DEPOT",
+"w": 168.0,
+"x": 3056.0,
+"y": 638.0
+}, {
+"h": 132.0,
+"kind": "warehouse",
+"sign": "CARGO",
+"w": 250.0,
+"x": 1778.0,
+"y": 1644.0
+}, {
+"h": 190.0,
+"kind": "railcar",
+"w": 92.0,
+"x": 2138.0,
+"y": 1516.0
+}, {
+"h": 76.0,
+"kind": "railcar",
+"w": 232.0,
+"x": 2542.0,
+"y": 1594.0
+}, {
+"h": 72.0,
+"kind": "container",
+"w": 126.0,
+"x": 2818.0,
+"y": 1760.0
+}, {
+"h": 72.0,
+"kind": "container",
+"w": 126.0,
+"x": 2964.0,
+"y": 1688.0
+}, {
+"h": 98.0,
+"kind": "scrap",
+"w": 118.0,
+"x": 3132.0,
+"y": 1502.0
+}, {
+"h": 142.0,
+"kind": "scrap",
+"w": 94.0,
+"x": 3254.0,
+"y": 1654.0
+}, {
+"h": 160.0,
+"kind": "station",
+"sign": "NORTH DEPOT",
+"w": 380.0,
+"x": 370.0,
+"y": 390.0
+}, {
+"h": 86.0,
+"kind": "container",
+"w": 170.0,
+"x": 2680.0,
+"y": 2740.0
+}, {
+"h": 86.0,
+"kind": "container",
+"w": 170.0,
+"x": 2920.0,
+"y": 2870.0
+}],
+"roadDetails": [{
+"h": 92.0,
+"id": "freight-crosswalk-depot",
+"orientation": "horizontal",
+"stripes": 7.0,
+"type": "crosswalk",
+"w": 190.0,
+"x": 1595.0,
+"y": 874.0
+}, {
+"h": 156.0,
+"id": "freight-crosswalk-workers",
+"orientation": "vertical",
+"stripes": 7.0,
+"type": "crosswalk",
+"w": 116.0,
+"x": 1160.0,
+"y": 2304.0
+}, {
+"h": 20.0,
+"id": "freight-crack-01",
+"seed": 71.0,
+"type": "crack",
+"w": 62.0,
+"x": 330.0,
+"y": 930.0
+}, {
+"h": 16.0,
+"id": "freight-crack-02",
+"seed": 79.0,
+"type": "crack",
+"w": 48.0,
+"x": 930.0,
+"y": 994.0
+}, {
+"h": 18.0,
+"id": "freight-crack-03",
+"seed": 83.0,
+"type": "crack",
+"w": 56.0,
+"x": 2040.0,
+"y": 900.0
+}, {
+"h": 18.0,
+"id": "freight-crack-04",
+"seed": 97.0,
+"type": "crack",
+"w": 70.0,
+"x": 2910.0,
+"y": 2340.0
+}, {
+"h": 64.0,
+"id": "freight-crack-05",
+"seed": 101.0,
+"type": "crack",
+"w": 22.0,
+"x": 1630.0,
+"y": 2760.0
+}],
+"roads": [{
+"h": 210.0,
+"id": "freight-north-road",
+"lanes": 1.0,
+"orientation": "horizontal",
+"w": 3584.0,
+"x": 0.0,
+"y": 860.0
+}, {
+"h": 190.0,
+"id": "freight-south-road",
+"lanes": 1.0,
+"orientation": "horizontal",
+"w": 3584.0,
+"x": 0.0,
+"y": 2290.0
+}, {
+"h": 3584.0,
+"id": "freight-service-road",
+"lanes": 1.0,
+"orientation": "vertical",
+"w": 220.0,
+"x": 1580.0,
+"y": 0.0
+}],
+"scenery": [{
+"type": "streetlight",
+"x": 728.0,
+"y": 1066.0
+}, {
+"type": "bench",
+"x": 994.0,
+"y": 1106.0
+}, {
+"type": "dumpster",
+"x": 1114.0,
+"y": 1004.0
+}, {
+"type": "streetlight",
+"x": 1336.0,
+"y": 1158.0
+}, {
+"detail": true,
+"type": "mailbox",
+"x": 1444.0,
+"y": 826.0
+}, {
+"type": "pump",
+"x": 1686.0,
+"y": 958.0
+}, {
+"type": "pump",
+"x": 1748.0,
+"y": 958.0
+}, {
+"type": "barrels",
+"x": 1804.0,
+"y": 1262.0
+}, {
+"type": "warningSign",
+"x": 1970.0,
+"y": 1326.0
+}, {
+"type": "deadTree",
+"x": 2342.0,
+"y": 1360.0
+}, {
+"detail": true,
+"type": "rubble",
+"x": 796.0,
+"y": 1354.0
+}, {
+"type": "barricade",
+"x": 1092.0,
+"y": 1442.0
+}, {
+"detail": true,
+"type": "cone",
+"x": 1402.0,
+"y": 1664.0
+}, {
+"detail": true,
+"type": "hydrant",
+"x": 1732.0,
+"y": 1536.0
+}, {
+"type": "barricade",
+"x": 1832.0,
+"y": 1662.0
+}, {
+"type": "tires",
+"x": 2156.0,
+"y": 1680.0
+}, {
+"type": "warningSign",
+"x": 2452.0,
+"y": 1538.0
+}, {
+"type": "railSignal",
+"x": 808.0,
+"y": 1926.0
+}, {
+"type": "pallet",
+"x": 1074.0,
+"y": 1950.0
+}, {
+"type": "railSignal",
+"x": 1408.0,
+"y": 1926.0
+}, {
+"detail": true,
+"type": "cable",
+"x": 1532.0,
+"y": 2228.0
+}, {
+"type": "barrels",
+"x": 1786.0,
+"y": 2338.0
+}, {
+"type": "crate",
+"x": 1992.0,
+"y": 1912.0
+}, {
+"type": "tires",
+"x": 2104.0,
+"y": 2344.0
+}, {
+"type": "deadTree",
+"x": 2302.0,
+"y": 1848.0
+}, {
+"detail": true,
+"type": "scrub",
+"x": 2432.0,
+"y": 2338.0
+}, {
+"detail": true,
+"type": "scrub",
+"x": 706.0,
+"y": 2382.0
+}, {
+"detail": true,
+"type": "bones",
+"x": 1170.0,
+"y": 2402.0
+}, {
+"detail": true,
+"type": "crane",
+"x": 1960.0,
+"y": 2070.0
+}, {
+"type": "antenna",
+"x": 2496.0,
+"y": 1946.0
+}, {
+"type": "streetlight",
+"x": 1648.0,
+"y": 566.0
+}, {
+"type": "bench",
+"x": 1914.0,
+"y": 606.0
+}, {
+"type": "dumpster",
+"x": 2034.0,
+"y": 504.0
+}, {
+"type": "streetlight",
+"x": 2256.0,
+"y": 658.0
+}, {
+"detail": true,
+"type": "mailbox",
+"x": 2364.0,
+"y": 326.0
+}, {
+"type": "pump",
+"x": 2606.0,
+"y": 458.0
+}, {
+"type": "pump",
+"x": 2668.0,
+"y": 458.0
+}, {
+"type": "barrels",
+"x": 2724.0,
+"y": 762.0
+}, {
+"type": "warningSign",
+"x": 2890.0,
+"y": 826.0
+}, {
+"detail": true,
+"type": "rubble",
+"x": 1716.0,
+"y": 854.0
+}, {
+"type": "barricade",
+"x": 2012.0,
+"y": 942.0
+}, {
+"detail": true,
+"type": "cone",
+"x": 2322.0,
+"y": 1164.0
+}, {
+"detail": true,
+"type": "hydrant",
+"x": 2652.0,
+"y": 1036.0
+}, {
+"type": "barricade",
+"x": 2752.0,
+"y": 1162.0
+}, {
+"type": "tires",
+"x": 3076.0,
+"y": 1180.0
+}, {
+"type": "warningSign",
+"x": 3372.0,
+"y": 1038.0
+}, {
+"type": "railSignal",
+"x": 1728.0,
+"y": 1426.0
+}, {
+"type": "pallet",
+"x": 1994.0,
+"y": 1450.0
+}, {
+"type": "railSignal",
+"x": 2328.0,
+"y": 1426.0
+}, {
+"detail": true,
+"type": "cable",
+"x": 2452.0,
+"y": 1728.0
+}, {
+"type": "barrels",
+"x": 2706.0,
+"y": 1838.0
+}, {
+"type": "crate",
+"x": 2912.0,
+"y": 1412.0
+}, {
+"type": "tires",
+"x": 3024.0,
+"y": 1844.0
+}, {
+"detail": true,
+"type": "scrub",
+"x": 3352.0,
+"y": 1838.0
+}, {
+"detail": true,
+"type": "scrub",
+"x": 1626.0,
+"y": 1882.0
+}, {
+"detail": true,
+"type": "bones",
+"x": 2090.0,
+"y": 1902.0
+}, {
+"detail": true,
+"type": "crane",
+"x": 2880.0,
+"y": 1570.0
+}, {
+"type": "antenna",
+"x": 3416.0,
+"y": 1446.0
+}, {
+"type": "railSignal",
+"x": 1780.0,
+"y": 1120.0
+}, {
+"detail": true,
+"type": "crane",
+"x": 2760.0,
+"y": 2380.0
+}],
+"theme": {
+"accent": "#62d8ea",
+"asphalt": "#30383b",
+"ballast": "#4b5050",
+"concrete": "#62635f",
+"ground": "#4b463d",
+"haze": "#9bc1bf"
+},
+"tracks": [{
+"h": 960.0,
+"id": "freight-main",
+"lines": 14.0,
+"orientation": "horizontal",
+"spacing": 62.0,
+"w": 3240.0,
+"x": 130.0,
+"y": 1140.0
+}, {
+"h": 2940.0,
+"id": "freight-loop",
+"lines": 5.0,
+"orientation": "vertical",
+"spacing": 58.0,
+"w": 420.0,
+"x": 2140.0,
+"y": 340.0
+}],
+"worldSize": 3584.0,
+"zones": [{
+"h": 720.0,
+"id": "north-depot",
+"label": "北部机务段",
+"surface": "concrete",
+"w": 2900.0,
+"x": 260.0,
+"y": 180.0
+}, {
+"h": 1200.0,
+"id": "rail-maze",
+"label": "锈轨编组场",
+"surface": "ballast",
+"w": 3300.0,
+"x": 120.0,
+"y": 1080.0
+}, {
+"h": 690.0,
+"id": "workers-row",
+"label": "铁路宿舍",
+"surface": "pavement",
+"w": 1240.0,
+"x": 320.0,
+"y": 2520.0
+}, {
+"h": 760.0,
+"id": "container-sea",
+"label": "集装箱海",
+"surface": "scrap",
+"w": 1380.0,
+"x": 1840.0,
+"y": 2460.0
+}]
+},
+"red_basin": {
+"blocksProjectiles": true,
+"id": "red_basin",
+"interactives": [{
+"id": "basin-trade-post",
+"name": "余火交易站",
+"obstacleId": "basin-market-booth",
+"radius": 78.0,
+"type": "tradePost",
+"x": 2215.0,
+"y": 1990.0
+}, {
+"damage": 84.0,
+"effectRadius": 150.0,
+"id": "basin-barrel-lab",
+"radius": 14.0,
+"type": "explosiveBarrel",
+"x": 1840.0,
+"y": 1530.0
+}, {
+"healing": 34.0,
+"id": "basin-supply-quarantine",
+"radius": 20.0,
+"scrap": 12.0,
+"type": "supplyCache",
+"x": 2520.0,
+"y": 2380.0
+}, {
+"id": "basin-grid-ring",
+"radius": 118.0,
+"slow": 0.48,
+"type": "electricField",
+"x": 2210.0,
+"y": 1700.0
+}],
+"obstacles": [{
+"h": 136.0,
+"id": "basin-market-booth",
+"kind": "tradePost",
+"sign": "余火交易站",
+"w": 190.0,
+"x": 2120.0,
+"y": 1810.0
+}, {
+"h": 102.0,
+"kind": "station",
+"sign": "FUEL 06",
+"w": 268.0,
+"x": 2264.0,
+"y": 1182.0
+}, {
+"h": 116.0,
+"kind": "warehouse",
+"sign": "DEPOT",
+"w": 168.0,
+"x": 2546.0,
+"y": 1378.0
+}, {
+"h": 58.0,
+"kind": "bus",
+"w": 194.0,
+"x": 1568.0,
+"y": 1782.0
+}, {
+"h": 54.0,
+"kind": "car",
+"w": 128.0,
+"x": 1324.0,
+"y": 1898.0
+}, {
+"h": 54.0,
+"kind": "wreck",
+"w": 126.0,
+"x": 2320.0,
+"y": 1758.0
+}, {
+"h": 176.0,
+"kind": "fence",
+"w": 74.0,
+"x": 2470.0,
+"y": 1836.0
+}, {
+"h": 132.0,
+"kind": "warehouse",
+"sign": "CARGO",
+"w": 250.0,
+"x": 1268.0,
+"y": 2384.0
+}, {
+"h": 190.0,
+"kind": "railcar",
+"w": 92.0,
+"x": 1628.0,
+"y": 2256.0
+}, {
+"h": 76.0,
+"kind": "railcar",
+"w": 232.0,
+"x": 2032.0,
+"y": 2334.0
+}, {
+"h": 72.0,
+"kind": "container",
+"w": 126.0,
+"x": 2308.0,
+"y": 2500.0
+}, {
+"h": 72.0,
+"kind": "container",
+"w": 126.0,
+"x": 2454.0,
+"y": 2428.0
+}, {
+"h": 98.0,
+"kind": "scrap",
+"w": 118.0,
+"x": 2622.0,
+"y": 2242.0
+}, {
+"h": 142.0,
+"kind": "scrap",
+"w": 94.0,
+"x": 2744.0,
+"y": 2394.0
+}, {
+"h": 150.0,
+"kind": "sign",
+"sign": "SOUTH 03",
+"w": 92.0,
+"x": 1382.0,
+"y": 1650.0
+}, {
+"h": 116.0,
+"kind": "warehouse",
+"sign": "DEPOT",
+"w": 168.0,
+"x": 3586.0,
+"y": 1988.0
+}, {
+"h": 54.0,
+"kind": "wreck",
+"w": 126.0,
+"x": 3360.0,
+"y": 2368.0
+}, {
+"h": 132.0,
+"kind": "warehouse",
+"sign": "CARGO",
+"w": 250.0,
+"x": 2308.0,
+"y": 2994.0
+}, {
+"h": 72.0,
+"kind": "container",
+"w": 126.0,
+"x": 3348.0,
+"y": 3110.0
+}, {
+"h": 72.0,
+"kind": "container",
+"w": 126.0,
+"x": 3494.0,
+"y": 3038.0
+}, {
+"h": 98.0,
+"kind": "scrap",
+"w": 118.0,
+"x": 3662.0,
+"y": 2852.0
+}, {
+"h": 142.0,
+"kind": "scrap",
+"w": 94.0,
+"x": 3784.0,
+"y": 3004.0
+}, {
+"h": 170.0,
+"kind": "warehouse",
+"sign": "LAB 04",
+"w": 340.0,
+"x": 1480.0,
+"y": 1400.0
+}, {
+"h": 150.0,
+"kind": "station",
+"sign": "QUARANTINE",
+"w": 280.0,
+"x": 2270.0,
+"y": 2210.0
+}, {
+"h": 90.0,
+"kind": "wreck",
+"w": 190.0,
+"x": 720.0,
+"y": 640.0
+}],
+"roadDetails": [{
+"h": 104.0,
+"id": "basin-crosswalk-research",
+"orientation": "horizontal",
+"stripes": 8.0,
+"type": "crosswalk",
+"w": 248.0,
+"x": 1914.0,
+"y": 1860.0
+}, {
+"h": 21.0,
+"id": "basin-crack-01",
+"seed": 107.0,
+"type": "crack",
+"w": 74.0,
+"x": 420.0,
+"y": 1940.0
+}, {
+"h": 18.0,
+"id": "basin-crack-02",
+"seed": 109.0,
+"type": "crack",
+"w": 58.0,
+"x": 1040.0,
+"y": 2080.0
+}, {
+"h": 20.0,
+"id": "basin-crack-03",
+"seed": 127.0,
+"type": "crack",
+"w": 66.0,
+"x": 2360.0,
+"y": 1906.0
+}, {
+"h": 22.0,
+"id": "basin-crack-04",
+"seed": 131.0,
+"type": "crack",
+"w": 82.0,
+"x": 3180.0,
+"y": 2110.0
+}, {
+"h": 72.0,
+"id": "basin-crack-05",
+"seed": 149.0,
+"type": "crack",
+"w": 24.0,
+"x": 2030.0,
+"y": 820.0
+}, {
+"h": 68.0,
+"id": "basin-crack-06",
+"seed": 157.0,
+"type": "crack",
+"w": 28.0,
+"x": 1980.0,
+"y": 3320.0
+}],
+"roads": [{
+"h": 360.0,
+"id": "basin-highway",
+"lanes": 3.0,
+"orientation": "horizontal",
+"w": 4096.0,
+"x": 0.0,
+"y": 1840.0
+}, {
+"h": 4096.0,
+"id": "basin-research-road",
+"lanes": 2.0,
+"orientation": "vertical",
+"w": 280.0,
+"x": 1900.0,
+"y": 0.0
+}],
+"scenery": [{
+"type": "streetlight",
+"x": 1108.0,
+"y": 1306.0
+}, {
+"type": "bench",
+"x": 1374.0,
+"y": 1346.0
+}, {
+"type": "dumpster",
+"x": 1494.0,
+"y": 1244.0
+}, {
+"type": "streetlight",
+"x": 1716.0,
+"y": 1398.0
+}, {
+"detail": true,
+"type": "mailbox",
+"x": 1824.0,
+"y": 1066.0
+}, {
+"type": "pump",
+"x": 2066.0,
+"y": 1198.0
+}, {
+"type": "pump",
+"x": 2128.0,
+"y": 1198.0
+}, {
+"type": "barrels",
+"x": 2184.0,
+"y": 1502.0
+}, {
+"type": "warningSign",
+"x": 2350.0,
+"y": 1566.0
+}, {
+"type": "deadTree",
+"x": 2722.0,
+"y": 1600.0
+}, {
+"detail": true,
+"type": "rubble",
+"x": 1176.0,
+"y": 1594.0
+}, {
+"type": "barricade",
+"x": 1472.0,
+"y": 1682.0
+}, {
+"detail": true,
+"type": "cone",
+"x": 1782.0,
+"y": 1904.0
+}, {
+"detail": true,
+"type": "hydrant",
+"x": 2112.0,
+"y": 1776.0
+}, {
+"type": "barricade",
+"x": 2212.0,
+"y": 1902.0
+}, {
+"type": "tires",
+"x": 2536.0,
+"y": 1920.0
+}, {
+"type": "warningSign",
+"x": 2832.0,
+"y": 1778.0
+}, {
+"type": "railSignal",
+"x": 1188.0,
+"y": 2166.0
+}, {
+"type": "pallet",
+"x": 1454.0,
+"y": 2190.0
+}, {
+"type": "railSignal",
+"x": 1788.0,
+"y": 2166.0
+}, {
+"detail": true,
+"type": "cable",
+"x": 1912.0,
+"y": 2468.0
+}, {
+"type": "barrels",
+"x": 2166.0,
+"y": 2578.0
+}, {
+"type": "crate",
+"x": 2372.0,
+"y": 2152.0
+}, {
+"type": "tires",
+"x": 2484.0,
+"y": 2584.0
+}, {
+"type": "deadTree",
+"x": 2682.0,
+"y": 2088.0
+}, {
+"detail": true,
+"type": "scrub",
+"x": 2812.0,
+"y": 2578.0
+}, {
+"detail": true,
+"type": "scrub",
+"x": 1086.0,
+"y": 2622.0
+}, {
+"detail": true,
+"type": "bones",
+"x": 1550.0,
+"y": 2642.0
+}, {
+"detail": true,
+"type": "crane",
+"x": 2340.0,
+"y": 2310.0
+}, {
+"type": "antenna",
+"x": 2876.0,
+"y": 2186.0
+}, {
+"type": "warningSign",
+"x": 3410.0,
+"y": 2186.0
+}, {
+"type": "deadTree",
+"x": 3782.0,
+"y": 2220.0
+}, {
+"type": "warningSign",
+"x": 3892.0,
+"y": 2398.0
+}, {
+"type": "deadTree",
+"x": 3742.0,
+"y": 2708.0
+}, {
+"detail": true,
+"type": "scrub",
+"x": 3872.0,
+"y": 3198.0
+}, {
+"detail": true,
+"type": "scrub",
+"x": 2146.0,
+"y": 3242.0
+}, {
+"detail": true,
+"type": "bones",
+"x": 2610.0,
+"y": 3262.0
+}, {
+"type": "antenna",
+"x": 3936.0,
+"y": 2806.0
+}, {
+"type": "warningSign",
+"x": 1220.0,
+"y": 1770.0
+}, {
+"detail": true,
+"type": "antenna",
+"x": 2810.0,
+"y": 2280.0
+}, {
+"type": "deadTree",
+"x": 3400.0,
+"y": 900.0
+}],
+"theme": {
+"accent": "#ff765f",
+"asphalt": "#353536",
+"ballast": "#6b5040",
+"concrete": "#745f55",
+"ground": "#76503b",
+"haze": "#e07a52"
+},
+"tracks": [{
+"h": 260.0,
+"id": "basin-dry-rail",
+"lines": 4.0,
+"orientation": "horizontal",
+"spacing": 52.0,
+"w": 3400.0,
+"x": 260.0,
+"y": 3010.0
+}],
+"worldSize": 4096.0,
+"zones": [{
+"h": 3896.0,
+"id": "red-dunes",
+"label": "赤砂盆地",
+"surface": "scrap",
+"w": 3896.0,
+"x": 100.0,
+"y": 100.0
+}, {
+"h": 1160.0,
+"id": "research-ring",
+"label": "沉降研究站",
+"surface": "concrete",
+"w": 1260.0,
+"x": 1420.0,
+"y": 1320.0
+}, {
+"h": 360.0,
+"id": "evac-highway",
+"label": "旧国道",
+"surface": "asphalt",
+"w": 4096.0,
+"x": 0.0,
+"y": 1840.0
+}, {
+"h": 760.0,
+"id": "dry-port",
+"label": "风暴旱港",
+"surface": "ballast",
+"w": 1180.0,
+"x": 420.0,
+"y": 2860.0
+}]
+}
+},
+"masteryEvolutionRewards": {
+"breaker_shotgun": ["phaseAegis"],
+"coil_cannon": ["penetratorDoctrine", "arcNetwork"],
+"echo_blade": ["kineticLoop"],
+"ember_carbine": ["arcNetwork"],
+"needle_rifle": ["penetratorDoctrine"],
+"prism_laser": ["penetratorDoctrine"],
+"rust_revolver": ["recoveryField"],
+"saw_disc": ["kineticLoop"],
+"scrap_pistol": ["kineticLoop"],
+"shock_hammer": ["phaseAegis"],
+"slag_launcher": ["phaseAegis"],
+"swarm_smg": ["swarmProtocol"]
+},
+"masteryRewards": [{
+"copper": 100.0,
+"copperMultiplier": 0.05,
+"description": "该武器铜币收益 +5% · 立即获得 100 铜币",
+"id": "field_dividend",
+"level": 2.0,
+"name": "战地分成"
+}, {
+"damageMultiplier": 0.04,
+"description": "该武器永久伤害 +4%",
+"id": "calibrated_frame",
+"level": 4.0,
+"name": "校准枪身"
+}, {
+"description": "解锁该武器的专属终局进化",
+"evolutionAccess": true,
+"id": "evolution_clearance",
+"level": 6.0,
+"name": "终局许可"
+}, {
+"criticalChance": 0.03,
+"description": "该武器永久暴击率 +3% · 获得 1 金币",
+"gold": 1.0,
+"id": "weakpoint_memory",
+"level": 8.0,
+"name": "弱点记忆"
+}, {
+"badge": true,
+"description": "获得精通铭牌、废料收益 +10% 和 2 金币",
+"gold": 2.0,
+"id": "master_badge",
+"level": 10.0,
+"name": "精通铭牌",
+"scrapMultiplier": 0.1
+}],
+"nativePalette": {
+"brass": "#b18b50",
+"dark": "#3a463b",
+"glow": "#c3f2d8",
+"ink": "#202923",
+"light": "#d8d4b1",
+"olive": "#687452",
+"rust": "#a1603e",
+"steel": "#8f9a8c",
+"teal": "#5aafa6",
+"wood": "#795840"
+},
+"nativeWeapons": {
+"echo_blade": {
+"family": "blade",
+"height": 20.0,
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -8.0,
+"upLift": 3.0,
+"upShoulder": 14.0
+},
+"muzzle": [56.0, 10.0],
+"pivot": [12.0, 10.0],
+"primaryGrip": [13.0, 11.0],
+"shapes": [[1.0, 8.0, 15.0, 6.0, "ink"], [3.0, 9.0, 12.0, 4.0, "wood"], [5.0, 8.0, 2.0, 6.0, "brass"], [10.0, 8.0, 2.0, 6.0, "brass"], [15.0, 3.0, 4.0, 15.0, "ink"], [16.0, 5.0, 2.0, 11.0, "brass"], [18.0, 6.0, 29.0, 9.0, "ink"], [20.0, 7.0, 28.0, 6.0, "steel"], [21.0, 7.0, 25.0, 2.0, "light"], [20.0, 12.0, 24.0, 2.0, "teal"], [46.0, 6.0, 6.0, 8.0, "ink"], [47.0, 7.0, 5.0, 5.0, "steel"], [51.0, 7.0, 3.0, 5.0, "ink"], [52.0, 8.0, 3.0, 3.0, "light"], [55.0, 9.0, 2.0, 1.0, "light"], [24.0, 9.0, 2.0, 2.0, "dark"], [36.0, 9.0, 3.0, 2.0, "dark"]],
+"supportGrip": [13.0, 11.0],
+"width": 58.0
+},
+"prism_laser": {
+"family": "longgun",
+"height": 24.0,
+"hold": {
+"aimOffsetX": 4.0,
+"chestY": -15.0,
+"upLift": 4.0,
+"upShoulder": 12.0
+},
+"muzzle": [50.0, 8.0],
+"pivot": [14.0, 8.0],
+"primaryGrip": [17.0, 15.0],
+"shapes": [[1.0, 5.0, 15.0, 10.0, "ink"], [3.0, 6.0, 10.0, 6.0, "wood"], [11.0, 3.0, 30.0, 15.0, "ink"], [13.0, 5.0, 26.0, 10.0, "dark"], [15.0, 5.0, 4.0, 8.0, "brass"], [21.0, 4.0, 3.0, 10.0, "teal"], [27.0, 4.0, 3.0, 10.0, "teal"], [33.0, 4.0, 3.0, 10.0, "teal"], [20.0, 5.0, 16.0, 2.0, "glow"], [37.0, 5.0, 14.0, 7.0, "ink"], [39.0, 6.0, 10.0, 4.0, "steel"], [47.0, 5.0, 3.0, 7.0, "brass"], [18.0, 15.0, 7.0, 7.0, "ink"], [19.0, 16.0, 4.0, 5.0, "olive"], [10.0, 1.0, 13.0, 3.0, "ink"], [12.0, 1.0, 9.0, 1.0, "steel"]],
+"supportGrip": [34.0, 13.0],
+"width": 52.0
+},
+"saw_disc": {
+"family": "heavy",
+"height": 28.0,
+"hold": {
+"aimOffsetX": 4.0,
+"chestY": -14.0,
+"upLift": 7.0,
+"upShoulder": 12.0
+},
+"muzzle": [46.0, 9.0],
+"pivot": [13.0, 9.0],
+"primaryGrip": [17.0, 20.0],
+"shapes": [[1.0, 9.0, 13.0, 9.0, "ink"], [3.0, 10.0, 10.0, 6.0, "wood"], [11.0, 5.0, 35.0, 16.0, "ink"], [13.0, 7.0, 30.0, 11.0, "dark"], [29.0, 1.0, 10.0, 23.0, "ink"], [25.0, 5.0, 18.0, 15.0, "steel"], [28.0, 2.0, 12.0, 21.0, "steel"], [24.0, 9.0, 20.0, 7.0, "light"], [30.0, 6.0, 8.0, 13.0, "dark"], [32.0, 9.0, 4.0, 7.0, "brass"], [40.0, 7.0, 7.0, 8.0, "ink"], [42.0, 9.0, 4.0, 4.0, "steel"], [18.0, 19.0, 6.0, 7.0, "ink"], [19.0, 20.0, 3.0, 5.0, "olive"], [14.0, 7.0, 10.0, 2.0, "olive"], [15.0, 12.0, 7.0, 1.0, "brass"], [15.0, 15.0, 7.0, 1.0, "steel"], [23.0, 8.0, 2.0, 2.0, "light"]],
+"supportGrip": [33.0, 19.0],
+"width": 48.0
+},
+"shock_hammer": {
+"family": "hammer",
+"height": 32.0,
+"hold": {
+"aimOffsetX": 8.0,
+"chestY": -7.0,
+"upLift": 5.0,
+"upShoulder": 15.0
+},
+"muzzle": [46.0, 17.0],
+"pivot": [12.0, 17.0],
+"primaryGrip": [14.0, 18.0],
+"shapes": [[1.0, 14.0, 40.0, 7.0, "ink"], [3.0, 16.0, 35.0, 3.0, "wood"], [7.0, 14.0, 3.0, 7.0, "brass"], [18.0, 14.0, 3.0, 7.0, "brass"], [29.0, 14.0, 3.0, 7.0, "brass"], [35.0, 1.0, 16.0, 30.0, "ink"], [37.0, 3.0, 12.0, 26.0, "steel"], [38.0, 4.0, 10.0, 3.0, "light"], [38.0, 8.0, 10.0, 15.0, "dark"], [38.0, 12.0, 10.0, 3.0, "brass"], [39.0, 16.0, 8.0, 2.0, "teal"], [38.0, 24.0, 10.0, 4.0, "olive"], [33.0, 7.0, 4.0, 18.0, "ink"], [50.0, 7.0, 3.0, 18.0, "ink"], [37.0, 28.0, 12.0, 2.0, "dark"], [39.0, 5.0, 2.0, 2.0, "brass"], [45.0, 24.0, 2.0, 2.0, "light"]],
+"supportGrip": [27.0, 18.0],
+"width": 54.0
+},
+"slag_launcher": {
+"family": "heavy",
+"height": 28.0,
+"hold": {
+"aimOffsetX": 4.0,
+"chestY": -14.0,
+"upLift": 7.0,
+"upShoulder": 12.0
+},
+"muzzle": [46.0, 9.0],
+"pivot": [13.0, 9.0],
+"primaryGrip": [17.0, 19.0],
+"shapes": [[1.0, 8.0, 13.0, 10.0, "ink"], [3.0, 9.0, 10.0, 6.0, "wood"], [11.0, 3.0, 36.0, 16.0, "ink"], [13.0, 5.0, 31.0, 11.0, "olive"], [13.0, 5.0, 28.0, 2.0, "steel"], [17.0, 4.0, 4.0, 14.0, "brass"], [36.0, 4.0, 3.0, 14.0, "brass"], [44.0, 5.0, 3.0, 11.0, "dark"], [45.0, 7.0, 2.0, 6.0, "ink"], [20.0, 13.0, 14.0, 10.0, "ink"], [22.0, 15.0, 10.0, 6.0, "rust"], [25.0, 16.0, 2.0, 4.0, "brass"], [15.0, 18.0, 6.0, 8.0, "ink"], [16.0, 19.0, 3.0, 6.0, "wood"], [27.0, 1.0, 8.0, 3.0, "ink"], [29.0, 1.0, 5.0, 1.0, "light"]],
+"supportGrip": [33.0, 18.0],
+"width": 48.0
+}
+},
+"palette": {
+"amber": "#cfa34f",
+"cream": "#ead9ad",
+"cyan": "#6e9892",
+"danger": "#b94b42",
+"ink": "#17140f",
+"mint": "#87976a",
+"muted": "#b9aa88",
+"panel": "#2b2720",
+"panelLight": "#3a3429",
+"rust": "#b85b3f",
+"rustDark": "#71372c",
+"sand": "#d8c08a",
+"sandDark": "#80663f",
+"white": "#f2e6c5"
+},
+"poses": {
+"breaker_shotgun": {
+"definition": {
+"combat": {
+"color": "#b85b3f",
+"damage": 5.4,
+"flashLength": 9.5,
+"flashLife": 0.095,
+"flashWidth": 5.0,
+"id": "breaker_shotgun",
+"interval": 0.82,
+"lockRange": 250.0,
+"name": "破门霰弹枪",
+"pierce": 0.0,
+"projectileCount": 6.0,
+"projectileSpeed": 560.0,
+"recoil": 3.15,
+"spread": 34.0,
+"ttl": 0.48
+},
+"id": "breaker_shotgun",
+"name": "破门霰弹枪",
+"referenceImage": "../compact-arsenal-v2/weapons/breaker_shotgun.png",
+"referenceSha256": "C750CE7D27AAC0D813F030D6D3238447D43615A6E782BC87DB3818AE88F7B07E",
+"version": "07a5eae2266f9871",
+"visual": {
+"asset": "weapon.breaker_shotgun",
+"family": "longgun",
+"height": 22.0,
+"muzzle": [47.0, 6.5],
+"pivot": [16.0, 6.5],
+"primaryGrip": [16.0, 11.0],
+"supportGrip": [33.0, 10.0],
+"width": 48.0
+}
+},
+"hold": {
+"aimOffsetX": 3.0,
+"chestY": -16.0,
+"height": 22.0,
+"muzzle": [47.0, 6.5],
+"pivot": [16.0, 6.5],
+"recoil": 3.15,
+"upLift": 6.15,
+"upShoulder": 10.0,
+"width": 48.0
+},
+"layout": {
+"height": 22.0,
+"layers": [{
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 5.0,
+"kind": "hand",
+"rect": [33.0, 0.0, 5.0, 5.0],
+"slot": "primary",
+"width": 5.0,
+"x": 14.0,
+"y": 9.0
+}, {
+"anchor": [1.0, 1.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 4.0,
+"kind": "hand",
+"rect": [39.0, 0.0, 4.0, 4.0],
+"slot": "support",
+"width": 4.0,
+"x": 32.0,
+"y": 9.0
+}, {
+"anchor": [4.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 3.0,
+"kind": "cuff",
+"rect": [20.0, 0.0, 2.0, 3.0],
+"slot": "primary",
+"width": 2.0,
+"x": 12.0,
+"y": 10.0
+}, {
+"anchor": [3.0, -1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 2.0,
+"kind": "cuff",
+"rect": [23.0, 0.0, 2.0, 2.0],
+"slot": "support",
+"width": 2.0,
+"x": 30.0,
+"y": 11.0
+}],
+"muzzle": [47.0, 6.5],
+"origin": [0.0, 0.0],
+"pivot": [16.0, 6.5],
+"weapon": {
+"combat": {
+"color": "#b85b3f",
+"damage": 5.4,
+"flashLength": 9.5,
+"flashLife": 0.095,
+"flashWidth": 5.0,
+"id": "breaker_shotgun",
+"interval": 0.82,
+"lockRange": 250.0,
+"name": "破门霰弹枪",
+"pierce": 0.0,
+"projectileCount": 6.0,
+"projectileSpeed": 560.0,
+"recoil": 3.15,
+"spread": 34.0,
+"ttl": 0.48
+},
+"id": "breaker_shotgun",
+"name": "破门霰弹枪",
+"referenceImage": "../compact-arsenal-v2/weapons/breaker_shotgun.png",
+"referenceSha256": "C750CE7D27AAC0D813F030D6D3238447D43615A6E782BC87DB3818AE88F7B07E",
+"version": "07a5eae2266f9871",
+"visual": {
+"asset": "weapon.breaker_shotgun",
+"family": "longgun",
+"height": 22.0,
+"muzzle": [47.0, 6.5],
+"pivot": [16.0, 6.5],
+"primaryGrip": [16.0, 11.0],
+"supportGrip": [33.0, 10.0],
+"width": 48.0
+}
+},
+"width": 48.0
+}
+},
+"coil_cannon": {
+"definition": {
+"combat": {
+"color": "#58e4ed",
+"damage": 58.0,
+"flashLength": 12.0,
+"flashLife": 0.12,
+"flashWidth": 5.0,
+"id": "coil_cannon",
+"interval": 1.18,
+"lockRange": 760.0,
+"name": "荒雷线圈炮",
+"pierce": 5.0,
+"projectileCount": 1.0,
+"projectileSpeed": 860.0,
+"recoil": 4.0,
+"spread": 0.0,
+"ttl": 1.28
+},
+"id": "coil_cannon",
+"name": "荒雷线圈炮",
+"referenceImage": "../compact-arsenal-v2/weapons/coil_cannon.png",
+"referenceSha256": "3CE8382F4F48EF11505AF4AA865C81E27183791546DC918C5BB421F8151FA463",
+"version": "7e8793c52609fb87",
+"visual": {
+"asset": "weapon.coil_cannon",
+"family": "heavy",
+"height": 28.0,
+"muzzle": [49.0, 10.5],
+"pivot": [17.0, 10.5],
+"primaryGrip": [14.0, 14.0],
+"supportGrip": [33.0, 15.0],
+"width": 50.0
+}
+},
+"hold": {
+"aimOffsetX": 3.0,
+"chestY": -15.0,
+"height": 28.0,
+"muzzle": [49.0, 10.5],
+"pivot": [17.0, 10.5],
+"recoil": 4.0,
+"upLift": 7.0,
+"upShoulder": 10.0,
+"width": 50.0
+},
+"layout": {
+"height": 28.0,
+"layers": [{
+"anchor": [3.0, 3.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 7.0,
+"kind": "hand",
+"rect": [92.0, 0.0, 6.0, 7.0],
+"slot": "primary",
+"width": 6.0,
+"x": 11.0,
+"y": 11.0
+}, {
+"anchor": [5.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 4.0,
+"kind": "hand",
+"rect": [99.0, 0.0, 9.0, 4.0],
+"slot": "support",
+"width": 9.0,
+"x": 28.0,
+"y": 13.0
+}, {
+"anchor": [4.0, 2.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 5.0,
+"kind": "cuff",
+"rect": [50.0, 0.0, 2.0, 5.0],
+"slot": "primary",
+"width": 2.0,
+"x": 10.0,
+"y": 12.0
+}, {
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 3.0,
+"kind": "cuff",
+"rect": [53.0, 0.0, 3.0, 3.0],
+"slot": "support",
+"width": 3.0,
+"x": 28.0,
+"y": 14.0
+}],
+"muzzle": [49.0, 10.5],
+"origin": [0.0, 0.0],
+"pivot": [17.0, 10.5],
+"weapon": {
+"combat": {
+"color": "#58e4ed",
+"damage": 58.0,
+"flashLength": 12.0,
+"flashLife": 0.12,
+"flashWidth": 5.0,
+"id": "coil_cannon",
+"interval": 1.18,
+"lockRange": 760.0,
+"name": "荒雷线圈炮",
+"pierce": 5.0,
+"projectileCount": 1.0,
+"projectileSpeed": 860.0,
+"recoil": 4.0,
+"spread": 0.0,
+"ttl": 1.28
+},
+"id": "coil_cannon",
+"name": "荒雷线圈炮",
+"referenceImage": "../compact-arsenal-v2/weapons/coil_cannon.png",
+"referenceSha256": "3CE8382F4F48EF11505AF4AA865C81E27183791546DC918C5BB421F8151FA463",
+"version": "7e8793c52609fb87",
+"visual": {
+"asset": "weapon.coil_cannon",
+"family": "heavy",
+"height": 28.0,
+"muzzle": [49.0, 10.5],
+"pivot": [17.0, 10.5],
+"primaryGrip": [14.0, 14.0],
+"supportGrip": [33.0, 15.0],
+"width": 50.0
+}
+},
+"width": 50.0
+}
+},
+"echo_blade": {
+"definition": {
+"combat": {
+"activeTime": 0.14,
+"arc": 1.9198621771937625,
+"attackType": "slash",
+"color": "#a9d9c7",
+"damage": 24.0,
+"description": "110度近身挥扫＋40%伤害剑气；有效挥击可消弹",
+"id": "echo_blade",
+"interval": 0.62,
+"knockback": 42.0,
+"lockRange": 190.0,
+"mechanicId": "slash",
+"muzzleFlashLength": 12.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 38.0,
+"muzzleParticles": 3.0,
+"name": "回响军刀",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 480.0,
+"rangeBand": "close",
+"reach": 80.0,
+"recoil": 0.5,
+"recovery": 0.13,
+"shellColor": "#c8a870",
+"shellLength": 5.0,
+"shellLife": 0.7,
+"spread": 0.0,
+"ttl": 0.5,
+"visualId": "echo-blade",
+"weaponClass": "blade",
+"windup": 0.09
+},
+"id": "echo_blade",
+"name": "回响军刀",
+"version": "native-v2-1",
+"visual": {
+"asset": "native.echo_blade",
+"family": "blade",
+"height": 20.0,
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -8.0,
+"upLift": 3.0,
+"upShoulder": 14.0
+},
+"muzzle": [56.0, 10.0],
+"pivot": [12.0, 10.0],
+"primaryGrip": [13.0, 11.0],
+"shapes": [[1.0, 8.0, 15.0, 6.0, "ink"], [3.0, 9.0, 12.0, 4.0, "wood"], [5.0, 8.0, 2.0, 6.0, "brass"], [10.0, 8.0, 2.0, 6.0, "brass"], [15.0, 3.0, 4.0, 15.0, "ink"], [16.0, 5.0, 2.0, 11.0, "brass"], [18.0, 6.0, 29.0, 9.0, "ink"], [20.0, 7.0, 28.0, 6.0, "steel"], [21.0, 7.0, 25.0, 2.0, "light"], [20.0, 12.0, 24.0, 2.0, "teal"], [46.0, 6.0, 6.0, 8.0, "ink"], [47.0, 7.0, 5.0, 5.0, "steel"], [51.0, 7.0, 3.0, 5.0, "ink"], [52.0, 8.0, 3.0, 3.0, "light"], [55.0, 9.0, 2.0, 1.0, "light"], [24.0, 9.0, 2.0, 2.0, "dark"], [36.0, 9.0, 3.0, 2.0, "dark"]],
+"supportGrip": [13.0, 11.0],
+"width": 58.0
+}
+},
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -8.0,
+"height": 20.0,
+"muzzle": [56.0, 10.0],
+"pivot": [12.0, 10.0],
+"recoil": 0.5,
+"upLift": 3.0,
+"upShoulder": 14.0,
+"width": 58.0
+},
+"layout": {
+"height": 20.0,
+"layers": [{
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 5.0,
+"kind": "hand",
+"rect": [44.0, 0.0, 7.0, 5.0],
+"slot": "primary",
+"width": 7.0,
+"x": 11.0,
+"y": 9.0
+}, {
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 5.0,
+"kind": "cuff",
+"rect": [26.0, 0.0, 4.0, 5.0],
+"slot": "primary",
+"width": 4.0,
+"x": 8.0,
+"y": 10.0
+}],
+"muzzle": [56.0, 10.0],
+"origin": [0.0, 0.0],
+"pivot": [12.0, 10.0],
+"weapon": {
+"combat": {
+"activeTime": 0.14,
+"arc": 1.9198621771937625,
+"attackType": "slash",
+"color": "#a9d9c7",
+"damage": 24.0,
+"description": "110度近身挥扫＋40%伤害剑气；有效挥击可消弹",
+"id": "echo_blade",
+"interval": 0.62,
+"knockback": 42.0,
+"lockRange": 190.0,
+"mechanicId": "slash",
+"muzzleFlashLength": 12.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 38.0,
+"muzzleParticles": 3.0,
+"name": "回响军刀",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 480.0,
+"rangeBand": "close",
+"reach": 80.0,
+"recoil": 0.5,
+"recovery": 0.13,
+"shellColor": "#c8a870",
+"shellLength": 5.0,
+"shellLife": 0.7,
+"spread": 0.0,
+"ttl": 0.5,
+"visualId": "echo-blade",
+"weaponClass": "blade",
+"windup": 0.09
+},
+"id": "echo_blade",
+"name": "回响军刀",
+"version": "native-v2-1",
+"visual": {
+"asset": "native.echo_blade",
+"family": "blade",
+"height": 20.0,
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -8.0,
+"upLift": 3.0,
+"upShoulder": 14.0
+},
+"muzzle": [56.0, 10.0],
+"pivot": [12.0, 10.0],
+"primaryGrip": [13.0, 11.0],
+"shapes": [[1.0, 8.0, 15.0, 6.0, "ink"], [3.0, 9.0, 12.0, 4.0, "wood"], [5.0, 8.0, 2.0, 6.0, "brass"], [10.0, 8.0, 2.0, 6.0, "brass"], [15.0, 3.0, 4.0, 15.0, "ink"], [16.0, 5.0, 2.0, 11.0, "brass"], [18.0, 6.0, 29.0, 9.0, "ink"], [20.0, 7.0, 28.0, 6.0, "steel"], [21.0, 7.0, 25.0, 2.0, "light"], [20.0, 12.0, 24.0, 2.0, "teal"], [46.0, 6.0, 6.0, 8.0, "ink"], [47.0, 7.0, 5.0, 5.0, "steel"], [51.0, 7.0, 3.0, 5.0, "ink"], [52.0, 8.0, 3.0, 3.0, "light"], [55.0, 9.0, 2.0, 1.0, "light"], [24.0, 9.0, 2.0, 2.0, "dark"], [36.0, 9.0, 3.0, 2.0, "dark"]],
+"supportGrip": [13.0, 11.0],
+"width": 58.0
+}
+},
+"width": 58.0
+}
+},
+"ember_carbine": {
+"definition": {
+"combat": {
+"color": "#ff7956",
+"damage": 10.5,
+"flashLength": 7.0,
+"flashLife": 0.06,
+"flashWidth": 3.0,
+"id": "ember_carbine",
+"interval": 0.22,
+"lockRange": 570.0,
+"name": "余烬卡宾枪",
+"pierce": 1.0,
+"projectileCount": 1.0,
+"projectileSpeed": 760.0,
+"recoil": 1.4349999999999998,
+"spread": 4.0,
+"ttl": 0.9
+},
+"id": "ember_carbine",
+"name": "余烬卡宾枪",
+"referenceImage": "../compact-arsenal-v2/weapons/ember_carbine.png",
+"referenceSha256": "BDBED671A237492ACB347FF8B28B7384B2C5AA8AC6AE50691A882FDFFF7C3F96",
+"version": "82d77f088ae2f3c5",
+"visual": {
+"asset": "weapon.ember_carbine",
+"family": "longgun",
+"height": 22.0,
+"muzzle": [45.0, 8.5],
+"pivot": [15.0, 8.5],
+"primaryGrip": [17.0, 13.0],
+"supportGrip": [31.0, 11.0],
+"width": 46.0
+}
+},
+"hold": {
+"aimOffsetX": 3.0,
+"chestY": -16.0,
+"height": 22.0,
+"muzzle": [45.0, 8.5],
+"pivot": [15.0, 8.5],
+"recoil": 1.4349999999999998,
+"upLift": 5.435,
+"upShoulder": 10.0,
+"width": 46.0
+},
+"layout": {
+"height": 22.0,
+"layers": [{
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 6.0,
+"kind": "hand",
+"rect": [80.0, 0.0, 6.0, 6.0],
+"slot": "primary",
+"width": 6.0,
+"x": 15.0,
+"y": 11.0
+}, {
+"anchor": [1.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 5.0,
+"kind": "hand",
+"rect": [87.0, 0.0, 4.0, 5.0],
+"slot": "support",
+"width": 4.0,
+"x": 30.0,
+"y": 9.0
+}, {
+"anchor": [4.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 4.0,
+"kind": "cuff",
+"rect": [44.0, 0.0, 2.0, 4.0],
+"slot": "primary",
+"width": 2.0,
+"x": 13.0,
+"y": 12.0
+}, {
+"anchor": [2.0, 0.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 3.0,
+"kind": "cuff",
+"rect": [47.0, 0.0, 2.0, 3.0],
+"slot": "support",
+"width": 2.0,
+"x": 29.0,
+"y": 11.0
+}],
+"muzzle": [45.0, 8.5],
+"origin": [0.0, 0.0],
+"pivot": [15.0, 8.5],
+"weapon": {
+"combat": {
+"color": "#ff7956",
+"damage": 10.5,
+"flashLength": 7.0,
+"flashLife": 0.06,
+"flashWidth": 3.0,
+"id": "ember_carbine",
+"interval": 0.22,
+"lockRange": 570.0,
+"name": "余烬卡宾枪",
+"pierce": 1.0,
+"projectileCount": 1.0,
+"projectileSpeed": 760.0,
+"recoil": 1.4349999999999998,
+"spread": 4.0,
+"ttl": 0.9
+},
+"id": "ember_carbine",
+"name": "余烬卡宾枪",
+"referenceImage": "../compact-arsenal-v2/weapons/ember_carbine.png",
+"referenceSha256": "BDBED671A237492ACB347FF8B28B7384B2C5AA8AC6AE50691A882FDFFF7C3F96",
+"version": "82d77f088ae2f3c5",
+"visual": {
+"asset": "weapon.ember_carbine",
+"family": "longgun",
+"height": 22.0,
+"muzzle": [45.0, 8.5],
+"pivot": [15.0, 8.5],
+"primaryGrip": [17.0, 13.0],
+"supportGrip": [31.0, 11.0],
+"width": 46.0
+}
+},
+"width": 46.0
+}
+},
+"needle_rifle": {
+"definition": {
+"combat": {
+"color": "#6e9892",
+"damage": 28.0,
+"flashLength": 8.0,
+"flashLife": 0.07,
+"flashWidth": 3.0,
+"id": "needle_rifle",
+"interval": 0.72,
+"lockRange": 680.0,
+"name": "针刺步枪",
+"pierce": 3.0,
+"projectileCount": 1.0,
+"projectileSpeed": 940.0,
+"recoil": 2.275,
+"spread": 0.0,
+"ttl": 1.1
+},
+"id": "needle_rifle",
+"name": "针刺步枪",
+"referenceImage": "../compact-arsenal-v2/weapons/needle_rifle.png",
+"referenceSha256": "4BC80F9498257438ACAB62A70A26A6E7A427897948EEBE216D560DAC4CD96251",
+"version": "c5bd316217d3217b",
+"visual": {
+"asset": "weapon.needle_rifle",
+"family": "longgun",
+"height": 22.0,
+"muzzle": [51.0, 9.0],
+"pivot": [17.0, 9.0],
+"primaryGrip": [13.0, 11.0],
+"supportGrip": [29.0, 11.0],
+"width": 52.0
+}
+},
+"hold": {
+"aimOffsetX": 3.0,
+"chestY": -16.0,
+"height": 22.0,
+"muzzle": [51.0, 9.0],
+"pivot": [17.0, 9.0],
+"recoil": 2.275,
+"upLift": 2.275,
+"upShoulder": 10.0,
+"width": 52.0
+},
+"layout": {
+"height": 22.0,
+"layers": [{
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 5.0,
+"kind": "hand",
+"rect": [44.0, 0.0, 7.0, 5.0],
+"slot": "primary",
+"width": 7.0,
+"x": 11.0,
+"y": 9.0
+}, {
+"anchor": [2.0, 1.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 5.0,
+"kind": "hand",
+"rect": [52.0, 0.0, 6.0, 5.0],
+"slot": "support",
+"width": 6.0,
+"x": 27.0,
+"y": 10.0
+}, {
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 5.0,
+"kind": "cuff",
+"rect": [26.0, 0.0, 4.0, 5.0],
+"slot": "primary",
+"width": 4.0,
+"x": 8.0,
+"y": 10.0
+}, {
+"anchor": [5.0, 0.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 4.0,
+"kind": "cuff",
+"rect": [31.0, 0.0, 3.0, 4.0],
+"slot": "support",
+"width": 3.0,
+"x": 24.0,
+"y": 11.0
+}],
+"muzzle": [51.0, 9.0],
+"origin": [0.0, 0.0],
+"pivot": [17.0, 9.0],
+"weapon": {
+"combat": {
+"color": "#6e9892",
+"damage": 28.0,
+"flashLength": 8.0,
+"flashLife": 0.07,
+"flashWidth": 3.0,
+"id": "needle_rifle",
+"interval": 0.72,
+"lockRange": 680.0,
+"name": "针刺步枪",
+"pierce": 3.0,
+"projectileCount": 1.0,
+"projectileSpeed": 940.0,
+"recoil": 2.275,
+"spread": 0.0,
+"ttl": 1.1
+},
+"id": "needle_rifle",
+"name": "针刺步枪",
+"referenceImage": "../compact-arsenal-v2/weapons/needle_rifle.png",
+"referenceSha256": "4BC80F9498257438ACAB62A70A26A6E7A427897948EEBE216D560DAC4CD96251",
+"version": "c5bd316217d3217b",
+"visual": {
+"asset": "weapon.needle_rifle",
+"family": "longgun",
+"height": 22.0,
+"muzzle": [51.0, 9.0],
+"pivot": [17.0, 9.0],
+"primaryGrip": [13.0, 11.0],
+"supportGrip": [29.0, 11.0],
+"width": 52.0
+}
+},
+"width": 52.0
+}
+},
+"prism_laser": {
+"definition": {
+"combat": {
+"attackType": "beam",
+"color": "#77d6cf",
+"damage": 22.0,
+"description": "瞬时贯穿射线，墙体截断；分流最多3束",
+"id": "prism_laser",
+"interval": 0.6,
+"knockback": 4.0,
+"lockRange": 720.0,
+"mechanicId": "beam",
+"muzzleFlashLength": 12.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 38.0,
+"muzzleParticles": 3.0,
+"name": "折光脉冲枪",
+"pierce": 3.0,
+"projectileCount": 1.0,
+"projectileSpeed": 1000.0,
+"rangeBand": "long",
+"recoil": 0.5,
+"shellColor": "#c8a870",
+"shellLength": 5.0,
+"shellLife": 0.7,
+"spread": 0.0,
+"ttl": 0.72,
+"visualId": "prism-laser",
+"weaponClass": "rifle"
+},
+"id": "prism_laser",
+"name": "折光脉冲枪",
+"version": "native-v2-1",
+"visual": {
+"asset": "native.prism_laser",
+"family": "longgun",
+"height": 24.0,
+"hold": {
+"aimOffsetX": 4.0,
+"chestY": -15.0,
+"upLift": 4.0,
+"upShoulder": 12.0
+},
+"muzzle": [50.0, 8.0],
+"pivot": [14.0, 8.0],
+"primaryGrip": [17.0, 15.0],
+"shapes": [[1.0, 5.0, 15.0, 10.0, "ink"], [3.0, 6.0, 10.0, 6.0, "wood"], [11.0, 3.0, 30.0, 15.0, "ink"], [13.0, 5.0, 26.0, 10.0, "dark"], [15.0, 5.0, 4.0, 8.0, "brass"], [21.0, 4.0, 3.0, 10.0, "teal"], [27.0, 4.0, 3.0, 10.0, "teal"], [33.0, 4.0, 3.0, 10.0, "teal"], [20.0, 5.0, 16.0, 2.0, "glow"], [37.0, 5.0, 14.0, 7.0, "ink"], [39.0, 6.0, 10.0, 4.0, "steel"], [47.0, 5.0, 3.0, 7.0, "brass"], [18.0, 15.0, 7.0, 7.0, "ink"], [19.0, 16.0, 4.0, 5.0, "olive"], [10.0, 1.0, 13.0, 3.0, "ink"], [12.0, 1.0, 9.0, 1.0, "steel"]],
+"supportGrip": [34.0, 13.0],
+"width": 52.0
+}
+},
+"hold": {
+"aimOffsetX": 4.0,
+"chestY": -15.0,
+"height": 24.0,
+"muzzle": [50.0, 8.0],
+"pivot": [14.0, 8.0],
+"recoil": 0.5,
+"upLift": 4.0,
+"upShoulder": 12.0,
+"width": 52.0
+},
+"layout": {
+"height": 24.0,
+"layers": [{
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 5.0,
+"kind": "hand",
+"rect": [44.0, 0.0, 7.0, 5.0],
+"slot": "primary",
+"width": 7.0,
+"x": 15.0,
+"y": 13.0
+}, {
+"anchor": [2.0, 1.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 5.0,
+"kind": "hand",
+"rect": [52.0, 0.0, 6.0, 5.0],
+"slot": "support",
+"width": 6.0,
+"x": 32.0,
+"y": 12.0
+}, {
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 5.0,
+"kind": "cuff",
+"rect": [26.0, 0.0, 4.0, 5.0],
+"slot": "primary",
+"width": 4.0,
+"x": 12.0,
+"y": 14.0
+}, {
+"anchor": [5.0, 0.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 4.0,
+"kind": "cuff",
+"rect": [31.0, 0.0, 3.0, 4.0],
+"slot": "support",
+"width": 3.0,
+"x": 29.0,
+"y": 13.0
+}],
+"muzzle": [50.0, 8.0],
+"origin": [0.0, 0.0],
+"pivot": [14.0, 8.0],
+"weapon": {
+"combat": {
+"attackType": "beam",
+"color": "#77d6cf",
+"damage": 22.0,
+"description": "瞬时贯穿射线，墙体截断；分流最多3束",
+"id": "prism_laser",
+"interval": 0.6,
+"knockback": 4.0,
+"lockRange": 720.0,
+"mechanicId": "beam",
+"muzzleFlashLength": 12.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 38.0,
+"muzzleParticles": 3.0,
+"name": "折光脉冲枪",
+"pierce": 3.0,
+"projectileCount": 1.0,
+"projectileSpeed": 1000.0,
+"rangeBand": "long",
+"recoil": 0.5,
+"shellColor": "#c8a870",
+"shellLength": 5.0,
+"shellLife": 0.7,
+"spread": 0.0,
+"ttl": 0.72,
+"visualId": "prism-laser",
+"weaponClass": "rifle"
+},
+"id": "prism_laser",
+"name": "折光脉冲枪",
+"version": "native-v2-1",
+"visual": {
+"asset": "native.prism_laser",
+"family": "longgun",
+"height": 24.0,
+"hold": {
+"aimOffsetX": 4.0,
+"chestY": -15.0,
+"upLift": 4.0,
+"upShoulder": 12.0
+},
+"muzzle": [50.0, 8.0],
+"pivot": [14.0, 8.0],
+"primaryGrip": [17.0, 15.0],
+"shapes": [[1.0, 5.0, 15.0, 10.0, "ink"], [3.0, 6.0, 10.0, 6.0, "wood"], [11.0, 3.0, 30.0, 15.0, "ink"], [13.0, 5.0, 26.0, 10.0, "dark"], [15.0, 5.0, 4.0, 8.0, "brass"], [21.0, 4.0, 3.0, 10.0, "teal"], [27.0, 4.0, 3.0, 10.0, "teal"], [33.0, 4.0, 3.0, 10.0, "teal"], [20.0, 5.0, 16.0, 2.0, "glow"], [37.0, 5.0, 14.0, 7.0, "ink"], [39.0, 6.0, 10.0, 4.0, "steel"], [47.0, 5.0, 3.0, 7.0, "brass"], [18.0, 15.0, 7.0, 7.0, "ink"], [19.0, 16.0, 4.0, 5.0, "olive"], [10.0, 1.0, 13.0, 3.0, "ink"], [12.0, 1.0, 9.0, 1.0, "steel"]],
+"supportGrip": [34.0, 13.0],
+"width": 52.0
+}
+},
+"width": 52.0
+}
+},
+"rust_revolver": {
+"definition": {
+"combat": {
+"color": "#f08a4b",
+"damage": 21.0,
+"flashLength": 7.5,
+"flashLife": 0.08,
+"flashWidth": 3.0,
+"id": "rust_revolver",
+"interval": 0.58,
+"lockRange": 500.0,
+"name": "锈痕左轮",
+"pierce": 1.0,
+"projectileCount": 1.0,
+"projectileSpeed": 730.0,
+"recoil": 2.52,
+"spread": 1.5,
+"ttl": 0.86
+},
+"id": "rust_revolver",
+"name": "锈痕左轮",
+"referenceImage": "../compact-arsenal-v2/weapons/rust_revolver.png",
+"referenceSha256": "3B03243FCBF9B9A95467389CC531541137FB66A5AC7BCA2C85F4782D4410CF48",
+"version": "f2b1bb15860718d8",
+"visual": {
+"asset": "weapon.rust_revolver",
+"family": "pistol",
+"height": 22.0,
+"muzzle": [37.0, 7.0],
+"pivot": [11.0, 7.0],
+"primaryGrip": [10.0, 15.0],
+"supportGrip": [24.0, 13.0],
+"width": 38.0
+}
+},
+"hold": {
+"aimOffsetX": 3.0,
+"chestY": -16.0,
+"height": 22.0,
+"muzzle": [37.0, 7.0],
+"pivot": [11.0, 7.0],
+"recoil": 2.52,
+"upLift": 10.52,
+"upShoulder": 10.0,
+"width": 38.0
+},
+"layout": {
+"height": 22.0,
+"layers": [{
+"anchor": [6.0, 3.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 9.0,
+"kind": "hand",
+"rect": [59.0, 0.0, 11.0, 9.0],
+"slot": "primary",
+"width": 11.0,
+"x": 4.0,
+"y": 12.0
+}, {
+"anchor": [3.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 6.0,
+"kind": "hand",
+"rect": [71.0, 0.0, 8.0, 6.0],
+"slot": "support",
+"width": 8.0,
+"x": 21.0,
+"y": 11.0
+}, {
+"anchor": [9.0, 2.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 6.0,
+"kind": "cuff",
+"rect": [35.0, 0.0, 5.0, 6.0],
+"slot": "primary",
+"width": 5.0,
+"x": 1.0,
+"y": 13.0
+}, {
+"anchor": [4.0, -2.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 3.0,
+"kind": "cuff",
+"rect": [41.0, 0.0, 2.0, 3.0],
+"slot": "support",
+"width": 2.0,
+"x": 20.0,
+"y": 15.0
+}],
+"muzzle": [37.0, 7.0],
+"origin": [0.0, 0.0],
+"pivot": [11.0, 7.0],
+"weapon": {
+"combat": {
+"color": "#f08a4b",
+"damage": 21.0,
+"flashLength": 7.5,
+"flashLife": 0.08,
+"flashWidth": 3.0,
+"id": "rust_revolver",
+"interval": 0.58,
+"lockRange": 500.0,
+"name": "锈痕左轮",
+"pierce": 1.0,
+"projectileCount": 1.0,
+"projectileSpeed": 730.0,
+"recoil": 2.52,
+"spread": 1.5,
+"ttl": 0.86
+},
+"id": "rust_revolver",
+"name": "锈痕左轮",
+"referenceImage": "../compact-arsenal-v2/weapons/rust_revolver.png",
+"referenceSha256": "3B03243FCBF9B9A95467389CC531541137FB66A5AC7BCA2C85F4782D4410CF48",
+"version": "f2b1bb15860718d8",
+"visual": {
+"asset": "weapon.rust_revolver",
+"family": "pistol",
+"height": 22.0,
+"muzzle": [37.0, 7.0],
+"pivot": [11.0, 7.0],
+"primaryGrip": [10.0, 15.0],
+"supportGrip": [24.0, 13.0],
+"width": 38.0
+}
+},
+"width": 38.0
+}
+},
+"saw_disc": {
+"definition": {
+"combat": {
+"attackType": "disc",
+"bounceRange": 200.0,
+"bounces": 2.0,
+"color": "#c1c5a6",
+"damage": 16.0,
+"description": "最多弹射2次，每跳保留78%伤害；不重复命中",
+"id": "saw_disc",
+"interval": 0.48,
+"knockback": 25.0,
+"lockRange": 420.0,
+"mechanicId": "disc",
+"muzzleFlashLength": 12.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 38.0,
+"muzzleParticles": 3.0,
+"name": "锯盘弹射器",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 430.0,
+"rangeBand": "mid",
+"recoil": 0.98,
+"shellColor": "#c8a870",
+"shellLength": 5.0,
+"shellLife": 0.7,
+"spread": 0.0,
+"ttl": 1.1,
+"visualId": "saw-disc",
+"weaponClass": "disc"
+},
+"id": "saw_disc",
+"name": "锯盘弹射器",
+"version": "native-v2-1",
+"visual": {
+"asset": "native.saw_disc",
+"family": "heavy",
+"height": 28.0,
+"hold": {
+"aimOffsetX": 4.0,
+"chestY": -14.0,
+"upLift": 7.0,
+"upShoulder": 12.0
+},
+"muzzle": [46.0, 9.0],
+"pivot": [13.0, 9.0],
+"primaryGrip": [17.0, 20.0],
+"shapes": [[1.0, 9.0, 13.0, 9.0, "ink"], [3.0, 10.0, 10.0, 6.0, "wood"], [11.0, 5.0, 35.0, 16.0, "ink"], [13.0, 7.0, 30.0, 11.0, "dark"], [29.0, 1.0, 10.0, 23.0, "ink"], [25.0, 5.0, 18.0, 15.0, "steel"], [28.0, 2.0, 12.0, 21.0, "steel"], [24.0, 9.0, 20.0, 7.0, "light"], [30.0, 6.0, 8.0, 13.0, "dark"], [32.0, 9.0, 4.0, 7.0, "brass"], [40.0, 7.0, 7.0, 8.0, "ink"], [42.0, 9.0, 4.0, 4.0, "steel"], [18.0, 19.0, 6.0, 7.0, "ink"], [19.0, 20.0, 3.0, 5.0, "olive"], [14.0, 7.0, 10.0, 2.0, "olive"], [15.0, 12.0, 7.0, 1.0, "brass"], [15.0, 15.0, 7.0, 1.0, "steel"], [23.0, 8.0, 2.0, 2.0, "light"]],
+"supportGrip": [33.0, 19.0],
+"width": 48.0
+}
+},
+"hold": {
+"aimOffsetX": 4.0,
+"chestY": -14.0,
+"height": 28.0,
+"muzzle": [46.0, 9.0],
+"pivot": [13.0, 9.0],
+"recoil": 0.98,
+"upLift": 7.0,
+"upShoulder": 12.0,
+"width": 48.0
+},
+"layout": {
+"height": 28.0,
+"layers": [{
+"anchor": [3.0, 3.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 7.0,
+"kind": "hand",
+"rect": [92.0, 0.0, 6.0, 7.0],
+"slot": "primary",
+"width": 6.0,
+"x": 14.0,
+"y": 17.0
+}, {
+"anchor": [5.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 4.0,
+"kind": "hand",
+"rect": [99.0, 0.0, 9.0, 4.0],
+"slot": "support",
+"width": 9.0,
+"x": 28.0,
+"y": 17.0
+}, {
+"anchor": [4.0, 2.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 5.0,
+"kind": "cuff",
+"rect": [50.0, 0.0, 2.0, 5.0],
+"slot": "primary",
+"width": 2.0,
+"x": 13.0,
+"y": 18.0
+}, {
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 3.0,
+"kind": "cuff",
+"rect": [53.0, 0.0, 3.0, 3.0],
+"slot": "support",
+"width": 3.0,
+"x": 28.0,
+"y": 18.0
+}],
+"muzzle": [46.0, 9.0],
+"origin": [0.0, 0.0],
+"pivot": [13.0, 9.0],
+"weapon": {
+"combat": {
+"attackType": "disc",
+"bounceRange": 200.0,
+"bounces": 2.0,
+"color": "#c1c5a6",
+"damage": 16.0,
+"description": "最多弹射2次，每跳保留78%伤害；不重复命中",
+"id": "saw_disc",
+"interval": 0.48,
+"knockback": 25.0,
+"lockRange": 420.0,
+"mechanicId": "disc",
+"muzzleFlashLength": 12.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 38.0,
+"muzzleParticles": 3.0,
+"name": "锯盘弹射器",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 430.0,
+"rangeBand": "mid",
+"recoil": 0.98,
+"shellColor": "#c8a870",
+"shellLength": 5.0,
+"shellLife": 0.7,
+"spread": 0.0,
+"ttl": 1.1,
+"visualId": "saw-disc",
+"weaponClass": "disc"
+},
+"id": "saw_disc",
+"name": "锯盘弹射器",
+"version": "native-v2-1",
+"visual": {
+"asset": "native.saw_disc",
+"family": "heavy",
+"height": 28.0,
+"hold": {
+"aimOffsetX": 4.0,
+"chestY": -14.0,
+"upLift": 7.0,
+"upShoulder": 12.0
+},
+"muzzle": [46.0, 9.0],
+"pivot": [13.0, 9.0],
+"primaryGrip": [17.0, 20.0],
+"shapes": [[1.0, 9.0, 13.0, 9.0, "ink"], [3.0, 10.0, 10.0, 6.0, "wood"], [11.0, 5.0, 35.0, 16.0, "ink"], [13.0, 7.0, 30.0, 11.0, "dark"], [29.0, 1.0, 10.0, 23.0, "ink"], [25.0, 5.0, 18.0, 15.0, "steel"], [28.0, 2.0, 12.0, 21.0, "steel"], [24.0, 9.0, 20.0, 7.0, "light"], [30.0, 6.0, 8.0, 13.0, "dark"], [32.0, 9.0, 4.0, 7.0, "brass"], [40.0, 7.0, 7.0, 8.0, "ink"], [42.0, 9.0, 4.0, 4.0, "steel"], [18.0, 19.0, 6.0, 7.0, "ink"], [19.0, 20.0, 3.0, 5.0, "olive"], [14.0, 7.0, 10.0, 2.0, "olive"], [15.0, 12.0, 7.0, 1.0, "brass"], [15.0, 15.0, 7.0, 1.0, "steel"], [23.0, 8.0, 2.0, 2.0, "light"]],
+"supportGrip": [33.0, 19.0],
+"width": 48.0
+}
+},
+"width": 48.0
+}
+},
+"scrap_pistol": {
+"definition": {
+"combat": {
+"color": "#cfa34f",
+"damage": 12.0,
+"flashLength": 6.0,
+"flashLife": 0.065,
+"flashWidth": 3.0,
+"id": "scrap_pistol",
+"interval": 0.35,
+"lockRange": 520.0,
+"name": "废料手枪",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 660.0,
+"recoil": 1.575,
+"spread": 0.0,
+"ttl": 0.9
+},
+"id": "scrap_pistol",
+"name": "废料手枪",
+"referenceImage": "../compact-motion-v1/sidearm-grip.png",
+"referenceSha256": "BFEC8BD9C9364B1601FFBB1E8AC1A2CC80A92BB51DA62CE5E6D3FAA4CA33859B",
+"version": "2e310c19d5815089",
+"visual": {
+"asset": "weapon.scrap_pistol",
+"family": "pistol",
+"height": 20.0,
+"muzzle": [33.0, 6.0],
+"pivot": [9.0, 6.0],
+"primaryGrip": [14.0, 12.0],
+"supportGrip": [20.0, 15.0],
+"width": 36.0
+}
+},
+"hold": {
+"aimOffsetX": 3.0,
+"chestY": -16.0,
+"height": 20.0,
+"muzzle": [33.0, 6.0],
+"pivot": [9.0, 6.0],
+"recoil": 1.575,
+"upLift": 8.0,
+"upShoulder": 12.0,
+"width": 36.0
+},
+"layout": {
+"height": 20.0,
+"layers": [{
+"anchor": [5.0, 3.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 8.0,
+"kind": "hand",
+"rect": [0.0, 0.0, 10.0, 8.0],
+"slot": "primary",
+"width": 10.0,
+"x": 9.0,
+"y": 9.0
+}, {
+"anchor": [3.0, 3.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 5.0,
+"kind": "hand",
+"rect": [11.0, 0.0, 8.0, 5.0],
+"slot": "support",
+"width": 8.0,
+"x": 17.0,
+"y": 12.0
+}, {
+"anchor": [13.0, 4.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 10.0,
+"kind": "cuff",
+"rect": [0.0, 0.0, 10.0, 10.0],
+"slot": "primary",
+"width": 10.0,
+"x": 1.0,
+"y": 8.0
+}, {
+"anchor": [4.0, -1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 2.0,
+"kind": "cuff",
+"rect": [11.0, 0.0, 2.0, 2.0],
+"slot": "support",
+"width": 2.0,
+"x": 16.0,
+"y": 16.0
+}],
+"muzzle": [33.0, 6.0],
+"origin": [0.0, 0.0],
+"pivot": [9.0, 6.0],
+"weapon": {
+"combat": {
+"color": "#cfa34f",
+"damage": 12.0,
+"flashLength": 6.0,
+"flashLife": 0.065,
+"flashWidth": 3.0,
+"id": "scrap_pistol",
+"interval": 0.35,
+"lockRange": 520.0,
+"name": "废料手枪",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 660.0,
+"recoil": 1.575,
+"spread": 0.0,
+"ttl": 0.9
+},
+"id": "scrap_pistol",
+"name": "废料手枪",
+"referenceImage": "../compact-motion-v1/sidearm-grip.png",
+"referenceSha256": "BFEC8BD9C9364B1601FFBB1E8AC1A2CC80A92BB51DA62CE5E6D3FAA4CA33859B",
+"version": "2e310c19d5815089",
+"visual": {
+"asset": "weapon.scrap_pistol",
+"family": "pistol",
+"height": 20.0,
+"muzzle": [33.0, 6.0],
+"pivot": [9.0, 6.0],
+"primaryGrip": [14.0, 12.0],
+"supportGrip": [20.0, 15.0],
+"width": 36.0
+}
+},
+"width": 36.0
+}
+},
+"shock_hammer": {
+"definition": {
+"combat": {
+"activeTime": 0.14,
+"attackType": "slam",
+"blastRadius": 64.0,
+"color": "#cfb685",
+"damage": 46.0,
+"description": "举锤后砸地，范围击退与短时消弹；前摇仍会受伤",
+"id": "shock_hammer",
+"impactOffset": 58.0,
+"interval": 1.25,
+"knockback": 95.0,
+"lockRange": 122.0,
+"mechanicId": "slam",
+"muzzleFlashLength": 12.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 38.0,
+"muzzleParticles": 3.0,
+"name": "铁砧震荡锤",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 1.0,
+"rangeBand": "close",
+"reach": 122.0,
+"recoil": 0.5,
+"recovery": 0.28,
+"shellColor": "#c8a870",
+"shellLength": 5.0,
+"shellLife": 0.7,
+"spread": 0.0,
+"ttl": 0.5,
+"visualId": "shock-hammer",
+"weaponClass": "hammer",
+"windup": 0.22
+},
+"id": "shock_hammer",
+"name": "铁砧震荡锤",
+"version": "native-v2-1",
+"visual": {
+"asset": "native.shock_hammer",
+"family": "hammer",
+"height": 32.0,
+"hold": {
+"aimOffsetX": 8.0,
+"chestY": -7.0,
+"upLift": 5.0,
+"upShoulder": 15.0
+},
+"muzzle": [46.0, 17.0],
+"pivot": [12.0, 17.0],
+"primaryGrip": [14.0, 18.0],
+"shapes": [[1.0, 14.0, 40.0, 7.0, "ink"], [3.0, 16.0, 35.0, 3.0, "wood"], [7.0, 14.0, 3.0, 7.0, "brass"], [18.0, 14.0, 3.0, 7.0, "brass"], [29.0, 14.0, 3.0, 7.0, "brass"], [35.0, 1.0, 16.0, 30.0, "ink"], [37.0, 3.0, 12.0, 26.0, "steel"], [38.0, 4.0, 10.0, 3.0, "light"], [38.0, 8.0, 10.0, 15.0, "dark"], [38.0, 12.0, 10.0, 3.0, "brass"], [39.0, 16.0, 8.0, 2.0, "teal"], [38.0, 24.0, 10.0, 4.0, "olive"], [33.0, 7.0, 4.0, 18.0, "ink"], [50.0, 7.0, 3.0, 18.0, "ink"], [37.0, 28.0, 12.0, 2.0, "dark"], [39.0, 5.0, 2.0, 2.0, "brass"], [45.0, 24.0, 2.0, 2.0, "light"]],
+"supportGrip": [27.0, 18.0],
+"width": 54.0
+}
+},
+"hold": {
+"aimOffsetX": 8.0,
+"chestY": -7.0,
+"height": 32.0,
+"muzzle": [46.0, 17.0],
+"pivot": [12.0, 17.0],
+"recoil": 0.5,
+"upLift": 5.0,
+"upShoulder": 15.0,
+"width": 54.0
+},
+"layout": {
+"height": 32.0,
+"layers": [{
+"anchor": [3.0, 3.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 7.0,
+"kind": "hand",
+"rect": [92.0, 0.0, 6.0, 7.0],
+"slot": "primary",
+"width": 6.0,
+"x": 11.0,
+"y": 15.0
+}, {
+"anchor": [5.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 4.0,
+"kind": "hand",
+"rect": [99.0, 0.0, 9.0, 4.0],
+"slot": "support",
+"width": 9.0,
+"x": 22.0,
+"y": 16.0
+}, {
+"anchor": [4.0, 2.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 5.0,
+"kind": "cuff",
+"rect": [50.0, 0.0, 2.0, 5.0],
+"slot": "primary",
+"width": 2.0,
+"x": 10.0,
+"y": 16.0
+}, {
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 3.0,
+"kind": "cuff",
+"rect": [53.0, 0.0, 3.0, 3.0],
+"slot": "support",
+"width": 3.0,
+"x": 22.0,
+"y": 17.0
+}],
+"muzzle": [46.0, 17.0],
+"origin": [0.0, 0.0],
+"pivot": [12.0, 17.0],
+"weapon": {
+"combat": {
+"activeTime": 0.14,
+"attackType": "slam",
+"blastRadius": 64.0,
+"color": "#cfb685",
+"damage": 46.0,
+"description": "举锤后砸地，范围击退与短时消弹；前摇仍会受伤",
+"id": "shock_hammer",
+"impactOffset": 58.0,
+"interval": 1.25,
+"knockback": 95.0,
+"lockRange": 122.0,
+"mechanicId": "slam",
+"muzzleFlashLength": 12.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 38.0,
+"muzzleParticles": 3.0,
+"name": "铁砧震荡锤",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 1.0,
+"rangeBand": "close",
+"reach": 122.0,
+"recoil": 0.5,
+"recovery": 0.28,
+"shellColor": "#c8a870",
+"shellLength": 5.0,
+"shellLife": 0.7,
+"spread": 0.0,
+"ttl": 0.5,
+"visualId": "shock-hammer",
+"weaponClass": "hammer",
+"windup": 0.22
+},
+"id": "shock_hammer",
+"name": "铁砧震荡锤",
+"version": "native-v2-1",
+"visual": {
+"asset": "native.shock_hammer",
+"family": "hammer",
+"height": 32.0,
+"hold": {
+"aimOffsetX": 8.0,
+"chestY": -7.0,
+"upLift": 5.0,
+"upShoulder": 15.0
+},
+"muzzle": [46.0, 17.0],
+"pivot": [12.0, 17.0],
+"primaryGrip": [14.0, 18.0],
+"shapes": [[1.0, 14.0, 40.0, 7.0, "ink"], [3.0, 16.0, 35.0, 3.0, "wood"], [7.0, 14.0, 3.0, 7.0, "brass"], [18.0, 14.0, 3.0, 7.0, "brass"], [29.0, 14.0, 3.0, 7.0, "brass"], [35.0, 1.0, 16.0, 30.0, "ink"], [37.0, 3.0, 12.0, 26.0, "steel"], [38.0, 4.0, 10.0, 3.0, "light"], [38.0, 8.0, 10.0, 15.0, "dark"], [38.0, 12.0, 10.0, 3.0, "brass"], [39.0, 16.0, 8.0, 2.0, "teal"], [38.0, 24.0, 10.0, 4.0, "olive"], [33.0, 7.0, 4.0, 18.0, "ink"], [50.0, 7.0, 3.0, 18.0, "ink"], [37.0, 28.0, 12.0, 2.0, "dark"], [39.0, 5.0, 2.0, 2.0, "brass"], [45.0, 24.0, 2.0, 2.0, "light"]],
+"supportGrip": [27.0, 18.0],
+"width": 54.0
+}
+},
+"width": 54.0
+}
+},
+"slag_launcher": {
+"definition": {
+"combat": {
+"attackType": "explosive",
+"blastRadius": 90.0,
+"color": "#e0a064",
+"damage": 38.0,
+"description": "慢速榴弹，接触或到时爆炸；爆炸不能穿墙",
+"id": "slag_launcher",
+"interval": 1.05,
+"knockback": 60.0,
+"lockRange": 470.0,
+"mechanicId": "explosive",
+"muzzleFlashLength": 12.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 38.0,
+"muzzleParticles": 3.0,
+"name": "熔渣榴弹器",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 360.0,
+"rangeBand": "mid",
+"recoil": 2.0999999999999996,
+"shellColor": "#a7aa84",
+"shellLength": 7.0,
+"shellLife": 0.7,
+"spread": 0.0,
+"ttl": 1.5,
+"visualId": "slag-launcher",
+"weaponClass": "heavy"
+},
+"id": "slag_launcher",
+"name": "熔渣榴弹器",
+"version": "native-v2-1",
+"visual": {
+"asset": "native.slag_launcher",
+"family": "heavy",
+"height": 28.0,
+"hold": {
+"aimOffsetX": 4.0,
+"chestY": -14.0,
+"upLift": 7.0,
+"upShoulder": 12.0
+},
+"muzzle": [46.0, 9.0],
+"pivot": [13.0, 9.0],
+"primaryGrip": [17.0, 19.0],
+"shapes": [[1.0, 8.0, 13.0, 10.0, "ink"], [3.0, 9.0, 10.0, 6.0, "wood"], [11.0, 3.0, 36.0, 16.0, "ink"], [13.0, 5.0, 31.0, 11.0, "olive"], [13.0, 5.0, 28.0, 2.0, "steel"], [17.0, 4.0, 4.0, 14.0, "brass"], [36.0, 4.0, 3.0, 14.0, "brass"], [44.0, 5.0, 3.0, 11.0, "dark"], [45.0, 7.0, 2.0, 6.0, "ink"], [20.0, 13.0, 14.0, 10.0, "ink"], [22.0, 15.0, 10.0, 6.0, "rust"], [25.0, 16.0, 2.0, 4.0, "brass"], [15.0, 18.0, 6.0, 8.0, "ink"], [16.0, 19.0, 3.0, 6.0, "wood"], [27.0, 1.0, 8.0, 3.0, "ink"], [29.0, 1.0, 5.0, 1.0, "light"]],
+"supportGrip": [33.0, 18.0],
+"width": 48.0
+}
+},
+"hold": {
+"aimOffsetX": 4.0,
+"chestY": -14.0,
+"height": 28.0,
+"muzzle": [46.0, 9.0],
+"pivot": [13.0, 9.0],
+"recoil": 2.0999999999999996,
+"upLift": 7.0,
+"upShoulder": 12.0,
+"width": 48.0
+},
+"layout": {
+"height": 28.0,
+"layers": [{
+"anchor": [3.0, 3.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 7.0,
+"kind": "hand",
+"rect": [92.0, 0.0, 6.0, 7.0],
+"slot": "primary",
+"width": 6.0,
+"x": 14.0,
+"y": 16.0
+}, {
+"anchor": [5.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 4.0,
+"kind": "hand",
+"rect": [99.0, 0.0, 9.0, 4.0],
+"slot": "support",
+"width": 9.0,
+"x": 28.0,
+"y": 16.0
+}, {
+"anchor": [4.0, 2.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 5.0,
+"kind": "cuff",
+"rect": [50.0, 0.0, 2.0, 5.0],
+"slot": "primary",
+"width": 2.0,
+"x": 13.0,
+"y": 17.0
+}, {
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 3.0,
+"kind": "cuff",
+"rect": [53.0, 0.0, 3.0, 3.0],
+"slot": "support",
+"width": 3.0,
+"x": 28.0,
+"y": 17.0
+}],
+"muzzle": [46.0, 9.0],
+"origin": [0.0, 0.0],
+"pivot": [13.0, 9.0],
+"weapon": {
+"combat": {
+"attackType": "explosive",
+"blastRadius": 90.0,
+"color": "#e0a064",
+"damage": 38.0,
+"description": "慢速榴弹，接触或到时爆炸；爆炸不能穿墙",
+"id": "slag_launcher",
+"interval": 1.05,
+"knockback": 60.0,
+"lockRange": 470.0,
+"mechanicId": "explosive",
+"muzzleFlashLength": 12.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 38.0,
+"muzzleParticles": 3.0,
+"name": "熔渣榴弹器",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 360.0,
+"rangeBand": "mid",
+"recoil": 2.0999999999999996,
+"shellColor": "#a7aa84",
+"shellLength": 7.0,
+"shellLife": 0.7,
+"spread": 0.0,
+"ttl": 1.5,
+"visualId": "slag-launcher",
+"weaponClass": "heavy"
+},
+"id": "slag_launcher",
+"name": "熔渣榴弹器",
+"version": "native-v2-1",
+"visual": {
+"asset": "native.slag_launcher",
+"family": "heavy",
+"height": 28.0,
+"hold": {
+"aimOffsetX": 4.0,
+"chestY": -14.0,
+"upLift": 7.0,
+"upShoulder": 12.0
+},
+"muzzle": [46.0, 9.0],
+"pivot": [13.0, 9.0],
+"primaryGrip": [17.0, 19.0],
+"shapes": [[1.0, 8.0, 13.0, 10.0, "ink"], [3.0, 9.0, 10.0, 6.0, "wood"], [11.0, 3.0, 36.0, 16.0, "ink"], [13.0, 5.0, 31.0, 11.0, "olive"], [13.0, 5.0, 28.0, 2.0, "steel"], [17.0, 4.0, 4.0, 14.0, "brass"], [36.0, 4.0, 3.0, 14.0, "brass"], [44.0, 5.0, 3.0, 11.0, "dark"], [45.0, 7.0, 2.0, 6.0, "ink"], [20.0, 13.0, 14.0, 10.0, "ink"], [22.0, 15.0, 10.0, 6.0, "rust"], [25.0, 16.0, 2.0, 4.0, "brass"], [15.0, 18.0, 6.0, 8.0, "ink"], [16.0, 19.0, 3.0, 6.0, "wood"], [27.0, 1.0, 8.0, 3.0, "ink"], [29.0, 1.0, 5.0, 1.0, "light"]],
+"supportGrip": [33.0, 18.0],
+"width": 48.0
+}
+},
+"width": 48.0
+}
+},
+"swarm_smg": {
+"definition": {
+"combat": {
+"color": "#87976a",
+"damage": 4.8,
+"flashLength": 5.0,
+"flashLife": 0.05,
+"flashWidth": 3.0,
+"id": "swarm_smg",
+"interval": 0.105,
+"lockRange": 420.0,
+"name": "蜂群冲锋枪",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 610.0,
+"recoil": 0.84,
+"spread": 9.0,
+"ttl": 0.72
+},
+"id": "swarm_smg",
+"name": "蜂群冲锋枪",
+"referenceImage": "../compact-arsenal-v2/weapons/swarm_smg.png",
+"referenceSha256": "7500953D2DF0145C81E6AF12FABC7FD304A5A5E658FA8DB1F5043DFB9CE777E4",
+"version": "26a6922c5f1090b4",
+"visual": {
+"asset": "weapon.swarm_smg",
+"family": "longgun",
+"height": 22.0,
+"muzzle": [39.0, 6.0],
+"pivot": [13.0, 6.0],
+"primaryGrip": [17.0, 11.0],
+"supportGrip": [30.0, 10.0],
+"width": 40.0
+}
+},
+"hold": {
+"aimOffsetX": 3.0,
+"chestY": -16.0,
+"height": 22.0,
+"muzzle": [39.0, 6.0],
+"pivot": [13.0, 6.0],
+"recoil": 0.84,
+"upLift": 8.84,
+"upShoulder": 10.0,
+"width": 40.0
+},
+"layout": {
+"height": 22.0,
+"layers": [{
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 6.0,
+"kind": "hand",
+"rect": [20.0, 0.0, 6.0, 6.0],
+"slot": "primary",
+"width": 6.0,
+"x": 15.0,
+"y": 9.0
+}, {
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 4.0,
+"kind": "hand",
+"rect": [27.0, 0.0, 5.0, 4.0],
+"slot": "support",
+"width": 5.0,
+"x": 28.0,
+"y": 8.0
+}, {
+"anchor": [4.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 4.0,
+"kind": "cuff",
+"rect": [14.0, 0.0, 2.0, 4.0],
+"slot": "primary",
+"width": 2.0,
+"x": 13.0,
+"y": 10.0
+}, {
+"anchor": [1.0, -2.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 1.0,
+"kind": "cuff",
+"rect": [17.0, 0.0, 2.0, 1.0],
+"slot": "support",
+"width": 2.0,
+"x": 29.0,
+"y": 12.0
+}],
+"muzzle": [39.0, 6.0],
+"origin": [0.0, 0.0],
+"pivot": [13.0, 6.0],
+"weapon": {
+"combat": {
+"color": "#87976a",
+"damage": 4.8,
+"flashLength": 5.0,
+"flashLife": 0.05,
+"flashWidth": 3.0,
+"id": "swarm_smg",
+"interval": 0.105,
+"lockRange": 420.0,
+"name": "蜂群冲锋枪",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 610.0,
+"recoil": 0.84,
+"spread": 9.0,
+"ttl": 0.72
+},
+"id": "swarm_smg",
+"name": "蜂群冲锋枪",
+"referenceImage": "../compact-arsenal-v2/weapons/swarm_smg.png",
+"referenceSha256": "7500953D2DF0145C81E6AF12FABC7FD304A5A5E658FA8DB1F5043DFB9CE777E4",
+"version": "26a6922c5f1090b4",
+"visual": {
+"asset": "weapon.swarm_smg",
+"family": "longgun",
+"height": 22.0,
+"muzzle": [39.0, 6.0],
+"pivot": [13.0, 6.0],
+"primaryGrip": [17.0, 11.0],
+"supportGrip": [30.0, 10.0],
+"width": 40.0
+}
+},
+"width": 40.0
+}
+}
+},
+"saveSchema": 10.0,
+"survival": {
+"gunPrices": {
+"breaker_shotgun": 20.0,
+"coil_cannon": 36.0,
+"echo_blade": 16.0,
+"ember_carbine": 24.0,
+"needle_rifle": 26.0,
+"prism_laser": 32.0,
+"rust_revolver": 22.0,
+"saw_disc": 26.0,
+"scrap_pistol": 12.0,
+"shock_hammer": 22.0,
+"slag_launcher": 28.0,
+"swarm_smg": 16.0
+},
+"legacyMaps": {
+"dead_rail": "freight_nexus",
+"red_storm": "red_basin",
+"signal_dawn": "echo_district"
+},
+"maps": {
+"echo_district": {
+"radioDetail": "在广播广场补给，沿街巷寻找生路。",
+"radioTitle": "余火电台 · 回声旧城",
+"weights": {
+"brute": 1.1,
+"crawler": 2.0,
+"drifter": 6.0,
+"runner": 2.6,
+"screecher": 0.9,
+"spitter": 1.7
+}
+},
+"freight_nexus": {
+"radioDetail": "列车之间留有通路，留意远程感染者。",
+"radioTitle": "余火电台 · 锈轨枢纽",
+"weights": {
+"brute": 1.5,
+"crawler": 1.5,
+"drifter": 4.6,
+"runner": 2.7,
+"screecher": 1.0,
+"spitter": 2.6
+}
+},
+"red_basin": {
+"radioDetail": "利用开阔地带绕行，别在风暴里停步。",
+"radioTitle": "余火电台 · 赤砂沉降区",
+"weights": {
+"brute": 1.8,
+"crawler": 3.0,
+"drifter": 4.0,
+"runner": 3.1,
+"screecher": 1.2,
+"spitter": 1.9
+}
+}
+},
+"turret": {
+"damage": 9.0,
+"interval": 0.85,
+"maxCount": 4.0,
+"maxHp": 110.0,
+"projectileSpeed": 610.0,
+"radius": 13.0,
+"range": 340.0
+}
+},
+"version": "1.5.0-alpha.1",
+"weaponFeedback": {
+"breaker_shotgun": {
+"angle": 1.15,
+"camera": 0.75,
+"color": "#deb67a",
+"core": "#f8e7b8",
+"ejectDelay": 0.17,
+"family": "pellet",
+"flash": "wide",
+"impact": "#d9b27b",
+"kick": 3.2,
+"recovery": 0.14,
+"shell": "shotgun",
+"trail": 4.0,
+"width": 3.0
+},
+"coil_cannon": {
+"angle": 0.88,
+"camera": 0.95,
+"color": "#70cbd1",
+"core": "#dcfff0",
+"ejectDelay": 0.0,
+"family": "coil",
+"flash": "coil",
+"impact": "#97d9d2",
+"kick": 3.5,
+"recovery": 0.18,
+"shell": "none",
+"trail": 26.0,
+"width": 5.0
+},
+"echo_blade": {
+"angle": 0.0,
+"camera": 0.0,
+"color": "#9ed8c1",
+"core": "#edffdf",
+"ejectDelay": 0.0,
+"family": "blade",
+"flash": "none",
+"impact": "#cee5b3",
+"kick": 0.0,
+"recovery": 0.1,
+"shell": "none",
+"trail": 0.0,
+"width": 3.0
+},
+"ember_carbine": {
+"angle": 0.38,
+"camera": 0.2,
+"color": "#e8ac76",
+"core": "#ffe2af",
+"ejectDelay": 0.0,
+"family": "carbine",
+"flash": "compact",
+"impact": "#d8bb8b",
+"kick": 1.2,
+"recovery": 0.065,
+"shell": "rifle",
+"trail": 13.0,
+"width": 2.0
+},
+"needle_rifle": {
+"angle": 0.72,
+"camera": 0.4,
+"color": "#9dbcc2",
+"core": "#f0f6dc",
+"ejectDelay": 0.08,
+"family": "needle",
+"flash": "needle",
+"impact": "#bfd0c3",
+"kick": 2.0,
+"recovery": 0.11,
+"shell": "rifle",
+"trail": 22.0,
+"width": 2.0
+},
+"prism_laser": {
+"angle": 0.2,
+"camera": 0.12,
+"color": "#80d4c7",
+"core": "#e6ffe7",
+"ejectDelay": 0.0,
+"family": "beam",
+"flash": "coil",
+"impact": "#c6e9c7",
+"kick": 0.9,
+"recovery": 0.07,
+"shell": "none",
+"trail": 0.0,
+"width": 3.0
+},
+"rust_revolver": {
+"angle": 1.0,
+"camera": 0.55,
+"color": "#d8a366",
+"core": "#fff1c6",
+"ejectDelay": 0.0,
+"family": "slug",
+"flash": "heavy",
+"impact": "#dfb885",
+"kick": 2.1,
+"recovery": 0.14,
+"shell": "none",
+"trail": 10.0,
+"width": 4.0
+},
+"saw_disc": {
+"angle": 0.5,
+"camera": 0.2,
+"color": "#b9c8a4",
+"core": "#e5e4be",
+"ejectDelay": 0.0,
+"family": "disc",
+"flash": "short",
+"impact": "#d9c394",
+"kick": 1.5,
+"recovery": 0.1,
+"shell": "none",
+"trail": 7.0,
+"width": 8.0
+},
+"scrap_pistol": {
+"angle": 0.65,
+"camera": 0.28,
+"color": "#e7bd70",
+"core": "#fff0bd",
+"ejectDelay": 0.0,
+"family": "pistol",
+"flash": "compact",
+"impact": "#d9bf8f",
+"kick": 1.6,
+"recovery": 0.09,
+"shell": "pistol",
+"trail": 9.0,
+"width": 3.0
+},
+"shock_hammer": {
+"angle": 0.0,
+"camera": 0.0,
+"color": "#c9b384",
+"core": "#f3dfb0",
+"ejectDelay": 0.0,
+"family": "hammer",
+"flash": "none",
+"impact": "#d2b180",
+"kick": 0.0,
+"recovery": 0.1,
+"shell": "none",
+"trail": 0.0,
+"width": 3.0
+},
+"slag_launcher": {
+"angle": 1.0,
+"camera": 0.5,
+"color": "#d5a069",
+"core": "#f9deb1",
+"ejectDelay": 0.14,
+"family": "grenade",
+"flash": "heavy",
+"impact": "#c7ac7a",
+"kick": 3.0,
+"recovery": 0.17,
+"shell": "grenade",
+"trail": 12.0,
+"width": 5.0
+},
+"swarm_smg": {
+"angle": 0.25,
+"camera": 0.1,
+"color": "#b7c399",
+"core": "#f0e9bd",
+"ejectDelay": 0.0,
+"family": "rapid",
+"flash": "short",
+"impact": "#c5c397",
+"kick": 0.75,
+"recovery": 0.045,
+"shell": "micro",
+"trail": 7.0,
+"width": 2.0
+}
+}
+}
+default_save = {
+"achievements": {},
+"bestNoHitTime": 0.0,
+"bestTime": 0.0,
+"bossesDefeated": 0.0,
+"claimedMasteryRewards": [],
+"completedStages": [],
+"completedUnlockRules": [],
+"currencies": {
+"copper": 250.0,
+"gold": 0.0
+},
+"eliteKills": 0.0,
+"equippedEquipment": {
+"boots": null,
+"chest": "field_vest",
+"helmet": null,
+"legs": null
+},
+"keyBindings": {
+"deployTurret": "KeyT",
+"fire": "Space",
+"fullscreen": "KeyF",
+"interact": "KeyE",
+"moveDown": "KeyS",
+"moveLeft": "KeyA",
+"moveRight": "KeyD",
+"moveUp": "KeyW",
+"pause": "KeyP",
+"quit": "KeyQ",
+"restart": "KeyR",
+"upgrade1": "Digit1",
+"upgrade2": "Digit2",
+"upgrade3": "Digit3",
+"upgrade4": "Digit4"
+},
+"masteryBadges": [],
+"ownedEquipment": ["field_vest"],
+"runHistory": [],
+"schemaVersion": 10.0,
+"scrap": 0.0,
+"selectedHero": "ranger",
+"selectedMap": "echo_district",
+"selectedMode": "endless",
+"selectedSkin": "wanderer",
+"selectedStage": "signal_dawn",
+"selectedWeapon": "scrap_pistol",
+"settings": {
+"autoAim": true,
+"autoFire": true,
+"flashes": "low",
+"gamepadDeadzone": 0.18,
+"gamepadEnabled": true,
+"gamepadVibration": true,
+"introAnimation": true,
+"music": 0.55,
+"musicMuted": false,
+"screenShake": "low",
+"sfx": 0.75,
+"sfxMuted": false,
+"showControlHints": true,
+"showFps": false,
+"uiScale": 1.0
+},
+"settledRuns": 0.0,
+"shopCategory": "weapon",
+"survivalRecords": {},
+"totalCopper": 250.0,
+"totalGold": 0.0,
+"totalKills": 0.0,
+"totalScrap": 0.0,
+"tutorialCompleted": false,
+"tutorialSkipped": false,
+"unlockedBlueprints": [],
+"unlockedEvolutions": [],
+"unlockedHeroes": ["ranger", "mechanic"],
+"unlockedMaps": ["echo_district", "freight_nexus", "red_basin"],
+"unlockedModifiers": [],
+"unlockedSkins": ["wanderer"],
+"unlockedWeapons": ["scrap_pistol"],
+"weaponMastery": {},
+"wins": 0.0
+}

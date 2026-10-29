@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_ieom6"]
+
+[resource]
+script = ExtResource("1_ieom6")
+content_id = &"projectile"
+category = &"upgrades"
+display_name = "分流枪机"
+source_data = {
+"detail": "弹丸 +1",
+"family": "firepower",
+"flavor": "一次扣动，多路火力",
+"id": "projectile",
+"max": 2.0,
+"name": "分流枪机",
+"rarity": "prototype"
+}

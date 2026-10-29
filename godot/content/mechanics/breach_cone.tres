@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_m4gk6"]
+
+[resource]
+script = ExtResource("1_m4gk6")
+content_id = &"breach_cone"
+category = &"mechanics"
+display_name = "破门距离"
+source_data = {
+"description": "破门霰弹枪在近距离获得额外伤害与击退",
+"id": "breach_cone",
+"name": "破门距离"
+}

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_tryti"]
+
+[resource]
+script = ExtResource("1_tryti")
+content_id = &"turretRepair"
+category = &"upgrades"
+display_name = "维护回路"
+source_data = {
+"detail": "塔台8秒未受击后 · 每秒修复1%最大耐久",
+"family": "utility",
+"id": "turretRepair",
+"max": 3.0,
+"name": "维护回路",
+"rarity": "prototype",
+"requires": {
+"structures": true
+}
+}

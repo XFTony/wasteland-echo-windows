@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_1pf3j"]
+
+[resource]
+script = ExtResource("1_1pf3j")
+content_id = &"vitality"
+category = &"upgrades"
+display_name = "战地医疗"
+source_data = {
+"detail": "最大生命 +15 · 回复 15",
+"family": "survival",
+"flavor": "立刻重整呼吸",
+"id": "vitality",
+"max": 4.0,
+"name": "战地医疗",
+"rarity": "standard"
+}

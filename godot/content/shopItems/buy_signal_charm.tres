@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_iq6wl"]
+
+[resource]
+script = ExtResource("1_iq6wl")
+content_id = &"buy_signal_charm"
+category = &"shopItems"
+display_name = "远讯侦测盔"
+source_data = {
+"category": "equipment",
+"currency": "gold",
+"description": "头盔：伤害 +10%，锁定距离 +12%。",
+"grantId": "signal_charm",
+"grantType": "equipment",
+"id": "buy_signal_charm",
+"name": "远讯侦测盔",
+"price": 6.0,
+"unlockRuleId": "blueprint_signal",
+"unlockStage": 3.0
+}

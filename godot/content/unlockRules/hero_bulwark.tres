@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_d0w3i"]
+
+[resource]
+script = ExtResource("1_d0w3i")
+content_id = &"hero_bulwark"
+category = &"unlockRules"
+display_name = "铁卫归队"
+source_data = {
+"conditions": [{
+"gte": 300.0,
+"metric": "bestTime"
+}],
+"description": "单局生存达到 5 分钟",
+"id": "hero_bulwark",
+"name": "铁卫归队",
+"reward": {
+"id": "bulwark",
+"kind": "hero"
+}
+}

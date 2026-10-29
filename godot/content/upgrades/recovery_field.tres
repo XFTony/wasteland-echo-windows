@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_e10yy"]
+
+[resource]
+script = ExtResource("1_e10yy")
+content_id = &"recoveryField"
+category = &"upgrades"
+display_name = "回收力场"
+source_data = {
+"detail": "拾取范围 +80% · 脱战回复 +0.8",
+"evolution": true,
+"family": "utility",
+"flavor": "废料、药剂与经验都被同一场域牵引",
+"id": "recoveryField",
+"max": 1.0,
+"name": "回收力场",
+"rarity": "evolution",
+"requires": {
+"masteryUnlock": true,
+"upgrades": {
+"magnet": 3.0,
+"recovery": 2.0
+},
+"weaponClasses": ["sidearm", "revolver"]
+}
+}

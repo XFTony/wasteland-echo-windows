@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_ee48e"]
+
+[resource]
+script = ExtResource("1_ee48e")
+content_id = &"penetratorDoctrine"
+category = &"upgrades"
+display_name = "穿燃教义"
+source_data = {
+"detail": "伤害 +25% · 穿透 +2 · 弹体增大",
+"evolution": true,
+"family": "firepower",
+"flavor": "高压弹芯被重铸为一次性的质变",
+"id": "penetratorDoctrine",
+"max": 1.0,
+"name": "穿燃教义",
+"rarity": "evolution",
+"requires": {
+"masteryUnlock": true,
+"upgrades": {
+"damage": 3.0,
+"pierce": 2.0
+},
+"weaponClasses": ["rifle", "heavy"]
+}
+}

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_i6g14"]
+
+[resource]
+script = ExtResource("1_i6g14")
+content_id = &"arcNetwork"
+category = &"upgrades"
+display_name = "电弧战术网"
+source_data = {
+"detail": "弹速 +20% · 伤害 +12% · 穿透 +1",
+"evolution": true,
+"family": "utility",
+"flavor": "线圈与瞄具共享脉冲时序，火力穿过整条战线",
+"id": "arcNetwork",
+"max": 1.0,
+"name": "电弧战术网",
+"rarity": "evolution",
+"requires": {
+"masteryUnlock": true,
+"upgrades": {
+"critical": 2.0,
+"velocity": 3.0
+},
+"weaponClasses": ["carbine", "heavy", "rifle"]
+}
+}

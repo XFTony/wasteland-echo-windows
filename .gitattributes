@@ -6,3 +6,9 @@
 *.zip binary
 *.gif binary
 *.aseprite binary
+*.gd text eol=lf
+*.gdshader text eol=lf
+*.tscn text eol=lf
+*.tres text eol=lf
+*.godot text eol=lf
+*.uid text eol=lf

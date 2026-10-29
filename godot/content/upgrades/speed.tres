@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_n05my"]
+
+[resource]
+script = ExtResource("1_n05my")
+content_id = &"speed"
+category = &"upgrades"
+display_name = "轻量靴"
+source_data = {
+"detail": "移动速度 +8%",
+"family": "mobility",
+"flavor": "穿过浪潮的缝隙",
+"id": "speed",
+"max": 4.0,
+"name": "轻量靴",
+"rarity": "standard"
+}

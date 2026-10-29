@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_8x1wh"]
+
+[resource]
+script = ExtResource("1_8x1wh")
+content_id = &"scarcity"
+category = &"modifiers"
+display_name = "匮乏协议"
+source_data = {
+"description": "补给与恢复更稀少，结算收益提高。",
+"id": "scarcity",
+"name": "匮乏协议",
+"rewardMultiplier": 1.2
+}

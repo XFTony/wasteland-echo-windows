@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_2bwxt"]
+
+[resource]
+script = ExtResource("1_2bwxt")
+content_id = &"blueprint_stormstep"
+category = &"unlockRules"
+display_name = "踏雷许可"
+source_data = {
+"conditions": [{
+"gte": 4.0,
+"metric": "masteryAny"
+}],
+"description": "任意武器精通达到 Lv4",
+"id": "blueprint_stormstep",
+"name": "踏雷许可",
+"reward": {
+"id": "buy_stormstep_boots",
+"kind": "shopBlueprint"
+}
+}

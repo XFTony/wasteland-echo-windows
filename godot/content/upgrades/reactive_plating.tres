@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_pyrkc"]
+
+[resource]
+script = ExtResource("1_pyrkc")
+content_id = &"reactivePlating"
+category = &"upgrades"
+display_name = "反应装甲"
+source_data = {
+"detail": "受击时释放近身冲击波",
+"family": "survival",
+"flavor": "装甲把撕咬反向送回尸群",
+"id": "reactivePlating",
+"max": 3.0,
+"name": "反应装甲",
+"rarity": "prototype"
+}

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_wj8wf"]
+
+[resource]
+script = ExtResource("1_wj8wf")
+content_id = &"caliber"
+category = &"upgrades"
+display_name = "重型枪膛"
+source_data = {
+"detail": "弹体 +0.6 · 击退 +18%",
+"family": "firepower",
+"flavor": "以冲击力换取安全距离",
+"id": "caliber",
+"max": 4.0,
+"name": "重型枪膛",
+"rarity": "advanced"
+}

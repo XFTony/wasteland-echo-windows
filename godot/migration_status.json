@@ -1,0 +1,44 @@
+{
+  "target": "Complete native Godot reproduction of the existing game",
+  "baseline": "ef7d50d",
+  "status": "in_progress",
+  "toolchain": {
+    "godot": "4.7.2.stable.official.ed1daf0bf",
+    "skill": "godot @ c8bc20f876a8da241274d48461444fab86182d83",
+    "mcp": "@coding-solo/godot-mcp@0.1.1",
+    "mcpConfiguration": "project .codex/config.toml, enabled, host reload required for current tool catalog"
+  },
+  "verified": [
+    "137 native Resource definitions preserve every category, ID and source parameter",
+    "59 active images, 21 audio assets and font/license files copied with source hashes",
+    "Reference seeded random sequences",
+    "Time pressure, 30 loadout combinations, 34 upgrade arithmetic cases",
+    "80 permanent shop state cases",
+    "Schema10/default/legacy save normalization fixtures and damaged-save recovery",
+    "Native atomic file replacement and previous-value backup",
+    "192 compact weapon direction coordinate cases",
+    "Default six-menu action IDs and rectangles at four resolutions: 24 layouts, 200 actions",
+    "Three-map static navigation at three clearances: walkability, BFS distances and flow directions match reference arrays"
+  ],
+  "inProgress": [
+    "Full menu visual fidelity: item details, material variants, wardrobe layout and typography",
+    "Settings controls, input mapping and all non-default UI states",
+    "Unlock reconciliation and complete persistence integration"
+  ],
+  "pending": [
+    "Startup sequence and skip/reduced-motion behavior",
+    "Full native world/map presentation, navigation and collision integration",
+    "Full native combat for all weapons, enemy roles and Bosses",
+    "Spawner and continuous survival simulation",
+    "Experience, upgrade candidates, mechanisms and evolutions",
+    "Field market, arsenal and deployable turrets",
+    "Achievements, unlocks, mastery, payout and history",
+    "HUD, pause, upgrades, field market and all result screens",
+    "Audio scheduling, music, recoil, shells and feedback pools",
+    "Mouse/keyboard/gamepad, rebinding, focus, disconnect and blur recovery",
+    "Explicit reference-save export and native import UI",
+    "Windows export templates, standalone builds and long-session/device validation"
+  ],
+  "completeGame": false,
+  "perfectVisualParity": false
+}

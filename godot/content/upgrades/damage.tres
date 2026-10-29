@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_l187n"]
+
+[resource]
+script = ExtResource("1_l187n")
+content_id = &"damage"
+category = &"upgrades"
+display_name = "高压弹头"
+source_data = {
+"detail": "伤害 +15%",
+"family": "firepower",
+"flavor": "让每一发都更有分量",
+"id": "damage",
+"max": 5.0,
+"name": "高压弹头",
+"rarity": "standard"
+}

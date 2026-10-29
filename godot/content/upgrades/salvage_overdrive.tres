@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_ic0wf"]
+
+[resource]
+script = ExtResource("1_ic0wf")
+content_id = &"salvageOverdrive"
+category = &"upgrades"
+display_name = "回收超频"
+source_data = {
+"detail": "拾取经验或废料后短暂强化弹道",
+"family": "utility",
+"flavor": "每一块战利品都让枪机重新加速",
+"id": "salvageOverdrive",
+"max": 3.0,
+"name": "回收超频",
+"rarity": "advanced"
+}

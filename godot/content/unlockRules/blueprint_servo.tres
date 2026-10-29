@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_ptvek"]
+
+[resource]
+script = ExtResource("1_ptvek")
+content_id = &"blueprint_servo"
+category = &"unlockRules"
+display_name = "助力许可"
+source_data = {
+"conditions": [{
+"gte": 350.0,
+"metric": "totalKills"
+}],
+"description": "累计击败 350 名感染者",
+"id": "blueprint_servo",
+"name": "助力许可",
+"reward": {
+"id": "buy_servo_greaves",
+"kind": "shopBlueprint"
+}
+}

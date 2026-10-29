@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_hag8d"]
+
+[resource]
+script = ExtResource("1_hag8d")
+content_id = &"mechanic"
+category = &"skins"
+display_name = "信号维修工"
+source_data = {
+"accent": "#b8873e",
+"body": "#557e72",
+"dark": "#263632",
+"description": "青绿检修服，缀有工具带与信号灯。",
+"id": "mechanic",
+"name": "信号维修工"
+}

@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/weapon_definition.gd" id="1_47de5"]
+
+[resource]
+script = ExtResource("1_47de5")
+damage = 46.0
+interval = 1.25
+projectile_speed = 1.0
+lock_range = 122.0
+lifetime = 0.5
+knockback = 95.0
+recoil = 0.5
+content_id = &"shock_hammer"
+category = &"weapons"
+display_name = "铁砧震荡锤"
+source_data = {
+"activeTime": 0.14,
+"attackType": "slam",
+"blastRadius": 64.0,
+"color": "#cfb685",
+"damage": 46.0,
+"description": "举锤后砸地，范围击退与短时消弹；前摇仍会受伤",
+"id": "shock_hammer",
+"impactOffset": 58.0,
+"interval": 1.25,
+"knockback": 95.0,
+"lockRange": 122.0,
+"mechanicId": "slam",
+"muzzleFlashLength": 12.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 38.0,
+"muzzleParticles": 3.0,
+"name": "铁砧震荡锤",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 1.0,
+"rangeBand": "close",
+"reach": 122.0,
+"recoil": 0.5,
+"recovery": 0.28,
+"shellColor": "#c8a870",
+"shellLength": 5.0,
+"shellLife": 0.7,
+"spread": 0.0,
+"ttl": 0.5,
+"visualId": "shock-hammer",
+"weaponClass": "hammer",
+"windup": 0.22
+}

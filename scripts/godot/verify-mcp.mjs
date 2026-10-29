@@ -4,7 +4,8 @@ import { pathToFileURL } from "node:url";
 
 const root = path.resolve(import.meta.dirname, "../..");
 const out = path.join(root, "output/godot-evaluation-2026-10-29");
-const modules = path.join(out, "mcp/node_modules");
+const stableModules = path.join(root,"tools/godot-mcp/node_modules");
+const modules = fs.existsSync(stableModules) ? stableModules : path.join(out, "mcp/node_modules");
 const { Client } = await import(pathToFileURL(path.join(modules, "@modelcontextprotocol/sdk/dist/client/index.js")));
 const { StdioClientTransport } = await import(pathToFileURL(path.join(modules, "@modelcontextprotocol/sdk/dist/client/stdio.js")));
 const projectPath = path.join(root, "experiments/godot-pilot");

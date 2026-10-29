@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_8a0i1"]
+
+[resource]
+script = ExtResource("1_8a0i1")
+content_id = &"iron_plate"
+category = &"equipment"
+display_name = "拼装铁甲"
+source_data = {
+"description": "铆接路牌与车门钢板，厚重但可靠。",
+"id": "iron_plate",
+"name": "拼装铁甲",
+"rarity": "advanced",
+"slot": "chest",
+"stats": {
+"armor": 0.08,
+"hp": 24.0,
+"speedMultiplier": 0.96
+},
+"visualId": "riveted-iron-shell"
+}

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_mbsml"]
+
+[resource]
+script = ExtResource("1_mbsml")
+content_id = &"signal_charm"
+category = &"equipment"
+display_name = "远讯侦测盔"
+source_data = {
+"description": "完整晶振驱动的远讯目镜，强化锁定与弱点识别。",
+"id": "signal_charm",
+"name": "远讯侦测盔",
+"rarity": "prototype",
+"slot": "helmet",
+"stats": {
+"armor": 0.02,
+"damageMultiplier": 1.1,
+"lockRangeMultiplier": 1.12
+},
+"visualId": "longwave-visor-helm"
+}

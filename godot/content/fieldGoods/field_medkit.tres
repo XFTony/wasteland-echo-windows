@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_gva1d"]
+
+[resource]
+script = ExtResource("1_gva1d")
+content_id = &"fieldMedkit"
+category = &"fieldGoods"
+display_name = "战地急救包"
+source_data = {
+"cooldown": 30.0,
+"detail": "回复 30% 最大生命 · 战斗30秒后补货",
+"effect": "heal",
+"family": "survival",
+"icon": "vitality",
+"id": "fieldMedkit",
+"name": "战地急救包",
+"prices": [7.0, 9.0, 12.0],
+"repeat": true
+}

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_uwxvx"]
+
+[resource]
+script = ExtResource("1_uwxvx")
+content_id = &"blueprint_nightwatch"
+category = &"unlockRules"
+display_name = "夜巡档案"
+source_data = {
+"conditions": [{
+"gte": 90.0,
+"metric": "bestNoHitTime"
+}],
+"description": "单局最长无伤达到 90 秒",
+"id": "blueprint_nightwatch",
+"name": "夜巡档案",
+"reward": {
+"id": "buy_nightwatch_outfit",
+"kind": "shopBlueprint"
+}
+}

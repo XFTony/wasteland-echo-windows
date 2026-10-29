@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_qolqg"]
+
+[resource]
+script = ExtResource("1_qolqg")
+content_id = &"slash"
+category = &"mechanics"
+display_name = "回响刃波"
+source_data = {
+"description": "近身挥扫后释放有限距离剑气",
+"id": "slash",
+"name": "回响刃波"
+}
