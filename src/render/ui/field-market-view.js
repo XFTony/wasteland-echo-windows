@@ -4,6 +4,7 @@ const { surface, RADIO, focusInk } = require("./radio-materials");
 const { drawUpgradeIllustration, drawCoin } = require("./upgrade-illustrations");
 const { drawGrantIcon } = require("./item-icons");
 const { keyLabel } = require("../../input/key-bindings");
+const { weaponSummary } = require("../../content/weapon-expansion");
 
 function drawFieldShop(r, model) {
   r.drawOverlay();
@@ -16,7 +17,7 @@ function drawFieldShop(r, model) {
   r.text("购枪、改装与支援 · 所购物品仅本局保留", x + pad, y + 57, compact ? 12 : 15, "#c6b990", "left", "700");
   drawCoin(ctx, x + width - pad - 152, y + 30, 10);
   r.text(model.run.scrap + " 拾荒币", x + width - pad, y + 30, compact ? 18 : 23, "#f0d298", "right", "900");
-  const tabs = [["supplies", "改件补给"], ["arsenal", "军械库"], ["support", "塔台支援"]];
+  const tabs = [["supplies", "改件补给"], ["arsenal", "武器库"], ["support", "塔台支援"]];
   const tabW = Math.min(180, (width - pad * 2 - 20) / 3);
   tabs.forEach(([id, label], index) => r.button("fieldTab:" + id, label, x + pad + index * (tabW + 10), y + 77, tabW, 34, tab === id ? "primary" : "secondary"));
   const all = tab === "arsenal" ? model.content.ids("weapons") : model.content.ids("fieldGoods").filter(id => (model.content.fieldGoods[id].tab || "supplies") === tab);
@@ -34,13 +35,14 @@ function drawFieldShop(r, model) {
     else drawUpgradeIllustration(ctx, tab === "support" ? id : item.icon, ix, iy, icon, item.family);
     const tx = cx + icon + 15, tw = cardW - icon - 26;
     r.fitText(item.name, tx, cy + 21, compact ? 16 : 19, tw, RADIO.ink, "left", "900", 11);
-    const detail = gun ? (state.tier ? state.tier + "阶 / 校准" + state.calibration + " · 切换保留" : item.description) : item.detail;
-    detail.split(" · ").slice(0, 2).forEach((line, j) => r.fitText(line, tx, cy + 43 + j * 15, compact ? 11 : 13, tw, "#54452f", "left", "700", 10));
+    const lines=gun?(state.tier?[state.tier+"阶 / 调校"+state.calibration,...weaponSummary(item).slice(0,2)]:weaponSummary(item)):item.detail.split(" · ");
+    const chars=Math.max(10,Math.floor(tw/(compact?11:12)));
+    lines.slice(0,3).forEach((line,j)=>r.text(line.length>chars?line.slice(0,chars-1)+"…":line,tx,cy+43+j*15,compact?11:12,"#54452f","left","700"));
     const by = cy + cardH - 40, bw = Math.min(145, (cardW - 30) * (gun && state.tier ? .49 : .65));
     if (gun) {
       if (!state.tier) r.button("arsenalBuy:" + id, state.status === "insufficient" ? "还差" + (state.price - model.run.scrap) + "币" : state.price + "币 · 购入", cx + cardW - bw - 10, by, bw, 30, state.status === "available" ? "primary" : "secondary");
       else {
-        r.button("arsenalEquip:" + id, state.status === "equipped" ? "已装备" : "切换此枪", cx + 10, by, bw, 30, state.status === "equipped" ? "primary" : "secondary");
+        r.button("arsenalEquip:" + id, state.status === "equipped" ? "已装备" : "切换此武器", cx + 10, by, bw, 30, state.status === "equipped" ? "primary" : "secondary");
         if (state.tier < 4) r.button("arsenalImprove:" + id, state.upgradePrice + "币 · 升阶", cx + cardW - bw - 10, by, bw, 30, state.canUpgrade ? "primary" : "secondary");
         else r.text("已达4阶", cx + cardW - 15, by + 15, 11, "#5c472d", "right", "900");
       }
@@ -57,7 +59,7 @@ function drawFieldShop(r, model) {
     r.text("部署手册", gx + 14, gy + 20, compact ? 16 : 20, RADIO.ink, "left", "900");
     ["T / Y 开始部署", "空地确认 · Esc / B取消", "E / A靠近回收，保留耐久", "受敌攻击会损毁", "工程与维护技能强化塔台"].forEach((line, i) => r.fitText(line, gx + 14, gy + 43 + i * (compact ? 16 : 22), compact ? 11 : 14, cardW - 28, "#54452f", "left", "700", 10));
   }
-  if (pageCount > 1) r.button("fieldPage:" + ((page + 1) % pageCount), "更多枪械 " + (page + 1) + "/" + pageCount + " ›", x + pad, y + height - 88, 166, 29, "secondary");
+  if (pageCount > 1) r.button("fieldPage:" + ((page + 1) % pageCount), "更多武器 " + (page + 1) + "/" + pageCount + " ›", x + pad, y + height - 88, 166, 29, "secondary");
   r.fitText(market.message, x + pad, y + height - 43, compact ? 11 : 14, width - pad * 2 - 220, "#e5d7b1", "left", "700", 10);
   r.text("购物暂停计时 · 返回战斗后才会补货", x + pad, y + height - 22, compact ? 11 : 13, "#bcb497", "left", "700");
   r.button("fieldClose", "返回战斗", x + width - pad - 180, y + height - 65, 180, 40, "primary");

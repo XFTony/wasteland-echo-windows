@@ -10,7 +10,7 @@ const {
 } = require("./art-primitives");
 const { drawFieldButton, drawFieldPlate, drawTextScrim } = require("./field-surfaces");
 
-const CATEGORY_LABELS = Object.freeze({ weapon: "枪械", outfit: "服饰", equipment: "四部位护具" });
+const CATEGORY_LABELS = Object.freeze({ weapon: "武器", outfit: "服饰", equipment: "四部位护具" });
 
 function itemTypeLine(renderer, item) {
   if (item.grantType === "weapon") {
@@ -27,7 +27,7 @@ function itemStatLine(renderer, item) {
   if (item.grantType === "weapon") {
     const weapon = renderer.content.get("weapons", item.grantId, renderer.content.defaults.weapon);
     const rate = Math.min(99, 1 / weapon.interval).toFixed(weapon.interval < 0.15 ? 1 : 2);
-    return `伤害 ${weapon.damage}  ·  射速 ${rate}/秒  ·  锁定 ${weapon.lockRange}`;
+    return `伤害 ${weapon.damage}  ·  攻速 ${rate}/秒  ·  锁定 ${weapon.lockRange}`;
   }
   if (item.grantType === "equipment") {
     const equipment = renderer.content.get("equipment", item.grantId, renderer.content.defaults.equipment);
@@ -102,12 +102,14 @@ function drawShopPage(renderer, model) {
   renderer.button("shopCategoryNext", "›", x + (compact ? 205 : 270), tabsY, arrow, arrow, "secondary");
   if (model.shopMessage) renderer.fitText(model.shopMessage.text, x + w, tabsY + arrow / 2, 12, w * 0.48,
     model.shopMessage.tone === "success" ? UI_COLORS.green : UI_COLORS.danger, "right", "700", 10);
-  const items = renderer.content.ids("shopItems").map(id => renderer.content.shopItems[id]).filter(item => item.category === model.shopCategory);
+  const all = renderer.content.ids("shopItems").map(id => renderer.content.shopItems[id]).filter(item => item.category === model.shopCategory);
+  const pages=Math.max(1,Math.ceil(all.length/6)),page=Math.min(pages-1,model.shopPage||0),items=all.slice(page*6,page*6+6);
   const columns = 2, rows = Math.max(1, Math.ceil(items.length / columns)), gap = compact ? 10 : 16;
   const gridY = tabsY + arrow + (compact ? 9 : 14), cardW = (w - gap) / columns;
-  const cardH = (renderer.height - gridY - margin - gap * (rows - 1)) / rows;
+  const cardH = (renderer.height - gridY - margin - gap * (rows - 1) - (pages>1?40:0)) / rows;
   items.forEach((item, index) => drawItemCard(renderer, model, item, x + index % columns * (cardW + gap),
     gridY + Math.floor(index / columns) * (cardH + gap), cardW, cardH));
+  if(pages>1){renderer.button(`shopPage:${(page+pages-1)%pages}`,"‹ 上一页",x,renderer.height-margin-33,116,32,"secondary");renderer.text(`${page+1}/${pages}`,x+w/2,renderer.height-margin-17,13,UI_COLORS.paper,"center","800");renderer.button(`shopPage:${(page+1)%pages}`,"下一页 ›",x+w-116,renderer.height-margin-33,116,32,"secondary");}
 }
 
 module.exports = { CATEGORY_LABELS, drawShopIcon, drawShopPage, drawItemCard };

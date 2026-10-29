@@ -12,6 +12,7 @@
 - 当前菜单环境：`art/ui/radio-v1/`的像素广播营地与桌面由内置OpenAI ImageGen为本项目生成，提示词与原稿保存于该目录；控件文字、焦点、材质和动画保持可编辑代码。品牌字标采用Fusion Pixel，中文正文使用系统字体；
 - 字体来源与许可：<https://github.com/TakWolf/fusion-pixel-font>；完整上游发布包、源 WOFF2 与许可证分别保存在 `docs/assets-sources/fusion-pixel-font-2026.09.01/`、`docs/licenses/` 和 `web/assets/fonts/`；
 - 当前枪声：SnakeF8第二套Authentic Gun Sounds，作者实录，按作者public domain／CC0声明取用；裁切、滤波与响度处理后用于七把虚构武器，机械声独立。原振荡器音色保留为缺API／加载失败回退；
+- 武器扩展：五件新武器轮廓由项目原生像素描述绘制，手、袖口与武器独立；新增九个短音效以项目原创合成为主，榴弹发射、爆炸与锤击落地另混合已有许可的SnakeF8录音。制作方法、源文件和SHA见[扩展音频说明](art/audio/arsenal-v2/README.md)；未使用《元气骑士》《土豆兄弟》的美术、代码或录音；
 - 当前主题《余火信号》：项目原创16小节D小调动机、92 BPM和三种编排；低音量氛围层来自Juhani Junkala / SubspaceAudio的Horror Atmosphere（CC0）。短音效解码缓存，长主题流式播放；
 - 音频来源、作者声明、修改和文件SHA：[音频材料说明](art/audio/survival-v1/README.md)、[许可记录](art/audio/survival-v1/source-permission.md)、[来源清单](art/audio/survival-v1/source-provenance.json)；
 - 编曲工具：开发阶段使用 MIT 许可的 `tubone24/midi-agent-skill`（本机安装名 `midi-generation`）的调式、配器和声部间距规则做辅助检查；Skill 不进入桌面运行包；

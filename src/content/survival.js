@@ -1,4 +1,5 @@
 "use strict";
+const { NEW_GUN_PRICES } = require("./weapon-expansion");
 
 const SURVIVAL_MAPS = Object.freeze({
   echo_district: Object.freeze({ radioTitle: "余火电台 · 回声旧城", radioDetail: "在广播广场补给，沿街巷寻找生路。", weights: { drifter: 6, runner: 2.6, crawler: 2, spitter: 1.7, brute: 1.1, screecher: .9 } }),
@@ -6,7 +7,7 @@ const SURVIVAL_MAPS = Object.freeze({
   red_basin: Object.freeze({ radioTitle: "余火电台 · 赤砂沉降区", radioDetail: "利用开阔地带绕行，别在风暴里停步。", weights: { drifter: 4, runner: 3.1, crawler: 3, spitter: 1.9, brute: 1.8, screecher: 1.2 } })
 });
 const LEGACY_STAGE_MAPS = Object.freeze({ signal_dawn: "echo_district", dead_rail: "freight_nexus", red_storm: "red_basin" });
-const GUN_PRICES = Object.freeze({ scrap_pistol: 12, swarm_smg: 16, breaker_shotgun: 20, needle_rifle: 26, rust_revolver: 22, ember_carbine: 24, coil_cannon: 36 });
+const GUN_PRICES = Object.freeze({ scrap_pistol: 12, swarm_smg: 16, breaker_shotgun: 20, needle_rifle: 26, rust_revolver: 22, ember_carbine: 24, coil_cannon: 36, ...NEW_GUN_PRICES });
 const TURRET = Object.freeze({ radius: 13, maxCount: 4, maxHp: 110, range: 340, interval: .85, damage: 9, projectileSpeed: 610 });
 
 function getSurvivalPressure(seconds) {

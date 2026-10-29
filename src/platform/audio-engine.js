@@ -241,6 +241,7 @@ class AudioEngine {
     this.prepareWeapon(weaponId);
     if (this.playSample(weaponId, pitch, gain, delay)) {
       this.soundStats.recorded++;
+      if(["prism_laser","saw_disc","echo_blade","shock_hammer"].includes(weaponId))return true;
       const mechanical = ["breaker_shotgun", "rust_revolver", "coil_cannon"].includes(weaponId) ? "mechanical_heavy" : "mechanical_light";
       this.playSample(mechanical, pitch, .28, delay + Math.min(.085, (options.interval || .3) * .4));
       return true;
@@ -262,6 +263,7 @@ class AudioEngine {
     this.currentWeapon = id;
     this.bank.prepare(this.context, id);
     this.bank.prepare(this.context, "mechanical_light"); this.bank.prepare(this.context, "mechanical_heavy");
+    for(const extra of ({slag_launcher:["explosion"],saw_disc:["ricochet"],echo_blade:["melee_hit"],shock_hammer:["hammer_impact"]}[id]||[]))this.bank.prepare(this.context,extra);
   }
 
   playSample(id, pitch = 1, scale = 1, delay = 0) {
@@ -368,10 +370,16 @@ class AudioEngine {
         this.playShot(event.weaponId, { interval: event.interval, empowered: event.empowered,
           delay: firstShot && Number.isFinite(event.elapsed) ? Math.min(.08, Math.max(0, event.elapsed - firstShot.elapsed)) : 0 });
       }
+      if(event.type==="weaponImpact"){
+        const sample={explosion:"explosion",slam:"hammer_impact",ricochet:"ricochet"}[event.kind];
+        if(sample){this.bank.prepare(this.context,sample);this.playSample(sample,1,event.kind==="ricochet"?.5:.85);}
+      }
       if (event.type === "hit") {
         const now = this.context ? this.context.currentTime || 0 : 0;
         if (now - this.lastImpactAt >= (event.critical ? .016 : .028)) {
           this.lastImpactAt = now;
+          if(event.weaponId==="echo_blade"){this.playSample("melee_hit",1,.7);continue;}
+          if(event.weaponId==="shock_hammer")continue;
           const energy = event.weaponId === "coil_cannon";
           this.playNoise(energy ? .04 : .022, event.elite ? .025 : .015, energy ? 2900 : 1050);
           if (event.critical) this.tone("criticalHit", .65);

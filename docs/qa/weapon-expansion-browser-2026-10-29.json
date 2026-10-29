@@ -1,0 +1,412 @@
+{
+  "date": "2026-10-29",
+  "pageErrors": [],
+  "workshopIsolated": true,
+  "newWeapons": [
+    {
+      "weaponId": "prism_laser",
+      "compactWeapon": "prism_laser",
+      "shots": 1,
+      "melee": 0,
+      "enemyDamage": [
+        22,
+        22,
+        22
+      ],
+      "fx": [
+        "beam"
+      ],
+      "gripBytes": 4992
+    },
+    {
+      "weaponId": "slag_launcher",
+      "compactWeapon": "slag_launcher",
+      "shots": 1,
+      "melee": 0,
+      "enemyDamage": [
+        0,
+        0,
+        0
+      ],
+      "fx": [],
+      "gripBytes": 10368
+    },
+    {
+      "weaponId": "saw_disc",
+      "compactWeapon": "saw_disc",
+      "shots": 1,
+      "melee": 0,
+      "enemyDamage": [
+        16,
+        0,
+        0
+      ],
+      "fx": [],
+      "gripBytes": 15744
+    },
+    {
+      "weaponId": "echo_blade",
+      "compactWeapon": "echo_blade",
+      "shots": 1,
+      "melee": 1,
+      "enemyDamage": [
+        24,
+        0,
+        0
+      ],
+      "fx": [],
+      "attack": "slash",
+      "gripBytes": 20384
+    },
+    {
+      "weaponId": "shock_hammer",
+      "compactWeapon": "shock_hammer",
+      "shots": 1,
+      "melee": 2,
+      "enemyDamage": [
+        46,
+        46,
+        0
+      ],
+      "fx": [],
+      "attack": "slam",
+      "gripBytes": 27296
+    }
+  ],
+  "eightDirectionPoses": [
+    {
+      "weapon": "prism_laser",
+      "angle": 0,
+      "frame": 0,
+      "weaponAngle": 0
+    },
+    {
+      "weapon": "prism_laser",
+      "angle": 45,
+      "frame": 0,
+      "weaponAngle": 0.7853981633974483
+    },
+    {
+      "weapon": "prism_laser",
+      "angle": 90,
+      "frame": 0,
+      "weaponAngle": 1.5707963267948966
+    },
+    {
+      "weapon": "prism_laser",
+      "angle": 135,
+      "frame": 0,
+      "weaponAngle": 2.356194490192345
+    },
+    {
+      "weapon": "prism_laser",
+      "angle": 180,
+      "frame": 0,
+      "weaponAngle": 3.141592653589793
+    },
+    {
+      "weapon": "prism_laser",
+      "angle": -135,
+      "frame": 0,
+      "weaponAngle": -2.356194490192345
+    },
+    {
+      "weapon": "prism_laser",
+      "angle": -90,
+      "frame": 0,
+      "weaponAngle": -1.5707963267948966
+    },
+    {
+      "weapon": "prism_laser",
+      "angle": -45,
+      "frame": 0,
+      "weaponAngle": -0.7853981633974483
+    },
+    {
+      "weapon": "slag_launcher",
+      "angle": 0,
+      "frame": 0,
+      "weaponAngle": 0
+    },
+    {
+      "weapon": "slag_launcher",
+      "angle": 45,
+      "frame": 0,
+      "weaponAngle": 0.7853981633974483
+    },
+    {
+      "weapon": "slag_launcher",
+      "angle": 90,
+      "frame": 0,
+      "weaponAngle": 1.5707963267948966
+    },
+    {
+      "weapon": "slag_launcher",
+      "angle": 135,
+      "frame": 0,
+      "weaponAngle": 2.356194490192345
+    },
+    {
+      "weapon": "slag_launcher",
+      "angle": 180,
+      "frame": 0,
+      "weaponAngle": 3.141592653589793
+    },
+    {
+      "weapon": "slag_launcher",
+      "angle": -135,
+      "frame": 0,
+      "weaponAngle": -2.356194490192345
+    },
+    {
+      "weapon": "slag_launcher",
+      "angle": -90,
+      "frame": 0,
+      "weaponAngle": -1.5707963267948966
+    },
+    {
+      "weapon": "slag_launcher",
+      "angle": -45,
+      "frame": 0,
+      "weaponAngle": -0.7853981633974483
+    },
+    {
+      "weapon": "saw_disc",
+      "angle": 0,
+      "frame": 0,
+      "weaponAngle": 0
+    },
+    {
+      "weapon": "saw_disc",
+      "angle": 45,
+      "frame": 0,
+      "weaponAngle": 0.7853981633974483
+    },
+    {
+      "weapon": "saw_disc",
+      "angle": 90,
+      "frame": 0,
+      "weaponAngle": 1.5707963267948966
+    },
+    {
+      "weapon": "saw_disc",
+      "angle": 135,
+      "frame": 0,
+      "weaponAngle": 2.356194490192345
+    },
+    {
+      "weapon": "saw_disc",
+      "angle": 180,
+      "frame": 0,
+      "weaponAngle": 3.141592653589793
+    },
+    {
+      "weapon": "saw_disc",
+      "angle": -135,
+      "frame": 0,
+      "weaponAngle": -2.356194490192345
+    },
+    {
+      "weapon": "saw_disc",
+      "angle": -90,
+      "frame": 0,
+      "weaponAngle": -1.5707963267948966
+    },
+    {
+      "weapon": "saw_disc",
+      "angle": -45,
+      "frame": 0,
+      "weaponAngle": -0.7853981633974483
+    },
+    {
+      "weapon": "echo_blade",
+      "angle": 0,
+      "frame": 0,
+      "weaponAngle": 0.13713301265669742
+    },
+    {
+      "weapon": "echo_blade",
+      "angle": 45,
+      "frame": 0,
+      "weaponAngle": 0.9225311760541457
+    },
+    {
+      "weapon": "echo_blade",
+      "angle": 90,
+      "frame": 0,
+      "weaponAngle": 1.707929339451594
+    },
+    {
+      "weapon": "echo_blade",
+      "angle": 135,
+      "frame": 0,
+      "weaponAngle": 2.2190614775356474
+    },
+    {
+      "weapon": "echo_blade",
+      "angle": 180,
+      "frame": 0,
+      "weaponAngle": 3.0044596409330957
+    },
+    {
+      "weapon": "echo_blade",
+      "angle": -135,
+      "frame": 0,
+      "weaponAngle": -2.4933275028490423
+    },
+    {
+      "weapon": "echo_blade",
+      "angle": -90,
+      "frame": 0,
+      "weaponAngle": -1.4336633141381991
+    },
+    {
+      "weapon": "echo_blade",
+      "angle": -45,
+      "frame": 0,
+      "weaponAngle": -0.6482651507407509
+    },
+    {
+      "weapon": "shock_hammer",
+      "angle": 0,
+      "frame": 0,
+      "weaponAngle": 0
+    },
+    {
+      "weapon": "shock_hammer",
+      "angle": 45,
+      "frame": 0,
+      "weaponAngle": 0.7853981633974483
+    },
+    {
+      "weapon": "shock_hammer",
+      "angle": 90,
+      "frame": 0,
+      "weaponAngle": 1.5707963267948966
+    },
+    {
+      "weapon": "shock_hammer",
+      "angle": 135,
+      "frame": 0,
+      "weaponAngle": 2.356194490192345
+    },
+    {
+      "weapon": "shock_hammer",
+      "angle": 180,
+      "frame": 0,
+      "weaponAngle": 3.141592653589793
+    },
+    {
+      "weapon": "shock_hammer",
+      "angle": -135,
+      "frame": 0,
+      "weaponAngle": -2.356194490192345
+    },
+    {
+      "weapon": "shock_hammer",
+      "angle": -90,
+      "frame": 0,
+      "weaponAngle": -1.5707963267948966
+    },
+    {
+      "weapon": "shock_hammer",
+      "angle": -45,
+      "frame": 0,
+      "weaponAngle": -0.7853981633974483
+    }
+  ],
+  "audio": {
+    "played": 12,
+    "failed": 0,
+    "decoded": 917728,
+    "loaded": 18,
+    "isolated": true
+  },
+  "video": {
+    "decoded": true,
+    "audioTracks": 1,
+    "bytes": 3275033
+  },
+  "layouts": [
+    {
+      "width": 960,
+      "height": 540,
+      "visibleSamples": 35,
+      "actions": [
+        "fieldTab:supplies",
+        "fieldTab:arsenal",
+        "fieldTab:support",
+        "arsenalBuy:prism_laser",
+        "arsenalBuy:slag_launcher",
+        "arsenalBuy:saw_disc",
+        "arsenalBuy:echo_blade",
+        "arsenalBuy:shock_hammer",
+        "arsenalEquip:scrap_pistol",
+        "arsenalImprove:scrap_pistol",
+        "fieldPage:1",
+        "fieldClose"
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "visibleSamples": 35,
+      "actions": [
+        "fieldTab:supplies",
+        "fieldTab:arsenal",
+        "fieldTab:support",
+        "arsenalBuy:prism_laser",
+        "arsenalBuy:slag_launcher",
+        "arsenalBuy:saw_disc",
+        "arsenalBuy:echo_blade",
+        "arsenalBuy:shock_hammer",
+        "arsenalEquip:scrap_pistol",
+        "arsenalImprove:scrap_pistol",
+        "fieldPage:1",
+        "fieldClose"
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "visibleSamples": 35,
+      "actions": [
+        "fieldTab:supplies",
+        "fieldTab:arsenal",
+        "fieldTab:support",
+        "arsenalBuy:prism_laser",
+        "arsenalBuy:slag_launcher",
+        "arsenalBuy:saw_disc",
+        "arsenalBuy:echo_blade",
+        "arsenalBuy:shock_hammer",
+        "arsenalEquip:scrap_pistol",
+        "arsenalImprove:scrap_pistol",
+        "fieldPage:1",
+        "fieldClose"
+      ]
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "visibleSamples": 35,
+      "actions": [
+        "fieldTab:supplies",
+        "fieldTab:arsenal",
+        "fieldTab:support",
+        "arsenalBuy:prism_laser",
+        "arsenalBuy:slag_launcher",
+        "arsenalBuy:saw_disc",
+        "arsenalBuy:echo_blade",
+        "arsenalBuy:shock_hammer",
+        "arsenalEquip:scrap_pistol",
+        "arsenalImprove:scrap_pistol",
+        "fieldPage:1",
+        "fieldClose"
+      ]
+    }
+  ],
+  "realFieldPurchase": true,
+  "realPermanentPurchase": true,
+  "physicalGamepad": false,
+  "nativeLowSpecLongRun": false
+}

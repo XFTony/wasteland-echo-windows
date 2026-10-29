@@ -18,6 +18,8 @@ def main():
     layouts = {row['id']: row for row in json.loads((source / 'layout.json').read_text(encoding='utf-8'))}
     definitions = json.loads(subprocess.run(['node', '-e', "process.stdout.write(JSON.stringify(require('./src/config').WEAPONS))"],
                             cwd=ROOT, check=True, capture_output=True, text=True, encoding='utf-8').stdout)
+    # Only the original seven weapons belong to this drawn source pack.
+    definitions = {key:value for key,value in definitions.items() if key == 'scrap_pistol' or key in layouts}
     colors = base.COLORS + [tuple(bytes.fromhex(s)) for s in ['173f46','216d75','39aab3','6bdfdd','c4ffec','456155','79917a','bad3b0']]
     palette = ['#'+bytes(color).hex() for color in colors]
     cache = {}; rows = []; hashes = {}

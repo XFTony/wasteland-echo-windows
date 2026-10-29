@@ -2,9 +2,11 @@
 
 const Motion = require("../shared/compact-ranger-motion");
 const Grip = require("../shared/modular-grip-compositor");
-const { HERO, MATERIALS, PART_ASSETS, ENEMY_SPRITES } = require("../content/compact-actors");
+const { HERO, MATERIALS, PART_ASSETS, ENEMY_SPRITES } = require("../content/active-compact-actors");
+const { nativeWeaponTexture } = require("./native-weapons");
 const { DEFINITIONS, usesCompactPlayer } = require("../core/compact-weapon-pose");
 const { sampleWeaponFeedback } = require("./weapon-feedback");
+const { attackMotion } = require("../core/weapon-geometry");
 
 function sampleTravel(state, entity, elapsed, stride) {
   if (state.sampleId !== entity.id || state.sampleElapsed === undefined || elapsed < state.sampleElapsed) {
@@ -64,6 +66,10 @@ class CompactActorView {
     let ready = renderer.artStore.ready(HERO.assetId);
     const ids = [weapon.visual.asset, 'hands.' + MATERIALS.defaultHands, 'cuffs.' + MATERIALS.defaultCuffs];
     for (const id of ids) {
+      if (id.startsWith("native.")) {
+        if (!this.textures[id]) this.textures[id] = nativeWeaponTexture(weaponId, this.canvasFactory);
+        ready = ready && Boolean(this.textures[id]); continue;
+      }
       const assetId = PART_ASSETS[id];
       const loaded = renderer.artStore.ready(assetId);
       if (loaded) this.textures[id] = renderer.artStore.get(assetId);
@@ -111,7 +117,7 @@ class CompactActorView {
     Motion.setAimAngle(state, Math.atan2(player.lastAimY, player.lastAimX));
     const feedback = sampleWeaponFeedback(renderer.shotFeedback, run.elapsed, player.weaponId, state.facing, state.angle);
     state.recoil = feedback.offset / Math.max(.01, state.config.weapon.recoil * state.pixelScale);
-    state.visualAngle = feedback.angle;
+    state.visualAngle = run.attack && run.attack.weaponId === player.weaponId ? attackMotion(run.attack,run.elapsed) : feedback.angle;
     shadow(renderer.ctx, point.x, point.y, 15);
     // A stable foot marker identifies the player without enlarging the hitbox.
     renderer.ctx.save();

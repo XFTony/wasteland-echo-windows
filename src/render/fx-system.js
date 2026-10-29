@@ -2,7 +2,7 @@
 
 const { PALETTE } = require("../config");
 const { UPGRADE_FAMILY_STYLES } = require("./ui/theme");
-const { feedbackFor } = require("./weapon-feedback");
+const { feedbackFor, casingFor } = require("./weapon-feedback");
 const { compactShotPose } = require("../core/compact-weapon-pose");
 const { mergeFeedbackHits } = require("../shared/combat-feedback-events");
 
@@ -44,6 +44,7 @@ const FX_METHODS = {
         const player = model.run.player;
         const weapon = this.content.get("weapons", event.weaponId, this.content.defaults.weapon);
         const profile = feedbackFor(weapon.id);
+        if(["slash","slam"].includes(weapon.attackType))continue;
         const aimX = Number.isFinite(event.aimX) ? event.aimX : player.lastAimX;
         const aimY = Number.isFinite(event.aimY) ? event.aimY : player.lastAimY;
         const x = Number.isFinite(event.muzzleX) ? event.muzzleX : event.x + aimX * weapon.muzzleLength;
@@ -64,6 +65,11 @@ const FX_METHODS = {
         this.cameraKick = Math.min(2, this.cameraKick + profile.camera);
         this.recoilAimX = aimX;
         this.recoilAimY = aimY;
+      } else if(event.type==="weaponImpact"){
+        this.spawnBurst(event.x,event.y,event.kind==="ricochet"?"#c5c7a3":"#c5aa79",event.kind==="ricochet"?3:10,event.kind==="ricochet"?42:95);
+        if(event.kind==="slam")this.cameraKick=Math.min(2,this.cameraKick+.75);
+      } else if(event.type==="bulletDeflect"){
+        this.spawnBurst(event.x,event.y,"#b2d6b5",2,35);
       } else if (event.type === "turretShot") {
         const weapon = this.content.get("weapons", "scrap_pistol", this.content.defaults.weapon);
         this.spawnMuzzleFlash(event.x, event.y, weapon, event.aimX, event.aimY, event.structureId);
@@ -179,17 +185,18 @@ const FX_METHODS = {
     const sideX = -aimY;
     const sideY = aimX;
     const seed = hash2(this.frame + Math.round(x * 7), Math.round(y * 11));
-    const sideSpeed = 62 + (seed % 44);
+    const casing=casingFor(weapon.id),sideSpeed=casing.speed+(seed%19);
     slot.active = true;
     slot.x = x + aimX * 8 + sideX * 5;
-    slot.y = y + aimY * 8 + sideY * 5;
+    slot.y = y + aimY * 8 + sideY * 5+28;
+    slot.z=28;slot.vz=casing.lift;slot.bounce=casing.bounce;slot.bounced=false;slot.width=casing.width;slot.kind=feedbackFor(weapon.id).shell;
     slot.vx = sideX * sideSpeed - aimX * (14 + ((seed >>> 7) % 18));
     slot.vy = sideY * sideSpeed - aimY * (14 + ((seed >>> 7) % 18)) - 22;
-    slot.maxLife = weapon.shellLife;
+    slot.maxLife = Math.max(.9,weapon.shellLife);
     slot.rotation = (seed % 628) / 100;
-    slot.angularVelocity = 9 + ((seed >>> 13) % 10);
-    slot.color = weapon.shellColor || PALETTE.amber;
-    slot.length = weapon.shellLength;
+    slot.angularVelocity = casing.spin + ((seed >>> 13) % 5);
+    slot.color = casing.color;
+    slot.length = casing.length;
     slot.life = slot.maxLife;
   },
 
@@ -265,12 +272,17 @@ const FX_METHODS = {
     }
     for (const shell of this.shells) {
       if (!shell.active) continue;
+      if(model&&model.screen!=="running")continue;
       shell.life -= dt;
       if (shell.life <= 0) { shell.active = false; continue; }
       shell.x += shell.vx * dt;
       shell.y += shell.vy * dt;
-      shell.vx *= Math.max(0, 1 - dt * 4.2);
-      shell.vy = shell.vy * Math.max(0, 1 - dt * 4.2) + 72 * dt;
+      const landed=shell.z===0&&shell.vz===0;
+      shell.vx *= Math.max(0, 1 - dt * (landed?9:1.8));
+      shell.vy *= Math.max(0, 1 - dt * (landed?9:1.8));
+      if(!landed){shell.z+=shell.vz*dt-250*dt*dt;shell.vz-=500*dt;
+        if(shell.z<=0){shell.z=0;if(!shell.bounced&&Math.abs(shell.vz)>15){shell.vz=-shell.vz*shell.bounce;shell.bounced=true;shell.angularVelocity*=.5;}else{shell.vz=0;shell.angularVelocity=0;}}
+      }
       shell.rotation += shell.angularVelocity * dt;
     }
     for (const flash of this.muzzleFlashes) {

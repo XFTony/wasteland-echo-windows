@@ -58,7 +58,8 @@ test("illustrated runtime art catalog keeps active assets local and retired art 
 test("every base hero, enemy, weapon, outfit and equipment resolves to registered painted art", () => {
   assert.deepEqual(Object.keys(HERO_SKIN_ART).sort(), Object.keys(HEROES).sort());
   assert.deepEqual(Object.keys(ENEMY_ART).sort(), Object.keys(ENEMIES).sort());
-  assert.deepEqual(Object.keys(WEAPON_ART).sort(), Object.keys(WEAPONS).sort());
+  const {NATIVE_WEAPONS}=require("../src/content/weapon-expansion");
+  assert.deepEqual([...Object.keys(WEAPON_ART),...Object.keys(NATIVE_WEAPONS)].sort(), Object.keys(WEAPONS).sort());
   assert.deepEqual(Object.keys(SKIN_ART).sort(), Object.keys(SKINS).sort());
   assert.deepEqual(Object.keys(EQUIPMENT_ART).sort(), Object.keys(EQUIPMENT).sort());
   assert.deepEqual(Object.keys(MAP_GROUND_ART).sort(), Object.keys(MAPS).sort());

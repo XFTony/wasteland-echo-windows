@@ -36,7 +36,7 @@ test("shotgun creates a visible multi-projectile spread", () => {
 });
 
 test("all weapons define range, unique visuals, recoil, muzzle and casing feedback", () => {
-  assert.equal(Object.keys(WEAPONS).length, 7);
+  assert.equal(Object.keys(WEAPONS).length, 12);
   const visualIds = new Set();
   const rangeBands = new Set();
   for (const weapon of Object.values(WEAPONS)) {
@@ -51,7 +51,7 @@ test("all weapons define range, unique visuals, recoil, muzzle and casing feedba
     assert.match(weapon.shellColor, /^#[0-9a-f]{6}$/i);
   }
   assert.deepEqual([...rangeBands].sort(), ["close", "long", "mid"]);
-  assert.equal(Object.keys(UPGRADES).length, 32);
+  assert.equal(Object.keys(UPGRADES).length, 34);
 });
 
 test("inventory selections accept unlocked IDs and reject locked IDs", () => {
@@ -271,7 +271,7 @@ test("fresh games automatically aim and shoot every existing gun without firing 
     assert.equal(model.save.settings.autoAim,true);assert.equal(model.save.settings.autoFire,true);
     const p=model.run.player;const enemy=model.spawnEnemy('drifter',p.x+70,p.y+30);
     model.setInput({firing:false,aimX:-1,aimY:0,aimActive:true});model.updatePlayer(0);
-    assert.equal(p.aimTargetId,enemy.id,weapon.id);assert.equal(model.projectiles.length,weapon.projectileCount,weapon.id);
+    assert.equal(p.aimTargetId,enemy.id,weapon.id);assert.equal(model.run.shotsFired,1,weapon.id); if(!weapon.attackType)assert.equal(model.projectiles.length,weapon.projectileCount,weapon.id);
   }
 });
 

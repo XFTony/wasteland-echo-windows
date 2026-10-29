@@ -45,7 +45,7 @@ function executeUiCommand(app, command) {
 }
 
 const VALUE_ACTIONS = new Set([
-  "settingsSection", "upgrade", "buy", "fieldBuy", "fieldTab", "fieldPage", "arsenalBuy", "arsenalEquip", "arsenalImprove", "equip", "unequip",
+  "settingsSection", "upgrade", "buy", "shopPage", "fieldBuy", "fieldTab", "fieldPage", "arsenalBuy", "arsenalEquip", "arsenalImprove", "equip", "unequip",
   "selectWeapon", "selectSkin", "selectHero", "inventoryPage", "bind", "toggle"
 ]);
 
@@ -122,6 +122,7 @@ const ACTION_HANDLERS = Object.freeze({
   upgrade: (app, command) => app.model.chooseUpgrade(command.value),
   upgradeSalvage: (app) => app.model.salvageUpgradeOptions(),
   buy: (app, command) => app.model.buyShopItem(command.value),
+  shopPage(app,c){if(app.model.screen==="menu"&&app.model.menuPage==="shop")app.model.shopPage=Math.max(0,Math.floor(Number(c.value)||0));},
   fieldOpen(app) { if (app.model.fieldMarket.open()) app.resetInput(); else app.model.structures.recover(); },
   fieldClose(app) { if (app.model.fieldMarket.close()) app.resetInput(); },
   fieldBuy: (app, command) => app.model.fieldMarket.purchase(command.value),

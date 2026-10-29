@@ -2,7 +2,7 @@
 
 const Motion = require("../shared/compact-ranger-motion");
 const Grip = require("../shared/modular-grip-compositor");
-const { HERO, MATERIALS } = require("../content/compact-actors");
+const { HERO, MATERIALS } = require("../content/active-compact-actors");
 
 const DEFINITIONS = Grip.definitionsForCharacter(MATERIALS);
 const RIGS = Object.fromEntries(DEFINITIONS.map(w => [w.id, w.rig]));

@@ -42,7 +42,7 @@ test("default content registry exposes stable IDs shared by model and renderer",
   assert.equal(DEFAULT_CONTENT.ids("maps").length, 3);
   assert.equal(DEFAULT_CONTENT.ids("stages").length, 3);
   assert.ok(DEFAULT_CONTENT.ids("weapons").length >= 7);
-  assert.equal(DEFAULT_CONTENT.ids("mechanics").length, 7);
+  assert.equal(DEFAULT_CONTENT.ids("mechanics").length, 12);
   assert.equal(DEFAULT_CONTENT.ids("bosses").length, 2);
   assert.equal(DEFAULT_CONTENT.ids("unlockRules").length, 15);
   assert.equal(DEFAULT_CONTENT.ids("modifiers").length, 4);

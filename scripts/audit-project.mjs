@@ -142,7 +142,7 @@ export function auditProject() {
       bundledModules: Array.from(bundledModules).sort(),
       unbundledModules: sourceModules.filter((module) => !bundledModules.has(module))
     },
-    audio: { provenance: "art/audio/survival-v1/source-provenance.json", assets: AUDIO_ASSETS },
+    audio: { provenance: "art/audio/survival-v1/source-provenance.json", additionalProvenance: ["art/audio/arsenal-v2/source-provenance.json"], assets: AUDIO_ASSETS },
     art: {
       catalog: catalogAssets.map((asset) => ({ id: asset.id, path: `web/${asset.src.replace(/^\.\//, "")}`, active: asset.active, eager: asset.eager })),
       unregisteredWebAssets,

@@ -409,6 +409,7 @@ test("shop, inventory and archive expose rule and mastery progression", () => {
   renderer.resize(1280, 720, 1);
 
   model.setMenuPage("shop");
+  model.shopPage = 1;
   renderer.render(model);
   let copy = calls.filter((call) => call[0] === "fillText").map((call) => String(call[1])).join(" ");
   assert.match(copy, /累计击败 120 名感染者/);

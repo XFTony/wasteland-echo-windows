@@ -117,6 +117,9 @@ class ContentRegistry {
     }
     const weaponVisualIds = new Set();
     for (const weapon of Object.values(this.weapons)) {
+      if(weapon.attackType&&!["beam","explosive","disc","slash","slam"].includes(weapon.attackType))throw new Error(`weapons.${weapon.id}.attackType is unknown`);
+      if(["slash","slam"].includes(weapon.attackType)&&![weapon.windup,weapon.activeTime,weapon.recovery,weapon.reach].every(n=>Number.isFinite(n)&&n>0))throw new Error(`weapons.${weapon.id} requires positive melee timing and range`);
+      if(weapon.attackType==="slash"&&!(weapon.arc>0&&weapon.arc<Math.PI))throw new Error("Melee sweep must be a convex arc under 180 degrees");
       if (!["close", "mid", "long"].includes(weapon.rangeBand)) {
         throw new Error(`weapons.${weapon.id}.rangeBand must be 'close', 'mid', or 'long'`);
       }

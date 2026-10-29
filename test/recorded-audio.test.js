@@ -7,7 +7,7 @@ const { AUDIO_ASSETS }=require("../src/content/audio-assets");
 
 test("registered local audio matches provenance and stays inside the runtime budget",()=>{
   const provenance=JSON.parse(fs.readFileSync(path.join(__dirname,"../art/audio/survival-v1/source-provenance.json"),"utf8"));
-  assert.deepEqual(provenance.runtime,AUDIO_ASSETS);
+  assert.deepEqual(provenance.runtime,AUDIO_ASSETS.filter(a=>a.src.includes("/survival-v1/")));
   for(const source of provenance.sourceFiles){const bytes=fs.readFileSync(path.join(__dirname,"../art/audio/survival-v1",source.path));assert.equal(crypto.createHash("sha256").update(bytes).digest("hex").toUpperCase(),source.sha256);}
   let total=0;
   for(const a of AUDIO_ASSETS){ const bytes=fs.readFileSync(path.join(__dirname,"../web",a.src)); total+=bytes.length;
@@ -20,7 +20,7 @@ test("registered local audio matches provenance and stays inside the runtime bud
       assert(peak>.05&&peak<.96);assert(energy>1);assert(bytes.readUInt16LE(22)===1,"short mono effects avoid excess memory");
     } else assert.equal(bytes.toString("ascii",0,4),"OggS");
   }
-  assert(total<600000);assert.equal(AUDIO_ASSETS.filter(a=>a.role==="shot").length,7);
+  assert(total<700000);assert.equal(AUDIO_ASSETS.filter(a=>a.role==="shot").length,10);
 });
 
 test("short effects decode once while full music is never decoded into the cache",async()=>{

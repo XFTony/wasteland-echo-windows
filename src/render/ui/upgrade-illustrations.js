@@ -7,7 +7,11 @@ function drawUpgradeIllustration(ctx, id, x, y, size, family = "utility") {
   const rect = (x, y, w, h, color) => { ctx.fillStyle = color; ctx.fillRect(x, y, w, h); };
   const dark = "#252a23", edge = "#493a2a", copper = "#b68b50", light = "#e5c17b", steel = "#788079", cloth = "#707451";
   rect(8, 53, 49, 5, "rgba(36,31,23,.22)");
-  if (/engineering|turretRepair|turretKit/i.test(id)) {
+  if(id==="meleeReach"){
+    rect(8,29,17,8,dark);rect(10,31,14,4,copper);rect(24,19,6,29,dark);rect(26,21,2,25,light);rect(30,24,23,17,dark);rect(32,26,20,11,steel);rect(32,26,20,3,light);rect(52,26,5,9,steel);rect(34,36,17,3,"#8cad9a");
+  }else if(id==="blastRadius"){
+    for(const radius of [12,20,27]){ctx.strokeStyle=radius===27?copper:steel;ctx.lineWidth=3;ctx.beginPath();ctx.arc(32,32,radius,-.7,4.8);ctx.stroke();}rect(27,27,10,10,dark);rect(30,30,4,4,light);
+  }else if (/engineering|turretRepair|turretKit/i.test(id)) {
     rect(10, 47, 10, 10, dark); rect(44, 47, 10, 10, dark); rect(16, 38, 32, 11, cloth);
     rect(27, 26, 10, 24, dark); rect(29, 28, 6, 18, steel); rect(12, 16, 33, 14, dark); rect(15, 18, 28, 10, steel);
     rect(41, 20, 17, 7, dark); rect(43, 21, 13, 4, copper); rect(18, 18, 4, 10, light);

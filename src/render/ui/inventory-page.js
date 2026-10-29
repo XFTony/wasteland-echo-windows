@@ -79,7 +79,7 @@ function entryMeta(entry) {
 function entryStats(entry) {
   if (entry.grantType === "weapon") {
     const rate = Math.min(99, 1 / entry.item.interval).toFixed(entry.item.interval < 0.15 ? 1 : 2);
-    return `伤害 ${entry.item.damage} · 射速 ${rate}/秒 · 锁定 ${entry.item.lockRange}`;
+    return `伤害 ${entry.item.damage} · 攻速 ${rate}/秒 · 锁定 ${entry.item.lockRange}`;
   }
   if (entry.grantType === "equipment") {
     const tokens = equipmentStatTokens(entry.item);

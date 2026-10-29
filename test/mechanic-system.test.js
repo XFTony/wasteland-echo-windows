@@ -26,8 +26,8 @@ function createHarness() {
 
 test("all seven weapons resolve to a distinct built-in mechanic", () => {
   const ids = DEFAULT_CONTENT.ids("weapons").map((id) => DEFAULT_CONTENT.weapons[id].mechanicId);
-  assert.equal(ids.length, 7);
-  assert.equal(new Set(ids).size, 7);
+  assert.equal(ids.length, 12);
+  assert.equal(new Set(ids).size, 12);
   for (const id of ids) assert.ok(DEFAULT_CONTENT.mechanics[id]);
 });
 

@@ -8,6 +8,8 @@ function enableMechanicUpgrade(id) {
 }
 
 const DEFAULT_UPGRADE_EFFECTS = Object.freeze({
+  meleeReach(p){p.meleeRangeMultiplier=Math.min(1.5,(p.meleeRangeMultiplier||1)+.1);},
+  blastRadius(p){p.blastRadiusMultiplier=Math.min(1.4,(p.blastRadiusMultiplier||1)+.1);},
   engineering(_p, run) { run.engineering++; },
   turretRepair(_p, run) { run.turretRegen++; },
   endlessPower(p) { p.damageMultiplier *= 1.05; },

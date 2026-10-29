@@ -9,6 +9,8 @@ const { HEROES, SKINS, ENEMIES, WEAPONS, EQUIPMENT, UPGRADES, MAPS } = require("
 const { ART_ASSETS, MAP_GROUND_ART } = require("../src/render/art/asset-catalog");
 const { HERO_SKIN_ART, ENEMY_ART, WEAPON_ART } = require("../src/render/illustrated-actors");
 const { SKIN_ART, EQUIPMENT_ART } = require("../src/render/ui/item-icons");
+const {NATIVE_WEAPONS}=require("../src/content/weapon-expansion");
+const {ENEMY_SPRITES}=require("../src/content/active-compact-actors");
 
 function ready(id) {
   const definition = ART_ASSETS[id];
@@ -31,8 +33,8 @@ const report = {
     total: pairs.length,
     missing: missingPairs.map(({ heroId, skinId }) => `${heroId}/${skinId}`)
   },
-  enemies: category(ENEMIES, ENEMY_ART),
-  weapons: category(WEAPONS, WEAPON_ART),
+  enemies: category(ENEMIES, Object.fromEntries(Object.entries(ENEMY_SPRITES).map(([id,e])=>[id,e.assetId]))),
+  weapons: {covered:Object.keys(WEAPONS).filter(id=>ready(WEAPON_ART[id])||NATIVE_WEAPONS[id]).length,total:Object.keys(WEAPONS).length,missing:Object.keys(WEAPONS).filter(id=>!ready(WEAPON_ART[id])&&!NATIVE_WEAPONS[id]),nativePixel:Object.keys(NATIVE_WEAPONS)},
   outfitIcons: category(SKINS, SKIN_ART),
   equipmentIcons: category(EQUIPMENT, EQUIPMENT_ART),
   mapGrounds: category(MAPS, MAP_GROUND_ART),
@@ -40,8 +42,8 @@ const report = {
   remainingVisualSystems: {
     wornEquipment: "dedicated character layers pending",
     mapObjects: `${mapPropIds.length} painted map-object assets; other collision objects remain programmatic`,
-    upgradeIcons: `${Object.keys(UPGRADES).length} code-drawn symbols pending visual unification`,
-    actorMotion: "static body cutouts with procedural bob pending action states"
+    upgradeIcons: `${Object.keys(UPGRADES).length} code-drawn field-repair illustrations`,
+    actorMotion: "Compact ranger and enemies use travel-based animation; new melee moves held parts. Other hero/outfit compact bodies remain pending."
   }
 };
 

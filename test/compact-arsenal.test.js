@@ -7,7 +7,7 @@ const create=options=>M.createState({x:300,y:300,weapons:data.weapons,autoCombat
 const run=(s,count=60,input={})=>{for(let i=0;i<count;i++)M.step(s,input,1/60);return s;};
 
 test('compact arsenal covers exactly the existing seven weapons without changing their base combat data',()=>{
- assert.deepEqual(data.weapons.map(w=>w.id).sort(),Object.keys(WEAPONS).sort());
+ assert.deepEqual(data.weapons.map(w=>w.id).sort(),Object.values(WEAPONS).filter(w=>!w.attackType).map(w=>w.id).sort());
  for(const w of data.weapons)for(const key of ['damage','interval','projectileCount','projectileSpeed','spread','ttl','pierce','lockRange','color'])assert.equal(w[key],WEAPONS[w.id][key],`${w.id}.${key}`);
 });
 test('automatic combat ignores cursor/fire input and aims at a nearby living target',()=>{

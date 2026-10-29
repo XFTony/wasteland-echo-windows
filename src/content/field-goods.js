@@ -2,7 +2,7 @@
 
 // Prototype prices and bonuses, owned by the project rather than copied from a reference.
 const FIELD_GOODS = Object.freeze({
-  weaponCalibration: Object.freeze({ id: "weaponCalibration", name: "当前枪械校准", detail: "本枪伤害 +12% · 本枪射速 +3%", icon: "damage", family: "firepower", prices: [10, 18, 28], repeat: true, cap: 8, effect: "weapon" }),
+  weaponCalibration: Object.freeze({ id: "weaponCalibration", name: "当前武器调校", detail: "本武器伤害 +12% · 攻速 +3%", icon: "damage", family: "firepower", prices: [10, 18, 28], repeat: true, cap: 8, effect: "weapon" }),
   fieldMedkit: Object.freeze({ id: "fieldMedkit", name: "战地急救包", detail: "回复 30% 最大生命 · 战斗30秒后补货", icon: "vitality", family: "survival", prices: [7, 9, 12], repeat: true, cooldown: 30, effect: "heal" }),
   runnerStrap: Object.freeze({ id: "runnerStrap", name: "轻便绑带", detail: "移动速度 +6%", icon: "speed", family: "mobility", prices: [9, 14], effect: "speed" }),
   ballisticLining: Object.freeze({ id: "ballisticLining", name: "护甲衬层", detail: "护甲 +4个百分点 · 上限55%", icon: "armor", family: "survival", prices: [12, 20], effect: "armor" }),

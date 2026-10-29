@@ -82,6 +82,7 @@ test("each weapon sound layers impact, crack, mechanism and filtered noise", () 
   for (const weaponId of Object.keys(WEAPONS)) {
     assert.ok(SHOT_PROFILES[weaponId], `${weaponId} needs its own audio profile`);
     engine.playShot(weaponId);
+    context.currentTime += 1;
   }
   assert.equal(stats.resumes, 1);
   assert.equal(stats.noiseSources, Object.keys(WEAPONS).length);

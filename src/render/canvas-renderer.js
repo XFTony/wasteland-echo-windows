@@ -28,6 +28,7 @@ const { hash2 } = require("./render-hash");
 const { formatTime } = require("./format");
 const { drawWeaponFlash, drawWeaponImpact } = require("./weapon-feedback");
 const { CompactActorView } = require("./compact-actors");
+const { drawAttackEffects } = require("./attack-effects");
 const { drawStructures } = require("./structure-view");
 
 const FONT_STACKS = Object.freeze({
@@ -505,6 +506,7 @@ class CanvasRenderer {
     this.drawTerrain(model.worldSize);
     this.drawInteractives(model.interactives || []);
     this.drawExtraction(run);
+    drawAttackEffects(this,model,"ground");
     this.drawObstacles(model.obstacles);
 
     for (const pickup of model.pickups) this.drawPickup(pickup);
@@ -515,6 +517,7 @@ class CanvasRenderer {
     this.drawInteractionLabels(model);
     this.drawAimReticle(model);
     this.drawWorldEffects(model);
+    drawAttackEffects(this,model,"over");
     for (const shot of model.enemyShots) this.drawProjectile(shot);
     this.drawAtmosphere(run.elapsed);
     ctx.restore();
@@ -541,16 +544,17 @@ class CanvasRenderer {
     for (let index = 0; index < this.shells.length; index += 1) {
       const shell = this.shells[index];
       if (!shell.active) continue;
-      const point = this.worldToScreen(shell.x, shell.y, this.screenPoint);
+      const point = this.worldToScreen(shell.x, shell.y-(shell.z||0), this.screenPoint);
       if (point.x < -8 || point.y < -8 || point.x > this.width + 8 || point.y > this.height + 8) continue;
       ctx.save();
       ctx.translate(point.x, point.y);
       ctx.rotate(shell.rotation);
       ctx.globalAlpha = clamp(shell.life / shell.maxLife * 1.4, 0, 1);
       ctx.fillStyle = "#4a3520";
-      ctx.fillRect(-shell.length / 2 - 1, -2, shell.length + 2, 4);
+      ctx.fillRect(-shell.length / 2 - 1, -(shell.width||2)/2-1, shell.length + 2, (shell.width||2)+2);
       ctx.fillStyle = shell.color;
-      ctx.fillRect(-shell.length / 2, -1, shell.length, 2);
+      ctx.fillRect(-shell.length / 2, -(shell.width||2)/2, shell.length, shell.width||2);
+      ctx.fillStyle="#dbc086";ctx.fillRect(-shell.length/2,-(shell.width||2)/2,Math.min(2,shell.length*.3),shell.width||2);
       ctx.restore();
     }
     ctx.globalAlpha = 1;

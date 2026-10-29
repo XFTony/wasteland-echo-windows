@@ -52,6 +52,8 @@ const { firstObstacleTime } = require("./projectile-geometry");
 const { FieldMarket } = require("./field-market");
 const { Arsenal } = require("./arsenal");
 const { StructureSystem } = require("./structures");
+const { WeaponActions } = require("./weapon-actions");
+const { targetRange } = require("./weapon-geometry");
 const { getSurvivalPressure, survivalProfile, clampSurvivorStats } = require("../content/survival");
 const NAVIGATION_REFRESH_SECONDS = 0.35;
 function getWeaponLockRange(weapon, rangeMultiplier = 1) {
@@ -141,6 +143,7 @@ class GameModel {
     this.pickupMergeCursor = 0;
     this.screen = "menu";
     this.menuPage = "main";
+    this.shopPage=0;
     this.menuSession = new MenuSession(this.save, this.saveManager);
     this.run = null;
     this.masterySystem = options.masterySystem || new MasterySystem(this.content);
@@ -164,6 +167,7 @@ class GameModel {
     this.fieldMarket = new FieldMarket(this, this.content);
     this.arsenal = new Arsenal(this, this.content);
     this.structures = new StructureSystem(this);
+    this.weaponActions = new WeaponActions(this);
   }
 
   resolveMapLayout(mapId) {
@@ -374,6 +378,7 @@ class GameModel {
   }
 
   cycleShopCategory(direction = 1) {
+    this.shopPage=0;
     this.cycleLoadout("shopCategory", direction);
   }
 
@@ -593,6 +598,7 @@ class GameModel {
     }
 
     this.updatePlayer(step);
+    this.weaponActions.update(step);
     if (run.input.moveX * run.input.moveX + run.input.moveY * run.input.moveY > 0.04) {
       this.progressTutorial("move", step);
     }
@@ -642,6 +648,7 @@ class GameModel {
     );
     this.lastPlayerObstacleChecks = nearbyObstacles.length;
     for (let index = 0; index < nearbyObstacles.length; index += 1) circleRectPushOut(player, nearbyObstacles[index]);
+    if(this.run.attack){player.lastAimX=this.run.attack.aimX;player.lastAimY=this.run.attack.aimY;return;}
 
     let aimX = input.aimX;
     let aimY = input.aimY;
@@ -656,11 +663,11 @@ class GameModel {
       target = this.findNearestEnemy(
         player.x,
         player.y,
-        getWeaponLockRange(weapon, player.projectileRangeMultiplier * player.lockRangeMultiplier)
+        weapon.attackType ? targetRange(weapon,player) : getWeaponLockRange(weapon, player.projectileRangeMultiplier * player.lockRangeMultiplier)
       );
       const retained = player.aimTargetId === null ? null : this.enemies.find(enemy => enemy.active && enemy.hp > 0 && enemy.id === player.aimTargetId);
       if (target && retained) {
-        const range = getWeaponLockRange(weapon, player.projectileRangeMultiplier * player.lockRangeMultiplier);
+        const range = weapon.attackType ? targetRange(weapon,player) : getWeaponLockRange(weapon, player.projectileRangeMultiplier * player.lockRangeMultiplier);
         const retainedDistance = distanceSq(player.x, player.y, retained.x, retained.y);
         const nearestDistance = distanceSq(player.x, player.y, target.x, target.y);
         if (retainedDistance <= range * range && retainedDistance <= nearestDistance * 1.12 * 1.12
@@ -859,7 +866,11 @@ class GameModel {
   }
 
   upgradeRequirementsMet(upgrade) {
+    const weapon=this.content.get("weapons",this.run.player.weaponId);
+    if(["disc","explosive"].includes(weapon.attackType)&&["pierce","penetratorDoctrine"].includes(upgrade.id))return false;
+    if(["slash","slam"].includes(weapon.attackType)&&["projectile","pierce","velocity","caliber"].includes(upgrade.id))return false;
     if (!upgrade.requires) return true;
+    if(upgrade.requires.attackTypes&&!upgrade.requires.attackTypes.includes(weapon.attackType||"projectile"))return false;
     if (upgrade.requires.structures && !this.structures.ownedCount()) return false;
     const requirements = upgrade.requires.upgrades || {};
     for (const [requiredId, requiredLevel] of Object.entries(requirements)) {

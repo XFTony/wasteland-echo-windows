@@ -48,6 +48,9 @@ function makeProjectile() {
     knockback: 0,
     color: "#fff",
     owner: "player",
+    attackKind: null,
+    bounces: 0,
+    blastRadius: 0,
     sourceType: null,
     sourceRole: null,
     weaponId: null,
@@ -65,6 +68,7 @@ function makeProjectile() {
 function resetProjectile(item, values) {
   Object.assign(item, values);
   item.critical = Boolean(values.critical);
+  item.attackKind = values.attackKind || null; item.bounces = values.bounces || 0; item.blastRadius = values.blastRadius || 0;
   item.sourceType = values.sourceType || null;
   item.sourceRole = values.sourceRole || null;
   item.weaponId = values.weaponId || null;

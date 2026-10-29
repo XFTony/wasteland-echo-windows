@@ -25,6 +25,7 @@ class FieldMarket {
     if (h.screen !== "running" || !station) return false;
     h.run.fieldMarket.stationId = station.id;
     h.structures.cancel();
+    h.run.attack=null;
     h.run.fieldMarket.message = "改件仅本局生效 · 交易期间战斗与计时暂停";
     h.screen = "fieldShop"; h.emit("fieldMarketOpen", { stationId: station.id });
     return true;

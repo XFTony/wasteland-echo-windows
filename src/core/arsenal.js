@@ -34,7 +34,7 @@ class Arsenal {
   buy(id) {
     const h = this.host, state = this.state(id);
     if (!this.accessible()) return false;
-    if (state.status !== "available") { h.run.fieldMarket.message = state.status === "insufficient" ? `还差 ${state.price - h.run.scrap} 拾荒币` : "这把枪已在本局军械库中"; return false; }
+    if (state.status !== "available") { h.run.fieldMarket.message = state.status === "insufficient" ? `还差 ${state.price - h.run.scrap} 拾荒币` : "这件武器已在本局武器库中"; return false; }
     h.run.scrap -= state.price; h.run.fieldMarket.spent += state.price;
     h.run.arsenal[id] = { tier: 1, calibration: 0 };
     this.equip(id); h.run.fieldMarket.message = `已购买并装备 ${this.content.weapons[id].name} · 本局保留`;
@@ -43,6 +43,7 @@ class Arsenal {
   equip(id) {
     const h = this.host;
     if (!this.accessible() || !h.run.arsenal[id] || !this.content.has("weapons", id)) return false;
+    h.run.attack=null;
     this.applyMastery(id);
     h.run.player.weaponId = id; h.run.player.aimTargetId = null;
     h.run.player.weaponCooldown = Math.max(h.run.player.weaponCooldown, .12);
@@ -53,11 +54,11 @@ class Arsenal {
   improve(id) {
     const h = this.host, state = this.state(id);
     if (!this.accessible()) return false;
-    if (!state.canUpgrade) { h.run.fieldMarket.message = state.tier >= 4 ? "此枪已达到4阶" : `升阶还差 ${Math.max(0, state.upgradePrice - h.run.scrap)} 拾荒币`; return false; }
+    if (!state.canUpgrade) { h.run.fieldMarket.message = state.tier >= 4 ? "此武器已达到4阶" : `升阶还差 ${Math.max(0, state.upgradePrice - h.run.scrap)} 拾荒币`; return false; }
     h.run.scrap -= state.upgradePrice; h.run.fieldMarket.spent += state.upgradePrice;
     h.run.arsenal[id].tier++;
     h.run.fieldMarket.message = `${this.content.weapons[id].name} 已升至 ${h.run.arsenal[id].tier} 阶`;
-    h.emit("fieldPurchase", { id, name: "枪械升阶", price: state.upgradePrice }); return true;
+    h.emit("fieldPurchase", { id, name: "武器升阶", price: state.upgradePrice }); return true;
   }
 }
 

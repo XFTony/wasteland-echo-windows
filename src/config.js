@@ -1,4 +1,5 @@
 "use strict";
+const { NEW_WEAPONS, NEW_SHOP_ITEMS } = require("./content/weapon-expansion");
 
 const PALETTE = Object.freeze({
   ink: "#17140f",
@@ -106,6 +107,7 @@ const GAME_MODES = Object.freeze({
 });
 
 const WEAPONS = Object.freeze({
+  ...NEW_WEAPONS,
   scrap_pistol: {
     id: "scrap_pistol",
     name: "废料手枪",
@@ -403,6 +405,8 @@ const ENEMIES = Object.freeze({
 });
 
 const UPGRADES = Object.freeze({
+  meleeReach: {id:"meleeReach",name:"长柄改装",detail:"近战范围 +10%基础值",family:"firepower",rarity:"advanced",max:4,requires:{attackTypes:["slash","slam"]}},
+  blastRadius: {id:"blastRadius",name:"扩散整形",detail:"爆炸／砸地半径 +10%基础值",family:"utility",rarity:"advanced",max:3,requires:{attackTypes:["explosive","slam"]}},
   engineering: { id: "engineering", name: "守望工程", detail: "塔台伤害 +25%基础值 · 耐久 +15%基础值", family: "utility", rarity: "advanced", max: 6, requires: { structures: true } },
   turretRepair: { id: "turretRepair", name: "维护回路", detail: "塔台8秒未受击后 · 每秒修复1%最大耐久", family: "utility", rarity: "prototype", max: 3, requires: { structures: true } },
   endlessPower: { id: "endlessPower", name: "持续火力", detail: "伤害 +5%", family: "firepower", rarity: "standard", max: Number.MAX_SAFE_INTEGER, repeatable: true, fallback: true },
@@ -432,8 +436,8 @@ const UPGRADES = Object.freeze({
   penetratorDoctrine: { id: "penetratorDoctrine", name: "穿燃教义", detail: "伤害 +25% · 穿透 +2 · 弹体增大", flavor: "高压弹芯被重铸为一次性的质变", family: "firepower", rarity: "evolution", max: 1, evolution: true, requires: { upgrades: { damage: 3, pierce: 2 }, weaponClasses: ["rifle", "heavy"], masteryUnlock: true } },
   swarmProtocol: { id: "swarmProtocol", name: "蜂群协议", detail: "弹丸 +2 · 射速 +15% · 单发伤害 -12%", flavor: "火力从直线变成覆盖整条街区的弹幕", family: "firepower", rarity: "evolution", max: 1, evolution: true, requires: { upgrades: { projectile: 2, fireRate: 3 }, weaponClasses: ["smg", "carbine"], masteryUnlock: true } },
   recoveryField: { id: "recoveryField", name: "回收力场", detail: "拾取范围 +80% · 脱战回复 +0.8", flavor: "废料、药剂与经验都被同一场域牵引", family: "utility", rarity: "evolution", max: 1, evolution: true, requires: { upgrades: { magnet: 3, recovery: 2 }, weaponClasses: ["sidearm", "revolver"], masteryUnlock: true } },
-  phaseAegis: { id: "phaseAegis", name: "相位壁垒", detail: "减伤 +10% · 无敌时间 +0.12 秒 · 移速 +8%", flavor: "护甲不再承受冲击，而是让冲击短暂落空", family: "survival", rarity: "evolution", max: 1, evolution: true, requires: { upgrades: { armor: 3, phaseLining: 2 }, weaponClasses: ["shotgun", "heavy"], masteryUnlock: true } },
-  kineticLoop: { id: "kineticLoop", name: "动能回路", detail: "移速 +16% · 无敌时间 +0.1 秒 · 暴击 +5%", flavor: "每一次脱身都为下一次突进储能", family: "mobility", rarity: "evolution", max: 1, evolution: true, requires: { upgrades: { speed: 3, phaseLining: 2 }, weaponClasses: ["sidearm", "revolver", "shotgun"], masteryUnlock: true } },
+  phaseAegis: { id: "phaseAegis", name: "相位壁垒", detail: "减伤 +10% · 无敌时间 +0.12 秒 · 移速 +8%", flavor: "护甲不再承受冲击，而是让冲击短暂落空", family: "survival", rarity: "evolution", max: 1, evolution: true, requires: { upgrades: { armor: 3, phaseLining: 2 }, weaponClasses: ["shotgun", "heavy", "hammer"], masteryUnlock: true } },
+  kineticLoop: { id: "kineticLoop", name: "动能回路", detail: "移速 +16% · 无敌时间 +0.1 秒 · 暴击 +5%", flavor: "每一次脱身都为下一次突进储能", family: "mobility", rarity: "evolution", max: 1, evolution: true, requires: { upgrades: { speed: 3, phaseLining: 2 }, weaponClasses: ["sidearm", "revolver", "shotgun", "blade", "disc"], masteryUnlock: true } },
   arcNetwork: { id: "arcNetwork", name: "电弧战术网", detail: "弹速 +20% · 伤害 +12% · 穿透 +1", flavor: "线圈与瞄具共享脉冲时序，火力穿过整条战线", family: "utility", rarity: "evolution", max: 1, evolution: true, requires: { upgrades: { velocity: 3, critical: 2 }, weaponClasses: ["carbine", "heavy", "rifle"], masteryUnlock: true } }
 });
 
@@ -666,6 +670,7 @@ const EQUIPMENT = Object.freeze({
 });
 
 const SHOP_ITEMS = Object.freeze({
+  ...NEW_SHOP_ITEMS,
   buy_swarm_smg: { id: "buy_swarm_smg", category: "weapon", name: "蜂群冲锋枪", description: "高射速近中程压制武器。", grantType: "weapon", grantId: "swarm_smg", currency: "copper", price: 420, unlockStage: 1 },
   buy_rust_revolver: { id: "buy_rust_revolver", category: "weapon", name: "锈痕左轮", description: "中程高冲击六发左轮。", grantType: "weapon", grantId: "rust_revolver", currency: "copper", price: 560, unlockStage: 1 },
   buy_breaker_shotgun: { id: "buy_breaker_shotgun", category: "weapon", name: "破门霰弹枪", description: "近距离扇形爆发与强击退。", grantType: "weapon", grantId: "breaker_shotgun", currency: "copper", price: 780, unlockStage: 2, unlockRuleId: "blueprint_breaker" },

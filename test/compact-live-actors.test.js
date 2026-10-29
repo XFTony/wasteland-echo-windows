@@ -50,7 +50,7 @@ test("live walk sampling follows resolved travel and freezes through pause or co
 });
 
 test("all seven live weapons use the same transformed muzzle for art, shot events and projectiles", () => {
-  for (const weapon of Object.values(WEAPONS)) for (let direction = 0; direction < 8; direction++) {
+  for (const weapon of Object.values(WEAPONS).filter(w=>!w.attackType)) for (let direction = 0; direction < 8; direction++) {
     const model = modelFor(weapon.id), player = model.run.player;
     const angle = direction * Math.PI / 4;
     model.spawnEnemy("drifter", player.x + Math.cos(angle) * 180, player.y + Math.sin(angle) * 180);
@@ -69,7 +69,7 @@ test("all seven live weapons use the same transformed muzzle for art, shot event
 });
 
 test("new live muzzle positions do not create a point-blank dead zone", () => {
-  for (const weapon of Object.values(WEAPONS)) {
+  for (const weapon of Object.values(WEAPONS).filter(w=>!w.attackType)) {
     const model = modelFor(weapon.id), player = model.run.player;
     const target = model.spawnEnemy("brute", player.x + 24, player.y + 4);
     const hp = target.hp;
