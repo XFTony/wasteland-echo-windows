@@ -24,6 +24,7 @@ Windows 桌面优先的俯视角废土生存射击 Roguelite。当前开发线�
 
 现行规格：[wasteland-survivor-windows-game-spec.md](./wasteland-survivor-windows-game-spec.md)  
 架构说明：[docs/architecture.md](./docs/architecture.md)
+Godot本机工具与迁移评估：[详细报告](./docs/godot-local-feasibility-2026-10-29.md)、[隔离技术样板](./experiments/godot-pilot/README.md)；原游戏仍使用当前Canvas/Tauri运行线。
 组件目录与安全修改指南：[docs/component-catalog.md](./docs/component-catalog.md)
 v1.5 路线图：[docs/optimization-roadmap-v1.5.md](./docs/optimization-roadmap-v1.5.md)
 2026-09-23 全面复审与优先级计划：[docs/optimization-plan-2026-09-23.md](./docs/optimization-plan-2026-09-23.md)
