@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-29",
+  "kind": "internal-preview",
+  "version": "1.5.0-alpha.1",
+  "sourceCommit": "3261a9f2b7a3d8c607591618b985e068ee90456a",
+  "branch": "codex/weapon-variety-melee",
+  "executable": {
+    "path": "output/weapon-expansion-2026-10-29/windows/WastelandEcho-v1.5.0-alpha.1-win-x64.exe",
+    "bytes": 15464448,
+    "sha256": "C06E2B72C6D539D8C0D70D80D3EC453044E20811F8B19105F7E464374D4919CF"
+  },
+  "bundle": {
+    "bytes": 795107,
+    "sha256": "3C568F66794CA8969E32BC57D173FB6023CF41953DF3D53885D967EC22FDC8CA"
+  },
+  "runtime": {
+    "files": 85,
+    "bytes": 7672541
+  },
+  "validation": {
+    "check": true,
+    "tests": 331,
+    "failures": 0,
+    "browserWeaponPoses": 40,
+    "browserLayouts": 4,
+    "sampledWeapons": 12,
+    "simulationScenarios": 17,
+    "performanceScenarios": 7,
+    "nativeSmoke": {
+      "runningAfterSevenSeconds": true,
+      "responsive": true,
+      "hasWindow": true,
+      "isolatedProfileCreated": true,
+      "longSessionTest": false
+    }
+  },
+  "pending": [
+    "Human weapon balance and sound review",
+    "Physical gamepad",
+    "Low-spec native 30-60 minute session"
+  ],
+  "releaseCreated": false,
+  "tagCreated": false
+}
