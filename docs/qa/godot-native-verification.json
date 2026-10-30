@@ -644,5 +644,11 @@
     ],
     "verifiedAtUtc": "2026-10-30T01:22:10.4296588Z"
   },
-  "oldRuntimeUnmodified": true
+  "oldRuntimeUnmodified": true,
+  "github": {
+    "branch": "codex/godot-migration",
+    "verifiedCommit": "1b5abb09a3eb86e76e34c11572f44ff4c455d916",
+    "workflow": "https://github.com/XFTony/wasteland-echo-windows/actions/runs/40993727015",
+    "conclusion": "success"
+  }
 }

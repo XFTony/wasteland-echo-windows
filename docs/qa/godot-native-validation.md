@@ -2,6 +2,8 @@
 
 更新：2026-10-30。分支`codex/godot-migration`；Godot `4.7.2.stable.official.ed1daf0bf`，Windows x86_64 / Compatibility。当前主要流程可玩，设备与视觉验收仍有剩余项；本记录不代表正式发布或完美像素一致性。
 
+已备份源码提交：`ff4e46c`（原生主要迁移）、`1b5abb0`（图标/UID收尾）。独立包来自干净的`1b5abb09a3eb86e76e34c11572f44ff4c455d916`，126,213,776字节，SHA256为`901b4a25c0f5d396b2396baec7e6ffbd3eeb93cd1b7a0455d34c44fa055a5ec8`。[GitHub原生回归](https://github.com/XFTony/wasteland-echo-windows/actions/runs/40993727015)已通过；未合并主线或发布新标签。
+
 ## 已验证范围
 
 | 范围 | 结果 | 证明边界 |
