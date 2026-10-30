@@ -15,6 +15,11 @@ var crew_hero: String = ""
 var crew_loadout: String = ""
 var item_mode: bool = false
 var slot_mode: bool = false
+var radio_toggle: bool = false
+var hit_only: bool = false
+var slot_compact: bool = false
+var slot_name: String = ""
+var slot_accent: Color = Color("5f5d54")
 var item_image: Texture2D
 var item_number: int = 0
 var equipped: bool = false
@@ -42,6 +47,13 @@ func _draw() -> void:
 	if fonts == null:
 		return
 	var active: bool = is_hovered() or has_focus()
+	if hit_only:
+		if has_focus():
+			RadioPaint.focus_ink(self, Rect2(Vector2.ZERO, size), Color("6f492e"))
+		return
+	if radio_toggle:
+		_draw_toggle(active)
+		return
 	var offset: float = 2 if is_pressed() else -2 if active and menu_choice else -1 if active else 0
 	var rect := Rect2(Vector2(0, offset), size)
 	var knob: bool = size.x <= 56 and size.y <= 56 and size.x / size.y > 0.65 and size.x / size.y < 1.5
@@ -54,10 +66,26 @@ func _draw() -> void:
 	else:
 		RadioPaint.surface(self, rect, primary, active or menu_choice, active,
 		RadioPaint.PAPER_LIGHT if primary and active else RadioPaint.PAPER if primary else (
-			Color("393a2d") if active else Color("23271f") if menu_choice else Color("2b2b22")
+			Color("393a2d") if active or item_mode and equipped else Color("23271f") if menu_choice or slot_mode else Color("2b2b22")
 		))
 	var color: Color = RadioPaint.INK if primary else RadioPaint.WHITE
-	if item_mode or slot_mode:
+	if slot_mode:
+		draw_rect(Rect2(4, offset + 4, 3 if slot_compact else 4, size.y - 8), slot_accent)
+		fonts.fit(self, caption, Vector2(11, offset + (10 if slot_compact else 14)),
+			10 if slot_compact else 12, size.x - 19, slot_accent, "left", 900, 10)
+		if item_image != null:
+			var maximum: float = minf(size.x * 0.68, minf(size.y * (0.46 if slot_compact else 0.52), 44 if slot_compact else 66))
+			var factor: float = minf(maximum * 0.95 / item_image.get_width(), maximum * 0.84 / item_image.get_height())
+			var dimensions: Vector2 = item_image.get_size() * factor
+			draw_texture_rect(item_image, Rect2(Vector2(size.x / 2 + 2, offset + size.y * 0.52) - dimensions / 2, dimensions), false)
+			if size.y >= (42 if slot_compact else 68):
+				fonts.fit(self, slot_name, Vector2(size.x / 2, offset + size.y - (9 if slot_compact else 12)),
+					10 if slot_compact else 12, size.x - 12, RadioPaint.WHITE, "center", 900, 10)
+			if not action_id.is_empty() and size.y >= 58:
+				fonts.text(self, "卸", Vector2(size.x - 9, offset + 12), 10, RadioPaint.MUTED, "right", 900, "mono")
+		else:
+			fonts.text(self, "空", Vector2(size.x / 2, offset + size.y / 2 + 4), 9 if slot_compact else 12, Color("746e5f"), "center", 800)
+	elif item_mode:
 		var compact: bool = size.x < 140
 		if item_number > 0:
 			fonts.text(self, "%02d" % item_number, Vector2(6, 11 if compact else 14),
@@ -74,7 +102,7 @@ func _draw() -> void:
 				10 if compact else 12, size.x - 9, RadioPaint.WHITE, "center", 900, 10)
 		if equipped:
 			fonts.text(self, "E", Vector2(size.x - 7, 11 if compact else 13),
-				10 if compact else 11, RadioPaint.GOLD, "right", 900, "mono")
+				10 if compact else 11, slot_accent, "right", 900, "mono")
 	elif crew:
 		var compact: bool = size.y < 70
 		var pad: float = 12 if compact else 22
@@ -109,3 +137,18 @@ func _draw() -> void:
 
 func _on_pressed() -> void:
 	action_requested.emit(action_id)
+
+
+func _draw_toggle(active: bool) -> void:
+	var on: bool = caption == "开"
+	var center_y: float = size.y / 2
+	var track_width: float = minf(47, size.x * 0.48)
+	draw_rect(Rect2(6, center_y - 6, track_width, 12), Color("151c15"))
+	draw_rect(Rect2(6, center_y - 6, track_width, 12), Color("76735a"), false, 1)
+	var knob_x: float = 6 + track_width - 8 if on else 14
+	draw_circle(Vector2(knob_x, center_y), 10, Color("d4b77d") if active else Color("af9160") if on else Color("635e49"))
+	draw_rect(Rect2(knob_x - 1, center_y - 6, 2, 7), Color("e4cc97"))
+	fonts.text(self, caption, Vector2(size.x - 7, center_y), minf(15, size.y * 0.36),
+		RadioPaint.PAPER if on else RadioPaint.MUTED, "right", 700)
+	if has_focus():
+		RadioPaint.focus_ink(self, Rect2(Vector2.ZERO, size))

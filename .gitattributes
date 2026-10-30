@@ -12,3 +12,8 @@
 *.tres text eol=lf
 *.godot text eol=lf
 *.uid text eol=lf
+*.cmd text eol=crlf
+*.import text eol=lf
+*.cfg text eol=lf
+*.ogg binary
+*.wav binary

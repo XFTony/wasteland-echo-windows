@@ -6,6 +6,7 @@ var cell_size: float
 var columns: int
 var _cells: Dictionary = {}
 var _used_keys: Array[int] = []
+var _next_identity: int = 1
 
 
 func _init(size: float = 96.0, column_count: int = 66) -> void:
@@ -39,7 +40,25 @@ func query_circle(x: float, y: float, radius: float, output: Array) -> Array:
 	return output
 
 
+func query_unique(x: float, y: float, radius: float, output: Array, seen: Dictionary) -> Array:
+	query_circle(x, y, radius, output)
+	seen.clear()
+	var write: int = 0
+	for entity: Dictionary in output:
+		var identity: int = int(entity._spatial_identity)
+		if seen.has(identity):
+			continue
+		seen[identity] = true
+		output[write] = entity
+		write += 1
+	output.resize(write)
+	return output
+
+
 func _insert_cell(entity: Dictionary, x: int, y: int) -> void:
+	if not entity.has("_spatial_identity"):
+		entity._spatial_identity = _next_identity
+		_next_identity += 1
 	var key: int = y * columns + x
 	if not _cells.has(key):
 		_cells[key] = []

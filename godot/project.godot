@@ -2,11 +2,13 @@
 config_version=5
 
 [application]
-config/name="荒原回响 · Godot迁移版"
+config/name="荒原回响"
 run/main_scene="res://scenes/game_root.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/use_custom_user_dir=true
 config/custom_user_dir_name="WastelandEcho-Godot"
+boot_splash/show_image=false
+boot_splash/bg_color=Color(0.067,0.082,0.071,1)
 
 [display]
 window/size/viewport_width=1280

@@ -66,7 +66,7 @@ func persist() -> bool:
 		if not bool(_storage.call("set_value", BACKUP_KEY, previous)):
 			status = "write-failed"
 			return false
-	var result: bool = bool(_storage.call("set_value", KEY, JSON.stringify(data)))
+	var result: bool = bool(_storage.call("set_value", KEY, JSON.stringify(data, "", false, true)))
 	if not result:
 		status = "write-failed"
 	elif status == "write-failed":

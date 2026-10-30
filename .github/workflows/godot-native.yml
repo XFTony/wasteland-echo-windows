@@ -1,0 +1,52 @@
+name: Godot native
+
+on:
+  push:
+    branches: [main, 'codex/**']
+    paths: ['godot/**', 'scripts/godot/**', 'src/**', '.github/workflows/godot-native.yml']
+  pull_request:
+    paths: ['godot/**', 'scripts/godot/**', 'src/**', '.github/workflows/godot-native.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  godot_native:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install pinned official Godot editor
+        shell: pwsh
+        run: |
+          $archive = Join-Path $env:RUNNER_TEMP 'godot-4.7.2.zip'
+          $editorDirectory = Join-Path $env:RUNNER_TEMP 'godot-editor'
+          Invoke-WebRequest -Uri 'https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_win64.exe.zip' -OutFile $archive
+          $expected = '731980f9608d61333e5baf54a2ef17210acc7a538446c0cb9969f002aca1e953'
+          if ((Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash.ToLowerInvariant() -ne $expected) { throw 'Godot editor checksum mismatch' }
+          Expand-Archive -LiteralPath $archive -DestinationPath $editorDirectory
+          'GODOT_PATH=' + (Join-Path $editorDirectory 'Godot_v4.7.2-stable_win64_console.exe') | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+      - name: Prepare reference fixtures and native imports
+        shell: pwsh
+        run: |
+          node scripts/godot/export-game.mjs
+          node scripts/godot/export-combat-cases.mjs
+          & $env:GODOT_PATH --headless --path godot --editor --import
+          if ($LASTEXITCODE -ne 0) { throw 'Godot editor import failed' }
+          & $env:GODOT_PATH --headless --path godot --script scripts/tools/import_content.gd
+          if ($LASTEXITCODE -ne 0) { throw 'Godot content import failed' }
+      - name: Native regression suites
+        run: node scripts/godot/verify-native.mjs
+      - name: Preserve verification reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: godot-native-reports
+          path: |
+            output/godot-migration/*-check.log
+            output/godot-migration/native-checks.json
+          if-no-files-found: ignore

@@ -1,0 +1,648 @@
+{
+  "date": "2026-10-30",
+  "scope": "Native migration verification; hardware and perfect visual parity pending",
+  "native": {
+    "reports": {
+      "foundation": {
+        "checks": 125319,
+        "contentDefinitions": 137,
+        "failures": [],
+        "maximumPoseError": 0.0000131489350252423,
+        "scope": "Content, RNG, pressure, loadouts, upgrades, shop rules, save codec and recovery"
+      },
+      "combat": {
+        "cases": 84,
+        "checkpoints": 284,
+        "checks": 184285,
+        "failures": []
+      },
+      "runtime": {
+        "checks": 12,
+        "failures": []
+      },
+      "input-audio": {
+        "audioAssets": 21,
+        "checks": 51,
+        "failures": []
+      },
+      "save-transfer": {
+        "checks": 10,
+        "failures": [],
+        "isolated": true
+      }
+    },
+    "passed": true
+  },
+  "menus": {
+    "date": "2026-10-29",
+    "scope": "Default six-menu action IDs and hit rectangles only; not full UI behavior or visual acceptance",
+    "results": [
+      {
+        "page": "main",
+        "width": 960,
+        "height": 540,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0.000022786458316659264,
+        "actions": 4
+      },
+      {
+        "page": "loadout",
+        "width": 960,
+        "height": 540,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0.00002929687502728484,
+        "actions": 5
+      },
+      {
+        "page": "inventory",
+        "width": 960,
+        "height": 540,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0,
+        "actions": 7
+      },
+      {
+        "page": "shop",
+        "width": 960,
+        "height": 540,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0.00001017252569113225,
+        "actions": 10
+      },
+      {
+        "page": "settings",
+        "width": 960,
+        "height": 540,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0,
+        "actions": 23
+      },
+      {
+        "page": "credits",
+        "width": 960,
+        "height": 540,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0,
+        "actions": 1
+      },
+      {
+        "page": "main",
+        "width": 1280,
+        "height": 720,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0.00002929687502728484,
+        "actions": 4
+      },
+      {
+        "page": "loadout",
+        "width": 1280,
+        "height": 720,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0.000048828120043253875,
+        "actions": 5
+      },
+      {
+        "page": "inventory",
+        "width": 1280,
+        "height": 720,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0.000048828124988631316,
+        "actions": 7
+      },
+      {
+        "page": "shop",
+        "width": 1280,
+        "height": 720,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0.00002034505234860262,
+        "actions": 10
+      },
+      {
+        "page": "settings",
+        "width": 1280,
+        "height": 720,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0.000017438616509934945,
+        "actions": 23
+      },
+      {
+        "page": "credits",
+        "width": 1280,
+        "height": 720,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0,
+        "actions": 1
+      },
+      {
+        "page": "main",
+        "width": 1920,
+        "height": 1080,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0.000043945309926129994,
+        "actions": 4
+      },
+      {
+        "page": "loadout",
+        "width": 1920,
+        "height": 1080,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0.00007324219018300937,
+        "actions": 5
+      },
+      {
+        "page": "inventory",
+        "width": 1920,
+        "height": 1080,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0.00009765625009094947,
+        "actions": 7
+      },
+      {
+        "page": "shop",
+        "width": 1920,
+        "height": 1080,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0.00003051757806815658,
+        "actions": 10
+      },
+      {
+        "page": "settings",
+        "width": 1920,
+        "height": 1080,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0.000026157923912251135,
+        "actions": 23
+      },
+      {
+        "page": "credits",
+        "width": 1920,
+        "height": 1080,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0,
+        "actions": 1
+      },
+      {
+        "page": "main",
+        "width": 2560,
+        "height": 1440,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0.00005859375005456968,
+        "actions": 4
+      },
+      {
+        "page": "loadout",
+        "width": 2560,
+        "height": 1440,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0.00009765625009094947,
+        "actions": 5
+      },
+      {
+        "page": "inventory",
+        "width": 2560,
+        "height": 1440,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0.00009765624997726263,
+        "actions": 7
+      },
+      {
+        "page": "shop",
+        "width": 2560,
+        "height": 1440,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0.00004069010469720524,
+        "actions": 10
+      },
+      {
+        "page": "settings",
+        "width": 2560,
+        "height": 1440,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0.00003487723711259605,
+        "actions": 23
+      },
+      {
+        "page": "credits",
+        "width": 2560,
+        "height": 1440,
+        "missing": [],
+        "extra": [],
+        "maxRectDelta": 0,
+        "actions": 1
+      }
+    ]
+  },
+  "battle": {
+    "scope": "Same-state combat UI action IDs and AABBs; settled first-card focus; not a pixel comparison",
+    "results": [
+      {
+        "kind": "upgrade",
+        "width": 960,
+        "height": 540,
+        "actions": 5,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0.000028793389503789513
+      },
+      {
+        "kind": "field-supplies-0",
+        "width": 960,
+        "height": 540,
+        "actions": 9,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0
+      },
+      {
+        "kind": "field-arsenal-0",
+        "width": 960,
+        "height": 540,
+        "actions": 12,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0.000004882813016138243
+      },
+      {
+        "kind": "field-arsenal-1",
+        "width": 960,
+        "height": 540,
+        "actions": 11,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0
+      },
+      {
+        "kind": "field-support-0",
+        "width": 960,
+        "height": 540,
+        "actions": 6,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0
+      },
+      {
+        "kind": "pause",
+        "width": 960,
+        "height": 540,
+        "actions": 3,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0
+      },
+      {
+        "kind": "result",
+        "width": 960,
+        "height": 540,
+        "actions": 2,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0
+      },
+      {
+        "kind": "upgrade",
+        "width": 1280,
+        "height": 720,
+        "actions": 5,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0.00021250251705851042
+      },
+      {
+        "kind": "field-supplies-0",
+        "width": 1280,
+        "height": 720,
+        "actions": 9,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0.00002034505234860262
+      },
+      {
+        "kind": "field-arsenal-0",
+        "width": 1280,
+        "height": 720,
+        "actions": 12,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0.00002034505234860262
+      },
+      {
+        "kind": "field-arsenal-1",
+        "width": 1280,
+        "height": 720,
+        "actions": 11,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0.00002034505234860262
+      },
+      {
+        "kind": "field-support-0",
+        "width": 1280,
+        "height": 720,
+        "actions": 6,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0.00002034505234860262
+      },
+      {
+        "kind": "pause",
+        "width": 1280,
+        "height": 720,
+        "actions": 3,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0
+      },
+      {
+        "kind": "result",
+        "width": 1280,
+        "height": 720,
+        "actions": 2,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0
+      },
+      {
+        "kind": "upgrade",
+        "width": 1920,
+        "height": 1080,
+        "actions": 5,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0.00018081524899571377
+      },
+      {
+        "kind": "field-supplies-0",
+        "width": 1920,
+        "height": 1080,
+        "actions": 9,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0
+      },
+      {
+        "kind": "field-arsenal-0",
+        "width": 1920,
+        "height": 1080,
+        "actions": 12,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0
+      },
+      {
+        "kind": "field-arsenal-1",
+        "width": 1920,
+        "height": 1080,
+        "actions": 11,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0
+      },
+      {
+        "kind": "field-support-0",
+        "width": 1920,
+        "height": 1080,
+        "actions": 6,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0
+      },
+      {
+        "kind": "pause",
+        "width": 1920,
+        "height": 1080,
+        "actions": 3,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0
+      },
+      {
+        "kind": "result",
+        "width": 1920,
+        "height": 1080,
+        "actions": 2,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0.00003173828129376943
+      },
+      {
+        "kind": "upgrade",
+        "width": 2560,
+        "height": 1440,
+        "actions": 5,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0.00030741684088297916
+      },
+      {
+        "kind": "field-supplies-0",
+        "width": 2560,
+        "height": 1440,
+        "actions": 9,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0.00004069010674356832
+      },
+      {
+        "kind": "field-arsenal-0",
+        "width": 2560,
+        "height": 1440,
+        "actions": 12,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0.00004069010674356832
+      },
+      {
+        "kind": "field-arsenal-1",
+        "width": 2560,
+        "height": 1440,
+        "actions": 11,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0.00004069010674356832
+      },
+      {
+        "kind": "field-support-0",
+        "width": 2560,
+        "height": 1440,
+        "actions": 6,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0.00004069010674356832
+      },
+      {
+        "kind": "pause",
+        "width": 2560,
+        "height": 1440,
+        "actions": 3,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0
+      },
+      {
+        "kind": "result",
+        "width": 2560,
+        "height": 1440,
+        "actions": 2,
+        "missing": [],
+        "extra": [],
+        "maximumRectDelta": 0.000048828120043253875
+      }
+    ]
+  },
+  "survival": {
+    "failures": [],
+    "inProgress": false,
+    "maps": [
+      {
+        "bossWave": 1,
+        "map": "echo_district",
+        "peakEnemies": 17,
+        "peakPickups": 140,
+        "peakProjectiles": 8,
+        "playerLevel": 7,
+        "pools": {
+          "enemies": {
+            "created": 88,
+            "free": 71
+          },
+          "pickups": {
+            "created": 140,
+            "free": 1
+          },
+          "projectiles": {
+            "created": 96,
+            "free": 94
+          }
+        },
+        "simulatedSeconds": 180.000000000035,
+        "tickMaximumMs": 39.458,
+        "tickMedianMs": 0.282,
+        "tickP95Ms": 0.743,
+        "tickP99Ms": 4.489,
+        "ticks": 10800,
+        "wallSeconds": 5.139779
+      },
+      {
+        "bossWave": 1,
+        "map": "freight_nexus",
+        "peakEnemies": 41,
+        "peakPickups": 140,
+        "peakProjectiles": 8,
+        "playerLevel": 7,
+        "pools": {
+          "enemies": {
+            "created": 88,
+            "free": 47
+          },
+          "pickups": {
+            "created": 140,
+            "free": 0
+          },
+          "projectiles": {
+            "created": 96,
+            "free": 90
+          }
+        },
+        "simulatedSeconds": 180.000000000035,
+        "tickMaximumMs": 7.285,
+        "tickMedianMs": 0.397,
+        "tickP95Ms": 1.346,
+        "tickP99Ms": 6.093,
+        "ticks": 10800,
+        "wallSeconds": 7.740651
+      },
+      {
+        "bossWave": 1,
+        "map": "red_basin",
+        "peakEnemies": 21,
+        "peakPickups": 140,
+        "peakProjectiles": 6,
+        "playerLevel": 9,
+        "pools": {
+          "enemies": {
+            "created": 88,
+            "free": 72
+          },
+          "pickups": {
+            "created": 140,
+            "free": 0
+          },
+          "projectiles": {
+            "created": 96,
+            "free": 95
+          }
+        },
+        "simulatedSeconds": 180.000000000035,
+        "tickMaximumMs": 10.366,
+        "tickMedianMs": 0.417,
+        "tickP95Ms": 0.911,
+        "tickP99Ms": 8.023,
+        "ticks": 10800,
+        "wallSeconds": 7.80338
+      }
+    ],
+    "scope": "Accelerated simulation only; 180 seconds per map; not rendered FPS or low-end certification"
+  },
+  "dense": {
+    "failures": [],
+    "peakEnemies": 105,
+    "peakProjectiles": 35,
+    "scope": "Accelerated 40-second dense fixture at minute 15; not rendered FPS",
+    "tickMaximumMs": 13.561,
+    "tickMedianMs": 5.295,
+    "tickP95Ms": 7.179,
+    "tickP99Ms": 9.933,
+    "ticks": 2400
+  },
+  "toolchain": {
+    "version": "4.7.2.stable",
+    "officialUrl": "https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_export_templates.tpz",
+    "archive": "Godot_v4.7.2-stable_export_templates.tpz",
+    "archiveBytes": 1281349702,
+    "archiveSha256": "f298490b8d44d934be425a5a65a51bf15f422428b229a06a6e11d9ffea248011",
+    "archiveVerified": true,
+    "extractedDirectory": "output/godot-migration/toolchain/templates",
+    "extractedFiles": [
+      {
+        "file": "windows_debug_x86_64.exe",
+        "bytes": 103176704,
+        "sha256": "51498b72b3a237f882ebd7d1787f06a4bc1eaf0572daab93837adcfd3cfdc107"
+      },
+      {
+        "file": "windows_release_x86_64.exe",
+        "bytes": 109268480,
+        "sha256": "d34d36f3be1a6c49c56525ae86469b92e4f417ddf0b43cf00dd80c385c4b0562"
+      },
+      {
+        "file": "version.txt",
+        "bytes": 13,
+        "sha256": "38885c88f75abbc797a1db7559719800279a00cfb9fa8b2e2868a7f6f84bad2e"
+      }
+    ],
+    "verifiedAtUtc": "2026-10-30T01:22:10.4296588Z"
+  },
+  "oldRuntimeUnmodified": true
+}

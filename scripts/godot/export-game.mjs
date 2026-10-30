@@ -3,10 +3,13 @@ import path from "node:path";
 import crypto from "node:crypto";
 import { createRequire } from "node:module";
 import { execFileSync } from "node:child_process";
+import { exportUpgradeGlyphs } from "./upgrade-glyphs.mjs";
+import { exportWorldVisuals } from "./world-visuals.mjs";
 
 const require = createRequire(import.meta.url);
 const root = path.resolve(import.meta.dirname, "../..");
 const target = path.join(root, "godot");
+const syncReferenceAssets = process.argv.includes("--sync-reference-assets");
 const dataDirectory = path.join(target, "data");
 const { DEFAULT_CONTENT: content } = require("../../src/core/content-registry.js");
 const { DEFAULT_WORLD: world } = require("../../src/world/world-registry.js");
@@ -27,6 +30,7 @@ const { getShopItemState } = require("../../src/core/economy.js");
 const Grip = require("../../src/shared/modular-grip-compositor.js");
 const Motion = require("../../src/shared/compact-ranger-motion.js");
 const { WEAPON_FEEDBACK, CASINGS } = require("../../src/render/weapon-feedback.js");
+const factories = require("../../src/core/entity-factories.js");
 const illustrated = require("../../src/render/illustrated-actors.js");
 const iconDefinitions = require("../../src/render/ui/item-icons.js");
 fs.mkdirSync(dataDirectory, { recursive: true });
@@ -41,10 +45,12 @@ for (const source of [...assets.map(a => a.src), ...audio.map(a => a.src),
   ...fs.readdirSync(path.join(root,"web/assets/fonts")).map(name => "./assets/fonts/" + name)]) {
   const relative = source.replace(/^\.\//, "");
   const original = path.join(root,"web",relative), destination = path.join(target,relative);
-  const bytes = fs.readFileSync(original);
+  const referenceBytes = fs.readFileSync(original);
   fs.mkdirSync(path.dirname(destination),{recursive:true});
-  if (!fs.existsSync(destination) || hash(fs.readFileSync(destination)) !== hash(bytes)) fs.writeFileSync(destination,bytes);
-  copied.push({ source:"web/" + relative, target:relative, bytes:bytes.length, sha256:hash(bytes) });
+  if (!fs.existsSync(destination) || syncReferenceAssets) fs.writeFileSync(destination,referenceBytes);
+  const bytes = fs.readFileSync(destination);
+  copied.push({ source:"web/" + relative, target:relative, bytes:bytes.length, sha256:hash(bytes),
+    referenceSha256:hash(referenceBytes), nativeEdited:hash(bytes)!==hash(referenceBytes) });
 }
 const poses = {};
 for (const weapon of actors.MATERIALS.weapons) {
@@ -58,10 +64,23 @@ const source = { format:1, baseline:"ef7d50d", version:require("../../package.js
   illustrated:{heroes:illustrated.HERO_SKIN_ART,enemies:illustrated.ENEMY_ART,weapons:illustrated.WEAPON_ART},
   icons:{skins:iconDefinitions.SKIN_ART,equipment:iconDefinitions.EQUIPMENT_ART,rangeBands:iconDefinitions.RANGE_BANDS,weaponClasses:iconDefinitions.WEAPON_CLASS_LABELS},
   weaponFeedback:WEAPON_FEEDBACK, casings:CASINGS, palette:config.PALETTE,
-  survival: { maps:survival.SURVIVAL_MAPS, gunPrices:survival.GUN_PRICES, turret:survival.TURRET, legacyMaps:survival.LEGACY_STAGE_MAPS },
+  upgradeGlyphs:exportUpgradeGlyphs(content),
+  worldVisuals:exportWorldVisuals(world,content),
+  upgradeStyles:{families:require("../../src/render/ui/theme.js").UPGRADE_FAMILY_STYLES,rarities:require("../../src/render/ui/theme.js").UPGRADE_RARITIES},
+  runAdviceTips:require("../../src/core/run-advice.js").SOURCE_TIPS,
+  survival: { maps:survival.SURVIVAL_MAPS, gunPrices:survival.GUN_PRICES, turret:survival.TURRET, legacyMaps:survival.LEGACY_STAGE_MAPS,
+    mapSpawnStages:Object.fromEntries(Object.entries(survival.SURVIVAL_MAPS).map(([id,profile])=>[id,[0,30,50,90,140,200].map((at,i)=>({at,choices:Object.entries(profile.weights).filter(([type])=>["drifter","runner","crawler","spitter","brute","screecher"].indexOf(type)<=i).map(([id,weight])=>({id,weight}))}))])) },
   defaultSave:save.createDefaultSave(), saveSchema:save.CURRENT_SCHEMA_VERSION,
   masteryEvolutionRewards:content.masteryEvolutionRewards,
-  masteryRewards:require("../../src/content/mastery-rewards.js").MASTERY_REWARD_LEVELS };
+  masteryRewards:require("../../src/content/mastery-rewards.js").MASTERY_REWARD_LEVELS,
+  echoPropRects:require("../../src/content/echo-props.js").ECHO_PROP_RECTS,
+  enemyRoleProfiles:require("../../src/core/enemy-brain.js").ENEMY_ROLE_PROFILES,
+  tutorialSteps:require("../../src/core/tutorial.js").TUTORIAL_STEPS,
+  achievements:require("../../src/core/progression.js").ACHIEVEMENTS.map(({meets,...definition})=>definition),
+  navigationRoleWeights:require("../../src/core/enemy-brain.js").NAVIGATION_ROLE_WEIGHTS,
+  spawnStages:require("../../src/core/spawn-director.js").buildSpawnStages(content),
+  runTemplate:createRunState({duration:180,worldSize:3072,weaponId:content.defaults.weapon,skinId:content.defaults.skin,modeId:"endless",mode:content.modes.endless}),
+  entityTemplates:JSON.parse(JSON.stringify({enemy:factories.makeEnemy(),projectile:factories.makeProjectile(),pickup:factories.makePickup()},(_key,value)=>value instanceof Set?[...value]:ArrayBuffer.isView(value)?Array.from(value):value)) };
 const parity = { random:[], pressure:[], loadouts:[], upgrades:[], saves:[], shop:[], poses:[], baseRuns:[], navigation:[], geometry:[] };
 for(const mapId of content.ids("maps"))for(const clearance of [14,24,40]){
   const layout=world.get(content.maps[mapId].layoutId),grid=new NavigationGrid(layout,{cellSize:64,clearance}),flow=new NavigationFlowField(grid);

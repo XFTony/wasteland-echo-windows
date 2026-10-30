@@ -28,9 +28,9 @@ static func paint(view: MenuView) -> void:
 	for id: String in view.session.catalog.all("unlockRules"):
 		if id not in save.completedUnlockRules:
 			var rule: Dictionary = view.session.catalog.parameters("unlockRules", id)
-			rules.append({"rule": rule, "progress": UnlockRules.progress(save, {}, rule)})
+			rules.append({"rule": rule, "progress": UnlockRules.progress(save, {}, rule), "order": rules.size()})
 	rules.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
-		return float(a.progress.ratio) > float(b.progress.ratio))
+		return int(a.order) < int(b.order) if a.progress.ratio == b.progress.ratio else float(a.progress.ratio) > float(b.progress.ratio))
 	var next: String = "下一目标：全部规则已完成"
 	if not rules.is_empty():
 		next = "下一目标：%s — %s（%d%%）" % [rules[0].rule.name, rules[0].rule.description,

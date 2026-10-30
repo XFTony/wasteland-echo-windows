@@ -1,7 +1,7 @@
 {
   "date": "2026-10-29",
   "baseline": "ef7d50d",
-  "contentSha256": "E2B5F58F61EAB208BFDD80821518187B92246ED60929A97DB4290ECF90DB7F93",
+  "contentSha256": "D04BD72CE09301ACD4EA937DCEBE501BE786316EA33709090F423D6DA43C0541",
   "categories": {
     "modes": 3,
     "weapons": 12,
@@ -24,493 +24,657 @@
       "source": "web/assets/ui/radio-v1/camp.webp",
       "target": "assets/ui/radio-v1/camp.webp",
       "bytes": 224856,
-      "sha256": "0144B3C1551031AF32AF60798D4B4A198AC0B2160FCE7C207AB0592EE9B81F5D"
+      "sha256": "0144B3C1551031AF32AF60798D4B4A198AC0B2160FCE7C207AB0592EE9B81F5D",
+      "referenceSha256": "0144B3C1551031AF32AF60798D4B4A198AC0B2160FCE7C207AB0592EE9B81F5D",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/ui/radio-v1/desk.webp",
       "target": "assets/ui/radio-v1/desk.webp",
       "bytes": 267702,
-      "sha256": "9CC9FC4E5AD1E0A0BB11F1C626D4EE09C5EAFD35A6006DA5DAC7FB78F0331C21"
+      "sha256": "9CC9FC4E5AD1E0A0BB11F1C626D4EE09C5EAFD35A6006DA5DAC7FB78F0331C21",
+      "referenceSha256": "9CC9FC4E5AD1E0A0BB11F1C626D4EE09C5EAFD35A6006DA5DAC7FB78F0331C21",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/compact-v1/ranger-body.webp",
       "target": "assets/actors/compact-v1/ranger-body.webp",
       "bytes": 1806,
-      "sha256": "AF5FEC108E71611FE01EAC9F935A960E6854B2DAF56CF09D9D7D47FD1D0FA8F8"
+      "sha256": "AF5FEC108E71611FE01EAC9F935A960E6854B2DAF56CF09D9D7D47FD1D0FA8F8",
+      "referenceSha256": "AF5FEC108E71611FE01EAC9F935A960E6854B2DAF56CF09D9D7D47FD1D0FA8F8",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/compact-v1/cuffs-ranger-coat.webp",
       "target": "assets/actors/compact-v1/cuffs-ranger-coat.webp",
       "bytes": 248,
-      "sha256": "F1ABEAA5586CA86694D92366F0DF5D65C2C37ADFDDB029C8FBE6029E025C6C14"
+      "sha256": "F1ABEAA5586CA86694D92366F0DF5D65C2C37ADFDDB029C8FBE6029E025C6C14",
+      "referenceSha256": "F1ABEAA5586CA86694D92366F0DF5D65C2C37ADFDDB029C8FBE6029E025C6C14",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/compact-v1/hands-ranger-cloth.webp",
       "target": "assets/actors/compact-v1/hands-ranger-cloth.webp",
       "bytes": 380,
-      "sha256": "8C289F4ED8A4D1AE0DA787A3F5EC47DCFD38F03366D791E890C6C0E4BCCD6735"
+      "sha256": "8C289F4ED8A4D1AE0DA787A3F5EC47DCFD38F03366D791E890C6C0E4BCCD6735",
+      "referenceSha256": "8C289F4ED8A4D1AE0DA787A3F5EC47DCFD38F03366D791E890C6C0E4BCCD6735",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/compact-v1/weapon-breaker-shotgun.webp",
       "target": "assets/actors/compact-v1/weapon-breaker-shotgun.webp",
       "bytes": 306,
-      "sha256": "BE3B9949529995D5C478F9B729D206AD9E2BC877DFF8461FB907CB3581F6FBAB"
+      "sha256": "BE3B9949529995D5C478F9B729D206AD9E2BC877DFF8461FB907CB3581F6FBAB",
+      "referenceSha256": "BE3B9949529995D5C478F9B729D206AD9E2BC877DFF8461FB907CB3581F6FBAB",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/compact-v1/weapon-coil-cannon.webp",
       "target": "assets/actors/compact-v1/weapon-coil-cannon.webp",
       "bytes": 436,
-      "sha256": "26B99CD7EE8E96FA12070C006372428B975CB2D7B22BA1F389EE395F1E0DE970"
+      "sha256": "26B99CD7EE8E96FA12070C006372428B975CB2D7B22BA1F389EE395F1E0DE970",
+      "referenceSha256": "26B99CD7EE8E96FA12070C006372428B975CB2D7B22BA1F389EE395F1E0DE970",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/compact-v1/weapon-ember-carbine.webp",
       "target": "assets/actors/compact-v1/weapon-ember-carbine.webp",
       "bytes": 312,
-      "sha256": "62344F015B355D45D15746BA8553804834F01FE474EAC552AE3E2C36CFFD82FE"
+      "sha256": "62344F015B355D45D15746BA8553804834F01FE474EAC552AE3E2C36CFFD82FE",
+      "referenceSha256": "62344F015B355D45D15746BA8553804834F01FE474EAC552AE3E2C36CFFD82FE",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/compact-v1/weapon-needle-rifle.webp",
       "target": "assets/actors/compact-v1/weapon-needle-rifle.webp",
       "bytes": 278,
-      "sha256": "1BE14572BE1F059EC922DDC6539242A465C0E9CF183F2754F4B0324392F803F2"
+      "sha256": "1BE14572BE1F059EC922DDC6539242A465C0E9CF183F2754F4B0324392F803F2",
+      "referenceSha256": "1BE14572BE1F059EC922DDC6539242A465C0E9CF183F2754F4B0324392F803F2",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/compact-v1/weapon-rust-revolver.webp",
       "target": "assets/actors/compact-v1/weapon-rust-revolver.webp",
       "bytes": 332,
-      "sha256": "C660079EE1B4EEEF43A17B32E60AC65CEA3610F969BD7A778DBA553841EE2732"
+      "sha256": "C660079EE1B4EEEF43A17B32E60AC65CEA3610F969BD7A778DBA553841EE2732",
+      "referenceSha256": "C660079EE1B4EEEF43A17B32E60AC65CEA3610F969BD7A778DBA553841EE2732",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/compact-v1/weapon-scrap-pistol.webp",
       "target": "assets/actors/compact-v1/weapon-scrap-pistol.webp",
       "bytes": 248,
-      "sha256": "BAB0E0706A27BC86D254F408DB25C855127F2C384D7217237B444111FE9B96A4"
+      "sha256": "BAB0E0706A27BC86D254F408DB25C855127F2C384D7217237B444111FE9B96A4",
+      "referenceSha256": "BAB0E0706A27BC86D254F408DB25C855127F2C384D7217237B444111FE9B96A4",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/compact-v1/weapon-swarm-smg.webp",
       "target": "assets/actors/compact-v1/weapon-swarm-smg.webp",
       "bytes": 280,
-      "sha256": "17DA58DE487F3D3EE6EDF459659452938300605EE501D6F908F903A695ACA272"
+      "sha256": "17DA58DE487F3D3EE6EDF459659452938300605EE501D6F908F903A695ACA272",
+      "referenceSha256": "17DA58DE487F3D3EE6EDF459659452938300605EE501D6F908F903A695ACA272",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/compact-v1/drifter-atlas.webp",
       "target": "assets/actors/compact-v1/drifter-atlas.webp",
       "bytes": 2908,
-      "sha256": "B81681CF22BB8FE712792ACD8BA2F080A5A7361CA3998ABDCD8C2078558E962A"
+      "sha256": "B81681CF22BB8FE712792ACD8BA2F080A5A7361CA3998ABDCD8C2078558E962A",
+      "referenceSha256": "B81681CF22BB8FE712792ACD8BA2F080A5A7361CA3998ABDCD8C2078558E962A",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/compact-v1/runner-atlas.webp",
       "target": "assets/actors/compact-v1/runner-atlas.webp",
       "bytes": 2712,
-      "sha256": "6A5002F1EF2412866A385ABC88985BD72102B2D331034CB2221B0608BF4EE6B6"
+      "sha256": "6A5002F1EF2412866A385ABC88985BD72102B2D331034CB2221B0608BF4EE6B6",
+      "referenceSha256": "6A5002F1EF2412866A385ABC88985BD72102B2D331034CB2221B0608BF4EE6B6",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/compact-v1/spitter-atlas.webp",
       "target": "assets/actors/compact-v1/spitter-atlas.webp",
       "bytes": 3866,
-      "sha256": "62632393F47806A26392E4AB15FAF883C8F3650B11DCF144B5786F7DBCCF71DC"
+      "sha256": "62632393F47806A26392E4AB15FAF883C8F3650B11DCF144B5786F7DBCCF71DC",
+      "referenceSha256": "62632393F47806A26392E4AB15FAF883C8F3650B11DCF144B5786F7DBCCF71DC",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/compact-v1/brute-atlas.webp",
       "target": "assets/actors/compact-v1/brute-atlas.webp",
       "bytes": 6068,
-      "sha256": "B2A9A66134B29C802CA487DFBF061C60DE3AADD67548D046696068C94EF04229"
+      "sha256": "B2A9A66134B29C802CA487DFBF061C60DE3AADD67548D046696068C94EF04229",
+      "referenceSha256": "B2A9A66134B29C802CA487DFBF061C60DE3AADD67548D046696068C94EF04229",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/compact-v1/screecher-atlas.webp",
       "target": "assets/actors/compact-v1/screecher-atlas.webp",
       "bytes": 3678,
-      "sha256": "9C70391684B1C5ED236D2B98F4B9D9B039D22EEC854E6CC20DD6DD132CF839BA"
+      "sha256": "9C70391684B1C5ED236D2B98F4B9D9B039D22EEC854E6CC20DD6DD132CF839BA",
+      "referenceSha256": "9C70391684B1C5ED236D2B98F4B9D9B039D22EEC854E6CC20DD6DD132CF839BA",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/compact-v1/crawler-atlas.webp",
       "target": "assets/actors/compact-v1/crawler-atlas.webp",
       "bytes": 2364,
-      "sha256": "4E185C8DB2BA808F604AC4AC5892454C0A77C1004A180ED1DDB2167A98334C2F"
+      "sha256": "4E185C8DB2BA808F604AC4AC5892454C0A77C1004A180ED1DDB2167A98334C2F",
+      "referenceSha256": "4E185C8DB2BA808F604AC4AC5892454C0A77C1004A180ED1DDB2167A98334C2F",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/compact-v1/warden-atlas.webp",
       "target": "assets/actors/compact-v1/warden-atlas.webp",
       "bytes": 6438,
-      "sha256": "ACB6422F79C756CEE85DD07BCDF56EFCEAA110B762F22418C72746022C718793"
+      "sha256": "ACB6422F79C756CEE85DD07BCDF56EFCEAA110B762F22418C72746022C718793",
+      "referenceSha256": "ACB6422F79C756CEE85DD07BCDF56EFCEAA110B762F22418C72746022C718793",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/compact-v1/iron_colossus-atlas.webp",
       "target": "assets/actors/compact-v1/iron_colossus-atlas.webp",
       "bytes": 12854,
-      "sha256": "4268795312BBB0525BD4403FEEC4BEB70DF2914585D9E830152FFD2CB99FE647"
+      "sha256": "4268795312BBB0525BD4403FEEC4BEB70DF2914585D9E830152FFD2CB99FE647",
+      "referenceSha256": "4268795312BBB0525BD4403FEEC4BEB70DF2914585D9E830152FFD2CB99FE647",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/wasteland-ground-texture-v1.webp",
       "target": "assets/wasteland-ground-texture-v1.webp",
       "bytes": 548988,
-      "sha256": "2F91FEA991F7E602E9607BD6903FCB65CCB097B973839E862C58D08E3927F3B6"
+      "sha256": "2F91FEA991F7E602E9607BD6903FCB65CCB097B973839E862C58D08E3927F3B6",
+      "referenceSha256": "2F91FEA991F7E602E9607BD6903FCB65CCB097B973839E862C58D08E3927F3B6",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/world/echo-ground-v1.webp",
       "target": "assets/world/echo-ground-v1.webp",
       "bytes": 294124,
-      "sha256": "1529597FE141C99ED4F51E5584B911DE4977D80C712AB661AB2D6E7C52423C21"
+      "sha256": "1529597FE141C99ED4F51E5584B911DE4977D80C712AB661AB2D6E7C52423C21",
+      "referenceSha256": "1529597FE141C99ED4F51E5584B911DE4977D80C712AB661AB2D6E7C52423C21",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/world/freight-ground-v1.webp",
       "target": "assets/world/freight-ground-v1.webp",
       "bytes": 413352,
-      "sha256": "0555805FC414637D685ACA091C37E3A0D2B5AF3E0B8C7B2C574D9EE5048E5E43"
+      "sha256": "0555805FC414637D685ACA091C37E3A0D2B5AF3E0B8C7B2C574D9EE5048E5E43",
+      "referenceSha256": "0555805FC414637D685ACA091C37E3A0D2B5AF3E0B8C7B2C574D9EE5048E5E43",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/world/red-basin-ground-v1.webp",
       "target": "assets/world/red-basin-ground-v1.webp",
       "bytes": 291974,
-      "sha256": "8EC0EC4F73191C8E2112C1656672E1ED31025D23D74D8DB0954AA6046F3847AA"
+      "sha256": "8EC0EC4F73191C8E2112C1656672E1ED31025D23D74D8DB0954AA6046F3847AA",
+      "referenceSha256": "8EC0EC4F73191C8E2112C1656672E1ED31025D23D74D8DB0954AA6046F3847AA",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/world/props/echo-shop-roof-v1.webp",
       "target": "assets/world/props/echo-shop-roof-v1.webp",
       "bytes": 208472,
-      "sha256": "B61B8EA9D6596B6C23A98A44231394A85B27C2EAFDE195121A670F03B8586262"
+      "sha256": "B61B8EA9D6596B6C23A98A44231394A85B27C2EAFDE195121A670F03B8586262",
+      "referenceSha256": "B61B8EA9D6596B6C23A98A44231394A85B27C2EAFDE195121A670F03B8586262",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/world/props/echo-warehouse-roof-v1.webp",
       "target": "assets/world/props/echo-warehouse-roof-v1.webp",
       "bytes": 212966,
-      "sha256": "2BBB62432D2E02B37AC27DDBC02606643A832790FE42FCC7BD9BACD5C857CD21"
+      "sha256": "2BBB62432D2E02B37AC27DDBC02606643A832790FE42FCC7BD9BACD5C857CD21",
+      "referenceSha256": "2BBB62432D2E02B37AC27DDBC02606643A832790FE42FCC7BD9BACD5C857CD21",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/world/props/echo-container-v1.webp",
       "target": "assets/world/props/echo-container-v1.webp",
       "bytes": 142882,
-      "sha256": "9C420F642CE15989BE54138F414F7C9A14E966765714E55E97390A089E3C114B"
+      "sha256": "9C420F642CE15989BE54138F414F7C9A14E966765714E55E97390A089E3C114B",
+      "referenceSha256": "9C420F642CE15989BE54138F414F7C9A14E966765714E55E97390A089E3C114B",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/world/props/echo-railcar-v1.webp",
       "target": "assets/world/props/echo-railcar-v1.webp",
       "bytes": 78586,
-      "sha256": "01D64B947380EF0EE00364C6AC58A2D8F68E2FDC6EB1DF8F397F2B718C7EAFB7"
+      "sha256": "01D64B947380EF0EE00364C6AC58A2D8F68E2FDC6EB1DF8F397F2B718C7EAFB7",
+      "referenceSha256": "01D64B947380EF0EE00364C6AC58A2D8F68E2FDC6EB1DF8F397F2B718C7EAFB7",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/world/props/echo-apothecary-roof-v1.webp",
       "target": "assets/world/props/echo-apothecary-roof-v1.webp",
       "bytes": 198144,
-      "sha256": "3C3C3DF356A7A43C1AF9A6E49E6C1E24A6548E93F907CAAA059E9439C8471B38"
+      "sha256": "3C3C3DF356A7A43C1AF9A6E49E6C1E24A6548E93F907CAAA059E9439C8471B38",
+      "referenceSha256": "3C3C3DF356A7A43C1AF9A6E49E6C1E24A6548E93F907CAAA059E9439C8471B38",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/world/echo-market-v1/trade-post.webp",
       "target": "assets/world/echo-market-v1/trade-post.webp",
       "bytes": 160304,
-      "sha256": "2E37223BA934525EB55DB29168ED53EAE185AB8318E3ECA97CFA77DE7583ED37"
+      "sha256": "2E37223BA934525EB55DB29168ED53EAE185AB8318E3ECA97CFA77DE7583ED37",
+      "referenceSha256": "2E37223BA934525EB55DB29168ED53EAE185AB8318E3ECA97CFA77DE7583ED37",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/world/echo-market-v1/salvage-kit.webp",
       "target": "assets/world/echo-market-v1/salvage-kit.webp",
       "bytes": 202026,
-      "sha256": "81546139F5BB5FB28D9515471236F4CAC9E7533F568C08F730E5B5783A7FAF87"
+      "sha256": "81546139F5BB5FB28D9515471236F4CAC9E7533F568C08F730E5B5783A7FAF87",
+      "referenceSha256": "81546139F5BB5FB28D9515471236F4CAC9E7533F568C08F730E5B5783A7FAF87",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/ranger-base-v1.webp",
       "target": "assets/actors/ranger-base-v1.webp",
       "bytes": 113272,
-      "sha256": "FC35DE7B512F3161462FD84C26B267DB6A58EB005D01BA7EC2637D2D1E8A4E7F"
+      "sha256": "FC35DE7B512F3161462FD84C26B267DB6A58EB005D01BA7EC2637D2D1E8A4E7F",
+      "referenceSha256": "FC35DE7B512F3161462FD84C26B267DB6A58EB005D01BA7EC2637D2D1E8A4E7F",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/ranger-nightwatch-v2.webp",
       "target": "assets/actors/ranger-nightwatch-v2.webp",
       "bytes": 133106,
-      "sha256": "7006D20CA506D67F61845DEBAADDE34C5318CFED2604D4967BCE1987E9E1C59F"
+      "sha256": "7006D20CA506D67F61845DEBAADDE34C5318CFED2604D4967BCE1987E9E1C59F",
+      "referenceSha256": "7006D20CA506D67F61845DEBAADDE34C5318CFED2604D4967BCE1987E9E1C59F",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/ranger-mechanic-v1.webp",
       "target": "assets/actors/ranger-mechanic-v1.webp",
       "bytes": 124900,
-      "sha256": "9DACF0CE45F604D857A55099ECEC39E3D416640D8FAB92191DB67D10CCC2F037"
+      "sha256": "9DACF0CE45F604D857A55099ECEC39E3D416640D8FAB92191DB67D10CCC2F037",
+      "referenceSha256": "9DACF0CE45F604D857A55099ECEC39E3D416640D8FAB92191DB67D10CCC2F037",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/ranger-armed-portrait-v1.webp",
       "target": "assets/actors/ranger-armed-portrait-v1.webp",
       "bytes": 258444,
-      "sha256": "BE440C9549ABAD70451E42B1D5C66FFC9C9FBB5498A51A998D2173545207D97C"
+      "sha256": "BE440C9549ABAD70451E42B1D5C66FFC9C9FBB5498A51A998D2173545207D97C",
+      "referenceSha256": "BE440C9549ABAD70451E42B1D5C66FFC9C9FBB5498A51A998D2173545207D97C",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/mechanic-base-v1.webp",
       "target": "assets/actors/mechanic-base-v1.webp",
       "bytes": 106492,
-      "sha256": "536031544450C108BF26F457058698C420B9FF4D9FD0DB454F6A4217C0F9B149"
+      "sha256": "536031544450C108BF26F457058698C420B9FF4D9FD0DB454F6A4217C0F9B149",
+      "referenceSha256": "536031544450C108BF26F457058698C420B9FF4D9FD0DB454F6A4217C0F9B149",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/mechanic-nightwatch-v1.webp",
       "target": "assets/actors/mechanic-nightwatch-v1.webp",
       "bytes": 108106,
-      "sha256": "B07AF5386B2667B870F023C0CC761B987E4F4B3E0892758245993D3BAA20CF71"
+      "sha256": "B07AF5386B2667B870F023C0CC761B987E4F4B3E0892758245993D3BAA20CF71",
+      "referenceSha256": "B07AF5386B2667B870F023C0CC761B987E4F4B3E0892758245993D3BAA20CF71",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/mechanic-mechanic-v2.webp",
       "target": "assets/actors/mechanic-mechanic-v2.webp",
       "bytes": 116438,
-      "sha256": "4FD2709523F6DED06B7E2FBE42CEB66866E4091F2E13D5DAD4C522E746904889"
+      "sha256": "4FD2709523F6DED06B7E2FBE42CEB66866E4091F2E13D5DAD4C522E746904889",
+      "referenceSha256": "4FD2709523F6DED06B7E2FBE42CEB66866E4091F2E13D5DAD4C522E746904889",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/bulwark-nightwatch-v2.webp",
       "target": "assets/actors/bulwark-nightwatch-v2.webp",
       "bytes": 180882,
-      "sha256": "2EB2946A01F4823016F2EF88DEFF7769671F82A15FD42B965ABB15081AA2D4A9"
+      "sha256": "2EB2946A01F4823016F2EF88DEFF7769671F82A15FD42B965ABB15081AA2D4A9",
+      "referenceSha256": "2EB2946A01F4823016F2EF88DEFF7769671F82A15FD42B965ABB15081AA2D4A9",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/bulwark-mechanic-v1.webp",
       "target": "assets/actors/bulwark-mechanic-v1.webp",
       "bytes": 184480,
-      "sha256": "14BA9B2E942F207E7F1E3F9A9744E26FB72C960C22043543D67583F96BAE845A"
+      "sha256": "14BA9B2E942F207E7F1E3F9A9744E26FB72C960C22043543D67583F96BAE845A",
+      "referenceSha256": "14BA9B2E942F207E7F1E3F9A9744E26FB72C960C22043543D67583F96BAE845A",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/actors/bulwark-base-v1.webp",
       "target": "assets/actors/bulwark-base-v1.webp",
       "bytes": 170448,
-      "sha256": "35452EEE217405420DA56C736E073C6CB90BD8D46454D59502618A740059C109"
+      "sha256": "35452EEE217405420DA56C736E073C6CB90BD8D46454D59502618A740059C109",
+      "referenceSha256": "35452EEE217405420DA56C736E073C6CB90BD8D46454D59502618A740059C109",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/weapons/scrap-pistol-v1.webp",
       "target": "assets/weapons/scrap-pistol-v1.webp",
       "bytes": 140434,
-      "sha256": "8965B0BF4EFA16E432452A737B75A72404F7EC61980726F4D207169B4E7B40E6"
+      "sha256": "8965B0BF4EFA16E432452A737B75A72404F7EC61980726F4D207169B4E7B40E6",
+      "referenceSha256": "8965B0BF4EFA16E432452A737B75A72404F7EC61980726F4D207169B4E7B40E6",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/weapons/swarm-smg-v1.webp",
       "target": "assets/weapons/swarm-smg-v1.webp",
       "bytes": 77432,
-      "sha256": "C86CBC907936C1C38C40424F070DB7FC9FAA1E4C0C91F83A0C10DFF2A2943DE7"
+      "sha256": "C86CBC907936C1C38C40424F070DB7FC9FAA1E4C0C91F83A0C10DFF2A2943DE7",
+      "referenceSha256": "C86CBC907936C1C38C40424F070DB7FC9FAA1E4C0C91F83A0C10DFF2A2943DE7",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/weapons/breaker-shotgun-v1.webp",
       "target": "assets/weapons/breaker-shotgun-v1.webp",
       "bytes": 63166,
-      "sha256": "A1143C91CDD3357A70064FD889D0958799A642035410334071FBC3B2B5795A00"
+      "sha256": "A1143C91CDD3357A70064FD889D0958799A642035410334071FBC3B2B5795A00",
+      "referenceSha256": "A1143C91CDD3357A70064FD889D0958799A642035410334071FBC3B2B5795A00",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/weapons/needle-rifle-v1.webp",
       "target": "assets/weapons/needle-rifle-v1.webp",
       "bytes": 38044,
-      "sha256": "E7234F67E8470B4E5A7263CA2E255C3674A5D042225A0A0E3F306AE3AAC9EA78"
+      "sha256": "E7234F67E8470B4E5A7263CA2E255C3674A5D042225A0A0E3F306AE3AAC9EA78",
+      "referenceSha256": "E7234F67E8470B4E5A7263CA2E255C3674A5D042225A0A0E3F306AE3AAC9EA78",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/weapons/rust-revolver-v1.webp",
       "target": "assets/weapons/rust-revolver-v1.webp",
       "bytes": 114004,
-      "sha256": "ECF7C23E50297F4CC11D831D59FEF124F57171E56D6E9E4203C891B738AE5783"
+      "sha256": "ECF7C23E50297F4CC11D831D59FEF124F57171E56D6E9E4203C891B738AE5783",
+      "referenceSha256": "ECF7C23E50297F4CC11D831D59FEF124F57171E56D6E9E4203C891B738AE5783",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/weapons/ember-carbine-v1.webp",
       "target": "assets/weapons/ember-carbine-v1.webp",
       "bytes": 65692,
-      "sha256": "C49E139AB1EC6FFD16D42EEB57E7A632A40A5395C1917E6EF6274B0011FF24FB"
+      "sha256": "C49E139AB1EC6FFD16D42EEB57E7A632A40A5395C1917E6EF6274B0011FF24FB",
+      "referenceSha256": "C49E139AB1EC6FFD16D42EEB57E7A632A40A5395C1917E6EF6274B0011FF24FB",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/weapons/coil-cannon-v1.webp",
       "target": "assets/weapons/coil-cannon-v1.webp",
       "bytes": 76894,
-      "sha256": "F9E5B9DEAC94808C0EFC298EB3EE42107AE84DA693D4E67F2283BCFCBA568D05"
+      "sha256": "F9E5B9DEAC94808C0EFC298EB3EE42107AE84DA693D4E67F2283BCFCBA568D05",
+      "referenceSha256": "F9E5B9DEAC94808C0EFC298EB3EE42107AE84DA693D4E67F2283BCFCBA568D05",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/outfits/wanderer-v1.webp",
       "target": "assets/outfits/wanderer-v1.webp",
       "bytes": 57800,
-      "sha256": "C9E9C0E63DBB1194B06700AF1425FF6C5FA66BED15B1589E9B3E45F8762BD275"
+      "sha256": "C9E9C0E63DBB1194B06700AF1425FF6C5FA66BED15B1589E9B3E45F8762BD275",
+      "referenceSha256": "C9E9C0E63DBB1194B06700AF1425FF6C5FA66BED15B1589E9B3E45F8762BD275",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/outfits/mechanic-v1.webp",
       "target": "assets/outfits/mechanic-v1.webp",
       "bytes": 54072,
-      "sha256": "000C476B53B88B2B3166E07FB035DD7DCF0EF636A627593B3F840AA9BA479E0E"
+      "sha256": "000C476B53B88B2B3166E07FB035DD7DCF0EF636A627593B3F840AA9BA479E0E",
+      "referenceSha256": "000C476B53B88B2B3166E07FB035DD7DCF0EF636A627593B3F840AA9BA479E0E",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/outfits/nightwatch-v1.webp",
       "target": "assets/outfits/nightwatch-v1.webp",
       "bytes": 38934,
-      "sha256": "67240379EE6A48CE3B186A8B0FF29449051730B5A1D865B270E19FEEBABBEAEB"
+      "sha256": "67240379EE6A48CE3B186A8B0FF29449051730B5A1D865B270E19FEEBABBEAEB",
+      "referenceSha256": "67240379EE6A48CE3B186A8B0FF29449051730B5A1D865B270E19FEEBABBEAEB",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/equipment/field-vest-v1.webp",
       "target": "assets/equipment/field-vest-v1.webp",
       "bytes": 84696,
-      "sha256": "E7145D973B284B889AFA50E3A9AF1682406D2D3BF16663D97FE112B19150426B"
+      "sha256": "E7145D973B284B889AFA50E3A9AF1682406D2D3BF16663D97FE112B19150426B",
+      "referenceSha256": "E7145D973B284B889AFA50E3A9AF1682406D2D3BF16663D97FE112B19150426B",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/equipment/iron-plate-v1.webp",
       "target": "assets/equipment/iron-plate-v1.webp",
       "bytes": 104684,
-      "sha256": "916179C4727504AE85B3160427534F65530B3254B217A02A61AE5614151DE039"
+      "sha256": "916179C4727504AE85B3160427534F65530B3254B217A02A61AE5614151DE039",
+      "referenceSha256": "916179C4727504AE85B3160427534F65530B3254B217A02A61AE5614151DE039",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/equipment/runner-boots-v1.webp",
       "target": "assets/equipment/runner-boots-v1.webp",
       "bytes": 71526,
-      "sha256": "B0F27774D2CC13EC62224F48B21DD5C00C13C0CA954C3BEF5D6A84796160537B"
+      "sha256": "B0F27774D2CC13EC62224F48B21DD5C00C13C0CA954C3BEF5D6A84796160537B",
+      "referenceSha256": "B0F27774D2CC13EC62224F48B21DD5C00C13C0CA954C3BEF5D6A84796160537B",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/equipment/magnet-helm-v1.webp",
       "target": "assets/equipment/magnet-helm-v1.webp",
       "bytes": 92760,
-      "sha256": "32508CA35CEDD6A959704A7D1A9D00D87F51B7EBD067D72227A855D182CBE223"
+      "sha256": "32508CA35CEDD6A959704A7D1A9D00D87F51B7EBD067D72227A855D182CBE223",
+      "referenceSha256": "32508CA35CEDD6A959704A7D1A9D00D87F51B7EBD067D72227A855D182CBE223",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/equipment/ammo-rig-v1.webp",
       "target": "assets/equipment/ammo-rig-v1.webp",
       "bytes": 61532,
-      "sha256": "D6A68C6D2C6D354BA546D7191385E0FBED14BF8AACADE99E95A0C913C4C29F05"
+      "sha256": "D6A68C6D2C6D354BA546D7191385E0FBED14BF8AACADE99E95A0C913C4C29F05",
+      "referenceSha256": "D6A68C6D2C6D354BA546D7191385E0FBED14BF8AACADE99E95A0C913C4C29F05",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/equipment/signal-helm-v1.webp",
       "target": "assets/equipment/signal-helm-v1.webp",
       "bytes": 95160,
-      "sha256": "6110691CF20135DEA67F2F25313A3FD029B4016FD3C60628E931094D17B707E4"
+      "sha256": "6110691CF20135DEA67F2F25313A3FD029B4016FD3C60628E931094D17B707E4",
+      "referenceSha256": "6110691CF20135DEA67F2F25313A3FD029B4016FD3C60628E931094D17B707E4",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/equipment/servo-greaves-v1.webp",
       "target": "assets/equipment/servo-greaves-v1.webp",
       "bytes": 81654,
-      "sha256": "013B72ECD6F51D29FC6297FCC44135E9C29F729367663555A0BAADC9A89FA332"
+      "sha256": "013B72ECD6F51D29FC6297FCC44135E9C29F729367663555A0BAADC9A89FA332",
+      "referenceSha256": "013B72ECD6F51D29FC6297FCC44135E9C29F729367663555A0BAADC9A89FA332",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/equipment/stormstep-boots-v1.webp",
       "target": "assets/equipment/stormstep-boots-v1.webp",
       "bytes": 92020,
-      "sha256": "80DDBCC3DFD6936D39B2FC54044322C005D2AEB8FF8F94D63576E2D77271A8AE"
+      "sha256": "80DDBCC3DFD6936D39B2FC54044322C005D2AEB8FF8F94D63576E2D77271A8AE",
+      "referenceSha256": "80DDBCC3DFD6936D39B2FC54044322C005D2AEB8FF8F94D63576E2D77271A8AE",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/audio/survival-v1/scrap_pistol.wav",
       "target": "assets/audio/survival-v1/scrap_pistol.wav",
       "bytes": 13310,
-      "sha256": "04DF545F81C495788FAED16730A5E287869A343F43C68BF852FE80BCFE8346AE"
+      "sha256": "04DF545F81C495788FAED16730A5E287869A343F43C68BF852FE80BCFE8346AE",
+      "referenceSha256": "04DF545F81C495788FAED16730A5E287869A343F43C68BF852FE80BCFE8346AE",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/audio/survival-v1/swarm_smg.wav",
       "target": "assets/audio/survival-v1/swarm_smg.wav",
       "bytes": 6474,
-      "sha256": "39D6872486718DF7B3534DF4694E0045A26A1EEE8BBD3833D05C2099F0789DFB"
+      "sha256": "39D6872486718DF7B3534DF4694E0045A26A1EEE8BBD3833D05C2099F0789DFB",
+      "referenceSha256": "39D6872486718DF7B3534DF4694E0045A26A1EEE8BBD3833D05C2099F0789DFB",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/audio/survival-v1/breaker_shotgun.wav",
       "target": "assets/audio/survival-v1/breaker_shotgun.wav",
       "bytes": 19042,
-      "sha256": "655EACB14E4324FCB474E967887DA60D5D37B4EA87163E2A2D079C88838C569E"
+      "sha256": "655EACB14E4324FCB474E967887DA60D5D37B4EA87163E2A2D079C88838C569E",
+      "referenceSha256": "655EACB14E4324FCB474E967887DA60D5D37B4EA87163E2A2D079C88838C569E",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/audio/survival-v1/needle_rifle.wav",
       "target": "assets/audio/survival-v1/needle_rifle.wav",
       "bytes": 12868,
-      "sha256": "11FAC2C372D6BD84C6AA11BB4563A1C7FF34EDF09195C79C136ECFECEC4DF400"
+      "sha256": "11FAC2C372D6BD84C6AA11BB4563A1C7FF34EDF09195C79C136ECFECEC4DF400",
+      "referenceSha256": "11FAC2C372D6BD84C6AA11BB4563A1C7FF34EDF09195C79C136ECFECEC4DF400",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/audio/survival-v1/rust_revolver.wav",
       "target": "assets/audio/survival-v1/rust_revolver.wav",
       "bytes": 15956,
-      "sha256": "C44B6AFF75D59A0890E2E5BF707B58B1DB61DD80DFF475F6E7AD7BE6CAE7340B"
+      "sha256": "C44B6AFF75D59A0890E2E5BF707B58B1DB61DD80DFF475F6E7AD7BE6CAE7340B",
+      "referenceSha256": "C44B6AFF75D59A0890E2E5BF707B58B1DB61DD80DFF475F6E7AD7BE6CAE7340B",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/audio/survival-v1/ember_carbine.wav",
       "target": "assets/audio/survival-v1/ember_carbine.wav",
       "bytes": 9120,
-      "sha256": "A40A0CF9627E87C97FFBCE4EA3D91D471D6B8918D2B0D969752E1F0935CE09F5"
+      "sha256": "A40A0CF9627E87C97FFBCE4EA3D91D471D6B8918D2B0D969752E1F0935CE09F5",
+      "referenceSha256": "A40A0CF9627E87C97FFBCE4EA3D91D471D6B8918D2B0D969752E1F0935CE09F5",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/audio/survival-v1/coil_cannon.wav",
       "target": "assets/audio/survival-v1/coil_cannon.wav",
       "bytes": 15956,
-      "sha256": "4B01241B2CE5E5ECE8CEE1F4DFEFA5F24DEE4C27AF38A586951A1F8A0FA67CC6"
+      "sha256": "4B01241B2CE5E5ECE8CEE1F4DFEFA5F24DEE4C27AF38A586951A1F8A0FA67CC6",
+      "referenceSha256": "4B01241B2CE5E5ECE8CEE1F4DFEFA5F24DEE4C27AF38A586951A1F8A0FA67CC6",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/audio/survival-v1/mechanical_light.wav",
       "target": "assets/audio/survival-v1/mechanical_light.wav",
       "bytes": 4930,
-      "sha256": "1D0D31A6F0021BC847491EE14964498EAE25BE24321B84F18247887EE49361C8"
+      "sha256": "1D0D31A6F0021BC847491EE14964498EAE25BE24321B84F18247887EE49361C8",
+      "referenceSha256": "1D0D31A6F0021BC847491EE14964498EAE25BE24321B84F18247887EE49361C8",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/audio/survival-v1/mechanical_heavy.wav",
       "target": "assets/audio/survival-v1/mechanical_heavy.wav",
       "bytes": 6254,
-      "sha256": "F6E58F670BC233655CDB9D3A3848FA1A413C8CCC328D1ADDA70204E78CEDB454"
+      "sha256": "F6E58F670BC233655CDB9D3A3848FA1A413C8CCC328D1ADDA70204E78CEDB454",
+      "referenceSha256": "F6E58F670BC233655CDB9D3A3848FA1A413C8CCC328D1ADDA70204E78CEDB454",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/audio/survival-v1/theme-menu.ogg",
       "target": "assets/audio/survival-v1/theme-menu.ogg",
       "bytes": 127168,
-      "sha256": "941ECD2BBC2F49E14FEB215B00D4D3191705F77130653DA18367E937F9D3D2B8"
+      "sha256": "941ECD2BBC2F49E14FEB215B00D4D3191705F77130653DA18367E937F9D3D2B8",
+      "referenceSha256": "941ECD2BBC2F49E14FEB215B00D4D3191705F77130653DA18367E937F9D3D2B8",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/audio/survival-v1/theme-combat.ogg",
       "target": "assets/audio/survival-v1/theme-combat.ogg",
       "bytes": 146011,
-      "sha256": "9EC80574610BE1FBF8D873C29B3DA5E9224F62D174FDC45A4E1864A2969E8005"
+      "sha256": "9EC80574610BE1FBF8D873C29B3DA5E9224F62D174FDC45A4E1864A2969E8005",
+      "referenceSha256": "9EC80574610BE1FBF8D873C29B3DA5E9224F62D174FDC45A4E1864A2969E8005",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/audio/survival-v1/theme-pressure.ogg",
       "target": "assets/audio/survival-v1/theme-pressure.ogg",
       "bytes": 165511,
-      "sha256": "48FBC845545328062BF1A80B26B781032640D72D073116F465E30F213BAC000E"
+      "sha256": "48FBC845545328062BF1A80B26B781032640D72D073116F465E30F213BAC000E",
+      "referenceSha256": "48FBC845545328062BF1A80B26B781032640D72D073116F465E30F213BAC000E",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/audio/arsenal-v2/prism_laser.wav",
       "target": "assets/audio/arsenal-v2/prism_laser.wav",
       "bytes": 10628,
-      "sha256": "4228AF3BC90C90B95DB9C774B64747C87D3A1B460FF3C637AD7AC0F5E12EB9D9"
+      "sha256": "4228AF3BC90C90B95DB9C774B64747C87D3A1B460FF3C637AD7AC0F5E12EB9D9",
+      "referenceSha256": "4228AF3BC90C90B95DB9C774B64747C87D3A1B460FF3C637AD7AC0F5E12EB9D9",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/audio/arsenal-v2/slag_launcher.wav",
       "target": "assets/audio/arsenal-v2/slag_launcher.wav",
       "bytes": 13274,
-      "sha256": "0C1C806CACEE2E7111CA3A2E01451EB47F615FEB789B4BB3537F14A955B18263"
+      "sha256": "0C1C806CACEE2E7111CA3A2E01451EB47F615FEB789B4BB3537F14A955B18263",
+      "referenceSha256": "0C1C806CACEE2E7111CA3A2E01451EB47F615FEB789B4BB3537F14A955B18263",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/audio/arsenal-v2/saw_disc.wav",
       "target": "assets/audio/arsenal-v2/saw_disc.wav",
       "bytes": 10628,
-      "sha256": "58D3B91760C7C24819D7CB465DDB76445AC450EEF2C2B734B064D8413F0AF9F1"
+      "sha256": "58D3B91760C7C24819D7CB465DDB76445AC450EEF2C2B734B064D8413F0AF9F1",
+      "referenceSha256": "58D3B91760C7C24819D7CB465DDB76445AC450EEF2C2B734B064D8413F0AF9F1",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/audio/arsenal-v2/echo_blade.wav",
       "target": "assets/audio/arsenal-v2/echo_blade.wav",
       "bytes": 9746,
-      "sha256": "4A57CA402F111863F51BF3FBDC134E621AD829881B5274E162EB31028724DC2B"
+      "sha256": "4A57CA402F111863F51BF3FBDC134E621AD829881B5274E162EB31028724DC2B",
+      "referenceSha256": "4A57CA402F111863F51BF3FBDC134E621AD829881B5274E162EB31028724DC2B",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/audio/arsenal-v2/shock_hammer.wav",
       "target": "assets/audio/arsenal-v2/shock_hammer.wav",
       "bytes": 13274,
-      "sha256": "73B7F7525DD532CF43ECF08ACAE1172325EB7F12693B798549D6AB59172FE7E5"
+      "sha256": "73B7F7525DD532CF43ECF08ACAE1172325EB7F12693B798549D6AB59172FE7E5",
+      "referenceSha256": "73B7F7525DD532CF43ECF08ACAE1172325EB7F12693B798549D6AB59172FE7E5",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/audio/arsenal-v2/explosion.wav",
       "target": "assets/audio/arsenal-v2/explosion.wav",
       "bytes": 22976,
-      "sha256": "F9152DB73386199F4DB1CC46EE7E8605714DB309FAD9C795BA7A9EA448CBD2F2"
+      "sha256": "F9152DB73386199F4DB1CC46EE7E8605714DB309FAD9C795BA7A9EA448CBD2F2",
+      "referenceSha256": "F9152DB73386199F4DB1CC46EE7E8605714DB309FAD9C795BA7A9EA448CBD2F2",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/audio/arsenal-v2/hammer_impact.wav",
       "target": "assets/audio/arsenal-v2/hammer_impact.wav",
       "bytes": 16802,
-      "sha256": "F24B6F7D53200BD2DA9D539B819AD45DA1E872D2BBCC1C9AE48B77B7C70B04E2"
+      "sha256": "F24B6F7D53200BD2DA9D539B819AD45DA1E872D2BBCC1C9AE48B77B7C70B04E2",
+      "referenceSha256": "F24B6F7D53200BD2DA9D539B819AD45DA1E872D2BBCC1C9AE48B77B7C70B04E2",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/audio/arsenal-v2/melee_hit.wav",
       "target": "assets/audio/arsenal-v2/melee_hit.wav",
       "bytes": 6218,
-      "sha256": "2904FB824FD18E7C3EAE34E96D52710131A747839BCE37604C3FCC44E6BE9AAE"
+      "sha256": "2904FB824FD18E7C3EAE34E96D52710131A747839BCE37604C3FCC44E6BE9AAE",
+      "referenceSha256": "2904FB824FD18E7C3EAE34E96D52710131A747839BCE37604C3FCC44E6BE9AAE",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/audio/arsenal-v2/ricochet.wav",
       "target": "assets/audio/arsenal-v2/ricochet.wav",
       "bytes": 4454,
-      "sha256": "20861A6623D6D4D5C479B31B12851C0613673DF555490D6EF46BFAC01180E85C"
+      "sha256": "20861A6623D6D4D5C479B31B12851C0613673DF555490D6EF46BFAC01180E85C",
+      "referenceSha256": "20861A6623D6D4D5C479B31B12851C0613673DF555490D6EF46BFAC01180E85C",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/fonts/OFL-Fusion-Pixel-Font-1.1.txt",
       "target": "assets/fonts/OFL-Fusion-Pixel-Font-1.1.txt",
       "bytes": 4418,
-      "sha256": "BC518CF64B8032C07690F33CC270C35C179255A6AC8EFA7C165EBAE7E8F76A63"
+      "sha256": "BC518CF64B8032C07690F33CC270C35C179255A6AC8EFA7C165EBAE7E8F76A63",
+      "referenceSha256": "BC518CF64B8032C07690F33CC270C35C179255A6AC8EFA7C165EBAE7E8F76A63",
+      "nativeEdited": false
     },
     {
       "source": "web/assets/fonts/wasteland-fusion-pixel-12-subset.woff2",
       "target": "assets/fonts/wasteland-fusion-pixel-12-subset.woff2",
       "bytes": 23420,
-      "sha256": "A61B5888489AB0E69C891DE3EF6B970D50BDF4E5E9ACF77CD203D98B8FC2818E"
+      "sha256": "A61B5888489AB0E69C891DE3EF6B970D50BDF4E5E9ACF77CD203D98B8FC2818E",
+      "referenceSha256": "A61B5888489AB0E69C891DE3EF6B970D50BDF4E5E9ACF77CD203D98B8FC2818E",
+      "nativeEdited": false
     }
   ],
   "parityCases": {

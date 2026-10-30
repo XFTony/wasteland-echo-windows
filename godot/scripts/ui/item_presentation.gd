@@ -5,6 +5,32 @@ const SLOT_LABELS: Dictionary = {"helmet": "头盔", "chest": "身甲", "legs": 
 const RARITY_LABELS: Dictionary = {"standard": "标准行装", "advanced": "精制行装", "prototype": "原型行装"}
 
 
+static func accent(kind: String, item: Dictionary, catalog: GameCatalog) -> Color:
+	if item.is_empty():
+		return Color("5f5d54")
+	if kind == "weapon":
+		return Color(catalog.metadata.icons.rangeBands.get(item.rangeBand, {}).get("color", "#d2a64f"))
+	if kind == "skin":
+		return Color(item.get("accent", "#b55238"))
+	return Color("d7b75b") if item.get("rarity") == "prototype" else Color("8ba4a0") if item.get("rarity") == "advanced" else Color("879468")
+
+
+static func weapon_summary(weapon: Dictionary) -> Array[String]:
+	match str(weapon.get("attackType", "projectile")):
+		"beam":
+			return ["基础%d伤害 / %d射程" % [weapon.damage, weapon.lockRange],
+				"贯穿%d目标 · 最多3束" % (int(weapon.pierce) + 1), "遇墙终止 · 无普通弹壳"]
+		"explosive":
+			return ["基础%d伤害 / %d爆炸半径" % [weapon.damage, weapon.blastRadius], "接触或到时引爆", "边缘衰减 · 掩体挡爆"]
+		"disc":
+			return ["基础%d伤害 / 弹射%d次" % [weapon.damage, weapon.bounces], "每跳78% · 不重复命中", "实体墙阻挡"]
+		"slash":
+			return ["基础%d刃伤 / %d近战范围" % [weapon.damage, weapon.reach], "110°挥扫 · 40%伤害剑气", "有效挥扫可消弹"]
+		"slam":
+			return ["基础%d伤害 / %d冲击半径" % [weapon.damage, weapon.blastRadius], "%d落点 · 前摇%s秒" % [weapon.impactOffset, weapon.windup], "击退与短时消弹"]
+	return [str(weapon.description)]
+
+
 static func stats(kind: String, item: Dictionary) -> String:
 	if kind == "weapon":
 		var rate: float = minf(99, 1.0 / float(item.interval))

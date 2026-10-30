@@ -25,7 +25,7 @@ func _import() -> void:
 	catalog.metadata.erase("defaultSave")
 	var definitions: Array[ContentDefinition] = []
 	for category: String in source.catalogs:
-		var directory: String = "res://content/" + category
+		var directory: String = "res://content/" + category.to_snake_case()
 		DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(directory))
 		for content_id: String in source.catalogs[category]:
 			var filename: String = directory + "/" + content_id.to_snake_case() + ".tres"

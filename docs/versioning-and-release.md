@@ -78,3 +78,11 @@ GitHub 上的安装包不能代替源码标签；本地 Git、远端 Git 和 Rel
 - 一项验证通过的工作及时同步，避免长期积攒未上传的提交。普通备份走原生Git，不拆成逐文件API上传或临时传输对象树。
 - 同类上传错误连续出现两次后，先停止重传并检查通道；推送返回后核对远端提交号与本地HEAD，再认定线上保存完成。
 - 不把全局最高压缩、每次aggressive GC、增大postBuffer或删减历史当作默认提速流程。
+
+## 9. Godot迁移与后续版本
+
+- 当前分支为codex/godot-migration，保留Canvas/Tauri对照与回退。自动化协作分支使用codex/前缀；验收前不提前打新版本标签。
+- Godot源码、活动素材、.import设置、.uid和Resource入Git；.godot、模板、大包、完整截图和用户存档不入Git。
+- 除npm run check外，运行node scripts/godot/verify-native.mjs。Godot native工作流执行确定性原生回归；窗口/DPI/手柄/低配仍按真实设备验收。
+- 构建用scripts/godot/build-windows.ps1，记录提交、脏工作区、SHA与模板校验。内部包不代替正式Release。
+- 后续改版除原版本文件，还须同步godot/export_presets.cfg产品/文件版本和game_catalog.tres的metadata.version；构建器核对产品及原生内容版本，不用存档schema代替应用版本。

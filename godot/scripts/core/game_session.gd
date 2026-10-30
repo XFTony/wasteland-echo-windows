@@ -39,8 +39,11 @@ func _init(game_catalog: GameCatalog, storage: RefCounted = null) -> void:
 	catalog = game_catalog
 	store = SaveStore.new(catalog, storage)
 	save_data = store.load_save()
+	MasteryRules.reconcile(save_data, catalog)
+	UnlockRules.evaluate(save_data, {}, catalog)
 	_reconcile_selections()
 	shop_category = save_data.shopCategory
+	store.persist()
 
 
 func selected(kind: String) -> String:
@@ -202,8 +205,16 @@ func _adjust(key: String, direction: int) -> void:
 
 
 func _reconcile_selections() -> void:
+	if "dead_rail" in save_data.completedStages and "bulwark" not in save_data.unlockedHeroes:
+		save_data.unlockedHeroes.append("bulwark")
 	for kind: String in SELECTIONS:
 		var ids: Array = available(kind)
 		if selected(kind) not in ids:
 			save_data["selected" + kind] = ids[0]
 	save_data.unlockedMaps = catalog.all("maps").keys()
+	if catalog.find("stages", save_data.selectedStage) == null:
+		save_data.selectedStage = catalog.defaults.stage
+	if catalog.find("modes", save_data.selectedMode) == null:
+		save_data.selectedMode = catalog.defaults.mode
+	if save_data.shopCategory not in ["weapon", "outfit", "equipment"]:
+		save_data.shopCategory = "weapon"

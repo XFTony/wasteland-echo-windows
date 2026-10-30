@@ -1,0 +1,259 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/world/map_scene.gd" id="1_kbdp3"]
+[ext_resource type="Resource" path="res://content/maps/echo_district.tres" id="2_j1wyw"]
+[ext_resource type="Texture2D" path="res://assets/world/echo-ground-v1.webp" id="3_u73xh"]
+[ext_resource type="Script" path="res://scripts/world/map_obstacle.gd" id="4_88ntf"]
+[ext_resource type="Texture2D" path="res://assets/world/echo-market-v1/trade-post.webp" id="5_q8khg"]
+[ext_resource type="Texture2D" path="res://assets/world/props/echo-apothecary-roof-v1.webp" id="6_uatb6"]
+[ext_resource type="Texture2D" path="res://assets/world/props/echo-shop-roof-v1.webp" id="7_37p0k"]
+[ext_resource type="Texture2D" path="res://assets/world/props/echo-warehouse-roof-v1.webp" id="8_xka3l"]
+[ext_resource type="Texture2D" path="res://assets/world/props/echo-container-v1.webp" id="9_uce4q"]
+[ext_resource type="Texture2D" path="res://assets/world/echo-market-v1/salvage-kit.webp" id="10_r5n1f"]
+[ext_resource type="Texture2D" path="res://assets/world/props/echo-railcar-v1.webp" id="11_s6th3"]
+
+[node name="EchoDistrict" type="Node2D" unique_id=335033313]
+script = ExtResource("1_kbdp3")
+definition = ExtResource("2_j1wyw")
+ground = ExtResource("3_u73xh")
+
+[node name="Obstacles" type="Node2D" parent="." unique_id=555186616]
+
+[node name="Obstacle000" type="Node2D" parent="Obstacles" unique_id=3926554]
+position = Vector2(1475, 1200)
+script = ExtResource("4_88ntf")
+source_data = {
+"h": 136.0,
+"id": "echo-market-booth",
+"kind": "tradePost",
+"sign": "余火交易站",
+"w": 190.0,
+"x": 1475.0,
+"y": 1200.0
+}
+footprint = Vector2(190, 136)
+image = ExtResource("5_q8khg")
+pixelated = true
+
+[node name="Obstacle001" type="Node2D" parent="Obstacles" unique_id=1210595230]
+position = Vector2(360, 390)
+script = ExtResource("4_88ntf")
+source_data = {
+"h": 135.0,
+"kind": "shop",
+"sign": "旧药房",
+"w": 210.0,
+"x": 360.0,
+"y": 390.0
+}
+footprint = Vector2(210, 135)
+image = ExtResource("6_uatb6")
+
+[node name="Obstacle002" type="Node2D" parent="Obstacles" unique_id=205410718]
+position = Vector2(680, 590)
+script = ExtResource("4_88ntf")
+source_data = {
+"h": 140.0,
+"kind": "shop",
+"sign": "封闭旧铺",
+"w": 224.0,
+"x": 680.0,
+"y": 590.0
+}
+footprint = Vector2(224, 140)
+image = ExtResource("7_37p0k")
+
+[node name="Obstacle003" type="Node2D" parent="Obstacles" unique_id=952188433]
+position = Vector2(360, 780)
+script = ExtResource("4_88ntf")
+source_data = {
+"h": 110.0,
+"kind": "warehouse",
+"sign": "仓储",
+"w": 190.0,
+"x": 360.0,
+"y": 780.0
+}
+footprint = Vector2(190, 110)
+image = ExtResource("8_xka3l")
+
+[node name="Obstacle004" type="Node2D" parent="Obstacles" unique_id=954411964]
+position = Vector2(1350, 430)
+script = ExtResource("4_88ntf")
+source_data = {
+"h": 142.0,
+"kind": "warehouse",
+"sign": "广播机房",
+"w": 280.0,
+"x": 1350.0,
+"y": 430.0
+}
+footprint = Vector2(280, 142)
+image = ExtResource("8_xka3l")
+
+[node name="Obstacle005" type="Node2D" parent="Obstacles" unique_id=1601751682]
+position = Vector2(1780, 570)
+script = ExtResource("4_88ntf")
+source_data = {
+"h": 96.0,
+"kind": "container",
+"w": 154.0,
+"x": 1780.0,
+"y": 570.0
+}
+footprint = Vector2(154, 96)
+image = ExtResource("9_uce4q")
+
+[node name="Obstacle006" type="Node2D" parent="Obstacles" unique_id=406154988]
+position = Vector2(2310, 710)
+script = ExtResource("4_88ntf")
+source_data = {
+"h": 130.0,
+"kind": "shop",
+"sign": "旧修理间",
+"w": 222.0,
+"x": 2310.0,
+"y": 710.0
+}
+footprint = Vector2(222, 130)
+image = ExtResource("7_37p0k")
+
+[node name="Obstacle007" type="Node2D" parent="Obstacles" unique_id=1796262586]
+position = Vector2(2590, 1140)
+script = ExtResource("4_88ntf")
+source_data = {
+"h": 100.0,
+"kind": "warehouse",
+"sign": "配件库",
+"w": 170.0,
+"x": 2590.0,
+"y": 1140.0
+}
+footprint = Vector2(170, 100)
+image = ExtResource("8_xka3l")
+
+[node name="Obstacle008" type="Node2D" parent="Obstacles" unique_id=1014775552]
+position = Vector2(2290, 1420)
+script = ExtResource("4_88ntf")
+source_data = {
+"h": 82.0,
+"kind": "container",
+"w": 154.0,
+"x": 2290.0,
+"y": 1420.0
+}
+footprint = Vector2(154, 82)
+image = ExtResource("9_uce4q")
+
+[node name="Obstacle009" type="Node2D" parent="Obstacles" unique_id=1450518055]
+position = Vector2(650, 1370)
+script = ExtResource("4_88ntf")
+source_data = {
+"h": 66.0,
+"kind": "bus",
+"w": 184.0,
+"x": 650.0,
+"y": 1370.0
+}
+footprint = Vector2(184, 66)
+image = ExtResource("10_r5n1f")
+image_region = Rect2(8, 53, 240, 85)
+pixelated = true
+
+[node name="Obstacle010" type="Node2D" parent="Obstacles" unique_id=394027831]
+position = Vector2(450, 1730)
+script = ExtResource("4_88ntf")
+source_data = {
+"h": 56.0,
+"kind": "wreck",
+"w": 150.0,
+"x": 450.0,
+"y": 1730.0
+}
+footprint = Vector2(150, 56)
+image = ExtResource("10_r5n1f")
+image_region = Rect2(8, 243, 240, 89)
+pixelated = true
+
+[node name="Obstacle011" type="Node2D" parent="Obstacles" unique_id=1259660112]
+position = Vector2(1745, 1770)
+script = ExtResource("4_88ntf")
+source_data = {
+"h": 62.0,
+"kind": "car",
+"w": 122.0,
+"x": 1745.0,
+"y": 1770.0
+}
+footprint = Vector2(122, 62)
+image = ExtResource("10_r5n1f")
+image_region = Rect2(264, 36, 240, 120)
+pixelated = true
+
+[node name="Obstacle012" type="Node2D" parent="Obstacles" unique_id=70530658]
+position = Vector2(530, 2300)
+script = ExtResource("4_88ntf")
+source_data = {
+"h": 76.0,
+"kind": "railcar",
+"w": 250.0,
+"x": 530.0,
+"y": 2300.0
+}
+footprint = Vector2(250, 76)
+image = ExtResource("11_s6th3")
+
+[node name="Obstacle013" type="Node2D" parent="Obstacles" unique_id=1487131801]
+position = Vector2(1010, 2490)
+script = ExtResource("4_88ntf")
+source_data = {
+"h": 80.0,
+"kind": "railcar",
+"w": 260.0,
+"x": 1010.0,
+"y": 2490.0
+}
+footprint = Vector2(260, 80)
+image = ExtResource("11_s6th3")
+
+[node name="Obstacle014" type="Node2D" parent="Obstacles" unique_id=677191215]
+position = Vector2(1560, 2320)
+script = ExtResource("4_88ntf")
+source_data = {
+"h": 84.0,
+"kind": "container",
+"w": 155.0,
+"x": 1560.0,
+"y": 2320.0
+}
+footprint = Vector2(155, 84)
+image = ExtResource("9_uce4q")
+
+[node name="Obstacle015" type="Node2D" parent="Obstacles" unique_id=1773393288]
+position = Vector2(2370, 2390)
+script = ExtResource("4_88ntf")
+source_data = {
+"h": 140.0,
+"kind": "shop",
+"sign": "旧宿舍",
+"w": 226.0,
+"x": 2370.0,
+"y": 2390.0
+}
+footprint = Vector2(226, 140)
+image = ExtResource("7_37p0k")
+
+[node name="Obstacle016" type="Node2D" parent="Obstacles" unique_id=1029382545]
+position = Vector2(2700, 2630)
+script = ExtResource("4_88ntf")
+source_data = {
+"h": 74.0,
+"kind": "scrap",
+"w": 120.0,
+"x": 2700.0,
+"y": 2630.0
+}
+footprint = Vector2(120, 74)
+image = ExtResource("10_r5n1f")
+image_region = Rect2(264, 213, 240, 149)
+pixelated = true

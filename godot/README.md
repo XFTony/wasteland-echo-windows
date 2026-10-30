@@ -1,24 +1,39 @@
-# 荒原回响 · Godot原生迁移
+# 荒原回响 · Godot 原生项目
 
-当前正在迁移，**尚未成为原版完整游戏的替代品**。已完成项、未完成项以[migration_status.json](migration_status.json)为准；执行范围和验收见[迁移计划](../docs/godot-migration-plan.md)。
+当前已能完成「出发—连续生存—升级—交易—部署塔台—结算」的主要流程，并生成独立 Windows 测试包。迁移仍处于内部验收：实体手柄、低配电脑、Windows 显示缩放和真实窗口长局尚未全部完成，不能据此宣称完美复刻或正式发布。
 
-## 工具和项目结构
+## 开始体验
 
-- Godot4.7.2标准版，Compatibility，GDScript；固定60Hz，原内容ID、数值与素材保留。
-- `content/`：137个原生Resource及统一GameCatalog，支持Inspector查看武器/敌人/地图。
-- `scripts/content`、`core`、`persistence`、`presentation`、`ui`：数据、规则、保存和表现分层。
-- `scenes/game_root.tscn`：原生应用组合根；菜单使用Control/Button和原生绘制，没有嵌入旧网页。
-- `tests/parity_test.gd`：对照由冻结JS基线产生的值，不以原生代码自己计算的结果冒充参考。
+- 独立程序：`../output/godot-migration/windows/WastelandEcho.exe`，双击即可，不需要安装 Godot、Node.js 或浏览器。
+- 源码开发：双击根目录的 `启动Godot开发版.cmd`，或用 Godot 4.7.2 打开本目录 `project.godot` 后按 F5。首次导入缓存由 Godot 创建，原生项目所需素材已入 Git。
+- 旧进度导入：双击根目录 `Godot存档导入与备份.cmd`。选择旧版导出的 JSON，先核对预览，再确认导入；新版原有进度会自动备份。工具不扫描、修改原版 WebView2 内部数据。
 
-## 准备与检查
+WASD 或方向键移动，默认自动瞄准/射击；E 与交易站交互或回收塔台，T 开始/确认部署，Esc/P 暂停，数字键 1—4 选择升级。手柄左摇杆移动，A 交互/确认，B 返回，Y 部署，Menu 暂停，肩键切换界面焦点；实际设备手感仍待验收。
+
+原版 Canvas/Tauri 代码保留作对照与回退；原生版使用独立的 `WastelandEcho-Godot` 用户目录，不自动覆盖原版进度。
+
+## 资源与开发规则
+
+- `content/`：137 个原生 Resource 及 GameCatalog，原内容 ID 保留。
+- `assets/`：活动素材及 `.import` 设置；59 图片、21 音频、字体/许可共 82 文件，6,875,400 字节。同内容由 Git 去重；后续原生美术改动在此提交。
+- `scenes/maps/`：三张可编辑地图。障碍位置与 footprint 同时提供绘制和碰撞，保持轴对齐。
+- `scripts/`：GDScript 规则、原生 Control/Node2D 表现、AudioStream 音频及输入，没有嵌入旧网页。
+- `data/`：可再生参考夹具，不进入发行包。JavaScript 仅在开发阶段导出旧版数据与预期结果。
+
+正常使用 Godot 资源、场景和源码即可开发。重建迁移对照时，`export-game.mjs` 默认保留已有原生素材，仅补缺失文件；`import_content.gd` 默认保留已编辑定义。`--sync-reference-assets` 与 `--overwrite` 都是明确的覆盖操作，使用前先核对差异。
+
+## 验证与构建
 
 ```powershell
 node scripts/godot/export-game.mjs
+node scripts/godot/export-combat-cases.mjs
 & 'D:\Godot\Godot_v4.7.2-stable_win64_console.exe' --headless --path godot --editor --import
 & 'D:\Godot\Godot_v4.7.2-stable_win64_console.exe' --headless --path godot --script scripts/tools/import_content.gd
-& 'D:\Godot\Godot_v4.7.2-stable_win64_console.exe' --headless --path godot --script tests/parity_test.gd
+node scripts/godot/verify-native.mjs
 ```
 
-素材导入副本与JSON对照夹具可再生，不提交Git。原生`.tres`与脚本UID提交Git。内容导入器默认保留已编辑Resource，只有显式`-- --overwrite`才重建已有定义；迁移期间需要改数值时，应先登记与基线的差异。
+检查器同时核对退出码、日志错误和报告标记，覆盖基础/存档、战斗、实际组合根、原生输入/音频及存档工具。区域比较脚本为 `verify-ui-regions.mjs` 和 `verify-battle-regions.mjs`；截图和完整日志位于根目录 `output/godot-migration/`。
 
-目前应用主要用于检查菜单与资源，完整战斗入口尚未接线。不要把菜单可打开当作全部游戏可玩。原游戏运行和打包仍使用原根目录流程。
+Windows 模板固定为官方 4.7.2，下载归档及提取文件均核对 SHA256。首次准备使用 `scripts/godot/prepare-windows-templates.ps1 -ResumeDownload`；构建运行 `scripts/godot/build-windows.ps1`。模板、导入缓存、大包和完整截图不进 Git；构建记录来源提交、脏工作区、SHA256及许可文件，并核对版本一致性。
+
+MCP 安装见 `../tools/godot-mcp/README.md`，本机已直接验证可用。完整计划见 `../docs/godot-migration-plan.md`，验证范围见 `../docs/qa/godot-native-validation.md`，当前状态见 `migration_status.json`。

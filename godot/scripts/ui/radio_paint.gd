@@ -31,6 +31,8 @@ static func surface(
 		canvas: CanvasItem, rect: Rect2, paper: bool = false,
 		raised: bool = false, active: bool = false, fill: Color = Color.TRANSPARENT
 ) -> void:
+	if rect.size.x <= 0 or rect.size.y <= 0:
+		return
 	if raised:
 		canvas.draw_colored_polygon(tag(Rect2(rect.position + Vector2(2, 4), rect.size), paper),
 			Color("111610"))
@@ -77,11 +79,24 @@ static func radio_mark(canvas: CanvasItem, position: Vector2, color: Color, scal
 	canvas.draw_circle(position + Vector2(12, 7) * scale, 2 * scale, color)
 
 
-static func focus_ink(canvas: CanvasItem, rect: Rect2, color: Color = PAPER_LIGHT) -> void:
+static func focus_ink(canvas: CanvasItem, rect: Rect2, color: Color = PAPER_LIGHT, width: float = 2.0) -> void:
 	canvas.draw_line(rect.position + Vector2(5, rect.size.y - 2),
-		rect.end - Vector2(5, 2), color, 2)
+		rect.end - Vector2(5, 2), color, width)
 	canvas.draw_colored_polygon(PackedVector2Array([
 		rect.position + Vector2(2, rect.size.y / 2),
 		rect.position + Vector2(8, rect.size.y / 2 - 4),
 		rect.position + Vector2(8, rect.size.y / 2 + 4),
 	]), color)
+
+
+static func paper_clip(canvas: CanvasItem, point: Vector2, width: float = 26.0) -> void:
+	var path: PackedVector2Array = [point + Vector2(7, 10), point + Vector2(width - 6, 10)]
+	for index: int in range(17):
+		var angle: float = lerpf(PI / 2, -PI / 2, float(index) / 16)
+		path.append(point + Vector2(width - 6, 4) + Vector2(cos(angle), sin(angle)) * 6)
+	path.append(point + Vector2(6, -2))
+	for index: int in range(17):
+		var angle: float = lerpf(-PI / 2, -PI * 1.5, float(index) / 16)
+		path.append(point + Vector2(6, 3) + Vector2(cos(angle), sin(angle)) * 5)
+	path.append(point + Vector2(width - 9, 8))
+	canvas.draw_polyline(path, Color("968e71"), 2)

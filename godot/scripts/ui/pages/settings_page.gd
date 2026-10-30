@@ -84,8 +84,9 @@ static func build(view: MenuView) -> void:
 				button_y, small, height))
 		else:
 			var width: float = 72 if compact else 100
-			view.add_action_button("replayStartup" if spec[2] == "action" else "toggle:" + key,
+			var button: RadioButton = view.add_action_button("replayStartup" if spec[2] == "action" else "toggle:" + key,
 				_value(view, key), Rect2(right - width, button_y, width, height))
+			button.radio_toggle = button.caption in ["开", "关"]
 	var width: float = 148 if compact else 168
 	view.add_action_button("resetBindings" if data.controls else "fullscreen",
 		"恢复默认" if data.controls else "切换全屏  F", Rect2(view.size.x / 2
@@ -122,6 +123,7 @@ static func paint(view: MenuView) -> void:
 		else:
 			view.draw_rect(Rect2(x, y - 5, float(data.columnW) - 10, float(data.rowH)),
 				Color(0.122, 0.137, 0.102, 0.95))
+			view.draw_rect(Rect2(x + 8, y + float(data.rowH) - 4, float(data.columnW) - 26, 1), Color("393d2b"))
 		var label: String = LABELS[index] if data.controls else SETTINGS[index][1]
 		view.fonts.fit(view, label, Vector2(x + ((8 if compact else 14) if data.controls
 			else (12 if compact else 18)), y + float(data.rowH) / 2),
@@ -129,12 +131,18 @@ static func paint(view: MenuView) -> void:
 			float(data.columnW) - ((66 if compact else 116) if data.controls else (102 if compact else 148)),
 			RadioPaint.PAPER, "left", 800, 8 if data.controls else 11)
 		if not data.controls and SETTINGS[index][0] == "uiScale":
+			var height: float = maxf(34, float(data.rowH) - 14) if compact else minf(46, float(data.rowH) - 16)
+			var value_width: float = 68 if compact else 92
+			var small: float = 32 if compact else 38
+			var right: float = x + float(data.columnW) - (10 if compact else 18)
+			RadioPaint.surface(view, Rect2(right - small - value_width - 4,
+				y + (float(data.rowH) - height) / 2, value_width, height))
 			view.fonts.text(view, _value(view, "uiScale"), Vector2(x + float(data.columnW)
 				- (80 if compact else 110), y + float(data.rowH) / 2), 11 if compact else 13,
 				RadioPaint.PAPER, "center", 800)
 	var message: String = view.session.message if not view.session.message.is_empty() else (
 		"点击一项后按下新按键；冲突按键会自动交换，方向键保留给菜单导航" if data.controls
-		else "未检测到手柄 · v1.5.0-alpha.1 · 存档：Godot user://saves"
+		else ("手柄已连接" if not Input.get_connected_joypads().is_empty() else "未检测到手柄") + " · v1.5.0-alpha.1 · 进度保存在本机"
 	)
 	view.fonts.fit(view, message, Vector2(view.size.x / 2, float(data.footerY)
 		- (9 if compact else 16)), 9 if compact else 11, rect.size.x - 40,

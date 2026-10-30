@@ -42,6 +42,7 @@ static func progress(save: Dictionary, run: Dictionary, rule: Dictionary) -> Dic
 
 
 static func evaluate(save: Dictionary, run: Dictionary, catalog: GameCatalog) -> Array:
+	reconcile_owned(save, catalog)
 	var granted: Array = []
 	for id: String in catalog.all("unlockRules"):
 		if id in save.completedUnlockRules:
@@ -53,7 +54,36 @@ static func evaluate(save: Dictionary, run: Dictionary, catalog: GameCatalog) ->
 		var reward: Dictionary = rule.reward
 		var list_name: String = {"shopBlueprint": "unlockedBlueprints", "hero": "unlockedHeroes",
 			"modifier": "unlockedModifiers"}.get(reward.kind, "")
-		if not list_name.is_empty() and reward.id not in save[list_name]:
+		var changed: bool = not list_name.is_empty() and reward.id not in save[list_name]
+		if changed:
 			save[list_name].append(reward.id)
-		granted.append({"id": id, "name": rule.name, "reward": reward})
+		var reward_name: String = str(reward.id)
+		if reward.kind == "shopBlueprint":
+			reward_name = str(catalog.parameters("shopItems", reward.id).get("name", reward.id)) + "蓝图"
+		elif reward.kind == "hero":
+			reward_name = "角色：" + str(catalog.parameters("heroes", reward.id).get("name", reward.id))
+		elif reward.kind == "modifier":
+			reward_name = "协议：" + str(catalog.parameters("modifiers", reward.id).get("name", reward.id))
+		granted.append({"ruleId": id, "name": rule.name, "description": rule.description,
+			"reward": {"changed": changed, "kind": reward.kind, "id": reward.id, "name": reward_name},
+			"progress": progress(save, run, rule)})
 	return granted
+
+
+static func reconcile_owned(save: Dictionary, catalog: GameCatalog) -> void:
+	for id: String in catalog.all("unlockRules"):
+		var rule: Dictionary = catalog.parameters("unlockRules", id)
+		var reward: Dictionary = rule.reward
+		var owned: bool = false
+		if reward.kind == "shopBlueprint":
+			var item: Dictionary = catalog.parameters("shopItems", reward.id)
+			var list_name: String = EconomyRules.GRANT_LISTS.get(item.get("grantType", ""), "")
+			owned = not list_name.is_empty() and item.grantId in save.get(list_name, [])
+			if owned and reward.id not in save.unlockedBlueprints:
+				save.unlockedBlueprints.append(reward.id)
+		elif reward.kind == "hero":
+			owned = reward.id in save.unlockedHeroes
+		elif reward.kind == "modifier":
+			owned = reward.id in save.unlockedModifiers
+		if owned and id not in save.completedUnlockRules:
+			save.completedUnlockRules.append(id)

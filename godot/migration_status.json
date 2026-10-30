@@ -1,12 +1,12 @@
 {
   "target": "Complete native Godot reproduction of the existing game",
   "baseline": "ef7d50d",
-  "status": "in_progress",
+  "status": "internal_playable_validation_pending",
   "toolchain": {
     "godot": "4.7.2.stable.official.ed1daf0bf",
     "skill": "godot @ c8bc20f876a8da241274d48461444fab86182d83",
     "mcp": "@coding-solo/godot-mcp@0.1.1",
-    "mcpConfiguration": "project .codex/config.toml, enabled, host reload required for current tool catalog"
+    "mcpConfiguration": "project config enabled; live get_godot_version and get_project_info verified on the formal project"
   },
   "verified": [
     "137 native Resource definitions preserve every category, ID and source parameter",
@@ -18,27 +18,41 @@
     "Native atomic file replacement and previous-value backup",
     "192 compact weapon direction coordinate cases",
     "Default six-menu action IDs and rectangles at four resolutions: 24 layouts, 200 actions",
-    "Three-map static navigation at three clearances: walkability, BFS distances and flow directions match reference arrays"
+    "Three-map static navigation at three clearances: walkability, BFS distances and flow directions match reference arrays",
+    "84 reference combat scenarios, 284 replay checkpoints, 184285 field comparisons",
+    "Native composition root: 12 end-to-end checks",
+    "Native input/audio: 51 checks and 21 decoded assets",
+    "Explicit save preview/import/export tool: 10 isolated checks",
+    "28 combat UI layouts and 192 action AABBs at four resolutions",
+    "Three maps: 180 simulated seconds each without state or entity-cap failures",
+    "Dense minute-15 fixture: 105 peak enemies; 2400 ticks within caps",
+    "Official Windows template archive and extracted executables verified by SHA256",
+    "Standalone Windows package loads 59 images, 21 audio assets, 12 weapons and runs all three maps",
+    "Original npm run check passes; source runtime kept unchanged",
+    "Native active assets and import settings are tracked; reference exporter preserves native edits by default"
   ],
   "inProgress": [
-    "Full menu visual fidelity: item details, material variants, wardrobe layout and typography",
-    "Settings controls, input mapping and all non-default UI states",
-    "Unlock reconciliation and complete persistence integration"
+    "Windows rendered long-session profiling, cold-load spikes and memory trends",
+    "Full hero/outfit/weapon-direction and non-default UI visual review",
+    "Native gamepad focus, shortcuts and rumble implemented; physical-device verification pending",
+    "1080p text sampling and OS reduced-motion behavior"
   ],
   "pending": [
-    "Startup sequence and skip/reduced-motion behavior",
-    "Full native world/map presentation, navigation and collision integration",
-    "Full native combat for all weapons, enemy roles and Bosses",
-    "Spawner and continuous survival simulation",
-    "Experience, upgrade candidates, mechanisms and evolutions",
-    "Field market, arsenal and deployable turrets",
-    "Achievements, unlocks, mastery, payout and history",
-    "HUD, pause, upgrades, field market and all result screens",
-    "Audio scheduling, music, recoil, shells and feedback pools",
-    "Mouse/keyboard/gamepad, rebinding, focus, disconnect and blur recovery",
-    "Explicit reference-save export and native import UI",
-    "Windows export templates, standalone builds and long-session/device validation"
+    "Physical gamepad seven-run matrix and disconnect/reconnect validation",
+    "Windows DPI 100/125/150/200%, fullscreen and minimum-size transitions",
+    "Low-end hardware test and evidence-based minimum specification",
+    "User-selected real reference-save preview/import/restart/recovery validation",
+    "Full visual sign-off, mainline merge and next-version release checklist"
   ],
   "completeGame": false,
-  "perfectVisualParity": false
+  "perfectVisualParity": false,
+  "nativePlayable": true,
+  "standaloneWindows": true,
+  "published": false,
+  "assetAuthority": "godot/assets and native Resource definitions; original web assets remain reference/rollback",
+  "entryPoints": {
+    "development": "启动Godot开发版.cmd",
+    "windows": "output/godot-migration/windows/WastelandEcho.exe",
+    "saveTransfer": "Godot存档导入与备份.cmd"
+  }
 }

@@ -18,6 +18,7 @@ var direction_y: PackedInt32Array
 var target_index: int = -1
 var rebuild_count: int = 0
 var _queue: PackedInt32Array
+var _neighbors: PackedInt32Array
 
 
 func _init(layout: Dictionary, size: int = 64, padding: float = 32.0) -> void:
@@ -34,6 +35,7 @@ func _init(layout: Dictionary, size: int = 64, padding: float = 32.0) -> void:
 	direction_y.resize(count)
 	_queue.resize(count)
 	_bake(layout.obstacles)
+	_bake_neighbors()
 	clear()
 
 
@@ -50,6 +52,10 @@ func is_walkable(x: int, y: int) -> bool:
 
 func world_index(x: float, y: float) -> int:
 	return clampi(floori(y / cell_size), 0, rows - 1) * columns + clampi(floori(x / cell_size), 0, columns - 1)
+
+
+func is_world_walkable(x: float, y: float) -> bool:
+	return walkable[world_index(x, y)] == 1
 
 
 func nearest_walkable(x: float, y: float, maximum_radius: int = 5) -> int:
@@ -79,14 +85,11 @@ func rebuild(x: float, y: float) -> bool:
 	while read < write:
 		var index: int = _queue[read]
 		read += 1
-		var cell_x: int = index % columns
-		var cell_y: int = index / columns
-		for direction: Vector2i in CARDINAL:
-			var next_x: int = cell_x + direction.x
-			var next_y: int = cell_y + direction.y
-			if not is_walkable(next_x, next_y):
+		var offset: int = index * 8
+		for slot: int in range(4):
+			var next_index: int = _neighbors[offset + slot]
+			if next_index < 0:
 				continue
-			var next_index: int = next_y * columns + next_x
 			if distances[next_index] != -1:
 				continue
 			distances[next_index] = distances[index] + 1
@@ -96,22 +99,17 @@ func rebuild(x: float, y: float) -> bool:
 		var distance: int = distances[index]
 		if distance <= 0:
 			continue
-		var cell_x: int = index % columns
-		var cell_y: int = index / columns
 		var best: int = distance
-		for direction: Vector2i in FLOW:
-			var next_x: int = cell_x + direction.x
-			var next_y: int = cell_y + direction.y
-			if not is_walkable(next_x, next_y):
+		var offset: int = index * 8
+		for slot: int in range(8):
+			var neighbor: int = _neighbors[offset + slot]
+			if neighbor < 0:
 				continue
-			if direction.x != 0 and direction.y != 0:
-				if not is_walkable(cell_x + direction.x, cell_y) or not is_walkable(cell_x, cell_y + direction.y):
-					continue
-			var value: int = distances[next_y * columns + next_x]
+			var value: int = distances[neighbor]
 			if value >= 0 and value < best:
 				best = value
-				direction_x[index] = direction.x
-				direction_y[index] = direction.y
+				direction_x[index] = FLOW[slot].x
+				direction_y[index] = FLOW[slot].y
 	rebuild_count += 1
 	return true
 
@@ -125,23 +123,51 @@ func sample_index(x: float, y: float) -> int:
 
 
 func _bake(obstacles: Array) -> void:
+	# The grid is immutable until world geometry changes; avoid repeated dictionary access.
+	var bounds := PackedFloat64Array()
+	bounds.resize(obstacles.size() * 4)
+	for index: int in range(obstacles.size()):
+		var obstacle: Dictionary = obstacles[index]
+		bounds[index * 4] = float(obstacle.x)
+		bounds[index * 4 + 1] = float(obstacle.y)
+		bounds[index * 4 + 2] = float(obstacle.x) + float(obstacle.w)
+		bounds[index * 4 + 3] = float(obstacle.y) + float(obstacle.h)
 	for cell_y: int in range(rows):
 		var center_y: float = (cell_y + 0.5) * cell_size
+		var minimum_y: float = cell_y * cell_size
+		var maximum_y: float = minf(world_size, (cell_y + 1) * cell_size)
 		for cell_x: int in range(columns):
 			var center_x: float = (cell_x + 0.5) * cell_size
+			var minimum_x: float = cell_x * cell_size
+			var maximum_x: float = minf(world_size, (cell_x + 1) * cell_size)
 			var index: int = cell_y * columns + cell_x
 			if center_x < clearance or center_y < clearance or center_x > world_size - clearance or center_y > world_size - clearance:
 				walkable[index] = 0
 				continue
-			for obstacle: Dictionary in obstacles:
-				var inside: bool = center_x >= float(obstacle.x) - clearance
-				inside = inside and center_x <= float(obstacle.x) + float(obstacle.w) + clearance
-				inside = inside and center_y >= float(obstacle.y) - clearance
-				inside = inside and center_y <= float(obstacle.y) + float(obstacle.h) + clearance
-				var crossed: bool = minf(world_size, (cell_x + 1) * cell_size) > float(obstacle.x)
-				crossed = crossed and cell_x * cell_size < float(obstacle.x) + float(obstacle.w)
-				crossed = crossed and minf(world_size, (cell_y + 1) * cell_size) > float(obstacle.y)
-				crossed = crossed and cell_y * cell_size < float(obstacle.y) + float(obstacle.h)
+			for offset: int in range(0, bounds.size(), 4):
+				var inside: bool = center_x >= bounds[offset] - clearance and center_x <= bounds[offset + 2] + clearance
+				inside = inside and center_y >= bounds[offset + 1] - clearance and center_y <= bounds[offset + 3] + clearance
+				var crossed: bool = maximum_x > bounds[offset] and minimum_x < bounds[offset + 2]
+				crossed = crossed and maximum_y > bounds[offset + 1] and minimum_y < bounds[offset + 3]
 				if inside or crossed:
 					walkable[index] = 0
 					break
+
+
+func _bake_neighbors() -> void:
+	_neighbors.resize(walkable.size() * 8)
+	_neighbors.fill(-1)
+	for index: int in range(walkable.size()):
+		if walkable[index] == 0:
+			continue
+		var x: int = index % columns
+		var y: int = index / columns
+		for slot: int in range(8):
+			var direction: Vector2i = FLOW[slot]
+			var next_x: int = x + direction.x
+			var next_y: int = y + direction.y
+			if not is_walkable(next_x, next_y):
+				continue
+			if direction.x != 0 and direction.y != 0 and (not is_walkable(next_x, y) or not is_walkable(x, next_y)):
+				continue
+			_neighbors[index * 8 + slot] = next_y * columns + next_x
