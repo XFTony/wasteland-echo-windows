@@ -1,6 +1,6 @@
 {
   "format": 1,
-  "generatedAt": "2026-10-30T07:51:36.921Z",
+  "generatedAt": "2026-10-30T07:58:53.258Z",
   "authority": "godot is active; original implementation retained as reference",
   "scanPolicy": {
     "excludedGeneratedOutputs": [
@@ -25,8 +25,8 @@
     "duplicatePolicy": "Exact-byte groups are evidence, never automatic deletion permission"
   },
   "summary": {
-    "measuredFiles": 4041,
-    "measuredBytes": 3163109490,
+    "measuredFiles": 4049,
+    "measuredBytes": 3166037826,
     "opaqueDirectories": 10,
     "nativeMaterialFiles": 86,
     "nativeMaterialBytes": 10864959,
@@ -129,7 +129,7 @@
       "purpose": "标明当前原生版入口、历史版本与主要文档",
       "policy": "随开发主线更新，避免指向旧包",
       "measuredFiles": 1,
-      "measuredBytes": 20314,
+      "measuredBytes": 20364,
       "partial": false,
       "opaqueChildren": []
     },
@@ -168,8 +168,8 @@
       "category": "设计/验收/来源文档",
       "purpose": "规范、计划、评审、许可、QA摘要",
       "policy": "提交可长期参考的文档，避免完整重复截图",
-      "measuredFiles": 138,
-      "measuredBytes": 6480412,
+      "measuredFiles": 140,
+      "measuredBytes": 6491434,
       "partial": false,
       "opaqueChildren": []
     },
@@ -191,7 +191,7 @@
       "purpose": "后续运行代码、场景、Resource和活动素材的开发主目录",
       "policy": "提交源码/素材/UID/import设置；忽略.godot和builds",
       "measuredFiles": 487,
-      "measuredBytes": 17872735,
+      "measuredBytes": 17873069,
       "partial": true,
       "opaqueChildren": [
         "godot/.godot"
@@ -214,8 +214,8 @@
       "category": "可再生输出/本地构建",
       "purpose": "截图、录屏、包、SDK模板、QA产物",
       "policy": "不进Git；确认来源和可重建方法后才考虑清理",
-      "measuredFiles": 2531,
-      "measuredBytes": 2817419113,
+      "measuredFiles": 2536,
+      "measuredBytes": 2820333394,
       "partial": true,
       "opaqueChildren": [
         "output/godot-evaluation-2026-10-29/mcp/node_modules",
@@ -258,8 +258,8 @@
       "category": "开发与验收工具",
       "purpose": "导出、素材制作、构建、检查脚本",
       "policy": "提交工具，不把开发工具依赖带入运行包",
-      "measuredFiles": 150,
-      "measuredBytes": 1107867,
+      "measuredFiles": 151,
+      "measuredBytes": 1110516,
       "partial": false,
       "opaqueChildren": []
     },
@@ -393,16 +393,16 @@
   "gitStorage": {
     "source": "git count-objects -v (aggregate only)",
     "counters": {
-      "count": "84",
-      "size": "3967",
-      "in-pack": "3211",
-      "packs": "3",
-      "size-pack": "315489",
+      "count": "7",
+      "size": "27",
+      "in-pack": "3323",
+      "packs": "4",
+      "size-pack": "319436",
       "prune-packable": "0",
       "garbage": "0",
       "size-garbage": "0"
     },
-    "allocatedObjectBytes": 327122944,
+    "allocatedObjectBytes": 327130112,
     "directoryTotalMeasured": false
   },
   "runtimeAssets": [
@@ -9305,7 +9305,7 @@
     },
     {
       "path": "docs/design/map-art-and-interactions-plan.md",
-      "bytes": 6788,
+      "bytes": 7238,
       "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
@@ -9669,7 +9669,7 @@
     },
     {
       "path": "docs/qa/godot-native-validation.md",
-      "bytes": 5655,
+      "bytes": 5897,
       "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
@@ -9678,6 +9678,20 @@
       "path": "docs/qa/godot-native-verification.json",
       "bytes": 15494,
       "extension": ".json",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "docs/qa/map-art-validation.json",
+      "bytes": 4715,
+      "extension": ".json",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "docs/qa/map-art-validation.md",
+      "bytes": 5615,
+      "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
     },
@@ -12665,7 +12679,7 @@
     },
     {
       "path": "godot/README.md",
-      "bytes": 4101,
+      "bytes": 4435,
       "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
@@ -23361,14 +23375,14 @@
     },
     {
       "path": "output/godot-migration/export-engine.log",
-      "bytes": 60119,
+      "bytes": 63261,
       "extension": ".log",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/export.log",
-      "bytes": 74827,
+      "bytes": 78218,
       "extension": ".log",
       "contentReadBlocked": false,
       "tracked": false
@@ -23586,6 +23600,27 @@
     {
       "path": "output/godot-migration/map-build.log",
       "bytes": 179,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/godot-migration/map-package-engine.log",
+      "bytes": 191,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/godot-migration/map-package-stderr.log",
+      "bytes": 0,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/godot-migration/map-package-stdout.log",
+      "bytes": 194,
       "extension": ".log",
       "contentReadBlocked": false,
       "tracked": false
@@ -24096,8 +24131,15 @@
     },
     {
       "path": "output/godot-migration/package-engine.log",
-      "bytes": 154,
+      "bytes": 191,
       "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/godot-migration/package-smoke.json",
+      "bytes": 474,
+      "extension": ".json",
       "contentReadBlocked": false,
       "tracked": false
     },
@@ -24110,7 +24152,7 @@
     },
     {
       "path": "output/godot-migration/package-stdout.log",
-      "bytes": 157,
+      "bytes": 194,
       "extension": ".log",
       "contentReadBlocked": false,
       "tracked": false
@@ -24719,7 +24761,7 @@
     },
     {
       "path": "output/godot-migration/windows/WastelandEcho.exe",
-      "bytes": 126213776,
+      "bytes": 129120456,
       "extension": ".exe",
       "contentReadBlocked": false,
       "tracked": false
@@ -24833,6 +24875,13 @@
       "path": "output/map-art/map-test-engine.log",
       "bytes": 124,
       "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/map-art/package-smoke.json",
+      "bytes": 135,
+      "extension": ".json",
       "contentReadBlocked": false,
       "tracked": false
     },
@@ -31537,7 +31586,7 @@
     },
     {
       "path": "README.md",
-      "bytes": 20314,
+      "bytes": 20364,
       "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
@@ -32218,6 +32267,13 @@
       "path": "scripts/godot/verify-native.mjs",
       "bytes": 2179,
       "extension": ".mjs",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "scripts/godot/verify-package.ps1",
+      "bytes": 2649,
+      "extension": ".ps1",
       "contentReadBlocked": false,
       "tracked": true
     },
