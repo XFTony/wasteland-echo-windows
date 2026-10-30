@@ -1,6 +1,6 @@
 {
   "format": 1,
-  "generatedAt": "2026-10-30T09:47:50.214Z",
+  "generatedAt": "2026-10-30T09:53:45.847Z",
   "authority": "godot is active; original implementation retained as reference",
   "scanPolicy": {
     "excludedGeneratedOutputs": [
@@ -25,8 +25,8 @@
     "duplicatePolicy": "Exact-byte groups are evidence, never automatic deletion permission"
   },
   "summary": {
-    "measuredFiles": 4107,
-    "measuredBytes": 3195828876,
+    "measuredFiles": 4109,
+    "measuredBytes": 3199190797,
     "opaqueDirectories": 10,
     "nativeMaterialFiles": 88,
     "nativeMaterialBytes": 16096168,
@@ -129,7 +129,7 @@
       "purpose": "标明当前原生版入口、历史版本与主要文档",
       "policy": "随开发主线更新，避免指向旧包",
       "measuredFiles": 1,
-      "measuredBytes": 21010,
+      "measuredBytes": 21145,
       "partial": false,
       "opaqueChildren": []
     },
@@ -168,8 +168,8 @@
       "category": "设计/验收/来源文档",
       "purpose": "规范、计划、评审、许可、QA摘要",
       "policy": "提交可长期参考的文档，避免完整重复截图",
-      "measuredFiles": 142,
-      "measuredBytes": 6501705,
+      "measuredFiles": 144,
+      "measuredBytes": 6511050,
       "partial": false,
       "opaqueChildren": []
     },
@@ -215,7 +215,7 @@
       "purpose": "截图、录屏、包、SDK模板、QA产物",
       "policy": "不进Git；确认来源和可重建方法后才考虑清理",
       "measuredFiles": 2575,
-      "measuredBytes": 2839616780,
+      "measuredBytes": 2842969221,
       "partial": true,
       "opaqueChildren": [
         "output/godot-evaluation-2026-10-29/mcp/node_modules",
@@ -393,8 +393,8 @@
   "gitStorage": {
     "source": "git count-objects -v (aggregate only)",
     "counters": {
-      "count": "59",
-      "size": "5193",
+      "count": "92",
+      "size": "5326",
       "in-pack": "3323",
       "packs": "4",
       "size-pack": "319436",
@@ -402,7 +402,7 @@
       "garbage": "0",
       "size-garbage": "0"
     },
-    "allocatedObjectBytes": 332420096,
+    "allocatedObjectBytes": 332556288,
     "directoryTotalMeasured": false
   },
   "runtimeAssets": [
@@ -9465,7 +9465,7 @@
     },
     {
       "path": "docs/design/echo-ground-ui-polish-plan.md",
-      "bytes": 2989,
+      "bytes": 3631,
       "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
@@ -9789,6 +9789,20 @@
       "path": "docs/qa/continuous-survival-long-run-2026-10-28.json",
       "bytes": 8944,
       "extension": ".json",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "docs/qa/echo-ground-ui-validation.json",
+      "bytes": 3813,
+      "extension": ".json",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "docs/qa/echo-ground-ui-validation.md",
+      "bytes": 4890,
+      "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
     },
@@ -23871,14 +23885,14 @@
     },
     {
       "path": "output/godot-migration/export-engine.log",
-      "bytes": 63261,
+      "bytes": 64186,
       "extension": ".log",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/export.log",
-      "bytes": 78218,
+      "bytes": 79359,
       "extension": ".log",
       "contentReadBlocked": false,
       "tracked": false
@@ -24627,14 +24641,14 @@
     },
     {
       "path": "output/godot-migration/package-engine.log",
-      "bytes": 191,
+      "bytes": 207,
       "extension": ".log",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/package-smoke.json",
-      "bytes": 474,
+      "bytes": 497,
       "extension": ".json",
       "contentReadBlocked": false,
       "tracked": false
@@ -24648,7 +24662,7 @@
     },
     {
       "path": "output/godot-migration/package-stdout.log",
-      "bytes": 194,
+      "bytes": 210,
       "extension": ".log",
       "contentReadBlocked": false,
       "tracked": false
@@ -25271,7 +25285,7 @@
     },
     {
       "path": "output/godot-migration/windows/WastelandEcho.exe",
-      "bytes": 129120456,
+      "bytes": 132470776,
       "extension": ".exe",
       "contentReadBlocked": false,
       "tracked": false
@@ -32110,7 +32124,7 @@
     },
     {
       "path": "README.md",
-      "bytes": 21010,
+      "bytes": 21145,
       "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
