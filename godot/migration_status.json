@@ -31,9 +31,11 @@
     "Original npm run check passes; source runtime kept unchanged",
     "Native active assets and import settings are tracked; reference exporter preserves native edits by default",
     "2026-10-30 map iteration: editable TileMapLayer floors for three maps and two shared generated atlases",
-    "Map art regression: 45 checks preserve obstacle geometry, external shared resources, foot-depth sorting, occlusion and pooled visuals; turret barrel wall robustness covered",
-    "Map rendered review: four resolution captures and a short 104-enemy sample; median 16.666ms and p95 18.076ms on RTX4060 Laptop at a 60fps cap",
-    "Workspace and active asset inventory generated without deleting history or scanning actual user saves"
+    "Map art regression: 58 checks preserve geometry, external resources, depth, road junctions and fallback; turret wall robustness covered",
+    "Map rendered review: four resolutions and a short 104-enemy sample; median 16.659ms, p95 18.175ms on RTX4060 Laptop at a 60fps cap",
+    "Workspace and active asset inventory generated without deleting history or scanning actual user saves",
+    "Echo old-town ground v3 pilot: continuous painted materials and eight ground decal regions; other two map art profiles unchanged",
+    "Native UI interaction: 155 checks across five sizes, real pointer/click/navigation events, resize focus retention and injected reduced-motion behavior"
   ],
   "inProgress": [
     "Windows rendered long-session profiling, cold-load spikes and memory trends",
@@ -58,5 +60,13 @@
     "development": "启动Godot开发版.cmd",
     "windows": "output/godot-migration/windows/WastelandEcho.exe",
     "saveTransfer": "Godot存档导入与备份.cmd"
+  },
+  "latestVisualIteration": {
+    "name": "echo-ground-v3",
+    "date": "2026-10-30",
+    "scope": "One map ground art and native UI interaction",
+    "userVisualSignoff": false,
+    "otherMapsRethemed": false,
+    "reducedMotionPublicSetting": false
   }
 }

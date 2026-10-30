@@ -1,5 +1,7 @@
 # 荒原回响 · Wasteland Echo
 
+2026-10-30 **回声旧城地面样板v3**：仅重做这一张地图的连续沥青/混凝土/土面、绘制路缘/道路标记和建筑接地细节；另外两图保留上一轮效果。升级四卡的鼠标悬停、固定点击区域、键盘/手柄焦点与缩放保留选择已修复。[本轮计划](./docs/design/echo-ground-ui-polish-plan.md)、[研究与UI审查](./docs/research/echo-ground-style-and-ui-2026-10-30.md)、[新素材与提示词](./art/world/echo-ground-v3/README.md)。体验仍使用 `output/godot-migration/windows/WastelandEcho.exe`，选择“回声旧城”；本轮属于待本人审美确认的内部样板。
+
 2026-10-30 当前开发入口为 **Godot 原生内部测试版**。双击 `output/godot-migration/windows/WastelandEcho.exe` 体验；源码使用根目录 `启动Godot开发版.cmd` 或在 Godot 4.7.2 中打开 `godot/project.godot`。本轮更新三图像素地表、环境物件、脚底深度排序、遮挡淡化、交易/爆桶/补给提示及塔台预览。[运行与开发说明](./godot/README.md)、[地图设计与后续计划](./docs/design/map-art-and-interactions-plan.md)、[本轮验证](./docs/qa/map-art-validation.md)、[文件夹导航](./docs/project-file-guide.md)、[活动素材索引](./docs/assets/asset-catalog.md)。实体手柄、DPI、低配和长局仍待验收；当前不是正式新Release。下列按日期保留历史阶段记录，旧版包不是当前体验入口。
 
 2026-10-29 武器扩展：加入折光脉冲枪、熔渣榴弹器、锯盘弹射器、回响军刀、铁砧震荡锤，现有10把远程武器＋2把近战；五类抛壳、射线、爆炸、弹射、剑气与砸地使用各自的动作、范围与声音。五件新武器均可在地图交易站购买，局外购入后可选作起始武器。独立内部Windows包位于`output/weapon-expansion-2026-10-29/windows/`；[可操作试射台与带声音演示](./output/weapon-expansion-2026-10-29/review.html)、[设计与验收](./docs/weapon-expansion-design-2026-10-29.md)、[声音来源](./art/audio/arsenal-v2/README.md)。内部构建继续沿用开发版本号，不代表新的公开Release。

@@ -1,0 +1,47 @@
+{
+  "version": "echo-ground-v3",
+  "created": "2026-10-30",
+  "generator": "built-in imagegen",
+  "reference": "godot/assets/world/pixel_map_v2/props_atlas.png",
+  "referenceRole": "Existing generated project art used only for style and palette",
+  "thirdPartyGameArtReused": false,
+  "usageTerms": "Generated project assets; applicable OpenAI service terms; not third-party CC0",
+  "prompts": [
+    "art/world/echo-ground-v3/terrain-prompt.txt",
+    "art/world/echo-ground-v3/decals-prompt.txt"
+  ],
+  "assets": [
+    {
+      "id": "world.echo-ground-v3.terrain",
+      "runtime": "godot/assets/world/echo_ground_v3/terrain_atlas.png",
+      "sourcePaths": [
+        "art/world/echo-ground-v3/sources/terrain-generated.png",
+        "art/world/echo-ground-v3/terrain-prompt.txt"
+      ],
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "bytes": 4239222,
+      "sha256": "3fe445b21caf792b9b0cfbcaf2ddb1da1b78a50a089407f7f94a1f0dd1555373",
+      "role": "four continuous ground materials"
+    },
+    {
+      "id": "world.echo-ground-v3.decals",
+      "runtime": "godot/assets/world/echo_ground_v3/ground_decals.png",
+      "sourcePaths": [
+        "art/world/echo-ground-v3/sources/decals-generated.png",
+        "art/world/echo-ground-v3/decals-prompt.txt"
+      ],
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 991987,
+      "sha256": "bf311c149b3565421f19bf58e14557e777d2e648fc448c5a8a9b276d71226295",
+      "role": "eight transparent ground detail regions"
+    }
+  ]
+}

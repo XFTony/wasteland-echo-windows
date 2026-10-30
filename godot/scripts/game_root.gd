@@ -74,6 +74,8 @@ func _play_startup() -> void:
 	startup = StartupView.new()
 	startup.name = "RadioStartup"
 	startup.assets_ready = assets.texture("menu.radio.camp.v1") != null
+	startup.reduced_motion = bool(session.save_data.settings.get("reducedMotion", false))
+	startup.gamepad_enabled = bool(session.save_data.settings.get("gamepadEnabled", true))
 	startup.finished.connect(_finish_startup)
 	$Interface.add_child(startup)
 

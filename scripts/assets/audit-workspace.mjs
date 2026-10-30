@@ -137,12 +137,14 @@ function category(file, registration) {
 walk(root);
 const tracked = new Set(slash(execFileSync("git", ["ls-files", "-z"], { cwd: root, encoding: "utf8", windowsHide: true })).split("\0").filter(Boolean));
 const manifest = json("art/manifest.json", { assets: [] });
-const mapManifestPath = "art/world/pixel-map-v2/manifest.json";
-const mapManifest = json(mapManifestPath, { assets: [] });
+const mapManifestPaths = ["art/world/pixel-map-v2/manifest.json", "art/world/echo-ground-v3/manifest.json"];
 const artRecords = [
   ...manifest.assets.map(item => ({ ...item, registryPath: "art/manifest.json" })),
-  ...mapManifest.assets.map(item => ({ ...item, runtimePath: item.runtime,
-    generator: mapManifest.generator, registryPath: mapManifestPath }))
+  ...mapManifestPaths.flatMap(registryPath => {
+    const source = json(registryPath, { assets: [] });
+    return source.assets.map(item => ({ ...item, runtimePath: item.runtime,
+      generator: source.generator, registryPath }));
+  })
 ];
 const ledger = csv(fs.readFileSync(path.join(root, "docs/assets-ledger.csv"), "utf8"));
 const { ART_ASSETS } = require("../../src/render/art/asset-catalog.js");

@@ -30,6 +30,23 @@ func _run() -> void:
 		view.configure(model, assets, map)
 		model.start_run({"mapId": id, "seed": 88, "tutorial": false, "layout": map.current_layout()})
 		view.synchronize()
+		_check(map.has_painted_ground() == (id == "echo_district"), id + " painted-ground pilot is limited to old town")
+		_check(layer.visible != map.has_painted_ground(), id + " only one opaque ground renderer is active")
+		if id == "echo_district":
+			var painted: EchoGround = map.get_node("IllustratedGround") as EchoGround
+			var surface: ShaderMaterial = painted._surface.material as ShaderMaterial
+			_check(int(surface.get_shader_parameter("road_count")) == original.layout.roads.size(), "painted road union uses the actual layout")
+			var clean_crossings: bool = true
+			for stamp: Dictionary in painted._stamps:
+				if stamp.key != "curb":
+					continue
+				var intersections: int = 0
+				for road: Dictionary in original.layout.roads:
+					if Rect2(road.x, road.y, road.w, road.h).grow(0.1).has_point(stamp.center):
+						intersections += 1
+				if intersections > 1:
+					clean_crossings = false
+			_check(clean_crossings, "no curb strip crosses the interior of a road junction")
 		_check(view._depth_root.y_sort_enabled and view._player.get_parent() == view._depth_root and view._player.z_index == 0, id + " player uses shared depth plane")
 		_check(view._enemy_visuals.size() == model.enemies.size(), id + " enemies have independent depth visuals")
 		var prop: MapPropVisual = view._prop_visuals[0]
@@ -57,6 +74,8 @@ func _run() -> void:
 		view.queue_free()
 		await process_frame
 	_test_turret_barrel(catalog)
+	_test_road_edges()
+	_test_ground_fallback(catalog)
 	print("GODOT_MAP_ART " + JSON.stringify({"checks": _checks, "maps": 3, "failures": _failures}))
 	quit(0 if _failures.is_empty() else 1)
 
@@ -89,3 +108,22 @@ func _check(condition: bool, message: String) -> void:
 	_checks += 1
 	if not condition:
 		_failures.append(message)
+
+
+func _test_road_edges() -> void:
+	var blockers: Array[Rect2] = [Rect2(90, 0, 20, 120)]
+	_check(EchoGround.edge_intervals(0, 200, 60, false, blockers) == [Vector2(0, 90), Vector2(110, 200)], "road crossing removes its internal curb interval")
+	_check(EchoGround.edge_intervals(0, 200, 150, false, blockers) == [Vector2(0, 200)], "unrelated road does not remove a curb")
+	blockers.assign([Rect2(0, 90, 120, 20)])
+	_check(EchoGround.edge_intervals(0, 200, 60, true, blockers) == [Vector2(0, 90), Vector2(110, 200)], "vertical road crossing uses the other axis")
+
+
+func _test_ground_fallback(catalog: GameCatalog) -> void:
+	var packed: PackedScene = load("res://scenes/maps/echo_district.tscn") as PackedScene
+	var map: MapScene = packed.instantiate() as MapScene
+	map.art_profile = map.art_profile.duplicate() as MapArtProfile
+	map.art_profile.painted_ground_texture = null
+	root.add_child(map)
+	_check(not map.has_painted_ground() and (map.get_node("GroundTiles") as TileMapLayer).visible, "missing painted source uses existing floor fallback")
+	_check(map.current_layout().obstacles == (catalog.find("maps", "echo_district") as MapDefinition).layout.obstacles, "fallback does not change collision geometry")
+	map.free()

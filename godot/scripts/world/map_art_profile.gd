@@ -16,6 +16,10 @@ extends Resource
 @export var road_line: Color = Color("bba96f")
 @export var landmark_color: Color = Color("d5b875")
 @export var roof_fade: float = 0.42
+@export var painted_ground_texture: Texture2D
+@export var painted_ground_material: ShaderMaterial
+@export var ground_decals: Texture2D
+@export var ground_regions: Dictionary = {}
 
 
 func prop_key(data: Dictionary) -> String:

@@ -13,14 +13,15 @@ const suites = [
   ["runtime", "tests/runtime_smoke_test.gd", "GODOT_RUNTIME_SMOKE"],
   ["input-audio", "tests/input_audio_test.gd", "GODOT_INPUT_AUDIO"],
   ["save-transfer", "scenes/tools/save_transfer.tscn", "GODOT_SAVE_TRANSFER", "--qa-save-transfer-test"],
-  ["map-art", "tests/map_art_test.gd", "GODOT_MAP_ART"]
+  ["map-art", "tests/map_art_test.gd", "GODOT_MAP_ART"],
+  ["ui-interaction", "tests/ui_interaction_test.gd", "GODOT_UI_INTERACTION"]
 ];
 const reports = {};
 for (const [name, script, marker, flag] of suites) {
   const entry = script.endsWith(".tscn") ? [script] : ["--script",script];
   const result = spawnSync(executable, ["--headless","--path",project,
     "--log-file",path.join(output,`${name}-engine.log`), ...entry,
-    "--max-fps","60","--quit-after","30","--",flag||"--qa-smoke"], {
+    "--max-fps","60","--quit-after",name === "ui-interaction" ? "600" : "30","--",flag||"--qa-smoke"], {
     cwd:root, encoding:"utf8", windowsHide:true, timeout:60000, maxBuffer:8*1024*1024,
     env:{...process.env,APPDATA:path.join(output,"isolated-appdata")}
   });

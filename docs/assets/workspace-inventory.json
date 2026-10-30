@@ -1,6 +1,6 @@
 {
   "format": 1,
-  "generatedAt": "2026-10-30T07:58:53.258Z",
+  "generatedAt": "2026-10-30T09:47:50.214Z",
   "authority": "godot is active; original implementation retained as reference",
   "scanPolicy": {
     "excludedGeneratedOutputs": [
@@ -25,18 +25,18 @@
     "duplicatePolicy": "Exact-byte groups are evidence, never automatic deletion permission"
   },
   "summary": {
-    "measuredFiles": 4049,
-    "measuredBytes": 3166037826,
+    "measuredFiles": 4107,
+    "measuredBytes": 3195828876,
     "opaqueDirectories": 10,
-    "nativeMaterialFiles": 86,
-    "nativeMaterialBytes": 10864959,
+    "nativeMaterialFiles": 88,
+    "nativeMaterialBytes": 16096168,
     "registeredActiveImages": 59,
     "registeredAudio": 21,
     "proceduralWeapons": 5,
     "retiredArtRegistrations": 24,
     "editableSourceFiles": 60,
     "nativeBlendFiles": 0,
-    "exactDuplicateGroups": 91
+    "exactDuplicateGroups": 93
   },
   "topLevel": [
     {
@@ -109,7 +109,7 @@
       "purpose": "原创、生成素材、第三方音频/字体/引擎的来源边界",
       "policy": "新增素材时与台账同步",
       "measuredFiles": 1,
-      "measuredBytes": 4576,
+      "measuredBytes": 4933,
       "partial": false,
       "opaqueChildren": []
     },
@@ -129,7 +129,7 @@
       "purpose": "标明当前原生版入口、历史版本与主要文档",
       "policy": "随开发主线更新，避免指向旧包",
       "measuredFiles": 1,
-      "measuredBytes": 20364,
+      "measuredBytes": 21010,
       "partial": false,
       "opaqueChildren": []
     },
@@ -148,8 +148,8 @@
       "category": "美术/音频可编辑源与设计历史",
       "purpose": "原图、分层、原采样、生成记录及历史动作研究",
       "policy": "源与来源记录提交；历史不等于活动素材",
-      "measuredFiles": 300,
-      "measuredBytes": 240446347,
+      "measuredFiles": 306,
+      "measuredBytes": 245684894,
       "partial": false,
       "opaqueChildren": []
     },
@@ -168,8 +168,8 @@
       "category": "设计/验收/来源文档",
       "purpose": "规范、计划、评审、许可、QA摘要",
       "policy": "提交可长期参考的文档，避免完整重复截图",
-      "measuredFiles": 140,
-      "measuredBytes": 6491434,
+      "measuredFiles": 142,
+      "measuredBytes": 6501705,
       "partial": false,
       "opaqueChildren": []
     },
@@ -190,8 +190,8 @@
       "category": "原生活动项目",
       "purpose": "后续运行代码、场景、Resource和活动素材的开发主目录",
       "policy": "提交源码/素材/UID/import设置；忽略.godot和builds",
-      "measuredFiles": 487,
-      "measuredBytes": 17873069,
+      "measuredFiles": 498,
+      "measuredBytes": 23130134,
       "partial": true,
       "opaqueChildren": [
         "godot/.godot"
@@ -214,8 +214,8 @@
       "category": "可再生输出/本地构建",
       "purpose": "截图、录屏、包、SDK模板、QA产物",
       "policy": "不进Git；确认来源和可重建方法后才考虑清理",
-      "measuredFiles": 2536,
-      "measuredBytes": 2820333394,
+      "measuredFiles": 2575,
+      "measuredBytes": 2839616780,
       "partial": true,
       "opaqueChildren": [
         "output/godot-evaluation-2026-10-29/mcp/node_modules",
@@ -259,7 +259,7 @@
       "purpose": "导出、素材制作、构建、检查脚本",
       "policy": "提交工具，不把开发工具依赖带入运行包",
       "measuredFiles": 151,
-      "measuredBytes": 1110516,
+      "measuredBytes": 1111294,
       "partial": false,
       "opaqueChildren": []
     },
@@ -393,8 +393,8 @@
   "gitStorage": {
     "source": "git count-objects -v (aggregate only)",
     "counters": {
-      "count": "7",
-      "size": "27",
+      "count": "59",
+      "size": "5193",
       "in-pack": "3323",
       "packs": "4",
       "size-pack": "319436",
@@ -402,7 +402,7 @@
       "garbage": "0",
       "size-garbage": "0"
     },
-    "allocatedObjectBytes": 327130112,
+    "allocatedObjectBytes": 332420096,
     "directoryTotalMeasured": false
   },
   "runtimeAssets": [
@@ -4161,6 +4161,104 @@
       "declaredSha256Matches": true
     },
     {
+      "path": "godot/assets/world/echo_ground_v3/ground_decals.png",
+      "category": "地图/地表/道具",
+      "bytes": 991987,
+      "sha256": "BF311C149B3565421F19BF58E14557E777D2E648FC448C5A8A9B276D71226295",
+      "tracked": true,
+      "dimensions": {
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG"
+      },
+      "audio": null,
+      "contentId": "world.echo-ground-v3.decals",
+      "registration": "native_direct_reference",
+      "references": [
+        {
+          "path": "godot/content/map_art/echo_district_art.tres",
+          "kind": "native_scene_script_or_resource"
+        }
+      ],
+      "legacyReferencePath": null,
+      "sameBytesAsLegacy": null,
+      "sourceEvidence": [
+        "art/world/echo-ground-v3/sources/decals-generated.png",
+        "art/world/echo-ground-v3/decals-prompt.txt"
+      ],
+      "sourceEvidenceExisting": [
+        "art/world/echo-ground-v3/sources/decals-generated.png",
+        "art/world/echo-ground-v3/decals-prompt.txt"
+      ],
+      "provenanceRecord": "art/world/echo-ground-v3/manifest.json",
+      "generator": "built-in imagegen",
+      "licenseRecords": [
+        {
+          "assetId": "world.echo-ground-v3.decals",
+          "license": "Generated project asset; applicable service terms; not third-party CC0",
+          "reviewStatus": "source-recorded-commercial-terms-review",
+          "commercialOk": "review-required",
+          "creator": "OpenAI built-in ImageGen",
+          "sourceUrl": ""
+        }
+      ],
+      "licenseEvidence": [
+        "CREDITS.md",
+        "docs/assets-ledger.csv"
+      ],
+      "review": "See the recorded review status; no new legal approval inferred",
+      "declaredSha256Matches": true
+    },
+    {
+      "path": "godot/assets/world/echo_ground_v3/terrain_atlas.png",
+      "category": "地图/地表/道具",
+      "bytes": 4239222,
+      "sha256": "3FE445B21CAF792B9B0CFBCAF2DDB1DA1B78A50A089407F7F94A1F0DD1555373",
+      "tracked": true,
+      "dimensions": {
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG"
+      },
+      "audio": null,
+      "contentId": "world.echo-ground-v3.terrain",
+      "registration": "native_direct_reference",
+      "references": [
+        {
+          "path": "godot/content/map_art/echo_district_art.tres",
+          "kind": "native_scene_script_or_resource"
+        }
+      ],
+      "legacyReferencePath": null,
+      "sameBytesAsLegacy": null,
+      "sourceEvidence": [
+        "art/world/echo-ground-v3/sources/terrain-generated.png",
+        "art/world/echo-ground-v3/terrain-prompt.txt"
+      ],
+      "sourceEvidenceExisting": [
+        "art/world/echo-ground-v3/sources/terrain-generated.png",
+        "art/world/echo-ground-v3/terrain-prompt.txt"
+      ],
+      "provenanceRecord": "art/world/echo-ground-v3/manifest.json",
+      "generator": "built-in imagegen",
+      "licenseRecords": [
+        {
+          "assetId": "world.echo-ground-v3.terrain",
+          "license": "Generated project asset; applicable service terms; not third-party CC0",
+          "reviewStatus": "source-recorded-commercial-terms-review",
+          "commercialOk": "review-required",
+          "creator": "OpenAI built-in ImageGen",
+          "sourceUrl": ""
+        }
+      ],
+      "licenseEvidence": [
+        "CREDITS.md",
+        "docs/assets-ledger.csv"
+      ],
+      "review": "See the recorded review status; no new legal approval inferred",
+      "declaredSha256Matches": true
+    },
+    {
       "path": "godot/assets/world/freight-ground-v1.webp",
       "category": "地图/地表/道具",
       "bytes": 413352,
@@ -5392,6 +5490,16 @@
   ],
   "duplicates": [
     {
+      "sha256": "3FE445B21CAF792B9B0CFBCAF2DDB1DA1B78A50A089407F7F94A1F0DD1555373",
+      "bytesEach": 4239222,
+      "files": [
+        "art/world/echo-ground-v3/sources/terrain-generated.png",
+        "godot/assets/world/echo_ground_v3/terrain_atlas.png"
+      ],
+      "classification": "source_history_or_exact_duplicate_review",
+      "deletionRecommended": false
+    },
+    {
       "sha256": "8410F358BDEEB0B25D91C27B990C2D8940C16ECF61BD35DFACFA2A649C421C8B",
       "bytesEach": 2860791,
       "files": [
@@ -5487,6 +5595,16 @@
       "files": [
         "art/world/pixel-map-v2/sources/props-atlas-generated.png",
         "godot/assets/world/pixel_map_v2/props_atlas.png"
+      ],
+      "classification": "source_history_or_exact_duplicate_review",
+      "deletionRecommended": false
+    },
+    {
+      "sha256": "BF311C149B3565421F19BF58E14557E777D2E648FC448C5A8A9B276D71226295",
+      "bytesEach": 991987,
+      "files": [
+        "art/world/echo-ground-v3/sources/decals-generated.png",
+        "godot/assets/world/echo_ground_v3/ground_decals.png"
       ],
       "classification": "source_history_or_exact_duplicate_review",
       "deletionRecommended": false
@@ -8415,6 +8533,48 @@
       "tracked": true
     },
     {
+      "path": "art/world/echo-ground-v3/decals-prompt.txt",
+      "bytes": 2082,
+      "extension": ".txt",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "art/world/echo-ground-v3/manifest.json",
+      "bytes": 1546,
+      "extension": ".json",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "art/world/echo-ground-v3/README.md",
+      "bytes": 1805,
+      "extension": ".md",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "art/world/echo-ground-v3/sources/decals-generated.png",
+      "bytes": 991987,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "art/world/echo-ground-v3/sources/terrain-generated.png",
+      "bytes": 4239222,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "art/world/echo-ground-v3/terrain-prompt.txt",
+      "bytes": 1905,
+      "extension": ".txt",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
       "path": "art/world/echo-market-v1/README.md",
       "bytes": 1602,
       "extension": ".md",
@@ -8507,7 +8667,7 @@
     },
     {
       "path": "CREDITS.md",
-      "bytes": 4576,
+      "bytes": 4933,
       "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
@@ -9179,7 +9339,7 @@
     },
     {
       "path": "docs/assets-ledger.csv",
-      "bytes": 52978,
+      "bytes": 53783,
       "extension": ".csv",
       "contentReadBlocked": false,
       "tracked": true
@@ -9299,6 +9459,13 @@
     {
       "path": "docs/continuous-survival-audio-plan-2026-10-28.md",
       "bytes": 11976,
+      "extension": ".md",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "docs/design/echo-ground-ui-polish-plan.md",
+      "bytes": 2989,
       "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
@@ -9916,6 +10083,13 @@
       "path": "docs/release-notes/README-v1.5.0-alpha.1.txt",
       "bytes": 1023,
       "extension": ".txt",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "docs/research/echo-ground-style-and-ui-2026-10-30.md",
+      "bytes": 6477,
+      "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
     },
@@ -11481,6 +11655,34 @@
       "tracked": true
     },
     {
+      "path": "godot/assets/world/echo_ground_v3/ground_decals.png",
+      "bytes": 991987,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/assets/world/echo_ground_v3/ground_decals.png.import",
+      "bytes": 971,
+      "extension": ".import",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/assets/world/echo_ground_v3/terrain_atlas.png",
+      "bytes": 4239222,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/assets/world/echo_ground_v3/terrain_atlas.png.import",
+      "bytes": 971,
+      "extension": ".import",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
       "path": "godot/assets/world/freight-ground-v1.webp",
       "bytes": 413352,
       "extension": ".webp",
@@ -11832,7 +12034,14 @@
     },
     {
       "path": "godot/content/map_art/echo_district_art.tres",
-      "bytes": 1458,
+      "bytes": 2223,
+      "extension": ".tres",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/content/map_art/echo_painted_ground.tres",
+      "bytes": 271,
       "extension": ".tres",
       "contentReadBlocked": false,
       "tracked": true
@@ -12665,7 +12874,7 @@
     },
     {
       "path": "godot/migration_status.json",
-      "bytes": 3822,
+      "bytes": 4323,
       "extension": ".json",
       "contentReadBlocked": false,
       "tracked": true
@@ -12679,7 +12888,7 @@
     },
     {
       "path": "godot/README.md",
-      "bytes": 4435,
+      "bytes": 4545,
       "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
@@ -13141,7 +13350,7 @@
     },
     {
       "path": "godot/scripts/game_root.gd",
-      "bytes": 21226,
+      "bytes": 21401,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13309,7 +13518,7 @@
     },
     {
       "path": "godot/scripts/presentation/startup_view.gd",
-      "bytes": 3351,
+      "bytes": 3550,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13351,7 +13560,7 @@
     },
     {
       "path": "godot/scripts/presentation/world_view.gd",
-      "bytes": 35222,
+      "bytes": 35268,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13421,7 +13630,7 @@
     },
     {
       "path": "godot/scripts/tools/package_probe.gd",
-      "bytes": 2647,
+      "bytes": 2894,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13463,7 +13672,7 @@
     },
     {
       "path": "godot/scripts/ui/battle_view.gd",
-      "bytes": 33907,
+      "bytes": 35195,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13505,7 +13714,7 @@
     },
     {
       "path": "godot/scripts/ui/pages/credits_page.gd",
-      "bytes": 3721,
+      "bytes": 3726,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13603,7 +13812,7 @@
     },
     {
       "path": "godot/scripts/ui/upgrade_card.gd",
-      "bytes": 5569,
+      "bytes": 6010,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13630,6 +13839,20 @@
       "tracked": true
     },
     {
+      "path": "godot/scripts/world/echo_ground.gd",
+      "bytes": 6455,
+      "extension": ".gd",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/scripts/world/echo_ground.gd.uid",
+      "bytes": 20,
+      "extension": ".uid",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
       "path": "godot/scripts/world/flow_navigation.gd",
       "bytes": 5861,
       "extension": ".gd",
@@ -13645,7 +13868,7 @@
     },
     {
       "path": "godot/scripts/world/map_art_profile.gd",
-      "bytes": 1110,
+      "bytes": 1289,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13673,13 +13896,27 @@
     },
     {
       "path": "godot/scripts/world/map_scene.gd",
-      "bytes": 12813,
+      "bytes": 13497,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
     },
     {
       "path": "godot/scripts/world/map_scene.gd.uid",
+      "bytes": 20,
+      "extension": ".uid",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/shaders/echo_ground.gdshader",
+      "bytes": 2710,
+      "extension": ".gdshader",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/shaders/echo_ground.gdshader.uid",
       "bytes": 20,
       "extension": ".uid",
       "contentReadBlocked": false,
@@ -13757,7 +13994,7 @@
     },
     {
       "path": "godot/tests/map_art_test.gd",
-      "bytes": 4947,
+      "bytes": 7206,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13807,6 +14044,20 @@
     {
       "path": "godot/tests/survival_stress_test.gd.uid",
       "bytes": 19,
+      "extension": ".uid",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/tests/ui_interaction_test.gd",
+      "bytes": 7519,
+      "extension": ".gd",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/tests/ui_interaction_test.gd.uid",
+      "bytes": 20,
       "extension": ".uid",
       "contentReadBlocked": false,
       "tracked": true
@@ -21435,6 +21686,251 @@
       "tracked": false
     },
     {
+      "path": "output/echo-ground-ui/after/echo-shop-behind.png",
+      "bytes": 958807,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/after/echo-shop-front.png",
+      "bytes": 1198709,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/after/echo-spawn.png",
+      "bytes": 1132124,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/after/echo-trade-active.png",
+      "bytes": 1125866,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/alpha-inspection.json",
+      "bytes": 1379,
+      "extension": ".json",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/battle-capture-engine.log",
+      "bytes": 180,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/battle-capture.log",
+      "bytes": 183,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/before/echo-shop-behind.png",
+      "bytes": 670053,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/before/echo-shop-front.png",
+      "bytes": 813869,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/before/echo-spawn.png",
+      "bytes": 719795,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/before/echo-trade-active.png",
+      "bytes": 731101,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/before/upgrade-720.png",
+      "bytes": 315175,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/cards-1280x720-idle.png",
+      "bytes": 372692,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/cards-1920x1080-idle.png",
+      "bytes": 624661,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/cards-2560x1440-idle.png",
+      "bytes": 966569,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/cards-640x360-idle.png",
+      "bytes": 111088,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/cards-720-hover-1.png",
+      "bytes": 374115,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/cards-720-hover-2.png",
+      "bytes": 375113,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/cards-720-hover-3.png",
+      "bytes": 376483,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/cards-720-hover-4.png",
+      "bytes": 374454,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/cards-960x540-idle.png",
+      "bytes": 242829,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/cards-reduced-motion.png",
+      "bytes": 111818,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/import-engine.log",
+      "bytes": 1139,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/import.log",
+      "bytes": 1624,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/menu-capture-engine.log",
+      "bytes": 180,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/menu-capture.log",
+      "bytes": 183,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/review-engine.log",
+      "bytes": 180,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/review.html",
+      "bytes": 3624,
+      "extension": ".html",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/review.log",
+      "bytes": 183,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/startup-normal.png",
+      "bytes": 166686,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/startup-reduced-motion.png",
+      "bytes": 247727,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/ui-interaction-engine.log",
+      "bytes": 234,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/ui-interaction.log",
+      "bytes": 237,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/ui-visual-engine.log",
+      "bytes": 341,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/ui-visual.log",
+      "bytes": 345,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
       "path": "output/echo-market-2026-10-28/browser-performance.log",
       "bytes": 945,
       "extension": ".log",
@@ -23270,7 +23766,7 @@
     },
     {
       "path": "output/godot-migration/battle-region-comparison.json",
-      "bytes": 5282,
+      "bytes": 5265,
       "extension": ".json",
       "contentReadBlocked": false,
       "tracked": false
@@ -23648,294 +24144,294 @@
     },
     {
       "path": "output/godot-migration/native-checks.json",
-      "bytes": 741,
+      "bytes": 941,
       "extension": ".json",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/echo_district-1080.png",
-      "bytes": 964796,
+      "bytes": 1530805,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/echo_district-1440.png",
-      "bytes": 1047075,
+      "bytes": 1892894,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/echo_district-540.png",
-      "bytes": 397245,
+      "bytes": 557322,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/echo_district-720.png",
-      "bytes": 762828,
+      "bytes": 1131187,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/field-arsenal-0-1080.png",
-      "bytes": 316556,
+      "bytes": 389668,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/field-arsenal-0-1440.png",
-      "bytes": 342476,
+      "bytes": 445969,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/field-arsenal-0-540.png",
-      "bytes": 141882,
+      "bytes": 151277,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/field-arsenal-0-720.png",
-      "bytes": 259989,
+      "bytes": 309565,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/field-arsenal-1-1080.png",
-      "bytes": 290935,
+      "bytes": 362752,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/field-arsenal-1-1440.png",
-      "bytes": 314408,
+      "bytes": 419439,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/field-arsenal-1-540.png",
-      "bytes": 123259,
+      "bytes": 132378,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/field-arsenal-1-720.png",
-      "bytes": 236558,
+      "bytes": 286974,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/field-supplies-0-1080.png",
-      "bytes": 282715,
+      "bytes": 354816,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/field-supplies-0-1440.png",
-      "bytes": 309653,
+      "bytes": 412743,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/field-supplies-0-540.png",
-      "bytes": 118193,
+      "bytes": 127444,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/field-supplies-0-720.png",
-      "bytes": 231161,
+      "bytes": 279557,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/field-support-0-1080.png",
-      "bytes": 269775,
+      "bytes": 341755,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/field-support-0-1440.png",
-      "bytes": 295084,
+      "bytes": 399331,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/field-support-0-540.png",
-      "bytes": 108724,
+      "bytes": 118849,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/field-support-0-720.png",
-      "bytes": 218689,
+      "bytes": 269343,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/freight_nexus-1080.png",
-      "bytes": 1053168,
+      "bytes": 960537,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/freight_nexus-1440.png",
-      "bytes": 1145208,
+      "bytes": 1035868,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/freight_nexus-540.png",
-      "bytes": 473565,
+      "bytes": 448265,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/freight_nexus-720.png",
-      "bytes": 804784,
+      "bytes": 743858,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/pause-1080.png",
-      "bytes": 626599,
+      "bytes": 944076,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/pause-1440.png",
-      "bytes": 682984,
+      "bytes": 1204038,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/pause-540.png",
-      "bytes": 238805,
+      "bytes": 307793,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/pause-720.png",
-      "bytes": 461779,
+      "bytes": 649741,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/red_basin-1080.png",
-      "bytes": 1001303,
+      "bytes": 941908,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/red_basin-1440.png",
-      "bytes": 1070561,
+      "bytes": 1034992,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/red_basin-540.png",
-      "bytes": 432544,
+      "bytes": 409653,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/red_basin-720.png",
-      "bytes": 781880,
+      "bytes": 734606,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/regions.json",
-      "bytes": 32832,
+      "bytes": 32137,
       "extension": ".json",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/result-1080.png",
-      "bytes": 488353,
+      "bytes": 730579,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/result-1440.png",
-      "bytes": 671313,
+      "bytes": 1121955,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/result-540.png",
-      "bytes": 86444,
+      "bytes": 96460,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/result-720.png",
-      "bytes": 294201,
+      "bytes": 431959,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/upgrade-1080.png",
-      "bytes": 405104,
+      "bytes": 507590,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/upgrade-1440.png",
-      "bytes": 460128,
+      "bytes": 612197,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/upgrade-540.png",
-      "bytes": 211671,
+      "bytes": 234484,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/upgrade-720.png",
-      "bytes": 315175,
+      "bytes": 374090,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
@@ -24180,7 +24676,7 @@
     },
     {
       "path": "output/godot-migration/reference-battle-regions.json",
-      "bytes": 35766,
+      "bytes": 38844,
       "extension": ".json",
       "contentReadBlocked": false,
       "tracked": false
@@ -24711,6 +25207,20 @@
       "tracked": false
     },
     {
+      "path": "output/godot-migration/ui-interaction-check.log",
+      "bytes": 237,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/godot-migration/ui-interaction-engine.log",
+      "bytes": 234,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
       "path": "output/godot-migration/ui-reference.log",
       "bytes": 107,
       "extension": ".log",
@@ -24844,6 +25354,13 @@
       "tracked": false
     },
     {
+      "path": "output/map-art/final-backup-check.json",
+      "bytes": 350,
+      "extension": ".json",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
       "path": "output/map-art/final-import-engine.log",
       "bytes": 1289,
       "extension": ".log",
@@ -24893,50 +25410,57 @@
       "tracked": false
     },
     {
+      "path": "output/map-art/remote-workflows.json",
+      "bytes": 320,
+      "extension": ".json",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
       "path": "output/map-art/review/echo-barrel.png",
-      "bytes": 743001,
+      "bytes": 1078310,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/map-art/review/echo-dense.png",
-      "bytes": 779759,
+      "bytes": 1182314,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/map-art/review/echo-shop-behind.png",
-      "bytes": 670053,
+      "bytes": 958807,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/map-art/review/echo-shop-front.png",
-      "bytes": 813869,
+      "bytes": 1198709,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/map-art/review/echo-spawn.png",
-      "bytes": 719795,
+      "bytes": 1132124,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/map-art/review/echo-supply.png",
-      "bytes": 680660,
+      "bytes": 1020894,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/map-art/review/echo-trade-active.png",
-      "bytes": 731101,
+      "bytes": 1125866,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
@@ -31586,7 +32110,7 @@
     },
     {
       "path": "README.md",
-      "bytes": 20364,
+      "bytes": 21010,
       "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
@@ -31817,7 +32341,7 @@
     },
     {
       "path": "scripts/assets/audit-workspace.mjs",
-      "bytes": 29423,
+      "bytes": 29499,
       "extension": ".mjs",
       "contentReadBlocked": false,
       "tracked": true
@@ -32188,7 +32712,7 @@
     },
     {
       "path": "scripts/godot/capture-reference-battle.mjs",
-      "bytes": 4362,
+      "bytes": 4855,
       "extension": ".mjs",
       "contentReadBlocked": false,
       "tracked": true
@@ -32251,7 +32775,7 @@
     },
     {
       "path": "scripts/godot/verify-battle-regions.mjs",
-      "bytes": 1758,
+      "bytes": 1823,
       "extension": ".mjs",
       "contentReadBlocked": false,
       "tracked": true
@@ -32265,14 +32789,14 @@
     },
     {
       "path": "scripts/godot/verify-native.mjs",
-      "bytes": 2179,
+      "bytes": 2293,
       "extension": ".mjs",
       "contentReadBlocked": false,
       "tracked": true
     },
     {
       "path": "scripts/godot/verify-package.ps1",
-      "bytes": 2649,
+      "bytes": 2679,
       "extension": ".ps1",
       "contentReadBlocked": false,
       "tracked": true

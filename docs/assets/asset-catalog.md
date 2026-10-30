@@ -2,7 +2,7 @@
 
 由 `node scripts/assets/audit-workspace.mjs` 生成。原生 `godot/assets` 为活动树；登记表示可加载或可追溯，不等于每个文件在每个场景实际绘制。完整尺寸、SHA256、引用及许可记录见本目录 `workspace-inventory.json`。
 
-本次活动树原始文件 **86** 个 / **10.36 MiB**，另有 5 件运行时原生绘制武器。
+本次活动树原始文件 **88** 个 / **15.35 MiB**，另有 5 件运行时原生绘制武器。
 
 `.import` 是导入设置，不重复计为美术原文件；它们保留在完整文件索引中。动态拼接的 ID/路径无法仅凭静态查找证明未使用，因此未注册项一律列为复核项。
 
@@ -137,6 +137,8 @@
 | [godot/assets/world/echo-ground-v1.webp](../../godot/assets/world/echo-ground-v1.webp) | world.ground.echo.v1 | 1254×1254 | 294124 | [art/manifest.json](../../art/manifest.json)、[art/generated/v1.5/source/echo-ground-v1-source.png](../../art/generated/v1.5/source/echo-ground-v1-source.png)、[CREDITS.md](../../CREDITS.md)、[docs/assets-ledger.csv](../../docs/assets-ledger.csv) |
 | [godot/assets/world/echo-market-v1/salvage-kit.webp](../../godot/assets/world/echo-market-v1/salvage-kit.webp) | world.prop.echo.salvage-kit.v1 | 512×384 | 202026 | [art/manifest.json](../../art/manifest.json)、[art/world/echo-market-v1/source/salvage-kit.png](../../art/world/echo-market-v1/source/salvage-kit.png)、[art/world/echo-market-v1/source/salvage-kit-generation.json](../../art/world/echo-market-v1/source/salvage-kit-generation.json)、[art/world/echo-market-v1/README.md](../../art/world/echo-market-v1/README.md) |
 | [godot/assets/world/echo-market-v1/trade-post.webp](../../godot/assets/world/echo-market-v1/trade-post.webp) | world.prop.echo.market.v1 | 380×272 | 160304 | [art/manifest.json](../../art/manifest.json)、[art/world/echo-market-v1/source/trade-post.png](../../art/world/echo-market-v1/source/trade-post.png)、[art/world/echo-market-v1/source/generation-record.json](../../art/world/echo-market-v1/source/generation-record.json)、[art/world/echo-market-v1/README.md](../../art/world/echo-market-v1/README.md) |
+| [godot/assets/world/echo_ground_v3/ground_decals.png](../../godot/assets/world/echo_ground_v3/ground_decals.png) | world.echo-ground-v3.decals | 1254×1254 | 991987 | [art/world/echo-ground-v3/manifest.json](../../art/world/echo-ground-v3/manifest.json)、[art/world/echo-ground-v3/sources/decals-generated.png](../../art/world/echo-ground-v3/sources/decals-generated.png)、[art/world/echo-ground-v3/decals-prompt.txt](../../art/world/echo-ground-v3/decals-prompt.txt)、[CREDITS.md](../../CREDITS.md) |
+| [godot/assets/world/echo_ground_v3/terrain_atlas.png](../../godot/assets/world/echo_ground_v3/terrain_atlas.png) | world.echo-ground-v3.terrain | 1254×1254 | 4239222 | [art/world/echo-ground-v3/manifest.json](../../art/world/echo-ground-v3/manifest.json)、[art/world/echo-ground-v3/sources/terrain-generated.png](../../art/world/echo-ground-v3/sources/terrain-generated.png)、[art/world/echo-ground-v3/terrain-prompt.txt](../../art/world/echo-ground-v3/terrain-prompt.txt)、[CREDITS.md](../../CREDITS.md) |
 | [godot/assets/world/freight-ground-v1.webp](../../godot/assets/world/freight-ground-v1.webp) | world.ground.freight.v1 | 1254×1254 | 413352 | [art/manifest.json](../../art/manifest.json)、[art/generated/v1.5/source/freight-ground-v1-source.png](../../art/generated/v1.5/source/freight-ground-v1-source.png)、[CREDITS.md](../../CREDITS.md)、[docs/assets-ledger.csv](../../docs/assets-ledger.csv) |
 | [godot/assets/world/pixel_map_v2/props_atlas.png](../../godot/assets/world/pixel_map_v2/props_atlas.png) | world.pixel-map-v2.props | 1254×1254 | 1769015 | [art/world/pixel-map-v2/manifest.json](../../art/world/pixel-map-v2/manifest.json)、[art/world/pixel-map-v2/sources/props-atlas-generated.png](../../art/world/pixel-map-v2/sources/props-atlas-generated.png)、[art/world/pixel-map-v2/props-prompt.txt](../../art/world/pixel-map-v2/props-prompt.txt)、[art/world/pixel-map-v2/prop-regions.json](../../art/world/pixel-map-v2/prop-regions.json) |
 | [godot/assets/world/pixel_map_v2/terrain_atlas.png](../../godot/assets/world/pixel_map_v2/terrain_atlas.png) | world.pixel-map-v2.terrain | 1254×1254 | 1927503 | [art/world/pixel-map-v2/manifest.json](../../art/world/pixel-map-v2/manifest.json)、[art/world/pixel-map-v2/sources/terrain-atlas-generated.png](../../art/world/pixel-map-v2/sources/terrain-atlas-generated.png)、[art/world/pixel-map-v2/terrain-prompt.txt](../../art/world/pixel-map-v2/terrain-prompt.txt)、[CREDITS.md](../../CREDITS.md) |
@@ -161,7 +163,7 @@
 
 ## 精确重复与历史边界
 
-检测到 91 组精确字节重复。Godot与旧版相同字节的素材是有意对照/回退，Git对象会去重，本次不建议删除任何一组。完整成员及SHA见JSON。
+检测到 93 组精确字节重复。Godot与旧版相同字节的素材是有意对照/回退，Git对象会去重，本次不建议删除任何一组。完整成员及SHA见JSON。
 
 旧版注册表标记 inactive 的美术 24 项；其中活动原生树副本 0 项。可编辑源文件 60 份，活动树中的.blend为 0 份。
 

@@ -5,6 +5,9 @@
 [ext_resource type="Material" path="res://content/map_art/pixel_prop_material.tres" id="3_qdx1v"]
 [ext_resource type="Texture2D" path="res://assets/world/pixel_map_v2/props_atlas.png" id="4_tqq1k"]
 [ext_resource type="Script" path="res://scripts/world/map_art_profile.gd" id="5_8m8j0"]
+[ext_resource type="Texture2D" path="res://assets/world/echo_ground_v3/terrain_atlas.png" id="6_terrain"]
+[ext_resource type="Material" path="res://content/map_art/echo_painted_ground.tres" id="7_surface"]
+[ext_resource type="Texture2D" path="res://assets/world/echo_ground_v3/ground_decals.png" id="8_decals"]
 
 [resource]
 script = ExtResource("5_8m8j0")
@@ -32,3 +35,16 @@ prop_regions = {
 }
 ground_tint = Color(0.9, 0.95, 0.84, 1)
 prop_tint = Color(1, 0.98, 0.91, 1)
+painted_ground_texture = ExtResource("6_terrain")
+painted_ground_material = ExtResource("7_surface")
+ground_decals = ExtResource("8_decals")
+ground_regions = {
+"curb": Rect2(8, 398, 320, 146),
+"stripe": Rect2(350, 420, 300, 80),
+"crosswalk": Rect2(688, 298, 228, 278),
+"crack": Rect2(950, 334, 294, 258),
+"contact": Rect2(25, 730, 310, 302),
+"oil": Rect2(360, 788, 244, 230),
+"paving_edge": Rect2(635, 844, 300, 125),
+"rail": Rect2(940, 832, 304, 156)
+}

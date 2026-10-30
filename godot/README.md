@@ -37,6 +37,6 @@ node scripts/godot/verify-native.mjs
 
 Windows 模板固定为官方 4.7.2，下载归档及提取文件均核对 SHA256。首次准备使用 `scripts/godot/prepare-windows-templates.ps1 -ResumeDownload`；构建运行 `scripts/godot/build-windows.ps1`。模板、导入缓存、大包和完整截图不进 Git；构建记录来源提交、脏工作区、SHA256及许可文件，并核对版本一致性。
 
-构建后运行 `scripts/godot/verify-package.ps1`，自动核对干净源码记录、包的SHA、三张地图与两张共享图集、59张Catalog图片、21音频和12武器。它使用隔离测试存储，带超时退出；不代替真实窗口/DPI/手柄/长局验收。本轮地图验证见 `../docs/qa/map-art-validation.md`。
+构建后运行 `scripts/godot/verify-package.ps1`，自动核对干净源码记录、包的SHA、三张地图、四张地图图集（其中两张仅旧城使用）、59张Catalog图片、21音频和12武器。它使用隔离测试存储，带超时退出；不代替真实窗口/DPI/手柄/长局验收。本轮旧城样板见 `../docs/design/echo-ground-ui-polish-plan.md`，上轮基线验证保留于 `../docs/qa/map-art-validation.md`。
 
 MCP 安装见 `../tools/godot-mcp/README.md`，本机已直接验证可用。完整计划见 `../docs/godot-migration-plan.md`，验证范围见 `../docs/qa/godot-native-validation.md`，当前状态见 `migration_status.json`。

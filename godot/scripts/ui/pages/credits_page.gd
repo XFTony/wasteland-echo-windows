@@ -36,7 +36,7 @@ static func paint(view: MenuView) -> void:
 		next = "下一目标：%s — %s（%d%%）" % [rules[0].rule.name, rules[0].rule.description,
 			roundi(float(rules[0].progress.ratio) * 100)]
 	var lines: Array[String] = [
-		"当前版本：v1.5 技术重构预览",
+		"当前版本：v1.5 内部试玩版",
 		"生存档案：成就 %d/8 · 结算 %d · 击败 %d" % [save.achievements.size(), save.settledRuns, save.totalKills],
 		"规则档案：%d/15 · 蓝图 %d/10 · 协议 %d/4 · 铭牌 %d/7" % [
 			save.completedUnlockRules.size(), save.unlockedBlueprints.size(),
@@ -46,7 +46,7 @@ static func paint(view: MenuView) -> void:
 		"像素人物、营地与桌面场景：项目生成素材，经原生像素整理",
 		"字标采用 Fusion Pixel；中文正文采用系统字体，许可见素材台账",
 		"音频：原创主题编曲；实录枪声 SnakeF8；氛围 SubspaceAudio（CC0）",
-		"输入：可重绑定键盘鼠标 + 标准 Gamepad API 手柄",
+		"输入：支持键盘鼠标与手柄，可改键和调节摇杆死区",
 		"完整来源、许可与修改记录：查看 CREDITS.md 和素材台账",
 	]
 	var body := Rect2(position + Vector2(12 if compact else 22, header),

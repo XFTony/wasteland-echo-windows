@@ -11,6 +11,7 @@ var animation_frame: int = 0
 var _visuals: Dictionary = {}
 var _fonts := UiFonts.new()
 var _patina_regions: Array[Rect2] = []
+var _illustrated_ground: EchoGround
 
 
 static func render_hash(x: int, y: int) -> int:
@@ -48,6 +49,14 @@ func _ready() -> void:
 				if source_index >= 0 and source_index < drawings.size():
 					obstacle.set_drawing(drawings[source_index], str(definition.content_id))
 	_build_patina_regions()
+	if art_profile != null and art_profile.painted_ground_texture != null and art_profile.painted_ground_material != null and art_profile.ground_decals != null:
+		_illustrated_ground = EchoGround.new()
+		_illustrated_ground.name = "IllustratedGround"
+		add_child(_illustrated_ground)
+		_illustrated_ground.configure(current_layout(), art_profile, definition.world_size)
+	var tiles: TileMapLayer = get_node_or_null("GroundTiles") as TileMapLayer
+	if tiles != null:
+		tiles.visible = _illustrated_ground == null
 	queue_redraw()
 
 
@@ -68,6 +77,10 @@ func update_view(rect: Rect2) -> void:
 	queue_redraw()
 
 
+func has_painted_ground() -> bool:
+	return _illustrated_ground != null
+
+
 func _draw() -> void:
 	if definition == null:
 		return
@@ -79,6 +92,8 @@ func _draw() -> void:
 		_draw_grain()
 		_draw_districts(layout, theme)
 	for road: Dictionary in layout.roads:
+		if has_painted_ground():
+			break
 		var rect := Rect2(float(road.x), float(road.y), float(road.w), float(road.h))
 		if not visible_world.intersects(rect):
 			continue
@@ -106,8 +121,9 @@ func _draw() -> void:
 		for region: Rect2 in _patina_regions:
 			if region.intersects(visible_world):
 				_painted_ground(region.intersection(visible_world), 0.38)
-	_draw_road_details(layout)
-	_draw_tracks(layout)
+	if not has_painted_ground():
+		_draw_road_details(layout)
+		_draw_tracks(layout)
 	for zone: Dictionary in layout.zones:
 		var point := Vector2(float(zone.x) + float(zone.w) / 2, float(zone.y) + 26)
 		if visible_world.grow(150).has_point(point):

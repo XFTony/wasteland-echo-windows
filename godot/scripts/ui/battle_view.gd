@@ -14,11 +14,15 @@ var _last_size: Vector2 = Vector2.ZERO
 var _market_action: RadioButton
 var _tutorial_action: RadioButton
 var _using_gamepad: bool = false
+var _navigation_focus_enabled: bool = false
+var _last_focused_action: String = ""
 
 
 static func _time(seconds: float) -> String:
 	var whole: int = maxi(0, floori(seconds))
 	return "%02d:%02d" % [floori(float(whole) / 60), whole % 60]
+
+
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	get_viewport().size_changed.connect(refresh)
@@ -36,19 +40,27 @@ func _process(_delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventKey or event is InputEventMouseMotion or event is InputEventMouseButton:
+	if event is InputEventMouseMotion or event is InputEventMouseButton:
 		_using_gamepad = false
+		_set_navigation_focus(false)
+	elif event is InputEventKey:
+		_using_gamepad = false
+		if event.pressed and event.physical_keycode in [KEY_TAB, KEY_LEFT, KEY_RIGHT, KEY_UP, KEY_DOWN, KEY_ENTER, KEY_SPACE]:
+			_set_navigation_focus(true)
 	elif event is InputEventJoypadButton or event is InputEventJoypadMotion and absf(event.axis_value) > 0.2:
 		_using_gamepad = bool(model.save.settings.gamepadEnabled) if model != null else false
+		_set_navigation_focus(_using_gamepad)
 
 
 func refresh() -> void:
 	if not is_inside_tree() or model == null or model.run.is_empty():
 		return
-	var previous: String = ""
+	var previous: String = _last_focused_action
 	var focused: Control = get_viewport().gui_get_focus_owner()
 	if focused is RadioButton:
 		previous = focused.action_id
+	elif focused is UpgradeCard:
+		previous = "upgrade:" + str(focused.option.id)
 	for button: Control in _buttons:
 		remove_child(button)
 		button.queue_free()
@@ -93,7 +105,8 @@ func refresh() -> void:
 		_button("menu", "返回主页", Rect2(size.x / 2 + gap / 2, data.buttonY, action_width, data.buttonH))
 	if model.screen != GameSession.Screen.RUNNING:
 		for button: Control in _buttons:
-			if button is RadioButton and button.action_id == previous and not previous.is_empty():
+			var command: String = "upgrade:" + str(button.option.id) if button is UpgradeCard else str(button.action_id)
+			if command == previous and not previous.is_empty():
 				_focus_safe.call_deferred(button)
 				return
 		if not _buttons.is_empty():
@@ -116,9 +129,11 @@ func _draw() -> void:
 	match model.screen:
 		GameSession.Screen.UPGRADE:
 			var narrow: bool = size.y < 600
-			fonts.text(self, "战地改造 · 装配新改件", Vector2(size.x / 2, 32 if narrow else 48), 28 if narrow else 36, RadioPaint.PAPER_LIGHT, "center", 900)
-			fonts.text(self, "生存计时暂停 · 等级 %d · 选择一项立即生效" % model.run.player.level,
-				Vector2(size.x / 2, 61 if narrow else 83), 12 if narrow else 15, RadioPaint.MUTED, "center", 700)
+			var two_rows: bool = size.x < 780 or size.y < 430
+			fonts.text(self, "战地改造 · 装配新改件", Vector2(size.x / 2, 20 if two_rows else 32 if narrow else 48), 20 if two_rows else 28 if narrow else 36, RadioPaint.PAPER_LIGHT, "center", 900)
+			if not two_rows:
+				fonts.text(self, "生存计时暂停 · 等级 %d · 选择一项立即生效" % model.run.player.level,
+					Vector2(size.x / 2, 61 if narrow else 83), 12 if narrow else 15, RadioPaint.MUTED, "center", 700)
 		GameSession.Screen.FIELD_SHOP:
 			_draw_market()
 		GameSession.Screen.PAUSED:
@@ -137,6 +152,7 @@ func _button(command: String, caption: String, rect: Rect2, primary: bool = fals
 	button.size = rect.size
 	button.caption_size = 14 if rect.size.y <= 34 else 17
 	button.action_requested.connect(_emit_action)
+	button.focus_entered.connect(_remember_focus.bind(command))
 	add_child(button)
 	button.remove_from_group("native_menu_actions")
 	button.add_to_group("native_battle_actions")
@@ -184,14 +200,29 @@ func _build_upgrade() -> void:
 		card.catalog = model.catalog
 		card.two_rows = two_rows
 		card.reduced_motion = bool(model.save.settings.get("reducedMotion", false))
+		card.navigation_focus_enabled = _navigation_focus_enabled
 		card.position = Vector2((size.x - total) / 2 + index % columns * (width + gap), top + floori(float(index) / columns) * (height + gap))
 		card.size = Vector2(width, height)
 		card.action_requested.connect(_emit_action)
+		card.focus_entered.connect(_remember_focus.bind("upgrade:" + str(card.option.id)))
 		add_child(card)
 		_buttons.append(card)
 	var salvage: int = mini(18, 4 + floori(float(model.run.player.level) / 2) * 2)
+	var salvage_height: float = 27 if two_rows else 36
+	var salvage_width: float = minf(250, size.x * 0.44)
 	_button("upgradeSalvage", "拆解本轮 · +%d 拾荒币" % salvage,
-		Rect2(size.x / 2 - 125, size.y - 48, 250, 36))
+		Rect2(size.x / 2 - salvage_width / 2, size.y - salvage_height - (5 if two_rows else 12), salvage_width, salvage_height))
+
+
+func _set_navigation_focus(enabled: bool) -> void:
+	_navigation_focus_enabled = enabled
+	for button: Control in _buttons:
+		if button is UpgradeCard:
+			button.navigation_focus_enabled = enabled
+
+
+func _remember_focus(command: String) -> void:
+	_last_focused_action = command
 
 
 func _draw_hud(view_width: float) -> void:

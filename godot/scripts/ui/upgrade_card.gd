@@ -11,7 +11,8 @@ var fonts: UiFonts
 var catalog: GameCatalog
 var reduced_motion: bool = false
 var two_rows: bool = false
-var _home: Vector2
+var navigation_focus_enabled: bool = false
+var visual_transform: Transform2D = Transform2D.IDENTITY
 var _age: float = 0.0
 var _hover: float = 0.0
 var _base_rotation: float = 0.0
@@ -22,7 +23,6 @@ func _ready() -> void:
 		add_theme_stylebox_override(state, StyleBoxEmpty.new())
 	focus_mode = Control.FOCUS_ALL
 	pivot_offset = size / 2
-	_home = position
 	_base_rotation = 0.0 if two_rows or reduced_motion else (index - 1.5) * 0.022
 	pressed.connect(func() -> void: action_requested.emit("upgrade:" + str(option.id)))
 	mouse_entered.connect(_update_hover)
@@ -34,14 +34,15 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_age += delta
-	var active: bool = is_hovered() or has_focus()
+	var active: bool = interaction_active()
 	var target: float = 1.0 if active else 0.0
 	_hover += (target - _hover) * (1.0 if reduced_motion else 1 - exp(-minf(delta, 0.1) * 19))
 	var progress: float = 1.0 if reduced_motion else clampf((_age - index * 0.045) / 0.27, 0, 1)
 	var ease: float = 1 - pow(1 - progress, 3)
-	position.y = _home.y + (1 - ease) * 16 - _hover * (3 if two_rows else 12)
-	scale = Vector2.ONE * (0.94 + ease * 0.06 + _hover * 0.012)
-	rotation = _base_rotation * (1 - _hover * 0.85)
+	var lift: float = 0.0 if reduced_motion else (1 - ease) * 16 - _hover * (3 if two_rows else 12)
+	var zoom: float = 1.0 if reduced_motion else 0.94 + ease * 0.06 + _hover * 0.012
+	var tilt: float = 0.0 if reduced_motion else _base_rotation * (1 - _hover * 0.85)
+	visual_transform = Transform2D(tilt, Vector2.ONE * zoom, 0, size / 2 + Vector2(0, lift)).translated_local(-size / 2)
 	modulate.a = 0.2 + progress * 0.8
 	z_index = 1 if active else 0
 	queue_redraw()
@@ -50,7 +51,8 @@ func _process(delta: float) -> void:
 func _draw() -> void:
 	if option.is_empty() or fonts == null:
 		return
-	var active: bool = is_hovered() or has_focus()
+	draw_set_transform_matrix(visual_transform)
+	var active: bool = interaction_active()
 	var tiny: bool = size.y < 170
 	var pad: float = clampf(size.x * 0.075, 10, 22)
 	var family: String = str(option.get("family", "utility"))
@@ -106,6 +108,11 @@ func _draw() -> void:
 			draw_rect(Rect2(size.x - pad - (count - item) * (pip + 3), footer + 8, pip, 8), color if item <= level else Color("b6a17a"))
 	if active:
 		RadioPaint.focus_ink(self, Rect2(Vector2(9, 5), size - Vector2(18, 12)), Color(family_style.dark), 3)
+	draw_set_transform_matrix(Transform2D.IDENTITY)
+
+
+func interaction_active() -> bool:
+	return has_focus() if navigation_focus_enabled else is_hovered()
 
 
 func _update_hover() -> void:

@@ -17,7 +17,7 @@ const results=native.map(record=>{
     maximumRectDelta=Math.max(maximumRectDelta,Math.abs(rect[axis]-after.get(id)[axis]));
   return{kind:record.kind,width:record.width,height:record.height,actions:after.size,missing,extra,maximumRectDelta};
 });
-const report={scope:"Same-state combat UI action IDs and AABBs; settled first-card focus; not a pixel comparison",results};
+const report={scope:"Combat action IDs and hit areas; upgrade slots intentionally stay still while artwork animates; original rest layout is the reference. Not pixel comparison.",results};
 fs.writeFileSync(path.join(output,"battle-region-comparison.json"),JSON.stringify(report,null,2)+"\n");
 assert.equal(results.length,28);
 for(const result of results){assert.deepEqual(result.missing,[]);assert.deepEqual(result.extra,[]);assert(result.maximumRectDelta<0.05,JSON.stringify(result));}

@@ -52,7 +52,17 @@ for (const [width, height] of [[960, 540], [1280, 720], [1920, 1080], [2560, 144
   view.draftLastFocus = view.focusAction;
   view.draftPointerPriority = false;
   drawUpgradeDraft(view, model);
-  records.push({ kind: "upgrade", width, height, actions: view.regions });
+  const legacyAnimatedActions = copy(view.regions);
+  // The native fix keeps hit slots still while moving artwork. Measure the
+  // original layout at rest, rather than asserting its moving hit-box defect.
+  view.reducedMotion = true;
+  view.focusAction = null;
+  view.draftLastFocus = null;
+  view.draftHovers = [0, 0, 0, 0];
+  view.draftPointerPriority = true;
+  view.uiTime = 3;
+  drawUpgradeDraft(view, model);
+  records.push({ kind: "upgrade", width, height, actions: view.regions, legacyAnimatedActions });
   model.screen = "running";
   const station = model.interactives.find(item => item.type === "tradePost");
   Object.assign(model.run.player, { x: station.x, y: station.y + 20 });
@@ -77,10 +87,10 @@ for (const [width, height] of [[960, 540], [1280, 720], [1920, 1080], [2560, 144
 const output = path.join(root, "output/godot-migration/reference-battle-regions.json");
 fs.mkdirSync(path.dirname(output), { recursive: true });
 fs.writeFileSync(output, JSON.stringify({
-  scope: "Original draw functions: settled draft with first card focus; drawing suppressed, not screenshot or full behavior validation",
+  scope: "Original layout functions: stable upgrade slots measured with settled reduced motion and no hover/focus; legacy animated AABBs retained separately. Not screenshot acceptance.",
   setup: { initialSave, seed: 88, tutorial: false, upgradeIds, upgradePlayer,
     fieldScrap: 300, arsenal: { scrap_pistol: { tier: 1, calibration: 0 } },
-    note: "For native draft captures allow at least 0.6 seconds of UI time after first-card focus; combat time stays paused." },
+    note: "Native upgrade art animates inside stable hit slots. Allow at least 0.6 seconds for reveal; combat time stays paused." },
   records
 }, null, 2) + "\n");
 console.log(JSON.stringify({ layouts: records.length,

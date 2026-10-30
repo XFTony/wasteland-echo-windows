@@ -199,6 +199,8 @@ func _draw_ground(canvas: CanvasItem) -> void:
 		return
 	_canvas = canvas
 	for prop: MapPropVisual in _prop_visuals:
+		if map_scene.has_painted_ground():
+			break
 		if visible_world.grow(80).intersects(prop.base_rect):
 			var base: Rect2 = prop.base_rect
 			var band: float = minf(20, base.size.y * 0.25)

@@ -23,6 +23,7 @@ func run(game: Node) -> void:
 			_failures.append("Missing packed weapon: " + id)
 	var maps: int = 0
 	var art_maps: int = 0
+	var painted_maps: int = 0
 	var map_atlases: Dictionary = {}
 	for id: String in catalog.all("maps"):
 		session.save_data.selectedMap = id
@@ -36,6 +37,10 @@ func run(game: Node) -> void:
 		world.synchronize()
 		var profile: MapArtProfile = world.map_scene.art_profile
 		var ground: TileMapLayer = world.map_scene.get_node_or_null("GroundTiles") as TileMapLayer
+		if world.map_scene.has_painted_ground():
+			map_atlases[profile.painted_ground_texture.resource_path] = true
+			map_atlases[profile.ground_decals.resource_path] = true
+			painted_maps += 1
 		if profile == null or ground == null or ground.get_used_cells().is_empty():
 			_failures.append("Packed map art missing: " + id)
 		else:
@@ -56,7 +61,7 @@ func run(game: Node) -> void:
 	await get_tree().process_frame
 	await get_tree().create_timer(0.2).timeout
 	print("GODOT_PACKAGE_SMOKE " + JSON.stringify({"maps": maps,
-		"mapsWithArt": art_maps, "sharedMapAtlases": map_atlases.size(),
+		"mapsWithArt": art_maps, "paintedMaps": painted_maps, "sharedMapAtlases": map_atlases.size(),
 		"images": catalog.metadata.assets.size(), "audio": catalog.metadata.audio.size(),
 		"weapons": catalog.all("weapons").size(), "failures": _failures}))
 	get_tree().quit(0 if _failures.is_empty() else 1)
