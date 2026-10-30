@@ -3,6 +3,7 @@ config_version=5
 
 [application]
 config/name="荒原回响"
+config/icon="res://assets/app/icon.png"
 run/main_scene="res://scenes/game_root.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/use_custom_user_dir=true
