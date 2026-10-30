@@ -24,6 +24,20 @@ var _recoil_aim: Vector2 = Vector2.RIGHT
 var _frame: int = 0
 var _fonts := UiFonts.new()
 var _previous_elapsed: float = 0.0
+var _depth_root: Node2D
+var _prop_visuals: Array[MapPropVisual] = []
+var _enemy_visuals: Dictionary = {}
+var _enemy_visual_pool: Array[DepthActor] = []
+var _structure_visuals: Dictionary = {}
+var _interactive_visuals: Dictionary = {}
+var _using_gamepad: bool = false
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey or event is InputEventMouseMotion or event is InputEventMouseButton:
+		_using_gamepad = false
+	elif event is InputEventJoypadButton or event is InputEventJoypadMotion and absf(event.axis_value) > 0.2:
+		_using_gamepad = bool(_model.save.settings.gamepadEnabled) if _model != null else false
 
 
 func configure(model: RunSimulation, assets: AssetStore, scene: MapScene) -> void:
@@ -35,6 +49,19 @@ func configure(model: RunSimulation, assets: AssetStore, scene: MapScene) -> voi
 	var obstacle_layer: Node2D = map_scene.get_node_or_null("Obstacles") as Node2D
 	if obstacle_layer != null:
 		obstacle_layer.z_index = 10
+	_depth_root = Node2D.new()
+	_depth_root.name = "DepthSortedActorsAndProps"
+	_depth_root.y_sort_enabled = true
+	add_child(_depth_root)
+	if map_scene.art_profile != null and obstacle_layer != null:
+		for child: Node in obstacle_layer.get_children():
+			if child is MapObstacle:
+				var prop := MapPropVisual.new()
+				prop.name = "Depth" + str(child.name)
+				_depth_root.add_child(prop)
+				prop.configure(child, map_scene.art_profile)
+				_prop_visuals.append(prop)
+				child.visible = false
 	_ground_layer = DrawLayer.new()
 	_ground_layer.name = "GroundEffects"
 	_ground_layer.z_index = -15
@@ -43,8 +70,8 @@ func configure(model: RunSimulation, assets: AssetStore, scene: MapScene) -> voi
 	_player = CharacterVisual.new()
 	_player.name = "PlayerVisual"
 	_player.combat_view = true
-	_player.z_index = 10
-	add_child(_player)
+	_player.z_index = 0
+	_depth_root.add_child(_player)
 	_player.configure(model.catalog, assets)
 	_foreground_layer = DrawLayer.new()
 	_foreground_layer.name = "ForegroundEffects"
@@ -127,6 +154,9 @@ func synchronize() -> void:
 	for id: Variant in _enemy_states.keys():
 		if not active_ids.has(id):
 			_enemy_states.erase(id)
+	_sync_depth_visuals(active_ids)
+	for prop: MapPropVisual in _prop_visuals:
+		prop.update_occlusion(player, _model.enemies, visible_world)
 	_frame += 1
 	_ground_layer.queue_redraw()
 	_foreground_layer.queue_redraw()
@@ -143,15 +173,19 @@ func _draw() -> void:
 		var point := Vector2(pickup.x, pickup.y)
 		var color: Color = Color("9bcab1") if pickup.type == "xp" else Color("d2aa62") if pickup.type == "scrap" else Color("d6c5a2")
 		_canvas.draw_circle(point + Vector2(1, 2), float(pickup.radius) + 2, Color("25261e"))
-		_canvas.draw_rect(Rect2(point - Vector2(3, 3), Vector2(6, 6)), color)
+		if pickup.type == "scrap":
+			_canvas.draw_circle(point, 5, Color("c89d48"))
+			_canvas.draw_rect(Rect2(point + Vector2(-2, -3), Vector2(3, 1)), Color("f1d897"))
+			_canvas.draw_line(point - Vector2(0, 2), point + Vector2(0, 2), Color("765328"), 1)
+		elif pickup.type == "xp":
+			_canvas.draw_colored_polygon(PackedVector2Array([point + Vector2(0, -5), point + Vector2(4, 0), point + Vector2(0, 5), point + Vector2(-4, 0)]), color)
+		else:
+			_canvas.draw_rect(Rect2(point - Vector2(3, 3), Vector2(6, 6)), color)
 		if pickup.type == "medkit":
 			_canvas.draw_rect(Rect2(point - Vector2(1, 4), Vector2(2, 8)), Color("a45138"))
 			_canvas.draw_rect(Rect2(point - Vector2(4, 1), Vector2(8, 2)), Color("a45138"))
 	for projectile: Dictionary in _model.projectiles:
 		_draw_projectile(projectile)
-	for enemy: Dictionary in _model.enemies:
-		if enemy.active and _visible(enemy.x, enemy.y, 120):
-			_draw_enemy(enemy)
 	_draw_structures()
 	var player: Dictionary = _model.run.player
 	_canvas.draw_set_transform(Vector2(player.x, float(player.y) + 1), 0, Vector2(1, 0.36))
@@ -164,6 +198,13 @@ func _draw_ground(canvas: CanvasItem) -> void:
 	if _model == null or _model.run.is_empty():
 		return
 	_canvas = canvas
+	for prop: MapPropVisual in _prop_visuals:
+		if visible_world.grow(80).intersects(prop.base_rect):
+			var base: Rect2 = prop.base_rect
+			var band: float = minf(20, base.size.y * 0.25)
+			_canvas.draw_colored_polygon(PackedVector2Array([
+				Vector2(base.position.x + 2, base.end.y - band), Vector2(base.end.x, base.end.y - band),
+				Vector2(base.end.x + 10, base.end.y + 7), Vector2(base.position.x + 10, base.end.y + 7)]), Color(0.06, 0.065, 0.045, 0.24))
 	_draw_interactives()
 	_draw_attack_effects(false)
 
@@ -224,13 +265,13 @@ func _sample_enemy(enemy: Dictionary, elapsed: float) -> void:
 	_enemy_states[enemy.id] = state
 
 
-func _draw_enemy(enemy: Dictionary) -> void:
+func _draw_enemy(enemy: Dictionary, local: bool = false) -> void:
 	var specs: Dictionary = _model.catalog.metadata.actorMetadata.ENEMY_SPRITES
 	if not specs.has(enemy.type):
 		return
 	var config: Dictionary = specs[enemy.type]
 	var state: Dictionary = _enemy_states[enemy.id]
-	var point: Vector2 = (Vector2(enemy.x, enemy.y) - camera_position).round() + camera_position
+	var point: Vector2 = Vector2.ZERO if local else (Vector2(enemy.x, enemy.y) - camera_position).round() + camera_position
 	_canvas.draw_set_transform(point + Vector2(0, 1), 0, Vector2(1, 0.36))
 	_canvas.draw_circle(Vector2.ZERO, float(enemy.radius) + (5 if enemy.boss else 2), Color(0.04, 0.05, 0.055, 0.38))
 	_canvas.draw_set_transform(point, 0, Vector2(float(config.pixelScale) * float(state.facing), config.pixelScale))
@@ -302,9 +343,15 @@ func _draw_interactives() -> void:
 			"tradePost":
 				if not item.active:
 					continue
-				for index: int in range(12):
-					var angle: float = float(index) / 12 * TAU
-					_canvas.draw_rect(Rect2(point + Vector2(cos(angle) * 26 - 2, sin(angle) * 16 - 1), Vector2(4, 2)), Color("b19c67"))
+				var nearby: bool = _model.field_market.nearest(_model).get("id") == item.id
+				_canvas.draw_rect(Rect2(point + Vector2(-91, -36), Vector2(182, 90)), Color(0.65, 0.58, 0.35, 0.075))
+				_canvas.draw_line(point + Vector2(-91, 54), point + Vector2(91, 54), Color(0.76, 0.65, 0.35, 0.48), 2)
+				_canvas.draw_circle(point, float(item.radius), Color(0.72, 0.57, 0.29, 0.11 if nearby else 0.035))
+				for index: int in range(32):
+					var angle: float = float(index) / 32 * TAU
+					var marker: Vector2 = point + Vector2(cos(angle), sin(angle)) * float(item.radius)
+					if is_inf(GeometryRules.first_obstacle_time(_model.obstacles, point.x, point.y, marker.x - point.x, marker.y - point.y)):
+						_canvas.draw_rect(Rect2(marker - Vector2(2, 1), Vector2(4, 2)), Color(0.83, 0.69, 0.38, 0.85 if nearby else 0.4))
 				_canvas.draw_rect(Rect2(point - Vector2(10, 6), Vector2(20, 12)), Color("6d5b3d"))
 				_canvas.draw_rect(Rect2(point - Vector2(6, 3), Vector2(12, 6)), Color("d9bd75"))
 			"electricField":
@@ -312,6 +359,11 @@ func _draw_interactives() -> void:
 				_canvas.draw_circle(point, item.radius, Color(Color("55a79e"), pulse))
 				_canvas.draw_arc(point, float(item.radius) * 0.72, 0, TAU, 64, Color(Color("8fd1c6"), 0.75), 2)
 			"explosiveBarrel":
+				if map_scene.art_profile != null and item.active:
+					_canvas.draw_circle(point, float(item.get("solidRadius", 12)) + 3, Color(0.60, 0.24, 0.14, 0.28))
+					if GeometryRules.distance_squared(_model.run.player.x, _model.run.player.y, item.x, item.y) < 200 * 200:
+						_canvas.draw_arc(point, float(item.get("effectRadius", 120)), 0, TAU, 64, Color(0.72, 0.31, 0.19, 0.2), 1)
+					continue
 				_canvas.draw_rect(Rect2(point - Vector2(10, 14), Vector2(20, 28)), Color("8f3f2d") if item.active else Color("302d27"))
 				var stripe: Color = Color("d8a245") if item.active else Color("554d40")
 				_canvas.draw_rect(Rect2(point + Vector2(-10, -8), Vector2(20, 3)), stripe)
@@ -320,6 +372,9 @@ func _draw_interactives() -> void:
 					_canvas.draw_rect(Rect2(point + Vector2(-2, -4), Vector2(4, 8)), Color("ead9ad"))
 			"supplyCache":
 				if not item.active:
+					continue
+				if map_scene.art_profile != null:
+					_canvas.draw_circle(point, float(item.get("solidRadius", 16)) + 2, Color(0.7, 0.68, 0.40, 0.16))
 					continue
 				_canvas.draw_rect(Rect2(point - Vector2(18, 12), Vector2(36, 24)), Color("403d31"))
 				_canvas.draw_rect(Rect2(point - Vector2(18, 12), Vector2(36, 24)), Color("c8a55c"), false, 2)
@@ -439,19 +494,17 @@ func _paint_polygon(points: PackedVector2Array, color: Color) -> void:
 
 
 func _draw_structures() -> void:
-	for tower: Dictionary in _model.run.structures:
-		var point := Vector2(tower.x, tower.y)
-		RadioPaint.surface(_canvas, Rect2(point - Vector2(19, 8), Vector2(38, 20)), false, true)
-		_canvas.draw_set_transform(point - Vector2(0, 20), tower.angle)
-		_canvas.draw_rect(Rect2(-13, -7, 34, 14), Color("5b6651"))
-		_canvas.draw_rect(Rect2(15, -3, 24, 6), Color("c5b78d"))
-		_canvas.draw_set_transform(Vector2.ZERO)
-		_canvas.draw_rect(Rect2(point + Vector2(-18, 15), Vector2(36, 4)), Color("292a21"))
-		_canvas.draw_rect(Rect2(point + Vector2(-18, 15), Vector2(36 * clampf(float(tower.hp) / float(tower.maxHp), 0, 1), 4)), Color("9eb67e"))
 	if _model.run.placement != null:
 		var placement: Dictionary = _model.run.placement
 		_canvas.draw_arc(Vector2(placement.x, placement.y), 30, 0, TAU, 32,
-			Color("9fcf9b") if placement.valid else Color("d57955"), 3)
+			Color("ccb573") if placement.valid else Color("d57955"), 3)
+		var p: Dictionary = _model.run.player
+		_canvas.draw_line(Vector2(p.x, p.y), Vector2(placement.x, placement.y), Color(0.8, 0.7, 0.4, 0.45), 1)
+		var rectangle := Rect2(float(placement.x) - 13, float(placement.y) - 13, 26, 26)
+		_canvas.draw_rect(rectangle, Color("ccb573") if placement.valid else Color("d57955"), false, 2)
+		var confirm_key: String = "A/Y" if _using_gamepad else SettingsPage.key_label(str(_model.save.keyBindings.deployTurret)) + "/" + SettingsPage.key_label(str(_model.save.keyBindings.interact))
+		_fonts.text(_canvas, confirm_key + " 确认 · 通路将复核" if placement.valid else str(placement.reason),
+			Vector2(placement.x, float(placement.y) + 45), 11, Color("e1c68a") if placement.valid else Color("e39d79"), "center", 700)
 
 
 func _draw_flash() -> void:
@@ -555,11 +608,101 @@ func _update_shells(delta: float) -> void:
 		shell.angle += float(shell.spin) * delta
 
 
+func _sync_depth_visuals(active_ids: Dictionary) -> void:
+	if map_scene.art_profile != null:
+		for item: Dictionary in _model.interactives:
+			if item.type not in ["explosiveBarrel", "supplyCache"]:
+				continue
+			var visual: DepthActor = _interactive_visuals.get(item.id) as DepthActor
+			if visual == null:
+				visual = DepthActor.new()
+				visual.paint = _paint_depth_interactive
+				visual.material = map_scene.art_profile.prop_material
+				_depth_root.add_child(visual)
+				_interactive_visuals[item.id] = visual
+			visual.subject = item
+			visual.position = Vector2(item.x, float(item.y) + float(item.get("solidRadius", 12)))
+			visual.visible = bool(item.active) and _visible(item.x, item.y, 60)
+			visual.queue_redraw()
+	for id: Variant in _enemy_visuals.keys():
+		if not active_ids.has(id):
+			var old: DepthActor = _enemy_visuals[id]
+			old.visible = false
+			old.subject = {}
+			_enemy_visual_pool.append(old)
+			_enemy_visuals.erase(id)
+	for enemy: Dictionary in _model.enemies:
+		if not enemy.active:
+			continue
+		var actor: DepthActor = _enemy_visuals.get(enemy.id) as DepthActor
+		if actor == null:
+			actor = _enemy_visual_pool.pop_back() if not _enemy_visual_pool.is_empty() else DepthActor.new()
+			if not actor.is_inside_tree():
+				actor.paint = _paint_depth_enemy
+				_depth_root.add_child(actor)
+			_enemy_visuals[enemy.id] = actor
+			actor.revision = -1
+		actor.subject = enemy
+		actor.position = (Vector2(enemy.x, enemy.y) - camera_position).round() + camera_position
+		actor.visible = _visible(enemy.x, enemy.y, 120)
+		var state: Dictionary = _enemy_states[enemy.id]
+		var revision: int = int(state.frame) + (256 if float(state.facing) < 0 else 0) + (512 if float(enemy.hitFlash) > 0 else 0)
+		if actor.revision != revision:
+			actor.revision = revision
+			actor.queue_redraw()
+	var towers: Dictionary = {}
+	for tower: Dictionary in _model.run.structures:
+		towers[tower.id] = true
+		var actor: DepthActor = _structure_visuals.get(tower.id) as DepthActor
+		if actor == null:
+			actor = DepthActor.new()
+			actor.paint = _paint_depth_structure
+			_depth_root.add_child(actor)
+			_structure_visuals[tower.id] = actor
+		actor.subject = tower
+		actor.position = Vector2(tower.x, tower.y)
+		actor.queue_redraw()
+	for id: Variant in _structure_visuals.keys():
+		if not towers.has(id):
+			_structure_visuals[id].queue_free()
+			_structure_visuals.erase(id)
+
+
+func _paint_depth_enemy(canvas: CanvasItem, enemy: Dictionary) -> void:
+	_canvas = canvas
+	_draw_enemy(enemy, true)
+
+
+func _paint_depth_interactive(canvas: CanvasItem, item: Dictionary) -> void:
+	var style: MapArtProfile = map_scene.art_profile
+	var size: Vector2 = Vector2(28, 42) if item.type == "explosiveBarrel" else Vector2(44, 32)
+	canvas.draw_texture_rect_region(style.prop_texture, Rect2(Vector2(-size.x / 2, -size.y), size), style.prop_regions[item.type])
+
+
+func _paint_depth_structure(canvas: CanvasItem, tower: Dictionary) -> void:
+	RadioPaint.surface(canvas, Rect2(-19, -8, 38, 20), false, true)
+	canvas.draw_set_transform(Vector2(0, -20), tower.angle)
+	canvas.draw_rect(Rect2(-13, -7, 34, 14), Color("5b6651"))
+	canvas.draw_rect(Rect2(15, -3, 24, 6), Color("c5b78d"))
+	canvas.draw_set_transform(Vector2.ZERO)
+	canvas.draw_rect(Rect2(-18, 15, 36, 4), Color("292a21"))
+	canvas.draw_rect(Rect2(-18, 15, 36 * clampf(float(tower.hp) / float(tower.maxHp), 0, 1), 4), Color("9eb67e"))
+
+
 func _draw_interaction_labels() -> void:
 	var player: Dictionary = _model.run.player
 	for item: Dictionary in _model.interactives:
-		if not item.active or item.type == "tradePost" or GeometryRules.distance_squared(
+		if not item.active or GeometryRules.distance_squared(
 				player.x, player.y, item.x, item.y) > 300 * 300:
+			continue
+		if item.type == "tradePost":
+			if GeometryRules.distance_squared(player.x, player.y, item.x, item.y) < 200 * 200:
+				var near: bool = _model.field_market.nearest(_model).get("id") == item.id
+				var key: String = "A" if _using_gamepad else SettingsPage.key_label(str(_model.save.keyBindings.interact))
+				var caption: String = key + " · 进入交易站" if near else "靠近柜台 · 购买与改装"
+				_canvas.draw_rect(Rect2(float(item.x) - 91, float(item.y) + 17, 182, 23), Color(0.12, 0.14, 0.10, 0.88))
+				_fonts.fit(_canvas, caption, Vector2(item.x, float(item.y) + 29), 12, 174,
+					Color("f0d295") if near else Color("c6bc95"), "center", 800, 10)
 			continue
 		var label: String = "靠近拾取补给" if item.type == "supplyCache" else "爆桶 · 可射击引爆" if item.type == "explosiveBarrel" else "电磁区 · 减速感染者"
 		var width: float = label.length() * 9 + 14

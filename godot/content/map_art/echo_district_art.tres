@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="MapArtProfile" format=3]
+
+[ext_resource type="Material" path="res://content/map_art/pixel_floor_material.tres" id="1_pgccs"]
+[ext_resource type="TileSet" path="res://content/map_art/pixel_wasteland_tiles.tres" id="2_k2a88"]
+[ext_resource type="Material" path="res://content/map_art/pixel_prop_material.tres" id="3_qdx1v"]
+[ext_resource type="Texture2D" path="res://assets/world/pixel_map_v2/props_atlas.png" id="4_tqq1k"]
+[ext_resource type="Script" path="res://scripts/world/map_art_profile.gd" id="5_8m8j0"]
+
+[resource]
+script = ExtResource("5_8m8j0")
+floor_tiles = ExtResource("2_k2a88")
+floor_material = ExtResource("1_pgccs")
+prop_texture = ExtResource("4_tqq1k")
+prop_material = ExtResource("3_qdx1v")
+prop_regions = {
+"barricade": Rect2(963, 717, 265, 195),
+"bus": Rect2(23, 415, 319, 226),
+"clinic": Rect2(334, 70, 284, 273),
+"container": Rect2(982, 95, 245, 241),
+"crate": Rect2(41, 966, 256, 226),
+"explosiveBarrel": Rect2(90, 697, 136, 213),
+"generator": Rect2(650, 691, 252, 216),
+"lowWall": Rect2(366, 992, 249, 198),
+"railcar": Rect2(357, 425, 293, 206),
+"shop": Rect2(28, 78, 287, 252),
+"sign": Rect2(982, 963, 211, 240),
+"station": Rect2(987, 396, 243, 262),
+"streetlight": Rect2(707, 918, 146, 293),
+"supplyCache": Rect2(336, 725, 259, 179),
+"tradePost": Rect2(674, 356, 281, 310),
+"warehouse": Rect2(647, 78, 306, 259)
+}
+ground_tint = Color(0.9, 0.95, 0.84, 1)
+prop_tint = Color(1, 0.98, 0.91, 1)

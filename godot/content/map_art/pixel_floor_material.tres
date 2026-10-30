@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://shaders/pixel_terrain.gdshader" id="1_rifjw"]
+
+[resource]
+shader = ExtResource("1_rifjw")
+shader_parameter/atlas_stride = null
+shader_parameter/atlas_region = null
+shader_parameter/logical_pixels = null
+shader_parameter/detail_strength = null

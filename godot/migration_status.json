@@ -29,7 +29,11 @@
     "Official Windows template archive and extracted executables verified by SHA256",
     "Standalone Windows package loads 59 images, 21 audio assets, 12 weapons and runs all three maps",
     "Original npm run check passes; source runtime kept unchanged",
-    "Native active assets and import settings are tracked; reference exporter preserves native edits by default"
+    "Native active assets and import settings are tracked; reference exporter preserves native edits by default",
+    "2026-10-30 map iteration: editable TileMapLayer floors for three maps and two shared generated atlases",
+    "Map art regression: 45 checks preserve obstacle geometry, external shared resources, foot-depth sorting, occlusion and pooled visuals; turret barrel wall robustness covered",
+    "Map rendered review: four resolution captures and a short 104-enemy sample; median 16.666ms and p95 18.076ms on RTX4060 Laptop at a 60fps cap",
+    "Workspace and active asset inventory generated without deleting history or scanning actual user saves"
   ],
   "inProgress": [
     "Windows rendered long-session profiling, cold-load spikes and memory trends",

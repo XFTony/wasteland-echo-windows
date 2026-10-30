@@ -12,7 +12,8 @@ const suites = [
   ["combat", "tests/combat_parity_test.gd", "GODOT_COMBAT_PARITY"],
   ["runtime", "tests/runtime_smoke_test.gd", "GODOT_RUNTIME_SMOKE"],
   ["input-audio", "tests/input_audio_test.gd", "GODOT_INPUT_AUDIO"],
-  ["save-transfer", "scenes/tools/save_transfer.tscn", "GODOT_SAVE_TRANSFER", "--qa-save-transfer-test"]
+  ["save-transfer", "scenes/tools/save_transfer.tscn", "GODOT_SAVE_TRANSFER", "--qa-save-transfer-test"],
+  ["map-art", "tests/map_art_test.gd", "GODOT_MAP_ART"]
 ];
 const reports = {};
 for (const [name, script, marker, flag] of suites) {

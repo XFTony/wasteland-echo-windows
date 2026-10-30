@@ -5,6 +5,7 @@ extends Node2D
 
 @export var definition: MapDefinition
 @export var ground: Texture2D
+@export var art_profile: MapArtProfile
 var visible_world: Rect2 = Rect2(0, 0, 1280, 720)
 var animation_frame: int = 0
 var _visuals: Dictionary = {}
@@ -29,8 +30,10 @@ static func render_hash(x: int, y: int) -> int:
 
 static func _interval_before(a: Vector2, b: Vector2) -> bool:
 	return a.x < b.x
+
+
 func _ready() -> void:
-	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST if art_profile != null else CanvasItem.TEXTURE_FILTER_LINEAR
 	if ResourceLoader.exists("res://content/game_catalog.tres"):
 		var catalog: GameCatalog = load("res://content/game_catalog.tres") as GameCatalog
 		_visuals = catalog.metadata.get("worldVisuals", {})
@@ -40,6 +43,7 @@ func _ready() -> void:
 		for index: int in range(container.get_child_count()):
 			var obstacle: MapObstacle = container.get_child(index) as MapObstacle
 			if obstacle != null:
+				obstacle.apply_style(art_profile)
 				var source_index: int = definition.layout.obstacles.find(obstacle.source_data)
 				if source_index >= 0 and source_index < drawings.size():
 					obstacle.set_drawing(drawings[source_index], str(definition.content_id))
@@ -69,36 +73,39 @@ func _draw() -> void:
 		return
 	var layout: Dictionary = definition.layout
 	var theme: Dictionary = layout.theme
-	draw_rect(visible_world, Color(theme.ground))
-	_painted_ground(visible_world, 0.48)
-	_draw_grain()
-	_draw_districts(layout, theme)
+	if art_profile == null:
+		draw_rect(visible_world, Color(theme.ground))
+		_painted_ground(visible_world, 0.48)
+		_draw_grain()
+		_draw_districts(layout, theme)
 	for road: Dictionary in layout.roads:
 		var rect := Rect2(float(road.x), float(road.y), float(road.w), float(road.h))
 		if not visible_world.intersects(rect):
 			continue
-		draw_rect(rect, Color(theme.asphalt))
+		if art_profile == null:
+			draw_rect(rect, Color(theme.asphalt))
 		if road.orientation == "horizontal":
-			draw_rect(Rect2(rect.position.x, rect.position.y + 10, rect.size.x, 5), Color("777064"))
-			draw_rect(Rect2(rect.position.x, rect.end.y - 15, rect.size.x, 5), Color("777064"))
+			draw_rect(Rect2(rect.position.x, rect.position.y + 10, rect.size.x, 3), art_profile.road_edge if art_profile != null else Color("777064"))
+			draw_rect(Rect2(rect.position.x, rect.end.y - 15, rect.size.x, 3), art_profile.road_edge if art_profile != null else Color("777064"))
 			var start: int = floori((maxf(visible_world.position.x, rect.position.x) - rect.position.x) / 92)
 			for index: int in range(start, ceili(rect.size.x / 92)):
 				var x: float = rect.position.x + index * 92
 				if x > visible_world.end.x:
 					break
-				draw_rect(Rect2(x, rect.get_center().y - 2, minf(48, rect.end.x - x), 4), Color("c3a663"))
+				draw_rect(Rect2(x, rect.get_center().y - 2, minf(48, rect.end.x - x), 3), art_profile.road_line if art_profile != null else Color("c3a663"))
 		else:
-			draw_rect(Rect2(rect.position.x + 10, rect.position.y, 5, rect.size.y), Color("777064"))
-			draw_rect(Rect2(rect.end.x - 15, rect.position.y, 5, rect.size.y), Color("777064"))
+			draw_rect(Rect2(rect.position.x + 10, rect.position.y, 3, rect.size.y), art_profile.road_edge if art_profile != null else Color("777064"))
+			draw_rect(Rect2(rect.end.x - 15, rect.position.y, 3, rect.size.y), art_profile.road_edge if art_profile != null else Color("777064"))
 			var start: int = floori((maxf(visible_world.position.y, rect.position.y) - rect.position.y) / 92)
 			for index: int in range(start, ceili(rect.size.y / 92)):
 				var y: float = rect.position.y + index * 92
 				if y > visible_world.end.y:
 					break
-				draw_rect(Rect2(rect.get_center().x - 2, y, 4, minf(48, rect.end.y - y)), Color("c3a663"))
-	for region: Rect2 in _patina_regions:
-		if region.intersects(visible_world):
-			_painted_ground(region.intersection(visible_world), 0.38)
+				draw_rect(Rect2(rect.get_center().x - 2, y, 3, minf(48, rect.end.y - y)), art_profile.road_line if art_profile != null else Color("c3a663"))
+	if art_profile == null:
+		for region: Rect2 in _patina_regions:
+			if region.intersects(visible_world):
+				_painted_ground(region.intersection(visible_world), 0.38)
 	_draw_road_details(layout)
 	_draw_tracks(layout)
 	for zone: Dictionary in layout.zones:

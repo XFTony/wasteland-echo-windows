@@ -29,7 +29,7 @@ foreach ($filename in $templateHashes.Keys) {
 & $GodotPath --headless --path (Join-Path $workspaceDirectory 'godot') --log-file (Join-Path $workspaceDirectory 'output/godot-migration/version-engine.log') --script scripts/tools/check_version.gd -- $version
 if ($LASTEXITCODE -ne 0) { throw 'Native catalog version does not match package.json.' }
 $logPath = Join-Path $workspaceDirectory 'output/godot-migration/export.log'
-& $GodotPath --headless --path (Join-Path $workspaceDirectory 'godot') --export-release 'Windows Desktop' *> $logPath
+& $GodotPath --headless --path (Join-Path $workspaceDirectory 'godot') --log-file (Join-Path $workspaceDirectory 'output/godot-migration/export-engine.log') --export-release 'Windows Desktop' *> $logPath
 $exportExit = $LASTEXITCODE
 $log = [IO.File]::ReadAllText($logPath)
 if ($exportExit -ne 0 -or $log -match '(SCRIPT ERROR|ERROR):') { throw "Godot export failed; inspect $logPath" }

@@ -221,6 +221,16 @@ func update(model: RunSimulation, delta: float) -> void:
 		var dy: float = sin(float(tower.angle))
 		var x: float = float(tower.x) + dx * 38
 		var y: float = float(tower.y) - 20 + dy * 38
+		var blocked_barrel: bool = false
+		for obstacle: Dictionary in model.obstacles:
+			if obstacle.get("structureId") == tower.id or obstacle.get("interactiveId") != null:
+				continue
+			if is_finite(GeometryRules.segment_rect_time(tower.x, float(tower.y) - 20,
+					x - float(tower.x), y - float(tower.y) + 20, obstacle, 2.4)):
+				blocked_barrel = true
+				break
+		if blocked_barrel:
+			continue
 		model.projectiles.append(model.projectile_pool.acquire({"id": model.entity_id,
 			"x": x, "y": y, "vx": dx * float(turret.projectileSpeed), "vy": dy * float(turret.projectileSpeed), "radius": 2.4, "ttl": 0.8,
 			"damage": float(turret.damage) * (1 + int(model.run.engineering) * 0.25), "pierce": 0, "knockback": 8,

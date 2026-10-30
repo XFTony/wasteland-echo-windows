@@ -26,6 +26,7 @@ const DrawLayer = preload("res://scripts/presentation/world_draw_layer.gd")
 var _drawing: Array = []
 var _map_id: String = ""
 var _fonts := UiFonts.new()
+var _style: MapArtProfile
 
 
 func _ready() -> void:
@@ -50,6 +51,21 @@ func set_drawing(commands: Array, map_id: String) -> void:
 		labels.queue_redraw()
 
 
+func drawing_commands() -> Array:
+	return _drawing
+
+
+func apply_style(style: MapArtProfile) -> void:
+	_style = style
+	if style != null:
+		var key: String = style.prop_key(source_data)
+		if style.prop_regions.has(key):
+			image = style.prop_texture
+			image_region = style.prop_regions[key]
+			pixelated = true
+	_refresh_visual()
+
+
 func _refresh_visual() -> void:
 	if not is_inside_tree():
 		return
@@ -69,15 +85,17 @@ func _refresh_visual() -> void:
 			sprite.region_rect = image_region
 			dimensions = image_region.size
 		sprite.rotation = 0
-		sprite.position = Vector2.ZERO
+		var lift: float = _style.height_for(source_data) if _style != null else 0.0
+		sprite.position = Vector2(0, -lift)
 		sprite.flip_h = false
-		if source_data.get("kind") == "railcar" and footprint.y > footprint.x:
+		sprite.material = _style.prop_material if _style != null else null
+		if (source_data.get("kind") == "railcar" or _style != null and source_data.get("kind") == "container") and footprint.y > footprint.x * 1.3:
 			sprite.position.x = footprint.x
 			sprite.rotation = PI / 2
-			sprite.scale = Vector2(footprint.y, footprint.x) / dimensions
+			sprite.scale = Vector2(footprint.y + lift, footprint.x) / dimensions
 		else:
-			sprite.scale = footprint / dimensions
-			if _map_id == "echo_district" and source_data.get("kind") == "shop" and "药房" not in str(source_data.get("sign", "")):
+			sprite.scale = Vector2(footprint.x, footprint.y + lift) / dimensions
+			if _style == null and _map_id == "echo_district" and source_data.get("kind") == "shop" and "药房" not in str(source_data.get("sign", "")):
 				sprite.flip_h = MapScene.render_hash(int(source_data.x), int(source_data.y)) % 3 == 1
 	queue_redraw()
 

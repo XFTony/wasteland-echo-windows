@@ -26,7 +26,7 @@ func _ready() -> void:
 		push_error("Run the explicit content importer before starting the native game.")
 		return
 	var arguments: PackedStringArray = OS.get_cmdline_user_args()
-	var test_mode: bool = "--qa-ui" in arguments or "--qa-play" in arguments or "--qa-smoke" in arguments or "--qa-package" in arguments
+	var test_mode: bool = "--qa-ui" in arguments or "--qa-play" in arguments or "--qa-smoke" in arguments or "--qa-package" in arguments or "--qa-map-review" in arguments
 	session = GameSession.new(catalog, QaStorage.new() if test_mode else null)
 	assets = AssetStore.new(catalog)
 	menu = MenuView.new()
@@ -50,6 +50,9 @@ func _ready() -> void:
 	elif "--qa-package" in arguments:
 		_qa_capture = true
 		_package_probe.call_deferred()
+	elif "--qa-map-review" in arguments:
+		_qa_capture = true
+		_capture_map_review.call_deferred()
 	elif not test_mode and bool(session.save_data.settings.introAnimation):
 		_play_startup.call_deferred()
 
@@ -406,6 +409,64 @@ func _capture_play() -> void:
 	var file: FileAccess = FileAccess.open(directory.path_join("regions.json"), FileAccess.WRITE)
 	file.store_string(JSON.stringify({"records": records}, "  "))
 	file.close()
+	_quit_cleanly()
+
+
+func _capture_map_review() -> void:
+	var directory: String = ProjectSettings.globalize_path("res://../output/map-art/review")
+	DirAccess.make_dir_recursive_absolute(directory)
+	DisplayServer.window_set_size(Vector2i(1280, 720))
+	var original: Dictionary = catalog.default_save.duplicate(true)
+	var cases: Array[Dictionary] = [
+		{"name": "echo-spawn", "map": "echo_district"},
+		{"name": "echo-shop-behind", "map": "echo_district", "x": 465, "y": 375},
+		{"name": "echo-shop-front", "map": "echo_district", "x": 465, "y": 550},
+		{"name": "echo-trade-active", "map": "echo_district", "x": 1570, "y": 1422},
+		{"name": "echo-supply", "map": "echo_district", "x": 1810, "y": 860},
+		{"name": "echo-barrel", "map": "echo_district", "x": 970, "y": 1330},
+		{"name": "echo-dense", "map": "echo_district", "x": 1536, "y": 1536, "dense": true},
+		{"name": "freight-spawn", "map": "freight_nexus"},
+		{"name": "red-spawn", "map": "red_basin"}]
+	for sample: Dictionary in cases:
+		_qa_fresh_run(original, sample.map)
+		simulation.release_entities()
+		var x: float = float(sample.get("x", simulation.run.player.x))
+		var y: float = float(sample.get("y", simulation.run.player.y))
+		simulation.run.player.x = x
+		simulation.run.player.y = y
+		simulation.spawn_enemy("drifter", x + 90, y - 12)
+		world.synchronize()
+		if bool(sample.get("dense", false)):
+			simulation.release_entities()
+			simulation.run.player.hp = 1000000.0
+			simulation.run.player.maxHp = 1000000.0
+			for index: int in range(104):
+				var angle: float = float(index) / 104 * TAU
+				var enemy: Dictionary = simulation.spawn_enemy("drifter" if index % 3 != 0 else "runner", x + cos(angle) * 240, y + sin(angle) * 180)
+				enemy.hp = 100000.0
+				enemy.maxHp = 100000.0
+			var frame_times: Array[int] = []
+			var previous: int = Time.get_ticks_usec()
+			for frame: int in range(180):
+				if simulation.screen == GameSession.Screen.PAUSED:
+					simulation.set_screen(GameSession.Screen.RUNNING)
+				simulation.tick(1.0 / 60)
+				world.consume(simulation.drain_events())
+				world.synchronize()
+				await RenderingServer.frame_post_draw
+				var now: int = Time.get_ticks_usec()
+				if frame >= 60:
+					frame_times.append(now - previous)
+				previous = now
+			frame_times.sort()
+			var report: Dictionary = {"scope": "Short rendered 104-enemy sample on this host; capped at 60fps; not low-end or long-session certification",
+				"frames": frame_times.size(), "medianFrameMs": float(frame_times[frame_times.size() / 2]) / 1000,
+				"p95FrameMs": float(frame_times[floori(frame_times.size() * 0.95)]) / 1000,
+				"enemyVisuals": world._enemy_visuals.size(), "props": world._prop_visuals.size()}
+			var file: FileAccess = FileAccess.open(directory.path_join("rendered-sample.json"), FileAccess.WRITE)
+			file.store_string(JSON.stringify(report, "  "))
+			file.close()
+		await _save_play_frame(directory.path_join(str(sample.name) + ".png"))
 	_quit_cleanly()
 
 

@@ -15,8 +15,9 @@ WASD 或方向键移动，默认自动瞄准/射击；E 与交易站交互或回
 ## 资源与开发规则
 
 - `content/`：137 个原生 Resource 及 GameCatalog，原内容 ID 保留。
-- `assets/`：活动素材及 `.import` 设置；59 图片、21 音频、字体/许可共 82 文件，6,875,400 字节。同内容由 Git 去重；后续原生美术改动在此提交。
-- `scenes/maps/`：三张可编辑地图。障碍位置与 footprint 同时提供绘制和碰撞，保持轴对齐。
+- `assets/`：活动素材及 `.import` 设置；原Catalog保留59张登记图片、21音频，本轮另有两张原生直接引用的共享地图图集。完整文件数、体积、来源与SHA见 `../docs/assets/asset-catalog.md`。同内容由Git去重；后续原生美术改动在此提交。
+- `scenes/maps/`：三张可编辑地图。`GroundTiles`可直接绘制；障碍位置与footprint同时提供真实碰撞，保持轴对齐。表现节点另按脚底排序，高物上部淡化；图块自身物理/导航关闭。
+- `content/map_art/`：共享TileSet、ShaderMaterial和三图视觉Profile；图集源图/提示词在 `../art/world/pixel-map-v2/`。编辑操作与边界见 `../docs/design/map-editor-workflow.md`。
 - `scripts/`：GDScript 规则、原生 Control/Node2D 表现、AudioStream 音频及输入，没有嵌入旧网页。
 - `data/`：可再生参考夹具，不进入发行包。JavaScript 仅在开发阶段导出旧版数据与预期结果。
 
@@ -32,7 +33,7 @@ node scripts/godot/export-combat-cases.mjs
 node scripts/godot/verify-native.mjs
 ```
 
-检查器同时核对退出码、日志错误和报告标记，覆盖基础/存档、战斗、实际组合根、原生输入/音频及存档工具。区域比较脚本为 `verify-ui-regions.mjs` 和 `verify-battle-regions.mjs`；截图和完整日志位于根目录 `output/godot-migration/`。
+检查器同时核对退出码、日志错误和报告标记，覆盖基础/存档、战斗、实际组合根、原生输入/音频、存档工具及地图美术交互。区域比较脚本为 `verify-ui-regions.mjs` 和 `verify-battle-regions.mjs`；截图和完整日志位于根目录 `output/godot-migration/`，本轮地图局部验收在 `output/map-art/`。
 
 Windows 模板固定为官方 4.7.2，下载归档及提取文件均核对 SHA256。首次准备使用 `scripts/godot/prepare-windows-templates.ps1 -ResumeDownload`；构建运行 `scripts/godot/build-windows.ps1`。模板、导入缓存、大包和完整截图不进 Git；构建记录来源提交、脏工作区、SHA256及许可文件，并核对版本一致性。
 

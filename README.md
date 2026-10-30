@@ -1,5 +1,7 @@
 # 荒原回响 · Wasteland Echo
 
+2026-10-30 当前开发入口为 **Godot 原生内部测试版**。双击 `output/godot-migration/windows/WastelandEcho.exe` 体验；源码使用根目录 `启动Godot开发版.cmd` 或在 Godot 4.7.2 中打开 `godot/project.godot`。本轮更新三图像素地表、环境物件、脚底深度排序、遮挡淡化、交易/爆桶/补给提示及塔台预览。[运行与开发说明](./godot/README.md)、[地图设计与后续计划](./docs/design/map-art-and-interactions-plan.md)、[文件夹导航](./docs/project-file-guide.md)、[活动素材索引](./docs/assets/asset-catalog.md)。实体手柄、DPI、低配和长局仍待验收；当前不是正式新Release。下列按日期保留历史阶段记录，旧版包不是当前体验入口。
+
 2026-10-29 武器扩展：加入折光脉冲枪、熔渣榴弹器、锯盘弹射器、回响军刀、铁砧震荡锤，现有10把远程武器＋2把近战；五类抛壳、射线、爆炸、弹射、剑气与砸地使用各自的动作、范围与声音。五件新武器均可在地图交易站购买，局外购入后可选作起始武器。独立内部Windows包位于`output/weapon-expansion-2026-10-29/windows/`；[可操作试射台与带声音演示](./output/weapon-expansion-2026-10-29/review.html)、[设计与验收](./docs/weapon-expansion-design-2026-10-29.md)、[声音来源](./art/audio/arsenal-v2/README.md)。内部构建继续沿用开发版本号，不代表新的公开Release。
 
 2026-10-29 连续生存阶段记录：正常入口直接选择三张地图，持续计时，随时返回余火交易站购买七把枪、按枪升阶与校准、补给和塔台套件。T／手柄Y进入部署，左键／T／A确认，Esc／B／右键取消；靠近按E／A回收，暂停可“结算本局”。加入《余火信号》三段主题与实录枪声，旧存档资产保留并迁移至schema10。[详细设计与验收](./docs/continuous-survival-audio-plan-2026-10-28.md)、[音频来源](./art/audio/survival-v1/README.md)。连续生存阶段内部包：`output/continuous-survival-2026-10-28/windows/`；[截图、带声音演示与逐枪试听](./output/continuous-survival-2026-10-28/review.html)。仍是内部开发构建，版本号不代表新的公开Release。
@@ -20,11 +22,11 @@
 
 材料兼容性沿用[可替换手型与袖口的分层样板v3](./art/characters/ranger/modular-grips-v3/review.html)：七枪完整枪体、人物手图、服饰袖口独立，选择时合成缓存；主游戏与预览共用运动和合成模块，原默认像素保留。[制作与编辑流程](./art/characters/ranger/modular-grips-v3/README.md)、[新敌人素材与提示词](./art/enemies/compact-v1/README.md)。
 
-Windows 桌面优先的俯视角废土生存射击 Roguelite。当前开发线为 v1.5.0-alpha.1，稳定发布基线为 v1.4.0。游戏运行时仍是零 JavaScript 依赖的 Canvas 2D + CommonJS；既可在 Edge、Chrome 中运行，也可构建 Tauri 2 + WebView2 便携版和 NSIS 安装版。
+Windows 桌面优先的俯视角废土生存射击 Roguelite。当前开发版本号为 v1.5.0-alpha.1，稳定发布基线为 v1.4.0。后续原生开发在 `godot/`；原 Canvas 2D + CommonJS、浏览器入口与 Tauri 2 + WebView2 构建链保留作迁移对照和回退，原生运行包不执行 JavaScript。
 
 现行规格：[wasteland-survivor-windows-game-spec.md](./wasteland-survivor-windows-game-spec.md)  
 架构说明：[docs/architecture.md](./docs/architecture.md)
-Godot本机工具与迁移评估：[详细报告](./docs/godot-local-feasibility-2026-10-29.md)、[隔离技术样板](./experiments/godot-pilot/README.md)；原游戏仍使用当前Canvas/Tauri运行线。
+Godot迁移：[当前原生项目](./godot/README.md)、[迁移计划](./docs/godot-migration-plan.md)、[历史可行性评估](./docs/godot-local-feasibility-2026-10-29.md)；`experiments/godot-pilot`保留历史样板。
 组件目录与安全修改指南：[docs/component-catalog.md](./docs/component-catalog.md)
 v1.5 路线图：[docs/optimization-roadmap-v1.5.md](./docs/optimization-roadmap-v1.5.md)
 2026-09-23 全面复审与优先级计划：[docs/optimization-plan-2026-09-23.md](./docs/optimization-plan-2026-09-23.md)
