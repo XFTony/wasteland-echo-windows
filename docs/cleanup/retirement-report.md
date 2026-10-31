@@ -48,6 +48,8 @@
 
 ## 语言与后续维护
 
+> 下段默认main仍为旧JS是清理时的历史核验；后续授权的Godot主线整合见[GitHub整理记录](../maintenance/github-integration-2026-10-31.md)。此报告保留原清理证据，不据此改动冻结清单或备份。
+
 现行原生游戏逻辑统一使用带静态类型的GDScript。GitHub首页统计默认main，官方接口确认该分支尚无Godot项目；因此JavaScript约97.08%反映旧主线，不能据此判断新包。C#是官方完整支持的选择，但目前整体重写会引入.NET编辑器/程序集构建与迁移成本；没有性能证据支持此次换语言。保留JS/Python/PowerShell作为工具和参考，主线GDScript继续开发。详细依据和分支说明见[语言选择与清理设计](../design/card-layout-and-safe-cleanup.md)。
 
 后续改玩法首选godot/scripts/core和原生Resource；改美术先更新godot/assets并保留art源与来源；改卡面窗口编辑content/ui/card_layouts。新一轮删除必须建立新的短期清单/备份，不能覆盖本次证据。默认main整合单独走PR与检查，不因语言条而自动切分支或改写现有源码。

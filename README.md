@@ -1,211 +1,127 @@
-# 荒原回响 · Wasteland Echo
+<div align="center">
 
-2026-10-31 **卡牌布局修正与安全清理**：六种卡面使用独立插画窗口，42图按可见内容居中；移除悬停底线/侧箭头，选择反馈留在卡内。经过引用筛查、隔离删除演练、完整ZIP校验和清理后回归，移出1056项旧路线/预览/缓存文件，保留现行美术、制作工具、旧版参考与有效测试。[清理与恢复报告](./docs/cleanup/retirement-report.md)、[语言选择依据](./docs/design/card-layout-and-safe-cleanup.md)、[文件导航](./docs/project-file-guide.md)、[修正前后与逐卡焦点](./output/card-layout-cleanup/review.html)。**最新入口：`output/card-layout-cleanup/windows/WastelandEcho.exe`**。游戏逻辑继续使用GDScript；GitHub默认main尚无Godot项目，语言条主要反映旧JS主线。
+# 荒原回响
 
-2026-10-31 **战地工坊美术与受击反馈**：升级卡使用6种实体底板与42种独立插图；细化9件简化武器，新增焚尘喷火器、雷索发射器、裂响拳刃、拾荒战镰，共14件远程＋6件近战。八类敌人新增方向性受击、四帧倒地与短暂残留，尸体不再参与攻击/碰撞，低画质减半表现数量。保留已认可地图与七枪美术，手和袖口仍独立。[本轮设计](./docs/design/fieldcraft-combat-art-plan.md)、[验收与成本](./docs/qa/fieldcraft-validation.md)、[原稿/提示词/来源](./art/combat/fieldcraft-v2/README.md)、[实窗对照与倒地视频](./output/fieldcraft-v2/review.html)。**本轮体验入口为 `output/fieldcraft-v2/windows/WastelandEcho.exe`**；使用独立目录避免覆盖运行中的旧版。这是内部样板，审美与新武器平衡待本人确认。
+**W A S T E L A N D · E C H O**
 
-2026-10-31 **生存压力与战地改件内部样板**：前期敌人进入频率与数量上调，每45秒记一轮连续尸潮；修复零散布武器的多弹重叠、特殊武器改件参数遗漏与拾荒收益舍入问题。新增8项改件、棘轮连弩／霜凝喷射器／破阵长矛／锈刃战斧，目前共16件武器、42项改件。行装页可打开“战地改件”档案，暂停可查看本局真实属性与已装配改件。[设计与研究](./docs/design/survival-builds-arsenal-plan.md)、[验证与42项改件审计](./docs/qa/survival-builds-validation.md)、[实际截图与声音预览](./output/survival-builds/review.html)。当前体验入口仍是 `output/godot-migration/windows/WastelandEcho.exe`；本轮为内部调参，难度须本人试玩确认，不代表正式新Release。
+余火未熄，广播仍在。
 
-2026-10-30 **回声旧城地面样板v3**：仅重做这一张地图的连续沥青/混凝土/土面、绘制路缘/道路标记和建筑接地细节；另外两图保留上一轮效果。升级四卡的鼠标悬停、固定点击区域、键盘/手柄焦点与缩放保留选择已修复。[本轮计划](./docs/design/echo-ground-ui-polish-plan.md)、[研究与UI审查](./docs/research/echo-ground-style-and-ui-2026-10-30.md)、[验证记录](./docs/qa/echo-ground-ui-validation.md)、[新素材与提示词](./art/world/echo-ground-v3/README.md)。体验仍使用 `output/godot-migration/windows/WastelandEcho.exe`，选择“回声旧城”；[同位置前后对照与四卡截图](./output/echo-ground-ui/review.html)。本轮属于待本人审美确认的内部样板。
+Windows · 精细像素 · 俯视角生存射击
 
-2026-10-30 当前开发入口为 **Godot 原生内部测试版**。双击 `output/godot-migration/windows/WastelandEcho.exe` 体验；源码使用根目录 `启动Godot开发版.cmd` 或在 Godot 4.7.2 中打开 `godot/project.godot`。本轮更新三图像素地表、环境物件、脚底深度排序、遮挡淡化、交易/爆桶/补给提示及塔台预览。[运行与开发说明](./godot/README.md)、[地图设计与后续计划](./docs/design/map-art-and-interactions-plan.md)、[本轮验证](./docs/qa/map-art-validation.md)、[文件夹导航](./docs/project-file-guide.md)、[活动素材索引](./docs/assets/asset-catalog.md)。实体手柄、DPI、低配和长局仍待验收；当前不是正式新Release。下列按日期保留历史阶段记录，旧版包不是当前体验入口。
+[![Quality](https://github.com/XFTony/wasteland-echo-windows/actions/workflows/quality.yml/badge.svg?branch=main)](https://github.com/XFTony/wasteland-echo-windows/actions/workflows/quality.yml)
+![Godot 4.7.2](https://img.shields.io/badge/Godot-4.7.2-478cbf?logo=godotengine&logoColor=white)
+![GDScript](https://img.shields.io/badge/Gameplay-GDScript-b59a63)
+![Development preview](https://img.shields.io/badge/状态-开发预览-8e633b)
 
-2026-10-29 武器扩展：加入折光脉冲枪、熔渣榴弹器、锯盘弹射器、回响军刀、铁砧震荡锤，现有10把远程武器＋2把近战；五类抛壳、射线、爆炸、弹射、剑气与砸地使用各自的动作、范围与声音。五件新武器均可在地图交易站购买，局外购入后可选作起始武器。独立内部Windows包位于`output/weapon-expansion-2026-10-29/windows/`；[可操作试射台与带声音演示](./output/weapon-expansion-2026-10-29/review.html)、[设计与验收](./docs/weapon-expansion-design-2026-10-29.md)、[声音来源](./art/audio/arsenal-v2/README.md)。内部构建继续沿用开发版本号，不代表新的公开Release。
+[开始体验](#开始体验) · [实机画面](#实机画面) · [开发指南](CONTRIBUTING.md) · [文档导航](docs/README.md) · [更新记录](CHANGELOG.md)
 
-2026-10-29 连续生存阶段记录：正常入口直接选择三张地图，持续计时，随时返回余火交易站购买七把枪、按枪升阶与校准、补给和塔台套件。T／手柄Y进入部署，左键／T／A确认，Esc／B／右键取消；靠近按E／A回收，暂停可“结算本局”。加入《余火信号》三段主题与实录枪声，旧存档资产保留并迁移至schema10。[详细设计与验收](./docs/continuous-survival-audio-plan-2026-10-28.md)、[音频来源](./art/audio/survival-v1/README.md)。连续生存阶段内部包：`output/continuous-survival-2026-10-28/windows/`；[截图、带声音演示与逐枪试听](./output/continuous-survival-2026-10-28/review.html)。仍是内部开发构建，版本号不代表新的公开Release。
+![荒原回响：废土广播营地与巡线者主角，Godot原生界面截图](docs/screenshots/current/radio-camp.png)
 
-2026-10-28 历史地图与交易更新：作战部署选择**回声旧城**，体验新的广播广场、环路、货场与“余火交易站”。本局捡拾荒币后，靠近柜台按E／Enter或手柄A购买补给、改件和枪械校准，Esc／B返回；交易期间战斗和计时暂停，营地永久钱包不参与扣款。升级卡改为实体改装图纸，加入依次入场、悬停抬起和装配印记。[本轮设计、研究与验收](./docs/echo-map-market-cards-plan-2026-10-28.md)、[素材包与提示词说明](./art/world/echo-market-v1/README.md)。最新本地内部包位于`output/echo-market-2026-10-28/windows/`；[画面与流程演示](./output/echo-market-2026-10-28/review.html)。当前仍沿用开发版本号，属于第一张地图的内部样板。
+</div>
 
-2026-10-28 七枪手感更新：加入各枪独立的小幅后坐、弹道与命中形态、合理抛壳和分层枪声；高速弹连续命中、平滑击退和相近目标稳定锁定已接入。七枪阶段内部包保留在 `output/weapon-feel-2026-10-28/windows/`；双击其中 exe 体验完整游戏。想直接比较全部七枪，可打开[独立试射页](./output/weapon-feel-2026-10-28/review/index.html)和[枪声试听](./output/weapon-feel-2026-10-28/audio/index.html)，不会写入正式存档。[本轮设计与验证](./docs/weapon-design-research-and-plan-2026-10-28.md)。这是内部验证构建，版本号仍为 `1.5.0-alpha.1`。
+在荒废街区里走位、拾荒、改装武器，返回余火交易站补给，并用塔台守住退路。默认自动瞄准与射击，让注意力留在敌潮、地形和生存选择上。
 
-2026-10-28 界面更新：加入“废土电台与行动手册”视觉，主菜单采用像素广播营地和底部导航；部署、行装、商店、设置及战斗弹窗共用纸签、布面、旧铜旋钮和墨印焦点。启动动画可跳过、关闭和重播，并遵循系统减少动态效果设置。[设计与验收](./docs/radio-ui-design-2026-10-28.md)、[素材与提示词](./art/ui/radio-v1/README.md)。
+> **当前为 Godot 原生开发预览，内部版本 `1.5.0-alpha.1`。** `main` 是当前源码入口；还没有公开的 Windows Release。实体手柄、低配电脑、系统显示缩放与长局性能仍待实机验收。[已验证范围与待办](godot/migration_status.json)
 
-界面阶段旧内部包保留在`output/radio-ui-2026-10-28/windows/`；页首七枪包已包含这些界面改动。设置中的“启动动画”控制下次启动，“启动画面／重播”可即时查看片头。
+## 一局里会发生什么
 
-![像素广播营地主菜单](./docs/screenshots/radio-ui-main-2026-10-28.webp)
+**进入地图 → 走位生存 → 拾取经验与金币 → 装配改件 → 返回交易站 → 强化武器／部署塔台 → 迎接更强的敌潮**
 
-2026-10-28 进展：已将**巡线者默认服饰、七枪分层持握和八类新像素敌人接入主游戏**。视觉沿用已认可的紧凑像素主角，默认自动瞄准／射击，玩家主要负责走位；旧档已有控制偏好保留。[敌人与主角动态对照](./art/enemies/compact-v1/review.html)、[本轮范围与验收](./docs/compact-enemies-live-plan-2026-10-28.md)。其他英雄与其他服饰的独立像素身体尚未制作。
+| 玩法 | 当前内容 |
+|---|---|
+| 连续生存 | 三张独立地图，敌潮随时间增强；升级与交易时暂停战斗 |
+| 武器选择 | 20件武器：14件远程、6件近战，包含弹丸、电链、火焰、剑气与范围重击 |
+| 战地改造 | 42项升级，按武器与解锁条件提供候选；卡面显示实际属性变化 |
+| 地图交互 | 交易站、补给箱、爆炸桶、掩体与可部署塔台 |
+| 视听表现 | 分层人物持握、独立武器反馈、敌人受击倒地、主题音乐与分类音效 |
 
-人物与敌人接入阶段的旧内部包仍保留在`output/compact-enemies-2026-10-28/windows/`；最新游戏请使用页首weapon-expansion目录中的包。进入行装选择“巡线者·黎响／荒原旅人”体验新主角。内部文件不代表新的公开版本或标签。
+## 实机画面
 
-材料兼容性沿用[可替换手型与袖口的分层样板v3](./art/characters/ranger/modular-grips-v3/review.html)：七枪完整枪体、人物手图、服饰袖口独立，选择时合成缓存；主游戏与预览共用运动和合成模块，原默认像素保留。[制作与编辑流程](./art/characters/ranger/modular-grips-v3/README.md)、[新敌人素材与提示词](./art/enemies/compact-v1/README.md)。
+以下均来自原生 Godot 测试窗口；战斗与卡面使用隔离验收场景，便于检查表现，不代表真人游玩成绩。截图来源见[展示素材记录](docs/screenshots/current/README.md)。
 
-Windows 桌面优先的俯视角废土生存射击 Roguelite。当前开发版本号为 v1.5.0-alpha.1，稳定发布基线为 v1.4.0。后续原生开发在 `godot/`；原 Canvas 2D + CommonJS、浏览器入口与 Tauri 2 + WebView2 构建链保留作迁移对照和回退，原生运行包不执行 JavaScript。
+| 回声旧城 · 交易站与街区 | 武器反馈 · 电链攻击 |
+|---|---|
+| ![回声旧城的绘画地面、建筑接地与交易站](docs/screenshots/current/echo-district.png) | ![雷索发射器的实际攻击与命中特效](docs/screenshots/current/combat.png) |
 
-现行规格：[wasteland-survivor-windows-game-spec.md](./wasteland-survivor-windows-game-spec.md)  
-架构说明：[docs/architecture.md](./docs/architecture.md)
-Godot迁移：[当前原生项目](./godot/README.md)、[迁移计划](./docs/godot-migration-plan.md)、[历史可行性评估](./docs/godot-local-feasibility-2026-10-29.md)；`experiments/godot-pilot`保留历史样板。
-组件目录与安全修改指南：[docs/component-catalog.md](./docs/component-catalog.md)
-v1.5 路线图：[docs/optimization-roadmap-v1.5.md](./docs/optimization-roadmap-v1.5.md)
-2026-09-23 全面复审与优先级计划：[docs/optimization-plan-2026-09-23.md](./docs/optimization-plan-2026-09-23.md)
-2026-09-30 当前完成情况、发布问题与执行顺序：[docs/project-completion-audit-and-execution-plan-2026-09-30.md](./docs/project-completion-audit-and-execution-plan-2026-09-30.md)
-v1.5 真人试玩记录表：[docs/playtest-v1.5-field-sheet.md](./docs/playtest-v1.5-field-sheet.md)
-外部审查逐项复核：[docs/external-review-validation-2026-09-23.md](./docs/external-review-validation-2026-09-23.md)
-Git 与版本发布规则：[docs/versioning-and-release.md](./docs/versioning-and-release.md)
-Git 传输配置、实测与故障处理：[docs/git-transport-reliability.md](./docs/git-transport-reliability.md)
-玩家可见更新：[CHANGELOG.md](./CHANGELOG.md)
-材料与冗余审计：[docs/project-material-audit-v1.5-alpha.md](./docs/project-material-audit-v1.5-alpha.md)
-美术方向与界面规范：[docs/art-direction-v1.2-full-page-scenes.md](./docs/art-direction-v1.2-full-page-scenes.md)
-美术材料库与版本清单：[art/README.md](./art/README.md)、[art/manifest.json](./art/manifest.json)
+**战地改造 · 实体卡面与独立改件插图**
 
-## 当前能力
+![升级四选一界面，展示不同材质卡框、居中插图与卡内悬停标记](docs/screenshots/current/upgrade-cards.png)
 
-- 键盘鼠标与标准 Gamepad API 手柄可随时热切换；移动、射击、暂停、全屏、重开、退出和升级直选支持持久化重绑定，冲突按键自动交换；
-- 手柄支持双摇杆、RT/RB/X 射击、A 确认、B 返回、Menu 暂停、菜单导航和可选震动；
-- 径向摇杆死区、断线清零和按钮边沿触发，避免漂移、卡键与菜单连跳；
-- 所有菜单、升级卡、暂停和结算页面支持无鼠标操作与焦点高亮；
-- 主菜单以原创主题图为整页背景，菜单叠加在渐变阅读区上；作战部署只负责地图与连续生存说明，人物、枪械、服饰与头盔/身甲/腿甲/靴子集中在独立“行装与背包”页；
-- v1.0 的统一切角厚框与两张破框感染者已保留归档，v1.2 常驻菜单不再加载这些边缘装饰；
-- v1.1 将作战部署改为图片化的末日行动日志：日志底板、车组、通用便签、返回页签、行动皮带与连续怪物分别加载和组合；旧部署实现与旧怪物素材保留归档；
-- v1.2 为主菜单、部署、行装、商店、设置和档案分别生成 16:9 全出血环境底板；部署页不再显示旧书本或边缘怪物，所有页面共享真实 Alpha 实体铭牌，旧素材只停用不删除；
-- 全屏底板按页面懒加载，切换页面时释放上一张底板的解码缓存；九宫格四角强制等比缩放，只允许中心纹理伸展；
-- 封面主视觉改用完整主体优先的 contain 构图，16:9 与 1080p 不再裁掉最大变异体头部；
-- 正文改用 Windows 系统易读字体，Fusion Pixel Font 仅负责标题和短标签；关键文字组合由自动测试校验至少 4.5:1 对比度；
-- 默认锁定进入当前枪械有效范围的近处存活敌人，距离相近时保留当前目标，减少反复转枪；范围外不自动开火，关闭辅助后可手动瞄准；
-- 14 把远程武器与 6 把近战，拥有独立轮廓、攻击结构和声音，覆盖射线、爆破、弹射、寒霜、灼烧、电链、刺击、挥扫剑气与范围砸地；另有 8 类敌人、42 项注册升级（含机制与进化）、3 名主角、3 套皮肤；升级时可选四张卡，也可拆解本轮换取废料；
-- 3 张 3072～4096 单位独立地图，正常入口使用持续计时的无限生存；旧有限模式保留作内部兼容路径；
-- 四部位护甲每槽至少两件选择，并同步改变生命、护甲、移动、增伤等实战参数；背包预览和开局战斗复用同一属性合成函数；插画人物的独立护具穿戴层尚未完成；
-- 巡线者默认服饰使用紧凑像素待机与八帧步态，手、袖口与十二件武器独立；远程连续转向和后坐，近战驱动持物层动作而不重置步相；八类敌人各有八帧像素步态，按实际位移播放；其他英雄／服饰仍沿用原插画；
-- 七枪独立小幅后坐、枪口焰、分型弹丸、命中和分层合成枪声；霰弹／步枪延迟抛壳，左轮／线圈炮不逐发抛壳；友方与敌方高速弹使用连续命中检测，击退随抗性平滑推进，同次霰弹推力有上限；
-- 城市战区由旧城商店街、环城服务区、废弃主干道、南线铁轨货场和拆车场组成；三图分别数据化道路细节，并提供爆炸桶、补给箱和电磁减速区；
-- 默认按地图连续生存，没有胜利倒计时；敌人按时间增强，速度和同时实体数有上限。旧有限模式仅用于兼容回归，不出现在正常入口；
-- 敌人使用 64 单位静态导航网格和复用 typed-array BFS 流场绕开实体障碍，开放区域仍保留直接追击与职业差异；
-- 小/中/大型敌人使用三档 clearance；EnemyBrain 只负责寻路混合、冲锋和远程保持距离，CombatSim 负责战斗实体，SpawnSystem 负责波次，BossDefinition/BossSystem 是首领阶段与招式的唯一来源；
-- 首次行动提供可跳过的六步战地手册；局后显示伤害、命中率、最长无伤、规则解锁和武器熟练度奖励，并只在本地保留最近 20 局记录；15 条规则可解锁商店蓝图、铁卫和挑战协议；
-- 失败结算记录主要承伤来源、升级顺序与 seed，并给出针对性复盘建议；
-- 菜单、战斗、压力三段主题共享原创动机和CC0环境层；七枪以SnakeF8实录为主声，原合成声只在缺API或采样失败时回退。音乐与音效分别调音量／静音；
-- 固定 60 Hz 逻辑步、最多 4 步追帧、空间网格、对象池和动态画质；
-- 模式、枪械、敌人、机制、Boss、升级、解锁规则、挑战协议、皮肤、主角、地图、关卡、装备与商店项目共用内容注册表；跨目录 ID、Boss 阶段和专属进化映射在启动时校验；
-- schema v10 存档保留旧废料、武器、皮肤、设置与战绩，并把 v5 装备迁移到四部位护甲；新增蓝图、挑战协议、已完成规则、已领取熟练度奖励、专属进化权限和精通铭牌，异常数组会安全归一化；
-- 截至2026-10-28地图交易样板，活动Catalog有59张图片，压缩文件合计6,196,962 bytes（约5.91 MiB）；本轮交易站与四道具图集共362,330 bytes；角色图集／部件合计45,514 bytes，两个复用菜单场景合计492,558 bytes；旧敌人插画与旧界面底板保留归档、退出活动构建，资源按场景请求与释放；
-- 可选 FPS、帧耗时、实体数量和补帧丢弃诊断面板；
-- 完整离线运行；标题图、地表纹理、页面底板和中文像素标题字体均随本地包提供，不依赖远程图片、字体、音频或接口。
+## 开始体验
 
-## 本地运行
+### 从源码运行
 
-要求 Node.js 20 或更高版本。常规构建与测试没有运行时 npm 依赖；真实 Edge 性能基准需先执行一次 `npm.cmd install` 安装开发依赖。
+1. 下载或克隆本仓库的 `main` 分支。
+2. 安装 **Godot 4.7.2 普通版**，导入 [`godot/project.godot`](godot/project.godot)。无需安装 .NET 版。
+3. 等待首次资源导入完成，按 **F5** 运行。
 
 ```powershell
-npm.cmd run play
+git clone https://github.com/XFTony/wasteland-echo-windows.git
+cd wasteland-echo-windows
 ```
 
-打开终端显示的地址，默认是：
+运行原生游戏不需要 Node.js；只有执行迁移对照测试和部分制作工具时才需要它。完整的[运行、测试与打包说明](godot/README.md)包含引擎路径设置和 Windows 导出步骤。
 
-```text
-http://127.0.0.1:4173/
-```
+<details>
+<summary>本机已有的 Windows 内部试玩包</summary>
 
-调试时可固定随机种子（duration只影响内部有限模式测试，不会结束正常连续生存）：
+当前已验证包位于 `output/card-layout-cleanup/windows/WastelandEcho.exe`。先正常退出旧游戏，再双击启动。该目录是本地构建产物，不包含在 GitHub 的源码下载中。
 
-```text
-http://127.0.0.1:4173/?duration=60&seed=17
-```
+Windows 安装器、便携包及校验值待发布验收后统一放入 [Releases](https://github.com/XFTony/wasteland-echo-windows/releases)。源码 ZIP 不是可直接运行的游戏安装包。
 
-视觉验收时可直接打开指定菜单页：`?menu=loadout`、`?menu=inventory`、`?menu=shop`、`?menu=settings` 或 `?menu=credits`。
+</details>
 
-只构建或只启动服务器：
+### 基本操作
 
-```powershell
-npm.cmd run build
-npm.cmd run serve
-```
-
-生成精简桌面资源目录：
-
-```powershell
-npm.cmd run stage:desktop
-```
-
-生成 Windows 便携式 exe（需要 Rust、WebView2 和 Visual C++ Build Tools）：
-
-```powershell
-npm.cmd run build:desktop
-```
-
-稳定版 v1.4.0 仍位于 `release/`。当前带连字符的 alpha 构建会自动隔离到 `output/builds/v1.5.0-alpha.1/`，不会覆盖稳定发布。生成当前用户 NSIS 安装包与便携 zip：
-
-```powershell
-npm.cmd run build:installer
-```
-
-当前 alpha 对应产物为 `output/builds/v1.5.0-alpha.1/WastelandEcho-v1.5.0-alpha.1-win-x64-setup.exe` 和同目录 portable zip。外壳与安装分发决策见 [ADR-001](./docs/adr-001-windows-desktop-shell.md) 和 [ADR-002](./docs/adr-002-windows-installer-and-release-layout.md)。
-
-2026-09-30 审核发现此目录的独立 exe 已更新，但 setup、zip 与 SHA 清单仍为旧构建，发布候选校验失败。当前几份文件不能作为同一候选版对外分享；体验最新静态插画请使用上方 `npm.cmd run play`，Windows 候选需从同一源码重新统一构建。
-
-## 操作
-
-| 行为 | 键盘鼠标 | 标准手柄 |
+| 操作 | 键盘／鼠标 | 手柄布局* |
 |---|---|---|
-| 移动 | WASD / 方向键 | 左摇杆 |
-| 瞄准 | 默认锁定最近敌人；关闭辅助后鼠标 | 默认锁定最近敌人；关闭辅助后右摇杆 |
-| 射击 | 左键 / Space | RT / RB / X |
-| 暂停 | Esc / P | Menu |
-| 确认 | Enter / Space | A |
-| 返回 | Esc | B / View |
-| 菜单导航 | 方向键 / Tab | 十字键 / 左摇杆 |
-| 升级直选 | 1～4 | 导航后 A |
-| 重开 | R | 导航后 A |
-| 全屏 | F / F11 | 设置页按钮 |
+| 移动 | WASD／方向键 | 左摇杆 |
+| 瞄准与开火 | 默认自动；可在设置中调整 | 默认自动 |
+| 交易／交互 | E／Enter | A |
+| 部署／确认塔台 | T | Y |
+| 升级选择 | 鼠标／数字键1—4 | 导航后A |
+| 暂停／返回 | Esc／P | Menu／B |
 
-浏览器只有在页面获得焦点并检测到手柄活动后才允许读取手柄。若没有反应，先点击画面，再按一次 A 或移动摇杆。部分非标准 DirectInput 手柄可能需要通过 Steam Input、厂商驱动或后续键位映射功能转换为标准布局。
+*手柄操作已实现，实体设备手感、断线重连与完整对局仍待验收。
 
-## 自动验证
+### 存档
 
-```powershell
-npm.cmd run build
-npm.cmd test
-npm.cmd run verify
-npm.cmd run simulate
-node scripts/simulate-run.js 180 --normal-health
-npm.cmd run simulate:matrix
-npm.cmd run simulate:endless
-npm.cmd run benchmark:browser
-npm.cmd run audit
-```
+Godot 版使用独立的 `WastelandEcho-Godot` 用户目录，通常位于 `%APPDATA%/WastelandEcho-Godot/`。备份前请正常退出游戏。旧 Canvas／Tauri 版进度通过根目录 [`Godot存档导入与备份.cmd`](Godot存档导入与备份.cmd)显式导入，先预览、确认后写入；不会自动覆盖旧版进度。[存档工具说明](godot/README.md#开始体验)
 
-`simulate:matrix` 使用正常生命运行环绕、风筝、贴脸、撤离优先、无磁吸和随机升级六种策略；`simulate:endless` 使用压力生命检查 600 秒稳定性。`benchmark:browser` 启动系统 Edge 采样真实页面 rAF、1% low 与 JS heap；`benchmark:render` 仅保留为 Canvas 调用微基准，不能代表 FPS。
+## 开发与资源导航
 
-## 美术与字体许可
-
-- `web/assets/wasteland-title-keyart-v1.webp`：标题主视觉的活动优化副本；PNG 原图归档于 `art/generated/v1.0/runtime-snapshot/`；
-- `web/assets/wasteland-ground-texture-v1.webp`：废土路面纹理的活动优化副本；PNG 原图归档于 `art/generated/v1.0/runtime-snapshot/`；
-- `web/assets/fonts/wasteland-fusion-pixel-12-subset.woff2`：TakWolf Fusion Pixel Font 2026.09.01 的项目字符子集，采用 SIL Open Font License 1.1；
-- 完整许可、上游发布包、修改状态与商业复核边界见 [CREDITS.md](./CREDITS.md) 和 [docs/assets-ledger.csv](./docs/assets-ledger.csv)。
-
-## 项目结构
+**玩法开发以 `godot/` 为准，游戏逻辑统一使用带静态类型的 GDScript。** JavaScript、Python、PowerShell 分别承担旧版对照、回归测试和素材／构建工具的职责；GitHub语言占比会包含这些代码，并不等同于游戏运行依赖。
 
 ```text
-src/core/       确定性规则、契约、内容注册、升级效果、对象池和空间网格
-src/input/      统一输入帧、Gamepad 适配、命令映射和 Canvas UI 导航
-src/runtime/    依赖组装与可替换组件入口
-src/platform/   Windows 浏览器能力、DOM 事件绑定、音频与编曲
-src/render/     Canvas 场景、素材注册与懒加载、HUD、沉浸式主菜单、日志部署/背包/商店、共享物品图标、模块化像素角色、特效和动态画质
-src/world/      共享世界布局：街区、道路、铁轨、场景道具和碰撞地标
-src/app.js      仅负责编排循环、命令、事件消费者和生命周期
-scripts/        构建、本地服务器和自动对局
-test/           核心、输入、扩展契约、渲染与 bundle 回归测试
-docs/           架构、测试矩阵、平衡记录和素材台账
-web/            Windows 浏览器构建产物
+godot/                  当前原生游戏：场景、GDScript、Resource、活动素材
+art/                    美术与音频源文件、提示词、来源和制作记录
+scripts/godot/          原生导入、验证、打包与模板准备
+docs/                   设计、架构、素材索引、验收与历史记录
+src/ · web/ · src-tauri/ 旧版Canvas／Tauri对照与兼容验证
+test/                   旧版确定性回归
+tools/                  开发工具与Godot MCP版本锁
+output/                 本地截图、日志、试玩包与缓存，不进入Git
 ```
 
-## 平台说明
+| 想做什么 | 从这里开始 |
+|---|---|
+| 修改玩法、武器、升级 | [组件与修改入口](docs/component-catalog.md) · [原生架构](docs/architecture.md) |
+| 编辑地图、碰撞与场景 | [地图编辑流程](docs/design/map-editor-workflow.md) |
+| 查找原图、活动素材和许可 | [资源目录](docs/assets/asset-catalog.md) · [文件夹导航](docs/project-file-guide.md) · [来源与署名](CREDITS.md) |
+| 提交修改、验证与发布 | [协作指南](CONTRIBUTING.md) · [版本管理规则](docs/versioning-and-release.md) |
+| 查阅清理与历史版本 | [清理与恢复报告](docs/cleanup/retirement-report.md) · [整合归档记录](docs/maintenance/github-integration-2026-10-31.md) |
 
-项目目录仅保留 Windows 桌面运行链路；微信小游戏和移动触控适配器已移除。稳定版 v1.4.0 已提供未签名的 Tauri 2 / WebView2 便携式 `.exe` 与当前用户 NSIS 安装器；v1.5.0-alpha.1 是继续开发分支。商业代码签名尚未配置，因此公开下载时 Windows SmartScreen 仍可能显示“未知发布者”。
+GitHub 的 `Quality / check` 汇总旧版参考检查与 Godot 原生回归，两者成功才允许合并。构建与自动测试通过不替代审美确认、真人平衡或真实设备验收。
 
-标题主视觉、环境地表纹理和两张破框感染者由项目内生成资产提供，中文像素标题字体来自 OFL 许可的 Fusion Pixel Font；这些资产均已登记到 `docs/assets-ledger.csv`。未来加入第三方素材前，必须同样登记来源、许可和署名要求；生成资产在商业发布前仍需按台账记录复核适用服务条款。
+## 接下来优先做
 
-## Git 版本基线
+- 用真实对局确认开局压力、20件武器手感与42项改件的选择价值。
+- 完成实体手柄、Windows缩放、低配电脑与长局内存／帧率验证。
+- 在已认可的回声旧城基础上，继续统一另外两张地图与其他人物服饰。
+- 完成下一预发布版本的范围冻结、版本号同步、安装包及下载校验。
 
-2026-09-23 已在 main 建立首次提交 89652ab 与日期标签 baseline-2026-09-23。源码、测试、文档、许可证、活动素材和美术源图纳入 Git；node_modules、Rust target、dist、output、release 和历史安装包不入库，生成方式及发布文件 SHA 见 docs/build-record-2026-09-23.md。公开远程仓库为 https://github.com/XFTony/wasteland-echo-windows；GitHub 不包含被忽略的安装包和截图，这些资料仍需单独备份。
+## 使用与署名
 
-## 存档与备份
+仓库公开用于展示开发过程，**项目整体尚未授予开源使用许可**；公开可见不代表可自由复制或商用。Godot、字体、开发工具和音效等第三方内容按各自许可处理，详情见 [CREDITS.md](CREDITS.md) 与[素材台账](docs/assets-ledger.csv)。
 
-Windows 便携版存档位于 WebView2 用户数据目录：
-
-```text
-%LOCALAPPDATA%\com.wastelandecho.desktop\EBWebView
-```
-
-备份前先完全退出游戏，再复制整个 `com.wastelandecho.desktop` 文件夹；恢复时在游戏关闭状态下覆盖回原位置。浏览器调试版使用对应浏览器的站点 LocalStorage，与便携版存档不是同一份数据。
-
-从 v1.5 开发版开始，游戏在写入前保留上一份有效存档。若主存档损坏，会尝试读取备份，并将损坏的原始内容留在本地；若无法安全保留或写入失败，画面会显示提示。出现提示时先退出游戏并复制上述整个用户数据文件夹，再尝试修复或继续游玩。自动备份只保存最近一份有效状态，不能替代手动复制整个文件夹。
+历史阶段的页面与运行说明已收录至[项目进度归档](docs/history/project-progress-through-2026-10-31.md)，不再与当前启动入口混排。

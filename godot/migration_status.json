@@ -67,7 +67,7 @@
     "Windows DPI 100/125/150/200%, fullscreen and minimum-size transitions",
     "Low-end hardware test and evidence-based minimum specification",
     "User-selected real reference-save preview/import/restart/recovery validation",
-    "Full visual sign-off, mainline merge and next-version release checklist"
+    "Full visual sign-off and next-version release checklist; mainline integration tracked in docs/maintenance/github-integration-2026-10-31.md"
   ],
   "completeGame": false,
   "perfectVisualParity": false,

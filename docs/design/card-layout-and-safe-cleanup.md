@@ -12,6 +12,8 @@
 
 ## 当前语言与GitHub统计
 
+> 下列97.08%与main尚无Godot的结论是本轮清理时的核验快照。后续经用户授权进行主线整合，当前状态与归档入口见[GitHub整合记录](../maintenance/github-integration-2026-10-31.md)。语言建议保持不变。
+
 GitHub官方接口核验：默认分支main的树为a8eff8a，尚无godot/project.godot；最新原生迭代位于codex分支。默认分支语言字节数：JavaScript783,084、PowerShell15,756、Python5,075、CSS1,185、HTML847、Rust683，JavaScript约97.08%。这不是当前原生运行包的语言组成。
 
 清理前开发分支按扩展名近似统计：GDScript93文件/637,662字节，JS180文件/1,172,985字节，MJS46文件/355,165字节、Python53文件/303,793字节；包含旧版、测试、工具与实验，不能等同于游戏运行依赖。当前godot目录没有C#脚本或csproj，原生包不执行旧JavaScript。

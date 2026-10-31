@@ -1,5 +1,7 @@
 # 游戏文件夹导航与整理规则
 
+2026-10-31主线整理补充：当前统一入口为根README、CONTRIBUTING.md与docs/README.md；本次新增少量主页截图及history历史文档，不改变现行游戏资源。[本次整合](maintenance/github-integration-2026-10-31.md)与[验收](qa/repository-integration-validation.json)记录新增文件用途；下表体积与workspace-inventory仍为上一轮清理时的核验快照，不作为实时磁盘统计。
+
 本索引整理用途、权威目录和修改入口；本轮已执行的退役清理、验证与恢复见docs/cleanup/retirement-report.md。全路径/大小/追踪状态见 `docs/assets/workspace-inventory.json`，活动素材见 `docs/assets/asset-catalog.md`。
 
 ## 一级目录

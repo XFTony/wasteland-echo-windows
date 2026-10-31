@@ -1,10 +1,9 @@
 name: Godot native
 
 on:
+  workflow_call:
   push:
-    branches: [main, 'codex/**']
-    paths: ['godot/**', 'scripts/godot/**', 'src/**', '.github/workflows/godot-native.yml']
-  pull_request:
+    branches: ['codex/**']
     paths: ['godot/**', 'scripts/godot/**', 'src/**', '.github/workflows/godot-native.yml']
   workflow_dispatch:
 

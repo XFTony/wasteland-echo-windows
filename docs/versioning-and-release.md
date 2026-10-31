@@ -17,11 +17,12 @@ GitHub 上的安装包不能代替源码标签；本地 Git、远端 Git 和 Rel
 
 ## 2. 分支与提交
 
-- main 始终保持可构建。涉及玩法、存档、输入、发布脚本或较大 UI 变更时，从 main 建短期分支，命名为 feat/主题、fix/主题、docs/主题或 chore/主题。
+- main 始终保持可运行、可构建，是Godot原生开发的统一入口。自动化协作使用短期codex/主题分支；人工协作也可使用feat/、fix/、docs/或chore/前缀。
 - 每个分支只解决一个可描述的问题；通过 Pull Request 汇总变更、验证证据、风险与回退方法，再合并 main。不要长期保留独立 develop 分支。
 - 提交标题使用 feat:、fix:、docs:、test:、chore: 或 refactor: 前缀，正文解释原因和兼容影响。修改存档 schema 或稳定内容 ID 时，单独指出迁移策略。
 - 不强推共享分支，不移动已发布的版本标签，不把安装包、用户数据、个人路径或凭据塞进源码历史。回退已合并改动时新增 revert 提交。
 - 每次提交或 PR 运行 npm run check；画面和操控改动另附真实截图或试玩记录。GitHub Quality 工作流是远端确定性门槛，不把本机 Edge 帧率视为 CI 通用门槛。
+- Quality的必过check汇总旧版参考检查与Godot原生回归；两项都成功才通过。仅文档PR也执行此门槛，不能通过路径过滤让必过原生回归永久等待或悄然跳过。
 - 当前仓库由单人维护。GitHub main 现已要求 PR、名为 check 的必过状态检查、最新 main 同步、线性历史和评论解决；管理员同样受约束，禁止强推和删除。批准数设为 0，单人维护者仍须经过 PR 与 CI。
 
 ## 3. 版本号与标签
@@ -45,9 +46,9 @@ GitHub 上的安装包不能代替源码标签；本地 Git、远端 Git 和 Rel
 1. 冻结范围，填写 CHANGELOG.md 与对应 docs/release-notes/README-v版本号.txt；明确新功能、修复、兼容和已知问题。
 2. 修改 package.json 版本并同步 package-lock.json、src/version.js、Cargo.toml、Cargo.lock 与 tauri.conf.json。运行 npm run check:version 和 npm run check。
 3. 运行 npm run verify，包含系统 Edge 快速性能场景；正式候选再跑完整浏览器矩阵和 WebView2 长局。单机模拟只证明可复现性，不证明真人胜率。
-4. 在干净的同一提交上运行 npm run build:installer，生成 exe、setup、portable zip 和 SHA256SUMS。运行 npm run release:check:candidate 核对文件与校验值，保留构建记录与签名状态。
+4. 当前Godot线在干净的同一提交上执行scripts/godot/build-windows.ps1，再运行verify-package.ps1，核对来源manifest、exe和SHA256SUMS；便携ZIP与面向玩家说明一起保存。新的Godot安装器需要独立制作与安装／卸载验收，不能直接复用旧Tauri安装器。旧Canvas/Tauri回退线才使用npm run build:installer与旧release检查脚本。
 5. 按 docs/release-checklist.md 完成安装、启动、退出、重启存档、卸载、键鼠与实体手柄检查。发布门槛未过则继续修复并递增预发布号。
-6. 确认源码提交与构建一致，再打不可移动的 v版本号 标签；运行 npm run release:check 确认标签、干净工作区和附件校验值，然后推送标签。创建同名 GitHub Release；alpha、beta、rc 标记为 Pre-release，稳定版才标 Latest。附件包含安装器、便携 zip、SHA256SUMS 和面向玩家的版本说明；独立 exe 可选。
+6. 确认源码提交、干净工作区、构建manifest及附件校验值一致，再打不可移动的v版本号标签并推送；旧npm run release:check只服务旧Tauri附件布局，不能作为Godot发布证明。创建同名GitHub Release；alpha、beta、rc标为Pre-release，稳定版才标Latest。Godot至少附便携ZIP、来源manifest、SHA256SUMS和面向玩家说明；安装器完成独立验收后再附加。
 7. 从 GitHub 下载一份附件，复算 SHA256 并启动验证；在项目计划中记录 Release URL、提交 SHA、设备验收和已知限制。
 
 不要用 GitHub Release 自动生成的源码压缩包冒充 Windows 安装包。不要因为构建和自动测试通过就宣称实体手柄、低配机或签名已验收。
@@ -81,7 +82,7 @@ GitHub 上的安装包不能代替源码标签；本地 Git、远端 Git 和 Rel
 
 ## 9. Godot迁移与后续版本
 
-- Godot原生目录为当前开发线，保留Canvas/Tauri对照与回退。自动化协作分支使用codex/前缀（本轮codex/combat-art-and-impact）；验收前不提前打新版本标签。
+- Godot原生目录为main的当前开发线，保留Canvas/Tauri对照与回退。自动化协作分支使用codex/前缀；验收前不提前打新版本标签。2026-10-31整合前的两条完整历史由archive/标签保留，见maintenance/github-integration-2026-10-31.md。
 - Godot源码、活动素材、.import设置、.uid和Resource入Git；.godot、模板、大包、完整截图和用户存档不入Git。
 - 除npm run check外，运行node scripts/godot/verify-native.mjs。Godot native工作流执行确定性原生回归；窗口/DPI/手柄/低配仍按真实设备验收。
 - 构建用scripts/godot/build-windows.ps1，记录提交、脏工作区、SHA与模板校验。内部包不代替正式Release。
