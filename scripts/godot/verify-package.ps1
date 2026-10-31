@@ -1,6 +1,7 @@
 param(
     [ValidateRange(1, 60)]
-    [int]$TimeoutSeconds = 25
+    [int]$TimeoutSeconds = 25,
+    [string]$PackagePath = ''
 )
 
 Set-StrictMode -Version Latest
@@ -8,6 +9,12 @@ $ErrorActionPreference = 'Stop'
 $workspaceDirectory = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
 $outputDirectory = Join-Path $workspaceDirectory 'output/godot-migration'
 $packageDirectory = Join-Path $outputDirectory 'windows'
+if (-not [string]::IsNullOrWhiteSpace($PackagePath)) {
+    $packageDirectory = [IO.Path]::GetFullPath($(if ([IO.Path]::IsPathRooted($PackagePath)) { $PackagePath } else { Join-Path $workspaceDirectory $PackagePath }))
+}
+if (-not $packageDirectory.StartsWith($workspaceDirectory + [IO.Path]::DirectorySeparatorChar, [StringComparison]::OrdinalIgnoreCase)) {
+    throw 'Package verification must remain inside the workspace.'
+}
 $executable = Join-Path $packageDirectory 'WastelandEcho.exe'
 $manifest = [IO.File]::ReadAllText((Join-Path $packageDirectory 'build-manifest.json')) | ConvertFrom-Json
 $actualHash = (Get-FileHash -LiteralPath $executable -Algorithm SHA256).Hash.ToLowerInvariant()
@@ -38,6 +45,7 @@ if ($report.failures.Count -ne 0 -or $report.maps -ne 3 -or $report.mapsWithArt 
     throw 'Standalone package content or map resources failed validation.'
 }
 $result = [ordered]@{
+    packagePath = $packageDirectory.Substring($workspaceDirectory.Length + 1).Replace('\', '/')
     sourceCommit = $manifest.sourceCommit
     sourceDirty = $manifest.sourceDirty
     sha256 = $actualHash

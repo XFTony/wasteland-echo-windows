@@ -1,5 +1,6 @@
 param(
-    [string]$GodotPath = $env:GODOT_PATH
+    [string]$GodotPath = $env:GODOT_PATH,
+    [string]$DestinationDirectory = ''
 )
 
 Set-StrictMode -Version Latest
@@ -9,6 +10,21 @@ if ([string]::IsNullOrWhiteSpace($GodotPath)) {
     $GodotPath = 'D:\Godot\Godot_v4.7.2-stable_win64_console.exe'
 }
 $outputDirectory = Join-Path $workspaceDirectory 'output/godot-migration/windows'
+if (-not [string]::IsNullOrWhiteSpace($DestinationDirectory)) {
+    $outputDirectory = [IO.Path]::GetFullPath($(if ([IO.Path]::IsPathRooted($DestinationDirectory)) { $DestinationDirectory } else { Join-Path $workspaceDirectory $DestinationDirectory }))
+}
+if (-not $outputDirectory.StartsWith($workspaceDirectory + [IO.Path]::DirectorySeparatorChar, [StringComparison]::OrdinalIgnoreCase)) {
+    throw 'Package output must remain inside the workspace.'
+}
+$executable = Join-Path $outputDirectory 'WastelandEcho.exe'
+if (Test-Path -LiteralPath $executable) {
+    try {
+        $probeHandle = [IO.File]::Open($executable, [IO.FileMode]::Open, [IO.FileAccess]::ReadWrite, [IO.FileShare]::None)
+        $probeHandle.Dispose()
+    } catch {
+        throw 'The existing preview is in use or cannot be replaced. Close its window or select another -DestinationDirectory.'
+    }
+}
 $version = ([IO.File]::ReadAllText((Join-Path $workspaceDirectory 'package.json')) | ConvertFrom-Json).version
 $preset = [IO.File]::ReadAllText((Join-Path $workspaceDirectory 'godot/export_presets.cfg'))
 if ($preset -notmatch 'application/product_version="([^"]+)"' -or $Matches[1] -ne $version) {

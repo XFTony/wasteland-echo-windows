@@ -19,7 +19,7 @@ assert(/FIELDCRAFT_FIRST_HOVER .*"active":true/.test(hoverLog));
 let pack = null;
 if (fs.existsSync(path.join(root, "output/godot-migration/package-smoke.json"))) {
   const p = read("output/godot-migration/package-smoke.json");
-  const m = read("output/godot-migration/windows/build-manifest.json");
+  const m = read((p.packagePath || "output/godot-migration/windows") + "/build-manifest.json");
   if (p.passed && p.report.weapons === 20 && p.report.fieldcraftArt === 69 && p.sha256 === m.sha256 && p.sourceCommit === m.sourceCommit && !m.sourceDirty) pack = { ...p, bytes: m.bytes, version: m.version };
 }
 const runtimeFiles = ["godot/content/game_catalog.tres", "godot/scripts/core/status_weapon_rules.gd", "godot/scripts/core/combat_system.gd", "godot/scripts/core/entity_pool.gd", "godot/scripts/presentation/combat_art.gd", "godot/scripts/presentation/combat_impacts.gd", "godot/scripts/presentation/world_view.gd", "godot/scripts/presentation/character_visual.gd", "godot/scripts/ui/upgrade_card.gd", "godot/scripts/ui/item_presentation.gd"];
@@ -63,14 +63,14 @@ const md = ["# 战地工坊卡牌、武器与倒地反馈验收", "", "2026-10-3
   "", "## 研究与素材来源", "", "调研与边界见[设计计划](../design/fieldcraft-combat-art-plan.md)。Brotato公开社区资料可核对击退、燃烧与派生攻击分类；未取得可靠的两款参考游戏受击/死亡逐帧内部实现，因此本轮倒地时长和四阶段设计为项目原创，不冒称照搬原作。补充定向检索未提供足够可靠的死亡帧证据，没有采用无来源的0.1秒/若干帧结论。",
   "", "本轮使用内置image_gen制作位图；源图、完整提示词和SHA见art/combat/fieldcraft-v2。Godot工具只裁切、分析透明边缘并最近邻缩放。枪体/手/袖口分离；卡牌文字与真实属性由原生UI绘制；缺图保留操作与兜底。未复制竞品素材或声音。",
   "", "## Windows包与本人体验", "", pack ? `从干净源码${pack.sourceCommit}构建；${(pack.bytes / 1048576).toFixed(2)}MiB；SHA256：${pack.sha256}。独立包已核对3地图、4地图图集、59原登记图片、69本轮贴图、30音频及20武器。` : "独立Windows包待本轮源码提交后重建；旧exe暂不能代表本轮。",
-  "", "入口：output/godot-migration/windows/WastelandEcho.exe。画面与倒地视频：output/fieldcraft-v2/review.html。全部截图/视频与生成缓存留output；源图、运行图、来源、代码和摘要入Git。本轮不修改真实用户存档。",
+  "", "入口：output/fieldcraft-v2/windows/WastelandEcho.exe。旧版窗口占用原路径，因此本轮使用独立目录；已新增构建目标/包验证路径参数，原窗口与存档未被强制结束。画面与倒地视频：output/fieldcraft-v2/review.html。全部截图/视频与生成缓存留output；源图、运行图、来源、代码和摘要入Git。本轮不修改真实用户存档。",
   "", "建议本人先体验一次四卡选择、第一张卡悬停、换三类简化武器与两种新近战，再在密集尸潮中判断倒地残留是否过长。下一步先收敛卡面阅读与枪械握点，再按相同地图/相近构筑比较新武器收益；不继续无边界增加武器或重画已认可地图。", ""];
 write("docs/qa/fieldcraft-validation.md", md.join("\n"));
 const figure = (name, label) => `<figure><a href="review/${name}"><img src="review/${name}" loading="lazy" alt="${label}"></a><figcaption>${label}</figcaption></figure>`;
 const weaponBlocks = design.weapons.map(w => `<article><h3>${w.name}</h3><p>${w.description}</p>${figure(`attack-${w.id}.png`, "实际游戏窗口攻击截图；不是动画视频")}<audio controls preload="none" src="../../godot/assets/audio/fieldcraft-v2/${w.id}.wav"></audio></article>`).join("");
 write("output/fieldcraft-v2/review.html", `<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>荒原回响 · 战地工坊</title><style>
 :root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#151c18;color:#e8ddbc;font:16px/1.7 "Microsoft YaHei",sans-serif}main{max-width:1320px;margin:auto;padding:40px 24px}h1{font-size:36px;line-height:1.25}h2{margin-top:52px;color:#dab772}h3{margin-top:0}p,figcaption{color:#b8bea9}a{color:#e3bf7c}img,video{width:100%;display:block;border:1px solid #46503d}video{background:#080e0b}figure{margin:0}figcaption{font-size:14px;margin:9px 0 20px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}article{padding:20px;background:#222b23;border:1px solid #46503d}audio{width:100%}.tag{font-size:14px;color:#d4ab65}summary{cursor:pointer;color:#e3bf7c;padding:14px 0}details[open] summary{margin-bottom:14px}@media(max-width:780px){.grid{grid-template-columns:1fr}h1{font-size:28px}}
-</style><main><p class="tag">2026-10-31 · 原生内部试玩 · 42种改件插图 / 20件武器</p><h1>战地工坊：实体改件与更完整的战斗反馈</h1><p><a href="../godot-migration/windows/WastelandEcho.exe">打开最新版Windows游戏</a> · <a href="../../docs/qa/fieldcraft-validation.md">完整核验与边界</a> · <a href="../../docs/design/fieldcraft-combat-art-plan.md">设计与研究</a></p>
+</style><main><p class="tag">2026-10-31 · 原生内部试玩 · 42种改件插图 / 20件武器</p><h1>战地工坊：实体改件与更完整的战斗反馈</h1><p><a href="windows/WastelandEcho.exe">打开最新版Windows游戏</a> · <a href="../../docs/qa/fieldcraft-validation.md">完整核验与边界</a> · <a href="../../docs/design/fieldcraft-combat-art-plan.md">设计与研究</a></p>
 <h2>卡牌：独立插图、实体材质与可读数值</h2><div class="grid">${figure("before-upgrade.png", "你提供的旧版截图；本地对照，不是逐像素同帧比较")}${figure("upgrade-final-720.png", "本轮实际窗口：独立物件与新的正文区域")}</div>${figure("upgrade-first-hover.png", "真实鼠标事件：第一张卡的悬停抬升与焦点反馈")}
 <details><summary>展开42项改件的完整卡面合集</summary><p>为检查所有插图和文字，这些截图由隔离测试入口逐组展示全部定义；正常候选仍受武器和解锁条件约束。</p><div class="grid">${Array.from({length:11},(_,i)=>figure(`card-gallery-${String(i).padStart(2,"0")}.png`, `卡面检查 ${i+1}/11`)).join("")}</div></details>
 <h2>受击 → 失衡 → 倒地 → 短暂残留</h2><p>以下为实际游戏渲染的4秒连续画面。隔离测试场景按固定时刻触发伤害，便于比较八类敌人；不作为真人战斗录像或性能基准。视频无声。</p><video controls autoplay muted loop playsinline preload="metadata" poster="review/death-24.png"><source src="review/death-review.mp4" type="video/mp4"></video><p>尸体不再攻击或阻挡；普通约3秒、Boss约4.2秒，低画质减半表现数量上限。</p>
