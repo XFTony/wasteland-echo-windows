@@ -91,7 +91,7 @@ def run_editor(arguments):
 
 if __name__=='__main__':
     import hashlib,json
-    output=ROOT/'output/animation/ranger/pixel-source-probe'
+    output=ROOT/'output/native-source-probe'
     output.mkdir(parents=True,exist_ok=True)
     frames=[]
     for x,color in ((1,(240,72,48,255)),(5,(48,152,240,255))):

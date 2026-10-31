@@ -27,7 +27,7 @@ static func detail(upgrade: Dictionary, weapon: Dictionary = {}) -> String:
 		"recovery":
 			return "4秒未受击后每秒回复0.4"
 		"scavenger":
-			return "掉率 +8个百分点 · 收益 +20%（小数累计）"
+			return "掉率 +8个百分点 · 拾荒收益 +20%"
 		"velocity":
 			if weapon.get("attackType") == "beam":
 				return "射线范围 +8%"
@@ -77,6 +77,8 @@ static func preview(id: String, player: Dictionary, run: Dictionary, weapon: Dic
 	if not UpgradeRules.apply(id, after, copied_run):
 		return ""
 	SurvivalRules.clamp_stats(after)
+	if id == "scavenger":
+		return "收益倍率 %s → %s · 小数累计" % [_number(player.scrapMultiplier), _number(after.scrapMultiplier)]
 	if id == "projectile" or id == "swarmProtocol":
 		return "本次弹数 %d → %d" % [WeaponRules.projectile_count(weapon, player), WeaponRules.projectile_count(weapon, after)]
 	if id == "velocity" and weapon.get("attackType") == "beam":

@@ -1250,7 +1250,7 @@
       "status": "inactive",
       "archivePath": "art/characters/ranger/compact-pixel-v1/ranger-compact-v1.png",
       "sourcePaths": [
-        "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png"
+        "art/characters/ranger/compact-pixel-v1/reference/ranger-pixel-sidearm-v1.png"
       ],
       "width": 1254,
       "height": 1254,

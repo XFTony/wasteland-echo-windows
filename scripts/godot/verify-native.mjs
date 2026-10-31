@@ -16,7 +16,8 @@ const suites = [
   ["map-art", "tests/map_art_test.gd", "GODOT_MAP_ART"],
   ["ui-interaction", "tests/ui_interaction_test.gd", "GODOT_UI_INTERACTION"],
   ["survival-builds", "tests/survival_builds_test.gd", "GODOT_SURVIVAL_BUILDS"],
-  ["fieldcraft", "tests/fieldcraft_test.gd", "GODOT_FIELDCRAFT"]
+  ["fieldcraft", "tests/fieldcraft_test.gd", "GODOT_FIELDCRAFT"],
+  ["card-layout", "tests/card_layout_test.gd", "GODOT_CARD_LAYOUT"]
 ];
 const reports = {};
 for (const [name, script, marker, flag] of suites) {

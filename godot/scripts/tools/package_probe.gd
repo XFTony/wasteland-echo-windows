@@ -22,6 +22,13 @@ func run(game: Node) -> void:
 		if assets.weapon_texture(id) == null:
 			_failures.append("Missing packed weapon: " + id)
 	var fieldcraft_art: int = 0
+	var card_layouts: int = 0
+	for name: String in CombatArt.CARD_LAYOUT_NAMES:
+		var profile: UpgradeCardArtLayout = load("res://content/ui/card_layouts/%s.tres" % name) as UpgradeCardArtLayout
+		if profile != null and profile.illustration.size.x > 0:
+			card_layouts += 1
+		else:
+			_failures.append("Missing card layout: " + name)
 	var art: Dictionary = catalog.metadata.get("combatArt", {})
 	var fieldcraft_paths: Array = art.get("frames", []).duplicate()
 	for category: String in ["upgradeTextures", "weaponTextures", "deathTextures"]:
@@ -73,5 +80,5 @@ func run(game: Node) -> void:
 	print("GODOT_PACKAGE_SMOKE " + JSON.stringify({"maps": maps,
 		"mapsWithArt": art_maps, "paintedMaps": painted_maps, "sharedMapAtlases": map_atlases.size(),
 		"images": catalog.metadata.assets.size(), "audio": catalog.metadata.audio.size(),
-		"weapons": catalog.all("weapons").size(), "fieldcraftArt": fieldcraft_art, "failures": _failures}))
+		"weapons": catalog.all("weapons").size(), "fieldcraftArt": fieldcraft_art, "cardLayouts": card_layouts, "failures": _failures}))
 	get_tree().quit(0 if _failures.is_empty() else 1)

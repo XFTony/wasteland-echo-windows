@@ -60,6 +60,7 @@ func _draw() -> void:
 	var family_style: Dictionary = styles.families.get(family, styles.families.utility)
 	var rarity: Dictionary = styles.rarities.get(option.get("rarity", "standard"), styles.rarities.standard)
 	var frame: Texture2D = CombatArt.frame(catalog, family, str(option.get("rarity", "standard")))
+	var art_layout: UpgradeCardArtLayout = CombatArt.card_layout(family, str(option.get("rarity", "standard")))
 	var lower_template: bool = family == "utility" or option.get("rarity") in ["prototype", "evolution"]
 	if frame != null and not tiny:
 		draw_texture_rect(frame, Rect2(Vector2.ZERO, size), false, Color(1.07, 1.04, 0.97) if active else Color.WHITE)
@@ -69,15 +70,21 @@ func _draw() -> void:
 	var broad_binding: bool = family == "utility" and option.get("rarity") not in ["prototype", "evolution"]
 	var content_x: float = 41 if tiny else size.x * (0.59 if broad_binding else 0.58)
 	var content_width: float = size.x - 88 if tiny else size.x * (0.56 if broad_binding else 0.58)
-	var header_y: float = 23 if tiny else size.y * (0.085 if lower_template else 0.12)
-	fonts.text(self, str(index + 1), Vector2(size.x * 0.26, header_y),
-		11 if tiny else 14, RadioPaint.INK, "left", 900, "mono")
+	var header_rect: Rect2 = Rect2(8, 12, size.x - 16, 22) if tiny else art_layout.header_for(size)
+	var header_y: float = header_rect.get_center().y
+	var number_point := Vector2(header_rect.position.x + 10, header_y)
+	if active:
+		draw_circle(number_point, 10 if not tiny else 8, Color("a07840"))
+		draw_circle(number_point, 7 if not tiny else 6, Color("e6c781"))
+	fonts.text(self, str(index + 1), number_point,
+		11 if tiny else 14, RadioPaint.INK, "center", 900, "mono")
 	fonts.fit(self, str(family_style.label) + " / " + str(rarity.label),
-		Vector2(size.x * 0.88, header_y), 10 if tiny else 12, size.x * 0.58,
+		Vector2(header_rect.end.x - 3, header_y), 10 if tiny else 12, header_rect.size.x - 30,
 		RadioPaint.INK, "right", 800, 9)
-	var center := Vector2(content_x, size.y * (0.6 if tiny else 0.285))
-	var icon_size: float = minf(50, size.y * 0.55) if tiny else minf(minf(size.x * 0.64, size.y * 0.25), 148)
-	UpgradeGlyph.paint(self, catalog, option.id, center, icon_size)
+	if tiny:
+		UpgradeGlyph.paint(self, catalog, option.id, Vector2(41, size.y * 0.6), minf(50, size.y * 0.55))
+	else:
+		UpgradeGlyph.paint_in_region(self, catalog, option.id, art_layout.illustration_for(size))
 	var text_x: float = 77 if tiny else content_x
 	var alignment: String = "left" if tiny else "center"
 	var available: float = content_width
@@ -107,8 +114,6 @@ func _draw() -> void:
 		var pip: float = minf(8, (size.x * 0.43 - count * 3) / maxi(1, count))
 		for item: int in range(count):
 			draw_rect(Rect2(size.x * 0.88 - (count - item) * (pip + 3), footer - 3, pip, 6), (Color("9d743b") if pale_footer else Color("eac67e")) if item <= level else Color("796d53"))
-	if active:
-		RadioPaint.focus_ink(self, Rect2(Vector2(9, 5), size - Vector2(18, 12)), Color("e2bc73"), 3)
 	draw_set_transform_matrix(Transform2D.IDENTITY)
 
 
@@ -125,6 +130,11 @@ func _wrap_text(value: String, width: float, font_size: int, weight: int) -> Arr
 			line += character
 		if not line.is_empty():
 			result.append(line)
+	for row: int in range(1, result.size()):
+		if result[row].left(1) in [")", "）", "，", "。", "；", "、", ":", "：", "%"] and result[row - 1].length() > 1:
+			var carried: String = result[row - 1].right(1)
+			result[row - 1] = result[row - 1].left(result[row - 1].length() - 1)
+			result[row] = carried + result[row]
 	return result
 
 
