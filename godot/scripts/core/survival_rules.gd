@@ -8,14 +8,21 @@ static func pressure(seconds: float) -> Dictionary:
 	var minutes: float = elapsed / 60.0
 	var growth: float = maxf(0.0, minutes - 0.5)
 	var cycle: int = floori(elapsed / 60.0) % 3
+	var cap: int = 104
+	var interval: float = maxf(0.11, 0.18 / (1 + maxf(0, minutes - 5) * 0.055))
+	for phase: Array in [[20, 28, 0.58], [45, 40, 0.44], [90, 52, 0.36], [180, 68, 0.28], [300, 86, 0.22]]:
+		if elapsed < float(phase[0]):
+			cap = int(phase[1])
+			interval = float(phase[2])
+			break
 	return {
 		"level": 1 + floori(minutes),
 		"minutes": minutes,
 		"hp": minf(1e8, (1.0 + growth * 0.18) * exp(minf(18.0, growth * 0.055))),
 		"damage": minf(1e7, 1.0 + minutes * 0.08 + minutes * minutes * 0.0008),
 		"speed": minf(1.5, 1.0 + minutes * 0.012),
-		"cap": mini(104, 18 + floori(minutes * 8)),
-		"interval": maxf(0.11, 1.25 / (1 + minutes * 0.28)) / [1.03, 1.0, 1.1][cycle],
+		"cap": cap,
+		"interval": interval / [1.03, 1.0, 1.1][cycle],
 		"price": 1.0 + minutes * 0.06,
 		"reward": 1.0 + floori(minutes / 5.0) * 0.25,
 		"xp": 1.0 + minf(3.0, minutes * 0.045),

@@ -81,7 +81,7 @@ GitHub 上的安装包不能代替源码标签；本地 Git、远端 Git 和 Rel
 
 ## 9. Godot迁移与后续版本
 
-- 当前分支为codex/godot-migration，保留Canvas/Tauri对照与回退。自动化协作分支使用codex/前缀；验收前不提前打新版本标签。
+- Godot原生目录为当前开发线，保留Canvas/Tauri对照与回退。自动化协作分支使用codex/前缀（本轮codex/survival-builds-arsenal）；验收前不提前打新版本标签。
 - Godot源码、活动素材、.import设置、.uid和Resource入Git；.godot、模板、大包、完整截图和用户存档不入Git。
 - 除npm run check外，运行node scripts/godot/verify-native.mjs。Godot native工作流执行确定性原生回归；窗口/DPI/手柄/低配仍按真实设备验收。
 - 构建用scripts/godot/build-windows.ps1，记录提交、脏工作区、SHA与模板校验。内部包不代替正式Release。

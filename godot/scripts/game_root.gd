@@ -97,7 +97,7 @@ func _physics_process(delta: float) -> void:
 	audio.consume(events)
 	controls.handle_feedback(events, session.save_data.settings)
 	for event: Dictionary in events:
-		if event.type in ["result", "tutorialComplete"]:
+		if event.type in ["result", "tutorialComplete", "survivalWave"]:
 			session.store.persist()
 	world.synchronize()
 
@@ -148,6 +148,10 @@ func _input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 			return
 	if event is InputEventJoypadButton and event.pressed and simulation != null:
+		if event.button_index in [JOY_BUTTON_B, JOY_BUTTON_BACK] and battle != null and battle.show_build_details:
+			battle._emit_action("buildInfo")
+			get_viewport().set_input_as_handled()
+			return
 		match event.button_index:
 			JOY_BUTTON_START:
 				_handle_action("fieldClose" if simulation.screen == GameSession.Screen.FIELD_SHOP else "pause")
@@ -340,7 +344,9 @@ func _handle_run_key(event: InputEventKey) -> void:
 	if controls.matches(event, bindings, "fullscreen", "KeyF"):
 		_toggle_fullscreen()
 	elif event.physical_keycode == KEY_ESCAPE:
-		if simulation.run.placement != null:
+		if battle != null and battle.show_build_details:
+			battle._emit_action("buildInfo")
+		elif simulation.run.placement != null:
 			_handle_action("cancelPlacement")
 		elif simulation.screen == GameSession.Screen.FIELD_SHOP:
 			_handle_action("fieldClose")

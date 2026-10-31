@@ -8,7 +8,7 @@ signal fullscreen_requested
 signal startup_requested
 
 enum Screen { MENU, RUNNING, PAUSED, UPGRADE, FIELD_SHOP, RESULT_WIN, RESULT_LOSE }
-enum Page { MAIN, DEPLOYMENT, INVENTORY, SHOP, SETTINGS, CREDITS }
+enum Page { MAIN, DEPLOYMENT, INVENTORY, SHOP, SETTINGS, CREDITS, WORKSHOP }
 
 const SELECTIONS: Dictionary = {
 	"Weapon": ["weapons", "unlockedWeapons", "weapon"],
@@ -20,6 +20,7 @@ const PAGE_ACTIONS: Dictionary = {
 	"start": Page.DEPLOYMENT, "deployment": Page.DEPLOYMENT,
 	"inventory": Page.INVENTORY, "shop": Page.SHOP, "settings": Page.SETTINGS,
 	"credits": Page.CREDITS,
+	"workshop": Page.WORKSHOP,
 }
 
 var catalog: GameCatalog
@@ -31,6 +32,7 @@ var settings_section: int = 0
 var shop_category: String = "weapon"
 var shop_page: int = 0
 var inventory_page: int = 0
+var workshop_page: int = 0
 var message: String = ""
 var pending_binding: String = ""
 
@@ -69,7 +71,7 @@ func action(command: String) -> void:
 		pending_binding = ""
 		message = ""
 	elif type == "back":
-		page = Page.DEPLOYMENT if page == Page.INVENTORY else Page.MAIN
+		page = Page.INVENTORY if page == Page.WORKSHOP else Page.DEPLOYMENT if page == Page.INVENTORY else Page.MAIN
 		pending_binding = ""
 	elif type == "deploy":
 		save_data.selectedMode = "endless"
@@ -98,6 +100,8 @@ func action(command: String) -> void:
 		shop_page = maxi(0, int(value))
 	elif type == "inventoryPage":
 		inventory_page = maxi(0, int(value))
+	elif type == "workshopPage":
+		workshop_page = maxi(0, int(value))
 	elif type == "settingsSection":
 		settings_section = 1 if value == "controls" else 0
 		pending_binding = ""

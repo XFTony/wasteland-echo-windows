@@ -151,7 +151,7 @@ func consume(events: Array[Dictionary]) -> void:
 			"hit":
 				if _clock - _last_impact_at >= (0.016 if bool(event.get("critical", false)) else 0.028):
 					_last_impact_at = _clock
-					if event.get("weaponId") == "echo_blade":
+					if event.get("weaponId") in ["echo_blade", "breach_spear", "rust_cleaver"]:
 						play_sample("melee_hit", 0.7)
 					elif event.get("weaponId") != "shock_hammer":
 						_play_hit_noise(event.get("weaponId") == "coil_cannon", bool(event.get("elite", false)))
@@ -192,7 +192,7 @@ func _play_shot(id: String, interval: float, empowered: bool = false, delay: flo
 	_shot_counters[id] = count
 	var pitch: float = 1 + ((count * 7 % 11) - 5) * 0.003
 	play_sample(id, 1.08 if empowered else 1.0, pitch, delay)
-	if id not in ["prism_laser", "saw_disc", "echo_blade", "shock_hammer"]:
+	if id not in ["prism_laser", "saw_disc", "echo_blade", "shock_hammer", "ratchet_crossbow", "frost_projector", "breach_spear", "rust_cleaver"]:
 		play_sample("mechanical_heavy" if id in ["breaker_shotgun", "rust_revolver", "coil_cannon"] else "mechanical_light",
 			0.28, pitch, delay + minf(0.085, interval * 0.4))
 

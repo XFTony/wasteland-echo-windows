@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/weapon_definition.gd" id="1_d8hyn"]
+
+[resource]
+script = ExtResource("1_d8hyn")
+damage = 34.0
+interval = 0.86
+projectile_speed = 1.0
+lock_range = 88.0
+knockback = 66.0
+recoil = 0.3
+content_id = &"rust_cleaver"
+category = &"weapons"
+display_name = "锈刃战斧"
+source_data = {
+"activeTime": 0.2,
+"arc": 2.5307274153917776,
+"attackType": "slash",
+"blocksProjectiles": true,
+"color": "#c4ae86",
+"damage": 34.0,
+"description": "88范围、145度重挥；仅有效挥击段消弹，无剑气",
+"id": "rust_cleaver",
+"interval": 0.86,
+"knockback": 66.0,
+"lockRange": 88.0,
+"mechanicId": "slash",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 32.0,
+"muzzleParticles": 2.0,
+"name": "锈刃战斧",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 1.0,
+"rangeBand": "close",
+"reach": 88.0,
+"recoil": 0.3,
+"recovery": 0.24,
+"shellColor": "#b18b50",
+"shellLength": 0.0,
+"shellLife": 0.0,
+"spread": 0.0,
+"ttl": 0.9,
+"visualId": "rust-cleaver",
+"waveDamage": 0.0,
+"weaponClass": "axe",
+"windup": 0.18
+}

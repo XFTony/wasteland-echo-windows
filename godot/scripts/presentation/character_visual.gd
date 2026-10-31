@@ -24,6 +24,7 @@ var _sample_position: Vector2
 var _sample_elapsed: float = -1.0
 var _illustrated_bob: float = 0.0
 var _recoil_offset: float = 0.0
+var _attack_extension: float = 0.0
 
 
 func configure(catalog: GameCatalog, assets: AssetStore) -> void:
@@ -81,6 +82,7 @@ func sample(player: Dictionary, elapsed: float, feedback: Dictionary, attack: Va
 	var denominator: float = maxf(0.01, float(_catalog.metadata.poses[weapon_id].hold.recoil) * pixel_scale)
 	recoil = float(response.offset) / denominator
 	visual_angle = WeaponActions.attack_motion(attack, elapsed) if attack is Dictionary and attack.weaponId == weapon_id else float(response.angle)
+	_attack_extension = WeaponActions.attack_extension(attack, elapsed) if attack is Dictionary and attack.weaponId == weapon_id else 0.0
 	queue_redraw()
 
 
@@ -105,8 +107,12 @@ func _draw() -> void:
 
 
 func _pose() -> Dictionary:
-	return CompactPose.sample(_catalog.metadata.poses[weapon_id].hold, aim_angle,
+	var pose: Dictionary = CompactPose.sample(_catalog.metadata.poses[weapon_id].hold, aim_angle,
 		pixel_scale, facing, recoil, visual_angle)
+	var extension: Vector2 = Vector2(cos(aim_angle), sin(aim_angle)) * _attack_extension
+	pose.anchor += extension
+	pose.muzzle += extension
+	return pose
 
 
 func _draw_body(texture: Texture2D, frame: int, rows: int) -> void:

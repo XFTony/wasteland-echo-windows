@@ -46,6 +46,8 @@ func acquire(values: Dictionary = {}) -> Dictionary:
 		var attack: Variant = values.get("attackId")
 		item.attackId = int(attack) if (attack is float or attack is int) and is_finite(float(attack)) and float(attack) == floorf(float(attack)) else 0
 	elif _kind == "enemy":
+		item.erase("chillUntil")
+		item.erase("chillFactor")
 		for key: String in ["vx", "vy", "hitFlash", "hitCooldown", "dashTime", "navigationTime",
 			"bossPhase", "knockbackVX", "knockbackVY", "knockbackAttackCursor"]:
 			item[key] = 0

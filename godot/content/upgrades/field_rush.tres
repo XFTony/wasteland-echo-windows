@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_8dr4i"]
+
+[resource]
+script = ExtResource("1_8dr4i")
+content_id = &"fieldRush"
+category = &"upgrades"
+display_name = "战场步频"
+source_data = {
+"detail": "移动速度 +6% · 攻速 +4%",
+"family": "mobility",
+"glyph": "speed",
+"id": "fieldRush",
+"max": 4.0,
+"name": "战场步频",
+"rarity": "prototype",
+"unlockWave": 4.0
+}

@@ -138,11 +138,28 @@
 [ext_resource type="Resource" path="res://content/shop_items/buy_signal_charm.tres" id="136_07qym"]
 [ext_resource type="Resource" path="res://content/shop_items/buy_servo_greaves.tres" id="137_ch2xr"]
 [ext_resource type="Resource" path="res://content/shop_items/buy_stormstep_boots.tres" id="138_avqwr"]
+[ext_resource type="Resource" path="res://content/weapons/ratchet_crossbow.tres" id="139_203jw"]
 [ext_resource type="Script" path="res://scripts/content/game_catalog.gd" id="139_yrrra"]
+[ext_resource type="Resource" path="res://content/shop_items/buy_ratchet_crossbow.tres" id="140_ot2qp"]
+[ext_resource type="Resource" path="res://content/weapons/frost_projector.tres" id="141_a5tdd"]
+[ext_resource type="Resource" path="res://content/shop_items/buy_frost_projector.tres" id="142_fhcf4"]
+[ext_resource type="Resource" path="res://content/weapons/breach_spear.tres" id="143_8p545"]
+[ext_resource type="Resource" path="res://content/shop_items/buy_breach_spear.tres" id="144_txcrd"]
+[ext_resource type="Resource" path="res://content/weapons/rust_cleaver.tres" id="145_ps5uc"]
+[ext_resource type="Resource" path="res://content/shop_items/buy_rust_cleaver.tres" id="146_vxjln"]
+[ext_resource type="Resource" path="res://content/upgrades/crit_damage.tres" id="147_aqjij"]
+[ext_resource type="Resource" path="res://content/upgrades/kill_mend.tres" id="148_wkrns"]
+[ext_resource type="Resource" path="res://content/upgrades/melee_tempo.tres" id="149_twhwc"]
+[ext_resource type="Resource" path="res://content/upgrades/ricochet_coil.tres" id="150_6fdd3"]
+[ext_resource type="Resource" path="res://content/upgrades/chill_amplifier.tres" id="151_spuub"]
+[ext_resource type="Resource" path="res://content/upgrades/blast_focus.tres" id="152_esdli"]
+[ext_resource type="Resource" path="res://content/upgrades/field_rush.tres" id="153_3pkxb"]
+[ext_resource type="Resource" path="res://content/upgrades/pressure_barrel.tres" id="154_a6vxh"]
+[ext_resource type="Resource" path="res://content/mechanics/cryogenic.tres" id="155_wuffr"]
 
 [resource]
 script = ExtResource("139_yrrra")
-definitions = Array[ExtResource("1_ovpvi")]([ExtResource("2_y553u"), ExtResource("3_2rnui"), ExtResource("4_lxayq"), ExtResource("5_l0d7t"), ExtResource("6_j3n3h"), ExtResource("7_nlmbw"), ExtResource("8_bp6j5"), ExtResource("9_xwhg2"), ExtResource("10_3ux03"), ExtResource("11_2ks3m"), ExtResource("12_vrv4c"), ExtResource("13_jr5i8"), ExtResource("14_stqoi"), ExtResource("15_3tf7t"), ExtResource("16_yt2e0"), ExtResource("17_gifpc"), ExtResource("18_203jw"), ExtResource("19_ot2qp"), ExtResource("20_a5tdd"), ExtResource("21_fhcf4"), ExtResource("22_8p545"), ExtResource("23_txcrd"), ExtResource("24_ps5uc"), ExtResource("25_vxjln"), ExtResource("26_aqjij"), ExtResource("27_wkrns"), ExtResource("28_twhwc"), ExtResource("29_6fdd3"), ExtResource("30_spuub"), ExtResource("31_esdli"), ExtResource("32_3pkxb"), ExtResource("33_a6vxh"), ExtResource("34_wuffr"), ExtResource("35_xbdfa"), ExtResource("36_fo1do"), ExtResource("37_gkx0y"), ExtResource("38_bekvc"), ExtResource("39_8spkn"), ExtResource("40_33x8r"), ExtResource("41_1tc2q"), ExtResource("42_wfkyj"), ExtResource("43_8ok48"), ExtResource("44_xcv5i"), ExtResource("45_xt2r5"), ExtResource("46_vp3u0"), ExtResource("47_nck24"), ExtResource("48_4juax"), ExtResource("49_xdgsq"), ExtResource("50_siiqh"), ExtResource("51_yyehl"), ExtResource("52_8glry"), ExtResource("53_mbd4s"), ExtResource("54_jiw88"), ExtResource("55_3rqf4"), ExtResource("56_o3esl"), ExtResource("57_somyk"), ExtResource("58_dvsoj"), ExtResource("59_qu77i"), ExtResource("60_g53wi"), ExtResource("61_sjba0"), ExtResource("62_gor65"), ExtResource("63_vla03"), ExtResource("64_g87ta"), ExtResource("65_g8mdq"), ExtResource("66_si64e"), ExtResource("67_jjjt0"), ExtResource("68_88dt7"), ExtResource("69_2jvna"), ExtResource("70_j2m4b"), ExtResource("71_ldie3"), ExtResource("72_cpvnb"), ExtResource("73_cwtpy"), ExtResource("74_1cle8"), ExtResource("75_4mgc3"), ExtResource("76_ua1xs"), ExtResource("77_aviub"), ExtResource("78_tt50v"), ExtResource("79_rb5h1"), ExtResource("80_kii7c"), ExtResource("81_nvkd3"), ExtResource("82_rtue4"), ExtResource("83_7skdo"), ExtResource("84_vip4r"), ExtResource("85_am657"), ExtResource("86_r1pa3"), ExtResource("87_eh67r"), ExtResource("88_e8rms"), ExtResource("89_ynthu"), ExtResource("90_fi8yq"), ExtResource("91_fm0dt"), ExtResource("92_f8uob"), ExtResource("93_nlots"), ExtResource("94_67gci"), ExtResource("95_2np4x"), ExtResource("96_68anw"), ExtResource("97_7r3wo"), ExtResource("98_f58it"), ExtResource("99_2lmwj"), ExtResource("100_p4jfc"), ExtResource("101_phc8e"), ExtResource("102_gjoka"), ExtResource("103_qypiy"), ExtResource("104_twbby"), ExtResource("105_e66vn"), ExtResource("106_r5can"), ExtResource("107_c8so3"), ExtResource("108_5mgu0"), ExtResource("109_fpwct"), ExtResource("110_sh8wb"), ExtResource("111_r0o56"), ExtResource("112_qr45g"), ExtResource("113_1l0qk"), ExtResource("114_qf16q"), ExtResource("115_01ay7"), ExtResource("116_62eds"), ExtResource("117_nsbjo"), ExtResource("118_rv5ua"), ExtResource("119_wopek"), ExtResource("120_jwm3u"), ExtResource("121_f3wum"), ExtResource("122_jraf7"), ExtResource("123_tom40"), ExtResource("124_voqmw"), ExtResource("125_f46u0"), ExtResource("126_n22qa"), ExtResource("127_hprmw"), ExtResource("128_tnetd"), ExtResource("129_6oje1"), ExtResource("130_4ylw0"), ExtResource("131_fafuv"), ExtResource("132_usnwl"), ExtResource("133_lytfp"), ExtResource("134_lppod"), ExtResource("135_y0c8b"), ExtResource("136_07qym"), ExtResource("137_ch2xr"), ExtResource("138_avqwr")])
+definitions = Array[ExtResource("1_ovpvi")]([ExtResource("2_y553u"), ExtResource("3_2rnui"), ExtResource("4_lxayq"), ExtResource("5_l0d7t"), ExtResource("6_j3n3h"), ExtResource("7_nlmbw"), ExtResource("8_bp6j5"), ExtResource("9_xwhg2"), ExtResource("10_3ux03"), ExtResource("11_2ks3m"), ExtResource("12_vrv4c"), ExtResource("13_jr5i8"), ExtResource("14_stqoi"), ExtResource("15_3tf7t"), ExtResource("16_yt2e0"), ExtResource("17_gifpc"), ExtResource("18_203jw"), ExtResource("19_ot2qp"), ExtResource("20_a5tdd"), ExtResource("21_fhcf4"), ExtResource("22_8p545"), ExtResource("23_txcrd"), ExtResource("24_ps5uc"), ExtResource("25_vxjln"), ExtResource("26_aqjij"), ExtResource("27_wkrns"), ExtResource("28_twhwc"), ExtResource("29_6fdd3"), ExtResource("30_spuub"), ExtResource("31_esdli"), ExtResource("32_3pkxb"), ExtResource("33_a6vxh"), ExtResource("34_wuffr"), ExtResource("35_xbdfa"), ExtResource("36_fo1do"), ExtResource("37_gkx0y"), ExtResource("38_bekvc"), ExtResource("39_8spkn"), ExtResource("40_33x8r"), ExtResource("41_1tc2q"), ExtResource("42_wfkyj"), ExtResource("43_8ok48"), ExtResource("44_xcv5i"), ExtResource("45_xt2r5"), ExtResource("46_vp3u0"), ExtResource("47_nck24"), ExtResource("48_4juax"), ExtResource("49_xdgsq"), ExtResource("50_siiqh"), ExtResource("51_yyehl"), ExtResource("52_8glry"), ExtResource("53_mbd4s"), ExtResource("54_jiw88"), ExtResource("55_3rqf4"), ExtResource("56_o3esl"), ExtResource("57_somyk"), ExtResource("58_dvsoj"), ExtResource("59_qu77i"), ExtResource("60_g53wi"), ExtResource("61_sjba0"), ExtResource("62_gor65"), ExtResource("63_vla03"), ExtResource("64_g87ta"), ExtResource("65_g8mdq"), ExtResource("66_si64e"), ExtResource("67_jjjt0"), ExtResource("68_88dt7"), ExtResource("69_2jvna"), ExtResource("70_j2m4b"), ExtResource("71_ldie3"), ExtResource("72_cpvnb"), ExtResource("73_cwtpy"), ExtResource("74_1cle8"), ExtResource("75_4mgc3"), ExtResource("76_ua1xs"), ExtResource("77_aviub"), ExtResource("78_tt50v"), ExtResource("79_rb5h1"), ExtResource("80_kii7c"), ExtResource("81_nvkd3"), ExtResource("82_rtue4"), ExtResource("83_7skdo"), ExtResource("84_vip4r"), ExtResource("85_am657"), ExtResource("86_r1pa3"), ExtResource("87_eh67r"), ExtResource("88_e8rms"), ExtResource("89_ynthu"), ExtResource("90_fi8yq"), ExtResource("91_fm0dt"), ExtResource("92_f8uob"), ExtResource("93_nlots"), ExtResource("94_67gci"), ExtResource("95_2np4x"), ExtResource("96_68anw"), ExtResource("97_7r3wo"), ExtResource("98_f58it"), ExtResource("99_2lmwj"), ExtResource("100_p4jfc"), ExtResource("101_phc8e"), ExtResource("102_gjoka"), ExtResource("103_qypiy"), ExtResource("104_twbby"), ExtResource("105_e66vn"), ExtResource("106_r5can"), ExtResource("107_c8so3"), ExtResource("108_5mgu0"), ExtResource("109_fpwct"), ExtResource("110_sh8wb"), ExtResource("111_r0o56"), ExtResource("112_qr45g"), ExtResource("113_1l0qk"), ExtResource("114_qf16q"), ExtResource("115_01ay7"), ExtResource("116_62eds"), ExtResource("117_nsbjo"), ExtResource("118_rv5ua"), ExtResource("119_wopek"), ExtResource("120_jwm3u"), ExtResource("121_f3wum"), ExtResource("122_jraf7"), ExtResource("123_tom40"), ExtResource("124_voqmw"), ExtResource("125_f46u0"), ExtResource("126_n22qa"), ExtResource("127_hprmw"), ExtResource("128_tnetd"), ExtResource("129_6oje1"), ExtResource("130_4ylw0"), ExtResource("131_fafuv"), ExtResource("132_usnwl"), ExtResource("133_lytfp"), ExtResource("134_lppod"), ExtResource("135_y0c8b"), ExtResource("136_07qym"), ExtResource("137_ch2xr"), ExtResource("138_avqwr"), ExtResource("139_203jw"), ExtResource("140_ot2qp"), ExtResource("141_a5tdd"), ExtResource("142_fhcf4"), ExtResource("143_8p545"), ExtResource("144_txcrd"), ExtResource("145_ps5uc"), ExtResource("146_vxjln"), ExtResource("147_aqjij"), ExtResource("148_wkrns"), ExtResource("149_twhwc"), ExtResource("150_6fdd3"), ExtResource("151_spuub"), ExtResource("152_esdli"), ExtResource("153_3pkxb"), ExtResource("154_a6vxh"), ExtResource("155_wuffr")])
 defaults = {
 "enemy": "drifter",
 "equipment": "field_vest",
@@ -2227,6 +2244,34 @@ metadata = {
 "sha256": "20861A6623D6D4D5C479B31B12851C0613673DF555490D6EF46BFAC01180E85C",
 "source": "Original short ricochet transient",
 "src": "./assets/audio/arsenal-v2/ricochet.wav"
+}, {
+"id": "ratchet_crossbow",
+"resourcePath": "res://assets/audio/survival-v2/ratchet_crossbow.wav",
+"role": "shot",
+"seconds": 0.2,
+"source": "Project original offline synthesis; no third-party samples",
+"src": "./assets/audio/survival-v2/ratchet_crossbow.wav"
+}, {
+"id": "frost_projector",
+"resourcePath": "res://assets/audio/survival-v2/frost_projector.wav",
+"role": "shot",
+"seconds": 0.2,
+"source": "Project original offline synthesis; no third-party samples",
+"src": "./assets/audio/survival-v2/frost_projector.wav"
+}, {
+"id": "breach_spear",
+"resourcePath": "res://assets/audio/survival-v2/breach_spear.wav",
+"role": "melee",
+"seconds": 0.2,
+"source": "Project original offline synthesis; no third-party samples",
+"src": "./assets/audio/survival-v2/breach_spear.wav"
+}, {
+"id": "rust_cleaver",
+"resourcePath": "res://assets/audio/survival-v2/rust_cleaver.wav",
+"role": "melee",
+"seconds": 0.28,
+"source": "Project original offline synthesis; no third-party samples",
+"src": "./assets/audio/survival-v2/rust_cleaver.wav"
 }],
 "baseline": "ef7d50d",
 "casings": {
@@ -4042,6 +4087,23 @@ metadata = {
 "wood": "#795840"
 },
 "nativeWeapons": {
+"breach_spear": {
+&"asset": "native.breach_spear",
+"family": "spear",
+"height": 20.0,
+"hold": {
+"aimOffsetX": 0.0,
+"chestY": -8.0,
+"upLift": 0.0,
+"upShoulder": 0.0
+},
+"muzzle": [84.0, 10.0],
+"pivot": [23.0, 10.0],
+"primaryGrip": [23.0, 11.0],
+"shapes": [[1.0, 8.0, 65.0, 5.0, "ink"], [3.0, 9.0, 62.0, 3.0, "wood"], [5.0, 9.0, 55.0, 1.0, "light"], [18.0, 8.0, 3.0, 5.0, "brass"], [24.0, 8.0, 2.0, 5.0, "dark"], [35.0, 8.0, 3.0, 5.0, "brass"], [43.0, 8.0, 2.0, 5.0, "dark"], [58.0, 7.0, 7.0, 7.0, "ink"], [60.0, 8.0, 4.0, 5.0, "steel"], [64.0, 5.0, 9.0, 11.0, "ink"], [66.0, 6.0, 9.0, 9.0, "steel"], [69.0, 5.0, 7.0, 3.0, "light"], [73.0, 6.0, 5.0, 8.0, "ink"], [74.0, 7.0, 5.0, 6.0, "steel"], [78.0, 7.0, 3.0, 6.0, "ink"], [79.0, 8.0, 3.0, 4.0, "light"], [82.0, 9.0, 3.0, 2.0, "steel"], [85.0, 9.0, 1.0, 1.0, "light"], [68.0, 12.0, 6.0, 2.0, "rust"]],
+"supportGrip": [43.0, 11.0],
+"width": 86.0
+},
 "echo_blade": {
 "family": "blade",
 "height": 20.0,
@@ -4056,6 +4118,23 @@ metadata = {
 "primaryGrip": [13.0, 11.0],
 "shapes": [[1.0, 8.0, 15.0, 6.0, "ink"], [3.0, 9.0, 12.0, 4.0, "wood"], [5.0, 8.0, 2.0, 6.0, "brass"], [10.0, 8.0, 2.0, 6.0, "brass"], [15.0, 3.0, 4.0, 15.0, "ink"], [16.0, 5.0, 2.0, 11.0, "brass"], [18.0, 6.0, 29.0, 9.0, "ink"], [20.0, 7.0, 28.0, 6.0, "steel"], [21.0, 7.0, 25.0, 2.0, "light"], [20.0, 12.0, 24.0, 2.0, "teal"], [46.0, 6.0, 6.0, 8.0, "ink"], [47.0, 7.0, 5.0, 5.0, "steel"], [51.0, 7.0, 3.0, 5.0, "ink"], [52.0, 8.0, 3.0, 3.0, "light"], [55.0, 9.0, 2.0, 1.0, "light"], [24.0, 9.0, 2.0, 2.0, "dark"], [36.0, 9.0, 3.0, 2.0, "dark"]],
 "supportGrip": [13.0, 11.0],
+"width": 58.0
+},
+"frost_projector": {
+&"asset": "native.frost_projector",
+"family": "cryo",
+"height": 30.0,
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -12.0,
+"upLift": 3.0,
+"upShoulder": 14.0
+},
+"muzzle": [56.0, 15.0],
+"pivot": [12.0, 16.0],
+"primaryGrip": [12.0, 18.0],
+"shapes": [[3.0, 12.0, 46.0, 11.0, "ink"], [6.0, 14.0, 38.0, 7.0, "olive"], [17.0, 8.0, 22.0, 6.0, "ink"], [20.0, 4.0, 15.0, 9.0, "dark"], [22.0, 5.0, 11.0, 8.0, "teal"], [24.0, 6.0, 6.0, 5.0, "glow"], [20.0, 3.0, 15.0, 3.0, "steel"], [20.0, 12.0, 15.0, 3.0, "brass"], [10.0, 21.0, 7.0, 7.0, "ink"], [11.0, 22.0, 4.0, 4.0, "wood"], [26.0, 20.0, 14.0, 7.0, "ink"], [28.0, 21.0, 10.0, 4.0, "teal"], [43.0, 10.0, 9.0, 14.0, "ink"], [45.0, 12.0, 7.0, 10.0, "steel"], [49.0, 13.0, 5.0, 8.0, "teal"], [53.0, 12.0, 4.0, 11.0, "ink"], [54.0, 14.0, 3.0, 7.0, "glow"], [8.0, 14.0, 5.0, 2.0, "light"], [36.0, 15.0, 5.0, 2.0, "brass"]],
+"supportGrip": [29.0, 18.0],
 "width": 58.0
 },
 "prism_laser": {
@@ -4073,6 +4152,40 @@ metadata = {
 "shapes": [[1.0, 5.0, 15.0, 10.0, "ink"], [3.0, 6.0, 10.0, 6.0, "wood"], [11.0, 3.0, 30.0, 15.0, "ink"], [13.0, 5.0, 26.0, 10.0, "dark"], [15.0, 5.0, 4.0, 8.0, "brass"], [21.0, 4.0, 3.0, 10.0, "teal"], [27.0, 4.0, 3.0, 10.0, "teal"], [33.0, 4.0, 3.0, 10.0, "teal"], [20.0, 5.0, 16.0, 2.0, "glow"], [37.0, 5.0, 14.0, 7.0, "ink"], [39.0, 6.0, 10.0, 4.0, "steel"], [47.0, 5.0, 3.0, 7.0, "brass"], [18.0, 15.0, 7.0, 7.0, "ink"], [19.0, 16.0, 4.0, 5.0, "olive"], [10.0, 1.0, 13.0, 3.0, "ink"], [12.0, 1.0, 9.0, 1.0, "steel"]],
 "supportGrip": [34.0, 13.0],
 "width": 52.0
+},
+"ratchet_crossbow": {
+&"asset": "native.ratchet_crossbow",
+"family": "crossbow",
+"height": 32.0,
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -12.0,
+"upLift": 3.0,
+"upShoulder": 14.0
+},
+"muzzle": [61.0, 16.0],
+"pivot": [13.0, 16.0],
+"primaryGrip": [13.0, 18.0],
+"shapes": [[2.0, 13.0, 41.0, 8.0, "ink"], [4.0, 15.0, 32.0, 4.0, "wood"], [9.0, 14.0, 4.0, 6.0, "brass"], [18.0, 13.0, 3.0, 8.0, "brass"], [37.0, 2.0, 7.0, 28.0, "ink"], [39.0, 4.0, 3.0, 24.0, "steel"], [42.0, 5.0, 5.0, 5.0, "ink"], [43.0, 7.0, 3.0, 4.0, "light"], [46.0, 9.0, 4.0, 5.0, "ink"], [47.0, 11.0, 3.0, 4.0, "brass"], [42.0, 22.0, 5.0, 6.0, "ink"], [43.0, 22.0, 3.0, 4.0, "steel"], [46.0, 19.0, 5.0, 5.0, "ink"], [47.0, 19.0, 3.0, 3.0, "light"], [32.0, 7.0, 2.0, 18.0, "light"], [26.0, 15.0, 35.0, 2.0, "dark"], [29.0, 15.0, 31.0, 1.0, "light"], [56.0, 14.0, 5.0, 4.0, "steel"], [60.0, 15.0, 2.0, 2.0, "light"], [6.0, 20.0, 10.0, 5.0, "ink"], [8.0, 20.0, 5.0, 3.0, "wood"]],
+"supportGrip": [29.0, 18.0],
+"width": 64.0
+},
+"rust_cleaver": {
+&"asset": "native.rust_cleaver",
+"family": "axe",
+"height": 40.0,
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -12.0,
+"upLift": 3.0,
+"upShoulder": 14.0
+},
+"muzzle": [60.0, 21.0],
+"pivot": [14.0, 22.0],
+"primaryGrip": [14.0, 23.0],
+"shapes": [[2.0, 20.0, 48.0, 7.0, "ink"], [4.0, 22.0, 43.0, 3.0, "wood"], [6.0, 22.0, 34.0, 1.0, "light"], [10.0, 20.0, 3.0, 7.0, "brass"], [18.0, 21.0, 2.0, 5.0, "dark"], [27.0, 20.0, 3.0, 7.0, "brass"], [38.0, 18.0, 9.0, 12.0, "ink"], [40.0, 20.0, 5.0, 8.0, "steel"], [52.0, 2.0, 4.0, 1.0, "ink"], [49.0, 3.0, 8.0, 1.0, "ink"], [48.0, 4.0, 10.0, 1.0, "ink"], [46.0, 5.0, 13.0, 1.0, "ink"], [45.0, 6.0, 15.0, 1.0, "ink"], [44.0, 7.0, 16.0, 1.0, "ink"], [43.0, 8.0, 18.0, 1.0, "ink"], [43.0, 9.0, 18.0, 1.0, "ink"], [43.0, 10.0, 18.0, 1.0, "ink"], [43.0, 11.0, 19.0, 1.0, "ink"], [43.0, 12.0, 19.0, 1.0, "ink"], [43.0, 13.0, 20.0, 1.0, "ink"], [44.0, 14.0, 19.0, 1.0, "ink"], [46.0, 15.0, 17.0, 1.0, "ink"], [48.0, 16.0, 15.0, 1.0, "ink"], [48.0, 17.0, 15.0, 1.0, "ink"], [48.0, 18.0, 15.0, 1.0, "ink"], [49.0, 19.0, 14.0, 1.0, "ink"], [49.0, 20.0, 13.0, 1.0, "ink"], [49.0, 21.0, 13.0, 1.0, "ink"], [49.0, 22.0, 13.0, 1.0, "ink"], [49.0, 23.0, 12.0, 1.0, "ink"], [48.0, 24.0, 13.0, 1.0, "ink"], [48.0, 25.0, 12.0, 1.0, "ink"], [48.0, 26.0, 12.0, 1.0, "ink"], [47.0, 27.0, 13.0, 1.0, "ink"], [46.0, 28.0, 13.0, 1.0, "ink"], [44.0, 29.0, 14.0, 1.0, "ink"], [43.0, 30.0, 14.0, 1.0, "ink"], [43.0, 31.0, 13.0, 1.0, "ink"], [44.0, 32.0, 11.0, 1.0, "ink"], [45.0, 33.0, 8.0, 1.0, "ink"], [46.0, 34.0, 3.0, 1.0, "ink"], [53.0, 4.0, 3.0, 1.0, "steel"], [50.0, 5.0, 7.0, 1.0, "steel"], [49.0, 6.0, 8.0, 1.0, "steel"], [47.0, 7.0, 11.0, 1.0, "steel"], [46.0, 8.0, 12.0, 1.0, "steel"], [45.0, 9.0, 14.0, 1.0, "steel"], [45.0, 10.0, 14.0, 1.0, "steel"], [45.0, 11.0, 15.0, 1.0, "steel"], [45.0, 12.0, 15.0, 1.0, "steel"], [46.0, 13.0, 15.0, 1.0, "steel"], [48.0, 14.0, 13.0, 1.0, "steel"], [50.0, 15.0, 11.0, 1.0, "steel"], [50.0, 16.0, 11.0, 1.0, "steel"], [50.0, 17.0, 11.0, 1.0, "steel"], [51.0, 18.0, 10.0, 1.0, "steel"], [51.0, 19.0, 10.0, 1.0, "steel"], [51.0, 20.0, 9.0, 1.0, "steel"], [51.0, 21.0, 9.0, 1.0, "steel"], [51.0, 22.0, 8.0, 1.0, "steel"], [51.0, 23.0, 8.0, 1.0, "steel"], [50.0, 24.0, 9.0, 1.0, "steel"], [50.0, 25.0, 8.0, 1.0, "steel"], [50.0, 26.0, 8.0, 1.0, "steel"], [50.0, 27.0, 7.0, 1.0, "steel"], [49.0, 28.0, 7.0, 1.0, "steel"], [48.0, 29.0, 7.0, 1.0, "steel"], [47.0, 30.0, 7.0, 1.0, "steel"], [47.0, 31.0, 5.0, 1.0, "steel"], [47.0, 32.0, 2.0, 1.0, "steel"], [57.0, 7.0, 1.0, 1.0, "light"], [57.0, 8.0, 1.0, 1.0, "light"], [58.0, 9.0, 1.0, 1.0, "light"], [58.0, 10.0, 1.0, 1.0, "light"], [58.0, 11.0, 2.0, 1.0, "light"], [58.0, 12.0, 2.0, 1.0, "light"], [58.0, 13.0, 3.0, 1.0, "light"], [58.0, 14.0, 3.0, 1.0, "light"], [58.0, 15.0, 3.0, 1.0, "light"], [58.0, 16.0, 3.0, 1.0, "light"], [58.0, 17.0, 3.0, 1.0, "light"], [58.0, 18.0, 3.0, 1.0, "light"], [58.0, 19.0, 3.0, 1.0, "light"], [58.0, 20.0, 3.0, 1.0, "light"], [58.0, 21.0, 3.0, 1.0, "light"], [57.0, 22.0, 4.0, 1.0, "light"], [57.0, 23.0, 3.0, 1.0, "light"], [56.0, 24.0, 4.0, 1.0, "light"], [56.0, 25.0, 3.0, 1.0, "light"], [55.0, 26.0, 4.0, 1.0, "light"], [54.0, 27.0, 4.0, 1.0, "light"], [53.0, 28.0, 4.0, 1.0, "light"], [52.0, 29.0, 5.0, 1.0, "light"], [51.0, 30.0, 5.0, 1.0, "light"], [51.0, 31.0, 3.0, 1.0, "light"], [51.0, 32.0, 1.0, 1.0, "light"], [50.0, 11.0, 3.0, 2.0, "rust"], [52.0, 17.0, 2.0, 3.0, "dark"], [48.0, 27.0, 2.0, 2.0, "rust"]],
+"supportGrip": [31.0, 23.0],
+"width": 64.0
 },
 "saw_disc": {
 "family": "heavy",
@@ -4150,6 +4263,189 @@ metadata = {
 "white": "#f2e6c5"
 },
 "poses": {
+"breach_spear": {
+"definition": {
+"combat": {
+"activeTime": 0.12,
+"arc": 0.41887902047863906,
+"attackStyle": "thrust",
+"attackType": "slash",
+"blocksProjectiles": false,
+"color": "#b8c0ad",
+"damage": 28.0,
+"description": "126范围、24度窄扇刺击；无剑气，不消除敌弹",
+"id": "breach_spear",
+"interval": 0.64,
+"knockback": 38.0,
+"lockRange": 126.0,
+"mechanicId": "slash",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 32.0,
+"muzzleParticles": 2.0,
+"name": "破阵长矛",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 1.0,
+"rangeBand": "close",
+"reach": 126.0,
+"recoil": 0.3,
+"recovery": 0.16,
+"restTipReach": 91.5,
+"shellColor": "#b18b50",
+"shellLength": 0.0,
+"shellLife": 0.0,
+"spread": 0.0,
+"ttl": 0.9,
+"visualId": "breach-spear",
+"waveDamage": 0.0,
+"weaponClass": "spear",
+"windup": 0.12
+},
+"id": "breach_spear",
+"name": "破阵长矛",
+"version": "survival-v1",
+"visual": {
+&"asset": "native.breach_spear",
+"family": "spear",
+"height": 20.0,
+"hold": {
+"aimOffsetX": 0.0,
+"chestY": -8.0,
+"upLift": 0.0,
+"upShoulder": 0.0
+},
+"muzzle": [84.0, 10.0],
+"pivot": [23.0, 10.0],
+"primaryGrip": [23.0, 11.0],
+"shapes": [[1.0, 8.0, 65.0, 5.0, "ink"], [3.0, 9.0, 62.0, 3.0, "wood"], [5.0, 9.0, 55.0, 1.0, "light"], [18.0, 8.0, 3.0, 5.0, "brass"], [24.0, 8.0, 2.0, 5.0, "dark"], [35.0, 8.0, 3.0, 5.0, "brass"], [43.0, 8.0, 2.0, 5.0, "dark"], [58.0, 7.0, 7.0, 7.0, "ink"], [60.0, 8.0, 4.0, 5.0, "steel"], [64.0, 5.0, 9.0, 11.0, "ink"], [66.0, 6.0, 9.0, 9.0, "steel"], [69.0, 5.0, 7.0, 3.0, "light"], [73.0, 6.0, 5.0, 8.0, "ink"], [74.0, 7.0, 5.0, 6.0, "steel"], [78.0, 7.0, 3.0, 6.0, "ink"], [79.0, 8.0, 3.0, 4.0, "light"], [82.0, 9.0, 3.0, 2.0, "steel"], [85.0, 9.0, 1.0, 1.0, "light"], [68.0, 12.0, 6.0, 2.0, "rust"]],
+"supportGrip": [43.0, 11.0],
+"width": 86.0
+}
+},
+"hold": {
+"aimOffsetX": 0.0,
+"chestY": -8.0,
+"height": 20.0,
+"muzzle": [84.0, 10.0],
+"pivot": [23.0, 10.0],
+"recoil": 0.3,
+"upLift": 0.0,
+"upShoulder": 0.0,
+"width": 86.0
+},
+"layout": {
+"height": 20.0,
+"layers": [{
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 5.0,
+"kind": "hand",
+"rect": [44.0, 0.0, 7.0, 5.0],
+"slot": "primary",
+"width": 7.0,
+"x": 21.0,
+"y": 9.0
+}, {
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 5.0,
+"kind": "cuff",
+"rect": [26.0, 0.0, 4.0, 5.0],
+"slot": "primary",
+"width": 4.0,
+"x": 18.0,
+"y": 10.0
+}, {
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "back",
+"height": 5.0,
+"kind": "hand",
+"rect": [44.0, 0.0, 7.0, 5.0],
+"slot": "support",
+"width": 7.0,
+"x": 41.0,
+"y": 9.0
+}, {
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "back",
+"height": 5.0,
+"kind": "cuff",
+"rect": [26.0, 0.0, 4.0, 5.0],
+"slot": "support",
+"width": 4.0,
+"x": 38.0,
+"y": 10.0
+}],
+"muzzle": [84.0, 10.0],
+"origin": [0, 0],
+"pivot": [23.0, 10.0],
+"weapon": {
+"combat": {
+"activeTime": 0.12,
+"arc": 0.41887902047863906,
+"attackStyle": "thrust",
+"attackType": "slash",
+"blocksProjectiles": false,
+"color": "#b8c0ad",
+"damage": 28.0,
+"description": "126范围、24度窄扇刺击；无剑气，不消除敌弹",
+"id": "breach_spear",
+"interval": 0.64,
+"knockback": 38.0,
+"lockRange": 126.0,
+"mechanicId": "slash",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 32.0,
+"muzzleParticles": 2.0,
+"name": "破阵长矛",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 1.0,
+"rangeBand": "close",
+"reach": 126.0,
+"recoil": 0.3,
+"recovery": 0.16,
+"restTipReach": 91.5,
+"shellColor": "#b18b50",
+"shellLength": 0.0,
+"shellLife": 0.0,
+"spread": 0.0,
+"ttl": 0.9,
+"visualId": "breach-spear",
+"waveDamage": 0.0,
+"weaponClass": "spear",
+"windup": 0.12
+},
+"id": "breach_spear",
+"name": "破阵长矛",
+"version": "survival-v1",
+"visual": {
+&"asset": "native.breach_spear",
+"family": "spear",
+"height": 20.0,
+"hold": {
+"aimOffsetX": 0.0,
+"chestY": -8.0,
+"upLift": 0.0,
+"upShoulder": 0.0
+},
+"muzzle": [84.0, 10.0],
+"pivot": [23.0, 10.0],
+"primaryGrip": [23.0, 11.0],
+"shapes": [[1.0, 8.0, 65.0, 5.0, "ink"], [3.0, 9.0, 62.0, 3.0, "wood"], [5.0, 9.0, 55.0, 1.0, "light"], [18.0, 8.0, 3.0, 5.0, "brass"], [24.0, 8.0, 2.0, 5.0, "dark"], [35.0, 8.0, 3.0, 5.0, "brass"], [43.0, 8.0, 2.0, 5.0, "dark"], [58.0, 7.0, 7.0, 7.0, "ink"], [60.0, 8.0, 4.0, 5.0, "steel"], [64.0, 5.0, 9.0, 11.0, "ink"], [66.0, 6.0, 9.0, 9.0, "steel"], [69.0, 5.0, 7.0, 3.0, "light"], [73.0, 6.0, 5.0, 8.0, "ink"], [74.0, 7.0, 5.0, 6.0, "steel"], [78.0, 7.0, 3.0, 6.0, "ink"], [79.0, 8.0, 3.0, 4.0, "light"], [82.0, 9.0, 3.0, 2.0, "steel"], [85.0, 9.0, 1.0, 1.0, "light"], [68.0, 12.0, 6.0, 2.0, "rust"]],
+"supportGrip": [43.0, 11.0],
+"width": 86.0
+}
+},
+"width": 86.0
+}
+},
 "breaker_shotgun": {
 "definition": {
 "combat": {
@@ -4702,6 +4998,173 @@ metadata = {
 "width": 46.0
 }
 },
+"frost_projector": {
+"definition": {
+"combat": {
+"color": "#90cddd",
+"damage": 11.0,
+"description": "命中减速30%持续1.2秒；首领减速10%且时长减半",
+"id": "frost_projector",
+"interval": 0.46,
+"knockback": 14.0,
+"lockRange": 430.0,
+"mechanicId": "cryogenic",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 32.0,
+"muzzleParticles": 2.0,
+"name": "霜凝喷射器",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 520.0,
+"rangeBand": "mid",
+"recoil": 1.0,
+"shellColor": "#b18b50",
+"shellLength": 0.0,
+"shellLife": 0.0,
+"slowDuration": 1.2,
+"slowFactor": 0.7,
+"spread": 0.0,
+"ttl": 0.9,
+"visualId": "frost-projector",
+"weaponClass": "elemental"
+},
+"id": "frost_projector",
+"name": "霜凝喷射器",
+"version": "survival-v1",
+"visual": {
+&"asset": "native.frost_projector",
+"family": "cryo",
+"height": 30.0,
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -12.0,
+"upLift": 3.0,
+"upShoulder": 14.0
+},
+"muzzle": [56.0, 15.0],
+"pivot": [12.0, 16.0],
+"primaryGrip": [12.0, 18.0],
+"shapes": [[3.0, 12.0, 46.0, 11.0, "ink"], [6.0, 14.0, 38.0, 7.0, "olive"], [17.0, 8.0, 22.0, 6.0, "ink"], [20.0, 4.0, 15.0, 9.0, "dark"], [22.0, 5.0, 11.0, 8.0, "teal"], [24.0, 6.0, 6.0, 5.0, "glow"], [20.0, 3.0, 15.0, 3.0, "steel"], [20.0, 12.0, 15.0, 3.0, "brass"], [10.0, 21.0, 7.0, 7.0, "ink"], [11.0, 22.0, 4.0, 4.0, "wood"], [26.0, 20.0, 14.0, 7.0, "ink"], [28.0, 21.0, 10.0, 4.0, "teal"], [43.0, 10.0, 9.0, 14.0, "ink"], [45.0, 12.0, 7.0, 10.0, "steel"], [49.0, 13.0, 5.0, 8.0, "teal"], [53.0, 12.0, 4.0, 11.0, "ink"], [54.0, 14.0, 3.0, 7.0, "glow"], [8.0, 14.0, 5.0, 2.0, "light"], [36.0, 15.0, 5.0, 2.0, "brass"]],
+"supportGrip": [29.0, 18.0],
+"width": 58.0
+}
+},
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -12.0,
+"height": 30.0,
+"muzzle": [56.0, 15.0],
+"pivot": [12.0, 16.0],
+"recoil": 1.0,
+"upLift": 3.0,
+"upShoulder": 14.0,
+"width": 58.0
+},
+"layout": {
+"height": 30.0,
+"layers": [{
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 5.0,
+"kind": "hand",
+"rect": [44.0, 0.0, 7.0, 5.0],
+"slot": "primary",
+"width": 7.0,
+"x": 10.0,
+"y": 16.0
+}, {
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 5.0,
+"kind": "cuff",
+"rect": [26.0, 0.0, 4.0, 5.0],
+"slot": "primary",
+"width": 4.0,
+"x": 7.0,
+"y": 17.0
+}, {
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "back",
+"height": 5.0,
+"kind": "hand",
+"rect": [44.0, 0.0, 7.0, 5.0],
+"slot": "support",
+"width": 7.0,
+"x": 27.0,
+"y": 16.0
+}, {
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "back",
+"height": 5.0,
+"kind": "cuff",
+"rect": [26.0, 0.0, 4.0, 5.0],
+"slot": "support",
+"width": 4.0,
+"x": 24.0,
+"y": 17.0
+}],
+"muzzle": [56.0, 15.0],
+"origin": [0, 0],
+"pivot": [12.0, 16.0],
+"weapon": {
+"combat": {
+"color": "#90cddd",
+"damage": 11.0,
+"description": "命中减速30%持续1.2秒；首领减速10%且时长减半",
+"id": "frost_projector",
+"interval": 0.46,
+"knockback": 14.0,
+"lockRange": 430.0,
+"mechanicId": "cryogenic",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 32.0,
+"muzzleParticles": 2.0,
+"name": "霜凝喷射器",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 520.0,
+"rangeBand": "mid",
+"recoil": 1.0,
+"shellColor": "#b18b50",
+"shellLength": 0.0,
+"shellLife": 0.0,
+"slowDuration": 1.2,
+"slowFactor": 0.7,
+"spread": 0.0,
+"ttl": 0.9,
+"visualId": "frost-projector",
+"weaponClass": "elemental"
+},
+"id": "frost_projector",
+"name": "霜凝喷射器",
+"version": "survival-v1",
+"visual": {
+&"asset": "native.frost_projector",
+"family": "cryo",
+"height": 30.0,
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -12.0,
+"upLift": 3.0,
+"upShoulder": 14.0
+},
+"muzzle": [56.0, 15.0],
+"pivot": [12.0, 16.0],
+"primaryGrip": [12.0, 18.0],
+"shapes": [[3.0, 12.0, 46.0, 11.0, "ink"], [6.0, 14.0, 38.0, 7.0, "olive"], [17.0, 8.0, 22.0, 6.0, "ink"], [20.0, 4.0, 15.0, 9.0, "dark"], [22.0, 5.0, 11.0, 8.0, "teal"], [24.0, 6.0, 6.0, 5.0, "glow"], [20.0, 3.0, 15.0, 3.0, "steel"], [20.0, 12.0, 15.0, 3.0, "brass"], [10.0, 21.0, 7.0, 7.0, "ink"], [11.0, 22.0, 4.0, 4.0, "wood"], [26.0, 20.0, 14.0, 7.0, "ink"], [28.0, 21.0, 10.0, 4.0, "teal"], [43.0, 10.0, 9.0, 14.0, "ink"], [45.0, 12.0, 7.0, 10.0, "steel"], [49.0, 13.0, 5.0, 8.0, "teal"], [53.0, 12.0, 4.0, 11.0, "ink"], [54.0, 14.0, 3.0, 7.0, "glow"], [8.0, 14.0, 5.0, 2.0, "light"], [36.0, 15.0, 5.0, 2.0, "brass"]],
+"supportGrip": [29.0, 18.0],
+"width": 58.0
+}
+},
+"width": 58.0
+}
+},
 "needle_rifle": {
 "definition": {
 "combat": {
@@ -4998,6 +5461,348 @@ metadata = {
 }
 },
 "width": 52.0
+}
+},
+"ratchet_crossbow": {
+"definition": {
+"combat": {
+"color": "#c6b47d",
+"damage": 28.0,
+"description": "机械弩矢穿透2次；每第四次射击强化，无普通抛壳",
+"id": "ratchet_crossbow",
+"interval": 0.68,
+"knockback": 35.0,
+"lockRange": 560.0,
+"mechanicId": "steady_cycle",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 32.0,
+"muzzleParticles": 2.0,
+"name": "棘轮连弩",
+"pierce": 2.0,
+"projectileCount": 1.0,
+"projectileSpeed": 640.0,
+"rangeBand": "long",
+"recoil": 1.5,
+"shellColor": "#b18b50",
+"shellLength": 0.0,
+"shellLife": 0.0,
+"spread": 0.0,
+"ttl": 0.9,
+"visualId": "ratchet-crossbow",
+"weaponClass": "crossbow"
+},
+"id": "ratchet_crossbow",
+"name": "棘轮连弩",
+"version": "survival-v1",
+"visual": {
+&"asset": "native.ratchet_crossbow",
+"family": "crossbow",
+"height": 32.0,
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -12.0,
+"upLift": 3.0,
+"upShoulder": 14.0
+},
+"muzzle": [61.0, 16.0],
+"pivot": [13.0, 16.0],
+"primaryGrip": [13.0, 18.0],
+"shapes": [[2.0, 13.0, 41.0, 8.0, "ink"], [4.0, 15.0, 32.0, 4.0, "wood"], [9.0, 14.0, 4.0, 6.0, "brass"], [18.0, 13.0, 3.0, 8.0, "brass"], [37.0, 2.0, 7.0, 28.0, "ink"], [39.0, 4.0, 3.0, 24.0, "steel"], [42.0, 5.0, 5.0, 5.0, "ink"], [43.0, 7.0, 3.0, 4.0, "light"], [46.0, 9.0, 4.0, 5.0, "ink"], [47.0, 11.0, 3.0, 4.0, "brass"], [42.0, 22.0, 5.0, 6.0, "ink"], [43.0, 22.0, 3.0, 4.0, "steel"], [46.0, 19.0, 5.0, 5.0, "ink"], [47.0, 19.0, 3.0, 3.0, "light"], [32.0, 7.0, 2.0, 18.0, "light"], [26.0, 15.0, 35.0, 2.0, "dark"], [29.0, 15.0, 31.0, 1.0, "light"], [56.0, 14.0, 5.0, 4.0, "steel"], [60.0, 15.0, 2.0, 2.0, "light"], [6.0, 20.0, 10.0, 5.0, "ink"], [8.0, 20.0, 5.0, 3.0, "wood"]],
+"supportGrip": [29.0, 18.0],
+"width": 64.0
+}
+},
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -12.0,
+"height": 32.0,
+"muzzle": [61.0, 16.0],
+"pivot": [13.0, 16.0],
+"recoil": 1.5,
+"upLift": 3.0,
+"upShoulder": 14.0,
+"width": 64.0
+},
+"layout": {
+"height": 32.0,
+"layers": [{
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 5.0,
+"kind": "hand",
+"rect": [44.0, 0.0, 7.0, 5.0],
+"slot": "primary",
+"width": 7.0,
+"x": 11.0,
+"y": 16.0
+}, {
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 5.0,
+"kind": "cuff",
+"rect": [26.0, 0.0, 4.0, 5.0],
+"slot": "primary",
+"width": 4.0,
+"x": 8.0,
+"y": 17.0
+}, {
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "back",
+"height": 5.0,
+"kind": "hand",
+"rect": [44.0, 0.0, 7.0, 5.0],
+"slot": "support",
+"width": 7.0,
+"x": 27.0,
+"y": 16.0
+}, {
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "back",
+"height": 5.0,
+"kind": "cuff",
+"rect": [26.0, 0.0, 4.0, 5.0],
+"slot": "support",
+"width": 4.0,
+"x": 24.0,
+"y": 17.0
+}],
+"muzzle": [61.0, 16.0],
+"origin": [0, 0],
+"pivot": [13.0, 16.0],
+"weapon": {
+"combat": {
+"color": "#c6b47d",
+"damage": 28.0,
+"description": "机械弩矢穿透2次；每第四次射击强化，无普通抛壳",
+"id": "ratchet_crossbow",
+"interval": 0.68,
+"knockback": 35.0,
+"lockRange": 560.0,
+"mechanicId": "steady_cycle",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 32.0,
+"muzzleParticles": 2.0,
+"name": "棘轮连弩",
+"pierce": 2.0,
+"projectileCount": 1.0,
+"projectileSpeed": 640.0,
+"rangeBand": "long",
+"recoil": 1.5,
+"shellColor": "#b18b50",
+"shellLength": 0.0,
+"shellLife": 0.0,
+"spread": 0.0,
+"ttl": 0.9,
+"visualId": "ratchet-crossbow",
+"weaponClass": "crossbow"
+},
+"id": "ratchet_crossbow",
+"name": "棘轮连弩",
+"version": "survival-v1",
+"visual": {
+&"asset": "native.ratchet_crossbow",
+"family": "crossbow",
+"height": 32.0,
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -12.0,
+"upLift": 3.0,
+"upShoulder": 14.0
+},
+"muzzle": [61.0, 16.0],
+"pivot": [13.0, 16.0],
+"primaryGrip": [13.0, 18.0],
+"shapes": [[2.0, 13.0, 41.0, 8.0, "ink"], [4.0, 15.0, 32.0, 4.0, "wood"], [9.0, 14.0, 4.0, 6.0, "brass"], [18.0, 13.0, 3.0, 8.0, "brass"], [37.0, 2.0, 7.0, 28.0, "ink"], [39.0, 4.0, 3.0, 24.0, "steel"], [42.0, 5.0, 5.0, 5.0, "ink"], [43.0, 7.0, 3.0, 4.0, "light"], [46.0, 9.0, 4.0, 5.0, "ink"], [47.0, 11.0, 3.0, 4.0, "brass"], [42.0, 22.0, 5.0, 6.0, "ink"], [43.0, 22.0, 3.0, 4.0, "steel"], [46.0, 19.0, 5.0, 5.0, "ink"], [47.0, 19.0, 3.0, 3.0, "light"], [32.0, 7.0, 2.0, 18.0, "light"], [26.0, 15.0, 35.0, 2.0, "dark"], [29.0, 15.0, 31.0, 1.0, "light"], [56.0, 14.0, 5.0, 4.0, "steel"], [60.0, 15.0, 2.0, 2.0, "light"], [6.0, 20.0, 10.0, 5.0, "ink"], [8.0, 20.0, 5.0, 3.0, "wood"]],
+"supportGrip": [29.0, 18.0],
+"width": 64.0
+}
+},
+"width": 64.0
+}
+},
+"rust_cleaver": {
+"definition": {
+"combat": {
+"activeTime": 0.2,
+"arc": 2.5307274153917776,
+"attackType": "slash",
+"blocksProjectiles": true,
+"color": "#c4ae86",
+"damage": 34.0,
+"description": "88范围、145度重挥；仅有效挥击段消弹，无剑气",
+"id": "rust_cleaver",
+"interval": 0.86,
+"knockback": 66.0,
+"lockRange": 88.0,
+"mechanicId": "slash",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 32.0,
+"muzzleParticles": 2.0,
+"name": "锈刃战斧",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 1.0,
+"rangeBand": "close",
+"reach": 88.0,
+"recoil": 0.3,
+"recovery": 0.24,
+"shellColor": "#b18b50",
+"shellLength": 0.0,
+"shellLife": 0.0,
+"spread": 0.0,
+"ttl": 0.9,
+"visualId": "rust-cleaver",
+"waveDamage": 0.0,
+"weaponClass": "axe",
+"windup": 0.18
+},
+"id": "rust_cleaver",
+"name": "锈刃战斧",
+"version": "survival-v1",
+"visual": {
+&"asset": "native.rust_cleaver",
+"family": "axe",
+"height": 40.0,
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -12.0,
+"upLift": 3.0,
+"upShoulder": 14.0
+},
+"muzzle": [60.0, 21.0],
+"pivot": [14.0, 22.0],
+"primaryGrip": [14.0, 23.0],
+"shapes": [[2.0, 20.0, 48.0, 7.0, "ink"], [4.0, 22.0, 43.0, 3.0, "wood"], [6.0, 22.0, 34.0, 1.0, "light"], [10.0, 20.0, 3.0, 7.0, "brass"], [18.0, 21.0, 2.0, 5.0, "dark"], [27.0, 20.0, 3.0, 7.0, "brass"], [38.0, 18.0, 9.0, 12.0, "ink"], [40.0, 20.0, 5.0, 8.0, "steel"], [52.0, 2.0, 4.0, 1.0, "ink"], [49.0, 3.0, 8.0, 1.0, "ink"], [48.0, 4.0, 10.0, 1.0, "ink"], [46.0, 5.0, 13.0, 1.0, "ink"], [45.0, 6.0, 15.0, 1.0, "ink"], [44.0, 7.0, 16.0, 1.0, "ink"], [43.0, 8.0, 18.0, 1.0, "ink"], [43.0, 9.0, 18.0, 1.0, "ink"], [43.0, 10.0, 18.0, 1.0, "ink"], [43.0, 11.0, 19.0, 1.0, "ink"], [43.0, 12.0, 19.0, 1.0, "ink"], [43.0, 13.0, 20.0, 1.0, "ink"], [44.0, 14.0, 19.0, 1.0, "ink"], [46.0, 15.0, 17.0, 1.0, "ink"], [48.0, 16.0, 15.0, 1.0, "ink"], [48.0, 17.0, 15.0, 1.0, "ink"], [48.0, 18.0, 15.0, 1.0, "ink"], [49.0, 19.0, 14.0, 1.0, "ink"], [49.0, 20.0, 13.0, 1.0, "ink"], [49.0, 21.0, 13.0, 1.0, "ink"], [49.0, 22.0, 13.0, 1.0, "ink"], [49.0, 23.0, 12.0, 1.0, "ink"], [48.0, 24.0, 13.0, 1.0, "ink"], [48.0, 25.0, 12.0, 1.0, "ink"], [48.0, 26.0, 12.0, 1.0, "ink"], [47.0, 27.0, 13.0, 1.0, "ink"], [46.0, 28.0, 13.0, 1.0, "ink"], [44.0, 29.0, 14.0, 1.0, "ink"], [43.0, 30.0, 14.0, 1.0, "ink"], [43.0, 31.0, 13.0, 1.0, "ink"], [44.0, 32.0, 11.0, 1.0, "ink"], [45.0, 33.0, 8.0, 1.0, "ink"], [46.0, 34.0, 3.0, 1.0, "ink"], [53.0, 4.0, 3.0, 1.0, "steel"], [50.0, 5.0, 7.0, 1.0, "steel"], [49.0, 6.0, 8.0, 1.0, "steel"], [47.0, 7.0, 11.0, 1.0, "steel"], [46.0, 8.0, 12.0, 1.0, "steel"], [45.0, 9.0, 14.0, 1.0, "steel"], [45.0, 10.0, 14.0, 1.0, "steel"], [45.0, 11.0, 15.0, 1.0, "steel"], [45.0, 12.0, 15.0, 1.0, "steel"], [46.0, 13.0, 15.0, 1.0, "steel"], [48.0, 14.0, 13.0, 1.0, "steel"], [50.0, 15.0, 11.0, 1.0, "steel"], [50.0, 16.0, 11.0, 1.0, "steel"], [50.0, 17.0, 11.0, 1.0, "steel"], [51.0, 18.0, 10.0, 1.0, "steel"], [51.0, 19.0, 10.0, 1.0, "steel"], [51.0, 20.0, 9.0, 1.0, "steel"], [51.0, 21.0, 9.0, 1.0, "steel"], [51.0, 22.0, 8.0, 1.0, "steel"], [51.0, 23.0, 8.0, 1.0, "steel"], [50.0, 24.0, 9.0, 1.0, "steel"], [50.0, 25.0, 8.0, 1.0, "steel"], [50.0, 26.0, 8.0, 1.0, "steel"], [50.0, 27.0, 7.0, 1.0, "steel"], [49.0, 28.0, 7.0, 1.0, "steel"], [48.0, 29.0, 7.0, 1.0, "steel"], [47.0, 30.0, 7.0, 1.0, "steel"], [47.0, 31.0, 5.0, 1.0, "steel"], [47.0, 32.0, 2.0, 1.0, "steel"], [57.0, 7.0, 1.0, 1.0, "light"], [57.0, 8.0, 1.0, 1.0, "light"], [58.0, 9.0, 1.0, 1.0, "light"], [58.0, 10.0, 1.0, 1.0, "light"], [58.0, 11.0, 2.0, 1.0, "light"], [58.0, 12.0, 2.0, 1.0, "light"], [58.0, 13.0, 3.0, 1.0, "light"], [58.0, 14.0, 3.0, 1.0, "light"], [58.0, 15.0, 3.0, 1.0, "light"], [58.0, 16.0, 3.0, 1.0, "light"], [58.0, 17.0, 3.0, 1.0, "light"], [58.0, 18.0, 3.0, 1.0, "light"], [58.0, 19.0, 3.0, 1.0, "light"], [58.0, 20.0, 3.0, 1.0, "light"], [58.0, 21.0, 3.0, 1.0, "light"], [57.0, 22.0, 4.0, 1.0, "light"], [57.0, 23.0, 3.0, 1.0, "light"], [56.0, 24.0, 4.0, 1.0, "light"], [56.0, 25.0, 3.0, 1.0, "light"], [55.0, 26.0, 4.0, 1.0, "light"], [54.0, 27.0, 4.0, 1.0, "light"], [53.0, 28.0, 4.0, 1.0, "light"], [52.0, 29.0, 5.0, 1.0, "light"], [51.0, 30.0, 5.0, 1.0, "light"], [51.0, 31.0, 3.0, 1.0, "light"], [51.0, 32.0, 1.0, 1.0, "light"], [50.0, 11.0, 3.0, 2.0, "rust"], [52.0, 17.0, 2.0, 3.0, "dark"], [48.0, 27.0, 2.0, 2.0, "rust"]],
+"supportGrip": [31.0, 23.0],
+"width": 64.0
+}
+},
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -12.0,
+"height": 40.0,
+"muzzle": [60.0, 21.0],
+"pivot": [14.0, 22.0],
+"recoil": 0.3,
+"upLift": 3.0,
+"upShoulder": 14.0,
+"width": 64.0
+},
+"layout": {
+"height": 40.0,
+"layers": [{
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 5.0,
+"kind": "hand",
+"rect": [44.0, 0.0, 7.0, 5.0],
+"slot": "primary",
+"width": 7.0,
+"x": 12.0,
+"y": 21.0
+}, {
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 5.0,
+"kind": "cuff",
+"rect": [26.0, 0.0, 4.0, 5.0],
+"slot": "primary",
+"width": 4.0,
+"x": 9.0,
+"y": 22.0
+}, {
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "back",
+"height": 5.0,
+"kind": "hand",
+"rect": [44.0, 0.0, 7.0, 5.0],
+"slot": "support",
+"width": 7.0,
+"x": 29.0,
+"y": 21.0
+}, {
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "back",
+"height": 5.0,
+"kind": "cuff",
+"rect": [26.0, 0.0, 4.0, 5.0],
+"slot": "support",
+"width": 4.0,
+"x": 26.0,
+"y": 22.0
+}],
+"muzzle": [60.0, 21.0],
+"origin": [0, 0],
+"pivot": [14.0, 22.0],
+"weapon": {
+"combat": {
+"activeTime": 0.2,
+"arc": 2.5307274153917776,
+"attackType": "slash",
+"blocksProjectiles": true,
+"color": "#c4ae86",
+"damage": 34.0,
+"description": "88范围、145度重挥；仅有效挥击段消弹，无剑气",
+"id": "rust_cleaver",
+"interval": 0.86,
+"knockback": 66.0,
+"lockRange": 88.0,
+"mechanicId": "slash",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 32.0,
+"muzzleParticles": 2.0,
+"name": "锈刃战斧",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 1.0,
+"rangeBand": "close",
+"reach": 88.0,
+"recoil": 0.3,
+"recovery": 0.24,
+"shellColor": "#b18b50",
+"shellLength": 0.0,
+"shellLife": 0.0,
+"spread": 0.0,
+"ttl": 0.9,
+"visualId": "rust-cleaver",
+"waveDamage": 0.0,
+"weaponClass": "axe",
+"windup": 0.18
+},
+"id": "rust_cleaver",
+"name": "锈刃战斧",
+"version": "survival-v1",
+"visual": {
+&"asset": "native.rust_cleaver",
+"family": "axe",
+"height": 40.0,
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -12.0,
+"upLift": 3.0,
+"upShoulder": 14.0
+},
+"muzzle": [60.0, 21.0],
+"pivot": [14.0, 22.0],
+"primaryGrip": [14.0, 23.0],
+"shapes": [[2.0, 20.0, 48.0, 7.0, "ink"], [4.0, 22.0, 43.0, 3.0, "wood"], [6.0, 22.0, 34.0, 1.0, "light"], [10.0, 20.0, 3.0, 7.0, "brass"], [18.0, 21.0, 2.0, 5.0, "dark"], [27.0, 20.0, 3.0, 7.0, "brass"], [38.0, 18.0, 9.0, 12.0, "ink"], [40.0, 20.0, 5.0, 8.0, "steel"], [52.0, 2.0, 4.0, 1.0, "ink"], [49.0, 3.0, 8.0, 1.0, "ink"], [48.0, 4.0, 10.0, 1.0, "ink"], [46.0, 5.0, 13.0, 1.0, "ink"], [45.0, 6.0, 15.0, 1.0, "ink"], [44.0, 7.0, 16.0, 1.0, "ink"], [43.0, 8.0, 18.0, 1.0, "ink"], [43.0, 9.0, 18.0, 1.0, "ink"], [43.0, 10.0, 18.0, 1.0, "ink"], [43.0, 11.0, 19.0, 1.0, "ink"], [43.0, 12.0, 19.0, 1.0, "ink"], [43.0, 13.0, 20.0, 1.0, "ink"], [44.0, 14.0, 19.0, 1.0, "ink"], [46.0, 15.0, 17.0, 1.0, "ink"], [48.0, 16.0, 15.0, 1.0, "ink"], [48.0, 17.0, 15.0, 1.0, "ink"], [48.0, 18.0, 15.0, 1.0, "ink"], [49.0, 19.0, 14.0, 1.0, "ink"], [49.0, 20.0, 13.0, 1.0, "ink"], [49.0, 21.0, 13.0, 1.0, "ink"], [49.0, 22.0, 13.0, 1.0, "ink"], [49.0, 23.0, 12.0, 1.0, "ink"], [48.0, 24.0, 13.0, 1.0, "ink"], [48.0, 25.0, 12.0, 1.0, "ink"], [48.0, 26.0, 12.0, 1.0, "ink"], [47.0, 27.0, 13.0, 1.0, "ink"], [46.0, 28.0, 13.0, 1.0, "ink"], [44.0, 29.0, 14.0, 1.0, "ink"], [43.0, 30.0, 14.0, 1.0, "ink"], [43.0, 31.0, 13.0, 1.0, "ink"], [44.0, 32.0, 11.0, 1.0, "ink"], [45.0, 33.0, 8.0, 1.0, "ink"], [46.0, 34.0, 3.0, 1.0, "ink"], [53.0, 4.0, 3.0, 1.0, "steel"], [50.0, 5.0, 7.0, 1.0, "steel"], [49.0, 6.0, 8.0, 1.0, "steel"], [47.0, 7.0, 11.0, 1.0, "steel"], [46.0, 8.0, 12.0, 1.0, "steel"], [45.0, 9.0, 14.0, 1.0, "steel"], [45.0, 10.0, 14.0, 1.0, "steel"], [45.0, 11.0, 15.0, 1.0, "steel"], [45.0, 12.0, 15.0, 1.0, "steel"], [46.0, 13.0, 15.0, 1.0, "steel"], [48.0, 14.0, 13.0, 1.0, "steel"], [50.0, 15.0, 11.0, 1.0, "steel"], [50.0, 16.0, 11.0, 1.0, "steel"], [50.0, 17.0, 11.0, 1.0, "steel"], [51.0, 18.0, 10.0, 1.0, "steel"], [51.0, 19.0, 10.0, 1.0, "steel"], [51.0, 20.0, 9.0, 1.0, "steel"], [51.0, 21.0, 9.0, 1.0, "steel"], [51.0, 22.0, 8.0, 1.0, "steel"], [51.0, 23.0, 8.0, 1.0, "steel"], [50.0, 24.0, 9.0, 1.0, "steel"], [50.0, 25.0, 8.0, 1.0, "steel"], [50.0, 26.0, 8.0, 1.0, "steel"], [50.0, 27.0, 7.0, 1.0, "steel"], [49.0, 28.0, 7.0, 1.0, "steel"], [48.0, 29.0, 7.0, 1.0, "steel"], [47.0, 30.0, 7.0, 1.0, "steel"], [47.0, 31.0, 5.0, 1.0, "steel"], [47.0, 32.0, 2.0, 1.0, "steel"], [57.0, 7.0, 1.0, 1.0, "light"], [57.0, 8.0, 1.0, 1.0, "light"], [58.0, 9.0, 1.0, 1.0, "light"], [58.0, 10.0, 1.0, 1.0, "light"], [58.0, 11.0, 2.0, 1.0, "light"], [58.0, 12.0, 2.0, 1.0, "light"], [58.0, 13.0, 3.0, 1.0, "light"], [58.0, 14.0, 3.0, 1.0, "light"], [58.0, 15.0, 3.0, 1.0, "light"], [58.0, 16.0, 3.0, 1.0, "light"], [58.0, 17.0, 3.0, 1.0, "light"], [58.0, 18.0, 3.0, 1.0, "light"], [58.0, 19.0, 3.0, 1.0, "light"], [58.0, 20.0, 3.0, 1.0, "light"], [58.0, 21.0, 3.0, 1.0, "light"], [57.0, 22.0, 4.0, 1.0, "light"], [57.0, 23.0, 3.0, 1.0, "light"], [56.0, 24.0, 4.0, 1.0, "light"], [56.0, 25.0, 3.0, 1.0, "light"], [55.0, 26.0, 4.0, 1.0, "light"], [54.0, 27.0, 4.0, 1.0, "light"], [53.0, 28.0, 4.0, 1.0, "light"], [52.0, 29.0, 5.0, 1.0, "light"], [51.0, 30.0, 5.0, 1.0, "light"], [51.0, 31.0, 3.0, 1.0, "light"], [51.0, 32.0, 1.0, 1.0, "light"], [50.0, 11.0, 3.0, 2.0, "rust"], [52.0, 17.0, 2.0, 3.0, "dark"], [48.0, 27.0, 2.0, 2.0, "rust"]],
+"supportGrip": [31.0, 23.0],
+"width": 64.0
+}
+},
+"width": 64.0
 }
 },
 "rust_revolver": {
@@ -6464,12 +7269,16 @@ metadata = {
 },
 "survival": {
 "gunPrices": {
+"breach_spear": 17.0,
 "breaker_shotgun": 20.0,
 "coil_cannon": 36.0,
 "echo_blade": 16.0,
 "ember_carbine": 24.0,
+"frost_projector": 22.0,
 "needle_rifle": 26.0,
 "prism_laser": 32.0,
+"ratchet_crossbow": 24.0,
+"rust_cleaver": 20.0,
 "rust_revolver": 22.0,
 "saw_disc": 26.0,
 "scrap_pistol": 12.0,
@@ -6778,6 +7587,7 @@ metadata = {
 "range": 340.0
 }
 },
+"survivalBuildsVersion": 1.0,
 "tutorialSteps": [{
 "detail": "人物、武器与四部位护具可在部署页左侧人物入口调整。",
 "id": "deployment",
@@ -7128,6 +7938,70 @@ metadata = {
 "x": 29.0,
 "y": 44.0
 }],
+"blastFocus": [{
+"color": "#272e24",
+"h": 33.0,
+"kind": "rect",
+"w": 25.0,
+"x": 19.0,
+"y": 18.0
+}, {
+"color": "#69724f",
+"h": 26.0,
+"kind": "rect",
+"w": 17.0,
+"x": 23.0,
+"y": 21.0
+}, {
+"color": "#b69452",
+"h": 6.0,
+"kind": "rect",
+"w": 23.0,
+"x": 20.0,
+"y": 15.0
+}, {
+"color": "#a74e3b",
+"h": 10.0,
+"kind": "rect",
+"w": 9.0,
+"x": 27.0,
+"y": 7.0
+}, {
+"color": "#b69452",
+"h": 4.0,
+"kind": "rect",
+"w": 9.0,
+"x": 47.0,
+"y": 20.0
+}, {
+"color": "#b69452",
+"h": 4.0,
+"kind": "rect",
+"w": 8.0,
+"x": 9.0,
+"y": 26.0
+}, {
+"color": "#e5d29b",
+"h": 4.0,
+"kind": "rect",
+"w": 10.0,
+"x": 45.0,
+"y": 43.0
+}, {
+"color": "#b69452",
+"h": 11.0,
+"kind": "rect",
+"w": 7.0,
+"x": 28.0,
+"y": 28.0
+}, {
+"color": "#a74e3b",
+"h": 4.0,
+"kind": "rect",
+"w": 8.0,
+"x": 8.0,
+"y": 44.0
+}],
 "blastRadius": [{
 "color": "#241f1738",
 "h": 5.0,
@@ -7402,6 +8276,153 @@ metadata = {
 "w": 3.0,
 "x": 48.0,
 "y": 44.0
+}],
+"chillAmplifier": [{
+"color": "#272e24",
+"h": 48.0,
+"kind": "rect",
+"w": 7.0,
+"x": 28.0,
+"y": 6.0
+}, {
+"color": "#272e24",
+"h": 7.0,
+"kind": "rect",
+"w": 46.0,
+"x": 9.0,
+"y": 26.0
+}, {
+"color": "#79adb0",
+"h": 44.0,
+"kind": "rect",
+"w": 3.0,
+"x": 30.0,
+"y": 8.0
+}, {
+"color": "#79adb0",
+"h": 3.0,
+"kind": "rect",
+"w": 42.0,
+"x": 11.0,
+"y": 28.0
+}, {
+"color": "#e5d29b",
+"h": 4.0,
+"kind": "rect",
+"w": 8.0,
+"x": 16.0,
+"y": 15.0
+}, {
+"color": "#79adb0",
+"h": 4.0,
+"kind": "rect",
+"w": 7.0,
+"x": 20.0,
+"y": 19.0
+}, {
+"color": "#e5d29b",
+"h": 4.0,
+"kind": "rect",
+"w": 8.0,
+"x": 39.0,
+"y": 15.0
+}, {
+"color": "#79adb0",
+"h": 4.0,
+"kind": "rect",
+"w": 7.0,
+"x": 35.0,
+"y": 19.0
+}, {
+"color": "#e5d29b",
+"h": 4.0,
+"kind": "rect",
+"w": 8.0,
+"x": 17.0,
+"y": 40.0
+}, {
+"color": "#e5d29b",
+"h": 4.0,
+"kind": "rect",
+"w": 8.0,
+"x": 38.0,
+"y": 40.0
+}, {
+"color": "#e5d29b",
+"end": 6.283185307179586,
+"filled": true,
+"kind": "circle",
+"radius": 6.0,
+"start": 0.0,
+"width": 4.0,
+"x": 32.0,
+"y": 29.0
+}],
+"critDamage": [{
+"color": "#272e24",
+"end": 6.283185307179586,
+"filled": true,
+"kind": "circle",
+"radius": 20.0,
+"start": 0.0,
+"width": 4.0,
+"x": 32.0,
+"y": 32.0
+}, {
+"color": "#69724f",
+"end": 6.283185307179586,
+"filled": true,
+"kind": "circle",
+"radius": 14.0,
+"start": 0.0,
+"width": 4.0,
+"x": 32.0,
+"y": 32.0
+}, {
+"color": "#a74e3b",
+"end": 6.283185307179586,
+"filled": true,
+"kind": "circle",
+"radius": 6.0,
+"start": 0.0,
+"width": 4.0,
+"x": 32.0,
+"y": 32.0
+}, {
+"color": "#b69452",
+"h": 17.0,
+"kind": "rect",
+"w": 6.0,
+"x": 29.0,
+"y": 4.0
+}, {
+"color": "#b69452",
+"h": 17.0,
+"kind": "rect",
+"w": 6.0,
+"x": 29.0,
+"y": 43.0
+}, {
+"color": "#b69452",
+"h": 6.0,
+"kind": "rect",
+"w": 17.0,
+"x": 4.0,
+"y": 29.0
+}, {
+"color": "#b69452",
+"h": 6.0,
+"kind": "rect",
+"w": 17.0,
+"x": 43.0,
+"y": 29.0
+}, {
+"color": "#e5d29b",
+"h": 4.0,
+"kind": "rect",
+"w": 3.0,
+"x": 30.0,
+"y": 28.0
 }],
 "critical": [{
 "color": "#241f1738",
@@ -8463,6 +9484,56 @@ metadata = {
 "x": 19.0,
 "y": 24.0
 }],
+"fieldRush": [{
+"color": "#272e24",
+"h": 30.0,
+"kind": "rect",
+"w": 20.0,
+"x": 23.0,
+"y": 12.0
+}, {
+"color": "#69724f",
+"h": 24.0,
+"kind": "rect",
+"w": 12.0,
+"x": 27.0,
+"y": 15.0
+}, {
+"color": "#272e24",
+"h": 12.0,
+"kind": "rect",
+"w": 30.0,
+"x": 21.0,
+"y": 39.0
+}, {
+"color": "#b69452",
+"h": 6.0,
+"kind": "rect",
+"w": 23.0,
+"x": 24.0,
+"y": 41.0
+}, {
+"color": "#79adb0",
+"h": 4.0,
+"kind": "rect",
+"w": 15.0,
+"x": 5.0,
+"y": 22.0
+}, {
+"color": "#79adb0",
+"h": 4.0,
+"kind": "rect",
+"w": 10.0,
+"x": 10.0,
+"y": 31.0
+}, {
+"color": "#e5d29b",
+"h": 4.0,
+"kind": "rect",
+"w": 16.0,
+"x": 2.0,
+"y": 40.0
+}],
 "fireRate": [{
 "color": "#241f1738",
 "h": 5.0,
@@ -8744,6 +9815,49 @@ metadata = {
 "w": 17.0,
 "x": 33.0,
 "y": 48.0
+}],
+"killMend": [{
+"color": "#272e24",
+"h": 43.0,
+"kind": "rect",
+"w": 36.0,
+"x": 14.0,
+"y": 9.0
+}, {
+"color": "#69724f",
+"h": 34.0,
+"kind": "rect",
+"w": 28.0,
+"x": 18.0,
+"y": 13.0
+}, {
+"color": "#e5d29b",
+"h": 22.0,
+"kind": "rect",
+"w": 10.0,
+"x": 27.0,
+"y": 19.0
+}, {
+"color": "#e5d29b",
+"h": 10.0,
+"kind": "rect",
+"w": 22.0,
+"x": 21.0,
+"y": 25.0
+}, {
+"color": "#b69452",
+"h": 5.0,
+"kind": "rect",
+"w": 49.0,
+"x": 7.0,
+"y": 47.0
+}, {
+"color": "#a74e3b",
+"h": 4.0,
+"kind": "rect",
+"w": 18.0,
+"x": 23.0,
+"y": 7.0
 }],
 "kineticLoop": [{
 "color": "#241f1738",
@@ -9069,6 +10183,77 @@ metadata = {
 "w": 17.0,
 "x": 34.0,
 "y": 36.0
+}],
+"meleeTempo": [{
+"color": "#272e24",
+"h": 31.0,
+"kind": "rect",
+"w": 8.0,
+"x": 13.0,
+"y": 10.0
+}, {
+"color": "#acb3a3",
+"h": 26.0,
+"kind": "rect",
+"w": 4.0,
+"x": 15.0,
+"y": 12.0
+}, {
+"color": "#b69452",
+"h": 5.0,
+"kind": "rect",
+"w": 16.0,
+"x": 9.0,
+"y": 39.0
+}, {
+"color": "#69724f",
+"h": 12.0,
+"kind": "rect",
+"w": 5.0,
+"x": 15.0,
+"y": 44.0
+}, {
+"color": "#272e24",
+"h": 31.0,
+"kind": "rect",
+"w": 8.0,
+"x": 40.0,
+"y": 10.0
+}, {
+"color": "#e5d29b",
+"h": 26.0,
+"kind": "rect",
+"w": 4.0,
+"x": 42.0,
+"y": 12.0
+}, {
+"color": "#b69452",
+"h": 5.0,
+"kind": "rect",
+"w": 16.0,
+"x": 36.0,
+"y": 39.0
+}, {
+"color": "#69724f",
+"h": 12.0,
+"kind": "rect",
+"w": 5.0,
+"x": 42.0,
+"y": 44.0
+}, {
+"color": "#a74e3b",
+"h": 4.0,
+"kind": "rect",
+"w": 9.0,
+"x": 26.0,
+"y": 17.0
+}, {
+"color": "#a74e3b",
+"h": 4.0,
+"kind": "rect",
+"w": 9.0,
+"x": 25.0,
+"y": 25.0
 }],
 "penetratorDoctrine": [{
 "color": "#241f1738",
@@ -9691,6 +10876,70 @@ metadata = {
 "x": 48.0,
 "y": 44.0
 }],
+"pressureBarrel": [{
+"color": "#272e24",
+"h": 42.0,
+"kind": "rect",
+"w": 12.0,
+"x": 26.0,
+"y": 9.0
+}, {
+"color": "#b69452",
+"h": 33.0,
+"kind": "rect",
+"w": 6.0,
+"x": 29.0,
+"y": 13.0
+}, {
+"color": "#79adb0",
+"h": 14.0,
+"kind": "rect",
+"w": 5.0,
+"x": 9.0,
+"y": 13.0
+}, {
+"color": "#79adb0",
+"h": 5.0,
+"kind": "rect",
+"w": 5.0,
+"x": 14.0,
+"y": 23.0
+}, {
+"color": "#e5d29b",
+"h": 5.0,
+"kind": "rect",
+"w": 7.0,
+"x": 18.0,
+"y": 28.0
+}, {
+"color": "#79adb0",
+"h": 14.0,
+"kind": "rect",
+"w": 5.0,
+"x": 50.0,
+"y": 13.0
+}, {
+"color": "#79adb0",
+"h": 5.0,
+"kind": "rect",
+"w": 5.0,
+"x": 45.0,
+"y": 23.0
+}, {
+"color": "#e5d29b",
+"h": 5.0,
+"kind": "rect",
+"w": 7.0,
+"x": 39.0,
+"y": 28.0
+}, {
+"color": "#acb3a3",
+"h": 5.0,
+"kind": "rect",
+"w": 16.0,
+"x": 24.0,
+"y": 48.0
+}],
 "projectile": [{
 "color": "#241f1738",
 "h": 5.0,
@@ -10058,6 +11307,79 @@ metadata = {
 "w": 20.0,
 "x": 19.0,
 "y": 24.0
+}],
+"ricochetCoil": [{
+"color": "#272e24",
+"end": 6.283185307179586,
+"filled": true,
+"kind": "circle",
+"radius": 17.0,
+"start": 0.0,
+"width": 4.0,
+"x": 25.0,
+"y": 31.0
+}, {
+"color": "#acb3a3",
+"end": 6.283185307179586,
+"filled": true,
+"kind": "circle",
+"radius": 12.0,
+"start": 0.0,
+"width": 4.0,
+"x": 25.0,
+"y": 31.0
+}, {
+"color": "#b69452",
+"end": 6.283185307179586,
+"filled": true,
+"kind": "circle",
+"radius": 4.0,
+"start": 0.0,
+"width": 4.0,
+"x": 25.0,
+"y": 31.0
+}, {
+"color": "#acb3a3",
+"h": 10.0,
+"kind": "rect",
+"w": 9.0,
+"x": 5.0,
+"y": 26.0
+}, {
+"color": "#acb3a3",
+"h": 9.0,
+"kind": "rect",
+"w": 10.0,
+"x": 20.0,
+"y": 11.0
+}, {
+"color": "#acb3a3",
+"h": 9.0,
+"kind": "rect",
+"w": 10.0,
+"x": 20.0,
+"y": 42.0
+}, {
+"color": "#79adb0",
+"h": 27.0,
+"kind": "rect",
+"w": 5.0,
+"x": 42.0,
+"y": 13.0
+}, {
+"color": "#79adb0",
+"h": 5.0,
+"kind": "rect",
+"w": 12.0,
+"x": 44.0,
+"y": 12.0
+}, {
+"color": "#e5d29b",
+"h": 13.0,
+"kind": "rect",
+"w": 5.0,
+"x": 51.0,
+"y": 8.0
 }],
 "runnerStrap": [{
 "color": "#241f1738",
@@ -11369,6 +12691,21 @@ metadata = {
 },
 "version": "1.5.0-alpha.1",
 "weaponFeedback": {
+"breach_spear": {
+"angle": 0.0,
+"camera": 0.0,
+"color": "#b8c0ad",
+"core": "#e3d5ae",
+"ejectDelay": 0.0,
+"family": "spear",
+"flash": "none",
+"impact": "#b8c0ad",
+"kick": 0.3,
+"recovery": 0.1,
+"shell": "none",
+"trail": 6.0,
+"width": 3.0
+},
 "breaker_shotgun": {
 "angle": 1.15,
 "camera": 0.75,
@@ -11429,6 +12766,21 @@ metadata = {
 "trail": 13.0,
 "width": 2.0
 },
+"frost_projector": {
+"angle": 0.018,
+"camera": 0.0,
+"color": "#90cddd",
+"core": "#d8f0ec",
+"ejectDelay": 0.0,
+"family": "cryo",
+"flash": "mist",
+"impact": "#90cddd",
+"kick": 1.0,
+"recovery": 0.1,
+"shell": "none",
+"trail": 6.0,
+"width": 3.0
+},
 "needle_rifle": {
 "angle": 0.72,
 "camera": 0.4,
@@ -11457,6 +12809,36 @@ metadata = {
 "recovery": 0.07,
 "shell": "none",
 "trail": 0.0,
+"width": 3.0
+},
+"ratchet_crossbow": {
+"angle": 0.018,
+"camera": 0.0,
+"color": "#c6b47d",
+"core": "#e3d5ae",
+"ejectDelay": 0.0,
+"family": "crossbow",
+"flash": "none",
+"impact": "#c6b47d",
+"kick": 1.5,
+"recovery": 0.1,
+"shell": "none",
+"trail": 10.0,
+"width": 3.0
+},
+"rust_cleaver": {
+"angle": 0.0,
+"camera": 0.0,
+"color": "#c4ae86",
+"core": "#e3d5ae",
+"ejectDelay": 0.0,
+"family": "axe",
+"flash": "none",
+"impact": "#c4ae86",
+"kick": 0.3,
+"recovery": 0.1,
+"shell": "none",
+"trail": 6.0,
 "width": 3.0
 },
 "rust_revolver": {

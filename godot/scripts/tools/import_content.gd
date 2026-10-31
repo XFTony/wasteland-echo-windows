@@ -14,10 +14,15 @@ func _init() -> void:
 
 func _import() -> void:
 	var overwrite: bool = "--overwrite" in OS.get_cmdline_user_args()
+	var catalog: GameCatalog = Catalog.new()
+	if ResourceLoader.exists("res://content/game_catalog.tres") and not overwrite:
+		catalog = load("res://content/game_catalog.tres") as GameCatalog
+		print("Preserved native catalog and %d definitions; use --overwrite only for an intentional reference reset." % catalog.definitions.size())
+		quit()
+		return
 	var source: Dictionary = JSON.parse_string(
 		FileAccess.get_file_as_string("res://data/content_source.json")
 	)
-	var catalog: GameCatalog = Catalog.new()
 	catalog.defaults = source.defaults
 	catalog.default_save = source.defaultSave
 	catalog.metadata = source.duplicate(true)

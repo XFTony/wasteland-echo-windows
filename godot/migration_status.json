@@ -1,14 +1,15 @@
 {
-  "target": "Complete native Godot reproduction of the existing game",
+  "target": "Native Godot development; original reproduction baseline retained for regression and rollback",
   "baseline": "ef7d50d",
-  "status": "internal_playable_validation_pending",
+  "status": "native_gameplay_iteration_human_acceptance_pending",
+  "developmentPhase": "native_survival_builds_and_arsenal",
   "toolchain": {
     "godot": "4.7.2.stable.official.ed1daf0bf",
     "skill": "godot @ c8bc20f876a8da241274d48461444fab86182d83",
     "mcp": "@coding-solo/godot-mcp@0.1.1",
     "mcpConfiguration": "project config enabled; live get_godot_version and get_project_info verified on the formal project"
   },
-  "verified": [
+  "migrationBaselineVerification": [
     "137 native Resource definitions preserve every category, ID and source parameter",
     "59 active images, 21 audio assets and font/license files copied with source hashes",
     "Reference seeded random sequences",
@@ -37,7 +38,20 @@
     "Echo old-town ground v3 pilot: continuous painted materials and eight ground decal regions; other two map art profiles unchanged",
     "Native UI interaction: 155 checks across five sizes, real pointer/click/navigation events, resize focus retention and injected reduced-motion behavior"
   ],
+  "verified": [
+    "2026-10-31: 154 native definitions, 16 weapons, 42 upgrades; all 137 reference content IDs retained",
+    "Native foundation 125283 comparisons; revised spawn cap and interval checked independently",
+    "Unchanged legacy combat: 72 scenarios, 248 checkpoints, 154069 comparisons; 12 former spawn scenarios replaced by native pressure checks",
+    "Native survival builds: 441 checks; all 42 real selections change native attributes, mechanics or resources",
+    "12 ranged weapons in eight aim directions produce an actual extra projectile or ray after the multishot upgrade",
+    "Four new weapons: field and permanent purchase, ownership normalization, attack behavior, slow lifetime and independent grip artwork",
+    "25 audio assets decoded; native input/audio 55 checks, runtime 12, save transfer 10, map art 58, UI interaction 155",
+    "Six-menu regions: 24 layouts and 208 actions; battle regions: 28 layouts and 196 actions; existing rectangles preserved",
+    "Normal-health seed88 pressure proxies: opening materially denser; first-map orbit with normal upgrades survives 60 seconds at 37.16 of 116 HP, not a human balance verdict",
+    "Default content importer preserves the entire edited native catalog and metadata; overwrite requires an explicit flag"
+  ],
   "inProgress": [
+    "Human opening-pressure and new-weapon balance review; other two maps normal-build strategies not yet reviewed",
     "Windows rendered long-session profiling, cold-load spikes and memory trends",
     "Full hero/outfit/weapon-direction and non-default UI visual review",
     "Native gamepad focus, shortcuts and rumble implemented; physical-device verification pending",
@@ -65,8 +79,18 @@
     "name": "echo-ground-v3",
     "date": "2026-10-30",
     "scope": "One map ground art and native UI interaction",
-    "userVisualSignoff": false,
+    "userVisualSignoff": true,
+    "signoffBasis": "User confirmed the first map meets the basic visual requirement in the current request",
     "otherMapsRethemed": false,
     "reducedMotionPublicSetting": false
+  },
+  "latestGameplayIteration": {
+    "name": "survival-builds-v1",
+    "date": "2026-10-31",
+    "scope": "Opening pressure, real upgrade effects, wave unlocks and four additional weapons",
+    "validation": "docs/qa/survival-builds-validation.md",
+    "humanBalanceSignoff": false,
+    "saveSchemaChanged": false,
+    "newWeaponEvolutionBlueprints": false
   }
 }

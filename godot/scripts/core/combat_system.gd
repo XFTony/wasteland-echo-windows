@@ -35,7 +35,7 @@ func fire_weapon(model: RunSimulation, aim_x: float, aim_y: float) -> void:
 	if weapon.has("attackType"):
 		model.weapons.fire(model, weapon, aim_x, aim_y, compact, refit, mechanic)
 		return
-	var count: int = int(weapon.projectileCount) + int(player.projectileBonus)
+	var count: int = WeaponRules.projectile_count(weapon, player)
 	var base_angle: float = atan2(aim_y, aim_x)
 	var attack_id: int = int(run.shotsFired) + 1
 	var spawned: int = 0
@@ -44,7 +44,7 @@ func fire_weapon(model: RunSimulation, aim_x: float, aim_y: float) -> void:
 			break
 		var centered: float = 0.0 if count == 1 else float(index) / (count - 1) - 0.5
 		var jitter: float = model.random.range_float(-0.08, 0.08) if float(weapon.spread) > 0 else 0.0
-		var angle: float = base_angle + centered * deg_to_rad(float(weapon.spread)) + jitter
+		var angle: float = base_angle + centered * WeaponRules.projectile_spread(weapon, player, count) + jitter
 		var dx: float = cos(angle)
 		var dy: float = sin(angle)
 		var critical: bool = bool(mechanic.forceCritical) or (float(player.criticalChance) > 0 and model.random.next() < float(player.criticalChance))
@@ -150,6 +150,8 @@ func update_enemies(model: RunSimulation, delta: float) -> void:
 			model.catalog.metadata.navigationRoleWeights, _steering)
 		var profile: Dictionary = model.catalog.metadata.enemyRoleProfiles.get(enemy.role, {})
 		var speed: float = float(enemy.speed)
+		if float(enemy.get("chillUntil", 0)) > float(model.run.elapsed):
+			speed *= float(enemy.get("chillFactor", 1))
 		if enemy.role != "buffer" and _has_buff(enemy):
 			speed *= 1.18
 		for item: Dictionary in model.interactives:
@@ -347,6 +349,11 @@ func damage_enemy(model: RunSimulation, enemy: Dictionary, amount: float, source
 	if owner in ["player", "melee"] and bool(source.get("critical", false)):
 		model.mechanics.on_critical_hit(model.run, enemy, source, applied, model.enemies,
 			model.damage_enemy, model.push_event)
+	if owner in ["player", "melee"] and source.get("weaponId") != null:
+		var weapon: Dictionary = model.catalog.parameters("weapons", str(source.weaponId))
+		if float(weapon.get("slowDuration", 0)) > 0:
+			enemy["chillUntil"] = float(model.run.elapsed) + (float(weapon.slowDuration) + float(model.run.player.get("chillDurationBonus", 0))) * (0.5 if enemy.boss else 1.0)
+			enemy["chillFactor"] = maxf(0.9, float(weapon.slowFactor)) if enemy.boss else float(weapon.slowFactor)
 	if float(enemy.hp) <= 0:
 		kill_enemy(model, enemy, source)
 
@@ -386,6 +393,8 @@ func kill_enemy(model: RunSimulation, enemy: Dictionary, source: Dictionary) -> 
 	if not enemy.active:
 		return
 	model.run.kills += 1
+	if int(model.run.player.get("killMend", 0)) > 0 and int(model.run.kills) % 12 == 0:
+		model.run.player.hp = minf(float(model.run.player.maxHp), float(model.run.player.hp) + int(model.run.player.killMend))
 	var owner: String = str(source.get("owner", "environment"))
 	if owner in ["player", "melee"] and source.get("weaponId") != null and model.run.weaponStats.has(source.weaponId):
 		model.run.weaponStats[source.weaponId].kills += 1
@@ -407,7 +416,7 @@ func kill_enemy(model: RunSimulation, enemy: Dictionary, source: Dictionary) -> 
 	if model.random.next() < minf(1, chance + float(model.run.player.scrapChanceBonus)):
 		var base: int = 8 if enemy.elite else 1
 		var reward: float = float(SurvivalRules.pressure(model.run.elapsed).reward) if model.run.endless else 1.0
-		var value: int = maxi(1, floori(base * float(model.run.player.scrapMultiplier) * reward + 0.5))
+		var value: float = maxf(1, base * float(model.run.player.scrapMultiplier) * reward)
 		spawn_pickup(model, "scrap", float(enemy.x) + model.random.range_float(-8, 8),
 			float(enemy.y) + model.random.range_float(-8, 8), value)
 	if enemy.elite and model.random.next() < 0.55:

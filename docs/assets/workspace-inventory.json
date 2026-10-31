@@ -1,6 +1,6 @@
 {
   "format": 1,
-  "generatedAt": "2026-10-30T09:53:45.847Z",
+  "generatedAt": "2026-10-31T02:07:20.098Z",
   "authority": "godot is active; original implementation retained as reference",
   "scanPolicy": {
     "excludedGeneratedOutputs": [
@@ -25,18 +25,18 @@
     "duplicatePolicy": "Exact-byte groups are evidence, never automatic deletion permission"
   },
   "summary": {
-    "measuredFiles": 4109,
-    "measuredBytes": 3199190797,
+    "measuredFiles": 4212,
+    "measuredBytes": 3212527814,
     "opaqueDirectories": 10,
-    "nativeMaterialFiles": 88,
-    "nativeMaterialBytes": 16096168,
+    "nativeMaterialFiles": 92,
+    "nativeMaterialBytes": 16135152,
     "registeredActiveImages": 59,
-    "registeredAudio": 21,
-    "proceduralWeapons": 5,
+    "registeredAudio": 25,
+    "proceduralWeapons": 9,
     "retiredArtRegistrations": 24,
     "editableSourceFiles": 60,
     "nativeBlendFiles": 0,
-    "exactDuplicateGroups": 93
+    "exactDuplicateGroups": 97
   },
   "topLevel": [
     {
@@ -99,7 +99,7 @@
       "purpose": "已发布/开发中内容及兼容变更",
       "policy": "提交；内部备份不冒充正式Release",
       "measuredFiles": 1,
-      "measuredBytes": 6301,
+      "measuredBytes": 7047,
       "partial": false,
       "opaqueChildren": []
     },
@@ -109,7 +109,7 @@
       "purpose": "原创、生成素材、第三方音频/字体/引擎的来源边界",
       "policy": "新增素材时与台账同步",
       "measuredFiles": 1,
-      "measuredBytes": 4933,
+      "measuredBytes": 5229,
       "partial": false,
       "opaqueChildren": []
     },
@@ -129,7 +129,7 @@
       "purpose": "标明当前原生版入口、历史版本与主要文档",
       "policy": "随开发主线更新，避免指向旧包",
       "measuredFiles": 1,
-      "measuredBytes": 21145,
+      "measuredBytes": 21984,
       "partial": false,
       "opaqueChildren": []
     },
@@ -148,8 +148,8 @@
       "category": "美术/音频可编辑源与设计历史",
       "purpose": "原图、分层、原采样、生成记录及历史动作研究",
       "policy": "源与来源记录提交；历史不等于活动素材",
-      "measuredFiles": 306,
-      "measuredBytes": 245684894,
+      "measuredFiles": 313,
+      "measuredBytes": 245762883,
       "partial": false,
       "opaqueChildren": []
     },
@@ -168,8 +168,8 @@
       "category": "设计/验收/来源文档",
       "purpose": "规范、计划、评审、许可、QA摘要",
       "policy": "提交可长期参考的文档，避免完整重复截图",
-      "measuredFiles": 144,
-      "measuredBytes": 6511050,
+      "measuredFiles": 147,
+      "measuredBytes": 6565772,
       "partial": false,
       "opaqueChildren": []
     },
@@ -190,8 +190,8 @@
       "category": "原生活动项目",
       "purpose": "后续运行代码、场景、Resource和活动素材的开发主目录",
       "policy": "提交源码/素材/UID/import设置；忽略.godot和builds",
-      "measuredFiles": 498,
-      "measuredBytes": 23130134,
+      "measuredFiles": 535,
+      "measuredBytes": 23287058,
       "partial": true,
       "opaqueChildren": [
         "godot/.godot"
@@ -214,8 +214,8 @@
       "category": "可再生输出/本地构建",
       "purpose": "截图、录屏、包、SDK模板、QA产物",
       "policy": "不进Git；确认来源和可重建方法后才考虑清理",
-      "measuredFiles": 2575,
-      "measuredBytes": 2842969221,
+      "measuredFiles": 2627,
+      "measuredBytes": 2855979698,
       "partial": true,
       "opaqueChildren": [
         "output/godot-evaluation-2026-10-29/mcp/node_modules",
@@ -258,8 +258,8 @@
       "category": "开发与验收工具",
       "purpose": "导出、素材制作、构建、检查脚本",
       "policy": "提交工具，不把开发工具依赖带入运行包",
-      "measuredFiles": 151,
-      "measuredBytes": 1111294,
+      "measuredFiles": 155,
+      "measuredBytes": 1146318,
       "partial": false,
       "opaqueChildren": []
     },
@@ -393,8 +393,8 @@
   "gitStorage": {
     "source": "git count-objects -v (aggregate only)",
     "counters": {
-      "count": "92",
-      "size": "5326",
+      "count": "218",
+      "size": "5882",
       "in-pack": "3323",
       "packs": "4",
       "size-pack": "319436",
@@ -402,7 +402,7 @@
       "garbage": "0",
       "size-garbage": "0"
     },
-    "allocatedObjectBytes": 332556288,
+    "allocatedObjectBytes": 333125632,
     "directoryTotalMeasured": false
   },
   "runtimeAssets": [
@@ -2926,6 +2926,210 @@
       "declaredSha256Matches": null
     },
     {
+      "path": "godot/assets/audio/survival-v2/breach_spear.wav",
+      "category": "音效",
+      "bytes": 8864,
+      "sha256": "A740DE74573762DE76851D6F3953B638AD0045E3AB8770E91C5556066A612566",
+      "tracked": true,
+      "dimensions": null,
+      "audio": {
+        "channels": 1,
+        "sampleRate": 22050,
+        "byteRate": 44100,
+        "bitsPerSample": 16,
+        "seconds": 0.2
+      },
+      "contentId": "breach_spear",
+      "registration": "registered_runtime",
+      "references": [
+        {
+          "path": "godot/content/game_catalog.tres",
+          "kind": "catalog_resource_path"
+        }
+      ],
+      "legacyReferencePath": null,
+      "sameBytesAsLegacy": null,
+      "sourceEvidence": [
+        "art/combat/survival-builds-v1/audio/breach_spear.wav",
+        "scripts/audio/generate-survival-builds.py"
+      ],
+      "sourceEvidenceExisting": [
+        "art/combat/survival-builds-v1/audio/breach_spear.wav",
+        "scripts/audio/generate-survival-builds.py"
+      ],
+      "provenanceRecord": "art/combat/survival-builds-v1/manifest.json",
+      "generator": "Project original offline audio synthesis and native pixel shape descriptions",
+      "licenseRecords": [
+        {
+          "assetId": "breach_spear",
+          "license": "Project original",
+          "reviewStatus": "approved",
+          "commercialOk": "true",
+          "creator": "Wasteland Echo project",
+          "sourceUrl": ""
+        }
+      ],
+      "licenseEvidence": [
+        "CREDITS.md",
+        "docs/assets-ledger.csv"
+      ],
+      "review": "See the recorded review status; no new legal approval inferred",
+      "declaredSha256Matches": true
+    },
+    {
+      "path": "godot/assets/audio/survival-v2/frost_projector.wav",
+      "category": "音效",
+      "bytes": 8864,
+      "sha256": "39F3AEF04AAB41308BC6A44A2E85327CEE4DBAA35F751DB2310FFF85D2BA41DB",
+      "tracked": true,
+      "dimensions": null,
+      "audio": {
+        "channels": 1,
+        "sampleRate": 22050,
+        "byteRate": 44100,
+        "bitsPerSample": 16,
+        "seconds": 0.2
+      },
+      "contentId": "frost_projector",
+      "registration": "registered_runtime",
+      "references": [
+        {
+          "path": "godot/content/game_catalog.tres",
+          "kind": "catalog_resource_path"
+        }
+      ],
+      "legacyReferencePath": null,
+      "sameBytesAsLegacy": null,
+      "sourceEvidence": [
+        "art/combat/survival-builds-v1/audio/frost_projector.wav",
+        "scripts/audio/generate-survival-builds.py"
+      ],
+      "sourceEvidenceExisting": [
+        "art/combat/survival-builds-v1/audio/frost_projector.wav",
+        "scripts/audio/generate-survival-builds.py"
+      ],
+      "provenanceRecord": "art/combat/survival-builds-v1/manifest.json",
+      "generator": "Project original offline audio synthesis and native pixel shape descriptions",
+      "licenseRecords": [
+        {
+          "assetId": "frost_projector",
+          "license": "Project original",
+          "reviewStatus": "approved",
+          "commercialOk": "true",
+          "creator": "Wasteland Echo project",
+          "sourceUrl": ""
+        }
+      ],
+      "licenseEvidence": [
+        "CREDITS.md",
+        "docs/assets-ledger.csv"
+      ],
+      "review": "See the recorded review status; no new legal approval inferred",
+      "declaredSha256Matches": true
+    },
+    {
+      "path": "godot/assets/audio/survival-v2/ratchet_crossbow.wav",
+      "category": "音效",
+      "bytes": 8864,
+      "sha256": "1EDE7016236E9F499492879B23ADB6BD5A89553A51C04C8D1B3D92E2311E8B32",
+      "tracked": true,
+      "dimensions": null,
+      "audio": {
+        "channels": 1,
+        "sampleRate": 22050,
+        "byteRate": 44100,
+        "bitsPerSample": 16,
+        "seconds": 0.2
+      },
+      "contentId": "ratchet_crossbow",
+      "registration": "registered_runtime",
+      "references": [
+        {
+          "path": "godot/content/game_catalog.tres",
+          "kind": "catalog_resource_path"
+        }
+      ],
+      "legacyReferencePath": null,
+      "sameBytesAsLegacy": null,
+      "sourceEvidence": [
+        "art/combat/survival-builds-v1/audio/ratchet_crossbow.wav",
+        "scripts/audio/generate-survival-builds.py"
+      ],
+      "sourceEvidenceExisting": [
+        "art/combat/survival-builds-v1/audio/ratchet_crossbow.wav",
+        "scripts/audio/generate-survival-builds.py"
+      ],
+      "provenanceRecord": "art/combat/survival-builds-v1/manifest.json",
+      "generator": "Project original offline audio synthesis and native pixel shape descriptions",
+      "licenseRecords": [
+        {
+          "assetId": "ratchet_crossbow",
+          "license": "Project original",
+          "reviewStatus": "approved",
+          "commercialOk": "true",
+          "creator": "Wasteland Echo project",
+          "sourceUrl": ""
+        }
+      ],
+      "licenseEvidence": [
+        "CREDITS.md",
+        "docs/assets-ledger.csv"
+      ],
+      "review": "See the recorded review status; no new legal approval inferred",
+      "declaredSha256Matches": true
+    },
+    {
+      "path": "godot/assets/audio/survival-v2/rust_cleaver.wav",
+      "category": "音效",
+      "bytes": 12392,
+      "sha256": "8C66A67709176673C7639A721B1268F8CBF53688E9BBAA23AB508F6A8AAB5C77",
+      "tracked": true,
+      "dimensions": null,
+      "audio": {
+        "channels": 1,
+        "sampleRate": 22050,
+        "byteRate": 44100,
+        "bitsPerSample": 16,
+        "seconds": 0.28
+      },
+      "contentId": "rust_cleaver",
+      "registration": "registered_runtime",
+      "references": [
+        {
+          "path": "godot/content/game_catalog.tres",
+          "kind": "catalog_resource_path"
+        }
+      ],
+      "legacyReferencePath": null,
+      "sameBytesAsLegacy": null,
+      "sourceEvidence": [
+        "art/combat/survival-builds-v1/audio/rust_cleaver.wav",
+        "scripts/audio/generate-survival-builds.py"
+      ],
+      "sourceEvidenceExisting": [
+        "art/combat/survival-builds-v1/audio/rust_cleaver.wav",
+        "scripts/audio/generate-survival-builds.py"
+      ],
+      "provenanceRecord": "art/combat/survival-builds-v1/manifest.json",
+      "generator": "Project original offline audio synthesis and native pixel shape descriptions",
+      "licenseRecords": [
+        {
+          "assetId": "rust_cleaver",
+          "license": "Project original",
+          "reviewStatus": "approved",
+          "commercialOk": "true",
+          "creator": "Wasteland Echo project",
+          "sourceUrl": ""
+        }
+      ],
+      "licenseEvidence": [
+        "CREDITS.md",
+        "docs/assets-ledger.csv"
+      ],
+      "review": "See the recorded review status; no new legal approval inferred",
+      "declaredSha256Matches": true
+    },
+    {
       "path": "godot/assets/equipment/ammo-rig-v1.webp",
       "category": "装备图标",
       "bytes": 61532,
@@ -4834,6 +5038,98 @@
         "CREDITS.md"
       ],
       "note": "No separate PNG exists; metadata and native drawing code are the source"
+    },
+    {
+      "id": "ratchet_crossbow",
+      "category": "原生代码绘制武器",
+      "dimensions": {
+        "width": 64,
+        "height": 32
+      },
+      "rectangles": 21,
+      "bytes": null,
+      "sha256": null,
+      "registration": "runtime_generated_texture",
+      "references": [
+        "godot/content/game_catalog.tres",
+        "godot/scripts/presentation/asset_store.gd",
+        "art/combat/survival-builds-v1/design.json",
+        "scripts/godot/prepare-survival-content.mjs"
+      ],
+      "licenseEvidence": [
+        "docs/assets-ledger.csv",
+        "CREDITS.md"
+      ],
+      "note": "No separate PNG exists; metadata and native drawing code are the source"
+    },
+    {
+      "id": "frost_projector",
+      "category": "原生代码绘制武器",
+      "dimensions": {
+        "width": 58,
+        "height": 30
+      },
+      "rectangles": 19,
+      "bytes": null,
+      "sha256": null,
+      "registration": "runtime_generated_texture",
+      "references": [
+        "godot/content/game_catalog.tres",
+        "godot/scripts/presentation/asset_store.gd",
+        "art/combat/survival-builds-v1/design.json",
+        "scripts/godot/prepare-survival-content.mjs"
+      ],
+      "licenseEvidence": [
+        "docs/assets-ledger.csv",
+        "CREDITS.md"
+      ],
+      "note": "No separate PNG exists; metadata and native drawing code are the source"
+    },
+    {
+      "id": "breach_spear",
+      "category": "原生代码绘制武器",
+      "dimensions": {
+        "width": 86,
+        "height": 20
+      },
+      "rectangles": 19,
+      "bytes": null,
+      "sha256": null,
+      "registration": "runtime_generated_texture",
+      "references": [
+        "godot/content/game_catalog.tres",
+        "godot/scripts/presentation/asset_store.gd",
+        "art/combat/survival-builds-v1/design.json",
+        "scripts/godot/prepare-survival-content.mjs"
+      ],
+      "licenseEvidence": [
+        "docs/assets-ledger.csv",
+        "CREDITS.md"
+      ],
+      "note": "No separate PNG exists; metadata and native drawing code are the source"
+    },
+    {
+      "id": "rust_cleaver",
+      "category": "原生代码绘制武器",
+      "dimensions": {
+        "width": 64,
+        "height": 40
+      },
+      "rectangles": 99,
+      "bytes": null,
+      "sha256": null,
+      "registration": "runtime_generated_texture",
+      "references": [
+        "godot/content/game_catalog.tres",
+        "godot/scripts/presentation/asset_store.gd",
+        "art/combat/survival-builds-v1/design.json",
+        "scripts/godot/prepare-survival-content.mjs"
+      ],
+      "licenseEvidence": [
+        "docs/assets-ledger.csv",
+        "CREDITS.md"
+      ],
+      "note": "No separate PNG exists; metadata and native drawing code are the source"
     }
   ],
   "legacyAssets": [
@@ -6160,6 +6456,16 @@
       "deletionRecommended": false
     },
     {
+      "sha256": "8C66A67709176673C7639A721B1268F8CBF53688E9BBAA23AB508F6A8AAB5C77",
+      "bytesEach": 12392,
+      "files": [
+        "art/combat/survival-builds-v1/audio/rust_cleaver.wav",
+        "godot/assets/audio/survival-v2/rust_cleaver.wav"
+      ],
+      "classification": "source_history_or_exact_duplicate_review",
+      "deletionRecommended": false
+    },
+    {
       "sha256": "4228AF3BC90C90B95DB9C774B64747C87D3A1B460FF3C637AD7AC0F5E12EB9D9",
       "bytesEach": 10628,
       "files": [
@@ -6197,6 +6503,36 @@
         "web/assets/audio/survival-v1/ember_carbine.wav"
       ],
       "classification": "intentional_native_and_legacy_reference_pair",
+      "deletionRecommended": false
+    },
+    {
+      "sha256": "A740DE74573762DE76851D6F3953B638AD0045E3AB8770E91C5556066A612566",
+      "bytesEach": 8864,
+      "files": [
+        "art/combat/survival-builds-v1/audio/breach_spear.wav",
+        "godot/assets/audio/survival-v2/breach_spear.wav"
+      ],
+      "classification": "source_history_or_exact_duplicate_review",
+      "deletionRecommended": false
+    },
+    {
+      "sha256": "39F3AEF04AAB41308BC6A44A2E85327CEE4DBAA35F751DB2310FFF85D2BA41DB",
+      "bytesEach": 8864,
+      "files": [
+        "art/combat/survival-builds-v1/audio/frost_projector.wav",
+        "godot/assets/audio/survival-v2/frost_projector.wav"
+      ],
+      "classification": "source_history_or_exact_duplicate_review",
+      "deletionRecommended": false
+    },
+    {
+      "sha256": "1EDE7016236E9F499492879B23ADB6BD5A89553A51C04C8D1B3D92E2311E8B32",
+      "bytesEach": 8864,
+      "files": [
+        "art/combat/survival-builds-v1/audio/ratchet_crossbow.wav",
+        "godot/assets/audio/survival-v2/ratchet_crossbow.wav"
+      ],
+      "classification": "source_history_or_exact_duplicate_review",
       "deletionRecommended": false
     },
     {
@@ -7532,6 +7868,55 @@
       "tracked": true
     },
     {
+      "path": "art/combat/survival-builds-v1/audio/breach_spear.wav",
+      "bytes": 8864,
+      "extension": ".wav",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "art/combat/survival-builds-v1/audio/frost_projector.wav",
+      "bytes": 8864,
+      "extension": ".wav",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "art/combat/survival-builds-v1/audio/ratchet_crossbow.wav",
+      "bytes": 8864,
+      "extension": ".wav",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "art/combat/survival-builds-v1/audio/rust_cleaver.wav",
+      "bytes": 12392,
+      "extension": ".wav",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "art/combat/survival-builds-v1/design.json",
+      "bytes": 35212,
+      "extension": ".json",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "art/combat/survival-builds-v1/manifest.json",
+      "bytes": 2144,
+      "extension": ".json",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "art/combat/survival-builds-v1/README.md",
+      "bytes": 1649,
+      "extension": ".md",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
       "path": "art/enemies/compact-v1/brute-atlas.png",
       "bytes": 17124,
       "extension": ".png",
@@ -8660,14 +9045,14 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 6301,
+      "bytes": 7047,
       "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
     },
     {
       "path": "CREDITS.md",
-      "bytes": 4933,
+      "bytes": 5229,
       "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
@@ -9339,7 +9724,7 @@
     },
     {
       "path": "docs/assets-ledger.csv",
-      "bytes": 53783,
+      "bytes": 55750,
       "extension": ".csv",
       "contentReadBlocked": false,
       "tracked": true
@@ -9487,6 +9872,13 @@
     {
       "path": "docs/design/map-interaction-review.md",
       "bytes": 2397,
+      "extension": ".md",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "docs/design/survival-builds-arsenal-plan.md",
+      "bytes": 7495,
       "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
@@ -9996,6 +10388,20 @@
       "tracked": true
     },
     {
+      "path": "docs/qa/survival-builds-validation.json",
+      "bytes": 32167,
+      "extension": ".json",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "docs/qa/survival-builds-validation.md",
+      "bytes": 13053,
+      "extension": ".md",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
       "path": "docs/qa/weapon-expansion-browser-2026-10-29.json",
       "bytes": 8396,
       "extension": ".json",
@@ -10256,7 +10662,7 @@
     },
     {
       "path": "docs/versioning-and-release.md",
-      "bytes": 9204,
+      "bytes": 9244,
       "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
@@ -11312,6 +11718,62 @@
       "tracked": true
     },
     {
+      "path": "godot/assets/audio/survival-v2/breach_spear.wav",
+      "bytes": 8864,
+      "extension": ".wav",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/assets/audio/survival-v2/breach_spear.wav.import",
+      "bytes": 519,
+      "extension": ".import",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/assets/audio/survival-v2/frost_projector.wav",
+      "bytes": 8864,
+      "extension": ".wav",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/assets/audio/survival-v2/frost_projector.wav.import",
+      "bytes": 528,
+      "extension": ".import",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/assets/audio/survival-v2/ratchet_crossbow.wav",
+      "bytes": 8864,
+      "extension": ".wav",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/assets/audio/survival-v2/ratchet_crossbow.wav.import",
+      "bytes": 531,
+      "extension": ".import",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/assets/audio/survival-v2/rust_cleaver.wav",
+      "bytes": 12392,
+      "extension": ".wav",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/assets/audio/survival-v2/rust_cleaver.wav.import",
+      "bytes": 519,
+      "extension": ".import",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
       "path": "godot/assets/equipment/ammo-rig-v1.webp",
       "bytes": 61532,
       "extension": ".webp",
@@ -11999,7 +12461,7 @@
     },
     {
       "path": "godot/content/game_catalog.tres",
-      "bytes": 384068,
+      "bytes": 424206,
       "extension": ".tres",
       "contentReadBlocked": false,
       "tracked": true
@@ -12112,6 +12574,13 @@
     {
       "path": "godot/content/mechanics/breach_cone.tres",
       "bytes": 427,
+      "extension": ".tres",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/content/mechanics/cryogenic.tres",
+      "bytes": 411,
       "extension": ".tres",
       "contentReadBlocked": false,
       "tracked": true
@@ -12236,6 +12705,13 @@
       "tracked": true
     },
     {
+      "path": "godot/content/shop_items/buy_breach_spear.tres",
+      "bytes": 569,
+      "extension": ".tres",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
       "path": "godot/content/shop_items/buy_breaker_shotgun.tres",
       "bytes": 601,
       "extension": ".tres",
@@ -12259,6 +12735,13 @@
     {
       "path": "godot/content/shop_items/buy_ember_carbine.tres",
       "bytes": 594,
+      "extension": ".tres",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/content/shop_items/buy_frost_projector.tres",
+      "bytes": 585,
       "extension": ".tres",
       "contentReadBlocked": false,
       "tracked": true
@@ -12306,8 +12789,22 @@
       "tracked": true
     },
     {
+      "path": "godot/content/shop_items/buy_ratchet_crossbow.tres",
+      "bytes": 590,
+      "extension": ".tres",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
       "path": "godot/content/shop_items/buy_runner_boots.tres",
       "bytes": 560,
+      "extension": ".tres",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/content/shop_items/buy_rust_cleaver.tres",
+      "bytes": 572,
       "extension": ".tres",
       "contentReadBlocked": false,
       "tracked": true
@@ -12530,6 +13027,13 @@
       "tracked": true
     },
     {
+      "path": "godot/content/upgrades/blast_focus.tres",
+      "bytes": 555,
+      "extension": ".tres",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
       "path": "godot/content/upgrades/blast_radius.tres",
       "bytes": 511,
       "extension": ".tres",
@@ -12551,8 +13055,22 @@
       "tracked": true
     },
     {
+      "path": "godot/content/upgrades/chill_amplifier.tres",
+      "bytes": 547,
+      "extension": ".tres",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
       "path": "godot/content/upgrades/critical.tres",
       "bytes": 476,
+      "extension": ".tres",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/content/upgrades/crit_damage.tres",
+      "bytes": 485,
       "extension": ".tres",
       "contentReadBlocked": false,
       "tracked": true
@@ -12607,6 +13125,13 @@
       "tracked": true
     },
     {
+      "path": "godot/content/upgrades/field_rush.tres",
+      "bytes": 487,
+      "extension": ".tres",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
       "path": "godot/content/upgrades/fire_rate.tres",
       "bytes": 467,
       "extension": ".tres",
@@ -12616,6 +13141,13 @@
     {
       "path": "godot/content/upgrades/focus_protocol.tres",
       "bytes": 523,
+      "extension": ".tres",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/content/upgrades/kill_mend.tres",
+      "bytes": 491,
       "extension": ".tres",
       "contentReadBlocked": false,
       "tracked": true
@@ -12637,6 +13169,13 @@
     {
       "path": "godot/content/upgrades/melee_reach.tres",
       "bytes": 498,
+      "extension": ".tres",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/content/upgrades/melee_tempo.tres",
+      "bytes": 543,
       "extension": ".tres",
       "contentReadBlocked": false,
       "tracked": true
@@ -12677,6 +13216,13 @@
       "tracked": true
     },
     {
+      "path": "godot/content/upgrades/pressure_barrel.tres",
+      "bytes": 546,
+      "extension": ".tres",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
       "path": "godot/content/upgrades/projectile.tres",
       "bytes": 473,
       "extension": ".tres",
@@ -12700,6 +13246,13 @@
     {
       "path": "godot/content/upgrades/recovery_field.tres",
       "bytes": 675,
+      "extension": ".tres",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/content/upgrades/ricochet_coil.tres",
+      "bytes": 532,
       "extension": ".tres",
       "contentReadBlocked": false,
       "tracked": true
@@ -12754,6 +13307,13 @@
       "tracked": true
     },
     {
+      "path": "godot/content/weapons/breach_spear.tres",
+      "bytes": 1203,
+      "extension": ".tres",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
       "path": "godot/content/weapons/breaker_shotgun.tres",
       "bytes": 1025,
       "extension": ".tres",
@@ -12782,6 +13342,13 @@
       "tracked": true
     },
     {
+      "path": "godot/content/weapons/frost_projector.tres",
+      "bytes": 1054,
+      "extension": ".tres",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
       "path": "godot/content/weapons/needle_rifle.tres",
       "bytes": 993,
       "extension": ".tres",
@@ -12791,6 +13358,20 @@
     {
       "path": "godot/content/weapons/prism_laser.tres",
       "bytes": 1034,
+      "extension": ".tres",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/content/weapons/ratchet_crossbow.tres",
+      "bytes": 1032,
+      "extension": ".tres",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/content/weapons/rust_cleaver.tres",
+      "bytes": 1151,
       "extension": ".tres",
       "contentReadBlocked": false,
       "tracked": true
@@ -12867,7 +13448,7 @@
     },
     {
       "path": "godot/export_presets.cfg",
-      "bytes": 1355,
+      "bytes": 1397,
       "extension": ".cfg",
       "contentReadBlocked": false,
       "tracked": true
@@ -12888,7 +13469,7 @@
     },
     {
       "path": "godot/migration_status.json",
-      "bytes": 4323,
+      "bytes": 6338,
       "extension": ".json",
       "contentReadBlocked": false,
       "tracked": true
@@ -12902,7 +13483,7 @@
     },
     {
       "path": "godot/README.md",
-      "bytes": 4545,
+      "bytes": 5090,
       "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
@@ -13042,7 +13623,7 @@
     },
     {
       "path": "godot/scripts/core/combat_system.gd",
-      "bytes": 29739,
+      "bytes": 30528,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13084,7 +13665,7 @@
     },
     {
       "path": "godot/scripts/core/entity_pool.gd",
-      "bytes": 2516,
+      "bytes": 2571,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13112,7 +13693,7 @@
     },
     {
       "path": "godot/scripts/core/game_session.gd",
-      "bytes": 7511,
+      "bytes": 7689,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13252,7 +13833,7 @@
     },
     {
       "path": "godot/scripts/core/spawn_system.gd",
-      "bytes": 6677,
+      "bytes": 6814,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13280,7 +13861,7 @@
     },
     {
       "path": "godot/scripts/core/survival_rules.gd",
-      "bytes": 1427,
+      "bytes": 1660,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13308,7 +13889,7 @@
     },
     {
       "path": "godot/scripts/core/upgrade_draft_system.gd",
-      "bytes": 4789,
+      "bytes": 5805,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13322,7 +13903,7 @@
     },
     {
       "path": "godot/scripts/core/upgrade_rules.gd",
-      "bytes": 2881,
+      "bytes": 3701,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13336,7 +13917,7 @@
     },
     {
       "path": "godot/scripts/core/weapon_actions.gd",
-      "bytes": 18329,
+      "bytes": 19778,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13350,7 +13931,7 @@
     },
     {
       "path": "godot/scripts/core/weapon_rules.gd",
-      "bytes": 3146,
+      "bytes": 4306,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13363,8 +13944,22 @@
       "tracked": true
     },
     {
+      "path": "godot/scripts/core/workshop_rules.gd",
+      "bytes": 5497,
+      "extension": ".gd",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/scripts/core/workshop_rules.gd.uid",
+      "bytes": 20,
+      "extension": ".uid",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
       "path": "godot/scripts/game_root.gd",
-      "bytes": 21401,
+      "bytes": 21702,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13448,7 +14043,7 @@
     },
     {
       "path": "godot/scripts/presentation/character_visual.gd",
-      "bytes": 6806,
+      "bytes": 7143,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13504,7 +14099,7 @@
     },
     {
       "path": "godot/scripts/presentation/native_audio.gd",
-      "bytes": 10454,
+      "bytes": 10559,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13574,7 +14169,7 @@
     },
     {
       "path": "godot/scripts/presentation/world_view.gd",
-      "bytes": 35268,
+      "bytes": 36790,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13630,13 +14225,27 @@
     },
     {
       "path": "godot/scripts/tools/import_content.gd",
-      "bytes": 3297,
+      "bytes": 3604,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
     },
     {
       "path": "godot/scripts/tools/import_content.gd.uid",
+      "bytes": 20,
+      "extension": ".uid",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/scripts/tools/install_survival_content.gd",
+      "bytes": 4605,
+      "extension": ".gd",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/scripts/tools/install_survival_content.gd.uid",
       "bytes": 20,
       "extension": ".uid",
       "contentReadBlocked": false,
@@ -13686,7 +14295,7 @@
     },
     {
       "path": "godot/scripts/ui/battle_view.gd",
-      "bytes": 35195,
+      "bytes": 37009,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13700,7 +14309,7 @@
     },
     {
       "path": "godot/scripts/ui/item_presentation.gd",
-      "bytes": 3295,
+      "bytes": 3799,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13714,7 +14323,7 @@
     },
     {
       "path": "godot/scripts/ui/menu_view.gd",
-      "bytes": 15223,
+      "bytes": 15337,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13742,7 +14351,7 @@
     },
     {
       "path": "godot/scripts/ui/pages/inventory_page.gd",
-      "bytes": 15461,
+      "bytes": 15652,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13777,6 +14386,20 @@
     },
     {
       "path": "godot/scripts/ui/pages/shop_page.gd.uid",
+      "bytes": 20,
+      "extension": ".uid",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/scripts/ui/pages/workshop_page.gd",
+      "bytes": 7494,
+      "extension": ".gd",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/scripts/ui/pages/workshop_page.gd.uid",
       "bytes": 20,
       "extension": ".uid",
       "contentReadBlocked": false,
@@ -13826,7 +14449,7 @@
     },
     {
       "path": "godot/scripts/ui/upgrade_card.gd",
-      "bytes": 6010,
+      "bytes": 6050,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -13966,13 +14589,27 @@
     },
     {
       "path": "godot/tests/combat_parity_test.gd",
-      "bytes": 8273,
+      "bytes": 9051,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
     },
     {
       "path": "godot/tests/combat_parity_test.gd.uid",
+      "bytes": 20,
+      "extension": ".uid",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/tests/combat_visual_review.gd",
+      "bytes": 5837,
+      "extension": ".gd",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/tests/combat_visual_review.gd.uid",
       "bytes": 20,
       "extension": ".uid",
       "contentReadBlocked": false,
@@ -14021,8 +14658,22 @@
       "tracked": true
     },
     {
+      "path": "godot/tests/opening_pressure_review.gd",
+      "bytes": 3867,
+      "extension": ".gd",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/tests/opening_pressure_review.gd.uid",
+      "bytes": 19,
+      "extension": ".uid",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
       "path": "godot/tests/parity_test.gd",
-      "bytes": 8860,
+      "bytes": 9083,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -14043,6 +14694,20 @@
     },
     {
       "path": "godot/tests/runtime_smoke_test.gd.uid",
+      "bytes": 20,
+      "extension": ".uid",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/tests/survival_builds_test.gd",
+      "bytes": 22258,
+      "extension": ".gd",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "godot/tests/survival_builds_test.gd.uid",
       "bytes": 20,
       "extension": ".uid",
       "contentReadBlocked": false,
@@ -21854,6 +22519,20 @@
       "tracked": false
     },
     {
+      "path": "output/echo-ground-ui/final-check.json",
+      "bytes": 234,
+      "extension": ".json",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/echo-ground-ui/github-checks.json",
+      "bytes": 277,
+      "extension": ".json",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
       "path": "output/echo-ground-ui/import-engine.log",
       "bytes": 1139,
       "extension": ".log",
@@ -23780,7 +24459,7 @@
     },
     {
       "path": "output/godot-migration/battle-region-comparison.json",
-      "bytes": 5265,
+      "bytes": 5373,
       "extension": ".json",
       "contentReadBlocked": false,
       "tracked": false
@@ -23794,7 +24473,7 @@
     },
     {
       "path": "output/godot-migration/combat-check.log",
-      "bytes": 157,
+      "bytes": 619,
       "extension": ".log",
       "contentReadBlocked": false,
       "tracked": false
@@ -23808,14 +24487,14 @@
     },
     {
       "path": "output/godot-migration/combat-engine.log",
-      "bytes": 154,
+      "bytes": 616,
       "extension": ".log",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/combat-parity.json",
-      "bytes": 77,
+      "bytes": 610,
       "extension": ".json",
       "contentReadBlocked": false,
       "tracked": false
@@ -24158,91 +24837,91 @@
     },
     {
       "path": "output/godot-migration/native-checks.json",
-      "bytes": 941,
+      "bytes": 1658,
       "extension": ".json",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/echo_district-1080.png",
-      "bytes": 1530805,
+      "bytes": 1531461,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/echo_district-1440.png",
-      "bytes": 1892894,
+      "bytes": 1893710,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/echo_district-540.png",
-      "bytes": 557322,
+      "bytes": 558028,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/echo_district-720.png",
-      "bytes": 1131187,
+      "bytes": 1131868,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/field-arsenal-0-1080.png",
-      "bytes": 389668,
+      "bytes": 389726,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/field-arsenal-0-1440.png",
-      "bytes": 445969,
+      "bytes": 446028,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/field-arsenal-0-540.png",
-      "bytes": 151277,
+      "bytes": 151323,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/field-arsenal-0-720.png",
-      "bytes": 309565,
+      "bytes": 309604,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/field-arsenal-1-1080.png",
-      "bytes": 362752,
+      "bytes": 362815,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/field-arsenal-1-1440.png",
-      "bytes": 419439,
+      "bytes": 419478,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/field-arsenal-1-540.png",
-      "bytes": 132378,
+      "bytes": 132423,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/field-arsenal-1-720.png",
-      "bytes": 286974,
+      "bytes": 287015,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
@@ -24305,105 +24984,105 @@
     },
     {
       "path": "output/godot-migration/native-play/freight_nexus-1080.png",
-      "bytes": 960537,
+      "bytes": 961170,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/freight_nexus-1440.png",
-      "bytes": 1035868,
+      "bytes": 1036620,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/freight_nexus-540.png",
-      "bytes": 448265,
+      "bytes": 448917,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/freight_nexus-720.png",
-      "bytes": 743858,
+      "bytes": 744662,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/pause-1080.png",
-      "bytes": 944076,
+      "bytes": 949462,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/pause-1440.png",
-      "bytes": 1204038,
+      "bytes": 1209356,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/pause-540.png",
-      "bytes": 307793,
+      "bytes": 312992,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/pause-720.png",
-      "bytes": 649741,
+      "bytes": 655493,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/red_basin-1080.png",
-      "bytes": 941908,
+      "bytes": 942597,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/red_basin-1440.png",
-      "bytes": 1034992,
+      "bytes": 1035697,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/red_basin-540.png",
-      "bytes": 409653,
+      "bytes": 410322,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/red_basin-720.png",
-      "bytes": 734606,
+      "bytes": 735352,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/regions.json",
-      "bytes": 32137,
+      "bytes": 32698,
       "extension": ".json",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/result-1080.png",
-      "bytes": 730579,
+      "bytes": 731043,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/result-1440.png",
-      "bytes": 1121955,
+      "bytes": 1122470,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
@@ -24417,91 +25096,91 @@
     },
     {
       "path": "output/godot-migration/native-play/result-720.png",
-      "bytes": 431959,
+      "bytes": 432435,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/upgrade-1080.png",
-      "bytes": 507590,
+      "bytes": 504319,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/upgrade-1440.png",
-      "bytes": 612197,
+      "bytes": 609166,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/upgrade-540.png",
-      "bytes": 234484,
+      "bytes": 232067,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-play/upgrade-720.png",
-      "bytes": 374090,
+      "bytes": 372150,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-ui/credits-1080.png",
-      "bytes": 1373021,
+      "bytes": 1372766,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-ui/credits-1440.png",
-      "bytes": 1534429,
+      "bytes": 1534358,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-ui/credits-540.png",
-      "bytes": 510435,
+      "bytes": 510811,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-ui/credits-720.png",
-      "bytes": 941239,
+      "bytes": 941446,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-ui/inventory-1080.png",
-      "bytes": 1192564,
+      "bytes": 1182411,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-ui/inventory-1440.png",
-      "bytes": 1357590,
+      "bytes": 1346773,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-ui/inventory-540.png",
-      "bytes": 511811,
+      "bytes": 509231,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-ui/inventory-720.png",
-      "bytes": 805993,
+      "bytes": 799826,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
@@ -24564,7 +25243,7 @@
     },
     {
       "path": "output/godot-migration/native-ui/regions.json",
-      "bytes": 30502,
+      "bytes": 31000,
       "extension": ".json",
       "contentReadBlocked": false,
       "tracked": false
@@ -24599,28 +25278,28 @@
     },
     {
       "path": "output/godot-migration/native-ui/shop-1080.png",
-      "bytes": 844168,
+      "bytes": 847724,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-ui/shop-1440.png",
-      "bytes": 947452,
+      "bytes": 951345,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-ui/shop-540.png",
-      "bytes": 340904,
+      "bytes": 341998,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/native-ui/shop-720.png",
-      "bytes": 589877,
+      "bytes": 593653,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
@@ -25144,6 +25823,20 @@
       "tracked": false
     },
     {
+      "path": "output/godot-migration/survival-builds-check.log",
+      "bytes": 161,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/godot-migration/survival-builds-engine.log",
+      "bytes": 158,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
       "path": "output/godot-migration/survival-stress-before.json",
       "bytes": 2028,
       "extension": ".json",
@@ -25243,7 +25936,7 @@
     },
     {
       "path": "output/godot-migration/ui-region-comparison.json",
-      "bytes": 4477,
+      "bytes": 4710,
       "extension": ".json",
       "contentReadBlocked": false,
       "tracked": false
@@ -28408,6 +29101,342 @@
     {
       "path": "output/radio-ui-third-check.log",
       "bytes": 3829,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/battle-engine.log",
+      "bytes": 180,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/battle.log",
+      "bytes": 183,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/behavior-engine.log",
+      "bytes": 158,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/behavior-final-engine.log",
+      "bytes": 158,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/behavior.json",
+      "bytes": 7556,
+      "extension": ".json",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/behavior.log",
+      "bytes": 161,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/import-engine.log",
+      "bytes": 1362,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/import.log",
+      "bytes": 1967,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/install-engine.log",
+      "bytes": 107,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/install.log",
+      "bytes": 110,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/legacy-combat-engine.log",
+      "bytes": 1373,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/legacy-combat.log",
+      "bytes": 1376,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/menu-engine.log",
+      "bytes": 180,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/menu.log",
+      "bytes": 183,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/opening-build-engine.log",
+      "bytes": 775,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/opening-build.log",
+      "bytes": 778,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/opening-engine.log",
+      "bytes": 3262,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/opening-legacy-build.json",
+      "bytes": 1285,
+      "extension": ".json",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/opening-legacy.json",
+      "bytes": 6809,
+      "extension": ".json",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/opening-native-build.json",
+      "bytes": 1364,
+      "extension": ".json",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/opening-native.json",
+      "bytes": 5289,
+      "extension": ".json",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/opening.log",
+      "bytes": 3270,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/preserve-engine.log",
+      "bytes": 176,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/preserve-final-engine.log",
+      "bytes": 176,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/preserve.log",
+      "bytes": 179,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/review/codex-locked-1080.png",
+      "bytes": 710270,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/review/codex-locked-1440.png",
+      "bytes": 797974,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/review/codex-locked-540.png",
+      "bytes": 166140,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/review/codex-locked-720.png",
+      "bytes": 489485,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/review/codex-unlocked-1080.png",
+      "bytes": 696037,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/review/codex-unlocked-1440.png",
+      "bytes": 782936,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/review/codex-unlocked-540.png",
+      "bytes": 156672,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/review/codex-unlocked-720.png",
+      "bytes": 476129,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/review/field-new-weapons-540.png",
+      "bytes": 129556,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/review/field-new-weapons-720.png",
+      "bytes": 280732,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/review/new-weapon-directions.png",
+      "bytes": 58176,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/review/one-bullet.png",
+      "bytes": 1132086,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/review/run-build-details.png",
+      "bytes": 295568,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/review/shop-new-weapons-540.png",
+      "bytes": 432500,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/review/shop-new-weapons-720.png",
+      "bytes": 684754,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/review/two-bullets.png",
+      "bytes": 1132441,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/review/weapon-breach_spear.png",
+      "bytes": 1131430,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/review/weapon-frost_projector.png",
+      "bytes": 1132733,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/review/weapon-ratchet_crossbow.png",
+      "bytes": 1135005,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/review/weapon-rust_cleaver.png",
+      "bytes": 1135396,
+      "extension": ".png",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/review.html",
+      "bytes": 6745,
+      "extension": ".html",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/visual-engine.log",
+      "bytes": 339,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/survival-builds/visual.log",
+      "bytes": 343,
       "extension": ".log",
       "contentReadBlocked": false,
       "tracked": false
@@ -32124,7 +33153,7 @@
     },
     {
       "path": "README.md",
-      "bytes": 21145,
+      "bytes": 21984,
       "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
@@ -32355,8 +33384,15 @@
     },
     {
       "path": "scripts/assets/audit-workspace.mjs",
-      "bytes": 29499,
+      "bytes": 29995,
       "extension": ".mjs",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "scripts/audio/generate-survival-builds.py",
+      "bytes": 3181,
+      "extension": ".py",
       "contentReadBlocked": false,
       "tracked": true
     },
@@ -32739,6 +33775,13 @@
       "tracked": true
     },
     {
+      "path": "scripts/godot/compare-opening-pressure.mjs",
+      "bytes": 2706,
+      "extension": ".mjs",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
       "path": "scripts/godot/configure-project-mcp.ps1",
       "bytes": 1448,
       "extension": ".ps1",
@@ -32767,9 +33810,23 @@
       "tracked": true
     },
     {
+      "path": "scripts/godot/prepare-survival-content.mjs",
+      "bytes": 10161,
+      "extension": ".mjs",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
       "path": "scripts/godot/prepare-windows-templates.ps1",
       "bytes": 5027,
       "extension": ".ps1",
+      "contentReadBlocked": false,
+      "tracked": true
+    },
+    {
+      "path": "scripts/godot/report-survival-builds.mjs",
+      "bytes": 17985,
+      "extension": ".mjs",
       "contentReadBlocked": false,
       "tracked": true
     },
@@ -32789,7 +33846,7 @@
     },
     {
       "path": "scripts/godot/verify-battle-regions.mjs",
-      "bytes": 1823,
+      "bytes": 2010,
       "extension": ".mjs",
       "contentReadBlocked": false,
       "tracked": true
@@ -32803,7 +33860,7 @@
     },
     {
       "path": "scripts/godot/verify-native.mjs",
-      "bytes": 2293,
+      "bytes": 2374,
       "extension": ".mjs",
       "contentReadBlocked": false,
       "tracked": true
@@ -32817,7 +33874,7 @@
     },
     {
       "path": "scripts/godot/verify-ui-regions.mjs",
-      "bytes": 1769,
+      "bytes": 1996,
       "extension": ".mjs",
       "contentReadBlocked": false,
       "tracked": true

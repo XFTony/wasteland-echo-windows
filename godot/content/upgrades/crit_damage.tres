@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_bywl4"]
+
+[resource]
+script = ExtResource("1_bywl4")
+content_id = &"critDamage"
+category = &"upgrades"
+display_name = "弱点增幅"
+source_data = {
+"detail": "暴击伤害倍率 +0.2",
+"family": "firepower",
+"glyph": "critical",
+"id": "critDamage",
+"max": 3.0,
+"name": "弱点增幅",
+"rarity": "advanced",
+"unlockWave": 1.0
+}

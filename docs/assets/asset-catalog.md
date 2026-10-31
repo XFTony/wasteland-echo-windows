@@ -2,7 +2,7 @@
 
 由 `node scripts/assets/audit-workspace.mjs` 生成。原生 `godot/assets` 为活动树；登记表示可加载或可追溯，不等于每个文件在每个场景实际绘制。完整尺寸、SHA256、引用及许可记录见本目录 `workspace-inventory.json`。
 
-本次活动树原始文件 **88** 个 / **15.35 MiB**，另有 5 件运行时原生绘制武器。
+本次活动树原始文件 **92** 个 / **15.39 MiB**，另有 9 件运行时原生绘制武器。
 
 `.import` 是导入设置，不重复计为美术原文件；它们保留在完整文件索引中。动态拼接的 ID/路径无法仅凭静态查找证明未使用，因此未注册项一律列为复核项。
 
@@ -85,6 +85,10 @@
 | [godot/assets/audio/survival-v1/rust_revolver.wav](../../godot/assets/audio/survival-v1/rust_revolver.wav) | rust_revolver | 0.360s | 15956 | [art/audio/survival-v1/source-provenance.json](../../art/audio/survival-v1/source-provenance.json)、[CREDITS.md](../../CREDITS.md)、[docs/assets-ledger.csv](../../docs/assets-ledger.csv)、[art/audio/survival-v1/source-permission.md](../../art/audio/survival-v1/source-permission.md) |
 | [godot/assets/audio/survival-v1/scrap_pistol.wav](../../godot/assets/audio/survival-v1/scrap_pistol.wav) | scrap_pistol | 0.300s | 13310 | [art/audio/survival-v1/source-provenance.json](../../art/audio/survival-v1/source-provenance.json)、[CREDITS.md](../../CREDITS.md)、[docs/assets-ledger.csv](../../docs/assets-ledger.csv)、[art/audio/survival-v1/source-permission.md](../../art/audio/survival-v1/source-permission.md) |
 | [godot/assets/audio/survival-v1/swarm_smg.wav](../../godot/assets/audio/survival-v1/swarm_smg.wav) | swarm_smg | 0.145s | 6474 | [art/audio/survival-v1/source-provenance.json](../../art/audio/survival-v1/source-provenance.json)、[CREDITS.md](../../CREDITS.md)、[docs/assets-ledger.csv](../../docs/assets-ledger.csv)、[art/audio/survival-v1/source-permission.md](../../art/audio/survival-v1/source-permission.md) |
+| [godot/assets/audio/survival-v2/breach_spear.wav](../../godot/assets/audio/survival-v2/breach_spear.wav) | breach_spear | 0.200s | 8864 | [art/combat/survival-builds-v1/manifest.json](../../art/combat/survival-builds-v1/manifest.json)、[art/combat/survival-builds-v1/audio/breach_spear.wav](../../art/combat/survival-builds-v1/audio/breach_spear.wav)、[scripts/audio/generate-survival-builds.py](../../scripts/audio/generate-survival-builds.py)、[CREDITS.md](../../CREDITS.md) |
+| [godot/assets/audio/survival-v2/frost_projector.wav](../../godot/assets/audio/survival-v2/frost_projector.wav) | frost_projector | 0.200s | 8864 | [art/combat/survival-builds-v1/manifest.json](../../art/combat/survival-builds-v1/manifest.json)、[art/combat/survival-builds-v1/audio/frost_projector.wav](../../art/combat/survival-builds-v1/audio/frost_projector.wav)、[scripts/audio/generate-survival-builds.py](../../scripts/audio/generate-survival-builds.py)、[CREDITS.md](../../CREDITS.md) |
+| [godot/assets/audio/survival-v2/ratchet_crossbow.wav](../../godot/assets/audio/survival-v2/ratchet_crossbow.wav) | ratchet_crossbow | 0.200s | 8864 | [art/combat/survival-builds-v1/manifest.json](../../art/combat/survival-builds-v1/manifest.json)、[art/combat/survival-builds-v1/audio/ratchet_crossbow.wav](../../art/combat/survival-builds-v1/audio/ratchet_crossbow.wav)、[scripts/audio/generate-survival-builds.py](../../scripts/audio/generate-survival-builds.py)、[CREDITS.md](../../CREDITS.md) |
+| [godot/assets/audio/survival-v2/rust_cleaver.wav](../../godot/assets/audio/survival-v2/rust_cleaver.wav) | rust_cleaver | 0.280s | 12392 | [art/combat/survival-builds-v1/manifest.json](../../art/combat/survival-builds-v1/manifest.json)、[art/combat/survival-builds-v1/audio/rust_cleaver.wav](../../art/combat/survival-builds-v1/audio/rust_cleaver.wav)、[scripts/audio/generate-survival-builds.py](../../scripts/audio/generate-survival-builds.py)、[CREDITS.md](../../CREDITS.md) |
 
 ## 音乐
 
@@ -158,12 +162,16 @@
 | saw_disc | 48×28，18条像素矩形 | [godot/content/game_catalog.tres](../../godot/content/game_catalog.tres)、[godot/scripts/presentation/asset_store.gd](../../godot/scripts/presentation/asset_store.gd)、[src/content/weapon-expansion.js](../../src/content/weapon-expansion.js) |
 | echo_blade | 58×20，17条像素矩形 | [godot/content/game_catalog.tres](../../godot/content/game_catalog.tres)、[godot/scripts/presentation/asset_store.gd](../../godot/scripts/presentation/asset_store.gd)、[src/content/weapon-expansion.js](../../src/content/weapon-expansion.js) |
 | shock_hammer | 54×32，17条像素矩形 | [godot/content/game_catalog.tres](../../godot/content/game_catalog.tres)、[godot/scripts/presentation/asset_store.gd](../../godot/scripts/presentation/asset_store.gd)、[src/content/weapon-expansion.js](../../src/content/weapon-expansion.js) |
+| ratchet_crossbow | 64×32，21条像素矩形 | [godot/content/game_catalog.tres](../../godot/content/game_catalog.tres)、[godot/scripts/presentation/asset_store.gd](../../godot/scripts/presentation/asset_store.gd)、[art/combat/survival-builds-v1/design.json](../../art/combat/survival-builds-v1/design.json)、[scripts/godot/prepare-survival-content.mjs](../../scripts/godot/prepare-survival-content.mjs) |
+| frost_projector | 58×30，19条像素矩形 | [godot/content/game_catalog.tres](../../godot/content/game_catalog.tres)、[godot/scripts/presentation/asset_store.gd](../../godot/scripts/presentation/asset_store.gd)、[art/combat/survival-builds-v1/design.json](../../art/combat/survival-builds-v1/design.json)、[scripts/godot/prepare-survival-content.mjs](../../scripts/godot/prepare-survival-content.mjs) |
+| breach_spear | 86×20，19条像素矩形 | [godot/content/game_catalog.tres](../../godot/content/game_catalog.tres)、[godot/scripts/presentation/asset_store.gd](../../godot/scripts/presentation/asset_store.gd)、[art/combat/survival-builds-v1/design.json](../../art/combat/survival-builds-v1/design.json)、[scripts/godot/prepare-survival-content.mjs](../../scripts/godot/prepare-survival-content.mjs) |
+| rust_cleaver | 64×40，99条像素矩形 | [godot/content/game_catalog.tres](../../godot/content/game_catalog.tres)、[godot/scripts/presentation/asset_store.gd](../../godot/scripts/presentation/asset_store.gd)、[art/combat/survival-builds-v1/design.json](../../art/combat/survival-builds-v1/design.json)、[scripts/godot/prepare-survival-content.mjs](../../scripts/godot/prepare-survival-content.mjs) |
 
 升级/商品的原生图形、地图程序化装饰和UI材质也可能来自Resource/代码，不能用PNG文件数判断内容缺失。
 
 ## 精确重复与历史边界
 
-检测到 93 组精确字节重复。Godot与旧版相同字节的素材是有意对照/回退，Git对象会去重，本次不建议删除任何一组。完整成员及SHA见JSON。
+检测到 97 组精确字节重复。Godot与旧版相同字节的素材是有意对照/回退，Git对象会去重，本次不建议删除任何一组。完整成员及SHA见JSON。
 
 旧版注册表标记 inactive 的美术 24 项；其中活动原生树副本 0 项。可编辑源文件 60 份，活动树中的.blend为 0 份。
 

@@ -4,6 +4,7 @@
 
 ## 当前发布内容
 
+- 连续生存扩展：`art/combat/survival-builds-v1/`记录本轮四件原生像素武器、八个改件图标与四段原创短声音；枪体、手、袖口独立。制作数据、生成工具、原声音与SHA完整保留；没有复制《土豆兄弟》《元气骑士》素材或代码。
 - Godot原生内部开发版：使用Godot 4.7.2，许可证和版权说明保存在`godot/licenses/`并随独立包提供；以下原版零运行依赖说明不适用于Godot引擎本体。本轮共享地表/道具图集由内置ImageGen生成，原图、提示词、SHA和使用条款边界见[地图素材包](art/world/pixel-map-v2/README.md)及其manifest，已登记中央素材台账；未使用竞品地图或图集。
 - 回声旧城地面样板v3：两张地面/透明细节图集由内置ImageGen生成，仅将本项目既有环境物件图作为风格参考；原图、提示词、SHA与活动路径见[旧城地面素材包](art/world/echo-ground-v3/README.md)。未使用Nuclear Throne或Enter the Gungeon素材，其公开页面仅作游戏类型/设计研究参考。
 - 游戏代码：项目原创，未引入第三方运行时库；

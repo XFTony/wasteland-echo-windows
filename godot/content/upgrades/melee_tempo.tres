@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_lgw56"]
+
+[resource]
+script = ExtResource("1_lgw56")
+content_id = &"meleeTempo"
+category = &"upgrades"
+display_name = "格斗节拍"
+source_data = {
+"detail": "近战攻速 +10% · 伤害 +8%",
+"family": "firepower",
+"glyph": "fireRate",
+"id": "meleeTempo",
+"max": 4.0,
+"name": "格斗节拍",
+"rarity": "advanced",
+"requires": {
+"attackTypes": ["slash", "slam"]
+},
+"unlockWave": 1.0
+}

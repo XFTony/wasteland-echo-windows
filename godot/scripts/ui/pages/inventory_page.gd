@@ -54,6 +54,8 @@ static func build(view: MenuView) -> void:
 	view.page_data = data
 	var compact: bool = data.compact
 	var rect: Rect2 = data.rect
+	view.add_action_button("workshop", "战地改件", Rect2(rect.end.x - (216 if compact else 286),
+		rect.position.y + (9 if compact else 15), 100 if compact else 134, 34 if compact else 48))
 	view.add_action_button("deployment", "返回部署", Rect2(rect.end.x - (108 if compact else 142),
 		rect.position.y + (9 if compact else 15), 100 if compact else 134, 34 if compact else 48))
 	var left: Rect2 = data.left

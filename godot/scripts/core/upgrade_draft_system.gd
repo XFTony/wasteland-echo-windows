@@ -8,8 +8,18 @@ var _fallback: Array[Dictionary] = []
 
 
 func requirements_met(model: RunSimulation, upgrade: Dictionary) -> bool:
+	if not WorkshopRules.unlocked(upgrade, model.save, model.run):
+		return false
 	var weapon: Dictionary = model.catalog.parameters("weapons", model.run.player.weaponId)
 	var kind: String = str(weapon.get("attackType", "projectile"))
+	if upgrade.id == "armor" and float(model.run.player.armor) >= 0.45:
+		return false
+	if upgrade.id == "critical" and float(model.run.player.criticalChance) >= 0.42:
+		return false
+	if upgrade.id == "fireRate" and kind in ["slash", "slam"] and float(model.run.player.fireRateMultiplier) * float(EconomyRules.weapon_modifiers(model.run).rate) >= 2.4:
+		return false
+	if upgrade.id == "projectile" and WeaponRules.projectile_count(weapon, model.run.player) >= (3 if kind == "beam" else 6 if kind in ["disc", "explosive"] else 16):
+		return false
 	if kind in ["disc", "explosive"] and upgrade.id in ["pierce", "penetratorDoctrine"]:
 		return false
 	if kind in ["slash", "slam"] and upgrade.id in ["projectile", "pierce", "velocity", "caliber"]:
@@ -72,7 +82,14 @@ func create_options(model: RunSimulation) -> Array[Dictionary]:
 		var index: int = model.random.range_int(0, _fallback.size() - 1)
 		choices.append(_fallback[index])
 		_fallback.remove_at(index)
-	return choices
+	var presented: Array[Dictionary] = []
+	var weapon: Dictionary = model.catalog.parameters("weapons", model.run.player.weaponId)
+	for original: Dictionary in choices:
+		var option: Dictionary = original.duplicate(true)
+		option["preview"] = WorkshopRules.preview(option.id, model.run.player, model.run, weapon)
+		option.detail = WorkshopRules.detail(option, weapon)
+		presented.append(option)
+	return presented
 
 
 func choose(model: RunSimulation, id: String) -> bool:

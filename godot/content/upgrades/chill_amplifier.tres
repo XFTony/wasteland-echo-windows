@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_mw8hs"]
+
+[resource]
+script = ExtResource("1_mw8hs")
+content_id = &"chillAmplifier"
+category = &"upgrades"
+display_name = "寒霜延时"
+source_data = {
+"detail": "减速持续时间 +0.3秒",
+"family": "utility",
+"glyph": "phaseLining",
+"id": "chillAmplifier",
+"max": 3.0,
+"name": "寒霜延时",
+"rarity": "advanced",
+"requires": {
+"weaponIds": ["frost_projector"]
+},
+"unlockWave": 3.0
+}

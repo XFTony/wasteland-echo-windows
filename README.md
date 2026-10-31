@@ -1,5 +1,7 @@
 # 荒原回响 · Wasteland Echo
 
+2026-10-31 **生存压力与战地改件内部样板**：前期敌人进入频率与数量上调，每45秒记一轮连续尸潮；修复零散布武器的多弹重叠、特殊武器改件参数遗漏与拾荒收益舍入问题。新增8项改件、棘轮连弩／霜凝喷射器／破阵长矛／锈刃战斧，目前共16件武器、42项改件。行装页可打开“战地改件”档案，暂停可查看本局真实属性与已装配改件。[设计与研究](./docs/design/survival-builds-arsenal-plan.md)、[验证与42项改件审计](./docs/qa/survival-builds-validation.md)、[实际截图与声音预览](./output/survival-builds/review.html)。当前体验入口仍是 `output/godot-migration/windows/WastelandEcho.exe`；本轮为内部调参，难度须本人试玩确认，不代表正式新Release。
+
 2026-10-30 **回声旧城地面样板v3**：仅重做这一张地图的连续沥青/混凝土/土面、绘制路缘/道路标记和建筑接地细节；另外两图保留上一轮效果。升级四卡的鼠标悬停、固定点击区域、键盘/手柄焦点与缩放保留选择已修复。[本轮计划](./docs/design/echo-ground-ui-polish-plan.md)、[研究与UI审查](./docs/research/echo-ground-style-and-ui-2026-10-30.md)、[验证记录](./docs/qa/echo-ground-ui-validation.md)、[新素材与提示词](./art/world/echo-ground-v3/README.md)。体验仍使用 `output/godot-migration/windows/WastelandEcho.exe`，选择“回声旧城”；[同位置前后对照与四卡截图](./output/echo-ground-ui/review.html)。本轮属于待本人审美确认的内部样板。
 
 2026-10-30 当前开发入口为 **Godot 原生内部测试版**。双击 `output/godot-migration/windows/WastelandEcho.exe` 体验；源码使用根目录 `启动Godot开发版.cmd` 或在 Godot 4.7.2 中打开 `godot/project.godot`。本轮更新三图像素地表、环境物件、脚底深度排序、遮挡淡化、交易/爆桶/补给提示及塔台预览。[运行与开发说明](./godot/README.md)、[地图设计与后续计划](./docs/design/map-art-and-interactions-plan.md)、[本轮验证](./docs/qa/map-art-validation.md)、[文件夹导航](./docs/project-file-guide.md)、[活动素材索引](./docs/assets/asset-catalog.md)。实体手柄、DPI、低配和长局仍待验收；当前不是正式新Release。下列按日期保留历史阶段记录，旧版包不是当前体验入口。
@@ -56,7 +58,7 @@ Git 传输配置、实测与故障处理：[docs/git-transport-reliability.md](.
 - 封面主视觉改用完整主体优先的 contain 构图，16:9 与 1080p 不再裁掉最大变异体头部；
 - 正文改用 Windows 系统易读字体，Fusion Pixel Font 仅负责标题和短标签；关键文字组合由自动测试校验至少 4.5:1 对比度；
 - 默认锁定进入当前枪械有效范围的近处存活敌人，距离相近时保留当前目标，减少反复转枪；范围外不自动开火，关闭辅助后可手动瞄准；
-- 10 把远程武器与 2 把近战，拥有独立轮廓、攻击结构和声音，覆盖射线、爆破、弹射、挥扫剑气与范围砸地；另有 8 类敌人、34 项注册升级（含机制与进化）、3 名主角、3 套皮肤；升级时可选四张卡，也可拆解本轮换取废料；
+- 12 把远程武器与 4 把近战，拥有独立轮廓、攻击结构和声音，覆盖射线、爆破、弹射、寒霜、刺击、挥扫剑气与范围砸地；另有 8 类敌人、42 项注册升级（含机制与进化）、3 名主角、3 套皮肤；升级时可选四张卡，也可拆解本轮换取废料；
 - 3 个关卡与 3 张 3072～4096 单位地图，支持坚守、撤离和不会自动结算的无尽模式；
 - 四部位护甲每槽至少两件选择，并同步改变生命、护甲、移动、增伤等实战参数；背包预览和开局战斗复用同一属性合成函数；插画人物的独立护具穿戴层尚未完成；
 - 巡线者默认服饰使用紧凑像素待机与八帧步态，手、袖口与十二件武器独立；远程连续转向和后坐，近战驱动持物层动作而不重置步相；八类敌人各有八帧像素步态，按实际位移播放；其他英雄／服饰仍沿用原插画；

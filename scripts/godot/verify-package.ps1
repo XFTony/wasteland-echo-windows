@@ -34,7 +34,7 @@ if ($probeProcess.ExitCode -ne 0 -or $log -match '(SCRIPT ERROR|ERROR):' -or -no
 $report = $line.Substring('GODOT_PACKAGE_SMOKE '.Length) | ConvertFrom-Json
 if ($report.failures.Count -ne 0 -or $report.maps -ne 3 -or $report.mapsWithArt -ne 3 `
         -or $report.sharedMapAtlases -ne 4 -or $report.paintedMaps -ne 1 -or $report.images -ne 59 `
-        -or $report.audio -ne 21 -or $report.weapons -ne 12) {
+        -or $report.audio -ne 25 -or $report.weapons -ne 16) {
     throw 'Standalone package content or map resources failed validation.'
 }
 $result = [ordered]@{

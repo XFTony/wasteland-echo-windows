@@ -14,7 +14,8 @@ const suites = [
   ["input-audio", "tests/input_audio_test.gd", "GODOT_INPUT_AUDIO"],
   ["save-transfer", "scenes/tools/save_transfer.tscn", "GODOT_SAVE_TRANSFER", "--qa-save-transfer-test"],
   ["map-art", "tests/map_art_test.gd", "GODOT_MAP_ART"],
-  ["ui-interaction", "tests/ui_interaction_test.gd", "GODOT_UI_INTERACTION"]
+  ["ui-interaction", "tests/ui_interaction_test.gd", "GODOT_UI_INTERACTION"],
+  ["survival-builds", "tests/survival_builds_test.gd", "GODOT_SURVIVAL_BUILDS"]
 ];
 const reports = {};
 for (const [name, script, marker, flag] of suites) {

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_s0ojk"]
+
+[resource]
+script = ExtResource("1_s0ojk")
+content_id = &"pressureBarrel"
+category = &"upgrades"
+display_name = "散射收束"
+source_data = {
+"detail": "散布收拢12% · 射程 +8%",
+"family": "firepower",
+"glyph": "velocity",
+"id": "pressureBarrel",
+"max": 3.0,
+"name": "散射收束",
+"rarity": "advanced",
+"requires": {
+"attackTypes": ["projectile"]
+},
+"unlockWave": 1.0
+}

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_2ua5c"]
+
+[resource]
+script = ExtResource("1_2ua5c")
+content_id = &"blastFocus"
+category = &"upgrades"
+display_name = "爆裂装药"
+source_data = {
+"detail": "伤害 +12% · 爆炸半径 +6%基础值",
+"family": "firepower",
+"glyph": "caliber",
+"id": "blastFocus",
+"max": 3.0,
+"name": "爆裂装药",
+"rarity": "advanced",
+"requires": {
+"attackTypes": ["explosive", "slam"]
+},
+"unlockWave": 2.0
+}

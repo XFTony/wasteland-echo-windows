@@ -1,0 +1,2166 @@
+{
+  "version": 1,
+  "date": "2026-10-30",
+  "weapons": [
+    {
+      "projectileCount": 1,
+      "spread": 0,
+      "pierce": 2,
+      "recoil": 1.5,
+      "muzzleLength": 32,
+      "muzzleFlashLength": 10,
+      "muzzleFlashLife": 0.06,
+      "muzzleParticles": 2,
+      "shellLength": 0,
+      "shellLife": 0,
+      "shellColor": "#b18b50",
+      "ttl": 0.9,
+      "id": "ratchet_crossbow",
+      "name": "棘轮连弩",
+      "description": "机械弩矢穿透2次；每第四次射击强化，无普通抛壳",
+      "weaponClass": "crossbow",
+      "rangeBand": "long",
+      "visualId": "ratchet-crossbow",
+      "mechanicId": "steady_cycle",
+      "damage": 28,
+      "interval": 0.68,
+      "projectileSpeed": 640,
+      "lockRange": 560,
+      "knockback": 35,
+      "color": "#c6b47d"
+    },
+    {
+      "projectileCount": 1,
+      "spread": 0,
+      "pierce": 0,
+      "recoil": 1,
+      "muzzleLength": 32,
+      "muzzleFlashLength": 10,
+      "muzzleFlashLife": 0.06,
+      "muzzleParticles": 2,
+      "shellLength": 0,
+      "shellLife": 0,
+      "shellColor": "#b18b50",
+      "ttl": 0.9,
+      "id": "frost_projector",
+      "name": "霜凝喷射器",
+      "description": "命中减速30%持续1.2秒；首领减速10%且时长减半",
+      "weaponClass": "elemental",
+      "rangeBand": "mid",
+      "visualId": "frost-projector",
+      "mechanicId": "cryogenic",
+      "damage": 11,
+      "interval": 0.46,
+      "projectileSpeed": 520,
+      "lockRange": 430,
+      "knockback": 14,
+      "color": "#90cddd",
+      "slowFactor": 0.7,
+      "slowDuration": 1.2
+    },
+    {
+      "projectileCount": 1,
+      "spread": 0,
+      "pierce": 0,
+      "recoil": 0.3,
+      "muzzleLength": 32,
+      "muzzleFlashLength": 10,
+      "muzzleFlashLife": 0.06,
+      "muzzleParticles": 2,
+      "shellLength": 0,
+      "shellLife": 0,
+      "shellColor": "#b18b50",
+      "ttl": 0.9,
+      "id": "breach_spear",
+      "name": "破阵长矛",
+      "description": "126范围、24度窄扇刺击；无剑气，不消除敌弹",
+      "attackType": "slash",
+      "weaponClass": "spear",
+      "rangeBand": "close",
+      "visualId": "breach-spear",
+      "mechanicId": "slash",
+      "damage": 28,
+      "interval": 0.64,
+      "projectileSpeed": 1,
+      "lockRange": 126,
+      "reach": 126,
+      "arc": 0.41887902047863906,
+      "windup": 0.12,
+      "activeTime": 0.12,
+      "recovery": 0.16,
+      "attackStyle": "thrust",
+      "waveDamage": 0,
+      "blocksProjectiles": false,
+      "restTipReach": 91.5,
+      "knockback": 38,
+      "color": "#b8c0ad"
+    },
+    {
+      "projectileCount": 1,
+      "spread": 0,
+      "pierce": 0,
+      "recoil": 0.3,
+      "muzzleLength": 32,
+      "muzzleFlashLength": 10,
+      "muzzleFlashLife": 0.06,
+      "muzzleParticles": 2,
+      "shellLength": 0,
+      "shellLife": 0,
+      "shellColor": "#b18b50",
+      "ttl": 0.9,
+      "id": "rust_cleaver",
+      "name": "锈刃战斧",
+      "description": "88范围、145度重挥；仅有效挥击段消弹，无剑气",
+      "attackType": "slash",
+      "weaponClass": "axe",
+      "rangeBand": "close",
+      "visualId": "rust-cleaver",
+      "mechanicId": "slash",
+      "damage": 34,
+      "interval": 0.86,
+      "projectileSpeed": 1,
+      "lockRange": 88,
+      "reach": 88,
+      "arc": 2.5307274153917776,
+      "windup": 0.18,
+      "activeTime": 0.2,
+      "recovery": 0.24,
+      "waveDamage": 0,
+      "blocksProjectiles": true,
+      "knockback": 66,
+      "color": "#c4ae86"
+    }
+  ],
+  "visuals": {
+    "ratchet_crossbow": {
+      "width": 64,
+      "height": 32,
+      "pivot": [
+        13,
+        16
+      ],
+      "muzzle": [
+        61,
+        16
+      ],
+      "primaryGrip": [
+        13,
+        18
+      ],
+      "supportGrip": [
+        29,
+        18
+      ],
+      "family": "crossbow",
+      "shapes": [
+        [
+          2,
+          13,
+          41,
+          8,
+          "ink"
+        ],
+        [
+          4,
+          15,
+          32,
+          4,
+          "wood"
+        ],
+        [
+          9,
+          14,
+          4,
+          6,
+          "brass"
+        ],
+        [
+          18,
+          13,
+          3,
+          8,
+          "brass"
+        ],
+        [
+          37,
+          2,
+          7,
+          28,
+          "ink"
+        ],
+        [
+          39,
+          4,
+          3,
+          24,
+          "steel"
+        ],
+        [
+          42,
+          5,
+          5,
+          5,
+          "ink"
+        ],
+        [
+          43,
+          7,
+          3,
+          4,
+          "light"
+        ],
+        [
+          46,
+          9,
+          4,
+          5,
+          "ink"
+        ],
+        [
+          47,
+          11,
+          3,
+          4,
+          "brass"
+        ],
+        [
+          42,
+          22,
+          5,
+          6,
+          "ink"
+        ],
+        [
+          43,
+          22,
+          3,
+          4,
+          "steel"
+        ],
+        [
+          46,
+          19,
+          5,
+          5,
+          "ink"
+        ],
+        [
+          47,
+          19,
+          3,
+          3,
+          "light"
+        ],
+        [
+          32,
+          7,
+          2,
+          18,
+          "light"
+        ],
+        [
+          26,
+          15,
+          35,
+          2,
+          "dark"
+        ],
+        [
+          29,
+          15,
+          31,
+          1,
+          "light"
+        ],
+        [
+          56,
+          14,
+          5,
+          4,
+          "steel"
+        ],
+        [
+          60,
+          15,
+          2,
+          2,
+          "light"
+        ],
+        [
+          6,
+          20,
+          10,
+          5,
+          "ink"
+        ],
+        [
+          8,
+          20,
+          5,
+          3,
+          "wood"
+        ]
+      ],
+      "hold": {
+        "chestY": -12,
+        "aimOffsetX": 9,
+        "upShoulder": 14,
+        "upLift": 3
+      }
+    },
+    "frost_projector": {
+      "width": 58,
+      "height": 30,
+      "pivot": [
+        12,
+        16
+      ],
+      "muzzle": [
+        56,
+        15
+      ],
+      "primaryGrip": [
+        12,
+        18
+      ],
+      "supportGrip": [
+        29,
+        18
+      ],
+      "family": "cryo",
+      "shapes": [
+        [
+          3,
+          12,
+          46,
+          11,
+          "ink"
+        ],
+        [
+          6,
+          14,
+          38,
+          7,
+          "olive"
+        ],
+        [
+          17,
+          8,
+          22,
+          6,
+          "ink"
+        ],
+        [
+          20,
+          4,
+          15,
+          9,
+          "dark"
+        ],
+        [
+          22,
+          5,
+          11,
+          8,
+          "teal"
+        ],
+        [
+          24,
+          6,
+          6,
+          5,
+          "glow"
+        ],
+        [
+          20,
+          3,
+          15,
+          3,
+          "steel"
+        ],
+        [
+          20,
+          12,
+          15,
+          3,
+          "brass"
+        ],
+        [
+          10,
+          21,
+          7,
+          7,
+          "ink"
+        ],
+        [
+          11,
+          22,
+          4,
+          4,
+          "wood"
+        ],
+        [
+          26,
+          20,
+          14,
+          7,
+          "ink"
+        ],
+        [
+          28,
+          21,
+          10,
+          4,
+          "teal"
+        ],
+        [
+          43,
+          10,
+          9,
+          14,
+          "ink"
+        ],
+        [
+          45,
+          12,
+          7,
+          10,
+          "steel"
+        ],
+        [
+          49,
+          13,
+          5,
+          8,
+          "teal"
+        ],
+        [
+          53,
+          12,
+          4,
+          11,
+          "ink"
+        ],
+        [
+          54,
+          14,
+          3,
+          7,
+          "glow"
+        ],
+        [
+          8,
+          14,
+          5,
+          2,
+          "light"
+        ],
+        [
+          36,
+          15,
+          5,
+          2,
+          "brass"
+        ]
+      ],
+      "hold": {
+        "chestY": -12,
+        "aimOffsetX": 9,
+        "upShoulder": 14,
+        "upLift": 3
+      }
+    },
+    "breach_spear": {
+      "width": 86,
+      "height": 20,
+      "pivot": [
+        23,
+        10
+      ],
+      "muzzle": [
+        84,
+        10
+      ],
+      "primaryGrip": [
+        23,
+        11
+      ],
+      "supportGrip": [
+        43,
+        11
+      ],
+      "family": "spear",
+      "shapes": [
+        [
+          1,
+          8,
+          65,
+          5,
+          "ink"
+        ],
+        [
+          3,
+          9,
+          62,
+          3,
+          "wood"
+        ],
+        [
+          5,
+          9,
+          55,
+          1,
+          "light"
+        ],
+        [
+          18,
+          8,
+          3,
+          5,
+          "brass"
+        ],
+        [
+          24,
+          8,
+          2,
+          5,
+          "dark"
+        ],
+        [
+          35,
+          8,
+          3,
+          5,
+          "brass"
+        ],
+        [
+          43,
+          8,
+          2,
+          5,
+          "dark"
+        ],
+        [
+          58,
+          7,
+          7,
+          7,
+          "ink"
+        ],
+        [
+          60,
+          8,
+          4,
+          5,
+          "steel"
+        ],
+        [
+          64,
+          5,
+          9,
+          11,
+          "ink"
+        ],
+        [
+          66,
+          6,
+          9,
+          9,
+          "steel"
+        ],
+        [
+          69,
+          5,
+          7,
+          3,
+          "light"
+        ],
+        [
+          73,
+          6,
+          5,
+          8,
+          "ink"
+        ],
+        [
+          74,
+          7,
+          5,
+          6,
+          "steel"
+        ],
+        [
+          78,
+          7,
+          3,
+          6,
+          "ink"
+        ],
+        [
+          79,
+          8,
+          3,
+          4,
+          "light"
+        ],
+        [
+          82,
+          9,
+          3,
+          2,
+          "steel"
+        ],
+        [
+          85,
+          9,
+          1,
+          1,
+          "light"
+        ],
+        [
+          68,
+          12,
+          6,
+          2,
+          "rust"
+        ]
+      ],
+      "hold": {
+        "chestY": -8,
+        "aimOffsetX": 0,
+        "upShoulder": 0,
+        "upLift": 0
+      }
+    },
+    "rust_cleaver": {
+      "width": 64,
+      "height": 40,
+      "pivot": [
+        14,
+        22
+      ],
+      "muzzle": [
+        60,
+        21
+      ],
+      "primaryGrip": [
+        14,
+        23
+      ],
+      "supportGrip": [
+        31,
+        23
+      ],
+      "family": "axe",
+      "shapes": [
+        [
+          2,
+          20,
+          48,
+          7,
+          "ink"
+        ],
+        [
+          4,
+          22,
+          43,
+          3,
+          "wood"
+        ],
+        [
+          6,
+          22,
+          34,
+          1,
+          "light"
+        ],
+        [
+          10,
+          20,
+          3,
+          7,
+          "brass"
+        ],
+        [
+          18,
+          21,
+          2,
+          5,
+          "dark"
+        ],
+        [
+          27,
+          20,
+          3,
+          7,
+          "brass"
+        ],
+        [
+          38,
+          18,
+          9,
+          12,
+          "ink"
+        ],
+        [
+          40,
+          20,
+          5,
+          8,
+          "steel"
+        ],
+        [
+          52,
+          2,
+          4,
+          1,
+          "ink"
+        ],
+        [
+          49,
+          3,
+          8,
+          1,
+          "ink"
+        ],
+        [
+          48,
+          4,
+          10,
+          1,
+          "ink"
+        ],
+        [
+          46,
+          5,
+          13,
+          1,
+          "ink"
+        ],
+        [
+          45,
+          6,
+          15,
+          1,
+          "ink"
+        ],
+        [
+          44,
+          7,
+          16,
+          1,
+          "ink"
+        ],
+        [
+          43,
+          8,
+          18,
+          1,
+          "ink"
+        ],
+        [
+          43,
+          9,
+          18,
+          1,
+          "ink"
+        ],
+        [
+          43,
+          10,
+          18,
+          1,
+          "ink"
+        ],
+        [
+          43,
+          11,
+          19,
+          1,
+          "ink"
+        ],
+        [
+          43,
+          12,
+          19,
+          1,
+          "ink"
+        ],
+        [
+          43,
+          13,
+          20,
+          1,
+          "ink"
+        ],
+        [
+          44,
+          14,
+          19,
+          1,
+          "ink"
+        ],
+        [
+          46,
+          15,
+          17,
+          1,
+          "ink"
+        ],
+        [
+          48,
+          16,
+          15,
+          1,
+          "ink"
+        ],
+        [
+          48,
+          17,
+          15,
+          1,
+          "ink"
+        ],
+        [
+          48,
+          18,
+          15,
+          1,
+          "ink"
+        ],
+        [
+          49,
+          19,
+          14,
+          1,
+          "ink"
+        ],
+        [
+          49,
+          20,
+          13,
+          1,
+          "ink"
+        ],
+        [
+          49,
+          21,
+          13,
+          1,
+          "ink"
+        ],
+        [
+          49,
+          22,
+          13,
+          1,
+          "ink"
+        ],
+        [
+          49,
+          23,
+          12,
+          1,
+          "ink"
+        ],
+        [
+          48,
+          24,
+          13,
+          1,
+          "ink"
+        ],
+        [
+          48,
+          25,
+          12,
+          1,
+          "ink"
+        ],
+        [
+          48,
+          26,
+          12,
+          1,
+          "ink"
+        ],
+        [
+          47,
+          27,
+          13,
+          1,
+          "ink"
+        ],
+        [
+          46,
+          28,
+          13,
+          1,
+          "ink"
+        ],
+        [
+          44,
+          29,
+          14,
+          1,
+          "ink"
+        ],
+        [
+          43,
+          30,
+          14,
+          1,
+          "ink"
+        ],
+        [
+          43,
+          31,
+          13,
+          1,
+          "ink"
+        ],
+        [
+          44,
+          32,
+          11,
+          1,
+          "ink"
+        ],
+        [
+          45,
+          33,
+          8,
+          1,
+          "ink"
+        ],
+        [
+          46,
+          34,
+          3,
+          1,
+          "ink"
+        ],
+        [
+          53,
+          4,
+          3,
+          1,
+          "steel"
+        ],
+        [
+          50,
+          5,
+          7,
+          1,
+          "steel"
+        ],
+        [
+          49,
+          6,
+          8,
+          1,
+          "steel"
+        ],
+        [
+          47,
+          7,
+          11,
+          1,
+          "steel"
+        ],
+        [
+          46,
+          8,
+          12,
+          1,
+          "steel"
+        ],
+        [
+          45,
+          9,
+          14,
+          1,
+          "steel"
+        ],
+        [
+          45,
+          10,
+          14,
+          1,
+          "steel"
+        ],
+        [
+          45,
+          11,
+          15,
+          1,
+          "steel"
+        ],
+        [
+          45,
+          12,
+          15,
+          1,
+          "steel"
+        ],
+        [
+          46,
+          13,
+          15,
+          1,
+          "steel"
+        ],
+        [
+          48,
+          14,
+          13,
+          1,
+          "steel"
+        ],
+        [
+          50,
+          15,
+          11,
+          1,
+          "steel"
+        ],
+        [
+          50,
+          16,
+          11,
+          1,
+          "steel"
+        ],
+        [
+          50,
+          17,
+          11,
+          1,
+          "steel"
+        ],
+        [
+          51,
+          18,
+          10,
+          1,
+          "steel"
+        ],
+        [
+          51,
+          19,
+          10,
+          1,
+          "steel"
+        ],
+        [
+          51,
+          20,
+          9,
+          1,
+          "steel"
+        ],
+        [
+          51,
+          21,
+          9,
+          1,
+          "steel"
+        ],
+        [
+          51,
+          22,
+          8,
+          1,
+          "steel"
+        ],
+        [
+          51,
+          23,
+          8,
+          1,
+          "steel"
+        ],
+        [
+          50,
+          24,
+          9,
+          1,
+          "steel"
+        ],
+        [
+          50,
+          25,
+          8,
+          1,
+          "steel"
+        ],
+        [
+          50,
+          26,
+          8,
+          1,
+          "steel"
+        ],
+        [
+          50,
+          27,
+          7,
+          1,
+          "steel"
+        ],
+        [
+          49,
+          28,
+          7,
+          1,
+          "steel"
+        ],
+        [
+          48,
+          29,
+          7,
+          1,
+          "steel"
+        ],
+        [
+          47,
+          30,
+          7,
+          1,
+          "steel"
+        ],
+        [
+          47,
+          31,
+          5,
+          1,
+          "steel"
+        ],
+        [
+          47,
+          32,
+          2,
+          1,
+          "steel"
+        ],
+        [
+          57,
+          7,
+          1,
+          1,
+          "light"
+        ],
+        [
+          57,
+          8,
+          1,
+          1,
+          "light"
+        ],
+        [
+          58,
+          9,
+          1,
+          1,
+          "light"
+        ],
+        [
+          58,
+          10,
+          1,
+          1,
+          "light"
+        ],
+        [
+          58,
+          11,
+          2,
+          1,
+          "light"
+        ],
+        [
+          58,
+          12,
+          2,
+          1,
+          "light"
+        ],
+        [
+          58,
+          13,
+          3,
+          1,
+          "light"
+        ],
+        [
+          58,
+          14,
+          3,
+          1,
+          "light"
+        ],
+        [
+          58,
+          15,
+          3,
+          1,
+          "light"
+        ],
+        [
+          58,
+          16,
+          3,
+          1,
+          "light"
+        ],
+        [
+          58,
+          17,
+          3,
+          1,
+          "light"
+        ],
+        [
+          58,
+          18,
+          3,
+          1,
+          "light"
+        ],
+        [
+          58,
+          19,
+          3,
+          1,
+          "light"
+        ],
+        [
+          58,
+          20,
+          3,
+          1,
+          "light"
+        ],
+        [
+          58,
+          21,
+          3,
+          1,
+          "light"
+        ],
+        [
+          57,
+          22,
+          4,
+          1,
+          "light"
+        ],
+        [
+          57,
+          23,
+          3,
+          1,
+          "light"
+        ],
+        [
+          56,
+          24,
+          4,
+          1,
+          "light"
+        ],
+        [
+          56,
+          25,
+          3,
+          1,
+          "light"
+        ],
+        [
+          55,
+          26,
+          4,
+          1,
+          "light"
+        ],
+        [
+          54,
+          27,
+          4,
+          1,
+          "light"
+        ],
+        [
+          53,
+          28,
+          4,
+          1,
+          "light"
+        ],
+        [
+          52,
+          29,
+          5,
+          1,
+          "light"
+        ],
+        [
+          51,
+          30,
+          5,
+          1,
+          "light"
+        ],
+        [
+          51,
+          31,
+          3,
+          1,
+          "light"
+        ],
+        [
+          51,
+          32,
+          1,
+          1,
+          "light"
+        ],
+        [
+          50,
+          11,
+          3,
+          2,
+          "rust"
+        ],
+        [
+          52,
+          17,
+          2,
+          3,
+          "dark"
+        ],
+        [
+          48,
+          27,
+          2,
+          2,
+          "rust"
+        ]
+      ],
+      "hold": {
+        "chestY": -12,
+        "aimOffsetX": 9,
+        "upShoulder": 14,
+        "upLift": 3
+      }
+    }
+  },
+  "feedback": {
+    "ratchet_crossbow": {
+      "family": "crossbow",
+      "kick": 1.5,
+      "angle": 0.018,
+      "recovery": 0.1,
+      "camera": 0,
+      "trail": 10,
+      "width": 3,
+      "color": "#c6b47d",
+      "core": "#e3d5ae",
+      "impact": "#c6b47d",
+      "shell": "none",
+      "ejectDelay": 0,
+      "flash": "none"
+    },
+    "frost_projector": {
+      "family": "cryo",
+      "kick": 1,
+      "angle": 0.018,
+      "recovery": 0.1,
+      "camera": 0,
+      "trail": 6,
+      "width": 3,
+      "color": "#90cddd",
+      "core": "#d8f0ec",
+      "impact": "#90cddd",
+      "shell": "none",
+      "ejectDelay": 0,
+      "flash": "mist"
+    },
+    "breach_spear": {
+      "family": "spear",
+      "kick": 0.3,
+      "angle": 0,
+      "recovery": 0.1,
+      "camera": 0,
+      "trail": 6,
+      "width": 3,
+      "color": "#b8c0ad",
+      "core": "#e3d5ae",
+      "impact": "#b8c0ad",
+      "shell": "none",
+      "ejectDelay": 0,
+      "flash": "none"
+    },
+    "rust_cleaver": {
+      "family": "axe",
+      "kick": 0.3,
+      "angle": 0,
+      "recovery": 0.1,
+      "camera": 0,
+      "trail": 6,
+      "width": 3,
+      "color": "#c4ae86",
+      "core": "#e3d5ae",
+      "impact": "#c4ae86",
+      "shell": "none",
+      "ejectDelay": 0,
+      "flash": "none"
+    }
+  },
+  "upgrades": [
+    {
+      "id": "critDamage",
+      "name": "弱点增幅",
+      "detail": "暴击伤害倍率 +0.2",
+      "family": "firepower",
+      "rarity": "advanced",
+      "max": 3,
+      "unlockWave": 1,
+      "glyph": "critical"
+    },
+    {
+      "id": "killMend",
+      "name": "猎获修复",
+      "detail": "每12次击败回复1生命／级",
+      "family": "survival",
+      "rarity": "prototype",
+      "max": 3,
+      "unlockWave": 2,
+      "glyph": "recovery"
+    },
+    {
+      "id": "meleeTempo",
+      "name": "格斗节拍",
+      "detail": "近战攻速 +10% · 伤害 +8%",
+      "family": "firepower",
+      "rarity": "advanced",
+      "max": 4,
+      "unlockWave": 1,
+      "glyph": "fireRate",
+      "requires": {
+        "attackTypes": [
+          "slash",
+          "slam"
+        ]
+      }
+    },
+    {
+      "id": "ricochetCoil",
+      "name": "锯盘导流",
+      "detail": "锯盘额外弹射 +1",
+      "family": "utility",
+      "rarity": "prototype",
+      "max": 2,
+      "unlockWave": 3,
+      "glyph": "cascadeRounds",
+      "requires": {
+        "attackTypes": [
+          "disc"
+        ]
+      }
+    },
+    {
+      "id": "chillAmplifier",
+      "name": "寒霜延时",
+      "detail": "减速持续时间 +0.3秒",
+      "family": "utility",
+      "rarity": "advanced",
+      "max": 3,
+      "unlockWave": 3,
+      "glyph": "phaseLining",
+      "requires": {
+        "weaponIds": [
+          "frost_projector"
+        ]
+      }
+    },
+    {
+      "id": "blastFocus",
+      "name": "爆裂装药",
+      "detail": "伤害 +12% · 爆炸半径 +6%基础值",
+      "family": "firepower",
+      "rarity": "advanced",
+      "max": 3,
+      "unlockWave": 2,
+      "glyph": "caliber",
+      "requires": {
+        "attackTypes": [
+          "explosive",
+          "slam"
+        ]
+      }
+    },
+    {
+      "id": "fieldRush",
+      "name": "战场步频",
+      "detail": "移动速度 +6% · 攻速 +4%",
+      "family": "mobility",
+      "rarity": "prototype",
+      "max": 4,
+      "unlockWave": 4,
+      "glyph": "speed"
+    },
+    {
+      "id": "pressureBarrel",
+      "name": "散射收束",
+      "detail": "散布收拢12% · 射程 +8%",
+      "family": "firepower",
+      "rarity": "advanced",
+      "max": 3,
+      "unlockWave": 1,
+      "glyph": "velocity",
+      "requires": {
+        "attackTypes": [
+          "projectile"
+        ]
+      }
+    }
+  ],
+  "glyphs": {
+    "critDamage": [
+      {
+        "kind": "circle",
+        "x": 32,
+        "y": 32,
+        "radius": 20,
+        "color": "#272e24",
+        "filled": true,
+        "start": 0,
+        "end": 6.283185307179586,
+        "width": 4
+      },
+      {
+        "kind": "circle",
+        "x": 32,
+        "y": 32,
+        "radius": 14,
+        "color": "#69724f",
+        "filled": true,
+        "start": 0,
+        "end": 6.283185307179586,
+        "width": 4
+      },
+      {
+        "kind": "circle",
+        "x": 32,
+        "y": 32,
+        "radius": 6,
+        "color": "#a74e3b",
+        "filled": true,
+        "start": 0,
+        "end": 6.283185307179586,
+        "width": 4
+      },
+      {
+        "kind": "rect",
+        "x": 29,
+        "y": 4,
+        "w": 6,
+        "h": 17,
+        "color": "#b69452"
+      },
+      {
+        "kind": "rect",
+        "x": 29,
+        "y": 43,
+        "w": 6,
+        "h": 17,
+        "color": "#b69452"
+      },
+      {
+        "kind": "rect",
+        "x": 4,
+        "y": 29,
+        "w": 17,
+        "h": 6,
+        "color": "#b69452"
+      },
+      {
+        "kind": "rect",
+        "x": 43,
+        "y": 29,
+        "w": 17,
+        "h": 6,
+        "color": "#b69452"
+      },
+      {
+        "kind": "rect",
+        "x": 30,
+        "y": 28,
+        "w": 3,
+        "h": 4,
+        "color": "#e5d29b"
+      }
+    ],
+    "killMend": [
+      {
+        "kind": "rect",
+        "x": 14,
+        "y": 9,
+        "w": 36,
+        "h": 43,
+        "color": "#272e24"
+      },
+      {
+        "kind": "rect",
+        "x": 18,
+        "y": 13,
+        "w": 28,
+        "h": 34,
+        "color": "#69724f"
+      },
+      {
+        "kind": "rect",
+        "x": 27,
+        "y": 19,
+        "w": 10,
+        "h": 22,
+        "color": "#e5d29b"
+      },
+      {
+        "kind": "rect",
+        "x": 21,
+        "y": 25,
+        "w": 22,
+        "h": 10,
+        "color": "#e5d29b"
+      },
+      {
+        "kind": "rect",
+        "x": 7,
+        "y": 47,
+        "w": 49,
+        "h": 5,
+        "color": "#b69452"
+      },
+      {
+        "kind": "rect",
+        "x": 23,
+        "y": 7,
+        "w": 18,
+        "h": 4,
+        "color": "#a74e3b"
+      }
+    ],
+    "meleeTempo": [
+      {
+        "kind": "rect",
+        "x": 13,
+        "y": 10,
+        "w": 8,
+        "h": 31,
+        "color": "#272e24"
+      },
+      {
+        "kind": "rect",
+        "x": 15,
+        "y": 12,
+        "w": 4,
+        "h": 26,
+        "color": "#acb3a3"
+      },
+      {
+        "kind": "rect",
+        "x": 9,
+        "y": 39,
+        "w": 16,
+        "h": 5,
+        "color": "#b69452"
+      },
+      {
+        "kind": "rect",
+        "x": 15,
+        "y": 44,
+        "w": 5,
+        "h": 12,
+        "color": "#69724f"
+      },
+      {
+        "kind": "rect",
+        "x": 40,
+        "y": 10,
+        "w": 8,
+        "h": 31,
+        "color": "#272e24"
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 12,
+        "w": 4,
+        "h": 26,
+        "color": "#e5d29b"
+      },
+      {
+        "kind": "rect",
+        "x": 36,
+        "y": 39,
+        "w": 16,
+        "h": 5,
+        "color": "#b69452"
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 44,
+        "w": 5,
+        "h": 12,
+        "color": "#69724f"
+      },
+      {
+        "kind": "rect",
+        "x": 26,
+        "y": 17,
+        "w": 9,
+        "h": 4,
+        "color": "#a74e3b"
+      },
+      {
+        "kind": "rect",
+        "x": 25,
+        "y": 25,
+        "w": 9,
+        "h": 4,
+        "color": "#a74e3b"
+      }
+    ],
+    "ricochetCoil": [
+      {
+        "kind": "circle",
+        "x": 25,
+        "y": 31,
+        "radius": 17,
+        "color": "#272e24",
+        "filled": true,
+        "start": 0,
+        "end": 6.283185307179586,
+        "width": 4
+      },
+      {
+        "kind": "circle",
+        "x": 25,
+        "y": 31,
+        "radius": 12,
+        "color": "#acb3a3",
+        "filled": true,
+        "start": 0,
+        "end": 6.283185307179586,
+        "width": 4
+      },
+      {
+        "kind": "circle",
+        "x": 25,
+        "y": 31,
+        "radius": 4,
+        "color": "#b69452",
+        "filled": true,
+        "start": 0,
+        "end": 6.283185307179586,
+        "width": 4
+      },
+      {
+        "kind": "rect",
+        "x": 5,
+        "y": 26,
+        "w": 9,
+        "h": 10,
+        "color": "#acb3a3"
+      },
+      {
+        "kind": "rect",
+        "x": 20,
+        "y": 11,
+        "w": 10,
+        "h": 9,
+        "color": "#acb3a3"
+      },
+      {
+        "kind": "rect",
+        "x": 20,
+        "y": 42,
+        "w": 10,
+        "h": 9,
+        "color": "#acb3a3"
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 13,
+        "w": 5,
+        "h": 27,
+        "color": "#79adb0"
+      },
+      {
+        "kind": "rect",
+        "x": 44,
+        "y": 12,
+        "w": 12,
+        "h": 5,
+        "color": "#79adb0"
+      },
+      {
+        "kind": "rect",
+        "x": 51,
+        "y": 8,
+        "w": 5,
+        "h": 13,
+        "color": "#e5d29b"
+      }
+    ],
+    "chillAmplifier": [
+      {
+        "kind": "rect",
+        "x": 28,
+        "y": 6,
+        "w": 7,
+        "h": 48,
+        "color": "#272e24"
+      },
+      {
+        "kind": "rect",
+        "x": 9,
+        "y": 26,
+        "w": 46,
+        "h": 7,
+        "color": "#272e24"
+      },
+      {
+        "kind": "rect",
+        "x": 30,
+        "y": 8,
+        "w": 3,
+        "h": 44,
+        "color": "#79adb0"
+      },
+      {
+        "kind": "rect",
+        "x": 11,
+        "y": 28,
+        "w": 42,
+        "h": 3,
+        "color": "#79adb0"
+      },
+      {
+        "kind": "rect",
+        "x": 16,
+        "y": 15,
+        "w": 8,
+        "h": 4,
+        "color": "#e5d29b"
+      },
+      {
+        "kind": "rect",
+        "x": 20,
+        "y": 19,
+        "w": 7,
+        "h": 4,
+        "color": "#79adb0"
+      },
+      {
+        "kind": "rect",
+        "x": 39,
+        "y": 15,
+        "w": 8,
+        "h": 4,
+        "color": "#e5d29b"
+      },
+      {
+        "kind": "rect",
+        "x": 35,
+        "y": 19,
+        "w": 7,
+        "h": 4,
+        "color": "#79adb0"
+      },
+      {
+        "kind": "rect",
+        "x": 17,
+        "y": 40,
+        "w": 8,
+        "h": 4,
+        "color": "#e5d29b"
+      },
+      {
+        "kind": "rect",
+        "x": 38,
+        "y": 40,
+        "w": 8,
+        "h": 4,
+        "color": "#e5d29b"
+      },
+      {
+        "kind": "circle",
+        "x": 32,
+        "y": 29,
+        "radius": 6,
+        "color": "#e5d29b",
+        "filled": true,
+        "start": 0,
+        "end": 6.283185307179586,
+        "width": 4
+      }
+    ],
+    "blastFocus": [
+      {
+        "kind": "rect",
+        "x": 19,
+        "y": 18,
+        "w": 25,
+        "h": 33,
+        "color": "#272e24"
+      },
+      {
+        "kind": "rect",
+        "x": 23,
+        "y": 21,
+        "w": 17,
+        "h": 26,
+        "color": "#69724f"
+      },
+      {
+        "kind": "rect",
+        "x": 20,
+        "y": 15,
+        "w": 23,
+        "h": 6,
+        "color": "#b69452"
+      },
+      {
+        "kind": "rect",
+        "x": 27,
+        "y": 7,
+        "w": 9,
+        "h": 10,
+        "color": "#a74e3b"
+      },
+      {
+        "kind": "rect",
+        "x": 47,
+        "y": 20,
+        "w": 9,
+        "h": 4,
+        "color": "#b69452"
+      },
+      {
+        "kind": "rect",
+        "x": 9,
+        "y": 26,
+        "w": 8,
+        "h": 4,
+        "color": "#b69452"
+      },
+      {
+        "kind": "rect",
+        "x": 45,
+        "y": 43,
+        "w": 10,
+        "h": 4,
+        "color": "#e5d29b"
+      },
+      {
+        "kind": "rect",
+        "x": 28,
+        "y": 28,
+        "w": 7,
+        "h": 11,
+        "color": "#b69452"
+      },
+      {
+        "kind": "rect",
+        "x": 8,
+        "y": 44,
+        "w": 8,
+        "h": 4,
+        "color": "#a74e3b"
+      }
+    ],
+    "fieldRush": [
+      {
+        "kind": "rect",
+        "x": 23,
+        "y": 12,
+        "w": 20,
+        "h": 30,
+        "color": "#272e24"
+      },
+      {
+        "kind": "rect",
+        "x": 27,
+        "y": 15,
+        "w": 12,
+        "h": 24,
+        "color": "#69724f"
+      },
+      {
+        "kind": "rect",
+        "x": 21,
+        "y": 39,
+        "w": 30,
+        "h": 12,
+        "color": "#272e24"
+      },
+      {
+        "kind": "rect",
+        "x": 24,
+        "y": 41,
+        "w": 23,
+        "h": 6,
+        "color": "#b69452"
+      },
+      {
+        "kind": "rect",
+        "x": 5,
+        "y": 22,
+        "w": 15,
+        "h": 4,
+        "color": "#79adb0"
+      },
+      {
+        "kind": "rect",
+        "x": 10,
+        "y": 31,
+        "w": 10,
+        "h": 4,
+        "color": "#79adb0"
+      },
+      {
+        "kind": "rect",
+        "x": 2,
+        "y": 40,
+        "w": 16,
+        "h": 4,
+        "color": "#e5d29b"
+      }
+    ],
+    "pressureBarrel": [
+      {
+        "kind": "rect",
+        "x": 26,
+        "y": 9,
+        "w": 12,
+        "h": 42,
+        "color": "#272e24"
+      },
+      {
+        "kind": "rect",
+        "x": 29,
+        "y": 13,
+        "w": 6,
+        "h": 33,
+        "color": "#b69452"
+      },
+      {
+        "kind": "rect",
+        "x": 9,
+        "y": 13,
+        "w": 5,
+        "h": 14,
+        "color": "#79adb0"
+      },
+      {
+        "kind": "rect",
+        "x": 14,
+        "y": 23,
+        "w": 5,
+        "h": 5,
+        "color": "#79adb0"
+      },
+      {
+        "kind": "rect",
+        "x": 18,
+        "y": 28,
+        "w": 7,
+        "h": 5,
+        "color": "#e5d29b"
+      },
+      {
+        "kind": "rect",
+        "x": 50,
+        "y": 13,
+        "w": 5,
+        "h": 14,
+        "color": "#79adb0"
+      },
+      {
+        "kind": "rect",
+        "x": 45,
+        "y": 23,
+        "w": 5,
+        "h": 5,
+        "color": "#79adb0"
+      },
+      {
+        "kind": "rect",
+        "x": 39,
+        "y": 28,
+        "w": 7,
+        "h": 5,
+        "color": "#e5d29b"
+      },
+      {
+        "kind": "rect",
+        "x": 24,
+        "y": 48,
+        "w": 16,
+        "h": 5,
+        "color": "#acb3a3"
+      }
+    ]
+  },
+  "prices": {
+    "ratchet_crossbow": 110,
+    "frost_projector": 95,
+    "breach_spear": 80,
+    "rust_cleaver": 90
+  },
+  "gunPrices": {
+    "ratchet_crossbow": 24,
+    "frost_projector": 22,
+    "breach_spear": 17,
+    "rust_cleaver": 20
+  },
+  "audio": [
+    {
+      "id": "ratchet_crossbow",
+      "src": "./assets/audio/survival-v2/ratchet_crossbow.wav",
+      "resourcePath": "res://assets/audio/survival-v2/ratchet_crossbow.wav",
+      "role": "shot",
+      "source": "Project original offline synthesis; no third-party samples",
+      "seconds": 0.2
+    },
+    {
+      "id": "frost_projector",
+      "src": "./assets/audio/survival-v2/frost_projector.wav",
+      "resourcePath": "res://assets/audio/survival-v2/frost_projector.wav",
+      "role": "shot",
+      "source": "Project original offline synthesis; no third-party samples",
+      "seconds": 0.2
+    },
+    {
+      "id": "breach_spear",
+      "src": "./assets/audio/survival-v2/breach_spear.wav",
+      "resourcePath": "res://assets/audio/survival-v2/breach_spear.wav",
+      "role": "melee",
+      "source": "Project original offline synthesis; no third-party samples",
+      "seconds": 0.2
+    },
+    {
+      "id": "rust_cleaver",
+      "src": "./assets/audio/survival-v2/rust_cleaver.wav",
+      "resourcePath": "res://assets/audio/survival-v2/rust_cleaver.wav",
+      "role": "melee",
+      "source": "Project original offline synthesis; no third-party samples",
+      "seconds": 0.28
+    }
+  ]
+}

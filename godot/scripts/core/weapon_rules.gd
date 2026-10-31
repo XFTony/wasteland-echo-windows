@@ -15,9 +15,26 @@ static func target_range(weapon: Dictionary, player: Dictionary) -> float:
 		return (float(weapon.impactOffset) + float(weapon.blastRadius)
 			* minf(1.4, float(player.blastRadiusMultiplier))) * melee
 	if kind == "slash":
+		if float(weapon.get("waveDamage", 0.4)) <= 0:
+			return float(weapon.reach) * melee
 		return minf(240, float(weapon.lockRange) * (1 + (multiplier - 1) * 0.5))
 	var range: float = float(weapon.lockRange) * multiplier * float(player.lockRangeMultiplier)
 	return minf(1100, range) if kind == "beam" else range
+
+
+static func projectile_count(weapon: Dictionary, player: Dictionary) -> int:
+	var kind: String = str(weapon.get("attackType", "projectile"))
+	if kind in ["slash", "slam"]:
+		return 0
+	var maximum: int = 3 if kind == "beam" else 6 if kind in ["disc", "explosive"] else 16
+	return mini(maximum, int(weapon.get("projectileCount", 1)) + int(player.projectileBonus))
+
+
+static func projectile_spread(weapon: Dictionary, player: Dictionary, count: int) -> float:
+	var spread: float = deg_to_rad(float(weapon.get("spread", 0)))
+	if count > 1:
+		spread = maxf(spread, minf(0.65, (count - 1) * 0.10))
+	return spread * float(player.get("spreadMultiplier", 1))
 
 
 static func compact_shot_pose(player: Dictionary, x: float, y: float, catalog: GameCatalog) -> Dictionary:
@@ -44,6 +61,13 @@ static func compact_shot_pose(player: Dictionary, x: float, y: float, catalog: G
 static func correct_aim(player: Dictionary, target: Dictionary, catalog: GameCatalog) -> Dictionary:
 	if not uses_compact(player, catalog):
 		return {}
+	if catalog.parameters("weapons", player.weaponId).get("attackStyle") == "thrust":
+		var direction: Vector2 = Vector2(float(target.x) - float(player.x), float(target.y) - float(player.y) + 12).normalized()
+		if absf(direction.x) > 0.15:
+			player.compactFacing = signf(direction.x)
+		if absf(direction.y) > 0.18:
+			player.compactDepth = "back" if direction.y < 0 else "front"
+		return {"x": direction.x, "y": direction.y}
 	var hold: Dictionary = catalog.metadata.poses[player.weaponId].hold
 	var angle: float = atan2(float(target.y) - float(player.y) - float(hold.chestY) * 1.5,
 		float(target.x) - float(player.x))

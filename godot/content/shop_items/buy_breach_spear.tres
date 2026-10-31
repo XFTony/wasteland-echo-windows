@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_vhrk1"]
+
+[resource]
+script = ExtResource("1_vhrk1")
+content_id = &"buy_breach_spear"
+category = &"shopItems"
+display_name = "破阵长矛"
+source_data = {
+"category": "weapon",
+"currency": "copper",
+"description": "126范围、24度窄扇刺击；无剑气，不消除敌弹",
+"grantId": "breach_spear",
+"grantType": "weapon",
+"id": "buy_breach_spear",
+"name": "破阵长矛",
+"price": 80.0,
+"unlockStage": 1
+}

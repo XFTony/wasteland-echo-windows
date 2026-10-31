@@ -25,7 +25,10 @@ static func weapon_summary(weapon: Dictionary) -> Array[String]:
 		"disc":
 			return ["基础%d伤害 / 弹射%d次" % [weapon.damage, weapon.bounces], "每跳78% · 不重复命中", "实体墙阻挡"]
 		"slash":
-			return ["基础%d刃伤 / %d近战范围" % [weapon.damage, weapon.reach], "110°挥扫 · 40%伤害剑气", "有效挥扫可消弹"]
+			return ["基础%d刃伤 / %d近战范围" % [weapon.damage, weapon.reach],
+				"%d°%s · %s" % [roundi(rad_to_deg(float(weapon.arc))), "刺击" if weapon.get("attackStyle") == "thrust" else "挥扫",
+				"40%伤害剑气" if float(weapon.get("waveDamage", 0.4)) > 0 else "无剑气"],
+				"有效挥扫可消弹" if bool(weapon.get("blocksProjectiles", true)) else "不能消除敌弹"]
 		"slam":
 			return ["基础%d伤害 / %d冲击半径" % [weapon.damage, weapon.blastRadius], "%d落点 · 前摇%s秒" % [weapon.impactOffset, weapon.windup], "击退与短时消弹"]
 	return [str(weapon.description)]
@@ -34,7 +37,10 @@ static func weapon_summary(weapon: Dictionary) -> Array[String]:
 static func stats(kind: String, item: Dictionary) -> String:
 	if kind == "weapon":
 		var rate: float = minf(99, 1.0 / float(item.interval))
-		return "伤害 %d  ·  攻速 %s/秒  ·  锁定 %d" % [item.damage,
+		var damage: String = str(roundi(float(item.damage))) if is_equal_approx(float(item.damage), roundf(float(item.damage))) else "%.1f" % float(item.damage)
+		if int(item.get("projectileCount", 1)) > 1:
+			damage += "×%d" % int(item.projectileCount)
+		return "基础伤害 %s  ·  攻速 %s/秒  ·  锁定 %d" % [damage,
 			("%.1f" if float(item.interval) < 0.15 else "%.2f") % rate, item.lockRange]
 	if kind != "equipment":
 		return item.description

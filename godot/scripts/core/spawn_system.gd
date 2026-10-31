@@ -100,6 +100,10 @@ func spawn_at_edge(model: RunSimulation, kind: String) -> Dictionary:
 func _update_continuous(model: RunSimulation, delta: float, mode: Dictionary) -> void:
 	var run: Dictionary = model.run
 	var pressure: Dictionary = SurvivalRules.pressure(run.elapsed)
+	if int(run.spawnPhaseIndex) < 0:
+		for index: int in range(4):
+			spawn_at_edge(model, "drifter")
+	WorkshopRules.update_progress(model)
 	for enemy: Dictionary in model.enemies:
 		if enemy.active and not enemy.boss and GeometryRules.distance_squared(enemy.x, enemy.y,
 			run.player.x, run.player.y) > 1450 * 1450:

@@ -1,0 +1,1144 @@
+{
+  "date": "2026-10-31",
+  "status": "package_pending",
+  "version": "1.5.0-alpha.1",
+  "definitions": 154,
+  "weapons": 16,
+  "upgrades": 42,
+  "suites": {
+    "foundation": {
+      "checks": 125283,
+      "contentDefinitions": 154,
+      "failures": [],
+      "maximumPoseError": 0.0000131489350252423,
+      "scope": "Content, RNG, pressure, loadouts, upgrades, shop rules, save codec and recovery"
+    },
+    "combat": {
+      "cases": 72,
+      "checkpoints": 248,
+      "checks": 154069,
+      "failures": [],
+      "revisedSpawnCases": [
+        "echo_district:survival-at-0",
+        "echo_district:survival-at-140",
+        "echo_district:survival-at-200",
+        "echo_district:survival-at-600",
+        "freight_nexus:survival-at-0",
+        "freight_nexus:survival-at-140",
+        "freight_nexus:survival-at-200",
+        "freight_nexus:survival-at-600",
+        "red_basin:survival-at-0",
+        "red_basin:survival-at-140",
+        "red_basin:survival-at-200",
+        "red_basin:survival-at-600"
+      ],
+      "scope": "Unchanged legacy behavior; revised spawning is validated separately"
+    },
+    "runtime": {
+      "checks": 12,
+      "failures": []
+    },
+    "input-audio": {
+      "audioAssets": 25,
+      "checks": 55,
+      "failures": []
+    },
+    "save-transfer": {
+      "checks": 10,
+      "failures": [],
+      "isolated": true
+    },
+    "map-art": {
+      "checks": 58,
+      "failures": [],
+      "maps": 3
+    },
+    "ui-interaction": {
+      "checks": 155,
+      "failures": [],
+      "resolutions": 5,
+      "scope": "Native viewport pointer, click and navigation events; not physical device acceptance"
+    },
+    "survival-builds": {
+      "auditedUpgrades": 42,
+      "checks": 441,
+      "failures": [],
+      "weapons": 16
+    }
+  },
+  "legacyCheck": {
+    "command": "npm run check",
+    "exitCode": 0,
+    "tests": 331,
+    "scope": "Original Canvas/Tauri baseline; not new Godot balance acceptance"
+  },
+  "audit": [
+    {
+      "id": "meleeReach",
+      "name": "长柄改装",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "echo_blade",
+      "detail": "近战范围 +10%基础值",
+      "coverage": "实际选择及状态变化；原34项算术/旧战斗回归覆盖，未新增该项独立实战夹具"
+    },
+    {
+      "id": "blastRadius",
+      "name": "扩散整形",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "slag_launcher",
+      "detail": "爆炸／砸地半径 +10%基础值",
+      "coverage": "实际选择及状态变化；原34项算术/旧战斗回归覆盖，未新增该项独立实战夹具"
+    },
+    {
+      "id": "engineering",
+      "name": "守望工程",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "塔台伤害 +25%基础值 · 耐久 +15%基础值",
+      "coverage": "实际选择及状态变化；原34项算术/旧战斗回归覆盖，未新增该项独立实战夹具"
+    },
+    {
+      "id": "turretRepair",
+      "name": "维护回路",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "塔台8秒未受击后 · 每秒修复1%最大耐久",
+      "coverage": "实际选择及状态变化；原34项算术/旧战斗回归覆盖，未新增该项独立实战夹具"
+    },
+    {
+      "id": "endlessPower",
+      "name": "持续火力",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "伤害 +5%",
+      "coverage": "实际选择及状态变化；原34项算术/旧战斗回归覆盖，未新增该项独立实战夹具"
+    },
+    {
+      "id": "endlessVitality",
+      "name": "生存韧性",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "最大生命 +8 · 回复8",
+      "coverage": "实际选择及状态变化；原34项算术/旧战斗回归覆盖，未新增该项独立实战夹具"
+    },
+    {
+      "id": "endlessSupplies",
+      "name": "搜集补给",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "获得10拾荒币",
+      "coverage": "实际选择及状态变化；原34项算术/旧战斗回归覆盖，未新增该项独立实战夹具"
+    },
+    {
+      "id": "endlessAid",
+      "name": "紧急整备",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "回复15%最大生命 · 获得4拾荒币",
+      "coverage": "实际选择及状态变化；原34项算术/旧战斗回归覆盖，未新增该项独立实战夹具"
+    },
+    {
+      "id": "damage",
+      "name": "高压弹头",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "伤害 +15%",
+      "coverage": "16件武器的实际攻击载荷增伤"
+    },
+    {
+      "id": "fireRate",
+      "name": "快速机件",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "射速 +12%",
+      "coverage": "实际射击冷却缩短；近战达到动作上限后过滤基础攻速卡"
+    },
+    {
+      "id": "projectile",
+      "name": "分流枪机",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "弹丸 +1",
+      "coverage": "12件远程×8方向：真实发射数量增加、普通多弹角度分离；近战不出卡"
+    },
+    {
+      "id": "pierce",
+      "name": "穿甲弹芯",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "穿透 +1",
+      "coverage": "对齐目标实弹穿过并多命中一敌；爆破/弹射/近战过滤"
+    },
+    {
+      "id": "velocity",
+      "name": "磁轨增压",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "弹速 +16% · 射程 +8%",
+      "coverage": "普通弹实测速率及寿命增加；射线只显示范围收益"
+    },
+    {
+      "id": "caliber",
+      "name": "重型枪膛",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "弹体 +0.6 · 击退 +18%",
+      "coverage": "真实弹体半径和击退载荷增加"
+    },
+    {
+      "id": "critical",
+      "name": "弱点测绘",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "暴击率 +7%",
+      "coverage": "原34项算术回归；额外检查高暴击值不会被基础改件压低"
+    },
+    {
+      "id": "speed",
+      "name": "轻量靴",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "移动速度 +8%",
+      "coverage": "实际选择及状态变化；原34项算术/旧战斗回归覆盖，未新增该项独立实战夹具"
+    },
+    {
+      "id": "vitality",
+      "name": "战地医疗",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "最大生命 +15 · 回复 15",
+      "coverage": "实际选择及状态变化；原34项算术/旧战斗回归覆盖，未新增该项独立实战夹具"
+    },
+    {
+      "id": "magnet",
+      "name": "磁吸核心",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "拾取范围 +25%",
+      "coverage": "原半径外的拾取物实际开始吸附"
+    },
+    {
+      "id": "armor",
+      "name": "加固背心",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "受到伤害 -8%",
+      "coverage": "真实受击由10降至9.2；额外检查高护甲不会被基础改件压低"
+    },
+    {
+      "id": "recovery",
+      "name": "纳米修复",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "脱战后每秒回复 0.4",
+      "coverage": "未满4秒不回复，超过4秒实际回复"
+    },
+    {
+      "id": "scavenger",
+      "name": "拾荒协议",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "废料掉率 +8% · 收益 +20%",
+      "coverage": "五枚普通币在20%收益下共得到6币，小数跨币累计"
+    },
+    {
+      "id": "phaseLining",
+      "name": "相位衬层",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "受击无敌 +0.08 秒",
+      "coverage": "实际选择及状态变化；原34项算术/旧战斗回归覆盖，未新增该项独立实战夹具"
+    },
+    {
+      "id": "executionCapacitor",
+      "name": "处决电容",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "连续击败敌人后储存强化弹",
+      "coverage": "十次真实击败蓄能；下次攻击增伤/穿透并消耗蓄能"
+    },
+    {
+      "id": "reactivePlating",
+      "name": "反应装甲",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "受击时释放近身冲击波",
+      "coverage": "真实受击触发近身伤害与冷却"
+    },
+    {
+      "id": "salvageOverdrive",
+      "name": "回收超频",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "拾取经验或废料后短暂强化弹道",
+      "coverage": "真实拾取触发超频；普通弹/榴弹/锯盘实际弹速增加"
+    },
+    {
+      "id": "pointBlankRelay",
+      "name": "近距继电",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "近距离锁定时提高伤害与击退",
+      "coverage": "实际选择及状态变化；原34项算术/旧战斗回归覆盖，未新增该项独立实战夹具"
+    },
+    {
+      "id": "focusProtocol",
+      "name": "弱点协议",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "长时间无伤后下一轮射击必定暴击",
+      "coverage": "4秒前不强制暴击，4秒后实际必暴击；榴弹/锯盘强化标记"
+    },
+    {
+      "id": "cascadeRounds",
+      "name": "电弧跳弹",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "暴击会向附近目标传导伤害",
+      "coverage": "真实暴击向附近目标传伤"
+    },
+    {
+      "id": "penetratorDoctrine",
+      "name": "穿燃教义",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "伤害 +25% · 穿透 +2 · 弹体增大",
+      "coverage": "实际选择及状态变化；原34项算术/旧战斗回归覆盖，未新增该项独立实战夹具"
+    },
+    {
+      "id": "swarmProtocol",
+      "name": "蜂群协议",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "swarm_smg",
+      "detail": "弹丸 +2 · 射速 +15% · 单发伤害 -12%",
+      "coverage": "实际选择及状态变化；原34项算术/旧战斗回归覆盖，未新增该项独立实战夹具"
+    },
+    {
+      "id": "recoveryField",
+      "name": "回收力场",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "scrap_pistol",
+      "detail": "拾取范围 +80% · 脱战回复 +0.8",
+      "coverage": "实际选择及状态变化；原34项算术/旧战斗回归覆盖，未新增该项独立实战夹具"
+    },
+    {
+      "id": "phaseAegis",
+      "name": "相位壁垒",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "slag_launcher",
+      "detail": "减伤 +10% · 无敌时间 +0.12 秒 · 移速 +8%",
+      "coverage": "实际选择及状态变化；原34项算术/旧战斗回归覆盖，未新增该项独立实战夹具"
+    },
+    {
+      "id": "kineticLoop",
+      "name": "动能回路",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "saw_disc",
+      "detail": "移速 +16% · 无敌时间 +0.1 秒 · 暴击 +5%",
+      "coverage": "实际选择及状态变化；原34项算术/旧战斗回归覆盖，未新增该项独立实战夹具"
+    },
+    {
+      "id": "arcNetwork",
+      "name": "电弧战术网",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 0,
+      "weapon": "prism_laser",
+      "detail": "弹速 +20% · 伤害 +12% · 穿透 +1",
+      "coverage": "实际选择及状态变化；原34项算术/旧战斗回归覆盖，未新增该项独立实战夹具"
+    },
+    {
+      "id": "critDamage",
+      "name": "弱点增幅",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 1,
+      "weapon": "prism_laser",
+      "detail": "暴击伤害倍率 +0.2",
+      "coverage": "真实暴击攻击载荷应用新增暴伤倍率"
+    },
+    {
+      "id": "killMend",
+      "name": "猎获修复",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 2,
+      "weapon": "prism_laser",
+      "detail": "每12次击败回复1生命／级",
+      "coverage": "十二次真实击败回复1生命"
+    },
+    {
+      "id": "meleeTempo",
+      "name": "格斗节拍",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 1,
+      "weapon": "echo_blade",
+      "detail": "近战攻速 +10% · 伤害 +8%",
+      "coverage": "近战实际伤害与冷却均改善"
+    },
+    {
+      "id": "ricochetCoil",
+      "name": "锯盘导流",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 3,
+      "weapon": "saw_disc",
+      "detail": "锯盘额外弹射 +1",
+      "coverage": "锯盘载荷实际增加一次弹射"
+    },
+    {
+      "id": "chillAmplifier",
+      "name": "寒霜延时",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 3,
+      "weapon": "frost_projector",
+      "detail": "减速持续时间 +0.3秒",
+      "coverage": "普通敌人减速截止时间实际延长"
+    },
+    {
+      "id": "blastFocus",
+      "name": "爆裂装药",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 2,
+      "weapon": "slag_launcher",
+      "detail": "伤害 +12% · 爆炸半径 +6%基础值",
+      "coverage": "真实爆炸攻击载荷的半径与伤害提高"
+    },
+    {
+      "id": "fieldRush",
+      "name": "战场步频",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 4,
+      "weapon": "prism_laser",
+      "detail": "移动速度 +6% · 攻速 +4%",
+      "coverage": "实际位移增加；攻速状态随选择改变"
+    },
+    {
+      "id": "pressureBarrel",
+      "name": "散射收束",
+      "selected": true,
+      "stateChanged": true,
+      "unlockWave": 1,
+      "weapon": "scrap_pistol",
+      "detail": "散布收拢12% · 射程 +8%",
+      "coverage": "真实多弹夹角减小、弹体寿命增加"
+    }
+  ],
+  "opening": {
+    "legacy": [
+      {
+        "map": "echo_district",
+        "policy": "standing",
+        "seconds": 59.999999999997875,
+        "peakEnemies": 6,
+        "meanVisible": 2.8294444444444444,
+        "meanNear": 0.017222222222222222,
+        "kills": 54,
+        "damageTaken": 0,
+        "hp": 116,
+        "firstHit": null,
+        "firstUpgrade": null,
+        "samples": [
+          {
+            "time": 10.000000000000076,
+            "enemies": 2,
+            "kills": 7,
+            "hp": 116
+          },
+          {
+            "time": 20.000000000000146,
+            "enemies": 3,
+            "kills": 15,
+            "hp": 116
+          },
+          {
+            "time": 29.999999999999577,
+            "enemies": 4,
+            "kills": 23,
+            "hp": 116
+          },
+          {
+            "time": 39.99999999999901,
+            "enemies": 5,
+            "kills": 32,
+            "hp": 116
+          },
+          {
+            "time": 49.999999999998444,
+            "enemies": 5,
+            "kills": 42,
+            "hp": 116
+          },
+          {
+            "time": 59.999999999997875,
+            "enemies": 4,
+            "kills": 54,
+            "hp": 116
+          }
+        ]
+      },
+      {
+        "map": "echo_district",
+        "policy": "orbit",
+        "seconds": 59.999999999997875,
+        "peakEnemies": 9,
+        "meanVisible": 2.21,
+        "meanNear": 0.3005555555555556,
+        "kills": 50,
+        "damageTaken": 0,
+        "hp": 116,
+        "firstHit": null,
+        "firstUpgrade": 40.533333333332315,
+        "samples": [
+          {
+            "time": 10.000000000000076,
+            "enemies": 5,
+            "kills": 4,
+            "hp": 116
+          },
+          {
+            "time": 20.000000000000146,
+            "enemies": 4,
+            "kills": 14,
+            "hp": 116
+          },
+          {
+            "time": 29.999999999999577,
+            "enemies": 4,
+            "kills": 23,
+            "hp": 116
+          },
+          {
+            "time": 39.99999999999901,
+            "enemies": 7,
+            "kills": 30,
+            "hp": 116
+          },
+          {
+            "time": 49.999999999998444,
+            "enemies": 6,
+            "kills": 41,
+            "hp": 116
+          },
+          {
+            "time": 59.999999999997875,
+            "enemies": 9,
+            "kills": 50,
+            "hp": 116
+          }
+        ]
+      },
+      {
+        "map": "freight_nexus",
+        "policy": "standing",
+        "seconds": 59.999999999997875,
+        "peakEnemies": 13,
+        "meanVisible": 7.775277777777778,
+        "meanNear": 2.9816666666666665,
+        "kills": 47,
+        "damageTaken": 36.136755435127405,
+        "hp": 79.86324456487259,
+        "firstHit": 3.3666666666666596,
+        "firstUpgrade": 17.000000000000316,
+        "samples": [
+          {
+            "time": 10.000000000000076,
+            "enemies": 8,
+            "kills": 1,
+            "hp": 106.984
+          },
+          {
+            "time": 20.000000000000146,
+            "enemies": 11,
+            "kills": 7,
+            "hp": 79.86324456487259
+          },
+          {
+            "time": 29.999999999999577,
+            "enemies": 11,
+            "kills": 16,
+            "hp": 79.86324456487259
+          },
+          {
+            "time": 39.99999999999901,
+            "enemies": 11,
+            "kills": 26,
+            "hp": 79.86324456487259
+          },
+          {
+            "time": 49.999999999998444,
+            "enemies": 12,
+            "kills": 35,
+            "hp": 79.86324456487259
+          },
+          {
+            "time": 59.999999999997875,
+            "enemies": 11,
+            "kills": 47,
+            "hp": 79.86324456487259
+          }
+        ]
+      },
+      {
+        "map": "freight_nexus",
+        "policy": "orbit",
+        "seconds": 44.76666666666541,
+        "peakEnemies": 15,
+        "meanVisible": 6.7226358897989575,
+        "meanNear": 2.6868950111690246,
+        "kills": 26,
+        "damageTaken": 122.64179226102904,
+        "hp": -6.641792261029028,
+        "firstHit": 32.38333333333278,
+        "firstUpgrade": 26.766666666666428,
+        "samples": [
+          {
+            "time": 10.000000000000076,
+            "enemies": 7,
+            "kills": 2,
+            "hp": 116
+          },
+          {
+            "time": 20.000000000000146,
+            "enemies": 11,
+            "kills": 7,
+            "hp": 116
+          },
+          {
+            "time": 29.999999999999577,
+            "enemies": 13,
+            "kills": 14,
+            "hp": 116
+          },
+          {
+            "time": 39.99999999999901,
+            "enemies": 14,
+            "kills": 23,
+            "hp": 73.8746230210968
+          }
+        ]
+      },
+      {
+        "map": "red_basin",
+        "policy": "standing",
+        "seconds": 59.999999999997875,
+        "peakEnemies": 9,
+        "meanVisible": 2.555833333333333,
+        "meanNear": 0.02388888888888889,
+        "kills": 51,
+        "damageTaken": 0,
+        "hp": 116,
+        "firstHit": null,
+        "firstUpgrade": null,
+        "samples": [
+          {
+            "time": 10.000000000000076,
+            "enemies": 5,
+            "kills": 4,
+            "hp": 116
+          },
+          {
+            "time": 20.000000000000146,
+            "enemies": 6,
+            "kills": 12,
+            "hp": 116
+          },
+          {
+            "time": 29.999999999999577,
+            "enemies": 7,
+            "kills": 20,
+            "hp": 116
+          },
+          {
+            "time": 39.99999999999901,
+            "enemies": 6,
+            "kills": 31,
+            "hp": 116
+          },
+          {
+            "time": 49.999999999998444,
+            "enemies": 7,
+            "kills": 40,
+            "hp": 116
+          },
+          {
+            "time": 59.999999999997875,
+            "enemies": 7,
+            "kills": 51,
+            "hp": 116
+          }
+        ]
+      },
+      {
+        "map": "red_basin",
+        "policy": "orbit",
+        "seconds": 59.999999999997875,
+        "peakEnemies": 9,
+        "meanVisible": 2.5541666666666667,
+        "meanNear": 0.3591666666666667,
+        "kills": 50,
+        "damageTaken": 16.00010282469925,
+        "hp": 99.99989717530075,
+        "firstHit": 38.76666666666575,
+        "firstUpgrade": 12.666666666666876,
+        "samples": [
+          {
+            "time": 10.000000000000076,
+            "enemies": 5,
+            "kills": 4,
+            "hp": 116
+          },
+          {
+            "time": 20.000000000000146,
+            "enemies": 6,
+            "kills": 12,
+            "hp": 116
+          },
+          {
+            "time": 29.999999999999577,
+            "enemies": 5,
+            "kills": 22,
+            "hp": 116
+          },
+          {
+            "time": 39.99999999999901,
+            "enemies": 7,
+            "kills": 30,
+            "hp": 99.99989717530075
+          },
+          {
+            "time": 49.999999999998444,
+            "enemies": 6,
+            "kills": 41,
+            "hp": 99.99989717530075
+          },
+          {
+            "time": 59.999999999997875,
+            "enemies": 9,
+            "kills": 50,
+            "hp": 99.99989717530075
+          }
+        ]
+      }
+    ],
+    "native": [
+      {
+        "damageTaken": 121.074116487714,
+        "firstHit": 29.3499999999996,
+        "firstUpgrade": 27.5999999999997,
+        "hp": -5.07411648771357,
+        "kills": 52,
+        "map": "echo_district",
+        "meanNear": 5.09896480331263,
+        "meanVisible": 15.4492753623188,
+        "peakEnemies": 36,
+        "policy": "standing",
+        "samples": [
+          {
+            "enemies": 12,
+            "hp": 116,
+            "kills": 10,
+            "time": 10.0000000000001
+          },
+          {
+            "enemies": 16,
+            "hp": 116,
+            "kills": 24,
+            "time": 20.0000000000001
+          },
+          {
+            "enemies": 26,
+            "hp": 107.994577544286,
+            "kills": 38,
+            "time": 29.9999999999996
+          },
+          {
+            "enemies": 35,
+            "hp": 3.02215773475557,
+            "kills": 52,
+            "time": 39.999999999999
+          }
+        ],
+        "seconds": 40.249999999999
+      },
+      {
+        "damageTaken": 122.930004383304,
+        "firstHit": 28.333333333333,
+        "firstUpgrade": 11.7666666666668,
+        "hp": -6.93000438330363,
+        "kills": 70,
+        "map": "echo_district",
+        "meanNear": 10.3440514469453,
+        "meanVisible": 20.3949137679041,
+        "peakEnemies": 52,
+        "policy": "orbit",
+        "samples": [
+          {
+            "enemies": 14,
+            "hp": 116,
+            "kills": 8,
+            "time": 10.0000000000001
+          },
+          {
+            "enemies": 20,
+            "hp": 116,
+            "kills": 20,
+            "time": 20.0000000000001
+          },
+          {
+            "enemies": 30,
+            "hp": 107.982841070578,
+            "kills": 34,
+            "time": 29.9999999999996
+          },
+          {
+            "enemies": 40,
+            "hp": 50.9302796172,
+            "kills": 47,
+            "time": 39.999999999999
+          },
+          {
+            "enemies": 46,
+            "hp": 30.4347657535457,
+            "kills": 60,
+            "time": 49.9999999999984
+          }
+        ],
+        "seconds": 57.0166666666647
+      },
+      {
+        "damageTaken": 118.029699739947,
+        "firstHit": 3.36666666666666,
+        "firstUpgrade": 15.066666666667,
+        "hp": -2.02969973994714,
+        "kills": 17,
+        "map": "freight_nexus",
+        "meanNear": 7.55906506632975,
+        "meanVisible": 19.3234365129501,
+        "peakEnemies": 35,
+        "policy": "standing",
+        "samples": [
+          {
+            "enemies": 21,
+            "hp": 106.984,
+            "kills": 1,
+            "time": 10.0000000000001
+          },
+          {
+            "enemies": 28,
+            "hp": 34.5568069729827,
+            "kills": 9,
+            "time": 20.0000000000001
+          }
+        ],
+        "seconds": 26.3833333333331
+      },
+      {
+        "damageTaken": 118.212528543238,
+        "firstHit": 11.9500000000002,
+        "firstUpgrade": 12.7333333333335,
+        "hp": -2.21252854323801,
+        "kills": 12,
+        "map": "freight_nexus",
+        "meanNear": 8.716,
+        "meanVisible": 16.964,
+        "peakEnemies": 35,
+        "policy": "orbit",
+        "samples": [
+          {
+            "enemies": 19,
+            "hp": 116,
+            "kills": 3,
+            "time": 10.0000000000001
+          },
+          {
+            "enemies": 28,
+            "hp": 43.6276302185694,
+            "kills": 8,
+            "time": 20.0000000000001
+          }
+        ],
+        "seconds": 24.9999999999999
+      },
+      {
+        "damageTaken": 126.274889920079,
+        "firstHit": 33.2999999999994,
+        "firstUpgrade": 34.8999999999993,
+        "hp": -10.274889920079,
+        "kills": 57,
+        "map": "red_basin",
+        "meanNear": 3.66797180892717,
+        "meanVisible": 13.304228660924,
+        "peakEnemies": 37,
+        "policy": "standing",
+        "samples": [
+          {
+            "enemies": 13,
+            "hp": 116,
+            "kills": 9,
+            "time": 10.0000000000001
+          },
+          {
+            "enemies": 16,
+            "hp": 116,
+            "kills": 24,
+            "time": 20.0000000000001
+          },
+          {
+            "enemies": 26,
+            "hp": 116,
+            "kills": 38,
+            "time": 29.9999999999996
+          },
+          {
+            "enemies": 34,
+            "hp": 31.971707368799,
+            "kills": 53,
+            "time": 39.999999999999
+          }
+        ],
+        "seconds": 42.5666666666655
+      },
+      {
+        "damageTaken": 116.146263996906,
+        "firstHit": 19.7666666666668,
+        "firstUpgrade": 21.9833333333334,
+        "hp": -0.146263996905597,
+        "kills": 54,
+        "map": "red_basin",
+        "meanNear": 7.33967287942183,
+        "meanVisible": 15.4362875618106,
+        "peakEnemies": 40,
+        "policy": "orbit",
+        "samples": [
+          {
+            "enemies": 15,
+            "hp": 116,
+            "kills": 7,
+            "time": 10.0000000000001
+          },
+          {
+            "enemies": 21,
+            "hp": 105.708223088198,
+            "kills": 19,
+            "time": 20.0000000000001
+          },
+          {
+            "enemies": 31,
+            "hp": 85.2012819736948,
+            "kills": 33,
+            "time": 29.9999999999996
+          },
+          {
+            "enemies": 38,
+            "hp": 26.7181415996302,
+            "kills": 48,
+            "time": 39.999999999999
+          }
+        ],
+        "seconds": 43.8166666666655
+      }
+    ],
+    "legacy-build": [
+      {
+        "map": "echo_district",
+        "policy": "orbit-build",
+        "seconds": 59.999999999997875,
+        "peakEnemies": 9,
+        "meanVisible": 2.21,
+        "meanNear": 0.3005555555555556,
+        "kills": 50,
+        "damageTaken": 0,
+        "hp": 116,
+        "firstHit": null,
+        "firstUpgrade": 40.533333333332315,
+        "samples": [
+          {
+            "time": 10.000000000000076,
+            "enemies": 5,
+            "kills": 4,
+            "hp": 116
+          },
+          {
+            "time": 20.000000000000146,
+            "enemies": 4,
+            "kills": 14,
+            "hp": 116
+          },
+          {
+            "time": 29.999999999999577,
+            "enemies": 4,
+            "kills": 23,
+            "hp": 116
+          },
+          {
+            "time": 39.99999999999901,
+            "enemies": 7,
+            "kills": 30,
+            "hp": 116
+          },
+          {
+            "time": 49.999999999998444,
+            "enemies": 6,
+            "kills": 41,
+            "hp": 116
+          },
+          {
+            "time": 59.999999999997875,
+            "enemies": 9,
+            "kills": 50,
+            "hp": 116
+          }
+        ]
+      }
+    ],
+    "native-build": [
+      {
+        "damageTaken": 78.8382573669184,
+        "firstHit": 46.1999999999987,
+        "firstUpgrade": 11.7666666666668,
+        "hp": 37.1617426330816,
+        "kills": 106,
+        "map": "echo_district",
+        "meanNear": 3.35027777777778,
+        "meanVisible": 10.3847222222222,
+        "peakEnemies": 41,
+        "policy": "orbit-build",
+        "samples": [
+          {
+            "enemies": 14,
+            "hp": 116,
+            "kills": 8,
+            "time": 10.0000000000001
+          },
+          {
+            "enemies": 12,
+            "hp": 116,
+            "kills": 28,
+            "time": 20.0000000000001
+          },
+          {
+            "enemies": 16,
+            "hp": 116,
+            "kills": 48,
+            "time": 29.9999999999996
+          },
+          {
+            "enemies": 19,
+            "hp": 116,
+            "kills": 68,
+            "time": 39.999999999999
+          },
+          {
+            "enemies": 25,
+            "hp": 82.946942974805,
+            "kills": 88,
+            "time": 49.9999999999984
+          },
+          {
+            "enemies": 41,
+            "hp": 37.1617426330816,
+            "kills": 106,
+            "time": 59.9999999999979
+          }
+        ],
+        "seconds": 59.9999999999979
+      }
+    ]
+  },
+  "package": null,
+  "evidenceHashes": {
+    "godot/content/game_catalog.tres": "e996d75168d42eefc29d0804ce19d51cc48418e3fdfc8d8952a2cc56fee48526",
+    "godot/scripts/core/survival_rules.gd": "fe9682f945853ac244d166d12b9c2ac47076905cd15d5bc9ea9dc72bed22aa1e",
+    "godot/scripts/core/weapon_rules.gd": "0adb1bc0ac0a09f990b630883eaf7d9e10a4fea6481705dce8a1b2d39294f5fc",
+    "godot/scripts/core/upgrade_rules.gd": "a2653768f7d2ace9824eb506e36bc886293f992fcab7ebb732bfd6cb3a47cf48",
+    "godot/scripts/core/upgrade_draft_system.gd": "9d1f0c94ba2c0b4d24af63b48c9b264961ac2328f5013f3fba914dbdd2262248",
+    "godot/scripts/core/workshop_rules.gd": "b79d6dc6e681cf02894b181f8dbec792bea7862d3248a85da44862a8ba3ed872",
+    "godot/scripts/core/weapon_actions.gd": "267888a997a8cda53242eb5c6274d38d88ca311c8734c7fc747128f5821d48b2",
+    "godot/scripts/core/combat_system.gd": "39de2b4966a84a6e74601aa959553ad8ebd8a484a17fcf843fcea60551307750",
+    "godot/tests/survival_builds_test.gd": "63f0155dbbfe023e0335dfef4e5fd3cd641d26c0ba8c4d482e80284e1c04eeda"
+  },
+  "ui": {
+    "menuLayouts": 24,
+    "menuActions": 208,
+    "battleLayouts": 28,
+    "battleActions": 196
+  },
+  "humanAcceptance": {
+    "difficulty": false,
+    "physicalGamepad": false,
+    "lowEndHardware": false,
+    "dpiMatrix": false,
+    "longRenderedSession": false
+  }
+}

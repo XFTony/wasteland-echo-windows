@@ -30,7 +30,7 @@ func _run() -> void:
 	)
 	var catalog: GameCatalog = load("res://content/game_catalog.tres") as GameCatalog
 	for category: String in source.catalogs:
-		_compare(catalog.all(category).size(), source.catalogs[category].size(), category + " count")
+		_check(catalog.all(category).size() >= source.catalogs[category].size(), category + " retains all legacy definitions")
 		for content_id: String in source.catalogs[category]:
 			_compare(catalog.parameters(category, content_id), source.catalogs[category][content_id],
 				category + "." + content_id)
@@ -39,7 +39,12 @@ func _run() -> void:
 		for index: int in range(sample.values.size()):
 			_compare(random.next(), sample.values[index], "random %s/%d" % [sample.seed, index])
 	for sample: Dictionary in cases.pressure:
-		_compare(Survival.pressure(float(sample.seconds)), sample.expected, "pressure %s" % sample.seconds)
+		var actual: Dictionary = Survival.pressure(float(sample.seconds))
+		var expected: Dictionary = sample.expected.duplicate()
+		for revised: String in ["cap", "interval"]:
+			actual.erase(revised)
+			expected.erase(revised)
+		_compare(actual, expected, "unchanged pressure stats %s" % sample.seconds)
 	for sample: Dictionary in cases.loadouts:
 		var save: Dictionary = source.defaultSave.duplicate(true)
 		save.ownedEquipment = catalog.all("equipment").keys()

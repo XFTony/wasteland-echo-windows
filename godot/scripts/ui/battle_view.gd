@@ -16,6 +16,8 @@ var _tutorial_action: RadioButton
 var _using_gamepad: bool = false
 var _navigation_focus_enabled: bool = false
 var _last_focused_action: String = ""
+var show_build_details: bool = false
+var _build_page: int = 0
 
 
 static func _time(seconds: float) -> String:
@@ -55,6 +57,8 @@ func _input(event: InputEvent) -> void:
 func refresh() -> void:
 	if not is_inside_tree() or model == null or model.run.is_empty():
 		return
+	if model.screen != GameSession.Screen.PAUSED:
+		show_build_details = false
 	var previous: String = _last_focused_action
 	var focused: Control = get_viewport().gui_get_focus_owner()
 	if focused is RadioButton:
@@ -70,7 +74,8 @@ func refresh() -> void:
 	if dimensions.x <= 0 or dimensions.y <= 0:
 		dimensions = Vector2(ProjectSettings.get_setting("display/window/size/viewport_width", 1280),
 			ProjectSettings.get_setting("display/window/size/viewport_height", 720))
-	var factor: float = 1.0 if model.screen in [GameSession.Screen.PAUSED, GameSession.Screen.RESULT_WIN, GameSession.Screen.RESULT_LOSE] else clampf(minf(dimensions.x / 1280, dimensions.y / 720), 1, 2)
+	var fixed_modal: bool = model.screen in [GameSession.Screen.RESULT_WIN, GameSession.Screen.RESULT_LOSE] or model.screen == GameSession.Screen.PAUSED and not show_build_details
+	var factor: float = 1.0 if fixed_modal else clampf(minf(dimensions.x / 1280, dimensions.y / 720), 1, 2)
 	scale = Vector2.ONE * factor
 	size = dimensions / factor
 	_logical_size = size
@@ -87,16 +92,28 @@ func refresh() -> void:
 	elif model.screen == GameSession.Screen.FIELD_SHOP:
 		_build_market()
 	elif model.screen == GameSession.Screen.PAUSED:
-		var compact: bool = size.y < 520 or size.x < 760
-		var pause_dimensions: Vector2 = Vector2(minf(520, size.x - 30), minf(390, size.y - 24))
-		var origin: Vector2 = (size - pause_dimensions) / 2
-		var width: float = minf(330, pause_dimensions.x - 64)
-		var height: float = 42 if compact else 48
-		var gap: float = 9 if compact else 12
-		var y: float = origin.y + (98 if compact else 120)
-		_button("resume", "继续战斗", Rect2(size.x / 2 - width / 2, y, width, height), true)
-		_button("restart", "重新开始", Rect2(size.x / 2 - width / 2, y + height + gap, width, height))
-		_button("quit", "结算本局", Rect2(size.x / 2 - width / 2, y + (height + gap) * 2, width, height))
+		if show_build_details:
+			var rect: Rect2 = WorkshopPage.frame(size)
+			var capacity: int = WorkshopPage.page_size(rect)
+			var pages: int = maxi(1, ceili(float(model.run.upgrades.size()) / capacity))
+			_build_page = clampi(_build_page, 0, pages - 1)
+			_button("buildInfo", "返回暂停", Rect2(rect.end.x - 132, rect.end.y - 43, 116, 30))
+			if _build_page > 0:
+				_button("buildPage:" + str(_build_page - 1), "上一页", Rect2(rect.position.x + 18, rect.end.y - 43, 100, 30))
+			if _build_page + 1 < pages:
+				_button("buildPage:" + str(_build_page + 1), "下一页", Rect2(rect.position.x + 130, rect.end.y - 43, 100, 30))
+		else:
+			var compact: bool = size.y < 520 or size.x < 760
+			var pause_dimensions: Vector2 = Vector2(minf(520, size.x - 30), minf(390, size.y - 24))
+			var origin: Vector2 = (size - pause_dimensions) / 2
+			var width: float = minf(330, pause_dimensions.x - 64)
+			var height: float = 42 if compact else 48
+			var gap: float = 9 if compact else 12
+			var y: float = origin.y + (98 if compact else 120)
+			_button("resume", "继续战斗", Rect2(size.x / 2 - width / 2, y, width, height), true)
+			_button("restart", "重新开始", Rect2(size.x / 2 - width / 2, y + height + gap, width, height))
+			_button("quit", "结算本局", Rect2(size.x / 2 - width / 2, y + (height + gap) * 2, width, height))
+			_button("buildInfo", "本局改件与属性", Rect2(size.x / 2 - width / 2, y + (height + gap) * 3, width, height))
 	else:
 		var data: Dictionary = _result_layout()
 		var action_width: float = minf(146 if data.compact else 168 * float(data.visualScale), (float(data.width) - float(data.inset) * 2 - 12) / 2)
@@ -137,7 +154,10 @@ func _draw() -> void:
 		GameSession.Screen.FIELD_SHOP:
 			_draw_market()
 		GameSession.Screen.PAUSED:
-			_draw_pause()
+			if show_build_details:
+				WorkshopPage.paint_run(self, _build_page)
+			else:
+				_draw_pause()
 		_:
 			_draw_result()
 
@@ -161,6 +181,14 @@ func _button(command: String, caption: String, rect: Rect2, primary: bool = fals
 
 
 func _emit_action(command: String) -> void:
+	if command == "buildInfo":
+		show_build_details = not show_build_details
+		refresh()
+		return
+	if command.begins_with("buildPage:"):
+		_build_page = maxi(0, int(command.trim_prefix("buildPage:")))
+		refresh()
+		return
 	action_requested.emit(command)
 
 
@@ -242,12 +270,18 @@ func _draw_hud(view_width: float) -> void:
 	fonts.text(self, "%d/%d" % [maxi(0, ceili(float(player.hp))), player.maxHp], Vector2(149, 52), 10, RadioPaint.WHITE, "center", 900)
 	draw_rect(Rect2(26, 64, 246, 8), Color("24332e"))
 	draw_rect(Rect2(26, 64, 246 * clampf(float(player.xp) / float(player.xpNext), 0, 1), 8), Color("91c4aa"))
-	fonts.fit(self, "%s · 威胁%d" % [model.catalog.parameters("maps", run.mapId).name, run.threatLevel], Vector2(26, 83), 10, 246, RadioPaint.MUTED, "left", 800, 9)
+	fonts.fit(self, "%s · 尸潮%d · 威胁%d" % [model.catalog.parameters("maps", run.mapId).name, 1 + floori(float(run.elapsed) / 45), run.threatLevel], Vector2(26, 83), 10, 246, RadioPaint.MUTED, "left", 800, 9)
 	RadioPaint.surface(self, Rect2(view_width / 2 - 86, 12, 172, 58), false, true)
 	var timer: String = "∞ " + _time(run.elapsed) if run.endless else "加时 " + _time(run.overtime) if float(run.elapsed) >= float(run.duration) else _time(float(run.duration) - float(run.elapsed))
 	fonts.text(self, timer, Vector2(view_width / 2, 33), 23, RadioPaint.WHITE, "center", 900)
 	var objective: String = "连续生存 · 首领击败 %d" % run.bossesDefeated if run.endless else "前往撤离区" if run.extraction.active else "最终攻势" if run.get("finalWaveAnnounced", false) else str(model.catalog.parameters("modes", run.modeId).objective)
 	fonts.text(self, objective, Vector2(view_width / 2, 55), 11, RadioPaint.MUTED, "center", 900)
+	var wave_notice: Dictionary = run.get("waveNotice", {})
+	if not wave_notice.is_empty() and float(run.elapsed) - float(wave_notice.at) < 3 and int(run.activeBosses) == 0:
+		var notice: String = "第%d轮完成" % int(wave_notice.completed)
+		if not wave_notice.names.is_empty():
+			notice += " · 解锁%d项战地改件" % wave_notice.names.size()
+		fonts.fit(self, notice, Vector2(view_width / 2, 84), 13, minf(520, view_width * 0.6), RadioPaint.GOLD, "center", 800, 11)
 	RadioPaint.surface(self, Rect2(view_width - 184, 14, 170, 54), false, true)
 	fonts.text(self, "击败 %d" % run.kills, Vector2(view_width - 170, 31), 13, RadioPaint.WHITE, "left", 900)
 	fonts.text(self, "拾荒币 %d" % run.scrap, Vector2(view_width - 170, 52), 12, RadioPaint.GOLD, "left", 900)

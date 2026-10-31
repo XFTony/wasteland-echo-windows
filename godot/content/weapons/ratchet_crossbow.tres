@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/weapon_definition.gd" id="1_lf70o"]
+
+[resource]
+script = ExtResource("1_lf70o")
+damage = 28.0
+interval = 0.68
+projectile_speed = 640.0
+lock_range = 560.0
+pierce = 2
+knockback = 35.0
+recoil = 1.5
+content_id = &"ratchet_crossbow"
+category = &"weapons"
+display_name = "棘轮连弩"
+source_data = {
+"color": "#c6b47d",
+"damage": 28.0,
+"description": "机械弩矢穿透2次；每第四次射击强化，无普通抛壳",
+"id": "ratchet_crossbow",
+"interval": 0.68,
+"knockback": 35.0,
+"lockRange": 560.0,
+"mechanicId": "steady_cycle",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 32.0,
+"muzzleParticles": 2.0,
+"name": "棘轮连弩",
+"pierce": 2.0,
+"projectileCount": 1.0,
+"projectileSpeed": 640.0,
+"rangeBand": "long",
+"recoil": 1.5,
+"shellColor": "#b18b50",
+"shellLength": 0.0,
+"shellLife": 0.0,
+"spread": 0.0,
+"ttl": 0.9,
+"visualId": "ratchet-crossbow",
+"weaponClass": "crossbow"
+}

@@ -68,6 +68,8 @@ func _draw() -> void:
 			_draw_settings()
 		GameSession.Page.CREDITS:
 			_draw_credits()
+		GameSession.Page.WORKSHOP:
+			WorkshopPage.paint(self)
 
 
 func _request_refresh() -> void:
@@ -101,6 +103,8 @@ func _refresh() -> void:
 			_build_settings()
 		GameSession.Page.CREDITS:
 			CreditsPage.build(self)
+		GameSession.Page.WORKSHOP:
+			WorkshopPage.build(self)
 	for button: RadioButton in _buttons:
 		if not previous_focus.is_empty() and button.action_id == previous_focus:
 			button.grab_focus()

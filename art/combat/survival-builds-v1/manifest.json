@@ -1,0 +1,63 @@
+{
+  "version": "survival-builds-v1",
+  "created": "2026-10-30",
+  "generator": "Project original offline audio synthesis and native pixel shape descriptions",
+  "usageTerms": "Project original; no third-party game assets or recordings reused",
+  "design": "art/combat/survival-builds-v1/design.json",
+  "assets": [
+    {
+      "id": "ratchet_crossbow",
+      "runtime": "godot/assets/audio/survival-v2/ratchet_crossbow.wav",
+      "sourcePaths": [
+        "art/combat/survival-builds-v1/audio/ratchet_crossbow.wav",
+        "scripts/audio/generate-survival-builds.py"
+      ],
+      "role": "shot",
+      "seconds": 0.2,
+      "bytes": 8864,
+      "sha256": "1ede7016236e9f499492879b23adb6bd5a89553a51c04c8d1b3d92e2311e8b32"
+    },
+    {
+      "id": "frost_projector",
+      "runtime": "godot/assets/audio/survival-v2/frost_projector.wav",
+      "sourcePaths": [
+        "art/combat/survival-builds-v1/audio/frost_projector.wav",
+        "scripts/audio/generate-survival-builds.py"
+      ],
+      "role": "shot",
+      "seconds": 0.2,
+      "bytes": 8864,
+      "sha256": "39f3aef04aab41308bc6a44a2e85327cee4dbaa35f751db2310fff85d2ba41db"
+    },
+    {
+      "id": "breach_spear",
+      "runtime": "godot/assets/audio/survival-v2/breach_spear.wav",
+      "sourcePaths": [
+        "art/combat/survival-builds-v1/audio/breach_spear.wav",
+        "scripts/audio/generate-survival-builds.py"
+      ],
+      "role": "melee",
+      "seconds": 0.2,
+      "bytes": 8864,
+      "sha256": "a740de74573762de76851d6f3953b638ad0045e3ab8770e91c5556066a612566"
+    },
+    {
+      "id": "rust_cleaver",
+      "runtime": "godot/assets/audio/survival-v2/rust_cleaver.wav",
+      "sourcePaths": [
+        "art/combat/survival-builds-v1/audio/rust_cleaver.wav",
+        "scripts/audio/generate-survival-builds.py"
+      ],
+      "role": "melee",
+      "seconds": 0.28,
+      "bytes": 12392,
+      "sha256": "8c66a67709176673c7639a721b1268f8cbf53688e9bbaa23ab508f6a8aab5c77"
+    }
+  ],
+  "proceduralWeapons": [
+    "ratchet_crossbow",
+    "frost_projector",
+    "breach_spear",
+    "rust_cleaver"
+  ]
+}

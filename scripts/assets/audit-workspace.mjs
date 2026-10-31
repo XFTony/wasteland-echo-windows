@@ -137,7 +137,9 @@ function category(file, registration) {
 walk(root);
 const tracked = new Set(slash(execFileSync("git", ["ls-files", "-z"], { cwd: root, encoding: "utf8", windowsHide: true })).split("\0").filter(Boolean));
 const manifest = json("art/manifest.json", { assets: [] });
-const mapManifestPaths = ["art/world/pixel-map-v2/manifest.json", "art/world/echo-ground-v3/manifest.json"];
+const mapManifestPaths = ["art/world/pixel-map-v2/manifest.json", "art/world/echo-ground-v3/manifest.json", "art/combat/survival-builds-v1/manifest.json"];
+const combatDesign = json("art/combat/survival-builds-v1/design.json", { audio: [], visuals: {} });
+const nativeAudio = new Map(combatDesign.audio.map(item => ["godot/" + item.src.replace(/^\.\//, ""), item]));
 const artRecords = [
   ...manifest.assets.map(item => ({ ...item, registryPath: "art/manifest.json" })),
   ...mapManifestPaths.flatMap(registryPath => {
@@ -173,7 +175,7 @@ const digest = file => {
 const runtimeAssets = [];
 for (const file of files.filter(file => file.path.startsWith("godot/assets/") && !file.path.endsWith(".import"))) {
   const legacy = "web/" + file.path.slice("godot/".length);
-  const registration = registered.get(legacy);
+  const registration = nativeAudio.get(file.path) || registered.get(legacy);
   const art = artRecords.find(item => (registration?.id && item.id === registration.id) || item.runtimePath === legacy || item.runtimePath === file.path);
   const paths = [legacy, file.path, art?.archivePath, ...(art?.sourcePaths || [])].filter(Boolean);
   const rows = ledger.filter(row => (registration?.id && row.asset_id === registration.id) || (art?.id && row.asset_id === art.id) || paths.some(candidate => row.local_path.split(/;\s*/).includes(candidate)));
@@ -193,7 +195,7 @@ for (const file of files.filter(file => file.path.startsWith("godot/assets/") &&
     sourceEvidenceExisting: [art?.archivePath, ...(art?.sourcePaths || []), ...nearbyEvidence].filter(Boolean).filter(exists),
     provenanceRecord: art?.registryPath || (file.path.includes("/audio/survival-v1/") ? "art/audio/survival-v1/source-provenance.json" : file.path.includes("/audio/arsenal-v2/") ? "art/audio/arsenal-v2/source-provenance.json" : file.path.includes("/fonts/") ? "docs/licenses/Fusion-Pixel-Font-OFL-1.1.txt" : null),
     generator: art?.generator || registration?.source || null, licenseRecords: license,
-    licenseEvidence: ["CREDITS.md", ...(rows.length ? ["docs/assets-ledger.csv"] : []), ...(file.path.includes("/audio/") ? ["art/audio/survival-v1/source-permission.md"] : []), ...(file.path.includes("/fonts/") ? ["docs/licenses/Fusion-Pixel-Font-OFL-1.1.txt"] : [])],
+    licenseEvidence: ["CREDITS.md", ...(rows.length ? ["docs/assets-ledger.csv"] : []), ...(file.path.includes("/audio/") && !nativeAudio.has(file.path) ? ["art/audio/survival-v1/source-permission.md"] : []), ...(file.path.includes("/fonts/") ? ["docs/licenses/Fusion-Pixel-Font-OFL-1.1.txt"] : [])],
     review: rows.length ? "See the recorded review status; no new legal approval inferred" : "Source/license registration needs review; tree presence does not establish permission",
     declaredSha256Matches: art?.sha256 ? art.sha256.toUpperCase() === digest(file) : null
   };
@@ -220,11 +222,11 @@ try {
   const counters = Object.fromEntries(execFileSync("git", ["count-objects", "-v"], { cwd: root, encoding: "utf8", windowsHide: true }).trim().split(/\r?\n/).map(line => line.split(": ")));
   gitStorage = { source: "git count-objects -v (aggregate only)", counters, allocatedObjectBytes: (Number(counters.size) + Number(counters["size-pack"])) * 1024, directoryTotalMeasured: false };
 } catch { gitStorage = { source: "Git aggregate not available", directoryTotalMeasured: false }; }
-const procedural = Object.entries(NATIVE_WEAPONS).map(([id, spec]) => ({ id, category: "原生代码绘制武器", dimensions: { width: spec.width, height: spec.height }, rectangles: spec.shapes.length, bytes: null, sha256: null, registration: "runtime_generated_texture", references: ["godot/content/game_catalog.tres", "godot/scripts/presentation/asset_store.gd", "src/content/weapon-expansion.js"], licenseEvidence: ["docs/assets-ledger.csv", "CREDITS.md"], note: "No separate PNG exists; metadata and native drawing code are the source" }));
+const procedural = Object.entries({...NATIVE_WEAPONS, ...combatDesign.visuals}).map(([id, spec]) => ({ id, category: "原生代码绘制武器", dimensions: { width: spec.width, height: spec.height }, rectangles: spec.shapes.length, bytes: null, sha256: null, registration: "runtime_generated_texture", references: ["godot/content/game_catalog.tres", "godot/scripts/presentation/asset_store.gd", ...(combatDesign.visuals[id] ? ["art/combat/survival-builds-v1/design.json", "scripts/godot/prepare-survival-content.mjs"] : ["src/content/weapon-expansion.js"])], licenseEvidence: ["docs/assets-ledger.csv", "CREDITS.md"], note: "No separate PNG exists; metadata and native drawing code are the source" }));
 const report = {
   format: 1, generatedAt: new Date().toISOString(), authority: "godot is active; original implementation retained as reference",
   scanPolicy: { excludedGeneratedOutputs: scanExcluded, opaqueDirectoryNames: [...opaqueNames].sort(), followsSymlinks: false, actualUserProfileScanned: false, opaqueSizePolicy: "Unknown directory size is null; no dependency/cache walk was performed merely to estimate it", duplicatePolicy: "Exact-byte groups are evidence, never automatic deletion permission" },
-  summary: { measuredFiles: files.length, measuredBytes: files.reduce((sum, file) => sum + file.bytes, 0), opaqueDirectories: opaque.length, nativeMaterialFiles: runtimeAssets.length, nativeMaterialBytes: runtimeAssets.reduce((sum, file) => sum + file.bytes, 0), registeredActiveImages: activeImages.length, registeredAudio: AUDIO_ASSETS.length, proceduralWeapons: procedural.length, retiredArtRegistrations: legacyAssets.length, editableSourceFiles: sourceFiles.length, nativeBlendFiles: sourceFiles.filter(file => file.inNativeRuntimeTree && file.extension === ".blend").length, exactDuplicateGroups: duplicates.length },
+  summary: { measuredFiles: files.length, measuredBytes: files.reduce((sum, file) => sum + file.bytes, 0), opaqueDirectories: opaque.length, nativeMaterialFiles: runtimeAssets.length, nativeMaterialBytes: runtimeAssets.reduce((sum, file) => sum + file.bytes, 0), registeredActiveImages: activeImages.length, registeredAudio: AUDIO_ASSETS.length + nativeAudio.size, proceduralWeapons: procedural.length, retiredArtRegistrations: legacyAssets.length, editableSourceFiles: sourceFiles.length, nativeBlendFiles: sourceFiles.filter(file => file.inNativeRuntimeTree && file.extension === ".blend").length, exactDuplicateGroups: duplicates.length },
   topLevel, opaqueDirectories: opaque, gitStorage, runtimeAssets, procedural, legacyAssets, sourceFiles, duplicates,
   findings: { missingNativeReferences, missingRegisteredLegacy, sourceHashMismatches: runtimeAssets.filter(asset => asset.declaredSha256Matches === false).map(asset => asset.path), nativeRetiredCopies: legacyAssets.filter(asset => asset.nativeCopy), nativeWithoutRegistration: runtimeAssets.filter(asset => !asset.contentId).map(asset => asset.path), nativeWithoutLedgerMatch: runtimeAssets.filter(asset => !asset.licenseRecords.length).map(asset => asset.path), scanErrors },
   files: files.map(file => ({ ...file, tracked: tracked.has(file.path) }))

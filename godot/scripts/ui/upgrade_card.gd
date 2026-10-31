@@ -96,8 +96,9 @@ func _draw() -> void:
 		fonts.fit(self, lines[row], Vector2(text_x, size.y * (0.71 if tiny else 0.68) + row * (13 if tiny else 22)),
 			10 if tiny else 16, available, Color("3e3424"), alignment, 800, 9 if tiny else 12)
 	if not tiny:
-		if not str(option.get("flavor", "")).is_empty() and lines.size() < 3:
-			fonts.fit(self, option.flavor, Vector2(size.x / 2, size.y * 0.83), 12, size.x - pad * 2, Color("685334"), "center", 600, 10)
+		var note: String = str(option.get("preview", option.get("flavor", "")))
+		if not note.is_empty() and lines.size() < 3:
+			fonts.fit(self, note, Vector2(size.x / 2, size.y * 0.83), 12, size.x - pad * 2, Color("685334"), "center", 700, 10)
 		var footer: float = size.y - 43
 		draw_rect(Rect2(pad, footer - 5, size.x - pad * 2, 1), Color("aa9064"))
 		fonts.text(self, "可重复 · 第%d次" % (level + 1) if option.get("repeatable", false) else "装配 %d/%d" % [mini(level + 1, int(option.max)), option.max],

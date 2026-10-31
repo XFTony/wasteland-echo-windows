@@ -10,6 +10,8 @@ static func attack_progress(attack: Dictionary, elapsed: float) -> float:
 static func attack_motion(attack: Dictionary, elapsed: float) -> float:
 	if attack.is_empty():
 		return 0
+	if attack.get("weapon", {}).get("attackStyle") == "thrust":
+		return 0.0
 	var age: float = maxf(0, elapsed - float(attack.started))
 	var sweep_sign: float = float(attack.get("sweepSign", 1))
 	var amount: float = float(attack.arc) / 2 if attack.type == "slash" else 1.35
@@ -21,8 +23,21 @@ static func attack_motion(attack: Dictionary, elapsed: float) -> float:
 	return amount * (1 - clampf((age - float(attack.windup) - float(attack.activeTime)) / float(attack.recovery), 0, 1)) * sweep_sign if attack.type == "slash" else 0.0
 
 
+static func attack_extension(attack: Variant, elapsed: float) -> float:
+	if not attack is Dictionary or attack.get("weapon", {}).get("attackStyle") != "thrust":
+		return 0.0
+	var age: float = elapsed - float(attack.started)
+	if age < float(attack.windup):
+		return -5 * clampf(age / float(attack.windup), 0, 1)
+	if age <= float(attack.windup) + float(attack.activeTime):
+		return maxf(0, float(attack.range) - float(attack.weapon.get("restTipReach", 91.5))) * sin(PI * attack_progress(attack, elapsed))
+	return 0.0
+
+
 static func _sweep_contains(attack: Dictionary, x: float, y: float, start: float,
 		end: float, progress: float, target: Dictionary) -> bool:
+	if attack.get("weapon", {}).get("attackStyle") == "thrust":
+		return GeometryRules.sector_contains(x, y, float(attack.range) * minf(1, progress * 2), attack.angle, attack.arc, target)
 	return GeometryRules.sector_contains(x, y, attack.range, (start + end) / 2,
 		maxf(0.025, absf(end - start)), target) if attack.type == "slash" else sqrt(
 			GeometryRules.distance_squared(target.x, target.y, x, y)) <= float(attack.radius) * progress + float(target.radius)
@@ -44,10 +59,10 @@ func effect(model: RunSimulation, kind: String, values: Dictionary) -> void:
 
 func source(model: RunSimulation, weapon: Dictionary, attack_id: int,
 		aim_x: float, aim_y: float, damage: float, critical: bool,
-		owner: String = "player") -> Dictionary:
+		owner: String = "player", modifiers: Dictionary = {}) -> Dictionary:
 	return {"weaponId": weapon.id, "attackId": attack_id, "owner": owner,
 		"damage": damage, "critical": critical,
-		"knockback": float(weapon.knockback) * float(model.run.player.knockbackMultiplier),
+		"knockback": float(weapon.knockback) * float(model.run.player.knockbackMultiplier) * float(modifiers.get("knockbackMultiplier", 1)),
 		"vx": aim_x * 480, "vy": aim_y * 480}
 
 
@@ -120,7 +135,7 @@ func fire(model: RunSimulation, weapon: Dictionary, aim_x: float, aim_y: float,
 	var count: int = 0
 	var interval: float = 0.0
 	if weapon.attackType == "beam":
-		count = mini(3, 1 + int(player.projectileBonus))
+		count = WeaponRules.projectile_count(weapon, player)
 		var muzzle: Dictionary = {"x": compact.muzzleX, "y": compact.muzzleY} if not compact.is_empty() else {
 			"x": float(player.x) + aim_x * 18, "y": float(player.y) + aim_y * 18}
 		var grip: Dictionary = {"x": float(compact.anchorX) - aim_x * float(player.radius),
@@ -130,11 +145,11 @@ func fire(model: RunSimulation, weapon: Dictionary, aim_x: float, aim_y: float,
 			var dx: float = cos(angle)
 			var dy: float = sin(angle)
 			var hit_source: Dictionary = source(model, weapon, attack_id, dx, dy,
-				damage / (1 + (count - 1) * 0.35), critical)
+				damage / (1 + (count - 1) * 0.35), critical, "player", mechanic)
 			var trace: Dictionary = trace_beam(model, grip, muzzle, dx, dy,
 				WeaponRules.target_range(weapon, player), hit_source,
-				1 + int(weapon.pierce) + int(player.pierceBonus),
-				2 + minf(6, float(player.projectileRadiusBonus)) / 2)
+				1 + int(weapon.pierce) + int(player.pierceBonus) + int(mechanic.pierceBonus),
+				2 + minf(6, float(player.projectileRadiusBonus) + float(mechanic.radiusBonus)) / 2)
 			trace.merge({"color": weapon.color, "width": 4 + minf(6, float(player.projectileRadiusBonus)),
 				"life": 0.105, "maxLife": 0.105}, true)
 			effect(model, "beam", trace)
@@ -155,12 +170,12 @@ func fire(model: RunSimulation, weapon: Dictionary, aim_x: float, aim_y: float,
 			"range": float(weapon.reach) * scale, "radius": float(weapon.get("blastRadius", 0))
 				* scale * minf(1.4, float(player.get("blastRadiusMultiplier", 1))),
 			"offset": float(weapon.get("impactOffset", 0)) * scale, "arc": weapon.get("arc", 0),
-			"hitIds": {}, "source": source(model, weapon, attack_id, aim_x, aim_y, damage, critical, "melee"),
+			"hitIds": {}, "source": source(model, weapon, attack_id, aim_x, aim_y, damage, critical, "melee", mechanic),
 			"waveSent": false, "impacted": false, "weapon": weapon}
 		interval = maxf(float(weapon.interval) / speed, windup + active_time + recovery + 0.035)
 		run.meleeSwings += 1
 	else:
-		var raw_count: int = mini(6, 1 + int(player.projectileBonus))
+		var raw_count: int = WeaponRules.projectile_count(weapon, player)
 		var angle: float = atan2(aim_y, aim_x)
 		for index: int in range(raw_count):
 			if model.projectiles.size() >= int(model.limits.projectiles):
@@ -173,14 +188,15 @@ func fire(model: RunSimulation, weapon: Dictionary, aim_x: float, aim_y: float,
 				"y": compact.muzzleY if not compact.is_empty() else float(player.y) + aim_y * 18,
 				"barrelStartX": float(compact.anchorX) - aim_x * float(player.radius) if not compact.is_empty() else null,
 				"barrelStartY": float(compact.anchorY) - aim_y * float(player.radius) if not compact.is_empty() else null,
-				"vx": dx * float(weapon.projectileSpeed) * float(player.projectileSpeedMultiplier),
-				"vy": dy * float(weapon.projectileSpeed) * float(player.projectileSpeedMultiplier),
-				"radius": (8 if weapon.attackType == "disc" else 5) + minf(6, float(player.projectileRadiusBonus)),
+				"vx": dx * float(weapon.projectileSpeed) * float(player.projectileSpeedMultiplier) * float(mechanic.projectileSpeedMultiplier),
+				"vy": dy * float(weapon.projectileSpeed) * float(player.projectileSpeedMultiplier) * float(mechanic.projectileSpeedMultiplier),
+				"radius": (8 if weapon.attackType == "disc" else 5) + minf(6, float(player.projectileRadiusBonus) + float(mechanic.radiusBonus)),
 				"ttl": float(weapon.ttl) * float(player.projectileRangeMultiplier),
 				"damage": damage / (1 + (raw_count - 1) * 0.2), "pierce": 0,
-				"knockback": float(weapon.knockback) * float(player.knockbackMultiplier),
+				"knockback": float(weapon.knockback) * float(player.knockbackMultiplier) * float(mechanic.knockbackMultiplier),
 				"owner": "player", "weaponId": weapon.id, "attackId": attack_id, "critical": critical,
-				"color": weapon.color, "attackKind": weapon.attackType, "bounces": weapon.get("bounces", 0),
+				"empowered": bool(mechanic.forceCritical) or (mechanic.procLabel != null and float(mechanic.damageMultiplier) >= 1.25),
+				"color": weapon.color, "attackKind": weapon.attackType, "bounces": int(weapon.get("bounces", 0)) + int(player.get("bounceBonus", 0)),
 				"blastRadius": float(weapon.get("blastRadius", 0)) * minf(1.4, float(player.get("blastRadiusMultiplier", 1)))}))
 			model.entity_id += 1
 			count += 1
@@ -259,7 +275,7 @@ func send_wave(model: RunSimulation, attack: Dictionary) -> void:
 		"vx": float(attack.aimX) * float(attack.weapon.projectileSpeed),
 		"vy": float(attack.aimY) * float(attack.weapon.projectileSpeed), "radius": 12,
 		"ttl": float(attack.weapon.ttl) * minf(1.5, float(player.projectileRangeMultiplier)),
-		"damage": float(attack.source.damage) * 0.4, "pierce": 2 + int(player.pierceBonus),
+		"damage": float(attack.source.damage) * float(attack.weapon.get("waveDamage", 0.4)), "pierce": 2 + int(player.pierceBonus),
 		"knockback": 20 * float(player.knockbackMultiplier), "owner": "player",
 		"weaponId": attack.weaponId, "attackId": attack.source.attackId,
 		"critical": attack.source.critical, "color": attack.weapon.color, "attackKind": "swordWave"}))
@@ -316,7 +332,8 @@ func update(model: RunSimulation, delta: float = 1.0 / 60) -> void:
 				model.combat.trigger_interactive(model, item)
 	if attack.type == "slash" and not attack.waveSent and age >= float(attack.windup) + float(attack.activeTime):
 		attack.waveSent = true
-		send_wave(model, attack)
+		if float(attack.weapon.get("waveDamage", 0.4)) > 0:
+			send_wave(model, attack)
 	attack.previousAge = age
 	if age >= float(attack.windup) + float(attack.activeTime) + float(attack.recovery):
 		run.attack = null
@@ -328,6 +345,8 @@ func block_time(model: RunSimulation, shot: Dictionary, x: float, y: float,
 	if run.attack == null:
 		return INF
 	var attack: Dictionary = run.attack
+	if not bool(attack.get("weapon", {}).get("blocksProjectiles", true)):
+		return INF
 	var age: float = float(run.elapsed) - float(attack.started)
 	if age < float(attack.windup) or age > float(attack.windup) + float(attack.activeTime):
 		return INF
