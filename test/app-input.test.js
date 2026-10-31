@@ -35,6 +35,18 @@ function createApp() {
   return new GameApp({ model, renderer, audio, platform });
 }
 
+test("holding the interaction key cannot toggle the shop after an input reset", () => {
+  const app = createApp();
+  app.model.fieldMarket = {
+    open() { app.model.screen = "fieldShop"; return true; },
+    close() { app.model.screen = "running"; return true; }
+  };
+  app.keyDown("KeyE"); assert.equal(app.model.screen, "fieldShop");
+  app.keyDown("KeyE", { repeat: true }); assert.equal(app.model.screen, "fieldShop");
+  app.keyUp("KeyE"); app.keyDown("Escape"); assert.equal(app.model.screen, "running");
+  app.keyDown("Escape", { repeat: true }); assert.equal(app.model.screen, "running");
+});
+
 test("releasing the final WASD key resets movement to zero", () => {
   const app = createApp();
   app.keyDown("KeyW");
@@ -155,4 +167,17 @@ test("deployment opens inventory, direct selections route to the model, and back
   assert.equal(app.model.inventoryPage, 2);
   app.handleAction("back");
   assert.equal(app.model.menuPage, "loadout");
+});
+test("mouse aim origin scales with the fixed world camera", () => {
+  const app = createApp();
+  app.renderer.width = 1920;
+  app.renderer.height = 1080;
+  app.renderer.camera = { x: 360, y: 240, zoom: 1.5 };
+  app.model.run = { player: { x: 1000, y: 600 } };
+  const viewport = app.inputViewport();
+  assert.equal(viewport.aimOriginX, 960);
+  assert.equal(viewport.aimOriginY, 540);
+  app.mouseMove(1200, 540);
+  assert.ok(app.input.aimX > 0.99);
+  assert.ok(Math.abs(app.input.aimY) < 0.01);
 });

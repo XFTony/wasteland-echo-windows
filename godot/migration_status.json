@@ -1,0 +1,170 @@
+{
+  "target": "Native Godot development; original reproduction baseline retained for regression and rollback",
+  "baseline": "ef7d50d",
+  "status": "card_layout_and_cleanup_preview_ready",
+  "developmentPhase": "native_fieldcraft_combat_art",
+  "toolchain": {
+    "godot": "4.7.2.stable.official.ed1daf0bf",
+    "skill": "godot @ c8bc20f876a8da241274d48461444fab86182d83",
+    "mcp": "@coding-solo/godot-mcp@0.1.1",
+    "mcpConfiguration": "project config enabled; live get_godot_version and get_project_info verified on the formal project"
+  },
+  "migrationBaselineVerification": [
+    "137 native Resource definitions preserve every category, ID and source parameter",
+    "59 active images, 21 audio assets and font/license files copied with source hashes",
+    "Reference seeded random sequences",
+    "Time pressure, 30 loadout combinations, 34 upgrade arithmetic cases",
+    "80 permanent shop state cases",
+    "Schema10/default/legacy save normalization fixtures and damaged-save recovery",
+    "Native atomic file replacement and previous-value backup",
+    "192 compact weapon direction coordinate cases",
+    "Default six-menu action IDs and rectangles at four resolutions: 24 layouts, 200 actions",
+    "Three-map static navigation at three clearances: walkability, BFS distances and flow directions match reference arrays",
+    "84 reference combat scenarios, 284 replay checkpoints, 184285 field comparisons",
+    "Native composition root: 12 end-to-end checks",
+    "Native input/audio: 51 checks and 21 decoded assets",
+    "Explicit save preview/import/export tool: 10 isolated checks",
+    "28 combat UI layouts and 192 action AABBs at four resolutions",
+    "Three maps: 180 simulated seconds each without state or entity-cap failures",
+    "Dense minute-15 fixture: 105 peak enemies; 2400 ticks within caps",
+    "Official Windows template archive and extracted executables verified by SHA256",
+    "Standalone Windows package loads 59 images, 21 audio assets, 12 weapons and runs all three maps",
+    "Original npm run check passes; source runtime kept unchanged",
+    "Native active assets and import settings are tracked; reference exporter preserves native edits by default",
+    "2026-10-30 map iteration: editable TileMapLayer floors for three maps and two shared generated atlases",
+    "Map art regression: 58 checks preserve geometry, external resources, depth, road junctions and fallback; turret wall robustness covered",
+    "Map rendered review: four resolutions and a short 104-enemy sample; median 16.659ms, p95 18.175ms on RTX4060 Laptop at a 60fps cap",
+    "Workspace and active asset inventory generated without deleting history or scanning actual user saves",
+    "Echo old-town ground v3 pilot: continuous painted materials and eight ground decal regions; other two map art profiles unchanged",
+    "Native UI interaction: 155 checks across five sizes, real pointer/click/navigation events, resize focus retention and injected reduced-motion behavior"
+  ],
+  "verified": [
+    "2026-10-31: 164 native definitions, 20 weapons, 42 upgrades; original 137 content IDs retained",
+    "Foundation 125283 comparisons; unchanged legacy combat 72 scenarios, 248 checkpoints, 154069 comparisons",
+    "Survival builds 499 checks; 42 actual upgrade state changes and 14 ranged weapons in eight multishot directions",
+    "Fieldcraft 326 checks: 69 decoded bitmap assets, 42 unique upgrade illustrations, 13 refined/new weapon textures and 8 four-frame death strips",
+    "Existing 16 weapon stats retained; new burn and limited chain ownership, walls, melee directions and pooled status cleanup verified",
+    "30 decoded audio assets; input/audio 60 checks, runtime 12, save transfer 10, map art 58, native UI interaction 155",
+    "Menu 24 layouts and 208 action regions; battle 28 layouts and 196 regions; previous/next pagination roles preserve both hit rectangles",
+    "Actual native windows: 42-card gallery, four resolutions, 104 grip directions and 80 sequential death frames; first-card pointer hover verified",
+    "6,919,488 bytes of decoded bitmap pixel data; not a process/GPU memory measurement",
+    "Default importer preserves edited native catalog and metadata; original Canvas/Tauri runtime unchanged",
+    "Final standalone Windows package: 3 maps, 4 map atlases, 59 original catalog images, 69 fieldcraft bitmaps, 30 audio assets and 20 weapons verified",
+    "2026-10-31 cleanup: deleted shadow and actual post-cleanup pass 333 legacy tests and ten native suites; protected 1191 files unchanged",
+    "1056 retired files backed up externally and each ZIP entry SHA verified; fourteen inactive study records retained with restoration metadata",
+    "Card layouts: 145 checks, 42 actual bitmap bounds, 16 real pointer hovers across four resolutions; longest bright residual line below artwork is zero",
+    "Cleaned standalone package verifies six card layout resources, 69 fieldcraft bitmaps, 30 audio, 20 weapons and all three maps using the retained Windows templates"
+  ],
+  "inProgress": [
+    "Human opening-pressure and new-weapon balance review; other two maps normal-build strategies not yet reviewed",
+    "Windows rendered long-session profiling, cold-load spikes and memory trends",
+    "Non-default hero/outfit direction visual review; ranger-default 104 refined/new poses reviewed",
+    "Native gamepad focus, shortcuts and rumble implemented; physical-device verification pending",
+    "1080p text sampling and OS reduced-motion behavior"
+  ],
+  "pending": [
+    "Physical gamepad seven-run matrix and disconnect/reconnect validation",
+    "Windows DPI 100/125/150/200%, fullscreen and minimum-size transitions",
+    "Low-end hardware test and evidence-based minimum specification",
+    "User-selected real reference-save preview/import/restart/recovery validation",
+    "Full visual sign-off and next-version release checklist; mainline integration tracked in docs/maintenance/github-integration-2026-10-31.md"
+  ],
+  "completeGame": false,
+  "perfectVisualParity": false,
+  "nativePlayable": true,
+  "standaloneWindows": true,
+  "published": false,
+  "assetAuthority": "godot/assets and native Resource definitions; original web assets remain reference/rollback",
+  "entryPoints": {
+    "development": "启动Godot开发版.cmd",
+    "windows": "output/card-layout-cleanup/windows/WastelandEcho.exe",
+    "saveTransfer": "Godot存档导入与备份.cmd"
+  },
+  "latestVisualIteration": {
+    "name": "card-layout-cleanup",
+    "date": "2026-10-31",
+    "scope": "Six frame-specific windows, alpha-content centering and selection marks inside the card",
+    "approvedArtUnchanged": true,
+    "userVisualSignoff": false,
+    "validation": "docs/cleanup/retirement-report.md"
+  },
+  "latestGameplayIteration": {
+    "name": "fieldcraft-v2",
+    "date": "2026-10-31",
+    "scope": "Two additional ranged and two melee weapons; burn and finite chain effects",
+    "validation": "docs/qa/fieldcraft-validation.md",
+    "humanBalanceSignoff": false,
+    "saveSchemaChanged": false,
+    "newWeaponEvolutionBlueprints": false,
+    "windowsPackage": {
+      "kind": "internal-godot-preview",
+      "version": "1.5.0-alpha.1",
+      "engine": "4.7.2.stable.official.ed1daf0bf",
+      "sourceCommit": "a23b236386371e1a2186ff7965aaa1065b8bb646",
+      "sourceDirty": false,
+      "file": "WastelandEcho.exe",
+      "bytes": 134599048,
+      "sha256": "b061a1f9b188bf426db93dbb658cefb23fd4c5da1ad53042459f36d9d1585709",
+      "published": false,
+      "packagePath": "output/fieldcraft-v2/windows",
+      "headlessContentAndCombatPassed": true,
+      "physicalDeviceAcceptance": false
+    }
+  },
+  "previousGameplayIteration": {
+    "name": "survival-builds-v1",
+    "date": "2026-10-31",
+    "scope": "Opening pressure, real upgrade effects, wave unlocks and four additional weapons",
+    "validation": "docs/qa/survival-builds-validation.md",
+    "humanBalanceSignoff": false,
+    "saveSchemaChanged": false,
+    "newWeaponEvolutionBlueprints": false,
+    "windowsPackage": {
+      "sourceCommit": "978d346e7418b46a7e3a529b59da80f64ae3c460",
+      "sourceDirty": false,
+      "bytes": 132585992,
+      "sha256": "9291c14a1e7b76634ddce36107077204c55f789a920b2e40533580da32df05b5",
+      "headlessContentAndCombatPassed": true,
+      "physicalDeviceAcceptance": false
+    }
+  },
+  "approvedMapIteration": {
+    "name": "echo-ground-v3",
+    "date": "2026-10-30",
+    "scope": "One map ground art and native UI interaction",
+    "userVisualSignoff": true,
+    "signoffBasis": "User confirmed the first map meets the basic visual requirement in the current request",
+    "otherMapsRethemed": false,
+    "reducedMotionPublicSetting": false
+  },
+  "approvedArtIteration": {
+    "name": "fieldcraft-v2",
+    "date": "2026-10-31",
+    "scope": "Upgrade card artwork, nine weapon refinements and eight enemy death strips",
+    "userVisualSignoff": true,
+    "approvedMapUnchanged": true,
+    "validation": "docs/qa/fieldcraft-validation.md",
+    "signoffBasis": "User explicitly approved the latest art style before requesting alignment and cleanup"
+  },
+  "latestCleanup": {
+    "date": "2026-10-31",
+    "files": 1056,
+    "protectedFiles": 1191,
+    "retiredStudyRecords": 14,
+    "report": "docs/cleanup/retirement-report.md",
+    "saveDataTouched": false,
+    "windowsPackage": {
+      "kind": "internal-godot-preview",
+      "version": "1.5.0-alpha.1",
+      "engine": "4.7.2.stable.official.ed1daf0bf",
+      "sourceCommit": "99e62318efa402a0e71625a23fd529558a92db39",
+      "sourceDirty": false,
+      "file": "WastelandEcho.exe",
+      "bytes": 134607144,
+      "sha256": "b7104ef17a897a84af23f7f0fef30730fd8bc618d2e4ce41aa78f3ad57d0ed1a",
+      "published": false,
+      "packagePath": "output/card-layout-cleanup/windows",
+      "headlessContentAndCombatPassed": true
+    }
+  }
+}

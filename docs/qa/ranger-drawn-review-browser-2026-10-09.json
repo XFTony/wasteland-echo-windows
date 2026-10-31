@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-09",
+  "uniqueDisplayedFrames": 24,
+  "originalVersionSwitch": true,
+  "artAndNativeViews": true,
+  "forwardAndBackwardWrap": true,
+  "seamPlayback": true,
+  "pageErrors": [],
+  "video": {
+    "path": "output/animation/ranger/pixel-run-candidate-v4/ranger-drawn-run-v4.webm",
+    "bytes": 4764232,
+    "mime": "video/webm;codecs=vp8",
+    "presentedFrames": 24,
+    "targetDurationMs": 4000,
+    "decoded": {
+      "width": 512,
+      "height": 512,
+      "readyState": 4,
+      "currentTime": 0.152496
+    }
+  },
+  "visualApproved": false,
+  "runtimeIntegrated": false
+}

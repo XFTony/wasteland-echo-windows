@@ -1,0 +1,185 @@
+{
+  "sourceCommit": "c941eec80abff08106a13f5bd8788479d4099063",
+  "automatedTests": {
+    "total": 208,
+    "passed": 208,
+    "failed": 0
+  },
+  "normalStrategySimulation": {
+    "seed": 20260907,
+    "seconds": 180,
+    "completed": 3,
+    "total": 6
+  },
+  "stressSimulation": {
+    "seconds": 600,
+    "maximumEnemies": 105,
+    "maximumPickups": 140,
+    "peakRssMiB": 119.89
+  },
+  "activeArt": {
+    "count": 54,
+    "groups": {
+      "world": {
+        "count": 4,
+        "compressedBytes": 1548438,
+        "rgbaBytes": 25160256
+      },
+      "world-props": {
+        "count": 5,
+        "compressedBytes": 841050,
+        "rgbaBytes": 2809856
+      },
+      "cover": {
+        "count": 1,
+        "compressedBytes": 638280,
+        "rgbaBytes": 3681600
+      },
+      "menu-backdrop": {
+        "count": 6,
+        "compressedBytes": 882514,
+        "rgbaBytes": 37760448
+      },
+      "shared-ui": {
+        "count": 1,
+        "compressedBytes": 972494,
+        "rgbaBytes": 3105600
+      },
+      "deployment": {
+        "count": 1,
+        "compressedBytes": 837212,
+        "rgbaBytes": 3379200
+      },
+      "combat-actors": {
+        "count": 18,
+        "compressedBytes": 2702436,
+        "rgbaBytes": 15621120
+      },
+      "combat-weapons": {
+        "count": 7,
+        "compressedBytes": 575666,
+        "rgbaBytes": 3991552
+      },
+      "outfit-icons": {
+        "count": 3,
+        "compressedBytes": 150806,
+        "rgbaBytes": 828160
+      },
+      "equipment-icons": {
+        "count": 8,
+        "compressedBytes": 684032,
+        "rgbaBytes": 2932480
+      }
+    },
+    "compressedBytes": 9832928,
+    "allActiveRgbaBytes": 99270272
+  },
+  "browserQuick": {
+    "generatedAt": "2026-09-30T06:17:15.728Z",
+    "browser": "Microsoft Edge via playwright-core",
+    "headless": true,
+    "sampleFrames": 120,
+    "warmupFrames": 45,
+    "pageErrors": [],
+    "results": [
+      {
+        "id": "720p-80-high",
+        "width": 1280,
+        "height": 720,
+        "enemies": 80,
+        "quality": 2,
+        "frames": 120,
+        "averageMs": 4.166,
+        "averageFps": 240.05,
+        "p95Ms": 4.3,
+        "p99Ms": 4.4,
+        "onePercentLowFps": 227.27,
+        "overBudgetFrames": 0,
+        "severeFrames": 0,
+        "heapMiB": 5.68
+      },
+      {
+        "id": "1080p-120-medium",
+        "width": 1920,
+        "height": 1080,
+        "enemies": 120,
+        "quality": 1,
+        "frames": 120,
+        "averageMs": 5.868,
+        "averageFps": 170.41,
+        "p95Ms": 8.5,
+        "p99Ms": 8.5,
+        "onePercentLowFps": 47.96,
+        "overBudgetFrames": 1,
+        "severeFrames": 0,
+        "heapMiB": 4.6
+      }
+    ]
+  },
+  "browserFull": {
+    "scenarioCount": 18,
+    "pageErrors": [],
+    "worst": {
+      "id": "1080p-40-q0",
+      "width": 1920,
+      "height": 1080,
+      "enemies": 40,
+      "quality": 0,
+      "frames": 180,
+      "averageMs": 5.532,
+      "averageFps": 180.78,
+      "p95Ms": 8.4,
+      "p99Ms": 8.6,
+      "onePercentLowFps": 53.91,
+      "overBudgetFrames": 1,
+      "severeFrames": 0,
+      "heapMiB": 5.27
+    },
+    "below50Count": 0
+  },
+  "releaseMismatch": {
+    "standaloneExe": {
+      "bytes": 18560000,
+      "sha256": "8352f69f7fd712ec25cca93bb56d5c89916205215ae17ff39efa300882fe9633"
+    },
+    "zipContainedExe": {
+      "bytes": 13212160,
+      "sha256": "c8806bfd4f11040bcb7ff1f679182b2826afae74ad981e9a976c0cfd448bafa5"
+    }
+  },
+  "auditDateLocal": "2026-09-30",
+  "timezone": "Asia/Shanghai",
+  "sourceBranch": "codex/ranger-3d-motion-pilot",
+  "remoteHeadsObserved": {
+    "main": "a8eff8a2007d065f438bce2be4a1a56bf1cf14ec"
+  },
+  "commitsAheadOfRemoteMain": 28,
+  "remoteTagsObserved": [
+    "baseline-2026-09-23"
+  ],
+  "screenshots": {
+    "actualPngCount": 104,
+    "reportedCountInScript": 94,
+    "pageErrors": [],
+    "visuallyReviewedCount": 11
+  },
+  "blenderTechnicalChecks": {
+    "unarmedAndSidearmFrames": 24,
+    "targetErrorMetres": 0,
+    "minimumSoleMetres": -0.0077,
+    "supportStepMetres": 0.08167,
+    "runtimeIntegrated": false
+  },
+  "performanceGate": {
+    "actualScriptMinimumOnePercentLow": 30,
+    "designTargetOnePercentLow": 50
+  },
+  "unverified": [
+    "physicalGamepadSevenRunMatrix",
+    "realWebView2LongSession",
+    "WindowsDpiMatrix",
+    "newCandidateInstallUninstall",
+    "currentGithubCiAndReleasePage",
+    "currentAuthenticodeStatus"
+  ]
+}

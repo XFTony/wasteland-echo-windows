@@ -1,0 +1,852 @@
+{
+  "date": "2026-10-27",
+  "pageErrors": [],
+  "defaultMovementOnlyCombat": true,
+  "mouseCannotOverrideAutoAim": true,
+  "keyboardMovement": true,
+  "pauseAndBlur": true,
+  "weapons": [
+    {
+      "id": "scrap_pistol",
+      "autoShots": 6,
+      "hits": 5,
+      "aimChecks": [
+        {
+          "angle": 0,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 0,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 45,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 45,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 90,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 90,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 135,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 135,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 180,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 180,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -135,
+          "recoil": 0,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -135,
+          "recoil": 1,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -90,
+          "recoil": 0,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -90,
+          "recoil": 1,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -45,
+          "recoil": 0,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -45,
+          "recoil": 1,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        }
+      ]
+    },
+    {
+      "id": "swarm_smg",
+      "autoShots": 18,
+      "hits": 17,
+      "aimChecks": [
+        {
+          "angle": 0,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 0,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 45,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 45,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 90,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 90,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 135,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 135,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 180,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 180,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -135,
+          "recoil": 0,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -135,
+          "recoil": 1,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -90,
+          "recoil": 0,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -90,
+          "recoil": 1,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -45,
+          "recoil": 0,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -45,
+          "recoil": 1,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        }
+      ]
+    },
+    {
+      "id": "breaker_shotgun",
+      "autoShots": 3,
+      "hits": 8,
+      "aimChecks": [
+        {
+          "angle": 0,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 0,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 45,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 45,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 90,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 90,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 135,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 135,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 180,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 180,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -135,
+          "recoil": 0,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -135,
+          "recoil": 1,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -90,
+          "recoil": 0,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -90,
+          "recoil": 1,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -45,
+          "recoil": 0,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -45,
+          "recoil": 1,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        }
+      ]
+    },
+    {
+      "id": "needle_rifle",
+      "autoShots": 3,
+      "hits": 3,
+      "aimChecks": [
+        {
+          "angle": 0,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 0,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 45,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 45,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 90,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 90,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 135,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 135,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 180,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 180,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -135,
+          "recoil": 0,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -135,
+          "recoil": 1,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -90,
+          "recoil": 0,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -90,
+          "recoil": 1,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -45,
+          "recoil": 0,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -45,
+          "recoil": 1,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        }
+      ]
+    },
+    {
+      "id": "rust_revolver",
+      "autoShots": 4,
+      "hits": 4,
+      "aimChecks": [
+        {
+          "angle": 0,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 0,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 45,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 45,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 90,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 90,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 135,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 135,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 180,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 180,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -135,
+          "recoil": 0,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -135,
+          "recoil": 1,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -90,
+          "recoil": 0,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -90,
+          "recoil": 1,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -45,
+          "recoil": 0,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -45,
+          "recoil": 1,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        }
+      ]
+    },
+    {
+      "id": "ember_carbine",
+      "autoShots": 9,
+      "hits": 9,
+      "aimChecks": [
+        {
+          "angle": 0,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 0,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 45,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 45,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 90,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 90,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 135,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 135,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 180,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 180,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -135,
+          "recoil": 0,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -135,
+          "recoil": 1,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -90,
+          "recoil": 0,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -90,
+          "recoil": 1,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -45,
+          "recoil": 0,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -45,
+          "recoil": 1,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        }
+      ]
+    },
+    {
+      "id": "coil_cannon",
+      "autoShots": 2,
+      "hits": 2,
+      "aimChecks": [
+        {
+          "angle": 0,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 0,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 45,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 45,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 90,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 90,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 135,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 135,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 180,
+          "recoil": 0,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": 180,
+          "recoil": 1,
+          "depth": "front",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -135,
+          "recoil": 0,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -135,
+          "recoil": 1,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -90,
+          "recoil": 0,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -90,
+          "recoil": 1,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -45,
+          "recoil": 0,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        },
+        {
+          "angle": -45,
+          "recoil": 1,
+          "depth": "back",
+          "muzzleBodyAlpha": 0,
+          "faceErrors": 0
+        }
+      ]
+    }
+  ],
+  "video": {
+    "path": "output/compact-arsenal-2026-10-27/seven-weapons.webm",
+    "bytes": 12185546,
+    "width": 960,
+    "height": 560,
+    "decodeAndPlay": true
+  },
+  "visualApproved": false,
+  "mainGameArtIntegrated": false
+}

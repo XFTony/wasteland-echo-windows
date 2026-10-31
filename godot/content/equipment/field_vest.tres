@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_mbr1p"]
+
+[resource]
+script = ExtResource("1_mbr1p")
+content_id = &"field_vest"
+category = &"equipment"
+display_name = "巡线背心"
+source_data = {
+"description": "蜡帆布与薄钢衬片缝成的入门护具。",
+"id": "field_vest",
+"name": "巡线背心",
+"rarity": "standard",
+"slot": "chest",
+"stats": {
+"armor": 0.02,
+"hp": 8.0
+},
+"visualId": "field-canvas-vest"
+}

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_vcumg"]
+
+[resource]
+script = ExtResource("1_vcumg")
+content_id = &"blueprint_signal"
+category = &"unlockRules"
+display_name = "远讯许可"
+source_data = {
+"conditions": [{
+"gte": 600.0,
+"metric": "bestTime"
+}],
+"description": "单局生存达到 10 分钟",
+"id": "blueprint_signal",
+"name": "远讯许可",
+"reward": {
+"id": "buy_signal_charm",
+"kind": "shopBlueprint"
+}
+}

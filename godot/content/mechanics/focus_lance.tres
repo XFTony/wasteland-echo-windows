@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_oykh6"]
+
+[resource]
+script = ExtResource("1_oykh6")
+content_id = &"focus_lance"
+category = &"mechanics"
+display_name = "静息聚焦"
+source_data = {
+"description": "针刺步枪停火或长时间无伤后强化下一发贯穿弹",
+"id": "focus_lance",
+"name": "静息聚焦"
+}

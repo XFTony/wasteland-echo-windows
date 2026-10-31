@@ -1,0 +1,58 @@
+{
+  "styleVersion": "1.5",
+  "heroOutfits": {
+    "covered": 9,
+    "total": 9,
+    "missing": []
+  },
+  "enemies": {
+    "covered": 8,
+    "total": 8,
+    "missing": []
+  },
+  "weapons": {
+    "covered": 12,
+    "total": 12,
+    "missing": [],
+    "nativePixel": [
+      "prism_laser",
+      "slag_launcher",
+      "saw_disc",
+      "echo_blade",
+      "shock_hammer"
+    ]
+  },
+  "outfitIcons": {
+    "covered": 3,
+    "total": 3,
+    "missing": []
+  },
+  "equipmentIcons": {
+    "covered": 8,
+    "total": 8,
+    "missing": []
+  },
+  "mapGrounds": {
+    "covered": 3,
+    "total": 3,
+    "missing": []
+  },
+  "mapProps": {
+    "illustratedAssets": 7,
+    "ids": [
+      "world.prop.echo.apothecary-roof.v1",
+      "world.prop.echo.container.v1",
+      "world.prop.echo.market.v1",
+      "world.prop.echo.railcar.v1",
+      "world.prop.echo.salvage-kit.v1",
+      "world.prop.echo.shop-roof.v1",
+      "world.prop.echo.warehouse-roof.v1"
+    ]
+  },
+  "remainingVisualSystems": {
+    "wornEquipment": "dedicated character layers pending",
+    "mapObjects": "7 painted map-object assets; other collision objects remain programmatic",
+    "upgradeIcons": "34 code-drawn field-repair illustrations",
+    "actorMotion": "Compact ranger and enemies use travel-based animation; new melee moves held parts. Other hero/outfit compact bodies remain pending."
+  }
+}

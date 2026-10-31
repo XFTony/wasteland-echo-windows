@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_34soa"]
+
+[resource]
+script = ExtResource("1_34soa")
+content_id = &"modifier_redline"
+category = &"unlockRules"
+display_name = "红线协议"
+source_data = {
+"conditions": [{
+"gte": 10.0,
+"metric": "eliteKills"
+}],
+"description": "累计击败 10 名精英",
+"id": "modifier_redline",
+"name": "红线协议",
+"reward": {
+"id": "redline",
+"kind": "modifier"
+}
+}

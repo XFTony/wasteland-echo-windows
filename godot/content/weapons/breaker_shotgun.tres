@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/weapon_definition.gd" id="1_x234x"]
+
+[resource]
+script = ExtResource("1_x234x")
+damage = 5.4
+interval = 0.82
+projectile_speed = 560.0
+projectile_count = 6
+lock_range = 250.0
+lifetime = 0.48
+knockback = 92.0
+recoil = 9.0
+content_id = &"breaker_shotgun"
+category = &"weapons"
+display_name = "破门霰弹枪"
+source_data = {
+"color": "#b85b3f",
+"damage": 5.4,
+"description": "近距扇形爆发并强力击退",
+"id": "breaker_shotgun",
+"interval": 0.82,
+"knockback": 92.0,
+"lockRange": 250.0,
+"mechanicId": "breach_cone",
+"muzzleFlashLength": 19.0,
+"muzzleFlashLife": 0.095,
+"muzzleLength": 34.0,
+"muzzleParticles": 9.0,
+"name": "破门霰弹枪",
+"pierce": 0.0,
+"projectileCount": 6.0,
+"projectileSpeed": 560.0,
+"rangeBand": "close",
+"recoil": 9.0,
+"shellColor": "#b9783f",
+"shellLength": 6.0,
+"shellLife": 0.72,
+"spread": 34.0,
+"ttl": 0.48,
+"visualId": "breaker-pump",
+"weaponClass": "shotgun"
+}

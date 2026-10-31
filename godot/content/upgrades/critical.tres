@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_q2d1u"]
+
+[resource]
+script = ExtResource("1_q2d1u")
+content_id = &"critical"
+category = &"upgrades"
+display_name = "弱点测绘"
+source_data = {
+"detail": "暴击率 +7%",
+"family": "firepower",
+"flavor": "红色数字造成双倍伤害",
+"id": "critical",
+"max": 4.0,
+"name": "弱点测绘",
+"rarity": "prototype"
+}

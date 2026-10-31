@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_n3kwv"]
+
+[resource]
+script = ExtResource("1_n3kwv")
+content_id = &"buy_rust_revolver"
+category = &"shopItems"
+display_name = "锈痕左轮"
+source_data = {
+"category": "weapon",
+"currency": "copper",
+"description": "中程高冲击六发左轮。",
+"grantId": "rust_revolver",
+"grantType": "weapon",
+"id": "buy_rust_revolver",
+"name": "锈痕左轮",
+"price": 560.0,
+"unlockStage": 1.0
+}

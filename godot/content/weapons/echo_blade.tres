@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/weapon_definition.gd" id="1_unuwa"]
+
+[resource]
+script = ExtResource("1_unuwa")
+damage = 24.0
+interval = 0.62
+projectile_speed = 480.0
+lock_range = 190.0
+lifetime = 0.5
+knockback = 42.0
+recoil = 0.5
+content_id = &"echo_blade"
+category = &"weapons"
+display_name = "回响军刀"
+source_data = {
+"activeTime": 0.14,
+"arc": 1.9198621771937625,
+"attackType": "slash",
+"color": "#a9d9c7",
+"damage": 24.0,
+"description": "110度近身挥扫＋40%伤害剑气；有效挥击可消弹",
+"id": "echo_blade",
+"interval": 0.62,
+"knockback": 42.0,
+"lockRange": 190.0,
+"mechanicId": "slash",
+"muzzleFlashLength": 12.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 38.0,
+"muzzleParticles": 3.0,
+"name": "回响军刀",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 480.0,
+"rangeBand": "close",
+"reach": 80.0,
+"recoil": 0.5,
+"recovery": 0.13,
+"shellColor": "#c8a870",
+"shellLength": 5.0,
+"shellLife": 0.7,
+"spread": 0.0,
+"ttl": 0.5,
+"visualId": "echo-blade",
+"weaponClass": "blade",
+"windup": 0.09
+}

@@ -11,11 +11,13 @@ const args = new Set(process.argv.slice(2));
 const full = args.has("--full");
 const write = args.has("--write");
 const assertThresholds = args.has("--assert");
+const weaponPressure = args.has("--weapons");
 const port = 4186;
 const baseUrl = "http://127.0.0.1:" + port + "/";
 const quickScenarios = [
   { id: "720p-80-high", width: 1280, height: 720, enemies: 80, quality: 2 },
-  { id: "1080p-120-medium", width: 1920, height: 1080, enemies: 120, quality: 1 }
+  { id: "1080p-120-medium", width: 1920, height: 1080, enemies: 120, quality: 1 },
+  { id: "720p-104-four-turrets", width: 1280, height: 720, enemies: 104, quality: 1, turrets: 4 }
 ];
 const fullScenarios = [];
 for (const [width, height, label] of [[1280, 720, "720p"], [1920, 1080, "1080p"]]) {
@@ -23,7 +25,13 @@ for (const [width, height, label] of [[1280, 720, "720p"], [1920, 1080, "1080p"]
     for (const quality of [0, 1, 2]) fullScenarios.push({ id: label + "-" + enemies + "-q" + quality, width, height, enemies, quality });
   }
 }
-const scenarios = full ? fullScenarios : quickScenarios;
+const weaponScenarios = [
+  { id: "720p-120-grenade-six", width: 1280, height: 720, enemies: 120, quality: 1, weaponId: "slag_launcher", projectileBonus: 5 },
+  { id: "1080p-120-laser-three", width: 1920, height: 1080, enemies: 120, quality: 1, weaponId: "prism_laser", projectileBonus: 2 },
+  { id: "720p-120-blade-wave", width: 1280, height: 720, enemies: 120, quality: 1, weaponId: "echo_blade" },
+  { id: "720p-120-hammer", width: 1280, height: 720, enemies: 120, quality: 1, weaponId: "shock_hammer" }
+];
+const scenarios = weaponPressure ? [...quickScenarios, ...weaponScenarios] : full ? fullScenarios : quickScenarios;
 const sampleFrames = full ? 180 : 120;
 const warmupFrames = 45;
 
@@ -84,19 +92,32 @@ try {
     await page.evaluate((config) => {
       const runtime = window.__WASTELAND_GAME__;
       const model = runtime.model;
-      model.startRun({ seed: 20260921, duration: 600, modeId: "endless", tutorial: false });
+      model.startRun({ seed: 20260921, duration: 600, modeId: "endless", weaponId: config.weaponId, tutorial: false });
       model.releaseAllEntities();
       model.updateSpawner = () => {};
       model.run.player.hp = 1000000;
       model.run.player.maxHp = 1000000;
+      model.run.player.xpNext = 1000000000;
       model.save.settings.autoAim = true;
       model.save.settings.autoFire = true;
       const player = model.run.player;
+      if (config.weaponId) Object.assign(player, { projectileBonus: config.projectileBonus || 0, fireRateMultiplier: 2.4, meleeRangeMultiplier: 1.5, blastRadiusMultiplier: 1.4 });
+      const originalX = player.x, originalY = player.y;
+      if (config.turrets) {
+        for (const [dx,dy] of [[140,140],[-140,140],[260,140],[-260,140],[140,260],[-140,260],[260,-160],[-260,-160]]) {
+          if (model.run.structures.length >= config.turrets) break;
+          Object.assign(player,{x:originalX+dx-90,y:originalY+dy,lastAimX:1,lastAimY:0});
+          model.run.turretKits=1;model.run.turretKitHealth=[1];model.structures.begin();model.structures.confirm();model.structures.cancel();
+        }
+        if (model.run.structures.length !== config.turrets) throw new Error("Benchmark needs four real deployed turrets");
+        model.run.turretKits=0;model.run.turretKitHealth=[];Object.assign(player,{x:originalX,y:originalY});
+      }
       const types = ["drifter", "runner", "spitter", "brute", "screecher", "crawler"];
       for (let index = 0; index < config.enemies; index += 1) {
         const angle = index / config.enemies * Math.PI * 2;
         const ring = 130 + index % 5 * 72;
-        model.spawnEnemy(types[index % types.length], player.x + Math.cos(angle) * ring, player.y + Math.sin(angle) * ring);
+        const enemy = model.spawnEnemy(types[index % types.length], player.x + Math.cos(angle) * ring, player.y + Math.sin(angle) * ring);
+        if (config.weaponId) enemy.hp = enemy.maxHp = 1000000;
       }
       runtime.renderer.qualityLevel = config.quality;
       runtime.renderer.updatePerformance = () => {};
@@ -119,9 +140,12 @@ try {
       });
     }, { warmup: warmupFrames, frames: sampleFrames });
     const heapBytes = await page.evaluate(() => performance.memory ? performance.memory.usedJSHeapSize : null);
+    const activity = await page.evaluate(() => { const { model: m } = window.__WASTELAND_GAME__; return { screen: m.screen, weaponId: m.run.player.weaponId, shots: m.run.shotsFired, explosions: m.run.explosions, meleeHits: m.run.meleeHits, activeEffects: m.run.attackEffects.filter(f => f.active).length }; });
+    if (activity.screen !== "running" || activity.shots < 1) throw new Error("Inactive benchmark scene: " + scenario.id);
     results.push({
       ...scenario,
       ...summarize(samples),
+      activity,
       heapMiB: heapBytes ? Number((heapBytes / 1024 / 1024).toFixed(2)) : null
     });
   }
@@ -136,7 +160,7 @@ try {
     results
   };
   if (write) {
-    const target = path.join(root, "docs", "browser-fps-" + packageJson.version + ".json");
+    const target = path.join(root, "docs", weaponPressure ? "qa/weapon-expansion-performance-2026-10-29.json" : "browser-fps-" + packageJson.version + ".json");
     fs.writeFileSync(target, JSON.stringify(output, null, 2) + "\n", "utf8");
     console.log("Wrote " + path.relative(root, target));
   }

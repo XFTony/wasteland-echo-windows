@@ -1,0 +1,228 @@
+{
+  "date": "2026-10-31",
+  "native": {
+    "foundation": {
+      "checks": 125283,
+      "contentDefinitions": 164,
+      "failures": [],
+      "maximumPoseError": 0.0000131489350252423,
+      "scope": "Content, RNG, pressure, loadouts, upgrades, shop rules, save codec and recovery"
+    },
+    "combat": {
+      "cases": 72,
+      "checkpoints": 248,
+      "checks": 154069,
+      "failures": [],
+      "revisedSpawnCases": [
+        "echo_district:survival-at-0",
+        "echo_district:survival-at-140",
+        "echo_district:survival-at-200",
+        "echo_district:survival-at-600",
+        "freight_nexus:survival-at-0",
+        "freight_nexus:survival-at-140",
+        "freight_nexus:survival-at-200",
+        "freight_nexus:survival-at-600",
+        "red_basin:survival-at-0",
+        "red_basin:survival-at-140",
+        "red_basin:survival-at-200",
+        "red_basin:survival-at-600"
+      ],
+      "scope": "Unchanged legacy behavior; revised spawning is validated separately"
+    },
+    "runtime": {
+      "checks": 12,
+      "failures": []
+    },
+    "input-audio": {
+      "audioAssets": 30,
+      "checks": 60,
+      "failures": []
+    },
+    "save-transfer": {
+      "checks": 10,
+      "failures": [],
+      "isolated": true
+    },
+    "map-art": {
+      "checks": 58,
+      "failures": [],
+      "maps": 3
+    },
+    "ui-interaction": {
+      "checks": 155,
+      "failures": [],
+      "resolutions": 5,
+      "scope": "Native viewport pointer, click and navigation events; not physical device acceptance"
+    },
+    "survival-builds": {
+      "auditedUpgrades": 42,
+      "checks": 499,
+      "failures": [],
+      "weapons": 20
+    },
+    "fieldcraft": {
+      "checks": 326,
+      "deathTypes": 8,
+      "decodedArtBytes": 6919488,
+      "failures": [],
+      "refinedWeapons": 13,
+      "scope": "Native bitmap decode, actual attacks/status/ownership, bounded presentation; not human visual or balance acceptance",
+      "uniqueUpgradeArt": 42
+    },
+    "card-layout": {
+      "checks": 145,
+      "failures": [],
+      "frameLayouts": 6,
+      "icons": 42,
+      "scope": "Measured source-frame windows and actual alpha bounds; pointer/keyboard focus and below-frame pixels checked in rendered review"
+    }
+  },
+  "legacyTests": 333,
+  "visual": {
+    "failures": [],
+    "records": [
+      {
+        "brightGoldRunBelowArtwork": 0,
+        "height": 540,
+        "hover": true,
+        "index": 0,
+        "width": 960
+      },
+      {
+        "brightGoldRunBelowArtwork": 0,
+        "height": 540,
+        "hover": true,
+        "index": 1,
+        "width": 960
+      },
+      {
+        "brightGoldRunBelowArtwork": 0,
+        "height": 540,
+        "hover": true,
+        "index": 2,
+        "width": 960
+      },
+      {
+        "brightGoldRunBelowArtwork": 0,
+        "height": 540,
+        "hover": true,
+        "index": 3,
+        "width": 960
+      },
+      {
+        "brightGoldRunBelowArtwork": 0,
+        "height": 720,
+        "hover": true,
+        "index": 0,
+        "width": 1280
+      },
+      {
+        "brightGoldRunBelowArtwork": 0,
+        "height": 720,
+        "hover": true,
+        "index": 1,
+        "width": 1280
+      },
+      {
+        "brightGoldRunBelowArtwork": 0,
+        "height": 720,
+        "hover": true,
+        "index": 2,
+        "width": 1280
+      },
+      {
+        "brightGoldRunBelowArtwork": 0,
+        "height": 720,
+        "hover": true,
+        "index": 3,
+        "width": 1280
+      },
+      {
+        "brightGoldRunBelowArtwork": 0,
+        "height": 1080,
+        "hover": true,
+        "index": 0,
+        "width": 1920
+      },
+      {
+        "brightGoldRunBelowArtwork": 0,
+        "height": 1080,
+        "hover": true,
+        "index": 1,
+        "width": 1920
+      },
+      {
+        "brightGoldRunBelowArtwork": 0,
+        "height": 1080,
+        "hover": true,
+        "index": 2,
+        "width": 1920
+      },
+      {
+        "brightGoldRunBelowArtwork": 0,
+        "height": 1080,
+        "hover": true,
+        "index": 3,
+        "width": 1920
+      },
+      {
+        "brightGoldRunBelowArtwork": 0,
+        "height": 1440,
+        "hover": true,
+        "index": 0,
+        "width": 2560
+      },
+      {
+        "brightGoldRunBelowArtwork": 0,
+        "height": 1440,
+        "hover": true,
+        "index": 1,
+        "width": 2560
+      },
+      {
+        "brightGoldRunBelowArtwork": 0,
+        "height": 1440,
+        "hover": true,
+        "index": 2,
+        "width": 2560
+      },
+      {
+        "brightGoldRunBelowArtwork": 0,
+        "height": 1440,
+        "hover": true,
+        "index": 3,
+        "width": 2560
+      }
+    ],
+    "scope": "Actual native viewport events, per-frame illustration windows and bright residual lines below artwork; not physical gamepad or OS DPI acceptance"
+  },
+  "protected": {
+    "protectedFiles": 1191,
+    "missingProtected": [],
+    "changedProtected": [],
+    "remainingCandidates": []
+  },
+  "package": {
+    "kind": "internal-godot-preview",
+    "version": "1.5.0-alpha.1",
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "sourceCommit": "99e62318efa402a0e71625a23fd529558a92db39",
+    "sourceDirty": false,
+    "file": "WastelandEcho.exe",
+    "bytes": 134607144,
+    "sha256": "b7104ef17a897a84af23f7f0fef30730fd8bc618d2e4ce41aa78f3ad57d0ed1a",
+    "published": false,
+    "report": {
+      "audio": 30,
+      "cardLayouts": 6,
+      "failures": [],
+      "fieldcraftArt": 69,
+      "images": 59,
+      "maps": 3,
+      "mapsWithArt": 3,
+      "paintedMaps": 1,
+      "sharedMapAtlases": 4,
+      "weapons": 20
+    }
+  }
+}

@@ -11,13 +11,13 @@ const { UnlockSystem } = require("./unlock-system");
 const { UNLOCK_RULES } = require("../content/unlock-rules");
 
 const ACHIEVEMENTS = Object.freeze([
-  Object.freeze({ id: "first_signal", name: "第一束信号", description: "首次完成章节", reward: { copper: 200 }, meets: (save) => save.wins >= 1 }),
+  Object.freeze({ id: "first_signal", name: "第一束信号", description: "首次生存达到 3 分钟", reward: { copper: 200 }, meets: (save) => save.bestTime >= 180 || save.wins >= 1 }),
   Object.freeze({ id: "steady_hands", name: "稳住呼吸", description: "单局连续 120 秒未受伤", reward: { copper: 180 }, meets: (save) => save.bestNoHitTime >= 120 }),
-  Object.freeze({ id: "three_returns", name: "三次归来", description: "完成 3 次章节", reward: { copper: 400, gold: 1 }, meets: (save) => save.wins >= 3 }),
+  Object.freeze({ id: "three_returns", name: "三次归来", description: "结算3次有效生存（30秒或击败10名敌人）", reward: { copper: 400, gold: 1 }, meets: (save) => save.settledRuns >= 3 || save.wins >= 3 }),
   Object.freeze({ id: "scrap_hundred", name: "清道夫", description: "累计击败 100 名感染者", reward: { copper: 250 }, meets: (save) => save.totalKills >= 100 }),
   Object.freeze({ id: "scrap_five_hundred", name: "荒原收割者", description: "累计击败 500 名感染者", reward: { copper: 700, gold: 1 }, meets: (save) => save.totalKills >= 500 }),
   Object.freeze({ id: "elite_breaker", name: "破甲记录", description: "累计击败 25 名精英", reward: { copper: 500, gold: 1 }, meets: (save) => save.eliteKills >= 25 }),
-  Object.freeze({ id: "endless_three", name: "第三声警报", description: "无尽模式击退 3 波 Boss", reward: { copper: 650, gold: 2 }, meets: (_save, run) => run.endlessBossWave >= 3 }),
+  Object.freeze({ id: "endless_three", name: "第三声警报", description: "单局实际击败 3 名首领", reward: { copper: 650, gold: 2 }, meets: (_save, run) => run.bossesDefeated >= 3 }),
   Object.freeze({ id: "field_armory", name: "流动军械库", description: "解锁 5 把武器", reward: { copper: 450 }, meets: (save) => save.unlockedWeapons.length >= 5 })
 ]);
 const DEFAULT_MASTERY_SYSTEM = new MasterySystem();
@@ -29,6 +29,24 @@ function calculateAccuracy(run) {
 }
 
 function updateWeaponMastery(save, run, result, masterySystem = DEFAULT_MASTERY_SYSTEM) {
+  if (result === "retire" && Number(run.elapsed) < 10 && !(run.shotsFired > 0)) {
+    run.masteryGain = 0; run.masteryRewards = [];
+    run.masteryLevel = save.weaponMastery?.[run.player.weaponId]?.level || 1;
+    return save.weaponMastery?.[run.player.weaponId] || { kills: 0, runs: 0, experience: 0, level: 1 };
+  }
+  const used = Object.entries(run.weaponStats || {}).filter(([_id, stats]) => stats.shots > 0);
+  if (used.length) {
+    const rewards = []; let total = 0, selected = null;
+    for (const [id, stats] of used) {
+      const contribution = { player: { weaponId: id }, kills: stats.kills, damageDealt: stats.damage, eliteKills: stats.eliteKills || 0 };
+      const record = updateWeaponMastery(save, contribution, result, masterySystem);
+      total += contribution.masteryGain; rewards.push(...contribution.masteryRewards);
+      if (id === run.player.weaponId) selected = record;
+    }
+    run.masteryGain = total; run.masteryRewards = rewards;
+    run.masteryLevel = selected ? selected.level : (save.weaponMastery[run.player.weaponId]?.level || 1);
+    return selected || save.weaponMastery[used[0][0]];
+  }
   if (!save.weaponMastery || typeof save.weaponMastery !== "object" || Array.isArray(save.weaponMastery)) save.weaponMastery = {};
   const weaponId = run.player && run.player.weaponId || "scrap_pistol";
   const previous = save.weaponMastery[weaponId] || { kills: 0, runs: 0, experience: 0, level: 1 };
@@ -60,8 +78,10 @@ function recordRunHistory(save, run, result) {
     seed: Math.max(0, Math.floor(Number(run.seed) || 0)),
     modeId: run.modeId,
     stageId: run.stageId,
+    mapId: run.mapId,
     weaponId: run.player && run.player.weaponId,
-    result: result === "win" ? "win" : "lose",
+    result,
+    bossesDefeated: run.bossesDefeated || 0,
     elapsed: Math.max(0, Number(run.elapsed) || 0),
     kills: Math.max(0, Math.floor(Number(run.kills) || 0)),
     damageDealt: Math.max(0, Number(run.damageDealt) || 0),
@@ -88,7 +108,12 @@ function applyRunProgress(save, run, duration, mode, result, content, stage = nu
   save.totalScrap += earned;
   save.totalKills += run.kills;
   save.eliteKills += run.eliteKills;
-  save.bestTime = Math.max(save.bestTime, Math.min(run.elapsed, duration));
+  save.bestTime = Math.max(save.bestTime, run.elapsed);
+  if (run.elapsed >= 30 || run.kills >= 10) save.settledRuns = (save.settledRuns || 0) + 1;
+  save.bossesDefeated = (save.bossesDefeated || 0) + (run.bossesDefeated || 0);
+  if (!save.survivalRecords) save.survivalRecords = {};
+  const previous = save.survivalRecords[run.mapId] || { bestTime: 0, bestKills: 0, runs: 0 };
+  save.survivalRecords[run.mapId] = { bestTime: Math.max(previous.bestTime, run.elapsed), bestKills: Math.max(previous.bestKills, run.kills), runs: previous.runs + 1 };
   save.bestNoHitTime = Math.max(save.bestNoHitTime, Number(run.maxNoHitTime) || Number(run.player.noHitTime) || 0);
   if (result === "win") save.wins += 1;
 

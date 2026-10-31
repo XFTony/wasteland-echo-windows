@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_jryjb"]
+
+[resource]
+script = ExtResource("1_jryjb")
+content_id = &"endlessVitality"
+category = &"upgrades"
+display_name = "生存韧性"
+source_data = {
+"detail": "最大生命 +8 · 回复8",
+"fallback": true,
+"family": "survival",
+"id": "endlessVitality",
+"max": 9.007199254740991e+15,
+"name": "生存韧性",
+"rarity": "standard",
+"repeatable": true
+}

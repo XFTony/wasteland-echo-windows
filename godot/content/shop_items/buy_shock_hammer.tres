@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_sfr6q"]
+
+[resource]
+script = ExtResource("1_sfr6q")
+content_id = &"buy_shock_hammer"
+category = &"shopItems"
+display_name = "铁砧震荡锤"
+source_data = {
+"category": "weapon",
+"currency": "copper",
+"description": "举锤后砸地，范围击退与短时消弹；前摇仍会受伤",
+"grantId": "shock_hammer",
+"grantType": "weapon",
+"id": "buy_shock_hammer",
+"name": "铁砧震荡锤",
+"price": 90.0,
+"unlockStage": 1.0
+}

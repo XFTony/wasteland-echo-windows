@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_j5e6u"]
+
+[resource]
+script = ExtResource("1_j5e6u")
+content_id = &"buy_ember_carbine"
+category = &"shopItems"
+display_name = "余烬卡宾枪"
+source_data = {
+"category": "weapon",
+"currency": "copper",
+"description": "稳定连发的中程通用步枪。",
+"grantId": "ember_carbine",
+"grantType": "weapon",
+"id": "buy_ember_carbine",
+"name": "余烬卡宾枪",
+"price": 1120.0,
+"unlockRuleId": "blueprint_ember",
+"unlockStage": 2.0
+}

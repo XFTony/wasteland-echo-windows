@@ -1,11 +1,20 @@
 param(
-  [switch]$SkipStage
+  [switch]$SkipStage,
+  [string]$InternalOutputDirectory
 )
 
 $ErrorActionPreference = "Stop"
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $packageInfo = Get-Content -Raw -LiteralPath (Join-Path $projectRoot "package.json") | ConvertFrom-Json
 $gameVersion = $packageInfo.version
+$internalReleaseDir = $null
+if ($InternalOutputDirectory) {
+  $internalReleaseDir = [IO.Path]::GetFullPath((Join-Path $projectRoot $InternalOutputDirectory))
+  $allowedInternalRoot = [IO.Path]::GetFullPath((Join-Path $projectRoot "output")) + [IO.Path]::DirectorySeparatorChar
+  if (-not $internalReleaseDir.StartsWith($allowedInternalRoot, [StringComparison]::OrdinalIgnoreCase)) {
+    throw "Internal desktop builds must stay inside this project's output directory."
+  }
+}
 
 if (-not $SkipStage) {
   & npm.cmd run stage:desktop
@@ -30,7 +39,9 @@ $buildCommand = "`"$devCmd`" -no_logo -arch=x64 -host_arch=x64 && cargo.exe buil
 if ($LASTEXITCODE -ne 0) { throw "Tauri release build failed with exit code $LASTEXITCODE" }
 
 $sourceExe = Join-Path $projectRoot "src-tauri\target\release\wasteland-echo.exe"
-$releaseDir = if ($gameVersion -match "-") {
+$releaseDir = if ($internalReleaseDir) {
+  $internalReleaseDir
+} elseif ($gameVersion -match "-") {
   Join-Path $projectRoot "output\builds\v$gameVersion"
 } else {
   Join-Path $projectRoot "release"

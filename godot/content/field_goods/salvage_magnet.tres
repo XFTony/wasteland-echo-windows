@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_awt5u"]
+
+[resource]
+script = ExtResource("1_awt5u")
+content_id = &"salvageMagnet"
+category = &"fieldGoods"
+display_name = "回收磁环"
+source_data = {
+"detail": "拾取范围 +15%",
+"effect": "magnet",
+"family": "utility",
+"icon": "magnet",
+"id": "salvageMagnet",
+"name": "回收磁环",
+"prices": [8.0, 14.0]
+}

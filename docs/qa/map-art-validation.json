@@ -1,0 +1,172 @@
+{
+  "date": "2026-10-30",
+  "scope": "Internal map art and interaction iteration; device and full visual acceptance remain pending",
+  "branch": "codex/map-art-interactions",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "sourceCommit": "3e64d7b108b83cbeaf4c7051a3ccc956b60fd91a",
+  "regression": {
+    "reports": {
+      "foundation": {
+        "checks": 125319,
+        "contentDefinitions": 137,
+        "failures": [],
+        "maximumPoseError": 0.0000131489350252423,
+        "scope": "Content, RNG, pressure, loadouts, upgrades, shop rules, save codec and recovery"
+      },
+      "combat": {
+        "cases": 84,
+        "checkpoints": 284,
+        "checks": 184285,
+        "failures": []
+      },
+      "runtime": {
+        "checks": 12,
+        "failures": []
+      },
+      "input-audio": {
+        "audioAssets": 21,
+        "checks": 51,
+        "failures": []
+      },
+      "save-transfer": {
+        "checks": 10,
+        "failures": [],
+        "isolated": true
+      },
+      "map-art": {
+        "checks": 45,
+        "failures": [],
+        "maps": 3
+      }
+    },
+    "passed": true
+  },
+  "uiRegions": {
+    "layouts": 24,
+    "actions": 200,
+    "maximumRectDelta": 0.00009765625009094947
+  },
+  "battleRegions": {
+    "layouts": 28,
+    "actions": 192,
+    "maximumRectDelta": 0.0004852276236988473
+  },
+  "legacy": {
+    "command": "npm.cmd run check",
+    "passed": 331,
+    "failed": 0,
+    "runtimeSourceChanged": false,
+    "log": "output/map-art-legacy-check.log"
+  },
+  "paintedDataMigration": {
+    "maps": [
+      {
+        "map": "echo_district",
+        "serializedPaintedDataUnchanged": true,
+        "sha256": "cdbbcf80b063311e523a0d2d2807519178c7499635bb98aa0cad25fe1dae9ec4"
+      },
+      {
+        "map": "freight_nexus",
+        "serializedPaintedDataUnchanged": true,
+        "sha256": "311f56e91fa7fb7e83eaca35d3ab572a7d9ed119b0fd750c3cdf75dd5385f9cc"
+      },
+      {
+        "map": "red_basin",
+        "serializedPaintedDataUnchanged": true,
+        "sha256": "1bfce28fc193d1e5af59fd14823711b2c252a9b22c3ff5f1b65ba540dd3f0b59"
+      }
+    ],
+    "passed": true
+  },
+  "generatorGuard": {
+    "expectedRefusal": true,
+    "unchangedFiles": true,
+    "protectedFiles": 9
+  },
+  "rendered": {
+    "enemyVisuals": 104,
+    "frames": 120,
+    "medianFrameMs": 16.666,
+    "p95FrameMs": 18.076,
+    "props": 17,
+    "scope": "Short rendered 104-enemy sample on this host; capped at 60fps; not low-end or long-session certification",
+    "adapter": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "resolution": [
+      1280,
+      720
+    ],
+    "warmupFrames": 60,
+    "recordedFrames": 120,
+    "comparisonClaim": "No statistically established speedup; capped short sample only"
+  },
+  "package": {
+    "sourceCommit": "3e64d7b108b83cbeaf4c7051a3ccc956b60fd91a",
+    "sourceDirty": false,
+    "sha256": "3c476342d24af4f0ff040017cf20169b6db12a62624a3364f9541712451d57c2",
+    "passed": true,
+    "report": {
+      "audio": 21,
+      "failures": [],
+      "images": 59,
+      "maps": 3,
+      "mapsWithArt": 3,
+      "sharedMapAtlases": 2,
+      "weapons": 12
+    },
+    "scope": "Exported package resources and headless combat only; not rendered, device or long-session acceptance."
+  },
+  "build": {
+    "kind": "internal-godot-preview",
+    "version": "1.5.0-alpha.1",
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "sourceCommit": "3e64d7b108b83cbeaf4c7051a3ccc956b60fd91a",
+    "sourceDirty": false,
+    "file": "WastelandEcho.exe",
+    "bytes": 129120456,
+    "sha256": "3c476342d24af4f0ff040017cf20169b6db12a62624a3364f9541712451d57c2",
+    "published": false
+  },
+  "screenshots": {
+    "resolutions": [
+      [
+        960,
+        540
+      ],
+      [
+        1280,
+        720
+      ],
+      [
+        1920,
+        1080
+      ],
+      [
+        2560,
+        1440
+      ]
+    ],
+    "maps": "output/godot-migration/native-play/",
+    "interactionReview": "output/map-art/review/",
+    "reviewCases": [
+      "echo-spawn",
+      "echo-shop-behind",
+      "echo-shop-front",
+      "echo-trade-active",
+      "echo-supply",
+      "echo-barrel",
+      "echo-dense",
+      "freight-spawn",
+      "red-spawn"
+    ],
+    "spawnFixture": "Map default spawn; arbitrary 1536 coordinates are not used for the larger-map spawn captures"
+  },
+  "pending": [
+    "User playtest of navigation, ground/solid semantics and interaction distances",
+    "Long rendered sessions, memory/decode/cold-load profiling and low-end hardware",
+    "Physical gamepad, disconnect/reconnect and rumble",
+    "Windows DPI 100/125/150/200%, fullscreen and window transitions",
+    "All non-default visual combinations and final sign-off"
+  ],
+  "completeGame": false,
+  "published": false
+}

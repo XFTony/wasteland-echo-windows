@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_kx1bm"]
+
+[resource]
+script = ExtResource("1_kx1bm")
+content_id = &"buy_echo_blade"
+category = &"shopItems"
+display_name = "回响军刀"
+source_data = {
+"category": "weapon",
+"currency": "copper",
+"description": "110度近身挥扫＋40%伤害剑气；有效挥击可消弹",
+"grantId": "echo_blade",
+"grantType": "weapon",
+"id": "buy_echo_blade",
+"name": "回响军刀",
+"price": 70.0,
+"unlockStage": 1.0
+}

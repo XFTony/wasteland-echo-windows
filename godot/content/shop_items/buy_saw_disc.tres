@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_jgqyw"]
+
+[resource]
+script = ExtResource("1_jgqyw")
+content_id = &"buy_saw_disc"
+category = &"shopItems"
+display_name = "锯盘弹射器"
+source_data = {
+"category": "weapon",
+"currency": "copper",
+"description": "最多弹射2次，每跳保留78%伤害；不重复命中",
+"grantId": "saw_disc",
+"grantType": "weapon",
+"id": "buy_saw_disc",
+"name": "锯盘弹射器",
+"price": 120.0,
+"unlockStage": 1.0
+}

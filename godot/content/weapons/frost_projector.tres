@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/weapon_definition.gd" id="1_cfid2"]
+
+[resource]
+script = ExtResource("1_cfid2")
+damage = 11.0
+interval = 0.46
+projectile_speed = 520.0
+lock_range = 430.0
+knockback = 14.0
+recoil = 1.0
+content_id = &"frost_projector"
+category = &"weapons"
+display_name = "霜凝喷射器"
+source_data = {
+"color": "#90cddd",
+"damage": 11.0,
+"description": "命中减速30%持续1.2秒；首领减速10%且时长减半",
+"id": "frost_projector",
+"interval": 0.46,
+"knockback": 14.0,
+"lockRange": 430.0,
+"mechanicId": "cryogenic",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 32.0,
+"muzzleParticles": 2.0,
+"name": "霜凝喷射器",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 520.0,
+"rangeBand": "mid",
+"recoil": 1.0,
+"shellColor": "#b18b50",
+"shellLength": 0.0,
+"shellLife": 0.0,
+"slowDuration": 1.2,
+"slowFactor": 0.7,
+"spread": 0.0,
+"ttl": 0.9,
+"visualId": "frost-projector",
+"weaponClass": "elemental"
+}

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_ud5tt"]
+
+[resource]
+script = ExtResource("1_ud5tt")
+content_id = &"armor"
+category = &"upgrades"
+display_name = "加固背心"
+source_data = {
+"detail": "受到伤害 -8%",
+"family": "survival",
+"flavor": "旧钢板也能挡住利爪",
+"id": "armor",
+"max": 4.0,
+"name": "加固背心",
+"rarity": "advanced"
+}

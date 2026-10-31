@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_0ck2k"]
+
+[resource]
+script = ExtResource("1_0ck2k")
+content_id = &"ballisticLining"
+category = &"fieldGoods"
+display_name = "护甲衬层"
+source_data = {
+"detail": "护甲 +4个百分点 · 上限55%",
+"effect": "armor",
+"family": "survival",
+"icon": "armor",
+"id": "ballisticLining",
+"name": "护甲衬层",
+"prices": [12.0, 20.0]
+}

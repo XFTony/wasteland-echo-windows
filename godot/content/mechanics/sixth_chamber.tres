@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_5i1r4"]
+
+[resource]
+script = ExtResource("1_5i1r4")
+content_id = &"sixth_chamber"
+category = &"mechanics"
+display_name = "第六膛室"
+source_data = {
+"description": "锈痕左轮每第 6 发必定暴击",
+"id": "sixth_chamber",
+"name": "第六膛室"
+}

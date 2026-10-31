@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_n73fo"]
+
+[resource]
+script = ExtResource("1_n73fo")
+content_id = &"buy_ratchet_crossbow"
+category = &"shopItems"
+display_name = "棘轮连弩"
+source_data = {
+"category": "weapon",
+"currency": "copper",
+"description": "机械弩矢穿透2次；每第四次射击强化，无普通抛壳",
+"grantId": "ratchet_crossbow",
+"grantType": "weapon",
+"id": "buy_ratchet_crossbow",
+"name": "棘轮连弩",
+"price": 110.0,
+"unlockStage": 1
+}

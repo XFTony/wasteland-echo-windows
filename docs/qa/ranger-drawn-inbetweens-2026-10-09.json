@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-09",
+  "originalKeysPixelsExact": 8,
+  "newFullCharacterDrawings": 16,
+  "uniqueNativeFrames": 24,
+  "nativeAndWebpPeriodMs": 400,
+  "compatibleGifPeriodMs": 480,
+  "originalKeyTimingPreserved": true,
+  "provenanceHashesValid": true,
+  "lastToFirstDrawnInbetweens": 2,
+  "duplicateEndpointPlayed": false,
+  "seamHeadDeltaNativePixels": 1,
+  "seamChangedForegroundFraction": 0.7964015151515151,
+  "medianInteriorChangedForegroundFraction": 0.8045219029674988,
+  "maxInteriorChangedForegroundFraction": 0.88366124893071,
+  "diagnosticLimit": "Pixel change and registration do not prove natural gait or texture consistency",
+  "visualApproved": false,
+  "runtimeIntegrated": false
+}

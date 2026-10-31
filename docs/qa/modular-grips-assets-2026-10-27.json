@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-27",
+  "pilot": false,
+  "weapons": [
+    {
+      "id": "scrap_pistol",
+      "defaultPixelsExact": true
+    },
+    {
+      "id": "swarm_smg",
+      "defaultPixelsExact": true
+    },
+    {
+      "id": "breaker_shotgun",
+      "defaultPixelsExact": true
+    },
+    {
+      "id": "needle_rifle",
+      "defaultPixelsExact": true
+    },
+    {
+      "id": "rust_revolver",
+      "defaultPixelsExact": true
+    },
+    {
+      "id": "ember_carbine",
+      "defaultPixelsExact": true
+    },
+    {
+      "id": "coil_cannon",
+      "defaultPixelsExact": true
+    }
+  ],
+  "separateEditableAtlasesExact": 11,
+  "layeredMigrationSnapshotsExact": 7,
+  "handSets": 2,
+  "cuffSets": 2,
+  "binaryAlpha": true,
+  "sharedBodyUnchanged": true,
+  "defaultChangeRejected": true,
+  "editedSourceProtected": true,
+  "editedConfigurationProtected": true,
+  "ownedAssetRGBABytes": 41796,
+  "ownedPNGBytes": 8990,
+  "newHandVisualApproved": false,
+  "secondCharacterBodyValidated": false,
+  "mainGameArtIntegrated": false
+}

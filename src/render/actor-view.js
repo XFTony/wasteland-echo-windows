@@ -3,6 +3,10 @@
 const { PALETTE } = require("../config");
 const { clamp } = require("../core/math");
 const { drawSurvivorActor, drawZombieActor } = require("./pixel-actors");
+const { drawIllustratedSurvivor, drawIllustratedEnemy } = require("./illustrated-actors");
+const { usesCompactPlayer } = require("../core/compact-weapon-pose");
+const { drawWeaponProjectile } = require("./weapon-feedback");
+const { drawCoin } = require("./ui/upgrade-illustrations");
 
 const ACTOR_METHODS = {
   drawExtraction(run) {
@@ -39,6 +43,8 @@ const ACTOR_METHODS = {
     const weapon = this.content.get("weapons", player.weaponId, this.content.defaults.weapon);
     const moving = Math.hypot(run.input.moveX, run.input.moveY) > 0.12;
     const flicker = player.invulnerable > 0 && Math.floor(this.frame / 3) % 2 === 0;
+    if (this.compactActors && this.compactActors.drawPlayer(this, player, run, flicker)) return;
+    if (!usesCompactPlayer(player) && drawIllustratedSurvivor(this, player, run, flicker)) return;
     drawSurvivorActor(this.ctx, {
       x: p.x,
       y: p.y,
@@ -87,18 +93,20 @@ const ACTOR_METHODS = {
     const ctx = this.ctx;
     const p = this.worldToScreen(enemy.x, enemy.y, this.screenPoint);
     if (p.x < -80 || p.y < -80 || p.x > this.width + 80 || p.y > this.height + 80) return;
-    drawZombieActor(ctx, { enemy, x: p.x, y: p.y, elapsed });
+    if (!(this.compactActors && this.compactActors.drawEnemy(this, enemy, elapsed))) {
+      drawZombieActor(ctx, { enemy, x: p.x, y: p.y, elapsed });
+    }
 
     if (enemy.elite) {
       const barW = enemy.boss ? 64 : 42;
-      const barY = p.y - (enemy.boss ? 70 : 50);
+      const barY = p.y - (enemy.boss ? 105 : 84);
       ctx.fillStyle = "#241d1c";
       ctx.fillRect(p.x - barW / 2, barY, barW, 5);
       ctx.fillStyle = enemy.boss ? PALETTE.rust : PALETTE.amber;
       ctx.fillRect(p.x - barW / 2, barY, barW * clamp(enemy.hp / enemy.maxHp, 0, 1), 5);
     } else if (enemy.hp < enemy.maxHp) {
       const barW = 22;
-      const barY = p.y - (enemy.role === "tank" ? 47 : enemy.role === "swarm" ? 18 : 36);
+      const barY = p.y - (enemy.role === "tank" ? 72 : enemy.role === "swarm" ? 43 : 56);
       ctx.fillStyle = "rgba(28,23,21,0.82)";
       ctx.fillRect(p.x - barW / 2, barY, barW, 3);
       ctx.fillStyle = PALETTE.rust;
@@ -111,17 +119,8 @@ const ACTOR_METHODS = {
     const p = this.worldToScreen(projectile.x, projectile.y, this.screenPoint);
     if (p.x < -10 || p.y < -10 || p.x > this.width + 10 || p.y > this.height + 10) return;
     ctx.fillStyle = projectile.color;
-    if (projectile.owner === "player") {
-      const length = Math.max(4, Math.min(11, Math.hypot(projectile.vx, projectile.vy) / 80));
-      const angle = Math.atan2(projectile.vy, projectile.vx);
-      ctx.save();
-      ctx.translate(p.x, p.y);
-      ctx.rotate(angle);
-      ctx.globalAlpha = 0.24;
-      ctx.fillRect(-length * 1.8, -1, length * 1.7, 2);
-      ctx.globalAlpha = 1;
-      ctx.fillRect(-length / 2, -2, length, 4);
-      ctx.restore();
+    if (projectile.owner === "player" || projectile.owner === "turret") {
+      drawWeaponProjectile(ctx, projectile, p.x, p.y);
     } else {
       ctx.fillRect(p.x - 4, p.y - 4, 8, 8);
       ctx.fillStyle = "rgba(216,112,85,0.25)";
@@ -139,10 +138,8 @@ const ACTOR_METHODS = {
       ctx.fillStyle = "#c1f1d3";
       ctx.fillRect(p.x - 1, p.y - 3 + bob, 2, 3);
     } else if (pickup.type === "scrap") {
-      ctx.fillStyle = PALETTE.amber;
-      ctx.fillRect(p.x - 5, p.y - 4 + bob, 10, 8);
-      ctx.fillStyle = "#664128";
-      ctx.fillRect(p.x - 1, p.y - 4 + bob, 2, 8);
+      if (pickup.value > 1) drawCoin(ctx, p.x + 3, p.y + 2 + bob, 5);
+      drawCoin(ctx, p.x, p.y + bob, 6);
     } else {
       ctx.fillStyle = "#d9d2b7";
       ctx.fillRect(p.x - 7, p.y - 6 + bob, 14, 12);

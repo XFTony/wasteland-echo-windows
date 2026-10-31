@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/weapon_definition.gd" id="1_8j6jo"]
+
+[resource]
+script = ExtResource("1_8j6jo")
+damage = 28.0
+interval = 0.72
+projectile_speed = 940.0
+lock_range = 680.0
+lifetime = 1.1
+pierce = 3
+knockback = 38.0
+recoil = 6.5
+content_id = &"needle_rifle"
+category = &"weapons"
+display_name = "针刺步枪"
+source_data = {
+"color": "#6e9892",
+"damage": 28.0,
+"description": "高伤害高速贯穿弹",
+"id": "needle_rifle",
+"interval": 0.72,
+"knockback": 38.0,
+"lockRange": 680.0,
+"mechanicId": "focus_lance",
+"muzzleFlashLength": 16.0,
+"muzzleFlashLife": 0.07,
+"muzzleLength": 38.0,
+"muzzleParticles": 5.0,
+"name": "针刺步枪",
+"pierce": 3.0,
+"projectileCount": 1.0,
+"projectileSpeed": 940.0,
+"rangeBand": "long",
+"recoil": 6.5,
+"shellColor": "#d8b65f",
+"shellLength": 5.0,
+"shellLife": 0.58,
+"spread": 0.0,
+"ttl": 1.1,
+"visualId": "needle-longrifle",
+"weaponClass": "rifle"
+}

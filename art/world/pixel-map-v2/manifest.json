@@ -1,0 +1,41 @@
+{
+  "version": "pixel-map-v2",
+  "created": "2026-10-30",
+  "generator": "built-in imagegen",
+  "usageTerms": "Generated project assets; subject to applicable OpenAI service terms; not third-party CC0",
+  "thirdPartyGameArtReused": false,
+  "sourceDirectory": "art/world/pixel-map-v2/sources",
+  "prompts": [
+    "art/world/pixel-map-v2/terrain-prompt.txt",
+    "art/world/pixel-map-v2/props-prompt.txt"
+  ],
+  "runtimeSampling": "Godot TileSet/region references and canvas shaders; original PNGs retained",
+  "assets": [
+    {
+      "id": "world.pixel-map-v2.terrain",
+      "runtime": "godot/assets/world/pixel_map_v2/terrain_atlas.png",
+      "sourcePaths": ["art/world/pixel-map-v2/sources/terrain-atlas-generated.png", "art/world/pixel-map-v2/terrain-prompt.txt"],
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "bytes": 1927503,
+      "sha256": "6fe2871be0b0c316b003c66acd5bec55c2f87cf0c881f52a97c137b51c926754",
+      "role": "terrain_atlas"
+    },
+    {
+      "id": "world.pixel-map-v2.props",
+      "runtime": "godot/assets/world/pixel_map_v2/props_atlas.png",
+      "sourcePaths": ["art/world/pixel-map-v2/sources/props-atlas-generated.png", "art/world/pixel-map-v2/props-prompt.txt", "art/world/pixel-map-v2/prop-regions.json"],
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1769015,
+      "sha256": "740aa01df87364000145b3c77d84c9013ccaf45be8b0f2f2b1a7286127b26540",
+      "role": "transparent_prop_atlas"
+    }
+  ]
+}

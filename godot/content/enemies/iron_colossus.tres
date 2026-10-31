@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/enemy_definition.gd" id="1_o7gn4"]
+
+[resource]
+script = ExtResource("1_o7gn4")
+max_health = 430.0
+speed = 29.0
+damage = 30.0
+radius = 28.0
+content_id = &"iron_colossus"
+category = &"enemies"
+display_name = "铁幕巨像"
+source_data = {
+"boss": true,
+"color": "#7e332f",
+"damage": 30.0,
+"elite": true,
+"hp": 430.0,
+"id": "iron_colossus",
+"knockbackResistance": 0.96,
+"name": "铁幕巨像",
+"radius": 28.0,
+"role": "boss",
+"scrapChance": 1.0,
+"speed": 29.0,
+"xp": 80.0
+}

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_16b6b"]
+
+[resource]
+script = ExtResource("1_16b6b")
+content_id = &"dead_rail"
+category = &"stages"
+display_name = "第二章：死亡铁轨"
+source_data = {
+"copperMultiplier": 1.25,
+"description": "沿锈轨寻找失联补给车。",
+"difficulty": 1.16,
+"duration": 180.0,
+"goldReward": 2.0,
+"id": "dead_rail",
+"mapId": "freight_nexus",
+"name": "第二章：死亡铁轨",
+"order": 2.0,
+"radioDetail": "列车没有归站，沿铁轨找到最后一节车厢。",
+"radioTitle": "远征电台 · 锈轨频段",
+"unlockWins": 1.0
+}

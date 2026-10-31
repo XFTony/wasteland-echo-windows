@@ -13,7 +13,7 @@ function createContext() {
     setTransform: () => {}, clearRect: () => {}, fillRect: (...args) => drawCalls.push(args),
     strokeRect: () => {}, beginPath: () => {}, closePath: () => {}, moveTo: () => {},
     lineTo: () => {}, quadraticCurveTo: () => {}, arc: () => {}, fill: () => {}, stroke: () => {},
-    save: () => {}, restore: () => {}, translate: () => {}, rotate: () => {},
+    save: () => {}, restore: () => {}, translate: () => {}, rotate: () => {}, scale: () => {},
     fillText: () => {}, createLinearGradient: () => gradient,
     fillStyle: "", strokeStyle: "", lineWidth: 1, font: "", textAlign: "left",
     textBaseline: "middle", globalAlpha: 1, imageSmoothingEnabled: false
@@ -74,6 +74,12 @@ test("generated browser bundle boots, renders menu, and starts a run", () => {
   harness.rafCallbacks.shift()(16);
   const game = harness.windowObject.__WASTELAND_GAME__;
   assert.equal(game.model.screen, "menu");
+  assert.ok(game.renderer.regions.some(region => region.action === "skipStartup"));
+  game.app.keyDown("Enter");
+  game.app.keyDown("Enter", { repeat: true });
+  assert.equal(game.model.menuPage, "main", "skip and key repeat cannot activate the main menu");
+  game.app.keyUp("Enter");
+  harness.rafCallbacks.shift()(24);
   assert.ok(game.renderer.regions.some((region) => region.action === "start"));
   game.app.handleAction("start");
   harness.rafCallbacks.shift()(32);
@@ -112,6 +118,9 @@ test("generated browser bundle boots, renders menu, and starts a run", () => {
     clientY: quit.y + quit.h / 2,
     preventDefault() {}
   });
+  assert.equal(game.model.screen, "resultLose");
+  assert.equal(game.model.run.result, "retire");
+  game.app.handleAction("menu");
   assert.equal(game.model.screen, "menu");
 });
 
@@ -134,10 +143,17 @@ test("generated desktop bundle can start from a standard gamepad", () => {
   const game = harness.windowObject.__WASTELAND_GAME__;
   assert.equal(game.input.activeDevice, "gamepad");
   assert.equal(game.model.screen, "menu");
-  assert.equal(game.model.menuPage, "loadout");
+  assert.equal(game.model.menuPage, "main", "first A press only skips startup");
+  harness.rafCallbacks.shift()(40);
+  assert.equal(game.model.menuPage, "main", "holding A cannot activate the menu after skipping");
   gamepad.buttons[0] = { pressed: false, value: 0 };
   harness.rafCallbacks.shift()(48);
   gamepad.buttons[0] = { pressed: true, value: 1 };
   harness.rafCallbacks.shift()(64);
+  assert.equal(game.model.menuPage, "loadout");
+  gamepad.buttons[0] = { pressed: false, value: 0 };
+  harness.rafCallbacks.shift()(80);
+  gamepad.buttons[0] = { pressed: true, value: 1 };
+  harness.rafCallbacks.shift()(96);
   assert.equal(game.model.screen, "running");
 });

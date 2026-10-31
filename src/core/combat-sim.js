@@ -2,6 +2,11 @@
 
 const { clamp, distanceSq, circleRectPushOut } = require("./math");
 const { profileFor, computeEnemySteering } = require("./enemy-brain");
+const { compactShotPose } = require("./compact-weapon-pose");
+const { segmentCircleTime, segmentRectTime, firstObstacleTime } = require("./projectile-geometry");
+const { addKnockback, advanceKnockback } = require("./knockback");
+const { getSurvivalPressure } = require("../content/survival");
+const { weaponModifiers } = require("./arsenal");
 
 const EPSILON = 0.00000001;
 const ENEMY_SEPARATION_ITERATIONS = 2;
@@ -20,18 +25,25 @@ class CombatSim {
   constructor(host, content) {
     this.host = assertCombatHost(host);
     this.content = content;
+    this.contacts = [];
+    this.resolveForImpulse = this.resolveEnemyWorldCollision.bind(this);
   }
 
   fireWeapon(aimX, aimY) {
     const host = this.host;
     const run = host.run;
     const player = run.player;
+    if(run.attack)return;
     const weapon = this.content.get("weapons", player.weaponId, this.content.defaults.weapon);
+    const refit = weaponModifiers(run, weapon.id);
     const target = player.aimTargetId === null ? null : host.enemies.find((enemy) => enemy.active && enemy.id === player.aimTargetId);
     const targetDistance = target ? Math.hypot(target.x - player.x, target.y - player.y) : Infinity;
     const mechanic = host.mechanicSystem.beforeShot(run, weapon, targetDistance);
+    if (weapon.attackType) return host.weaponActions.fire(weapon,aimX,aimY,compactShotPose(player,aimX,aimY),refit,mechanic);
     const count = weapon.projectileCount + player.projectileBonus;
     const baseAngle = Math.atan2(aimY, aimX);
+    const attackId = run.shotsFired + 1;
+    const compact = compactShotPose(player, aimX, aimY);
     const spreadRadians = (weapon.spread * Math.PI) / 180;
     const projectileSpeed = weapon.projectileSpeed * player.projectileSpeedMultiplier * mechanic.projectileSpeedMultiplier;
     const projectileTtl = weapon.ttl * player.projectileRangeMultiplier;
@@ -47,28 +59,44 @@ class CombatSim {
       const critical = mechanic.forceCritical || (player.criticalChance > 0 && host.random.next() < player.criticalChance);
       const projectile = host.projectilePool.acquire({
         id: host.entityId++,
-        x: player.x + directionX * 14,
-        y: player.y + directionY * 14,
+        x: compact ? compact.muzzleX : player.x + directionX * 14,
+        y: compact ? compact.muzzleY : player.y + directionY * 14,
+        barrelStartX: compact ? compact.anchorX - aimX * player.radius : null,
+        barrelStartY: compact ? compact.anchorY - aimY * player.radius : null,
         vx: directionX * projectileSpeed,
         vy: directionY * projectileSpeed,
         radius: baseRadius + player.projectileRadiusBonus + mechanic.radiusBonus,
         ttl: projectileTtl,
-        damage: weapon.damage * player.damageMultiplier * mechanic.damageMultiplier * (critical ? player.criticalMultiplier : 1),
+        damage: weapon.damage * refit.damage * player.damageMultiplier * mechanic.damageMultiplier * (critical ? player.criticalMultiplier : 1),
         pierce: weapon.pierce + player.pierceBonus + mechanic.pierceBonus,
         knockback: weapon.knockback * player.knockbackMultiplier * mechanic.knockbackMultiplier,
         color: weapon.color,
         owner: "player",
+        weaponId: weapon.id,
+        attackId,
+        empowered: Boolean(mechanic.forceCritical || mechanic.procLabel && mechanic.damageMultiplier >= 1.25),
         critical
       });
       host.projectiles.push(projectile);
       spawned += 1;
     }
+    this.commitAttack(weapon,aimX,aimY,compact,refit,mechanic,spawned);
+  }
+
+  commitAttack(weapon,aimX,aimY,compact,refit,mechanic,spawned,interval=null) {
+    const host=this.host,run=host.run,player=run.player,attackId=run.shotsFired+1;
     run.shotsFired += 1;
+    const weaponStats = run.weaponStats[weapon.id] || (run.weaponStats[weapon.id] = { shots: 0, kills: 0, damage: 0, eliteKills: 0 });
+    weaponStats.shots++;
     run.projectilesFired += spawned;
     host.progressTutorial("fire", 1);
     host.mechanicSystem.afterShot(run);
-    player.weaponCooldown = weapon.interval / player.fireRateMultiplier;
-    host.emit("shot", { weaponId: weapon.id, x: player.x, y: player.y, aimX, aimY });
+    player.weaponCooldown = interval || Math.max(1 / 60, weapon.interval / (player.fireRateMultiplier * refit.rate));
+    host.emit("shot", { weaponId: weapon.id, x: player.x, y: player.y, aimX, aimY,
+      attackId, attackType: weapon.attackType || "projectile", elapsed: run.elapsed, interval: player.weaponCooldown,
+      empowered: Boolean(mechanic.forceCritical || mechanic.procLabel && mechanic.damageMultiplier >= 1.25),
+      muzzleX: compact ? compact.muzzleX : null, muzzleY: compact ? compact.muzzleY : null,
+      gripX: compact ? compact.anchorX : null, gripY: compact ? compact.anchorY : null });
     if (mechanic.procLabel) {
       host.emit("mechanicProc", { mechanicId: weapon.mechanicId, label: mechanic.procLabel, x: player.x, y: player.y, hits: 0 });
     }
@@ -85,7 +113,8 @@ class CombatSim {
       ? this.content.get("modes", host.run.modeId, this.content.defaults.mode)
       : this.content.get("modes", this.content.defaults.mode);
     const difficulty = host.run ? host.run.difficulty : 1;
-    const hpScale = (1 + progress * mode.hpGrowth) * difficulty;
+    const pressure = host.run && host.run.endless ? getSurvivalPressure(host.run.elapsed) : null;
+    const hpScale = (pressure ? pressure.hp : 1 + progress * mode.hpGrowth) * difficulty;
     const bossDefinition = this.content.bossForEnemy(definition.id);
     const enemy = host.enemyPool.acquire({
       id: host.entityId++,
@@ -94,10 +123,10 @@ class CombatSim {
       y,
       hp: definition.hp * hpScale,
       maxHp: definition.hp * hpScale,
-      speed: definition.speed * (1 + progress * mode.speedGrowth) * Math.min(1.2, Math.sqrt(difficulty)),
-      damage: definition.damage * Math.min(1.45, difficulty),
+      speed: definition.speed * (pressure ? pressure.speed : 1 + progress * mode.speedGrowth) * Math.min(1.2, Math.sqrt(difficulty)),
+      damage: definition.damage * (pressure ? pressure.damage * difficulty : Math.min(1.45, difficulty)),
       radius: definition.radius,
-      xp: definition.xp,
+      xp: Math.max(1, Math.round(definition.xp * (pressure ? pressure.xp : 1))),
       scrapChance: definition.scrapChance,
       color: definition.color,
       role: definition.role,
@@ -110,6 +139,7 @@ class CombatSim {
     });
     this.resolveEnemyWorldCollision(enemy);
     host.enemies.push(enemy);
+    if (enemy.boss) host.run.activeBosses++;
     return enemy;
   }
 
@@ -128,7 +158,8 @@ class CombatSim {
       enemy.actionCooldown -= dt;
       enemy.navigationTime = Math.max(0, enemy.navigationTime - dt);
 
-      const steering = computeEnemySteering(enemy, player, host.navigationForEnemy(enemy), host.enemySteering);
+      const goal = host.structures.targetFor(enemy, player);
+      const steering = computeEnemySteering(enemy, goal, enemy.targetStructureId ? null : host.navigationForEnemy(enemy), host.enemySteering);
       const profile = profileFor(enemy.role);
       const distance = steering.distance;
       const towardX = steering.towardX;
@@ -187,6 +218,7 @@ class CombatSim {
       enemy.y += enemy.vy * dt;
       enemy.heading = Math.atan2(directionY, directionX);
       this.resolveEnemyWorldCollision(enemy);
+      advanceKnockback(enemy, dt, this.resolveForImpulse);
     }
 
     this.resolveEnemySeparation();
@@ -194,6 +226,10 @@ class CombatSim {
 
     for (const enemy of host.enemies) {
       if (!enemy.active) continue;
+      const tower = enemy.targetStructureId && host.run.structures.find(t => t.id === enemy.targetStructureId && t.active);
+      if (tower && Math.hypot(enemy.x - tower.x, enemy.y - tower.y) < enemy.radius + tower.radius + 9 && enemy.hitCooldown <= 0) {
+        enemy.hitCooldown = .7; host.structures.damage(tower, enemy.damage); continue;
+      }
       const contactRadius = enemy.radius + player.radius + 2;
       if (distanceSq(enemy.x, enemy.y, player.x, player.y) < contactRadius * contactRadius && enemy.hitCooldown <= 0) {
         enemy.hitCooldown = 0.7;
@@ -310,7 +346,7 @@ class CombatSim {
       vy: dy * speed,
       radius: 4,
       ttl,
-      damage,
+      damage: damage * (enemy.damage / (this.content.get("enemies", enemy.type)?.damage || enemy.damage || 1)),
       pierce: 0,
       knockback: 0,
       color,
@@ -325,62 +361,93 @@ class CombatSim {
     const host = this.host;
     for (const projectile of host.projectiles) {
       if (!projectile.active) continue;
-      projectile.x += projectile.vx * dt;
-      projectile.y += projectile.vy * dt;
-      projectile.ttl -= dt;
-      if (projectile.ttl <= 0) {
-        host.projectilePool.release(projectile);
-        continue;
-      }
-      if (this.hitExplosiveInteractive(projectile)) {
-        host.projectilePool.release(projectile);
-        continue;
-      }
-      const candidates = host.enemyGrid.queryCircle(projectile.x, projectile.y, 40, host.collisionCandidates);
-      for (let index = 0; index < candidates.length; index += 1) {
-        const enemy = candidates[index];
+      const lifetime = Math.max(0, Math.min(dt, projectile.ttl));
+      const startX = Number.isFinite(projectile.barrelStartX) ? projectile.barrelStartX : projectile.x;
+      const startY = Number.isFinite(projectile.barrelStartY) ? projectile.barrelStartY : projectile.y;
+      projectile.barrelStartX = null;
+      projectile.barrelStartY = null;
+      const endX = projectile.x + projectile.vx * lifetime;
+      const endY = projectile.y + projectile.vy * lifetime;
+      const dx = endX - startX, dy = endY - startY;
+      projectile.x = endX; projectile.y = endY; projectile.ttl -= dt;
+      const contacts = this.contacts;
+      contacts.length = 0;
+      const wallTime = host.mapLayout.blocksProjectiles
+        ? firstObstacleTime(host.obstacles, startX, startY, dx, dy, projectile.radius, true) : Infinity;
+      if (Number.isFinite(wallTime)) contacts.push({ wall: true, time: wallTime });
+      const candidates = host.enemyGrid.queryCircle((startX + endX) / 2, (startY + endY) / 2,
+        Math.hypot(dx, dy) / 2 + host.maximumEnemyRadius + projectile.radius, host.collisionCandidates);
+      for (const enemy of candidates) {
         if (!enemy.active || projectile.hitIds.has(enemy.id)) continue;
-        const hitRadius = projectile.radius + enemy.radius;
-        if (distanceSq(projectile.x, projectile.y, enemy.x, enemy.y) <= hitRadius * hitRadius) {
-          projectile.hitIds.add(enemy.id);
-          this.damageEnemy(enemy, projectile.damage, projectile);
-          if (projectile.pierce <= 0) {
-            host.projectilePool.release(projectile);
-            break;
-          }
-          projectile.pierce -= 1;
+        const time = segmentCircleTime(startX, startY, dx, dy, enemy.x, enemy.y, projectile.radius + enemy.radius);
+        if (Number.isFinite(time)) contacts.push({ enemy, time });
+      }
+      for (const interactive of host.interactives) {
+        if (!interactive.active || (interactive.type !== "explosiveBarrel" && !(interactive.solidRadius > 0))) continue;
+        const time = segmentCircleTime(startX, startY, dx, dy, interactive.x, interactive.y, interactive.radius + projectile.radius);
+        if (Number.isFinite(time)) contacts.push({ interactive, time });
+      }
+      contacts.sort((a, b) => a.time - b.time || (a.enemy?.id || 0) - (b.enemy?.id || 0));
+      for (const contact of contacts) {
+        if (!projectile.active) break;
+        if (contact.wall) {
+          if(projectile.attackKind==="explosive")host.weaponActions.detonate(projectile,startX+dx*contact.time,startY+dy*contact.time);
+          host.emit("worldHit", { x: startX + dx * contact.time, y: startY + dy * contact.time });
+          host.projectilePool.release(projectile); break;
         }
+        if (contact.interactive) {
+          if (!contact.interactive.active) continue;
+          if(projectile.attackKind==="explosive")host.weaponActions.detonate(projectile,startX+dx*contact.time,startY+dy*contact.time);
+          if (contact.interactive.type === "explosiveBarrel") this.triggerInteractive(contact.interactive);
+          host.projectilePool.release(projectile);
+          break;
+        }
+        const enemy = contact.enemy;
+        if (!enemy.active || projectile.hitIds.has(enemy.id)) continue;
+        if(projectile.attackKind==="explosive") {host.weaponActions.detonate(projectile,startX+dx*contact.time,startY+dy*contact.time);host.projectilePool.release(projectile);break;}
+        projectile.hitIds.add(enemy.id);
+        projectile.hitX = startX + dx * contact.time;
+        projectile.hitY = startY + dy * contact.time;
+        this.damageEnemy(enemy, projectile.damage, projectile);
+        if(projectile.attackKind==="disc"&&host.weaponActions.bounce(projectile,enemy))break;
+        if (projectile.pierce <= 0) {
+          host.projectilePool.release(projectile);
+          break;
+        }
+        projectile.pierce -= 1;
+      }
+      if (projectile.active && projectile.ttl <= 0) {
+        if(projectile.attackKind==="explosive")host.weaponActions.detonate(projectile,projectile.x,projectile.y);
+        host.projectilePool.release(projectile);
       }
     }
-
     const player = host.run.player;
     for (const shot of host.enemyShots) {
       if (!shot.active) continue;
-      shot.x += shot.vx * dt;
-      shot.y += shot.vy * dt;
-      shot.ttl -= dt;
-      if (shot.ttl <= 0) {
-        host.projectilePool.release(shot);
-        continue;
+      const lifetime = Math.max(0, Math.min(dt, shot.ttl));
+      const startX = shot.x, startY = shot.y, dx = shot.vx * lifetime, dy = shot.vy * lifetime;
+      shot.x += dx; shot.y += dy; shot.ttl -= dt;
+      const time = segmentCircleTime(startX, startY, dx, dy, player.x, player.y, shot.radius + player.radius);
+      const wallTime = host.mapLayout.blocksProjectiles
+        ? firstObstacleTime(host.obstacles, startX, startY, dx, dy, shot.radius) : Infinity;
+      let tower = null, towerTime = Infinity;
+      for (const t of host.run.structures) {
+        const hit = segmentRectTime(startX, startY, dx, dy, { x: t.x - t.radius, y: t.y - t.radius, w: t.radius * 2, h: t.radius * 2 }, shot.radius);
+        if (hit < towerTime) { towerTime = hit; tower = t; }
       }
-      const hitRadius = shot.radius + player.radius;
-      if (distanceSq(shot.x, shot.y, player.x, player.y) <= hitRadius * hitRadius) {
+      const blockTime=host.weaponActions?.blockTime(shot,startX,startY,dx,dy)??Infinity;
+      if(Number.isFinite(blockTime)&&blockTime<=Math.min(time,towerTime,wallTime)) {
+        host.projectilePool.release(shot);host.emit("bulletDeflect",{x:startX+dx*blockTime,y:startY+dy*blockTime});
+      } else if (tower && towerTime <= time && towerTime <= wallTime + 1e-8) {
+        host.projectilePool.release(shot); host.structures.damage(tower, shot.damage);
+      } else if (Number.isFinite(wallTime) && wallTime <= time) {
+        host.emit("worldHit", { x: startX + dx * wallTime, y: startY + dy * wallTime });
         host.projectilePool.release(shot);
-        this.damagePlayer(shot.damage, shot.x, shot.y, shot);
-      }
+      } else if (Number.isFinite(time)) {
+        host.projectilePool.release(shot);
+        this.damagePlayer(shot.damage, startX + dx * time, startY + dy * time, shot);
+      } else if (shot.ttl <= 0) host.projectilePool.release(shot);
     }
-  }
-
-  hitExplosiveInteractive(projectile) {
-    const host = this.host;
-    for (const interactive of host.interactives) {
-      if (!interactive.active || interactive.type !== "explosiveBarrel") continue;
-      const hitRadius = projectile.radius + interactive.radius;
-      if (distanceSq(projectile.x, projectile.y, interactive.x, interactive.y) > hitRadius * hitRadius) continue;
-      this.triggerInteractive(interactive);
-      return true;
-    }
-    return false;
   }
 
   triggerInteractive(interactive) {
@@ -388,12 +455,14 @@ class CombatSim {
     if (!interactive || !interactive.active) return false;
     if (interactive.type === "explosiveBarrel") {
       interactive.active = false;
+      host.removeInteractiveObstacle(interactive.id);
       const radius = Number(interactive.effectRadius) || 120;
       const damage = Number(interactive.damage) || 60;
       for (const enemy of host.enemies) {
         if (!enemy.active || distanceSq(enemy.x, enemy.y, interactive.x, interactive.y) > radius * radius) continue;
         const dx = enemy.x - interactive.x;
         const dy = enemy.y - interactive.y;
+        if (Number.isFinite(firstObstacleTime(host.obstacles, interactive.x, interactive.y, dx, dy, 0, true))) continue;
         const length = Math.hypot(dx, dy) || 1;
         host.environmentHit.vx = dx / length * 220;
         host.environmentHit.vy = dy / length * 220;
@@ -404,6 +473,7 @@ class CombatSim {
     }
     if (interactive.type === "supplyCache") {
       interactive.active = false;
+      host.removeInteractiveObstacle(interactive.id);
       this.spawnPickup("scrap", interactive.x - 8, interactive.y, Number(interactive.scrap) || 6);
       this.spawnPickup("medkit", interactive.x + 10, interactive.y, Number(interactive.healing) || 24);
       host.emit("environment", { action: "supply", x: interactive.x, y: interactive.y });
@@ -431,21 +501,23 @@ class CombatSim {
     enemy.hp -= requestedDamage;
     enemy.hitFlash = 0.09;
     const source = projectile || host.environmentHit;
-    const push = (Number(source.knockback) || 0) * (1 - enemy.knockbackResistance);
-    const velocityLengthSq = source.vx * source.vx + source.vy * source.vy;
-    if (velocityLengthSq > EPSILON) {
-      const pushScale = (push * 0.18) / Math.sqrt(velocityLengthSq);
-      enemy.x += source.vx * pushScale;
-      enemy.y += source.vy * pushScale;
-    }
+    const appliedKnockback = addKnockback(enemy, source);
     host.run.damageDealt += appliedDamage;
-    if (source.owner === "player") {
-      host.run.hits += 1;
+    if (source.owner === "player" || source.owner === "melee") {
+      if(source.owner==="melee")host.run.meleeHits++;
+      else host.run.hits += 1;
       if (source.critical) host.run.criticalHits += 1;
+      if (source.weaponId && host.run.weaponStats[source.weaponId]) host.run.weaponStats[source.weaponId].damage += appliedDamage;
     }
-    host.emit("hit", { x: enemy.x, y: enemy.y, damage: appliedDamage, elite: enemy.elite, critical: source.critical });
-    if (source.owner === "player" && source.critical) host.mechanicSystem.onCriticalHit(host.run, enemy, source, appliedDamage);
-    if (enemy.hp <= 0) this.killEnemy(enemy);
+    if (source.owner === "turret") host.run.turretDamage += appliedDamage;
+    host.emit("hit", { x: Number.isFinite(source.hitX) ? source.hitX : enemy.x,
+      y: Number.isFinite(source.hitY) ? source.hitY : enemy.y,
+      damage: appliedDamage, elite: enemy.elite, critical: source.critical,
+      weaponId: source.weaponId || null, attackId: source.attackId || 0, enemyId: enemy.id,
+      aimX: source.vx / (Math.hypot(source.vx, source.vy) || 1),
+      aimY: source.vy / (Math.hypot(source.vx, source.vy) || 1), appliedKnockback });
+    if ((source.owner === "player" || source.owner === "melee") && source.critical) host.mechanicSystem.onCriticalHit(host.run, enemy, source, appliedDamage);
+    if (enemy.hp <= 0) this.killEnemy(enemy, source);
   }
 
   damagePlayer(amount, sourceX, sourceY, source = null) {
@@ -475,17 +547,25 @@ class CombatSim {
     if (player.hp <= 0) host.finishRun("lose");
   }
 
-  killEnemy(enemy) {
+  killEnemy(enemy, source = null) {
     const host = this.host;
     if (!enemy.active) return;
     host.run.kills += 1;
+    if ((source?.owner === "player" || source?.owner === "melee") && source.weaponId && host.run.weaponStats[source.weaponId]) {
+      host.run.weaponStats[source.weaponId].kills++;
+      if (enemy.elite) host.run.weaponStats[source.weaponId].eliteKills++;
+    }
+    if (source?.owner === "turret") host.run.turretKills++;
+    if (enemy.boss) { host.run.bossesDefeated++; host.run.activeBosses = Math.max(0, host.run.activeBosses - 1); }
     if (enemy.elite) host.run.eliteKills += 1;
-    host.mechanicSystem.onKill(host.run);
+    if (source?.owner !== "turret") host.mechanicSystem.onKill(host.run);
     this.spawnPickup("xp", enemy.x, enemy.y, enemy.xp);
     if (enemy.bossDefinitionId) host.bossSystem.drop(enemy);
-    if (host.random.next() < Math.min(1, enemy.scrapChance + host.run.player.scrapChanceBonus)) {
+    const baseDropChance = Math.max(enemy.scrapChance, host.run.endless ? .22 : Number(host.mapLayout.scrapChanceFloor) || 0);
+    if (host.random.next() < Math.min(1, baseDropChance + host.run.player.scrapChanceBonus)) {
       const baseScrap = enemy.elite ? 8 : 1;
-      const value = Math.max(1, Math.round(baseScrap * host.run.player.scrapMultiplier));
+      const reward = host.run.endless ? getSurvivalPressure(host.run.elapsed).reward : 1;
+      const value = Math.max(1, Math.round(baseScrap * host.run.player.scrapMultiplier * reward));
       this.spawnPickup("scrap", enemy.x + host.random.range(-8, 8), enemy.y + host.random.range(-8, 8), value);
     }
     if (enemy.elite && host.random.next() < 0.55) {
@@ -534,7 +614,7 @@ class CombatSim {
       const deltaX = player.x - pickup.x;
       const deltaY = player.y - pickup.y;
       const distanceSquared = deltaX * deltaX + deltaY * deltaY;
-      if (distanceSquared < pickupRadiusSquared) {
+      if (distanceSquared < pickupRadiusSquared && host.hasLineOfSight(pickup.x, pickup.y, player.x, player.y)) {
         const distance = Math.sqrt(distanceSquared);
         if (distance > 0) {
           const speedScale = ((150 + (player.pickupRadius - distance) * 5) * dt) / distance;

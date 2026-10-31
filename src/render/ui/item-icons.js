@@ -1,6 +1,42 @@
 "use strict";
+const { NATIVE_WEAPONS } = require("../../content/weapon-expansion");
+const { drawNativeWeapon } = require("../native-weapons");
 
 const { UI_COLORS } = require("./theme");
+const { WEAPON_ART } = require("../illustrated-actors");
+const { ART_IDS } = require("../art/asset-catalog");
+const { PART_ASSETS } = require("../../content/compact-actors");
+
+const SKIN_ART = Object.freeze({
+  wanderer: ART_IDS.OUTFIT_WANDERER,
+  mechanic: ART_IDS.OUTFIT_MECHANIC,
+  nightwatch: ART_IDS.OUTFIT_NIGHTWATCH
+});
+
+const EQUIPMENT_ART = Object.freeze({
+  field_vest: ART_IDS.EQUIPMENT_FIELD_VEST,
+  iron_plate: ART_IDS.EQUIPMENT_IRON_PLATE,
+  runner_boots: ART_IDS.EQUIPMENT_RUNNER_BOOTS,
+  magnet_coil: ART_IDS.EQUIPMENT_MAGNET_HELM,
+  ammo_rig: ART_IDS.EQUIPMENT_AMMO_RIG,
+  signal_charm: ART_IDS.EQUIPMENT_SIGNAL_HELM,
+  servo_greaves: ART_IDS.EQUIPMENT_SERVO_GREAVES,
+  stormstep_boots: ART_IDS.EQUIPMENT_STORMSTEP_BOOTS
+});
+
+function drawPaintedItemIcon(renderer, artId, x, y, size) {
+  if (!artId || !renderer.artStore || !renderer.artStore.ready(artId)) return false;
+  const image = renderer.artStore.get(artId);
+  const scale = Math.min(size * 0.88 / image.naturalWidth, size * 0.84 / image.naturalHeight);
+  const width = image.naturalWidth * scale;
+  const height = image.naturalHeight * scale;
+  renderer.ctx.save();
+  renderer.ctx.imageSmoothingEnabled = true;
+  if (artId === ART_IDS.OUTFIT_NIGHTWATCH) renderer.ctx.filter = "brightness(1.3)";
+  renderer.ctx.drawImage(image, x - width / 2, y - height / 2, width, height);
+  renderer.ctx.restore();
+  return true;
+}
 
 function visual(width, height, shapes) {
   return Object.freeze({
@@ -13,6 +49,7 @@ function visual(width, height, shapes) {
 // A weapon owns a stable visualId in content data. These silhouettes are shared
 // by the shop, inventory and the actor's held-weapon layer.
 const WEAPON_VISUALS = Object.freeze({
+  ...Object.fromEntries(Object.entries(NATIVE_WEAPONS).map(([id,spec])=>[id.replaceAll("_","-"),spec])),
   "scrap-sidearm": visual(42, 29, [
     [4, 7, 28, 11, "dark"], [8, 4, 24, 6, "accent"], [13, 17, 10, 12, "wood"],
     [16, 18, 5, 8, "metalDark"], [31, 9, 8, 6, "metal"], [35, 8, 7, 3, "light"],
@@ -108,6 +145,7 @@ const RANGE_BANDS = Object.freeze({
 });
 
 const WEAPON_CLASS_LABELS = Object.freeze({
+  blade: "军刀", hammer: "战锤", disc: "锯盘投射器",
   sidearm: "副武器",
   smg: "冲锋枪",
   shotgun: "霰弹枪",
@@ -161,6 +199,7 @@ function paintVisual(ctx, spec, x, y, unit, palette, shadow = false) {
 }
 
 function drawWeaponShape(ctx, weapon, options = {}) {
+  if (NATIVE_WEAPONS[weapon.id]) { const spec=NATIVE_WEAPONS[weapon.id],unit=options.unit||1;drawNativeWeapon(ctx,weapon.id,options.x||0,options.y||0,unit);return{width:spec.width*unit,height:spec.height*unit}; }
   const spec = weaponVisual(weapon);
   const unit = Math.max(0.25, Number(options.unit) || 1);
   const x = Number(options.x) || 0;
@@ -170,6 +209,7 @@ function drawWeaponShape(ctx, weapon, options = {}) {
 }
 
 function drawWeaponIcon(ctx, weapon, x, y, size, options = {}) {
+  if (NATIVE_WEAPONS[weapon.id]) { const spec=NATIVE_WEAPONS[weapon.id],scale=Math.min(size*.95/spec.width,size*.72/spec.height);drawNativeWeapon(ctx,weapon.id,x-spec.width*scale/2,y-spec.height*scale/2,scale);return; }
   const spec = weaponVisual(weapon);
   const scale = Math.max(0.4, Math.min(size * 0.88 / spec.width, size * 0.7 / spec.height));
   const drawW = spec.width * scale;
@@ -238,19 +278,44 @@ function drawEquipmentIcon(ctx, item, x, y, size, accent = UI_COLORS.green) {
 function drawGrantIcon(renderer, grantType, grantId, x, y, size, accent) {
   if (grantType === "weapon") {
     const weapon = renderer.content.get("weapons", grantId, renderer.content.defaults.weapon);
-    drawWeaponIcon(renderer.ctx, weapon, x, y, size, { palette: { accent: accent || weapon.color } });
+    const compactId = PART_ASSETS['weapon.' + weapon.id];
+    if (compactId && renderer.artStore && renderer.artStore.ready(compactId)) {
+      const image = renderer.artStore.get(compactId);
+      const scale = Math.min(size * 0.95 / image.naturalWidth, size * 0.72 / image.naturalHeight);
+      renderer.ctx.save();
+      renderer.ctx.imageSmoothingEnabled = false;
+      renderer.ctx.drawImage(image, x - image.naturalWidth * scale / 2, y - image.naturalHeight * scale / 2,
+        image.naturalWidth * scale, image.naturalHeight * scale);
+      renderer.ctx.restore();
+      return;
+    }
+    const artId = WEAPON_ART[weapon.id];
+    if (artId && renderer.artStore && renderer.artStore.ready(artId)) {
+      const image = renderer.artStore.get(artId);
+      const scale = Math.min(size * 0.9 / image.naturalWidth, size * 0.65 / image.naturalHeight);
+      const width = image.naturalWidth * scale;
+      const height = image.naturalHeight * scale;
+      renderer.ctx.save();
+      renderer.ctx.imageSmoothingEnabled = true;
+      renderer.ctx.drawImage(image, x - width / 2, y - height / 2, width, height);
+      renderer.ctx.restore();
+    } else {
+      drawWeaponIcon(renderer.ctx, weapon, x, y, size, { palette: { accent: accent || weapon.color } });
+    }
     return;
   }
   if (grantType === "skin") {
     const skin = renderer.content.get("skins", grantId, renderer.content.defaults.skin);
-    drawOutfitIcon(renderer.ctx, skin, x, y, size);
+    if (!drawPaintedItemIcon(renderer, SKIN_ART[skin.id], x, y, size)) drawOutfitIcon(renderer.ctx, skin, x, y, size);
     return;
   }
   const equipment = renderer.content.get("equipment", grantId, renderer.content.defaults.equipment);
-  drawEquipmentIcon(renderer.ctx, equipment, x, y, size, accent);
+  if (!drawPaintedItemIcon(renderer, EQUIPMENT_ART[equipment.id], x, y, size)) drawEquipmentIcon(renderer.ctx, equipment, x, y, size, accent);
 }
 
 module.exports = {
+  SKIN_ART,
+  EQUIPMENT_ART,
   WEAPON_VISUALS,
   EQUIPMENT_VISUALS,
   RANGE_BANDS,

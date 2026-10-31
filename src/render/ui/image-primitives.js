@@ -44,7 +44,10 @@ function drawAssetCover(renderer, id, x, y, w, h, options = {}) {
   const focalY = Number.isFinite(options.focalY) ? options.focalY : 0.5;
   const sourceX = Math.max(0, Math.min(image.naturalWidth - sourceW, (image.naturalWidth - sourceW) * focalX));
   const sourceY = Math.max(0, Math.min(image.naturalHeight - sourceH, (image.naturalHeight - sourceH) * focalY));
-  withImageState(renderer, options.alpha, (ctx) => ctx.drawImage(image, sourceX, sourceY, sourceW, sourceH, x, y, w, h));
+  withImageState(renderer, options.alpha, (ctx) => {
+    if (options.pixelated) ctx.imageSmoothingEnabled = false;
+    ctx.drawImage(image, sourceX, sourceY, sourceW, sourceH, x, y, w, h);
+  });
   return { x, y, w, h };
 }
 

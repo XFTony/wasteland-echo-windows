@@ -1,0 +1,106 @@
+{
+  "date": "2026-10-31",
+  "scope": "Repository integration, native mainline documentation, homepage and required CI aggregation; no gameplay or active-art changes.",
+  "legacy": {
+    "npmRunCheck": "passed",
+    "tests": 333,
+    "pass": 333,
+    "fail": 0
+  },
+  "native": {
+    "passed": true,
+    "suites": {
+      "foundation": {
+        "checks": 125283,
+        "failures": []
+      },
+      "combat": {
+        "checks": 154069,
+        "failures": []
+      },
+      "runtime": {
+        "checks": 12,
+        "failures": []
+      },
+      "input-audio": {
+        "checks": 60,
+        "failures": []
+      },
+      "save-transfer": {
+        "checks": 10,
+        "failures": []
+      },
+      "map-art": {
+        "checks": 58,
+        "failures": []
+      },
+      "ui-interaction": {
+        "checks": 155,
+        "failures": []
+      },
+      "survival-builds": {
+        "checks": 499,
+        "failures": []
+      },
+      "fieldcraft": {
+        "checks": 326,
+        "failures": []
+      },
+      "card-layout": {
+        "checks": 145,
+        "failures": []
+      }
+    }
+  },
+  "documentation": {
+    "entrypoints": 8,
+    "localLinksChecked": 66,
+    "missingTargets": 0,
+    "workflowYamlParsed": true,
+    "requiredCheckDependsOnBothSuites": true
+  },
+  "screenshots": [
+    {
+      "file": "radio-camp.png",
+      "source": "output/godot-migration/native-ui/main-720.png",
+      "sha256": "7603463d44cf81a78cb5233300b66ff58d3484a1cd279e0bfce0c34af9bbe7a5"
+    },
+    {
+      "file": "echo-district.png",
+      "source": "output/echo-ground-ui/after/echo-spawn.png",
+      "sha256": "f4e046008ebc120ed9e1391d8aa47b19a9849220d3126a8f311979c9a6208b01"
+    },
+    {
+      "file": "combat.png",
+      "source": "output/fieldcraft-v2/review/attack-arc_repeater.png",
+      "sha256": "2ea48006a525dbb87f60155363fe92a0d3796dc330750e8a6afd4d47471eabef"
+    },
+    {
+      "file": "upgrade-cards.png",
+      "source": "output/card-layout-cleanup/review/hover-720-0.png",
+      "sha256": "d2960ddf1ab0fee6f01bed18f4d6bfc25bb1536b9346c34cec0c4c7af0189e1e"
+    }
+  ],
+  "render": {
+    "browser": "Microsoft Edge",
+    "desktopWidth": 1440,
+    "mobileWidth": 390,
+    "localImages": 4,
+    "allLocalImagesLoaded": true,
+    "overflow": false,
+    "boundary": "Local GFM-like preview in actual Edge; external badges blocked, not a live GitHub UI screenshot."
+  },
+  "backups": {
+    "mainTag": "archive/main-before-godot-2026-10-31",
+    "developmentHistoryTag": "archive/godot-history-2026-10-31",
+    "bundleVerified": true,
+    "bundleSha256": "fab1de546cbbdf6a7ee71a6105a99797a26eba1cb1b3f49e6a3173ed429fd450"
+  },
+  "pendingDeviceAcceptance": [
+    "physical gamepad",
+    "Windows DPI",
+    "low-end hardware",
+    "long sessions"
+  ],
+  "remoteValidation": "PR and main Actions results recorded by GitHub after upload, not inferred from local checks."
+}

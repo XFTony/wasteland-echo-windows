@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/weapon_definition.gd" id="1_4dk70"]
+
+[resource]
+script = ExtResource("1_4dk70")
+damage = 28.0
+interval = 0.64
+projectile_speed = 1.0
+lock_range = 126.0
+knockback = 38.0
+recoil = 0.3
+content_id = &"breach_spear"
+category = &"weapons"
+display_name = "破阵长矛"
+source_data = {
+"activeTime": 0.12,
+"arc": 0.41887902047863906,
+"attackStyle": "thrust",
+"attackType": "slash",
+"blocksProjectiles": false,
+"color": "#b8c0ad",
+"damage": 28.0,
+"description": "126范围、24度窄扇刺击；无剑气，不消除敌弹",
+"id": "breach_spear",
+"interval": 0.64,
+"knockback": 38.0,
+"lockRange": 126.0,
+"mechanicId": "slash",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.06,
+"muzzleLength": 32.0,
+"muzzleParticles": 2.0,
+"name": "破阵长矛",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 1.0,
+"rangeBand": "close",
+"reach": 126.0,
+"recoil": 0.3,
+"recovery": 0.16,
+"restTipReach": 91.5,
+"shellColor": "#b18b50",
+"shellLength": 0.0,
+"shellLife": 0.0,
+"spread": 0.0,
+"ttl": 0.9,
+"visualId": "breach-spear",
+"waveDamage": 0.0,
+"weaponClass": "spear",
+"windup": 0.12
+}

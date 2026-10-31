@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_051c4"]
+
+[resource]
+script = ExtResource("1_051c4")
+content_id = &"buy_breaker_shotgun"
+category = &"shopItems"
+display_name = "破门霰弹枪"
+source_data = {
+"category": "weapon",
+"currency": "copper",
+"description": "近距离扇形爆发与强击退。",
+"grantId": "breaker_shotgun",
+"grantType": "weapon",
+"id": "buy_breaker_shotgun",
+"name": "破门霰弹枪",
+"price": 780.0,
+"unlockRuleId": "blueprint_breaker",
+"unlockStage": 2.0
+}

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_qcoj2"]
+
+[resource]
+script = ExtResource("1_qcoj2")
+content_id = &"buy_ammo_rig"
+category = &"shopItems"
+display_name = "速装腿挂"
+source_data = {
+"category": "equipment",
+"currency": "copper",
+"description": "腿甲：生命 +6，护甲 +2%，射速 +10%。",
+"grantId": "ammo_rig",
+"grantType": "equipment",
+"id": "buy_ammo_rig",
+"name": "速装腿挂",
+"price": 690.0,
+"unlockRuleId": "blueprint_ammo",
+"unlockStage": 2.0
+}

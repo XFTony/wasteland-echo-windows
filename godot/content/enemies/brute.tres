@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/enemy_definition.gd" id="1_0jlsa"]
+
+[resource]
+script = ExtResource("1_0jlsa")
+max_health = 52.0
+speed = 31.0
+damage = 22.0
+radius = 15.0
+content_id = &"brute"
+category = &"enemies"
+display_name = "重甲者"
+source_data = {
+"color": "#686b68",
+"damage": 22.0,
+"hp": 52.0,
+"id": "brute",
+"knockbackResistance": 0.72,
+"name": "重甲者",
+"radius": 15.0,
+"role": "tank",
+"scrapChance": 0.22,
+"speed": 31.0,
+"xp": 10.0
+}

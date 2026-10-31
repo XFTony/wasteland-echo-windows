@@ -4,6 +4,7 @@ const BUTTON = Object.freeze({
   CONFIRM: 0,
   CANCEL: 1,
   ALT_FIRE: 2,
+  DEPLOY: 3,
   LEFT_SHOULDER: 4,
   RIGHT_SHOULDER: 5,
   LEFT_TRIGGER: 6,
@@ -142,6 +143,7 @@ class GamepadSource {
       || buttonValue(buttons, BUTTON.ALT_FIRE) > 0.55;
 
     const confirm = this.edge(buttons, BUTTON.CONFIRM);
+    const deploy = this.edge(buttons, BUTTON.DEPLOY);
     const cancel = this.edge(buttons, BUTTON.CANCEL);
     const pause = this.edge(buttons, BUTTON.START);
     const back = this.edge(buttons, BUTTON.BACK);
@@ -159,6 +161,7 @@ class GamepadSource {
     const dpadRight = buttonValue(buttons, BUTTON.DPAD_RIGHT) >= 0.55;
 
     if (confirm) this.commands.push({ type: "confirm" });
+    if (deploy && !options.uiMode) this.commands.push({ type: "deploy" });
     if (cancel || back) this.commands.push({ type: "cancel" });
     if (pause) this.commands.push({ type: "pause" });
     if (options.uiMode && shoulderLeft) this.commands.push({ type: "shoulderLeft" });

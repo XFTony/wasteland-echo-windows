@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_tcbfn"]
+
+[resource]
+script = ExtResource("1_tcbfn")
+content_id = &"endless"
+category = &"modes"
+display_name = "无尽模式"
+source_data = {
+"bossOneAt": 0.5,
+"bossTwoAt": 0.82,
+"description": "没有撤离倒计时，尸潮会持续强化",
+"enemyLimit": 104.0,
+"hpGrowth": 0.9,
+"id": "endless",
+"name": "无尽模式",
+"objective": "尽可能久地存活",
+"playerHp": 108.0,
+"playerInvulnerability": 0.66,
+"playerSpeed": 175.0,
+"rule": "endless",
+"spawnEnd": 0.22,
+"spawnPhases": [{
+"at": 0.0,
+"cap": 14.0,
+"detail": "第一批感染者正在试探防线",
+"id": "endless-scout",
+"index": 0.0,
+"interval": 1.08,
+"label": "低频回声"
+}, {
+"at": 0.16,
+"cap": 28.0,
+"detail": "尸群开始从多条道路汇聚",
+"id": "endless-rise",
+"index": 1.0,
+"interval": 0.74,
+"label": "回声增强"
+}, {
+"at": 0.36,
+"cap": 48.0,
+"detail": "特殊感染者加入进攻",
+"id": "endless-surge",
+"index": 2.0,
+"interval": 0.5,
+"label": "持续浪涌"
+}, {
+"at": 0.62,
+"cap": 76.0,
+"detail": "威胁不会自行结束",
+"id": "endless-siege",
+"index": 3.0,
+"interval": 0.32,
+"label": "无尽围城"
+}, {
+"at": 0.84,
+"cap": 104.0,
+"detail": "每一分钟都会比上一分钟危险",
+"id": "endless-redline",
+"index": 4.0,
+"interval": 0.22,
+"label": "红线警报"
+}],
+"spawnProfile": "endless",
+"spawnStart": 1.08,
+"speedGrowth": 0.16,
+"winReward": 0.0
+}

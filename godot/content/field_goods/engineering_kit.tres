@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_csmwl"]
+
+[resource]
+script = ExtResource("1_csmwl")
+content_id = &"engineeringKit"
+category = &"fieldGoods"
+display_name = "工程强化件"
+source_data = {
+"detail": "塔台伤害 +25%基础值 · 耐久 +15%基础值",
+"effect": "engineering",
+"family": "utility",
+"icon": "armor",
+"id": "engineeringKit",
+"name": "工程强化件",
+"prices": [14.0, 22.0, 32.0, 44.0, 58.0, 74.0],
+"tab": "support"
+}

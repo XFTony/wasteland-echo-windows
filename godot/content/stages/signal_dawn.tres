@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_b30gn"]
+
+[resource]
+script = ExtResource("1_b30gn")
+content_id = &"signal_dawn"
+category = &"stages"
+display_name = "第一章：破晓信号"
+source_data = {
+"copperMultiplier": 1.0,
+"description": "在旧城重新点亮广播塔。",
+"difficulty": 1.0,
+"duration": 180.0,
+"goldReward": 1.0,
+"id": "signal_dawn",
+"mapId": "echo_district",
+"name": "第一章：破晓信号",
+"order": 1.0,
+"radioDetail": "广播塔仍在呼吸，把信号带过旧城。",
+"radioTitle": "远征电台 · 破晓频段",
+"unlockWins": 0.0
+}

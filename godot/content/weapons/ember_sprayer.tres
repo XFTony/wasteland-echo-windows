@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/weapon_definition.gd" id="1_xqqlp"]
+
+[resource]
+script = ExtResource("1_xqqlp")
+damage = 3.0
+interval = 0.1
+projectile_speed = 440.0
+lock_range = 225.0
+lifetime = 0.52
+pierce = 2
+knockback = 3.0
+recoil = 0.35
+content_id = &"ember_sprayer"
+category = &"weapons"
+display_name = "焚尘喷火器"
+source_data = {
+"burnDamage": 3.0,
+"burnDuration": 1.2,
+"burnInterval": 0.4,
+"color": "#e88b43",
+"damage": 3.0,
+"description": "短程火舌穿透2次；灼烧1.2秒，每0.4秒3基础伤害，重复命中刷新",
+"id": "ember_sprayer",
+"interval": 0.1,
+"knockback": 3.0,
+"lockRange": 225.0,
+"mechanicId": "burning_jet",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.055,
+"muzzleLength": 32.0,
+"muzzleParticles": 2.0,
+"name": "焚尘喷火器",
+"pierce": 2.0,
+"projectileCount": 1.0,
+"projectileSpeed": 440.0,
+"rangeBand": "close",
+"recoil": 0.35,
+"shellColor": "#b18b50",
+"shellLength": 0.0,
+"shellLife": 0.0,
+"spread": 0.0,
+"ttl": 0.52,
+"visualId": "ember-sprayer",
+"weaponClass": "flamethrower"
+}

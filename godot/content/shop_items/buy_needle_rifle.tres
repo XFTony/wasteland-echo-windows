@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_4icth"]
+
+[resource]
+script = ExtResource("1_4icth")
+content_id = &"buy_needle_rifle"
+category = &"shopItems"
+display_name = "针刺步枪"
+source_data = {
+"category": "weapon",
+"currency": "gold",
+"description": "远距高伤害贯穿弹。",
+"grantId": "needle_rifle",
+"grantType": "weapon",
+"id": "buy_needle_rifle",
+"name": "针刺步枪",
+"price": 7.0,
+"unlockRuleId": "blueprint_needle",
+"unlockStage": 3.0
+}

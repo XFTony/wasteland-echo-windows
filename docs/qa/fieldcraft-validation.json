@@ -1,0 +1,155 @@
+{
+  "date": "2026-10-31",
+  "phase": "fieldcraft-v2",
+  "status": "internal_preview_ready",
+  "definitions": 164,
+  "weapons": 20,
+  "rangedWeapons": 14,
+  "meleeWeapons": 6,
+  "upgrades": 42,
+  "suites": {
+    "foundation": {
+      "checks": 125283,
+      "contentDefinitions": 164,
+      "failures": [],
+      "maximumPoseError": 0.0000131489350252423,
+      "scope": "Content, RNG, pressure, loadouts, upgrades, shop rules, save codec and recovery"
+    },
+    "combat": {
+      "cases": 72,
+      "checkpoints": 248,
+      "checks": 154069,
+      "failures": [],
+      "revisedSpawnCases": [
+        "echo_district:survival-at-0",
+        "echo_district:survival-at-140",
+        "echo_district:survival-at-200",
+        "echo_district:survival-at-600",
+        "freight_nexus:survival-at-0",
+        "freight_nexus:survival-at-140",
+        "freight_nexus:survival-at-200",
+        "freight_nexus:survival-at-600",
+        "red_basin:survival-at-0",
+        "red_basin:survival-at-140",
+        "red_basin:survival-at-200",
+        "red_basin:survival-at-600"
+      ],
+      "scope": "Unchanged legacy behavior; revised spawning is validated separately"
+    },
+    "runtime": {
+      "checks": 12,
+      "failures": []
+    },
+    "input-audio": {
+      "audioAssets": 30,
+      "checks": 60,
+      "failures": []
+    },
+    "save-transfer": {
+      "checks": 10,
+      "failures": [],
+      "isolated": true
+    },
+    "map-art": {
+      "checks": 58,
+      "failures": [],
+      "maps": 3
+    },
+    "ui-interaction": {
+      "checks": 155,
+      "failures": [],
+      "resolutions": 5,
+      "scope": "Native viewport pointer, click and navigation events; not physical device acceptance"
+    },
+    "survival-builds": {
+      "auditedUpgrades": 42,
+      "checks": 499,
+      "failures": [],
+      "weapons": 20
+    },
+    "fieldcraft": {
+      "checks": 326,
+      "deathTypes": 8,
+      "decodedArtBytes": 6919488,
+      "failures": [],
+      "refinedWeapons": 13,
+      "scope": "Native bitmap decode, actual attacks/status/ownership, bounded presentation; not human visual or balance acceptance",
+      "uniqueUpgradeArt": 42
+    }
+  },
+  "legacy": {
+    "command": "npm run check",
+    "passed": true,
+    "tests": 331
+  },
+  "bitmaps": {
+    "files": 69,
+    "runtimeBytes": 1862874,
+    "decodedBitmapBytes": 6919488,
+    "decodedScope": "RGBA pixel payload sum measured by native tests, excluding GPU/driver/import-cache overhead",
+    "upgradeIllustrations": 42,
+    "refinedExistingWeapons": 9,
+    "addedWeapons": 4,
+    "deathTypes": 8
+  },
+  "ui": {
+    "menuLayouts": 24,
+    "menuActions": 208,
+    "battleLayouts": 28,
+    "battleActions": 196,
+    "firstCardPointerHover": true,
+    "screenshotResolutions": [
+      "960x540",
+      "1280x720",
+      "1920x1080",
+      "2560x1440"
+    ]
+  },
+  "limits": {
+    "corpses": 40,
+    "hitBursts": 112,
+    "lowQualityCorpses": 20,
+    "lowQualityHitBursts": 56
+  },
+  "package": {
+    "packagePath": "output/fieldcraft-v2/windows",
+    "sourceCommit": "a23b236386371e1a2186ff7965aaa1065b8bb646",
+    "sourceDirty": false,
+    "sha256": "b061a1f9b188bf426db93dbb658cefb23fd4c5da1ad53042459f36d9d1585709",
+    "passed": true,
+    "report": {
+      "audio": 30,
+      "failures": [],
+      "fieldcraftArt": 69,
+      "images": 59,
+      "maps": 3,
+      "mapsWithArt": 3,
+      "paintedMaps": 1,
+      "sharedMapAtlases": 4,
+      "weapons": 20
+    },
+    "scope": "Exported package resources and headless combat only; not rendered, device or long-session acceptance.",
+    "bytes": 134599048,
+    "version": "1.5.0-alpha.1"
+  },
+  "evidenceHashes": {
+    "godot/content/game_catalog.tres": "b8fe35c8420c82b5c1137248916453eea313b75f2d19eb8e3031ac2e2ffee8a5",
+    "godot/scripts/core/status_weapon_rules.gd": "0f1bcb566ce5ef52b9c1ef3ea1a0fff6d6640a2fa5c321ce4769425c983cae47",
+    "godot/scripts/core/combat_system.gd": "a6270a5e8b6d652f60a624af703c3576cfab62b1185b2634252c88223a08e350",
+    "godot/scripts/core/entity_pool.gd": "547b6a007320be99b9216d27b667b83c40af082ae6d3dac84b5b63cf53e9562b",
+    "godot/scripts/presentation/combat_art.gd": "95340cd7c60bcb7624fbf8a90a3d99bef55c98819778049cbcf4a1dd8e444d15",
+    "godot/scripts/presentation/combat_impacts.gd": "179e685e608b458abb6863e1d48ad308eeb263f048521f86c5574e1a811230ec",
+    "godot/scripts/presentation/world_view.gd": "956663490f6d3cfad5853a43bb377d34f1f7862d936af717db162c4cb5744453",
+    "godot/scripts/presentation/character_visual.gd": "353facf0de7806e68cac984ea0266c3f1161f1db95f8640eaeda7558fab08cc5",
+    "godot/scripts/ui/upgrade_card.gd": "dbd067e3c5d9901530c4243fee018563d02e8172098efe46caf1af66e7e1e6cc",
+    "godot/scripts/ui/item_presentation.gd": "0d1cb26b4d0498c68a21c86aa39fc2b67d32bd52d6ac88e34dcd534b716f3e3f"
+  },
+  "humanAcceptance": {
+    "artSignoff": false,
+    "balance": false,
+    "physicalGamepad": false,
+    "dpi": false,
+    "lowEndHardware": false,
+    "renderedLongSession": false
+  }
+}

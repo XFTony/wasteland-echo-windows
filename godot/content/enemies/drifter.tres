@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/enemy_definition.gd" id="1_hu3pp"]
+
+[resource]
+script = ExtResource("1_hu3pp")
+content_id = &"drifter"
+category = &"enemies"
+display_name = "漂游者"
+source_data = {
+"color": "#78865f",
+"damage": 8.0,
+"hp": 16.0,
+"id": "drifter",
+"name": "漂游者",
+"radius": 10.0,
+"role": "chaser",
+"scrapChance": 0.08,
+"speed": 55.0,
+"xp": 3.0
+}

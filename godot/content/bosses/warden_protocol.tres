@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_xnn2c"]
+
+[resource]
+script = ExtResource("1_xnn2c")
+content_id = &"warden_protocol"
+category = &"bosses"
+display_name = "荒原看守"
+source_data = {
+"drop": {
+"healing": 24.0,
+"scrap": 18.0
+},
+"enemyId": "warden",
+"hudColor": "#bd6250",
+"id": "warden_protocol",
+"intro": "看守正在封锁行动区",
+"name": "荒原看守",
+"phases": [{
+"aimedShot": null,
+"cooldown": 3.6,
+"id": "blockade",
+"label": "封锁",
+"minHealthRatio": 0.5,
+"radial": {
+"count": 8.0,
+"damage": 9.0,
+"speed": 135.0
+},
+"summon": null,
+"warning": "八向脉冲正在充能"
+}, {
+"aimedShot": {
+"color": "#df755b",
+"damage": 14.0,
+"speed": 205.0,
+"ttl": 2.8
+},
+"cooldown": 2.55,
+"id": "hunt",
+"label": "猎杀",
+"minHealthRatio": 0.0,
+"radial": {
+"count": 12.0,
+"damage": 12.0,
+"speed": 160.0
+},
+"summon": null,
+"warning": "环形脉冲后追加定向重弹"
+}],
+"tactic": "穿过环形弹幕的空隙，避免被逼入墙角"
+}

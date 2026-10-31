@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_s2bsg"]
+
+[resource]
+script = ExtResource("1_s2bsg")
+content_id = &"modifier_boss_rush"
+category = &"unlockRules"
+display_name = "巨像回声"
+source_data = {
+"conditions": [{
+"gte": 600.0,
+"metric": "bestTime"
+}, {
+"gte": 6.0,
+"metric": "masteryAny"
+}],
+"description": "单局生存达到 10 分钟且任意武器精通达到 Lv6",
+"id": "modifier_boss_rush",
+"name": "巨像回声",
+"reward": {
+"id": "boss_rush",
+"kind": "modifier"
+}
+}

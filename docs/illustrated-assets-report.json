@@ -1,0 +1,924 @@
+{
+  "style": "stylized-painted-wasteland-v1.5",
+  "assets": [
+    {
+      "source": "art/generated/v1.5/source/menu-main-keyart-v3-source.png",
+      "runtime": "web/assets/ui/backdrops/menu-main-v3.webp",
+      "kind": "menu",
+      "sourceWidth": 1672,
+      "sourceHeight": 941,
+      "crop": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "width": 1672,
+      "height": 941,
+      "sourceBytes": 2301883,
+      "runtimeBytes": 190430,
+      "sha256": "2047CA13715CC3FF0A4D0A175E4A6AD250386D653D1CBA8ED7FDEF24870D75CB"
+    },
+    {
+      "source": "art/generated/v1.5/source/deployment-command-garage-v3-source.png",
+      "runtime": "web/assets/ui/backdrops/deployment-command-garage-v3.webp",
+      "kind": "menu",
+      "sourceWidth": 1672,
+      "sourceHeight": 941,
+      "crop": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "width": 1672,
+      "height": 941,
+      "sourceBytes": 2163854,
+      "runtimeBytes": 189218,
+      "sha256": "13ABFAA519C64713E9D24471F741B63E8D436476BE403B2D6B93269344617FD2"
+    },
+    {
+      "source": "art/generated/v1.5/source/inventory-armory-v3-source.png",
+      "runtime": "web/assets/ui/backdrops/inventory-armory-v3.webp",
+      "kind": "menu",
+      "sourceWidth": 1672,
+      "sourceHeight": 941,
+      "crop": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "width": 1672,
+      "height": 941,
+      "sourceBytes": 1960698,
+      "runtimeBytes": 124302,
+      "sha256": "304AE65A30F8FA0FEFB79E4437FCA3E3DF8494183C39A8BC82CED1C300B90475"
+    },
+    {
+      "source": "art/generated/v1.5/source/shop-quartermaster-v3-source.png",
+      "runtime": "web/assets/ui/backdrops/shop-quartermaster-v3.webp",
+      "kind": "menu",
+      "sourceWidth": 1672,
+      "sourceHeight": 941,
+      "crop": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "width": 1672,
+      "height": 941,
+      "sourceBytes": 2021120,
+      "runtimeBytes": 141626,
+      "sha256": "178AEEB598DB55D612364C49C6B112B0748086C6C958A17F5D04B37E7736788B"
+    },
+    {
+      "source": "art/generated/v1.5/source/settings-radio-room-v3-source.png",
+      "runtime": "web/assets/ui/backdrops/settings-radio-room-v3.webp",
+      "kind": "menu",
+      "sourceWidth": 1672,
+      "sourceHeight": 941,
+      "crop": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "width": 1672,
+      "height": 941,
+      "sourceBytes": 1847678,
+      "runtimeBytes": 102716,
+      "sha256": "F7256D279BF2A93A894129BBF0FDA0820455EE5F50233634EFDA09F532DB1C7F"
+    },
+    {
+      "source": "art/generated/v1.5/source/credits-archive-v3-source.png",
+      "runtime": "web/assets/ui/backdrops/credits-archive-v3.webp",
+      "kind": "menu",
+      "sourceWidth": 1672,
+      "sourceHeight": 941,
+      "crop": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "width": 1672,
+      "height": 941,
+      "sourceBytes": 2071101,
+      "runtimeBytes": 134222,
+      "sha256": "BD074D9B2BFA6CF8802058C5974F76B1B584C917E55D0ACD5029E70F34C6737C"
+    },
+    {
+      "source": "art/generated/v1.5/source/cover-survivor-v3-source.png",
+      "runtime": "web/assets/ui/characters/cover-survivor-v3.webp",
+      "kind": "cutout",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "crop": [
+        42,
+        0,
+        1024,
+        1536
+      ],
+      "width": 767,
+      "height": 1200,
+      "sourceBytes": 2179341,
+      "runtimeBytes": 638280,
+      "sha256": "EBCDE97F58D3FF095B982C7D372D7F53BF9A27D3D9356AB9D409620485614684"
+    },
+    {
+      "source": "art/generated/v1.5/source/ranger-armed-portrait-v1-source.png",
+      "runtime": "web/assets/actors/ranger-armed-portrait-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1216,
+      "sourceHeight": 1294,
+      "crop": [
+        0,
+        2,
+        1216,
+        1256
+      ],
+      "width": 745,
+      "height": 768,
+      "sourceBytes": 973252,
+      "runtimeBytes": 258444,
+      "sha256": "BE440C9549ABAD70451E42B1D5C66FFC9C9FBB5498A51A998D2173545207D97C"
+    },
+    {
+      "source": "art/generated/v1.5/source/ranger-base-v1-source.png",
+      "runtime": "web/assets/actors/ranger-base-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "crop": [
+        10,
+        46,
+        1024,
+        1517
+      ],
+      "width": 353,
+      "height": 512,
+      "sourceBytes": 1915766,
+      "runtimeBytes": 113272,
+      "sha256": "FC35DE7B512F3161462FD84C26B267DB6A58EB005D01BA7EC2637D2D1E8A4E7F"
+    },
+    {
+      "source": "art/generated/v1.5/source/ranger-mechanic-v1-source.png",
+      "runtime": "web/assets/actors/ranger-mechanic-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "crop": [
+        42,
+        48,
+        993,
+        1503
+      ],
+      "width": 335,
+      "height": 512,
+      "sourceBytes": 1902456,
+      "runtimeBytes": 124900,
+      "sha256": "9DACF0CE45F604D857A55099ECEC39E3D416640D8FAB92191DB67D10CCC2F037"
+    },
+    {
+      "source": "art/generated/v1.5/source/ranger-nightwatch-v2-source.png",
+      "runtime": "web/assets/actors/ranger-nightwatch-v2.webp",
+      "kind": "cutout",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "crop": [
+        42,
+        49,
+        997,
+        1517
+      ],
+      "width": 333,
+      "height": 512,
+      "sourceBytes": 2049955,
+      "runtimeBytes": 133106,
+      "sha256": "7006D20CA506D67F61845DEBAADDE34C5318CFED2604D4967BCE1987E9E1C59F"
+    },
+    {
+      "source": "art/generated/v1.5/source/drifter-v1-source.png",
+      "runtime": "web/assets/actors/drifter-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "crop": [
+        42,
+        5,
+        985,
+        1517
+      ],
+      "width": 319,
+      "height": 512,
+      "sourceBytes": 1609600,
+      "runtimeBytes": 89850,
+      "sha256": "E6B1AAD52CEEEF250C00DA24F577E944BC6D2FA3C9948F99F10EB155F296CFE7"
+    },
+    {
+      "source": "art/generated/v1.5/source/mechanic-base-v1-source.png",
+      "runtime": "web/assets/actors/mechanic-base-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "crop": [
+        42,
+        0,
+        1024,
+        1527
+      ],
+      "width": 329,
+      "height": 512,
+      "sourceBytes": 1830234,
+      "runtimeBytes": 106492,
+      "sha256": "536031544450C108BF26F457058698C420B9FF4D9FD0DB454F6A4217C0F9B149"
+    },
+    {
+      "source": "art/generated/v1.5/source/mechanic-mechanic-v2-source.png",
+      "runtime": "web/assets/actors/mechanic-mechanic-v2.webp",
+      "kind": "cutout",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "crop": [
+        52,
+        0,
+        1024,
+        1527
+      ],
+      "width": 326,
+      "height": 512,
+      "sourceBytes": 1949906,
+      "runtimeBytes": 116438,
+      "sha256": "4FD2709523F6DED06B7E2FBE42CEB66866E4091F2E13D5DAD4C522E746904889"
+    },
+    {
+      "source": "art/generated/v1.5/source/mechanic-nightwatch-v1-source.png",
+      "runtime": "web/assets/actors/mechanic-nightwatch-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "crop": [
+        114,
+        0,
+        1024,
+        1527
+      ],
+      "width": 305,
+      "height": 512,
+      "sourceBytes": 1900872,
+      "runtimeBytes": 108106,
+      "sha256": "B07AF5386B2667B870F023C0CC761B987E4F4B3E0892758245993D3BAA20CF71"
+    },
+    {
+      "source": "art/generated/v1.5/source/bulwark-base-v1-source.png",
+      "runtime": "web/assets/actors/bulwark-base-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1145,
+      "sourceHeight": 1374,
+      "crop": [
+        0,
+        0,
+        1128,
+        1374
+      ],
+      "width": 420,
+      "height": 512,
+      "sourceBytes": 1470473,
+      "runtimeBytes": 170448,
+      "sha256": "35452EEE217405420DA56C736E073C6CB90BD8D46454D59502618A740059C109"
+    },
+    {
+      "source": "art/generated/v1.5/source/bulwark-mechanic-v1-source.png",
+      "runtime": "web/assets/actors/bulwark-mechanic-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1145,
+      "sourceHeight": 1374,
+      "crop": [
+        12,
+        0,
+        1108,
+        1374
+      ],
+      "width": 408,
+      "height": 512,
+      "sourceBytes": 1559630,
+      "runtimeBytes": 184480,
+      "sha256": "14BA9B2E942F207E7F1E3F9A9744E26FB72C960C22043543D67583F96BAE845A"
+    },
+    {
+      "source": "art/generated/v1.5/source/bulwark-nightwatch-v2-source.png",
+      "runtime": "web/assets/actors/bulwark-nightwatch-v2.webp",
+      "kind": "cutout",
+      "sourceWidth": 1145,
+      "sourceHeight": 1374,
+      "crop": [
+        28,
+        0,
+        1089,
+        1374
+      ],
+      "width": 395,
+      "height": 512,
+      "sourceBytes": 1604878,
+      "runtimeBytes": 180882,
+      "sha256": "2EB2946A01F4823016F2EF88DEFF7769671F82A15FD42B965ABB15081AA2D4A9"
+    },
+    {
+      "source": "art/generated/v1.5/source/runner-v1-source.png",
+      "runtime": "web/assets/actors/runner-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "crop": [
+        42,
+        0,
+        1024,
+        1535
+      ],
+      "width": 328,
+      "height": 512,
+      "sourceBytes": 1770886,
+      "runtimeBytes": 104320,
+      "sha256": "A62961828CD2CDF91F4F328AB45B3089FADB26DFFAF70B3B39674EA5368E0E1F"
+    },
+    {
+      "source": "art/generated/v1.5/source/spitter-v1-source.png",
+      "runtime": "web/assets/actors/spitter-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1154,
+      "sourceHeight": 1363,
+      "crop": [
+        37,
+        27,
+        1150,
+        1358
+      ],
+      "width": 428,
+      "height": 512,
+      "sourceBytes": 1217163,
+      "runtimeBytes": 143184,
+      "sha256": "4534707E3F59E6819B85FDDD602363CA7CCFBAC1D38EE7BC65CCEAFBB1C7BCE7"
+    },
+    {
+      "source": "art/generated/v1.5/source/brute-v1-source.png",
+      "runtime": "web/assets/actors/brute-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1225,
+      "sourceHeight": 1284,
+      "crop": [
+        6,
+        2,
+        1225,
+        1277
+      ],
+      "width": 490,
+      "height": 512,
+      "sourceBytes": 1467451,
+      "runtimeBytes": 190256,
+      "sha256": "440FD949C344906176DB88E5B139609E96E466EC7731FB1EF6E098FDA82E3FEC"
+    },
+    {
+      "source": "art/generated/v1.5/source/screecher-v1-source.png",
+      "runtime": "web/assets/actors/screecher-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1060,
+      "sourceHeight": 1484,
+      "crop": [
+        0,
+        0,
+        1060,
+        1484
+      ],
+      "width": 366,
+      "height": 512,
+      "sourceBytes": 1239454,
+      "runtimeBytes": 119184,
+      "sha256": "E18A67040E328DD9A5A7AD5EC41B929DC76E6ACE3850264C3174EFB6F4F790AE"
+    },
+    {
+      "source": "art/generated/v1.5/source/crawler-v1-source.png",
+      "runtime": "web/assets/actors/crawler-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1310,
+      "sourceHeight": 1200,
+      "crop": [
+        3,
+        0,
+        1306,
+        1176
+      ],
+      "width": 512,
+      "height": 462,
+      "sourceBytes": 858917,
+      "runtimeBytes": 104178,
+      "sha256": "C3EE5570C255B794D05F00FBFFA9586ABC25830FC80492A96704A1E9817F6BB9"
+    },
+    {
+      "source": "art/generated/v1.5/source/warden-v1-source.png",
+      "runtime": "web/assets/actors/warden-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1145,
+      "sourceHeight": 1374,
+      "crop": [
+        0,
+        0,
+        1128,
+        1374
+      ],
+      "width": 420,
+      "height": 512,
+      "sourceBytes": 1368981,
+      "runtimeBytes": 153990,
+      "sha256": "B52BDF371BA808C41552F95F64BB673E4FD494A8BD94F00AB5CB3CA7839137A5"
+    },
+    {
+      "source": "art/generated/v1.5/source/iron-colossus-v1-source.png",
+      "runtime": "web/assets/actors/iron-colossus-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1230,
+      "sourceHeight": 1278,
+      "crop": [
+        0,
+        0,
+        1230,
+        1278
+      ],
+      "width": 493,
+      "height": 512,
+      "sourceBytes": 2298019,
+      "runtimeBytes": 300906,
+      "sha256": "5461E66B546525E34E6A009BE9B3837F8E1C192379E7EB912E92E3410F875400"
+    },
+    {
+      "source": "art/generated/v1.5/source/scrap-pistol-v1-source.png",
+      "runtime": "web/assets/weapons/scrap-pistol-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "crop": [
+        0,
+        0,
+        1536,
+        1021
+      ],
+      "width": 512,
+      "height": 340,
+      "sourceBytes": 2248819,
+      "runtimeBytes": 140434,
+      "sha256": "8965B0BF4EFA16E432452A737B75A72404F7EC61980726F4D207169B4E7B40E6"
+    },
+    {
+      "source": "art/generated/v1.5/source/swarm-smg-v1-source.png",
+      "runtime": "web/assets/weapons/swarm-smg-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "crop": [
+        0,
+        0,
+        1536,
+        1007
+      ],
+      "width": 512,
+      "height": 336,
+      "sourceBytes": 1499242,
+      "runtimeBytes": 77432,
+      "sha256": "C86CBC907936C1C38C40424F070DB7FC9FAA1E4C0C91F83A0C10DFF2A2943DE7"
+    },
+    {
+      "source": "art/generated/v1.5/source/breaker-shotgun-v1-source.png",
+      "runtime": "web/assets/weapons/breaker-shotgun-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1774,
+      "sourceHeight": 887,
+      "crop": [
+        0,
+        9,
+        1774,
+        874
+      ],
+      "width": 512,
+      "height": 250,
+      "sourceBytes": 944123,
+      "runtimeBytes": 63166,
+      "sha256": "A1143C91CDD3357A70064FD889D0958799A642035410334071FBC3B2B5795A00"
+    },
+    {
+      "source": "art/generated/v1.5/source/needle-rifle-v1-source.png",
+      "runtime": "web/assets/weapons/needle-rifle-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1891,
+      "sourceHeight": 831,
+      "crop": [
+        0,
+        30,
+        1891,
+        831
+      ],
+      "width": 512,
+      "height": 217,
+      "sourceBytes": 577305,
+      "runtimeBytes": 38044,
+      "sha256": "E7234F67E8470B4E5A7263CA2E255C3674A5D042225A0A0E3F306AE3AAC9EA78"
+    },
+    {
+      "source": "art/generated/v1.5/source/rust-revolver-v1-source.png",
+      "runtime": "web/assets/weapons/rust-revolver-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "crop": [
+        0,
+        65,
+        1536,
+        1023
+      ],
+      "width": 512,
+      "height": 319,
+      "sourceBytes": 1993048,
+      "runtimeBytes": 114004,
+      "sha256": "ECF7C23E50297F4CC11D831D59FEF124F57171E56D6E9E4203C891B738AE5783"
+    },
+    {
+      "source": "art/generated/v1.5/source/ember-carbine-v1-source.png",
+      "runtime": "web/assets/weapons/ember-carbine-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1774,
+      "sourceHeight": 887,
+      "crop": [
+        0,
+        61,
+        1774,
+        874
+      ],
+      "width": 512,
+      "height": 235,
+      "sourceBytes": 919125,
+      "runtimeBytes": 65692,
+      "sha256": "C49E139AB1EC6FFD16D42EEB57E7A632A40A5395C1917E6EF6274B0011FF24FB"
+    },
+    {
+      "source": "art/generated/v1.5/source/coil-cannon-v1-source.png",
+      "runtime": "web/assets/weapons/coil-cannon-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1774,
+      "sourceHeight": 887,
+      "crop": [
+        0,
+        4,
+        1774,
+        876
+      ],
+      "width": 512,
+      "height": 252,
+      "sourceBytes": 1075594,
+      "runtimeBytes": 76894,
+      "sha256": "F9E5B9DEAC94808C0EFC298EB3EE42107AE84DA693D4E67F2283BCFCBA568D05"
+    },
+    {
+      "source": "art/generated/v1.5/source/wanderer-outfit-v1-source.png",
+      "runtime": "web/assets/outfits/wanderer-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1145,
+      "sourceHeight": 1374,
+      "crop": [
+        28,
+        0,
+        1102,
+        1374
+      ],
+      "width": 250,
+      "height": 320,
+      "sourceBytes": 1325920,
+      "runtimeBytes": 57800,
+      "sha256": "C9E9C0E63DBB1194B06700AF1425FF6C5FA66BED15B1589E9B3E45F8762BD275"
+    },
+    {
+      "source": "art/generated/v1.5/source/mechanic-outfit-v1-source.png",
+      "runtime": "web/assets/outfits/mechanic-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "crop": [
+        42,
+        8,
+        1024,
+        1529
+      ],
+      "width": 207,
+      "height": 320,
+      "sourceBytes": 1987141,
+      "runtimeBytes": 54072,
+      "sha256": "000C476B53B88B2B3166E07FB035DD7DCF0EF636A627593B3F840AA9BA479E0E"
+    },
+    {
+      "source": "art/generated/v1.5/source/nightwatch-outfit-v1-source.png",
+      "runtime": "web/assets/outfits/nightwatch-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "crop": [
+        22,
+        0,
+        931,
+        1528
+      ],
+      "width": 190,
+      "height": 320,
+      "sourceBytes": 1724614,
+      "runtimeBytes": 38934,
+      "sha256": "67240379EE6A48CE3B186A8B0FF29449051730B5A1D865B270E19FEEBABBEAEB"
+    },
+    {
+      "source": "art/generated/v1.5/source/field-vest-v1-source.png",
+      "runtime": "web/assets/equipment/field-vest-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1312,
+      "sourceHeight": 1199,
+      "crop": [
+        11,
+        0,
+        1312,
+        1199
+      ],
+      "width": 320,
+      "height": 295,
+      "sourceBytes": 1850300,
+      "runtimeBytes": 84696,
+      "sha256": "E7145D973B284B889AFA50E3A9AF1682406D2D3BF16663D97FE112B19150426B"
+    },
+    {
+      "source": "art/generated/v1.5/source/iron-plate-v1-source.png",
+      "runtime": "web/assets/equipment/iron-plate-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1278,
+      "sourceHeight": 1230,
+      "crop": [
+        0,
+        0,
+        1268,
+        1230
+      ],
+      "width": 320,
+      "height": 310,
+      "sourceBytes": 2048766,
+      "runtimeBytes": 104684,
+      "sha256": "916179C4727504AE85B3160427534F65530B3254B217A02A61AE5614151DE039"
+    },
+    {
+      "source": "art/generated/v1.5/source/runner-boots-v1-source.png",
+      "runtime": "web/assets/equipment/runner-boots-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1374,
+      "sourceHeight": 1145,
+      "crop": [
+        0,
+        0,
+        1341,
+        1134
+      ],
+      "width": 320,
+      "height": 271,
+      "sourceBytes": 1668143,
+      "runtimeBytes": 71526,
+      "sha256": "B0F27774D2CC13EC62224F48B21DD5C00C13C0CA954C3BEF5D6A84796160537B"
+    },
+    {
+      "source": "art/generated/v1.5/source/magnet-helm-v1-source.png",
+      "runtime": "web/assets/equipment/magnet-helm-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1312,
+      "sourceHeight": 1199,
+      "crop": [
+        61,
+        19,
+        1300,
+        1199
+      ],
+      "width": 320,
+      "height": 305,
+      "sourceBytes": 1685861,
+      "runtimeBytes": 92760,
+      "sha256": "32508CA35CEDD6A959704A7D1A9D00D87F51B7EBD067D72227A855D182CBE223"
+    },
+    {
+      "source": "art/generated/v1.5/source/ammo-rig-v1-source.png",
+      "runtime": "web/assets/equipment/ammo-rig-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "crop": [
+        42,
+        9,
+        1479,
+        1024
+      ],
+      "width": 320,
+      "height": 226,
+      "sourceBytes": 2279938,
+      "runtimeBytes": 61532,
+      "sha256": "D6A68C6D2C6D354BA546D7191385E0FBED14BF8AACADE99E95A0C913C4C29F05"
+    },
+    {
+      "source": "art/generated/v1.5/source/signal-helm-v1-source.png",
+      "runtime": "web/assets/equipment/signal-helm-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1295,
+      "sourceHeight": 1215,
+      "crop": [
+        47,
+        2,
+        1240,
+        1194
+      ],
+      "width": 320,
+      "height": 320,
+      "sourceBytes": 1759778,
+      "runtimeBytes": 95160,
+      "sha256": "6110691CF20135DEA67F2F25313A3FD029B4016FD3C60628E931094D17B707E4"
+    },
+    {
+      "source": "art/generated/v1.5/source/servo-greaves-v1-source.png",
+      "runtime": "web/assets/equipment/servo-greaves-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1283,
+      "sourceHeight": 1226,
+      "crop": [
+        70,
+        11,
+        1184,
+        1211
+      ],
+      "width": 297,
+      "height": 320,
+      "sourceBytes": 1406239,
+      "runtimeBytes": 81654,
+      "sha256": "013B72ECD6F51D29FC6297FCC44135E9C29F729367663555A0BAADC9A89FA332"
+    },
+    {
+      "source": "art/generated/v1.5/source/stormstep-boots-v1-source.png",
+      "runtime": "web/assets/equipment/stormstep-boots-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1374,
+      "sourceHeight": 1145,
+      "crop": [
+        0,
+        0,
+        1374,
+        1145
+      ],
+      "width": 320,
+      "height": 267,
+      "sourceBytes": 2185000,
+      "runtimeBytes": 92020,
+      "sha256": "80DDBCC3DFD6936D39B2FC54044322C005D2AEB8FF8F94D63576E2D77271A8AE"
+    },
+    {
+      "source": "art/generated/v1.5/source/echo-apothecary-roof-v1-source.png",
+      "runtime": "web/assets/world/props/echo-apothecary-roof-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "crop": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "width": 512,
+      "height": 341,
+      "sourceBytes": 2687242,
+      "runtimeBytes": 198144,
+      "sha256": "3C3C3DF356A7A43C1AF9A6E49E6C1E24A6548E93F907CAAA059E9439C8471B38"
+    },
+    {
+      "source": "art/generated/v1.5/source/echo-shop-roof-v1-source.png",
+      "runtime": "web/assets/world/props/echo-shop-roof-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "crop": [
+        0,
+        0,
+        1501,
+        1024
+      ],
+      "width": 512,
+      "height": 349,
+      "sourceBytes": 2766707,
+      "runtimeBytes": 208472,
+      "sha256": "B61B8EA9D6596B6C23A98A44231394A85B27C2EAFDE195121A670F03B8586262"
+    },
+    {
+      "source": "art/generated/v1.5/source/echo-warehouse-roof-v1-source.png",
+      "runtime": "web/assets/world/props/echo-warehouse-roof-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1512,
+      "sourceHeight": 1040,
+      "crop": [
+        0,
+        0,
+        1512,
+        1040
+      ],
+      "width": 512,
+      "height": 352,
+      "sourceBytes": 2408625,
+      "runtimeBytes": 212966,
+      "sha256": "2BBB62432D2E02B37AC27DDBC02606643A832790FE42FCC7BD9BACD5C857CD21"
+    },
+    {
+      "source": "art/generated/v1.5/source/echo-container-v1-source.png",
+      "runtime": "web/assets/world/props/echo-container-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 1658,
+      "sourceHeight": 949,
+      "crop": [
+        95,
+        180,
+        1565,
+        757
+      ],
+      "width": 512,
+      "height": 201,
+      "sourceBytes": 1517187,
+      "runtimeBytes": 142882,
+      "sha256": "9C420F642CE15989BE54138F414F7C9A14E966765714E55E97390A089E3C114B"
+    },
+    {
+      "source": "art/generated/v1.5/source/echo-railcar-v1-source.png",
+      "runtime": "web/assets/world/props/echo-railcar-v1.webp",
+      "kind": "cutout",
+      "sourceWidth": 2188,
+      "sourceHeight": 718,
+      "crop": [
+        17,
+        80,
+        2171,
+        621
+      ],
+      "width": 512,
+      "height": 129,
+      "sourceBytes": 1703497,
+      "runtimeBytes": 78586,
+      "sha256": "01D64B947380EF0EE00364C6AC58A2D8F68E2FDC6EB1DF8F397F2B718C7EAFB7"
+    },
+    {
+      "source": "art/generated/v1.5/source/echo-ground-v1-source.png",
+      "runtime": "web/assets/world/echo-ground-v1.webp",
+      "kind": "texture",
+      "sourceWidth": 1254,
+      "sourceHeight": 1254,
+      "crop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "width": 1254,
+      "height": 1254,
+      "sourceBytes": 2990262,
+      "runtimeBytes": 294124,
+      "sha256": "1529597FE141C99ED4F51E5584B911DE4977D80C712AB661AB2D6E7C52423C21"
+    },
+    {
+      "source": "art/generated/v1.5/source/freight-ground-v1-source.png",
+      "runtime": "web/assets/world/freight-ground-v1.webp",
+      "kind": "texture",
+      "sourceWidth": 1254,
+      "sourceHeight": 1254,
+      "crop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "width": 1254,
+      "height": 1254,
+      "sourceBytes": 3375399,
+      "runtimeBytes": 413352,
+      "sha256": "0555805FC414637D685ACA091C37E3A0D2B5AF3E0B8C7B2C574D9EE5048E5E43"
+    },
+    {
+      "source": "art/generated/v1.5/source/red-basin-ground-v1-source.png",
+      "runtime": "web/assets/world/red-basin-ground-v1.webp",
+      "kind": "texture",
+      "sourceWidth": 1254,
+      "sourceHeight": 1254,
+      "crop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "width": 1254,
+      "height": 1254,
+      "sourceBytes": 2948801,
+      "runtimeBytes": 291974,
+      "sha256": "8EC0EC4F73191C8E2112C1656672E1ED31025D23D74D8DB0954AA6046F3847AA"
+    }
+  ],
+  "runtimeBytes": 7474234
+}

@@ -1,6 +1,11 @@
 "use strict";
 
 const WEAPON_EVOLUTION_REWARDS = Object.freeze({
+  prism_laser: Object.freeze(["penetratorDoctrine"]),
+  slag_launcher: Object.freeze(["phaseAegis"]),
+  saw_disc: Object.freeze(["kineticLoop"]),
+  echo_blade: Object.freeze(["kineticLoop"]),
+  shock_hammer: Object.freeze(["phaseAegis"]),
   scrap_pistol: Object.freeze(["kineticLoop"]),
   swarm_smg: Object.freeze(["swarmProtocol"]),
   breaker_shotgun: Object.freeze(["phaseAegis"]),

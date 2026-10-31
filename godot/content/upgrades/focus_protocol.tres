@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_jqdy5"]
+
+[resource]
+script = ExtResource("1_jqdy5")
+content_id = &"focusProtocol"
+category = &"upgrades"
+display_name = "弱点协议"
+source_data = {
+"detail": "长时间无伤后下一轮射击必定暴击",
+"family": "mobility",
+"flavor": "稳定呼吸，把准星压进裂缝",
+"id": "focusProtocol",
+"max": 3.0,
+"name": "弱点协议",
+"rarity": "prototype"
+}

@@ -7,6 +7,10 @@ function keyboardCommand(code, context = {}) {
   const screen = context.screen;
   const menuPage = context.menuPage;
   const bindings = context.keyBindings || DEFAULT_KEY_BINDINGS;
+  if (screen === SCREENS.RUNNING && context.placement && code === "Escape") return { type: UI_COMMANDS.BACK };
+  if (screen === SCREENS.RUNNING && code === bindings.deployTurret) return { type: UI_COMMANDS.DEPLOY };
+  if (screen === SCREENS.RUNNING && (code === bindings.interact || code === "Enter" || code === "NumpadEnter")) return { type: UI_COMMANDS.INTERACT };
+  if (screen === SCREENS.FIELD_SHOP && (code === "Escape" || code === bindings.pause || code === bindings.interact)) return { type: UI_COMMANDS.BACK };
   if (code === bindings.fullscreen || code === "F11") return { type: UI_COMMANDS.FULLSCREEN };
   if (code === bindings.quit && screen === SCREENS.PAUSED) return { type: UI_COMMANDS.QUIT };
   if (code === bindings.restart && (screen === SCREENS.PAUSED || screen === SCREENS.RESULT_WIN || screen === SCREENS.RESULT_LOSE)) {
@@ -41,10 +45,12 @@ function keyboardCommand(code, context = {}) {
 function gamepadCommand(command, context = {}) {
   if (!command) return null;
   const screen = context.screen;
+  if (command.type === "deploy") return screen === SCREENS.RUNNING ? { type: UI_COMMANDS.DEPLOY } : null;
   if (command.type === "pause") {
+    if (screen === SCREENS.FIELD_SHOP) return { type: UI_COMMANDS.BACK };
     return screen === SCREENS.RUNNING || screen === SCREENS.PAUSED ? { type: UI_COMMANDS.PAUSE } : null;
   }
-  if (command.type === "confirm") return screen === SCREENS.RUNNING ? null : { type: UI_COMMANDS.ACTIVATE };
+  if (command.type === "confirm") return { type: screen === SCREENS.RUNNING ? UI_COMMANDS.INTERACT : UI_COMMANDS.ACTIVATE };
   if (command.type === "navigate") return { type: UI_COMMANDS.NAVIGATE, dx: command.dx, dy: command.dy };
   if (command.type === "cancel") {
     if (screen === SCREENS.PAUSED) return { type: UI_COMMANDS.PAUSE };

@@ -9,7 +9,7 @@ const UNLOCK_METRICS = Object.freeze([
   "bestNoHitTime",
   "completedStage",
   "endlessBossWave",
-  "masteryAny"
+  "masteryAny", "bestTime", "settledRuns", "bossesDefeated"
 ]);
 
 function ensureUnlockState(save) {
@@ -33,6 +33,9 @@ function conditionValue(save, run, condition) {
     case "totalKills": return Math.max(0, Number(source.totalKills) || 0);
     case "eliteKills": return Math.max(0, Number(source.eliteKills) || 0);
     case "wins": return Math.max(0, Number(source.wins) || 0);
+    case "bestTime": return Math.max(0, Number(source.bestTime) || 0, Number(run && run.elapsed) || 0);
+    case "settledRuns": return Math.max(0, Number(source.settledRuns) || 0);
+    case "bossesDefeated": return Math.max(0, Number(run && run.bossesDefeated) || 0);
     case "bestNoHitTime": {
       const runValue = run ? Math.max(Number(run.maxNoHitTime) || 0, Number(run.player && run.player.noHitTime) || 0) : 0;
       return Math.max(0, Number(source.bestNoHitTime) || 0, runValue);

@@ -13,6 +13,8 @@ const contentTypes = {
   ".json": "application/json; charset=utf-8",
   ".png": "image/png",
   ".webp": "image/webp",
+  ".wav": "audio/wav",
+  ".ogg": "audio/ogg",
   ".woff2": "font/woff2"
 };
 

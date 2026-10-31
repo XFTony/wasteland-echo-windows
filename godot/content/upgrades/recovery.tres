@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_8felq"]
+
+[resource]
+script = ExtResource("1_8felq")
+content_id = &"recovery"
+category = &"upgrades"
+display_name = "纳米修复"
+source_data = {
+"detail": "脱战后每秒回复 0.4",
+"family": "survival",
+"flavor": "4 秒未受击后启动",
+"id": "recovery",
+"max": 4.0,
+"name": "纳米修复",
+"rarity": "prototype"
+}

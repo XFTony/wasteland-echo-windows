@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_7cmux"]
+
+[resource]
+script = ExtResource("1_7cmux")
+content_id = &"buy_arc_repeater"
+category = &"shopItems"
+display_name = "雷索发射器"
+source_data = {
+"category": "weapon",
+"currency": "copper",
+"description": "初始命中后最多连锁2次，每次保留65%伤害；电弧不能穿墙",
+"grantId": "arc_repeater",
+"grantType": "weapon",
+"id": "buy_arc_repeater",
+"name": "雷索发射器",
+"price": 175.0,
+"unlockStage": 1
+}

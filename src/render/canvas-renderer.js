@@ -4,7 +4,7 @@ const { PALETTE } = require("../config");
 const { clamp } = require("../core/math");
 const { INPUT_DEVICES } = require("../core/contracts");
 const { DEFAULT_CONTENT } = require("../core/content-registry");
-const { ART_IDS } = require("./art/asset-catalog");
+const { ART_IDS, MAP_GROUND_ART } = require("./art/asset-catalog");
 const { createDefaultArtStore } = require("./art/art-store");
 const { DEFAULT_WORLD } = require("../world/world-registry");
 const { UI_COLORS, MATERIALS } = require("./ui/theme");
@@ -12,8 +12,11 @@ const {
   cutCornerPath,
   focusBrackets
 } = require("./ui/art-primitives");
-const { drawUpgradeDraft } = require("./ui/upgrade-cards");
-const { drawFieldPlate } = require("./ui/field-surfaces");
+const { drawUpgradeDraft, drawUpgradeReceipt } = require("./ui/upgrade-cards");
+const { pointInCard } = require("./ui/card-motion");
+const { drawFieldShop, drawMarketHint } = require("./ui/field-market-view");
+const { drawFieldPlate, drawFieldButton } = require("./ui/field-surfaces");
+const { drawStartup } = require("./ui/startup-view");
 const { initializeFx, FX_METHODS } = require("./fx-system");
 const { HUD_METHODS } = require("./hud-view");
 const { TERRAIN_METHODS } = require("./terrain-view");
@@ -23,12 +26,17 @@ const { MENU_METHODS } = require("./menu-pages");
 const { drawMenuPage } = require("./menu-view");
 const { hash2 } = require("./render-hash");
 const { formatTime } = require("./format");
+const { drawWeaponFlash, drawWeaponImpact } = require("./weapon-feedback");
+const { CompactActorView } = require("./compact-actors");
+const { drawAttackEffects } = require("./attack-effects");
+const { drawStructures } = require("./structure-view");
 
 const FONT_STACKS = Object.freeze({
   ui: '"Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif',
-  display: '"Fusion Pixel 12", Impact, "Microsoft YaHei UI", sans-serif',
+  display: '"Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif',
   card: '"Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif',
-  mono: '"Cascadia Mono", Consolas, "Fusion Pixel 12", monospace'
+  mono: '"Cascadia Mono", Consolas, monospace',
+  brand: '"Fusion Pixel 12", "Microsoft YaHei UI", sans-serif'
 });
 const OFFSCREEN_POINTER = Object.freeze({ x: -1000, y: -1000, down: false });
 class CanvasRenderer {
@@ -54,7 +62,9 @@ class CanvasRenderer {
     this.regions = [];
     this.regionPool = Array.from({ length: 128 }, () => ({ action: "", x: 0, y: 0, w: 0, h: 0 }));
     this.regionCount = 0;
-    this.camera = { x: 0, y: 0 };
+    this.camera = { x: 0, y: 0, zoom: 1 };
+    this.visibleWorldWidth = this.width;
+    this.visibleWorldHeight = this.height;
     this.mapLayout = this.resolveMapLayout(this.content.defaults.map);
     this.screenPoint = { x: 0, y: 0 };
     this.frame = 0;
@@ -75,10 +85,13 @@ class CanvasRenderer {
     this.lastScreen = null;
     this.screenEnteredFrame = 0;
     this.artStore = options.artStore || createDefaultArtStore();
+    this.compactActors = new CompactActorView({ canvasFactory: options.canvasFactory });
     this.groundTexture = this.artStore.get(ART_IDS.GROUND);
+    this.paintedGround = false;
     this.coverArt = this.artStore.get(ART_IDS.TITLE_KEY_ART);
     this.portraitLook = { x: 0, y: 0 };
     this.activeMenuBackdrop = null;
+    this.activeGroundId = null;
     this.uiScale = 1;
   }
 
@@ -145,6 +158,9 @@ class CanvasRenderer {
   resize(width, height, dpr = 1) {
     this.width = Math.max(320, width);
     this.height = Math.max(180, height);
+    this.camera.zoom = clamp(Math.min(this.width / 1280, this.height / 720), 1, 2);
+    this.visibleWorldWidth = this.width / this.camera.zoom;
+    this.visibleWorldHeight = this.height / this.camera.zoom;
     this.dpr = clamp(dpr, 1, 2);
     this.canvas.width = Math.round(this.width * this.dpr);
     this.canvas.height = Math.round(this.height * this.dpr);
@@ -159,23 +175,26 @@ class CanvasRenderer {
     for (let index = this.regions.length - 1; index >= 0; index -= 1) {
       const region = this.regions[index];
       if (x >= region.x && x <= region.x + region.w && y >= region.y && y <= region.y + region.h) {
+        if (region.cardShape && !pointInCard(region.cardShape, x, y)) continue;
         return region.action;
       }
     }
     return null;
   }
 
-  addRegion(action, x, y, w, h) {
+  addRegion(action, x, y, w, h, cardShape = null) {
     let region = this.regionPool[this.regionCount];
     if (!region) {
       region = { action: "", x: 0, y: 0, w: 0, h: 0 };
       this.regionPool.push(region);
     }
+    const scale = this.interfaceLayoutScale || 1;
     region.action = action;
-    region.x = x;
-    region.y = y;
-    region.w = w;
-    region.h = h;
+    region.x = x * scale;
+    region.y = y * scale;
+    region.w = w * scale;
+    region.h = h * scale;
+    region.cardShape = cardShape ? { ...cardShape, cx: cardShape.cx * scale, cy: cardShape.cy * scale, w: cardShape.w * scale, h: cardShape.h * scale } : null;
     this.regionCount += 1;
     this.regions.push(region);
   }
@@ -188,12 +207,38 @@ class CanvasRenderer {
     this.activeInputDevice = inputState.activeDevice || INPUT_DEVICES.KEYBOARD_MOUSE;
     this.gamepadConnected = Boolean(inputState.gamepadConnected);
     this.gamepadId = inputState.gamepadId || "";
+    this.uiTime = Number.isFinite(inputState.uiTime) ? inputState.uiTime : this.frame / 60;
+    this.reducedMotion = Boolean(inputState.reducedMotion);
     this.metrics = inputState.metrics || null;
     this.uiScale = model.save && model.save.settings ? Number(model.save.settings.uiScale) || 1 : 1;
     this.flashSetting = model.save && model.save.settings ? model.save.settings.flashes : "low";
     if (model.screen !== this.lastScreen) {
+      if (this.lastScreen === "menu" && model.screen !== "menu") {
+        if (typeof this.artStore.releaseGroup === "function") {
+          this.artStore.releaseGroup("menu-backdrop");
+          this.artStore.releaseGroup("outfit-icons");
+          this.artStore.releaseGroup("equipment-icons");
+        }
+        this.activeMenuBackdrop = null;
+      }
+      if (model.screen === "menu") {
+        this.compactActors.clear();
+        if (typeof this.artStore.releaseGroup === "function") {
+          this.artStore.releaseGroup("compact-actors");
+          this.artStore.releaseGroup("compact-enemies");
+          this.artStore.releaseGroup("compact-parts");
+          this.artStore.releaseGroup("world", ART_IDS.GROUND);
+          this.artStore.releaseGroup("world-props");
+          this.artStore.releaseGroup("combat-actors");
+          this.artStore.releaseGroup("combat-weapons");
+        }
+        this.activeGroundId = null;
+        this.paintedGround = false;
+        this.groundTexture = this.artStore.get(ART_IDS.GROUND);
+      }
       this.lastScreen = model.screen;
       this.screenEnteredFrame = this.frame;
+      this.screenEnteredTime = this.uiTime;
     }
     this.regions.length = 0;
     this.regionCount = 0;
@@ -201,24 +246,30 @@ class CanvasRenderer {
     ctx.imageSmoothingEnabled = false;
     ctx.clearRect(0, 0, this.width, this.height);
 
+    if (inputState.startup && inputState.startup.active && !model.run) {
+      this.drawMenuBackdrop("main");
+      this.startupState = inputState.startup;
+      this.drawScaledInterface(model, "startup");
+      if (this.canvas.style) this.canvas.style.cursor = "default";
+      return;
+    }
+
     if (model.run) {
       this.mapLayout = this.resolveMapLayout(model.run.mapId);
       this.drawWorld(model);
-      this.drawHud(model);
-      if (model.screen === "running") {
-        this.drawTutorial(model);
-        if (model.save.settings.showControlHints) this.drawDesktopControlHint();
-      }
-      if (model.save.settings.showFps) this.drawDiagnostics(model);
-      this.drawScreenEffects();
+      this.drawScaledInterface(model, "hud");
+      this.drawScreenEffects(model);
     } else {
       this.drawMenuBackdrop(model.menuPage || "main");
     }
 
     if (model.screen === "menu") {
-      drawMenuPage(this, model);
+      this.drawScaledInterface(model, "menu");
     } else if (model.screen === "levelup") {
-      drawUpgradeDraft(this, model);
+      this.drawScaledInterface(model, "upgrade");
+    } else if (model.screen === "fieldShop") {
+      this.regions.length = 0; this.regionCount = 0;
+      this.drawScaledInterface(model, "fieldShop");
     } else if (model.screen === "paused") {
       this.drawPause();
     } else if (model.screen === "resultWin" || model.screen === "resultLose") {
@@ -226,7 +277,64 @@ class CanvasRenderer {
     }
 
     this.drawSaveStatus(model);
+    drawUpgradeReceipt(this);
+    if (this.canvas.style) this.canvas.style.cursor = model.screen === "running" && !model.save.settings.autoAim ? "crosshair"
+      : this.hitTest(this.pointerState.x, this.pointerState.y) ? "pointer" : "default";
     if (this.width < 800 || this.height < 450 || this.width / this.height < 1.15) this.drawWindowNotice();
+  }
+
+  startupReady() {
+    return this.artStore.ready(ART_IDS.RADIO_CAMP);
+  }
+
+  drawInterfaceLayer(model, kind) {
+    if (kind === "upgrade") { drawUpgradeDraft(this, model); return; }
+    if (kind === "fieldShop") { drawFieldShop(this, model); return; }
+    if (kind === "startup") {
+      drawStartup(this, this.startupState);
+      return;
+    }
+    if (kind === "menu") {
+      drawMenuPage(this, model);
+      return;
+    }
+    this.drawHud(model);
+    drawMarketHint(this, model);
+    if (model.screen === "running") {
+      this.drawTutorial(model);
+      if (model.save.settings.showControlHints) this.drawDesktopControlHint(model);
+    }
+    if (model.save.settings.showFps) this.drawDiagnostics(model);
+  }
+
+  drawScaledInterface(model, kind) {
+    const scale = clamp(Math.min(this.width / 1280, this.height / 720), 1, 2);
+    if (scale === 1) {
+      this.drawInterfaceLayer(model, kind);
+      return;
+    }
+    const physicalWidth = this.width;
+    const physicalHeight = this.height;
+    const physicalPointer = this.pointerState;
+    const logicalPointer = this.interfacePointer || (this.interfacePointer = { x: 0, y: 0, down: false });
+    logicalPointer.x = physicalPointer.x / scale;
+    logicalPointer.y = physicalPointer.y / scale;
+    logicalPointer.down = physicalPointer.down;
+    this.ctx.save();
+    this.ctx.setTransform(this.dpr * scale, 0, 0, this.dpr * scale, 0, 0);
+    this.width = physicalWidth / scale;
+    this.height = physicalHeight / scale;
+    this.pointerState = logicalPointer;
+    this.interfaceLayoutScale = scale;
+    try {
+      this.drawInterfaceLayer(model, kind);
+    } finally {
+      this.interfaceLayoutScale = 1;
+      this.pointerState = physicalPointer;
+      this.width = physicalWidth;
+      this.height = physicalHeight;
+      this.ctx.restore();
+    }
   }
 
   drawSaveStatus(model) {
@@ -349,43 +457,27 @@ class CanvasRenderer {
   }
 
   button(action, label, x, y, w, h, style = "primary") {
-    const ctx = this.ctx;
-    const pointer = this.pointerState || OFFSCREEN_POINTER;
-    const hovered = pointer.x >= x && pointer.x <= x + w && pointer.y >= y && pointer.y <= y + h;
-    const pressed = hovered && pointer.down;
-    const focused = this.focusAction === action;
-    const baseFill = style === "primary" ? "#9f4935" : style === "danger" ? "#74312f" : "#3b3932";
-    const hoverFill = style === "primary" ? "#b85b3f" : style === "danger" ? "#91413b" : "#504b40";
-    const fill = hovered || focused ? hoverFill : baseFill;
-    const stroke = style === "primary" ? UI_COLORS.gold : style === "danger" ? "#b96858" : UI_COLORS.ironLight;
-    const offset = pressed ? 2 : 0;
-    drawFieldPlate(this, x, y + offset, w, h - offset, {
-      fill,
-      stroke,
-      accent: stroke,
-      active: hovered || focused,
-      raised: hovered || focused,
-      lineWidth: focused ? 3 : 2
-    });
-    const innerX = Math.max(8, w * 0.08);
-    const innerY = Math.max(6, h * 0.22);
-    ctx.fillStyle = style === "primary" ? (hovered || focused ? "rgba(169,71,47,0.84)" : "rgba(116,49,36,0.8)")
-      : style === "danger" ? "rgba(112,43,40,0.78)"
-        : "rgba(28,28,23,0.38)";
-    ctx.fillRect(x + innerX, y + offset + innerY, w - innerX * 2, Math.max(3, h - innerY * 2 - offset));
-    if (focused) focusBrackets(this, x - 3, y - 3, w + 6, h + 6, UI_COLORS.gold, 2, Math.min(15, h * 0.35));
-    ctx.fillStyle = hovered ? "#b3a17b" : "#817766";
-    ctx.fillRect(x + 4, y + 4 + offset, w - 8, 2);
-    ctx.fillStyle = style === "primary" ? "#6f3328" : "#272620";
-    ctx.fillRect(x + 4, y + h - 5, w - 8, 2);
-    this.text(label, x + w / 2, y + h / 2 + 1 + offset, Math.max(13, Math.min(19, h * 0.38)), PALETTE.white, "center", "900", "ui");
-    this.addRegion(action, x, y, w, h);
+    return drawFieldButton(this, action, label, x, y, w, h, { primary: style === "primary",
+      accent: style === "danger" ? UI_COLORS.danger : UI_COLORS.gold,
+      fill: style === "danger" ? "#5e352d" : undefined });
   }
 
   drawWorld(model) {
     const ctx = this.ctx;
     const run = model.run;
     const player = run.player;
+    const mapGroundId = MAP_GROUND_ART[run.mapId];
+    this.paintedGround = Boolean(mapGroundId && this.artStore.ready(mapGroundId));
+    if (this.paintedGround && this.activeGroundId !== mapGroundId) {
+      if (typeof this.artStore.releaseGroup === "function") {
+        this.artStore.releaseGroup("world", [ART_IDS.GROUND, mapGroundId]);
+        this.artStore.releaseGroup("world-props");
+      }
+      this.activeGroundId = mapGroundId;
+    }
+    this.groundTexture = this.paintedGround
+      ? this.artStore.get(mapGroundId)
+      : this.artStore.get(ART_IDS.GROUND);
     let shakeX = 0;
     let shakeY = 0;
     if (player.invulnerable > 0 && model.save.settings.screenShake !== "off") {
@@ -394,36 +486,44 @@ class CanvasRenderer {
       shakeY = Math.cos(this.frame * 1.7) * strength;
     }
     const recoilScale = model.save.settings.screenShake === "off" ? 0 : model.save.settings.screenShake === "high" ? 1 : 0.58;
-    const maxCameraX = Math.max(0, model.worldSize - this.width);
-    const maxCameraY = Math.max(0, model.worldSize - this.height);
+    const maxCameraX = Math.max(0, model.worldSize - this.visibleWorldWidth);
+    const maxCameraY = Math.max(0, model.worldSize - this.visibleWorldHeight);
     this.camera.x = clamp(
-      player.x - this.width / 2 + this.recoilAimX * this.cameraKick * recoilScale - shakeX,
+      player.x - this.visibleWorldWidth / 2 + this.recoilAimX * this.cameraKick * recoilScale - shakeX,
       0,
       maxCameraX
     );
     this.camera.y = clamp(
-      player.y - this.height / 2 + this.recoilAimY * this.cameraKick * recoilScale - shakeY,
+      player.y - this.visibleWorldHeight / 2 + this.recoilAimY * this.cameraKick * recoilScale - shakeY,
       0,
       maxCameraY
     );
+    ctx.save();
+    ctx.setTransform(this.dpr * this.camera.zoom, 0, 0, this.dpr * this.camera.zoom, 0, 0);
+    ctx.imageSmoothingEnabled = true;
     ctx.fillStyle = "#6d593b";
-    ctx.fillRect(0, 0, this.width, this.height);
+    ctx.fillRect(0, 0, this.visibleWorldWidth, this.visibleWorldHeight);
     this.drawTerrain(model.worldSize);
     this.drawInteractives(model.interactives || []);
     this.drawExtraction(run);
+    drawAttackEffects(this,model,"ground");
     this.drawObstacles(model.obstacles);
 
     for (const pickup of model.pickups) this.drawPickup(pickup);
     for (const projectile of model.projectiles) this.drawProjectile(projectile);
-    for (const shot of model.enemyShots) this.drawProjectile(shot);
     for (const enemy of model.enemies) this.drawEnemy(enemy, run.elapsed);
+    drawStructures(this, model);
     this.drawPlayer(player, run);
+    this.drawInteractionLabels(model);
     this.drawAimReticle(model);
-    this.drawWorldEffects();
+    this.drawWorldEffects(model);
+    drawAttackEffects(this,model,"over");
+    for (const shot of model.enemyShots) this.drawProjectile(shot);
     this.drawAtmosphere(run.elapsed);
+    ctx.restore();
   }
 
-  drawWorldEffects() {
+  drawWorldEffects(model = null) {
     const ctx = this.ctx;
     const particleStep = this.qualityLevel === 0 ? 2 : 1;
     for (let index = 0; index < this.particles.length; index += particleStep) {
@@ -436,42 +536,39 @@ class CanvasRenderer {
       ctx.fillRect(point.x, point.y, particle.size, particle.size);
     }
     ctx.globalAlpha = 1;
+    for (const impact of this.impacts) {
+      if (!impact.active) continue;
+      const point = this.worldToScreen(impact.x, impact.y, this.screenPoint);
+      drawWeaponImpact(ctx, impact, point.x, point.y);
+    }
     for (let index = 0; index < this.shells.length; index += 1) {
       const shell = this.shells[index];
       if (!shell.active) continue;
-      const point = this.worldToScreen(shell.x, shell.y, this.screenPoint);
+      const point = this.worldToScreen(shell.x, shell.y-(shell.z||0), this.screenPoint);
       if (point.x < -8 || point.y < -8 || point.x > this.width + 8 || point.y > this.height + 8) continue;
       ctx.save();
       ctx.translate(point.x, point.y);
       ctx.rotate(shell.rotation);
       ctx.globalAlpha = clamp(shell.life / shell.maxLife * 1.4, 0, 1);
       ctx.fillStyle = "#4a3520";
-      ctx.fillRect(-shell.length / 2 - 1, -2, shell.length + 2, 4);
+      ctx.fillRect(-shell.length / 2 - 1, -(shell.width||2)/2-1, shell.length + 2, (shell.width||2)+2);
       ctx.fillStyle = shell.color;
-      ctx.fillRect(-shell.length / 2, -1, shell.length, 2);
+      ctx.fillRect(-shell.length / 2, -(shell.width||2)/2, shell.length, shell.width||2);
+      ctx.fillStyle="#dbc086";ctx.fillRect(-shell.length/2,-(shell.width||2)/2,Math.min(2,shell.length*.3),shell.width||2);
       ctx.restore();
     }
     ctx.globalAlpha = 1;
     for (let index = 0; index < this.muzzleFlashes.length; index += 1) {
       const flash = this.muzzleFlashes[index];
-      if (!flash.active) continue;
-      const point = this.worldToScreen(flash.x, flash.y, this.screenPoint);
-      const lifeScale = clamp(flash.life / flash.maxLife, 0, 1);
-      ctx.save();
-      ctx.translate(point.x, point.y);
-      ctx.rotate(flash.angle);
-      ctx.globalAlpha = lifeScale;
-      ctx.fillStyle = "#fff2b0";
-      ctx.fillRect(-2, -3, flash.length * 0.56, 6);
-      ctx.fillStyle = flash.color;
-      ctx.beginPath();
-      ctx.moveTo(1, 0);
-      ctx.lineTo(flash.length, -5 * lifeScale);
-      ctx.lineTo(flash.length * 0.64, 0);
-      ctx.lineTo(flash.length, 5 * lifeScale);
-      ctx.closePath();
-      ctx.fill();
-      ctx.restore();
+      if (!flash.active || this.flashSetting === "off") continue;
+      const live = !flash.structureId && model && model.run && this.compactActors.playerRun === model.run &&
+        this.compactActors.lastDraw && this.compactActors.lastDraw.weaponId === flash.weaponId
+        ? this.compactActors.lastDraw : null;
+      const tower = flash.structureId && model?.run?.structures.find(t => t.id === flash.structureId);
+      const reach = tower ? 38 - Math.max(0, 1 - (model.run.elapsed - tower.lastShotAt) / .1) * 2 : 0;
+      const point = this.worldToScreen(tower ? tower.x + Math.cos(tower.angle) * reach : live ? live.muzzleX : flash.x,
+        tower ? tower.y - 20 + Math.sin(tower.angle) * reach : live ? live.muzzleY : flash.y, this.screenPoint);
+      drawWeaponFlash(ctx, flash, point.x, point.y, tower ? tower.angle : live ? live.weaponAngle : flash.angle);
     }
     ctx.globalAlpha = 1;
     for (let index = 0; index < this.floatTexts.length; index += 1) {
@@ -501,7 +598,7 @@ class CanvasRenderer {
     ctx.fillRect(0, 0, this.width, this.height);
   }
 
-  drawScreenEffects() {
+  drawScreenEffects(model) {
     const ctx = this.ctx;
     if (this.damageVignette > 0) {
       const alpha = this.damageVignette * 0.26;
@@ -515,13 +612,15 @@ class CanvasRenderer {
       const progress = this.banner.life / this.banner.maxLife;
       const alpha = clamp(Math.min((1 - progress) * 5, progress * 3), 0, 1);
       ctx.globalAlpha = alpha;
-      const width = Math.min(480, this.width - 40);
-      const y = 78;
-      this.panel(this.width / 2 - width / 2, y, width, 58, {
+      const interfaceScale = clamp(Math.min(this.width / 1280, this.height / 720), 1, 2);
+      const bossActive = Boolean(model && model.enemies && model.enemies.some((enemy) => enemy.active && enemy.boss));
+      const width = Math.min(480 * interfaceScale, this.width - 40);
+      const y = (bossActive ? 132 : 78) * interfaceScale;
+      this.panel(this.width / 2 - width / 2, y, width, 58 * interfaceScale, {
         fill: "rgba(26,23,20,0.92)", stroke: this.banner.color, radius: 4, lineWidth: 2
       });
-      this.text(this.banner.text, this.width / 2, y + 20, 17, this.banner.color, "center", "bold");
-      this.text(this.banner.detail, this.width / 2, y + 42, 11, PALETTE.cream, "center");
+      this.text(this.banner.text, this.width / 2, y + 20 * interfaceScale, 17 * interfaceScale, this.banner.color, "center", "bold");
+      this.text(this.banner.detail, this.width / 2, y + 42 * interfaceScale, 11 * interfaceScale, PALETTE.cream, "center");
       ctx.globalAlpha = 1;
     }
     if (this.upgradeFlash > 0) {
@@ -552,11 +651,13 @@ class CanvasRenderer {
     const unit = size / 48;
     ctx.save();
     ctx.translate(x, y);
-    ctx.fillStyle = `${color}22`;
-    ctx.fillRect(-radius, -radius, size, size);
+    ctx.beginPath();
+    ctx.arc(0, 0, radius * 0.9, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(20,21,18,0.88)";
+    ctx.fill();
     ctx.strokeStyle = color;
-    ctx.lineWidth = Math.max(2, 3 * unit);
-    ctx.strokeRect(-radius + 5 * unit, -radius + 5 * unit, size - 10 * unit, size - 10 * unit);
+    ctx.lineWidth = Math.max(1.5, 1.6 * unit);
+    ctx.stroke();
     ctx.fillStyle = color;
     if (id === "kineticLoop") {
       ctx.beginPath();

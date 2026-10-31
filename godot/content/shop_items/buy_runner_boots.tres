@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_qpnhi"]
+
+[resource]
+script = ExtResource("1_qpnhi")
+content_id = &"buy_runner_boots"
+category = &"shopItems"
+display_name = "疾行战靴"
+source_data = {
+"category": "equipment",
+"currency": "copper",
+"description": "靴子：护甲 +1%，移动速度 +7%。",
+"grantId": "runner_boots",
+"grantType": "equipment",
+"id": "buy_runner_boots",
+"name": "疾行战靴",
+"price": 300.0,
+"unlockStage": 1.0
+}

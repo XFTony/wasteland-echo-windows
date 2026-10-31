@@ -15,6 +15,7 @@ const {
 const { DEFAULT_WORLD } = require("../world/world-registry");
 const { EQUIPMENT_SLOTS } = require("./equipment");
 const { WEAPON_MECHANICS } = require("../content/weapon-mechanics");
+const { FIELD_GOODS } = require("../content/field-goods");
 const { BOSS_DEFINITIONS } = require("../content/boss-definitions");
 const { UNLOCK_RULES } = require("../content/unlock-rules");
 const { RUN_MODIFIERS } = require("../content/run-modifiers");
@@ -35,6 +36,7 @@ const CONTENT_REQUIREMENTS = Object.freeze({
   modifiers: ["id", "name", "description", "rewardMultiplier"],
   unlockRules: ["id", "name", "description", "conditions", "reward"],
   upgrades: ["id", "name", "detail", "family", "rarity", "max"],
+  fieldGoods: ["id", "name", "detail", "icon", "family", "prices", "effect"],
   skins: ["id", "name", "body", "accent", "dark"],
   heroes: ["id", "name", "description", "passive", "hpMultiplier", "speedMultiplier", "portrait"],
   maps: ["id", "name", "description", "layoutId", "worldSize", "threat"],
@@ -77,6 +79,11 @@ class ContentRegistry {
     this.modifiers = validateCatalog("modifiers", source.modifiers || RUN_MODIFIERS, CONTENT_REQUIREMENTS.modifiers);
     this.unlockRules = validateCatalog("unlockRules", source.unlockRules || UNLOCK_RULES, CONTENT_REQUIREMENTS.unlockRules);
     this.upgrades = validateCatalog("upgrades", source.upgrades || UPGRADES, CONTENT_REQUIREMENTS.upgrades);
+    this.fieldGoods = validateCatalog("fieldGoods", source.fieldGoods || FIELD_GOODS, CONTENT_REQUIREMENTS.fieldGoods);
+    for (const item of Object.values(this.fieldGoods)) {
+      if (!Array.isArray(item.prices) || !item.prices.length || item.prices.some(price => !Number.isInteger(price) || price <= 0)) throw new Error("fieldGoods prices must be positive integers");
+      if (!["weapon", "heal", "speed", "armor", "magnet", "turret", "engineering"].includes(item.effect)) throw new Error("Unknown fieldGoods effect");
+    }
     this.skins = validateCatalog("skins", source.skins || SKINS, CONTENT_REQUIREMENTS.skins);
     this.heroes = validateCatalog("heroes", source.heroes || HEROES, CONTENT_REQUIREMENTS.heroes);
     this.maps = validateCatalog("maps", source.maps || MAPS, CONTENT_REQUIREMENTS.maps);
@@ -110,6 +117,9 @@ class ContentRegistry {
     }
     const weaponVisualIds = new Set();
     for (const weapon of Object.values(this.weapons)) {
+      if(weapon.attackType&&!["beam","explosive","disc","slash","slam"].includes(weapon.attackType))throw new Error(`weapons.${weapon.id}.attackType is unknown`);
+      if(["slash","slam"].includes(weapon.attackType)&&![weapon.windup,weapon.activeTime,weapon.recovery,weapon.reach].every(n=>Number.isFinite(n)&&n>0))throw new Error(`weapons.${weapon.id} requires positive melee timing and range`);
+      if(weapon.attackType==="slash"&&!(weapon.arc>0&&weapon.arc<Math.PI))throw new Error("Melee sweep must be a convex arc under 180 degrees");
       if (!["close", "mid", "long"].includes(weapon.rangeBand)) {
         throw new Error(`weapons.${weapon.id}.rangeBand must be 'close', 'mid', or 'long'`);
       }
@@ -245,7 +255,7 @@ class ContentRegistry {
       }
     }
     this.defaults = Object.freeze({
-      mode: this.modes.survival ? "survival" : Object.keys(this.modes)[0],
+      mode: this.modes.endless ? "endless" : this.modes.survival ? "survival" : Object.keys(this.modes)[0],
       weapon: this.weapons.scrap_pistol ? "scrap_pistol" : Object.keys(this.weapons)[0],
       skin: this.skins.wanderer ? "wanderer" : Object.keys(this.skins)[0],
       enemy: this.enemies.drifter ? "drifter" : Object.keys(this.enemies)[0],

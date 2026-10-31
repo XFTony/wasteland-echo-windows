@@ -36,7 +36,7 @@ test("shotgun creates a visible multi-projectile spread", () => {
 });
 
 test("all weapons define range, unique visuals, recoil, muzzle and casing feedback", () => {
-  assert.equal(Object.keys(WEAPONS).length, 7);
+  assert.equal(Object.keys(WEAPONS).length, 12);
   const visualIds = new Set();
   const rangeBands = new Set();
   for (const weapon of Object.values(WEAPONS)) {
@@ -51,7 +51,7 @@ test("all weapons define range, unique visuals, recoil, muzzle and casing feedba
     assert.match(weapon.shellColor, /^#[0-9a-f]{6}$/i);
   }
   assert.deepEqual([...rangeBands].sort(), ["close", "long", "mid"]);
-  assert.equal(Object.keys(UPGRADES).length, 26);
+  assert.equal(Object.keys(UPGRADES).length, 34);
 });
 
 test("inventory selections accept unlocked IDs and reject locked IDs", () => {
@@ -194,7 +194,7 @@ test("pickup pressure stays inside its preallocated pool and merges value", () =
 
 test("enemy roster changes as stage progress increases", () => {
   const model = createModel({ duration: 100 });
-  model.startRun({ seed: 22, duration: 100 });
+  model.startRun({ seed: 22, duration: 100, modeId: "survival" });
   const early = new Set(Array.from({ length: 25 }, () => model.chooseEnemyType(0.05)));
   assert.deepEqual([...early], ["drifter"]);
   const late = new Set(Array.from({ length: 200 }, () => model.chooseEnemyType(0.8)));
@@ -235,14 +235,20 @@ test("nearest-target lock takes priority while automatic aim is enabled", () => 
   model.spawnEnemy("drifter", model.run.player.x + 100, model.run.player.y);
   model.setInput({ aimX: 0, aimY: -1, aimActive: true, firing: false });
   model.updatePlayer(0);
-  assert.ok(model.run.player.lastAimX > 0.99);
-  assert.ok(Math.abs(model.run.player.lastAimY) < 0.01);
+  const assertMuzzleRay = () => {
+    const player = model.run.player, target = model.enemies[0];
+    const pose = require("../src/core/compact-weapon-pose").compactShotPose(player, player.lastAimX, player.lastAimY);
+    const dx = target.x - pose.muzzleX, dy = target.y - pose.muzzleY;
+    assert.ok(Math.abs(dx * player.lastAimY - dy * player.lastAimX) < 0.001,
+      "automatic aim must pass through the hostile from the actual offset muzzle");
+    assert.ok(dx * player.lastAimX + dy * player.lastAimY > 0);
+  };
+  assertMuzzleRay();
   assert.equal(model.run.player.aimTargetId, model.enemies[0].id);
 
   model.setInput({ aimX: 0, aimY: -1, aimActive: false, firing: false });
   model.updatePlayer(0);
-  assert.ok(model.run.player.lastAimX > 0.99);
-  assert.ok(Math.abs(model.run.player.lastAimY) < 0.01);
+  assertMuzzleRay();
 
   model.save.settings.autoAim = false;
   model.setInput({ aimX: 0, aimY: -1, aimActive: true, firing: false });
@@ -257,6 +263,16 @@ test("the desktop default run is three minutes", () => {
   const model = new GameModel(manager, { seed: 79 });
   assert.equal(model.duration, DEFAULT_RUN_DURATION);
   assert.equal(DEFAULT_RUN_DURATION, 180);
+});
+
+test("fresh games automatically aim and shoot every existing gun without firing or aim input",()=>{
+  for(const weapon of Object.values(WEAPONS)){
+    const model=createModel();model.startRun({weaponId:weapon.id,seed:7});model.enemies.length=0;
+    assert.equal(model.save.settings.autoAim,true);assert.equal(model.save.settings.autoFire,true);
+    const p=model.run.player;const enemy=model.spawnEnemy('drifter',p.x+70,p.y+30);
+    model.setInput({firing:false,aimX:-1,aimY:0,aimActive:true});model.updatePlayer(0);
+    assert.equal(p.aimTargetId,enemy.id,weapon.id);assert.equal(model.run.shotsFired,1,weapon.id); if(!weapon.attackType)assert.equal(model.projectiles.length,weapon.projectileCount,weapon.id);
+  }
 });
 
 test("automatic aim locks and fires only at the nearest enemy inside weapon range", () => {
@@ -278,8 +294,11 @@ test("automatic aim locks and fires only at the nearest enemy inside weapon rang
   model.updatePlayer(0);
   assert.equal(model.run.player.aimTargetId, nearest.id);
   assert.notEqual(model.run.player.aimTargetId, outside.id);
-  assert.ok(model.run.player.lastAimX > 0.97);
-  assert.ok(model.run.player.lastAimY > 0.17 && model.run.player.lastAimY < 0.25);
+  const shot = model.projectiles[0];
+  const dx = nearest.x - shot.x, dy = nearest.y - shot.y;
+  assert.ok(Math.abs(dx * shot.vy - dy * shot.vx) < 0.001,
+    "the live projectile ray must reach the selected target from the held muzzle");
+  assert.ok(dx * shot.vx + dy * shot.vy > 0);
   assert.equal(model.projectiles.length, 1);
 });
 
@@ -321,7 +340,7 @@ test("hero, equipment and map selections are composed into a run", () => {
 
 test("spawn phases build pressure, permit a brief respite, then escalate", () => {
   const model = createModel({ duration: 180 });
-  model.startRun({ seed: 91, duration: 180 });
+  model.startRun({ seed: 91, duration: 180, modeId: "survival" });
   model.drainEvents();
   model.run.elapsed = 180 * 0.61;
   model.updateSpawner(0);
@@ -345,6 +364,8 @@ test("endless boss waves advance once per successful threshold spawn", () => {
     assert.equal(waveEvents[0].phase, expectedWave);
     assert.equal(model.run.endlessBossWave, expectedWave);
     spawnedTypes.push(waveEvents[0].enemyType);
+    for (const boss of model.enemies.filter(e => e.active && e.boss)) model.killEnemy(boss);
+    model.compactEntities();
 
     model.updateSpawner(0);
     assert.equal(model.drainEvents().some((event) => event.type === "boss"), false, "the same threshold must not repeat");
@@ -484,6 +505,8 @@ test("enemy pursuit routes around a solid obstacle without crossing it", () => {
   const enemy = model.spawnEnemy("drifter", obstacle.x - 44, obstacle.y + obstacle.h / 2);
   model.run.player.x = obstacle.x + obstacle.w + 160;
   model.run.player.y = enemy.y;
+
+  model.updateNavigation(0, true);
 
   for (let frame = 0; frame < 900; frame += 1) {
     model.updateEnemies(1 / 60);

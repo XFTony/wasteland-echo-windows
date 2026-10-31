@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://shaders/echo_ground.gdshader" id="1_shader"]
+
+[resource]
+shader = ExtResource("1_shader")
+shader_parameter/repeat_size = 384.0
+shader_parameter/ground_tint = Color(0.89, 0.91, 0.87, 1)

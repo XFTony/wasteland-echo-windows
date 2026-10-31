@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-28",
+  "tool": "OpenAI built-in ImageGen",
+  "transparentBackground": true,
+  "references": [
+    "web/assets/actors/compact-v1/ranger-body.webp",
+    "output/weapon-feel-2026-10-28/main-game-720.png"
+  ],
+  "prompt": "Create ONE original production game sprite asset: a compact post-apocalyptic scavenger trading-and-gunsmith kiosk for the Chinese indie top-down survival shooter Wasteland Echo. The supplied ranger sprite sheet is STYLE REFERENCE ONLY (dense hand-crafted pixel art, ochre/copper/muted olive, readable small-scale silhouette); the game screenshot is only a world palette and overhead projection reference. Do not reproduce the characters or the screenshot. Design a unique rectangular salvage dealer booth built from repurposed corrugated iron, warm ochre patched canvas canopy, dark olive storage, copper mechanical tools; a clearly visible front counter at the bottom, a tiny empty service hatch with warm interior, an upright handmade sign with a simple hammer-and-coin pictogram only. No human character, no text, no letters, no numerals, no HUD, no ground tile, no scenery background, no extra isolated props. Single cohesive structure fits a rectangular footprint. Camera near-orthographic top-down three-quarter view, upper surfaces visible, front wall/counter faces bottom, no isometric diamond. Clean chunky PIXEL ART edges with deliberate pixel clusters and controlled highlights, detailed yet coherent with the ranger; not photorealistic, not smooth vector, no neon, no soft airbrush. Restrained daylight from top left. This is an in-game prop displayed only around 190 pixels wide by 145 high: prioritize an obvious open service counter and distinct canopy silhouette over tiny visual noise. Center the full object with clear transparent margin all around, true RGBA transparent background, crisp cutout edges, no painted opaque floor or cast ground shadow. Entire booth and sign visible, no cropping. Flat readable rectangular base at bottom. Asset purpose is a unique trade landmark, not a complete map."
+}

@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/weapon_definition.gd" id="1_v01xe"]
+
+[resource]
+script = ExtResource("1_v01xe")
+damage = 18.0
+interval = 0.66
+projectile_speed = 610.0
+lock_range = 460.0
+knockback = 18.0
+recoil = 0.5
+content_id = &"arc_repeater"
+category = &"weapons"
+display_name = "雷索发射器"
+source_data = {
+"chainJumps": 2.0,
+"chainRange": 145.0,
+"chainRetention": 0.65,
+"color": "#7fc9dc",
+"damage": 18.0,
+"description": "初始命中后最多连锁2次，每次保留65%伤害；电弧不能穿墙",
+"id": "arc_repeater",
+"interval": 0.66,
+"knockback": 18.0,
+"lockRange": 460.0,
+"mechanicId": "arc_tether",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.055,
+"muzzleLength": 32.0,
+"muzzleParticles": 2.0,
+"name": "雷索发射器",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 610.0,
+"rangeBand": "mid",
+"recoil": 0.5,
+"shellColor": "#b18b50",
+"shellLength": 0.0,
+"shellLife": 0.0,
+"spread": 0.0,
+"ttl": 0.9,
+"visualId": "arc-repeater",
+"weaponClass": "electric"
+}

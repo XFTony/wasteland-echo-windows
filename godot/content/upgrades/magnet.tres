@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_x68xh"]
+
+[resource]
+script = ExtResource("1_x68xh")
+content_id = &"magnet"
+category = &"upgrades"
+display_name = "磁吸核心"
+source_data = {
+"detail": "拾取范围 +25%",
+"family": "utility",
+"flavor": "把战利品拉向身边",
+"id": "magnet",
+"max": 4.0,
+"name": "磁吸核心",
+"rarity": "standard"
+}

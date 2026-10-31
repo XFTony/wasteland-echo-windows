@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_dfd8u"]
+
+[resource]
+script = ExtResource("1_dfd8u")
+content_id = &"meleeReach"
+category = &"upgrades"
+display_name = "长柄改装"
+source_data = {
+"detail": "近战范围 +10%基础值",
+"family": "firepower",
+"id": "meleeReach",
+"max": 4.0,
+"name": "长柄改装",
+"rarity": "advanced",
+"requires": {
+"attackTypes": ["slash", "slam"]
+}
+}

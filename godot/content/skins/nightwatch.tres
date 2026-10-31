@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_l7s24"]
+
+[resource]
+script = ExtResource("1_l7s24")
+content_id = &"nightwatch"
+category = &"skins"
+display_name = "夜巡者"
+source_data = {
+"accent": "#688f8b",
+"body": "#4f586d",
+"dark": "#242734",
+"description": "深蓝夜行披挂，带信号蓝反光条。",
+"id": "nightwatch",
+"name": "夜巡者"
+}

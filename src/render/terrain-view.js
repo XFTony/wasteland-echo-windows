@@ -1,8 +1,12 @@
 "use strict";
 
 const { PALETTE } = require("../config");
-const { drawVisibleGroundTexture } = require("./world-view");
+const { drawVisibleGroundTexture, drawPaintedGround } = require("./world-view");
 const { hash2 } = require("./render-hash");
+
+function ctxLabel(ctx, x, y, width) {
+  ctx.fillStyle = "rgba(31,31,24,.88)"; ctx.fillRect(x - width / 2, y, width, 20);
+}
 
 const TERRAIN_METHODS = {
   drawTerrain(worldSize) {
@@ -14,6 +18,7 @@ const TERRAIN_METHODS = {
     this.drawGroundGrain(worldSize);
     this.drawDistrictSurfaces();
     this.drawRoadNetwork();
+    this.drawSurfacePatina(worldSize);
     this.drawRoadDetails();
     this.drawRailNetwork();
     this.drawMapLabels();
@@ -51,7 +56,12 @@ const TERRAIN_METHODS = {
     for (const item of interactives) {
       const point = this.worldToScreen(item.x, item.y, this.screenPoint);
       if (point.x < -item.radius - 20 || point.y < -item.radius - 20 || point.x > this.width + item.radius + 20 || point.y > this.height + item.radius + 20) continue;
-      if (item.type === "electricField") {
+      if (item.type === "tradePost" && item.active) {
+        ctx.fillStyle = "#b19c67";
+        for (let i = 0; i < 12; i++) { const angle = i / 12 * Math.PI * 2; ctx.fillRect(point.x + Math.cos(angle) * 26 - 2, point.y + Math.sin(angle) * 16 - 1, 4, 2); }
+        ctx.fillStyle = "#6d5b3d"; ctx.fillRect(point.x - 10, point.y - 6, 20, 12);
+        ctx.fillStyle = "#d9bd75"; ctx.fillRect(point.x - 6, point.y - 3, 12, 6);
+      } else if (item.type === "electricField") {
         const pulse = 0.28 + Math.sin((item.pulse || 0) * Math.PI * 2) * 0.08;
         ctx.globalAlpha = pulse;
         ctx.fillStyle = "#55a79e";
@@ -133,9 +143,10 @@ const TERRAIN_METHODS = {
 
   drawRoadNetwork() {
     const ctx = this.ctx;
+    const viewW = this.visibleWorldWidth || this.width, viewH = this.visibleWorldHeight || this.height;
     for (const road of this.mapLayout.roads) {
       const point = this.worldToScreen(road.x, road.y, this.screenPoint);
-      if (point.x + road.w < -40 || point.y + road.h < -40 || point.x > this.width + 40 || point.y > this.height + 40) continue;
+      if (point.x + road.w < -40 || point.y + road.h < -40 || point.x > viewW + 40 || point.y > viewH + 40) continue;
       ctx.fillStyle = this.mapLayout.theme.asphalt;
       ctx.fillRect(point.x, point.y, road.w, road.h);
       ctx.fillStyle = "#777064";
@@ -143,22 +154,58 @@ const TERRAIN_METHODS = {
         ctx.fillRect(point.x, point.y + 10, road.w, 5);
         ctx.fillRect(point.x, point.y + road.h - 15, road.w, 5);
         const laneY = point.y + road.h / 2;
-        const start = Math.floor(this.camera.x / 92) * 92;
+        const start = road.x + Math.floor((Math.max(this.camera.x, road.x) - road.x) / 92) * 92;
         ctx.fillStyle = "#c3a663";
-        for (let worldX = start; worldX < this.camera.x + this.width + 92; worldX += 92) {
-          ctx.fillRect(Math.round(worldX - this.camera.x), Math.round(laneY - 2), 48, 4);
+        for (let worldX = start; worldX < Math.min(road.x + road.w, this.camera.x + viewW); worldX += 92) {
+          const left = Math.max(road.x, worldX), right = Math.min(worldX + 48, road.x + road.w);
+          if (right > left) ctx.fillRect(Math.round(left - this.camera.x), Math.round(laneY - 2), right - left, 4);
         }
       } else {
         ctx.fillRect(point.x + 10, point.y, 5, road.h);
         ctx.fillRect(point.x + road.w - 15, point.y, 5, road.h);
         const laneX = point.x + road.w / 2;
-        const start = Math.floor(this.camera.y / 92) * 92;
+        const start = road.y + Math.floor((Math.max(this.camera.y, road.y) - road.y) / 92) * 92;
         ctx.fillStyle = "#c3a663";
-        for (let worldY = start; worldY < this.camera.y + this.height + 92; worldY += 92) {
-          ctx.fillRect(Math.round(laneX - 2), Math.round(worldY - this.camera.y), 4, 48);
+        for (let worldY = start; worldY < Math.min(road.y + road.h, this.camera.y + viewH); worldY += 92) {
+          const top = Math.max(road.y, worldY), bottom = Math.min(worldY + 48, road.y + road.h);
+          if (bottom > top) ctx.fillRect(Math.round(laneX - 2), Math.round(top - this.camera.y), 4, bottom - top);
         }
       }
     }
+  },
+
+  drawInteractionLabels(model) {
+    const p = model.run.player;
+    for (const item of model.interactives) {
+      if (!item.active || item.type === "tradePost" || Math.hypot(p.x - item.x, p.y - item.y) > 300) continue;
+      const point = this.worldToScreen(item.x, item.y, this.screenPoint);
+      const label = item.type === "supplyCache" ? "靠近拾取补给" : item.type === "explosiveBarrel" ? "爆桶 · 可射击引爆" : "电磁区 · 减速感染者";
+      const width = label.length * 9 + 14, y = point.y - (item.type === "electricField" ? item.radius + 22 : 48);
+      ctxLabel(this.ctx, point.x, y, width);
+      this.text(label, point.x, y + 10, 10, item.type === "explosiveBarrel" ? "#e3b47e" : "#e1d5ad", "center", "bold");
+    }
+  },
+
+  drawSurfacePatina(worldSize) {
+    if (!this.paintedGround || !this.groundTexture) return;
+    const ctx = this.ctx;
+    const width = this.visibleWorldWidth || this.width;
+    const height = this.visibleWorldHeight || this.height;
+    ctx.save();
+    ctx.beginPath();
+    for (const zone of this.mapLayout.zones) {
+      const point = this.worldToScreen(zone.x, zone.y, this.screenPoint);
+      if (point.x + zone.w < 0 || point.y + zone.h < 0 || point.x > width || point.y > height) continue;
+      ctx.rect(point.x, point.y, zone.w, zone.h);
+    }
+    for (const road of this.mapLayout.roads) {
+      const point = this.worldToScreen(road.x, road.y, this.screenPoint);
+      if (point.x + road.w < 0 || point.y + road.h < 0 || point.x > width || point.y > height) continue;
+      ctx.rect(point.x, point.y, road.w, road.h);
+    }
+    ctx.clip();
+    drawPaintedGround(this, this.groundTexture, worldSize, this.qualityLevel === 0 ? 0.25 : 0.38);
+    ctx.restore();
   },
 
   drawRoadDetails() {
@@ -204,9 +251,10 @@ const TERRAIN_METHODS = {
 
   drawRailNetwork() {
     const ctx = this.ctx;
+    const viewW = this.visibleWorldWidth || this.width, viewH = this.visibleWorldHeight || this.height;
     for (const track of this.mapLayout.tracks) {
       const point = this.worldToScreen(track.x, track.y, this.screenPoint);
-      if (point.x + track.w < -40 || point.y + track.h < -40 || point.x > this.width + 40 || point.y > this.height + 40) continue;
+      if (point.x + track.w < -40 || point.y + track.h < -40 || point.x > viewW + 40 || point.y > viewH + 40) continue;
       if (track.orientation === "horizontal") {
         ctx.fillStyle = "rgba(60,55,45,0.44)";
         ctx.fillRect(point.x, point.y, track.w, track.h);
@@ -216,9 +264,9 @@ const TERRAIN_METHODS = {
           ctx.fillRect(point.x, y - 4, track.w, 2);
           ctx.fillRect(point.x, y + 5, track.w, 2);
           ctx.fillStyle = "#8c7654";
-          const start = Math.floor(this.camera.x / 24) * 24;
-          for (let worldX = start; worldX < this.camera.x + this.width + 24; worldX += 24) {
-            ctx.fillRect(Math.round(worldX - this.camera.x), y - 7, 5, 16);
+          const start = track.x + Math.floor((Math.max(this.camera.x, track.x) - track.x) / 24) * 24;
+          for (let worldX = start; worldX < Math.min(track.x + track.w, this.camera.x + viewW); worldX += 24) {
+            ctx.fillRect(Math.round(worldX - this.camera.x), y - 7, Math.min(5, track.x + track.w - worldX), 16);
           }
         }
       } else {
@@ -230,9 +278,9 @@ const TERRAIN_METHODS = {
           ctx.fillRect(x - 4, point.y, 2, track.h);
           ctx.fillRect(x + 5, point.y, 2, track.h);
           ctx.fillStyle = "#8c7654";
-          const start = Math.floor(this.camera.y / 24) * 24;
-          for (let worldY = start; worldY < this.camera.y + this.height + 24; worldY += 24) {
-            ctx.fillRect(x - 7, Math.round(worldY - this.camera.y), 16, 5);
+          const start = track.y + Math.floor((Math.max(this.camera.y, track.y) - track.y) / 24) * 24;
+          for (let worldY = start; worldY < Math.min(track.y + track.h, this.camera.y + viewH); worldY += 24) {
+            ctx.fillRect(x - 7, Math.round(worldY - this.camera.y), 16, Math.min(5, track.y + track.h - worldY));
           }
         }
       }

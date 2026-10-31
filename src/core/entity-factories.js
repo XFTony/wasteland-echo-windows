@@ -48,8 +48,18 @@ function makeProjectile() {
     knockback: 0,
     color: "#fff",
     owner: "player",
+    attackKind: null,
+    bounces: 0,
+    blastRadius: 0,
     sourceType: null,
     sourceRole: null,
+    weaponId: null,
+    attackId: 0,
+    empowered: false,
+    hitX: null,
+    hitY: null,
+    barrelStartX: null,
+    barrelStartY: null,
     critical: false,
     hitIds: new Set()
   };
@@ -58,8 +68,16 @@ function makeProjectile() {
 function resetProjectile(item, values) {
   Object.assign(item, values);
   item.critical = Boolean(values.critical);
+  item.attackKind = values.attackKind || null; item.bounces = values.bounces || 0; item.blastRadius = values.blastRadius || 0;
   item.sourceType = values.sourceType || null;
   item.sourceRole = values.sourceRole || null;
+  item.weaponId = values.weaponId || null;
+  item.attackId = Number.isInteger(values.attackId) ? values.attackId : 0;
+  item.empowered = Boolean(values.empowered);
+  item.hitX = null;
+  item.hitY = null;
+  item.barrelStartX = Number.isFinite(values.barrelStartX) ? values.barrelStartX : null;
+  item.barrelStartY = Number.isFinite(values.barrelStartY) ? values.barrelStartY : null;
   item.hitIds.clear();
 }
 
@@ -84,6 +102,7 @@ function makeEnemy() {
     elite: false,
     boss: false,
     bossDefinitionId: null,
+    targetStructureId: null,
     bossPhaseId: null,
     hitFlash: 0,
     hitCooldown: 0,
@@ -92,7 +111,12 @@ function makeEnemy() {
     navigationTime: 0,
     bossPhase: 0,
     knockbackResistance: 0,
-    heading: 0
+    heading: 0,
+    knockbackVX: 0,
+    knockbackVY: 0,
+    knockbackAttackIds: new Int32Array(8),
+    knockbackAttackAmounts: new Float32Array(8),
+    knockbackAttackCursor: 0
   };
 }
 
@@ -107,7 +131,13 @@ function resetEnemy(item, values) {
   item.navigationTime = 0;
   item.bossPhase = 0;
   item.bossDefinitionId = values.bossDefinitionId || null;
+  item.targetStructureId = null;
   item.bossPhaseId = null;
+  item.knockbackVX = 0;
+  item.knockbackVY = 0;
+  item.knockbackAttackIds.fill(0);
+  item.knockbackAttackAmounts.fill(0);
+  item.knockbackAttackCursor = 0;
 }
 
 function makePickup() {

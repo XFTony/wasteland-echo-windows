@@ -1,15 +1,90 @@
 "use strict";
 
 const { PALETTE } = require("../config");
+const { ART_IDS } = require("./art/asset-catalog");
+const { hash2 } = require("./render-hash");
+const { ECHO_PROP_RECTS } = require("../content/echo-props");
 
 const OBSTACLE_METHODS = {
   drawObstacles(obstacles) {
     const ctx = this.ctx;
     for (const obstacle of obstacles) {
+      if (obstacle.kind === "interactiveBody" || obstacle.kind === "turretBody") continue;
       const point = this.worldToScreen(obstacle.x, obstacle.y, this.screenPoint);
       if (point.x + obstacle.w < -20 || point.y + obstacle.h < -20 || point.x > this.width + 20 || point.y > this.height + 20) continue;
       ctx.fillStyle = "rgba(20,18,15,0.28)";
       ctx.fillRect(point.x + 8, point.y + 9, obstacle.w, obstacle.h);
+      const sprite = ECHO_PROP_RECTS[obstacle.kind];
+      if (this.mapLayout.id === "echo_district" && sprite && this.artStore.ready(ART_IDS.PROP_ECHO_SALVAGE_KIT)) {
+        ctx.save(); ctx.imageSmoothingEnabled = false;
+        ctx.drawImage(this.artStore.get(ART_IDS.PROP_ECHO_SALVAGE_KIT), ...sprite, point.x, point.y, obstacle.w, obstacle.h);
+        ctx.restore(); continue;
+      }
+      if (obstacle.kind === "tradePost") {
+        if (this.artStore.ready(ART_IDS.PROP_ECHO_MARKET)) {
+          ctx.save(); ctx.imageSmoothingEnabled = false;
+          ctx.drawImage(this.artStore.get(ART_IDS.PROP_ECHO_MARKET), point.x, point.y, obstacle.w, obstacle.h); ctx.restore();
+        } else {
+          ctx.fillStyle = "#514b39"; ctx.fillRect(point.x, point.y, obstacle.w, obstacle.h);
+          ctx.fillStyle = "#c2a05d"; ctx.fillRect(point.x + 4, point.y + 4, obstacle.w - 8, obstacle.h * .4);
+          ctx.fillStyle = "#272c24"; ctx.fillRect(point.x + 12, point.y + obstacle.h * .48, obstacle.w - 24, obstacle.h * .32);
+          ctx.fillStyle = "#ac8251"; ctx.fillRect(point.x + 5, point.y + obstacle.h - 12, obstacle.w - 10, 9);
+        }
+        this.text("余火交易站", point.x + obstacle.w / 2, point.y + obstacle.h + 11, 12, "#e9d39e", "center", "bold");
+        continue;
+      }
+      if (this.mapLayout.id === "echo_district" && obstacle.kind === "shop") {
+        const roofId = String(obstacle.sign || "").includes("药房") ? ART_IDS.PROP_ECHO_APOTHECARY : ART_IDS.PROP_ECHO_SHOP;
+        if (this.artStore && this.artStore.ready(roofId)) {
+          const roof = this.artStore.get(roofId);
+          ctx.save();
+          ctx.imageSmoothingEnabled = true;
+          if (roofId === ART_IDS.PROP_ECHO_SHOP && hash2(obstacle.x, obstacle.y) % 3 === 1) {
+            ctx.translate(point.x + obstacle.w, point.y);
+            ctx.scale(-1, 1);
+            ctx.drawImage(roof, 0, 0, obstacle.w, obstacle.h);
+          } else {
+            ctx.drawImage(roof, point.x, point.y, obstacle.w, obstacle.h);
+          }
+          ctx.restore();
+          if (this.qualityLevel > 0) this.text(obstacle.sign, point.x + obstacle.w / 2, point.y + obstacle.h - 13, 10, PALETTE.cream, "center", "bold");
+          continue;
+        }
+      }
+      if (this.mapLayout.id === "echo_district" && obstacle.kind === "warehouse"
+        && this.artStore && this.artStore.ready(ART_IDS.PROP_ECHO_WAREHOUSE)) {
+        const roof = this.artStore.get(ART_IDS.PROP_ECHO_WAREHOUSE);
+        ctx.save();
+        ctx.imageSmoothingEnabled = true;
+        ctx.drawImage(roof, point.x, point.y, obstacle.w, obstacle.h);
+        ctx.restore();
+        if (this.qualityLevel > 0) this.text(obstacle.sign || "DEPOT", point.x + obstacle.w / 2, point.y + obstacle.h - 13, 10, PALETTE.cream, "center", "bold");
+        continue;
+      }
+      if (this.mapLayout.id === "echo_district" && obstacle.kind === "container"
+        && this.artStore && this.artStore.ready(ART_IDS.PROP_ECHO_CONTAINER)) {
+        const container = this.artStore.get(ART_IDS.PROP_ECHO_CONTAINER);
+        ctx.save();
+        ctx.imageSmoothingEnabled = true;
+        ctx.drawImage(container, point.x, point.y, obstacle.w, obstacle.h);
+        ctx.restore();
+        continue;
+      }
+      if (this.mapLayout.id === "echo_district" && obstacle.kind === "railcar"
+        && this.artStore && this.artStore.ready(ART_IDS.PROP_ECHO_RAILCAR)) {
+        const railcar = this.artStore.get(ART_IDS.PROP_ECHO_RAILCAR);
+        ctx.save();
+        ctx.imageSmoothingEnabled = true;
+        if (obstacle.h > obstacle.w) {
+          ctx.translate(point.x + obstacle.w, point.y);
+          ctx.rotate(Math.PI / 2);
+          ctx.drawImage(railcar, 0, 0, obstacle.h, obstacle.w);
+        } else {
+          ctx.drawImage(railcar, point.x, point.y, obstacle.w, obstacle.h);
+        }
+        ctx.restore();
+        continue;
+      }
       if (obstacle.kind === "shop") {
         ctx.fillStyle = "#473f34";
         ctx.fillRect(point.x, point.y + 10, obstacle.w, obstacle.h - 10);

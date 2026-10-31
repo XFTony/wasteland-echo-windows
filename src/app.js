@@ -6,11 +6,12 @@ const { InputManager } = require("./input/input-manager");
 const { UiNavigator } = require("./input/ui-navigator");
 const { keyboardCommand, gamepadCommand } = require("./input/command-map");
 const { executeUiCommand, dispatchAction, toggleSetting } = require("./runtime/action-router");
+const { StartupSequence } = require("./core/startup-sequence");
 
 const EMPTY_GAMEPADS = Object.freeze([]);
 
 class GameApp {
-  constructor({ model, renderer, audio, platform, input }) {
+  constructor({ model, renderer, audio, platform, input, startup }) {
     this.model = assertPort("model", model, ["setInput", "tick", "drainEvents"]);
     this.renderer = assertPort("renderer", renderer, ["resize", "render", "hitTest"]);
     this.audio = assertPort("audio", audio, ["setSettings", "handle", "update", "unlock", "suspend"]);
@@ -24,6 +25,8 @@ class GameApp {
     this.viewportState = { width: 960, height: 540, aimOriginX: 480, aimOriginY: 270 };
     this.inputOptions = { gamepads: EMPTY_GAMEPADS, settings: this.model.save.settings, keyBindings: this.model.save.keyBindings, screen: this.model.screen, width: 960, height: 540, aimOriginX: 480, aimOriginY: 270, now: 0 };
     this.audio.setSettings(this.model.save.settings);
+    this.startup = new StartupSequence({ enabled: startup === true && this.model.save.settings.introAnimation !== false,
+      reducedMotion: Boolean(this.platform.reducedMotion) });
   }
 
   get keyboard() { return this.inputManager.keyboard; }
@@ -55,6 +58,7 @@ class GameApp {
   }
 
   contextKey() {
+    if (this.startup.active) return "startup";
     return `${this.model.screen}:${this.model.menuPage || ""}`;
   }
 
@@ -67,8 +71,8 @@ class GameApp {
     const player = this.model.run && this.model.run.player;
     const camera = this.renderer.camera;
     if (player && camera && Number.isFinite(camera.x) && Number.isFinite(camera.y)) {
-      viewport.aimOriginX = player.x - camera.x;
-      viewport.aimOriginY = player.y - camera.y;
+      viewport.aimOriginX = (player.x - camera.x) * (camera.zoom || 1);
+      viewport.aimOriginY = (player.y - camera.y) * (camera.zoom || 1);
     }
     return viewport;
   }
@@ -86,13 +90,28 @@ class GameApp {
     inputOptions.height = viewport.height;
     inputOptions.aimOriginX = viewport.aimOriginX;
     inputOptions.aimOriginY = viewport.aimOriginY;
+    inputOptions.aimScale = this.renderer.camera && this.renderer.camera.zoom || 1;
     inputOptions.now = time;
     this.inputManager.update(inputOptions);
     for (const rawCommand of this.inputManager.drainGamepadCommands()) {
+      this.audio.unlock();
       const command = gamepadCommand(rawCommand, this.model);
       if (command) this.executeCommand(command);
     }
 
+    if (this.model.run && this.startup.state.active) this.startup.skip();
+    if (this.startup.state.active) {
+      const ready = typeof this.renderer.startupReady === "function" && this.renderer.startupReady();
+      const startup = this.startup.advance(time, ready);
+      const presentation = this.inputManager.getPresentationState();
+      presentation.startup = startup;
+      presentation.uiTime = time / 1000;
+      presentation.reducedMotion = Boolean(this.platform.reducedMotion);
+      this.renderer.render(this.model, presentation);
+      this.clock.reset(time);
+      this.platform.raf(this.boundFrame);
+      return;
+    }
     this.model.setInput(this.input);
     const timing = this.clock.advance(time, this.model.screen === SCREENS.RUNNING, (dt) => this.model.tick(dt));
     if (this.model.screen !== SCREENS.RUNNING) this.clock.accumulator = 0;
@@ -100,11 +119,11 @@ class GameApp {
     const events = this.model.drainEvents();
     if (events.some((event) => event.type === "setting")) this.audio.setSettings(this.model.save.settings);
     this.audio.handle(events);
-    this.audio.update(timing.dt, this.model.screen === SCREENS.RUNNING, this.model.run);
+    this.audio.update(timing.dt, this.model.screen === SCREENS.RUNNING, this.model.run, this.model.screen);
     this.inputManager.handleFeedback(events, this.model.save.settings, time);
     if (typeof this.renderer.updatePerformance === "function") this.renderer.updatePerformance(timing.dt);
     if (typeof this.renderer.handleEvents === "function") this.renderer.handleEvents(events, this.model);
-    if (typeof this.renderer.updateEffects === "function") this.renderer.updateEffects(timing.dt);
+    if (typeof this.renderer.updateEffects === "function") this.renderer.updateEffects(timing.dt, this.model);
 
     const frameMs = timing.dt * 1000;
     this.metrics.frameMs += (frameMs - this.metrics.frameMs) * 0.08;
@@ -115,6 +134,9 @@ class GameApp {
     const presentation = this.inputManager.getPresentationState();
     presentation.focusAction = this.navigator.focusedAction;
     presentation.metrics = this.metrics;
+    presentation.startup = null;
+    presentation.uiTime = time / 1000;
+    presentation.reducedMotion = Boolean(this.platform.reducedMotion);
     this.renderer.render(this.model, presentation);
     this.navigator.sync(this.renderer.regions, this.contextKey());
     presentation.focusAction = this.navigator.focusedAction;
@@ -131,11 +153,18 @@ class GameApp {
     inputOptions.height = viewport.height;
     inputOptions.aimOriginX = viewport.aimOriginX;
     inputOptions.aimOriginY = viewport.aimOriginY;
+    inputOptions.aimScale = this.renderer.camera && this.renderer.camera.zoom || 1;
     inputOptions.now = this.platform.now();
     this.inputManager.update(inputOptions);
   }
 
   keyDown(code, options = {}) {
+    if (this.startup.state.active && !this.model.run) {
+      const state = this.inputManager.keyDown(code);
+      this.audio.unlock();
+      if (!state.alreadyPressed && !options.repeat && ["Enter", "Space", "Escape"].includes(code)) this.startup.skip();
+      return;
+    }
     if (this.model.pendingBindingAction) {
       this.audio.unlock();
       if (code === "Escape") this.model.cancelKeyBinding();
@@ -146,12 +175,13 @@ class GameApp {
     const state = this.inputManager.keyDown(code);
     this.updateKeyboard();
     this.audio.unlock();
-    if (!state.alreadyPressed) {
+    if (!state.alreadyPressed && !options.repeat) {
       const command = keyboardCommand(code, {
         screen: this.model.screen,
         menuPage: this.model.menuPage,
         keyBindings: this.model.save.keyBindings,
-        shiftKey: Boolean(options.shiftKey)
+        shiftKey: Boolean(options.shiftKey),
+        placement: Boolean(this.model.run && this.model.run.placement)
       });
       if (command) this.executeCommand(command);
     }
@@ -168,6 +198,11 @@ class GameApp {
 
   mouseDown(x, y) {
     this.audio.unlock();
+    if (this.startup.state.active && !this.model.run) {
+      this.startup.skip();
+      this.inputManager.mouseUp();
+      return;
+    }
     const action = this.renderer.hitTest(x, y);
     this.inputManager.mouseDown(x, y, this.inputViewport());
     if (action) {
@@ -178,6 +213,9 @@ class GameApp {
       return;
     }
     this.updateKeyboard();
+    if (this.model.screen === SCREENS.RUNNING && this.model.run?.placement) {
+      this.model.setInput(this.input); this.model.structures.confirm(); this.inputManager.mouseUp();
+    }
   }
 
   mouseMove(x, y) {
@@ -191,6 +229,10 @@ class GameApp {
   }
 
   executeCommand(command) {
+    if (this.startup.state.active && !this.model.run && command && command.type !== "fullscreen") {
+      if (["activate", "back", "pause"].includes(command.type)) this.startup.skip();
+      return;
+    }
     return executeUiCommand(this, command);
   }
 
@@ -210,6 +252,7 @@ class GameApp {
 
   onShow() {
     this.clock.reset(this.platform.now());
+    this.audio.unlock();
   }
 }
 

@@ -1,0 +1,108 @@
+{
+  "date": "2026-10-27T15:27:16+00:00",
+  "operation": "git ls-remote for two verified branches",
+  "repository": "XFTony/wasteland-echo-windows",
+  "timeoutSeconds": 30,
+  "records": [
+    {
+      "transport": "ssh_443",
+      "sample": 1,
+      "seconds": 8.086,
+      "ok": true,
+      "timeout": false,
+      "exitCode": 0
+    },
+    {
+      "transport": "https_proxy_http11",
+      "sample": 1,
+      "seconds": 1.417,
+      "ok": true,
+      "timeout": false,
+      "exitCode": 0
+    },
+    {
+      "transport": "https_no_explicit_proxy",
+      "sample": 1,
+      "seconds": 1.677,
+      "ok": true,
+      "timeout": false,
+      "exitCode": 0
+    },
+    {
+      "transport": "https_no_explicit_proxy",
+      "sample": 2,
+      "seconds": 1.368,
+      "ok": true,
+      "timeout": false,
+      "exitCode": 0
+    },
+    {
+      "transport": "https_proxy_http11",
+      "sample": 2,
+      "seconds": 1.45,
+      "ok": true,
+      "timeout": false,
+      "exitCode": 0
+    },
+    {
+      "transport": "ssh_443",
+      "sample": 2,
+      "seconds": 6.32,
+      "ok": true,
+      "timeout": false,
+      "exitCode": 0
+    },
+    {
+      "transport": "ssh_443",
+      "sample": 3,
+      "seconds": 6.807,
+      "ok": true,
+      "timeout": false,
+      "exitCode": 0
+    },
+    {
+      "transport": "https_proxy_http11",
+      "sample": 3,
+      "seconds": 4.536,
+      "ok": true,
+      "timeout": false,
+      "exitCode": 0
+    }
+  ],
+  "summary": {
+    "ssh_443": {
+      "successful": 3,
+      "samples": 3,
+      "seconds": [
+        8.086,
+        6.32,
+        6.807
+      ],
+      "medianSuccessfulSeconds": 6.807
+    },
+    "https_proxy_http11": {
+      "successful": 3,
+      "samples": 3,
+      "seconds": [
+        1.417,
+        1.45,
+        4.536
+      ],
+      "medianSuccessfulSeconds": 1.45
+    },
+    "https_no_explicit_proxy": {
+      "successful": 2,
+      "samples": 2,
+      "seconds": [
+        1.677,
+        1.368
+      ],
+      "medianSuccessfulSeconds": 1.5225
+    }
+  },
+  "limits": [
+    "Small read requests do not measure large asset upload throughput.",
+    "No explicit HTTP proxy does not bypass a system TUN or VPN.",
+    "Samples are a current local observation, not a long-term guarantee."
+  ]
+}

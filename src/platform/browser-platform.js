@@ -7,6 +7,11 @@ function createBrowserPlatform(windowObject, documentObject, canvas) {
   const doc = documentObject;
   return {
     profile: "windows-desktop",
+    audio: {
+      loadBytes: async (src) => { const response = await win.fetch(src); if (!response.ok) throw new Error("Audio unavailable"); return response.arrayBuffer(); },
+      createMusic: (src) => new win.Audio(src)
+    },
+    reducedMotion: Boolean(typeof win.matchMedia === "function" && win.matchMedia("(prefers-reduced-motion: reduce)").matches),
     viewport: () => ({
       width: win.innerWidth,
       height: win.innerHeight,

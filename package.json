@@ -13,6 +13,7 @@
     "assets:font": "node scripts/subset-font.mjs",
     "assets:optimize": "python scripts/optimize-runtime-assets.py",
     "audit": "node scripts/audit-project.mjs --write",
+    "art:coverage": "node scripts/audit-illustrated-coverage.mjs --write",
     "check:version": "node scripts/check-version.mjs",
     "release:check:candidate": "node scripts/check-release.mjs --candidate",
     "release:check": "node scripts/check-release.mjs",

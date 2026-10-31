@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_pgume"]
+
+[resource]
+script = ExtResource("1_pgume")
+content_id = &"buy_slag_launcher"
+category = &"shopItems"
+display_name = "熔渣榴弹器"
+source_data = {
+"category": "weapon",
+"currency": "copper",
+"description": "慢速榴弹，接触或到时爆炸；爆炸不能穿墙",
+"grantId": "slag_launcher",
+"grantType": "weapon",
+"id": "buy_slag_launcher",
+"name": "熔渣榴弹器",
+"price": 100.0,
+"unlockStage": 1.0
+}

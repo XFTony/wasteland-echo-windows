@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_xcgbh"]
+
+[resource]
+script = ExtResource("1_xcgbh")
+content_id = &"endlessSupplies"
+category = &"upgrades"
+display_name = "搜集补给"
+source_data = {
+"detail": "获得10拾荒币",
+"fallback": true,
+"family": "utility",
+"id": "endlessSupplies",
+"max": 9.007199254740991e+15,
+"name": "搜集补给",
+"rarity": "standard",
+"repeatable": true
+}

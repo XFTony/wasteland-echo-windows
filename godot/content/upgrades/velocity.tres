@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_ekuup"]
+
+[resource]
+script = ExtResource("1_ekuup")
+content_id = &"velocity"
+category = &"upgrades"
+display_name = "磁轨增压"
+source_data = {
+"detail": "弹速 +16% · 射程 +8%",
+"family": "firepower",
+"flavor": "更快抵达，更晚衰减",
+"id": "velocity",
+"max": 4.0,
+"name": "磁轨增压",
+"rarity": "advanced"
+}

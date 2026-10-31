@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_ty72g"]
+
+[resource]
+script = ExtResource("1_ty72g")
+content_id = &"heat_ramp"
+category = &"mechanics"
+display_name = "热膛递增"
+source_data = {
+"description": "蜂群冲锋枪连续射击会升温并提高单发威力",
+"id": "heat_ramp",
+"name": "热膛递增"
+}

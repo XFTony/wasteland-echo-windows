@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_cattj"]
+
+[resource]
+script = ExtResource("1_cattj")
+content_id = &"fireRate"
+category = &"upgrades"
+display_name = "快速机件"
+source_data = {
+"detail": "射速 +12%",
+"family": "firepower",
+"flavor": "缩短枪机复位间隔",
+"id": "fireRate",
+"max": 5.0,
+"name": "快速机件",
+"rarity": "standard"
+}

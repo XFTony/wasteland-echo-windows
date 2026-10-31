@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-07",
+  "frames": 20,
+  "totalDurationMs": 400,
+  "uniqueRasterFrames": 20,
+  "loopEndpointPixelsExact": true,
+  "duplicateEndpointPlayed": false,
+  "maxLoopVelocityGapPixelsPerCycle": 0.0006111093853178318,
+  "maxBoneLengthErrorPixels": 1.9539925233402755e-14,
+  "minimumKneeBendDegrees": 24.18034573393801,
+  "maxPlantedWorldFootErrorPixels": 1.4210854715202004e-14,
+  "maxQuantizedFootErrorPixels": 0.5,
+  "seamChangedForegroundFraction": 0.25709421112372305,
+  "medianInteriorChangedForegroundFraction": 0.2663631189527604,
+  "maxInteriorChangedForegroundFraction": 0.8465845464725644,
+  "oldEightFrameSeamChangedForegroundFraction": 0.914959928762244,
+  "renderedLayers": [
+    "far-leg",
+    "far-coat",
+    "near-leg",
+    "pelvis",
+    "upper-body",
+    "near-coat"
+  ],
+  "visualApproved": false,
+  "runtimeIntegrated": false
+}

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_503dq"]
+
+[resource]
+script = ExtResource("1_503dq")
+content_id = &"killMend"
+category = &"upgrades"
+display_name = "猎获修复"
+source_data = {
+"detail": "每12次击败回复1生命／级",
+"family": "survival",
+"glyph": "recovery",
+"id": "killMend",
+"max": 3.0,
+"name": "猎获修复",
+"rarity": "prototype",
+"unlockWave": 2.0
+}

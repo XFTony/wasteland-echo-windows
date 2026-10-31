@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_6b52w"]
+
+[resource]
+script = ExtResource("1_6b52w")
+content_id = &"phaseLining"
+category = &"upgrades"
+display_name = "相位衬层"
+source_data = {
+"detail": "受击无敌 +0.08 秒",
+"family": "survival",
+"flavor": "在第二次撕咬前脱身",
+"id": "phaseLining",
+"max": 3.0,
+"name": "相位衬层",
+"rarity": "prototype"
+}

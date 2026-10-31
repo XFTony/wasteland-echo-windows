@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_e4yb8"]
+
+[resource]
+script = ExtResource("1_e4yb8")
+content_id = &"extraction"
+category = &"modes"
+display_name = "撤离模式"
+source_data = {
+"bossOneAt": 0.5,
+"bossTwoAt": 0.9375,
+"description": "终局进入信标并完成同步",
+"enemyLimit": 84.0,
+"hpGrowth": 0.7,
+"id": "extraction",
+"name": "撤离模式",
+"objective": "抵达信标",
+"playerHp": 100.0,
+"playerInvulnerability": 0.6,
+"playerSpeed": 170.0,
+"rule": "extract",
+"spawnEnd": 0.23,
+"spawnPhases": [{
+"at": 0.0,
+"cap": 16.0,
+"detail": "先清理外围感染者",
+"id": "infiltration",
+"index": 0.0,
+"interval": 0.82,
+"label": "撤离线侦测"
+}, {
+"at": 0.16,
+"cap": 28.0,
+"detail": "敌群正在截断撤离路线",
+"id": "blockade",
+"index": 1.0,
+"interval": 0.58,
+"label": "道路封锁"
+}, {
+"at": 0.38,
+"cap": 44.0,
+"detail": "远程感染者开始压制",
+"id": "crossfire",
+"index": 2.0,
+"interval": 0.42,
+"label": "交叉火力"
+}, {
+"at": 0.6,
+"cap": 58.0,
+"detail": "保持通往信标的路线畅通",
+"id": "sweep",
+"index": 3.0,
+"interval": 0.32,
+"label": "清场行动"
+}, {
+"at": 0.82,
+"cap": 84.0,
+"detail": "信标即将上线",
+"id": "evacuation",
+"index": 4.0,
+"interval": 0.23,
+"label": "撤离倒计时"
+}],
+"spawnProfile": "extraction",
+"spawnStart": 0.82,
+"speedGrowth": 0.12,
+"winReward": 40.0
+}

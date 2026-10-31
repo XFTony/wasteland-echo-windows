@@ -1,6 +1,8 @@
 # 《荒原回响》美术材料库
 
-此目录保存可复用源图、处理中间稿、运行时优化图和版本清单。`web/assets/` 只保存当前客户端需要加载的副本；`art/` 不进入浏览器 bundle。
+此目录保存可复用原稿、提示词、处理中间稿、可编辑源和来源清单。当前运行素材位于`godot/assets/`；`web/assets/`为旧版对照与回退。活动素材与来源见[素材索引](../docs/assets/asset-catalog.md)，完整用途见[文件导航](../docs/project-file-guide.md)。
+
+2026-10-31：用户已明确停用的三维/精细动作试验及旧迁移样板按逐文件清单备份退役；14项研究记录保存在`manifest.json`的`archivedAssets`中，含原始对象、SHA与恢复提交。原稿没有无备份丢弃。当前compact角色源、手型/袖口、敌人/武器与地图材料均保留；详情与恢复方法见[清理报告](../docs/cleanup/retirement-report.md)。
 
 ## 目录
 
@@ -20,6 +22,9 @@ art/
       prompts.md          # 六张页面底板与公共实体铭牌的生成规范
       source/             # 原生 16:9 源图、透明失败稿和洋红源图
       runtime/            # 当前全页底板与 RGBA 公共铭牌
+    v1.5/
+      prompts.md          # 当前轮次可核实的 ImageGen 提示词
+      source/             # 全插画重构原始 PNG；运行图由脚本生成
 ~~~
 
 ## 状态规则
@@ -29,7 +34,7 @@ art/
 - `source-only`：生成源图或中间稿，不允许直接进入客户端；
 - `provisional`：美术内容已验收，但商业发布前仍须根据生成服务条款复核。
 
-停用素材从活动 `asset-catalog.js` 移出，只在 `manifest.json` 与 `art/generated/` 保留；不得删除唯一源图。`web/assets/` 不保存与归档逐字节重复的 PNG。若要复用旧素材，先从 manifest 恢复为新的活动版本并重新加入测试。
+停用不等于可删：普通inactive材料仍按现行引用/制作/许可链保留。只有用户指定、引用/隔离回归/ZIP验证均通过的明确退役批次才移出工作树，并保留清单与可恢复备份，不删除唯一未备份原稿。若复用旧素材，先从备份或Git恢复并登记为新的活动版本，再补测试。
 
 ## 运行时边界
 
@@ -66,3 +71,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/process-chroma-key.p
 ```
 
 脚本使用色度优势而非简单全局颜色删除，并保留中间稿；输出后仍需检查 Alpha、边缘污染和实际合成画面。
+
+## v1.5 全插画样板
+
+运行 `python scripts/optimize-illustrated-assets.py` 生成限制尺寸的 WebP 与 `docs/illustrated-assets-report.json`，随后运行 `python scripts/register-illustrated-assets.py` 更新清单和来源台账。新图接入前检查透明度、完整四肢、实际缩小后的剪影、碰撞边界和菜单文字对比。浏览器截图工具为 `node scripts/qa/capture-illustrated-slice.mjs`，输出到被 Git 忽略的 `output/playwright/v15-painted/`。完整视觉状态与下一批阻断项见 `docs/art-direction-v1.5-illustrated.md`。

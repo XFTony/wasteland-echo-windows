@@ -1,0 +1,57 @@
+[
+  {
+    "id": "ember_sprayer",
+    "runtime": "godot/assets/audio/fieldcraft-v2/ember_sprayer.wav",
+    "sourcePaths": [
+      "art/combat/fieldcraft-v2/audio/ember_sprayer.wav",
+      "scripts/audio/generate-fieldcraft.py"
+    ],
+    "seconds": 0.15,
+    "bytes": 6660,
+    "sha256": "8d4801ebc86bd1270bca3334425890b011d5740d8d08cc43395e7c249fd3b1b0"
+  },
+  {
+    "id": "arc_repeater",
+    "runtime": "godot/assets/audio/fieldcraft-v2/arc_repeater.wav",
+    "sourcePaths": [
+      "art/combat/fieldcraft-v2/audio/arc_repeater.wav",
+      "scripts/audio/generate-fieldcraft.py"
+    ],
+    "seconds": 0.23,
+    "bytes": 10188,
+    "sha256": "2f381010594fdf167e24466c5f4a6188695c089a8741c9e13aa871f31433a9ff"
+  },
+  {
+    "id": "scrap_knuckles",
+    "runtime": "godot/assets/audio/fieldcraft-v2/scrap_knuckles.wav",
+    "sourcePaths": [
+      "art/combat/fieldcraft-v2/audio/scrap_knuckles.wav",
+      "scripts/audio/generate-fieldcraft.py"
+    ],
+    "seconds": 0.23,
+    "bytes": 10188,
+    "sha256": "7886fd7d8ae9e7d05c13fa967b2113a78bf9bcef5761df5fcbbb3a3573f3bb73"
+  },
+  {
+    "id": "reaper_scythe",
+    "runtime": "godot/assets/audio/fieldcraft-v2/reaper_scythe.wav",
+    "sourcePaths": [
+      "art/combat/fieldcraft-v2/audio/reaper_scythe.wav",
+      "scripts/audio/generate-fieldcraft.py"
+    ],
+    "seconds": 0.23,
+    "bytes": 10188,
+    "sha256": "ff8e9bfbf56b442d5b60a120209e01ce5880700ec2b49f1ba2cae9c356d38417"
+  },
+  {
+    "id": "enemy_fall",
+    "runtime": "godot/assets/audio/fieldcraft-v2/enemy_fall.wav",
+    "sourcePaths": [
+      "art/combat/fieldcraft-v2/audio/enemy_fall.wav",
+      "scripts/audio/generate-fieldcraft.py"
+    ],
+    "seconds": 0.26,
+    "bytes": 11510,
+    "sha256": "963f77db1a27176274714a25fa9bee90f577351b0e99a63e8b4bd37b81102620"
+  }
+]

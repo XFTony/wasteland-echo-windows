@@ -5,9 +5,12 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 const crypto = require("node:crypto");
-const { ART_IDS, ART_ASSETS, validateArtCatalog } = require("../src/render/art/asset-catalog");
+const { ART_IDS, MAP_GROUND_ART, ART_ASSETS, validateArtCatalog } = require("../src/render/art/asset-catalog");
 const { ArtStore } = require("../src/render/art/art-store");
+const { HERO_SKIN_ART, ENEMY_ART, WEAPON_ART, drawIllustratedSurvivor } = require("../src/render/illustrated-actors");
+const { HEROES, ENEMIES, WEAPONS, SKINS, EQUIPMENT, MAPS } = require("../src/config");
 const { drawAssetContain, drawNineSlice } = require("../src/render/ui/image-primitives");
+const { SKIN_ART, EQUIPMENT_ART } = require("../src/render/ui/item-icons");
 
 const root = path.resolve(__dirname, "..");
 
@@ -36,40 +39,106 @@ function rendererWith(store) {
   };
 }
 
-test("runtime art catalog contains only active, local assets", () => {
+test("illustrated runtime art catalog keeps active assets local and retired art inactive", () => {
   assert.equal(validateArtCatalog(ART_ASSETS), ART_ASSETS);
-  assert.equal(ART_ASSETS[ART_IDS.BACKDROP_DEPLOYMENT].version, "1.2");
+  assert.equal(ART_ASSETS[ART_IDS.BACKDROP_DEPLOYMENT].version, "1.5");
   assert.equal(ART_ASSETS[ART_IDS.UI_FIELD_PLATE].version, "1.2");
   assert.match(ART_ASSETS[ART_IDS.BACKDROP_MAIN].src, /\.webp$/);
   assert.match(ART_ASSETS[ART_IDS.GROUND].src, /\.webp$/);
+  assert.equal(ART_ASSETS[ART_IDS.LEGACY_TITLE_KEY_ART].active, false);
+  assert.equal(ART_ASSETS[ART_IDS.LEGACY_BACKDROP_MAIN].active, false);
   for (const definition of Object.values(ART_ASSETS)) {
-    assert.equal(definition.active, true);
+    assert.equal(definition.active, definition.group !== "legacy");
     assert.match(definition.src, /^\.\/assets\//);
     assert.doesNotMatch(definition.src, /^https?:/i);
   }
   assert.ok(fs.existsSync(path.join(root, "archive", "code", "ui", "deployment-legacy.js")));
 });
 
+test("every base hero, enemy, weapon, outfit and equipment resolves to registered painted art", () => {
+  assert.deepEqual(Object.keys(HERO_SKIN_ART).sort(), Object.keys(HEROES).sort());
+  assert.deepEqual(Object.keys(ENEMY_ART).sort(), Object.keys(ENEMIES).sort());
+  const {NATIVE_WEAPONS}=require("../src/content/weapon-expansion");
+  assert.deepEqual([...Object.keys(WEAPON_ART),...Object.keys(NATIVE_WEAPONS)].sort(), Object.keys(WEAPONS).sort());
+  assert.deepEqual(Object.keys(SKIN_ART).sort(), Object.keys(SKINS).sort());
+  assert.deepEqual(Object.keys(EQUIPMENT_ART).sort(), Object.keys(EQUIPMENT).sort());
+  assert.deepEqual(Object.keys(MAP_GROUND_ART).sort(), Object.keys(MAPS).sort());
+  for (const id of Object.values(ENEMY_ART)) {
+    assert.equal(ART_ASSETS[id].active, false, "retired illustrated enemies stay archived");
+    assert.equal(ART_ASSETS[id].group, "legacy");
+    assert.ok(fs.existsSync(path.join(root, "web", ART_ASSETS[id].src.slice(2))));
+  }
+  const { ENEMY_SPRITES } = require("../src/content/compact-actors");
+  assert.deepEqual(Object.keys(ENEMY_SPRITES).sort(), Object.keys(ENEMIES).sort());
+  for (const id of [...Object.values(ENEMY_SPRITES).map(enemy => enemy.assetId), ...Object.values(HERO_SKIN_ART).map((skins) => skins.wanderer), ...Object.values(WEAPON_ART), ...Object.values(SKIN_ART), ...Object.values(EQUIPMENT_ART), ...Object.values(MAP_GROUND_ART)]) {
+    assert.equal(ART_ASSETS[id].active, true, `${id} must be active`);
+    assert.ok(fs.existsSync(path.join(root, "web", ART_ASSETS[id].src.slice(2))), `${id} runtime sprite must exist`);
+  }
+});
+
+test("painted hero outfit variants retain independent weapons", () => {
+  assert.equal(HERO_SKIN_ART.ranger.mechanic, ART_IDS.ACTOR_RANGER_MECHANIC);
+  assert.equal(HERO_SKIN_ART.ranger.nightwatch, ART_IDS.ACTOR_RANGER_NIGHTWATCH);
+  assert.equal(HERO_SKIN_ART.mechanic.mechanic, ART_IDS.ACTOR_MECHANIC_MECHANIC);
+  assert.equal(HERO_SKIN_ART.mechanic.nightwatch, ART_IDS.ACTOR_MECHANIC_NIGHTWATCH);
+  assert.equal(HERO_SKIN_ART.bulwark.mechanic, ART_IDS.ACTOR_BULWARK_MECHANIC);
+  assert.equal(HERO_SKIN_ART.bulwark.nightwatch, ART_IDS.ACTOR_BULWARK_NIGHTWATCH);
+  const store = new ArtStore({ ImageCtor: FakeImage });
+  const calls = [];
+  const translations = [];
+  const ctx = {
+    globalAlpha: 1,
+    save() {}, restore() {}, beginPath() {}, arc() {}, fill() {},
+    translate(...point) { translations.push(point); }, scale() {}, rotate() {},
+    drawImage(image) { calls.push(image); }
+  };
+  const renderer = { ctx, artStore: store, screenPoint: { x: 0, y: 0 }, worldToScreen: (x, y) => ({ x, y }) };
+  const run = { elapsed: 0, input: { moveX: 0, moveY: 0 } };
+  const player = { heroId: "ranger", skinId: "mechanic", weaponId: "scrap_pistol", x: 100, y: 100, lastAimX: 1, lastAimY: 0 };
+  assert.equal(drawIllustratedSurvivor(renderer, player, run, false), true);
+  assert.equal(drawIllustratedSurvivor(renderer, { ...player, skinId: "nightwatch" }, run, false), true);
+  assert.equal(drawIllustratedSurvivor(renderer, { ...player, heroId: "mechanic" }, run, false), true);
+  assert.equal(drawIllustratedSurvivor(renderer, { ...player, heroId: "mechanic", skinId: "nightwatch" }, run, false), true);
+  assert.equal(drawIllustratedSurvivor(renderer, { ...player, heroId: "bulwark" }, run, false), true);
+  const rightGripX = translations.at(-1)[0];
+  assert.equal(drawIllustratedSurvivor(renderer, { ...player, heroId: "bulwark", lastAimX: -1 }, run, false), true);
+  const leftGripX = translations.at(-1)[0];
+  assert.ok(rightGripX > player.x && leftGripX < player.x, "bulwark weapon must follow the nearer hand on each side");
+  assert.equal(drawIllustratedSurvivor(renderer, { ...player, heroId: "bulwark", skinId: "nightwatch" }, run, false), true);
+  assert.equal(calls.length, 14, "each painted body and separate weapon must both draw");
+});
+
 test("art store loads active definitions once and supports injected images", () => {
   const store = new ArtStore({ ImageCtor: FakeImage });
-  assert.equal(store.ready(ART_IDS.UI_FIELD_PLATE), true);
+  assert.equal(store.ready(ART_IDS.RADIO_CAMP), true);
+  assert.equal(store.ready(ART_IDS.UI_FIELD_PLATE), false);
   const injected = { complete: true, naturalWidth: 640, naturalHeight: 360 };
-  const injectedStore = new ArtStore({ images: { [ART_IDS.BACKDROP_DEPLOYMENT]: injected } });
-  assert.equal(injectedStore.get(ART_IDS.BACKDROP_DEPLOYMENT), injected);
+  const injectedStore = new ArtStore({ images: { [ART_IDS.RADIO_DESK]: injected } });
+  assert.equal(injectedStore.get(ART_IDS.RADIO_DESK), injected);
 });
 
 test("art store releases inactive menu backgrounds while retaining the current page", () => {
   const store = new ArtStore({ ImageCtor: FakeImage });
-  store.request(ART_IDS.BACKDROP_DEPLOYMENT);
-  store.request(ART_IDS.BACKDROP_INVENTORY);
-  const released = store.releaseGroup("menu-backdrop", ART_IDS.BACKDROP_INVENTORY);
+  store.request(ART_IDS.RADIO_CAMP);
+  store.request(ART_IDS.RADIO_DESK);
+  const released = store.releaseGroup("menu-backdrop", ART_IDS.RADIO_DESK);
   assert.ok(released >= 1);
-  assert.equal(store.get(ART_IDS.BACKDROP_DEPLOYMENT), null);
-  assert.ok(store.get(ART_IDS.BACKDROP_INVENTORY));
+  assert.equal(store.get(ART_IDS.RADIO_CAMP), null);
+  assert.ok(store.get(ART_IDS.RADIO_DESK));
+});
+
+test("world group release can retain the fallback and current map texture", () => {
+  const store = new ArtStore({ ImageCtor: FakeImage });
+  for (const id of [ART_IDS.GROUND, ART_IDS.GROUND_ECHO, ART_IDS.GROUND_FREIGHT, ART_IDS.GROUND_RED_BASIN]) store.request(id);
+  assert.equal(store.releaseGroup("world", [ART_IDS.GROUND, ART_IDS.GROUND_ECHO]), 2);
+  assert.ok(store.get(ART_IDS.GROUND));
+  assert.ok(store.get(ART_IDS.GROUND_ECHO));
+  assert.equal(store.get(ART_IDS.GROUND_FREIGHT), null);
+  assert.equal(store.get(ART_IDS.GROUND_RED_BASIN), null);
 });
 
 test("image primitives contain complete art and preserve nine-slice corners", () => {
-  const store = new ArtStore({ ImageCtor: FakeImage });
+  const store = new ArtStore({ images: { [ART_IDS.UI_FIELD_PLATE]: new FakeImage() } });
   const renderer = rendererWith(store);
   const contained = drawAssetContain(renderer, ART_IDS.UI_FIELD_PLATE, 10, 20, 500, 300);
   assert.ok(contained.x >= 10 && contained.y >= 20);

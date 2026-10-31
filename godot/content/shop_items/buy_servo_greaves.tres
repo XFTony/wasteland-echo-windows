@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_tvop3"]
+
+[resource]
+script = ExtResource("1_tvop3")
+content_id = &"buy_servo_greaves"
+category = &"shopItems"
+display_name = "助力膝甲"
+source_data = {
+"category": "equipment",
+"currency": "copper",
+"description": "腿甲：生命 +10，护甲 +3%，移动 +3%。",
+"grantId": "servo_greaves",
+"grantType": "equipment",
+"id": "buy_servo_greaves",
+"name": "助力膝甲",
+"price": 820.0,
+"unlockRuleId": "blueprint_servo",
+"unlockStage": 2.0
+}

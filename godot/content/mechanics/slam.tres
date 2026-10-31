@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_ide25"]
+
+[resource]
+script = ExtResource("1_ide25")
+content_id = &"slam"
+category = &"mechanics"
+display_name = "震荡落锤"
+source_data = {
+"description": "举锤后在前方产生扩散冲击，短时消弹",
+"id": "slam",
+"name": "震荡落锤"
+}

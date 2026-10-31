@@ -1,0 +1,428 @@
+{
+  "date": "2026-10-28",
+  "pageErrors": [],
+  "layouts": [
+    {
+      "width": 960,
+      "height": 540,
+      "shopRegions": [
+        {
+          "action": "fieldBuy:weaponCalibration",
+          "x": 317,
+          "y": 167,
+          "w": 146,
+          "h": 31
+        },
+        {
+          "action": "fieldBuy:runnerStrap",
+          "x": 317,
+          "y": 290,
+          "w": 146,
+          "h": 31
+        },
+        {
+          "action": "fieldBuy:ballisticLining",
+          "x": 768,
+          "y": 290,
+          "w": 146,
+          "h": 31
+        },
+        {
+          "action": "fieldBuy:salvageMagnet",
+          "x": 317,
+          "y": 413,
+          "w": 146,
+          "h": 31
+        },
+        {
+          "action": "fieldClose",
+          "x": 721,
+          "y": 472,
+          "w": 205,
+          "h": 40
+        }
+      ],
+      "cards": [
+        {
+          "action": "upgrade:speed",
+          "cx": 363.75,
+          "cy": 274.5,
+          "w": 218.5,
+          "h": 385,
+          "angle": -0.011,
+          "scale": 1,
+          "centerHit": "upgrade:speed",
+          "cornerHit": null
+        },
+        {
+          "action": "upgrade:armor",
+          "cx": 596.25,
+          "cy": 274.5,
+          "w": 218.5,
+          "h": 385,
+          "angle": 0.011,
+          "scale": 1,
+          "centerHit": "upgrade:armor",
+          "cornerHit": null
+        },
+        {
+          "action": "upgrade:magnet",
+          "cx": 828.75,
+          "cy": 274.5,
+          "w": 218.5,
+          "h": 385,
+          "angle": 0.033,
+          "scale": 1,
+          "centerHit": "upgrade:magnet",
+          "cornerHit": null
+        },
+        {
+          "action": "upgrade:damage",
+          "cx": 131.25,
+          "cy": 262.5001343458181,
+          "w": 218.5,
+          "h": 385,
+          "angle": -0.004950314033349836,
+          "scale": 1.011999865654182,
+          "centerHit": "upgrade:damage",
+          "cornerHit": null
+        }
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "shopRegions": [
+        {
+          "action": "fieldBuy:weaponCalibration",
+          "x": 290.6666666666667,
+          "y": 313.5,
+          "w": 146,
+          "h": 37
+        },
+        {
+          "action": "fieldBuy:runnerStrap",
+          "x": 1024,
+          "y": 313.5,
+          "w": 146,
+          "h": 37
+        },
+        {
+          "action": "fieldBuy:ballisticLining",
+          "x": 290.6666666666667,
+          "y": 553,
+          "w": 146,
+          "h": 37
+        },
+        {
+          "action": "fieldBuy:salvageMagnet",
+          "x": 657.3333333333334,
+          "y": 553,
+          "w": 146,
+          "h": 37
+        },
+        {
+          "action": "fieldClose",
+          "x": 977,
+          "y": 634,
+          "w": 205,
+          "h": 40
+        }
+      ],
+      "cards": [
+        {
+          "action": "upgrade:speed",
+          "cx": 483.75,
+          "cy": 363,
+          "w": 298.5,
+          "h": 478,
+          "angle": -0.011,
+          "scale": 1,
+          "centerHit": "upgrade:speed",
+          "cornerHit": null
+        },
+        {
+          "action": "upgrade:armor",
+          "cx": 796.25,
+          "cy": 363,
+          "w": 298.5,
+          "h": 478,
+          "angle": 0.011,
+          "scale": 1,
+          "centerHit": "upgrade:armor",
+          "cornerHit": null
+        },
+        {
+          "action": "upgrade:magnet",
+          "cx": 1108.75,
+          "cy": 363,
+          "w": 298.5,
+          "h": 478,
+          "angle": 0.033,
+          "scale": 1,
+          "centerHit": "upgrade:magnet",
+          "cornerHit": null
+        },
+        {
+          "action": "upgrade:damage",
+          "cx": 171.25,
+          "cy": 351.0001343458181,
+          "w": 298.5,
+          "h": 478,
+          "angle": -0.004950314033349836,
+          "scale": 1.011999865654182,
+          "centerHit": "upgrade:damage",
+          "cornerHit": null
+        }
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "shopRegions": [
+        {
+          "action": "fieldBuy:weaponCalibration",
+          "x": 436,
+          "y": 470.25,
+          "w": 219,
+          "h": 55.5
+        },
+        {
+          "action": "fieldBuy:runnerStrap",
+          "x": 1536,
+          "y": 470.25,
+          "w": 219,
+          "h": 55.5
+        },
+        {
+          "action": "fieldBuy:ballisticLining",
+          "x": 436,
+          "y": 829.5,
+          "w": 219,
+          "h": 55.5
+        },
+        {
+          "action": "fieldBuy:salvageMagnet",
+          "x": 986,
+          "y": 829.5,
+          "w": 219,
+          "h": 55.5
+        },
+        {
+          "action": "fieldClose",
+          "x": 1465.5,
+          "y": 951,
+          "w": 307.5,
+          "h": 60
+        }
+      ],
+      "cards": [
+        {
+          "action": "upgrade:speed",
+          "cx": 725.625,
+          "cy": 544.5,
+          "w": 447.75,
+          "h": 717,
+          "angle": -0.011,
+          "scale": 1,
+          "centerHit": "upgrade:speed",
+          "cornerHit": null
+        },
+        {
+          "action": "upgrade:armor",
+          "cx": 1194.375,
+          "cy": 544.5,
+          "w": 447.75,
+          "h": 717,
+          "angle": 0.011,
+          "scale": 1,
+          "centerHit": "upgrade:armor",
+          "cornerHit": null
+        },
+        {
+          "action": "upgrade:magnet",
+          "cx": 1663.125,
+          "cy": 544.5,
+          "w": 447.75,
+          "h": 717,
+          "angle": 0.033,
+          "scale": 1,
+          "centerHit": "upgrade:magnet",
+          "cornerHit": null
+        },
+        {
+          "action": "upgrade:damage",
+          "cx": 256.875,
+          "cy": 526.5002015187272,
+          "w": 447.75,
+          "h": 717,
+          "angle": -0.004950314033349836,
+          "scale": 1.011999865654182,
+          "centerHit": "upgrade:damage",
+          "cornerHit": null
+        }
+      ]
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "shopRegions": [
+        {
+          "action": "fieldBuy:weaponCalibration",
+          "x": 581.3333333333334,
+          "y": 627,
+          "w": 292,
+          "h": 74
+        },
+        {
+          "action": "fieldBuy:runnerStrap",
+          "x": 2048,
+          "y": 627,
+          "w": 292,
+          "h": 74
+        },
+        {
+          "action": "fieldBuy:ballisticLining",
+          "x": 581.3333333333334,
+          "y": 1106,
+          "w": 292,
+          "h": 74
+        },
+        {
+          "action": "fieldBuy:salvageMagnet",
+          "x": 1314.6666666666667,
+          "y": 1106,
+          "w": 292,
+          "h": 74
+        },
+        {
+          "action": "fieldClose",
+          "x": 1954,
+          "y": 1268,
+          "w": 410,
+          "h": 80
+        }
+      ],
+      "cards": [
+        {
+          "action": "upgrade:speed",
+          "cx": 967.5,
+          "cy": 726,
+          "w": 597,
+          "h": 956,
+          "angle": -0.011,
+          "scale": 1,
+          "centerHit": "upgrade:speed",
+          "cornerHit": null
+        },
+        {
+          "action": "upgrade:armor",
+          "cx": 1592.5,
+          "cy": 726,
+          "w": 597,
+          "h": 956,
+          "angle": 0.011,
+          "scale": 1,
+          "centerHit": "upgrade:armor",
+          "cornerHit": null
+        },
+        {
+          "action": "upgrade:magnet",
+          "cx": 2217.5,
+          "cy": 726,
+          "w": 597,
+          "h": 956,
+          "angle": 0.033,
+          "scale": 1,
+          "centerHit": "upgrade:magnet",
+          "cornerHit": null
+        },
+        {
+          "action": "upgrade:damage",
+          "cx": 342.5,
+          "cy": 702.0002686916362,
+          "w": 597,
+          "h": 956,
+          "angle": -0.004950314033349836,
+          "scale": 1.011999865654182,
+          "centerHit": "upgrade:damage",
+          "cornerHit": null
+        }
+      ]
+    }
+  ],
+  "coinsCollected": 12,
+  "frozen": {
+    "before": 0.016666666666666666,
+    "after": 0.016666666666666666,
+    "screen": "fieldShop"
+  },
+  "purchase": {
+    "balance": 2,
+    "purchases": 1,
+    "damage": 1.12
+  },
+  "hover": {
+    "active": [
+      2
+    ],
+    "shape": {
+      "cx": 796.25,
+      "cy": 351.26844926227403,
+      "w": 298.5,
+      "h": 478,
+      "angle": 0.0018591667168551935,
+      "scale": 1.011731550737726
+    }
+  },
+  "reducedMotion": [
+    {
+      "angle": 0,
+      "progress": 1
+    },
+    {
+      "angle": 0,
+      "progress": 1
+    },
+    {
+      "angle": 0,
+      "progress": 1
+    },
+    {
+      "angle": 0,
+      "progress": 1
+    }
+  ],
+  "props": {
+    "consumed": true,
+    "blockerRemoved": true,
+    "artLoaded": true
+  },
+  "missingArtFallback": {
+    "opened": true,
+    "screen": "fieldShop"
+  },
+  "video": {
+    "decoded": true,
+    "width": 1280,
+    "height": 720,
+    "seconds": 12,
+    "opened": true,
+    "bought": true,
+    "equipped": true,
+    "purchases": 1,
+    "bytes": 2801804,
+    "audio": false
+  },
+  "browserScaling": [
+    {
+      "dpr": 1.25,
+      "balance": 25
+    },
+    {
+      "dpr": 1.5,
+      "balance": 25
+    }
+  ],
+  "limits": "Isolated Edge with scripted coin setup and stationary interaction scenes. Synthetic command routing is not physical controller acceptance; screenshots do not establish balance or low-spec Windows performance."
+}

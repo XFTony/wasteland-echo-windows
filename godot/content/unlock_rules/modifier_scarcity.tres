@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_8uqia"]
+
+[resource]
+script = ExtResource("1_8uqia")
+content_id = &"modifier_scarcity"
+category = &"unlockRules"
+display_name = "匮乏协议"
+source_data = {
+"conditions": [{
+"gte": 3.0,
+"metric": "settledRuns"
+}],
+"description": "结算3次有效生存（30秒或击败10名敌人）",
+"id": "modifier_scarcity",
+"name": "匮乏协议",
+"reward": {
+"id": "scarcity",
+"kind": "modifier"
+}
+}

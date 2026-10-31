@@ -2,7 +2,7 @@
 
 function isStageUnlocked(save, stage) {
   if (!stage) return false;
-  return (Number(save && save.wins) || 0) >= (Number(stage.unlockWins) || 0);
+  return true; // Retained only as a legacy metadata adapter; maps no longer require chapter wins.
 }
 
 function unlockedStageIds(save, content) {
@@ -22,6 +22,7 @@ function syncCampaignUnlocks(save, content) {
   const newMaps = [];
   const unlockedStages = unlockedStageIds(save, content);
   if (!Array.isArray(save.unlockedMaps)) save.unlockedMaps = [];
+  for (const id of content.ids("maps")) if (!save.unlockedMaps.includes(id)) { save.unlockedMaps.push(id); newMaps.push(id); }
   for (const stageId of unlockedStages) {
     const stage = content.get("stages", stageId);
     if (stage && !save.unlockedMaps.includes(stage.mapId)) {

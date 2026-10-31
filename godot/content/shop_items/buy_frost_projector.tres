@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_ivkh2"]
+
+[resource]
+script = ExtResource("1_ivkh2")
+content_id = &"buy_frost_projector"
+category = &"shopItems"
+display_name = "霜凝喷射器"
+source_data = {
+"category": "weapon",
+"currency": "copper",
+"description": "命中减速30%持续1.2秒；首领减速10%且时长减半",
+"grantId": "frost_projector",
+"grantType": "weapon",
+"id": "buy_frost_projector",
+"name": "霜凝喷射器",
+"price": 95.0,
+"unlockStage": 1
+}

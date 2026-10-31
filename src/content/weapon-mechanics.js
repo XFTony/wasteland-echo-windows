@@ -1,6 +1,11 @@
 "use strict";
 
 const WEAPON_MECHANICS = Object.freeze({
+  beam: Object.freeze({id:"beam",name:"折光脉冲",description:"瞬时射线，有限贯穿，遇墙终止"}),
+  explosive: Object.freeze({id:"explosive",name:"接触引信",description:"榴弹接触或到时引爆，范围伤害受墙体阻挡"}),
+  disc: Object.freeze({id:"disc",name:"逐跳锯切",description:"向未命中的可见目标弹射，逐跳衰减"}),
+  slash: Object.freeze({id:"slash",name:"回响刃波",description:"近身挥扫后释放有限距离剑气"}),
+  slam: Object.freeze({id:"slam",name:"震荡落锤",description:"举锤后在前方产生扩散冲击，短时消弹"}),
   steady_cycle: Object.freeze({
     id: "steady_cycle",
     name: "四拍稳压",

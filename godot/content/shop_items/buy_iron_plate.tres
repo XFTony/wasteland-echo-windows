@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_jc8j2"]
+
+[resource]
+script = ExtResource("1_jc8j2")
+content_id = &"buy_iron_plate"
+category = &"shopItems"
+display_name = "拼装铁甲"
+source_data = {
+"category": "equipment",
+"currency": "copper",
+"description": "身甲：生命 +24，护甲 +8%，移动 -4%。",
+"grantId": "iron_plate",
+"grantType": "equipment",
+"id": "buy_iron_plate",
+"name": "拼装铁甲",
+"price": 520.0,
+"unlockStage": 1.0
+}

@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-28",
+  "baseline": "a3a3a51",
+  "prototypeMap": "echo_district",
+  "deploymentLabel": "回声旧城",
+  "previous": {
+    "zones": 8,
+    "roads": 5,
+    "tracks": 3,
+    "obstacles": 37,
+    "scenery": 63,
+    "interactives": 3
+  },
+  "current": {
+    "zones": 6,
+    "roads": 5,
+    "tracks": 1,
+    "obstacles": 17,
+    "scenery": 9,
+    "interactives": 4
+  },
+  "dynamicActorBlockers": 2,
+  "untouchedMaps": [
+    {
+      "id": "freight_nexus",
+      "unchanged": true
+    },
+    {
+      "id": "red_basin",
+      "unchanged": true
+    }
+  ],
+  "navigation": {
+    "small": {
+      "walkable": 2124,
+      "reachable": 2124
+    },
+    "medium": {
+      "walkable": 2124,
+      "reachable": 2124
+    },
+    "large": {
+      "walkable": 2124,
+      "reachable": 2124
+    }
+  },
+  "activeImages": 59,
+  "activeImageBytes": 6196962,
+  "addedRuntimeImages": [
+    {
+      "id": "world.prop.echo.market.v1",
+      "file": "web/assets/world/echo-market-v1/trade-post.webp",
+      "bytes": 160304,
+      "decodedRgbaBytes": 413440,
+      "source": "art/world/echo-market-v1/source/trade-post.png",
+      "sha256": "2E37223BA934525EB55DB29168ED53EAE185AB8318E3ECA97CFA77DE7583ED37"
+    },
+    {
+      "id": "world.prop.echo.salvage-kit.v1",
+      "file": "web/assets/world/echo-market-v1/salvage-kit.webp",
+      "bytes": 202026,
+      "decodedRgbaBytes": 786432,
+      "source": "art/world/echo-market-v1/source/salvage-kit.png",
+      "sha256": "81546139F5BB5FB28D9515471236F4CAC9E7533F568C08F730E5B5783A7FAF87"
+    }
+  ],
+  "notes": [
+    "The old whole-block translation was replaced only for echo_district. Reusing individual roof/railcar textures is deliberate modular reuse.",
+    "Road and track marking bounds are shared renderer fixes. Other map data are byte-equivalent after JSON serialization.",
+    "Procedural card art and world icons have no additional runtime image files. Inactive original assets are retained for rollback."
+  ]
+}

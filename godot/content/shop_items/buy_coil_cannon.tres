@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_ggh16"]
+
+[resource]
+script = ExtResource("1_ggh16")
+content_id = &"buy_coil_cannon"
+category = &"shopItems"
+display_name = "荒雷线圈炮"
+source_data = {
+"category": "weapon",
+"currency": "gold",
+"description": "远程重型贯穿武器。",
+"grantId": "coil_cannon",
+"grantType": "weapon",
+"id": "buy_coil_cannon",
+"name": "荒雷线圈炮",
+"price": 12.0,
+"unlockRuleId": "blueprint_coil",
+"unlockStage": 3.0
+}

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="UpgradeCardArtLayout" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/upgrade_card_art_layout.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+illustration = Rect2(57, 82, 164, 93)
+header = Rect2(62, 35, 122, 29)

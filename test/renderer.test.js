@@ -5,6 +5,8 @@ const assert = require("node:assert/strict");
 const { SaveManager } = require("../src/core/save");
 const { GameModel } = require("../src/core/game-model");
 const { CanvasRenderer } = require("../src/render/canvas-renderer");
+const { ArtStore } = require("../src/render/art/art-store");
+const { ART_IDS } = require("../src/render/art/asset-catalog");
 const { FX_METHODS } = require("../src/render/fx-system");
 const { HUD_METHODS } = require("../src/render/hud-view");
 const { GAME_VERSION } = require("../src/version");
@@ -18,6 +20,8 @@ function createMockCanvas() {
     fillRect: (...args) => calls.push(["fillRect", ...args]),
     strokeRect: (...args) => calls.push(["strokeRect", ...args]),
     beginPath: () => calls.push(["beginPath"]),
+    rect: (...args) => calls.push(["rect", ...args]),
+    clip: () => calls.push(["clip"]),
     closePath: () => calls.push(["closePath"]),
     moveTo: (...args) => calls.push(["moveTo", ...args]),
     lineTo: (...args) => calls.push(["lineTo", ...args]),
@@ -29,6 +33,7 @@ function createMockCanvas() {
     restore: () => calls.push(["restore"]),
     translate: (...args) => calls.push(["translate", ...args]),
     rotate: (...args) => calls.push(["rotate", ...args]),
+    scale: (...args) => calls.push(["scale", ...args]),
     drawImage: (...args) => calls.push(["drawImage", ...args]),
     fillText: (...args) => calls.push(["fillText", ...args]),
     createLinearGradient: () => gradient,
@@ -57,6 +62,47 @@ function createModel() {
   return new GameModel(manager, { duration: 60, seed: 42 });
 }
 
+test("short road markings and railway ties never extend beyond their registered segments", () => {
+  const { canvas } = createMockCanvas(), r = new CanvasRenderer(canvas), fills = [];
+  r.resize(1280, 720, 1); r.camera.x = r.camera.y = 0;
+  r.ctx.fillRect = (x, y, w, h) => fills.push({ x, y, w, h, color: r.ctx.fillStyle });
+  r.mapLayout = { theme: { asphalt: "#333" }, roads: [{ x: 200, y: 200, w: 100, h: 100, orientation: "horizontal" }],
+    tracks: [{ x: 300, y: 400, w: 90, h: 100, lines: 1, spacing: 48, orientation: "horizontal" }] };
+  r.drawRoadNetwork(); r.drawRailNetwork();
+  const markings = fills.filter(fill => fill.color === "#c3a663"), ties = fills.filter(fill => fill.color === "#8c7654");
+  assert(markings.length > 0 && ties.length > 0);
+  assert(markings.every(fill => fill.x >= 200 && fill.x + fill.w <= 300));
+  assert(ties.every(fill => fill.x >= 300 && fill.x + fill.w <= 390));
+});
+
+test("the four new prop sprites fit their collision rectangles and remain scoped to Echo", () => {
+  const { canvas, calls } = createMockCanvas(), image = { complete: true, naturalWidth: 512, naturalHeight: 384 };
+  const store = new ArtStore({ images: { [ART_IDS.PROP_ECHO_SALVAGE_KIT]: image } });
+  const r = new CanvasRenderer(canvas, { artStore: store }); r.resize(1280, 720, 1);
+  r.mapLayout = r.world.get("echo_district");
+  const props = ["bus", "car", "wreck", "scrap"].map((kind, i) => ({ kind, x: 10 + i * 220, y: 150, w: 180, h: 70 }));
+  r.drawObstacles(props);
+  const drawn = calls.filter(call => call[0] === "drawImage" && call[1] === image);
+  assert.equal(drawn.length, 4);
+  for (let i = 0; i < 4; i++) {
+    assert.deepEqual(drawn[i].slice(-4), [props[i].x, props[i].y, props[i].w, props[i].h]);
+    const [, , x, y, w, h] = drawn[i]; assert(x >= 0 && y >= 0 && x + w <= 512 && y + h <= 384);
+  }
+  r.mapLayout = r.world.get("freight_nexus"); r.drawObstacles(props);
+  assert.equal(calls.filter(call => call[0] === "drawImage" && call[1] === image).length, 4);
+});
+
+test("card entry animation samples time consistently across rendering frame rates", () => {
+  function sample(frames) {
+    const { canvas } = createMockCanvas(), r = new CanvasRenderer(canvas), m = createModel();
+    r.resize(1280, 720, 1); m.startRun({ seed: 42, tutorial: false });
+    m.run.player.xp = m.run.player.xpNext; m.checkLevelUp(); r.render(m, { uiTime: 0 });
+    for (let i = 1; i <= frames; i++) r.render(m, { uiTime: .5 * i / frames });
+    return r.draftCards.map(card => card.shape);
+  }
+  assert.deepEqual(sample(2), sample(60));
+});
+
 test("renderer delegates combat effects and HUD overlays to stable modules", () => {
   assert.equal(CanvasRenderer.prototype.handleEvents, FX_METHODS.handleEvents);
   assert.equal(CanvasRenderer.prototype.updateEffects, FX_METHODS.updateEffects);
@@ -65,22 +111,21 @@ test("renderer delegates combat effects and HUD overlays to stable modules", () 
   assert.equal(CanvasRenderer.prototype.drawResult, HUD_METHODS.drawResult);
 });
 
-test("main menu keeps the complete title art inside the viewport beside the menu", () => {
+test("radio menu uses a crop-safe scene and keeps the command strip beneath the title", () => {
   const { canvas, calls } = createMockCanvas();
-  const renderer = new CanvasRenderer(canvas);
+  const image = { complete: true, naturalWidth: 1536, naturalHeight: 1024 };
+  const store = new ArtStore({ images: { [ART_IDS.RADIO_CAMP]: image } });
+  const renderer = new CanvasRenderer(canvas, { artStore: store });
   const model = createModel();
-  renderer.coverArt = { complete: true, naturalWidth: 1228, naturalHeight: 1228 };
   renderer.resize(1280, 720, 1);
   renderer.render(model, { focusAction: "start" });
-  const artCall = calls.find((call) => call[0] === "drawImage");
-  assert.ok(artCall, "the loaded title art should be drawn on the menu canvas");
-  const [, , artX, artY, artW, artH] = artCall;
-  const start = renderer.regions.find((region) => region.action === "start");
-  assert.ok(artW >= 1280 * 0.45, "the complete art should still remain a primary visual");
-  assert.ok(artH >= 720 * 0.9);
-  assert.ok(artX >= 0 && artY >= 0, "contain framing must not crop the top or left edges");
-  assert.ok(artX + artW <= 1280 && artY + artH <= 720, "contain framing must not crop the monster head or lower silhouettes");
-  assert.ok(start.x + start.w < artX, "menu copy and complete art should keep a readable safety gap");
+  const call = calls.find(call => call[0] === "drawImage" && call[1] === image);
+  assert.ok(call, "the current radio scene is drawn");
+  const [, , sx, sy, sw, sh, dx, dy, dw, dh] = call;
+  assert.ok(sx >= 0 && sy >= 0 && sx + sw <= image.naturalWidth && sy + sh <= image.naturalHeight);
+  assert.deepEqual([dx, dy, dw, dh], [0, 0, 1280, 720]);
+  assert.equal(renderer.regions.length, 4);
+  assert.ok(renderer.regions.every(region => region.y > 720 * 0.7));
 });
 
 test("all primary screens render without exceptions and expose expected actions", () => {
@@ -99,12 +144,12 @@ test("all primary screens render without exceptions and expose expected actions"
   renderer.render(model);
   assert.equal(renderer.regions.some((region) => region.action === "deploy"), true);
   assert.equal(renderer.regions.some((region) => region.action === "inventory"), true);
-  assert.equal(renderer.regions.some((region) => region.action === "modePrev"), true);
-  assert.equal(renderer.regions.some((region) => region.action === "modeNext"), true);
+  assert.equal(renderer.regions.some((region) => region.action === "modePrev"), false);
+  assert.equal(renderer.regions.some((region) => region.action === "modeNext"), false);
   assert.equal(renderer.regions.some((region) => region.action === "heroNext"), false);
   assert.equal(renderer.regions.some((region) => region.action === "weaponNext"), false);
   assert.equal(renderer.regions.some((region) => region.action === "skinNext"), false);
-  assert.equal(renderer.regions.some((region) => region.action === "stageNext"), true);
+  assert.equal(renderer.regions.some((region) => region.action === "stageNext"), false);
   assert.equal(renderer.regions.some((region) => region.action === "mapNext"), true);
 
   model.setMenuPage("inventory");
@@ -129,7 +174,7 @@ test("all primary screens render without exceptions and expose expected actions"
   assert.equal(renderer.regions.some((region) => region.action === "toggle:musicMuted"), true);
   model.setSettingsSection("controls");
   renderer.render(model);
-  assert.equal(renderer.regions.filter((region) => region.action.startsWith("bind:")).length, 13);
+  assert.equal(renderer.regions.filter((region) => region.action.startsWith("bind:")).length, 15);
   assert.equal(renderer.regions.some((region) => region.action === "resetBindings"), true);
 
   model.startRun({ duration: 60, seed: 42 });
@@ -204,11 +249,11 @@ test("weapon feedback uses bounded shell and muzzle slots and decays recoil", ()
   const renderer = new CanvasRenderer(canvas);
   const model = createModel();
   renderer.resize(960, 540, 1);
-  model.startRun({ seed: 8, weaponId: "breaker_shotgun" });
+  model.startRun({ seed: 8, weaponId: "scrap_pistol" });
   const player = model.run.player;
   const shots = Array.from({ length: 40 }, () => ({
     type: "shot",
-    weaponId: "breaker_shotgun",
+    weaponId: "scrap_pistol",
     x: player.x,
     y: player.y,
     aimX: 1,
@@ -219,14 +264,76 @@ test("weapon feedback uses bounded shell and muzzle slots and decays recoil", ()
   assert.equal(renderer.shells.length, 32);
   assert.equal(renderer.shells.filter((shell) => shell.active).length, 32);
   assert.equal(renderer.muzzleFlashes.length, 12);
-  assert.equal(renderer.muzzleFlashes.filter((flash) => flash.active).length, 12);
+  assert.equal(renderer.muzzleFlashes.filter((flash) => flash.active).length, 1, "rapid shots keep only the latest main muzzle flash");
   assert.ok(renderer.weaponKick > 0);
   assert.ok(renderer.cameraKick > 0);
 
+  renderer.updateEffects(1 / 60);
+  assert.equal(renderer.muzzleFlashes.some((flash) => flash.active), true, "a new flash survives its first render");
   renderer.updateEffects(1);
   assert.equal(renderer.shells.some((shell) => shell.active), false);
   assert.equal(renderer.muzzleFlashes.some((flash) => flash.active), false);
   assert.ok(renderer.weaponKick < 0.01);
+});
+
+test("revolver and coil shots never eject conventional shells", () => {
+  const { canvas } = createMockCanvas();
+  const renderer = new CanvasRenderer(canvas);
+  const model = createModel();
+  for (const weaponId of ["rust_revolver", "coil_cannon"]) {
+    model.startRun({ seed: 8, weaponId });
+    renderer.handleEvents(model.drainEvents(), model);
+    const player = model.run.player;
+    renderer.handleEvents([{ type: "shot", weaponId, x: player.x, y: player.y, aimX: 1, aimY: 0 }], model);
+    model.run.elapsed += 1;
+    renderer.updateEffects(1 / 60, model);
+    assert.equal(renderer.shells.some(shell => shell.active), false, weaponId);
+    assert.equal(renderer.pendingShells.some(shell => shell.active), false, weaponId);
+  }
+});
+
+test("shotgun ejection follows run time, pauses safely and clears on a new run", () => {
+  const { canvas } = createMockCanvas();
+  const renderer = new CanvasRenderer(canvas);
+  const model = createModel();
+  model.startRun({ seed: 8, weaponId: "breaker_shotgun" });
+  renderer.handleEvents(model.drainEvents(), model);
+  const shot = () => renderer.handleEvents([{ type: "shot", weaponId: "breaker_shotgun", x: model.run.player.x, y: model.run.player.y, aimX: 1, aimY: 0 }], model);
+  shot();
+  assert.equal(renderer.shells.some(shell => shell.active), false);
+  assert.equal(renderer.pendingShells.filter(shell => shell.active).length, 1);
+  model.run.elapsed = .1;
+  renderer.updateEffects(1 / 60, model);
+  assert.equal(renderer.shells.some(shell => shell.active), false);
+  model.screen = "paused";
+  model.run.elapsed = .2;
+  renderer.updateEffects(1 / 60, model);
+  assert.equal(renderer.shells.some(shell => shell.active), false);
+  model.screen = "running";
+  renderer.updateEffects(1 / 60, model);
+  assert.equal(renderer.shells.filter(shell => shell.active).length, 1);
+  assert.equal(renderer.pendingShells.some(shell => shell.active), false);
+  shot();
+  model.startRun({ seed: 9, weaponId: "scrap_pistol" });
+  renderer.handleEvents(model.drainEvents(), model);
+  renderer.updateEffects(1 / 60, model);
+  assert.equal(renderer.shells.some(shell => shell.active), false);
+  assert.equal(renderer.pendingShells.some(shell => shell.active), false);
+});
+
+test("catch-up frames preserve the actual shot time for recovery and mechanical ejection", () => {
+  const { canvas } = createMockCanvas();
+  const renderer = new CanvasRenderer(canvas);
+  const model = createModel();
+  model.startRun({ seed: 8, weaponId: "breaker_shotgun" });
+  renderer.handleEvents(model.drainEvents(), model);
+  model.run.elapsed = 1.2;
+  renderer.handleEvents([{ type: "shot", weaponId: "breaker_shotgun", elapsed: 1,
+    x: model.run.player.x, y: model.run.player.y, aimX: 1, aimY: 0 }], model);
+  assert.equal(renderer.shotFeedback.elapsed, 1);
+  renderer.updateEffects(1 / 60, model);
+  assert.equal(renderer.shells.filter(shell => shell.active).length, 1);
+  assert.equal(renderer.pendingShells.some(shell => shell.active), false);
 });
 
 test("ground texture draws only the camera-visible source region", () => {
@@ -302,6 +409,7 @@ test("shop, inventory and archive expose rule and mastery progression", () => {
   renderer.resize(1280, 720, 1);
 
   model.setMenuPage("shop");
+  model.shopPage = 1;
   renderer.render(model);
   let copy = calls.filter((call) => call[0] === "fillText").map((call) => String(call[1])).join(" ");
   assert.match(copy, /累计击败 120 名感染者/);
@@ -387,7 +495,7 @@ test("568x320 desktop layout keeps compact controls navigable and on-screen", ()
 
   model.setMenuPage("loadout");
   renderer.render(model);
-  for (const action of ["deploy", "inventory", "modePrev", "modeNext", "stagePrev", "stageNext", "mapPrev", "mapNext", "back"]) {
+  for (const action of ["deploy", "inventory", "mapPrev", "mapNext", "back"]) {
     assert.equal(renderer.regions.some((region) => region.action === action), true, `${action} should be visible`);
   }
 
@@ -401,13 +509,14 @@ test("568x320 desktop layout keeps compact controls navigable and on-screen", ()
   model.setMenuPage("settings");
   renderer.render(model);
   const toggles = renderer.regions.filter((region) => region.action.startsWith("toggle:"));
-  assert.equal(toggles.length, 11);
+  assert.equal(toggles.length, 12);
+  assert.ok(renderer.regions.some(region => region.action === "replayStartup"));
   assert.ok(toggles.every((region) => region.h >= 31));
   assert.ok(toggles.every((region) => region.x >= 0 && region.y >= 0 && region.x + region.w <= 568 && region.y + region.h <= 320));
   assert.equal(renderer.regions.some((region) => region.action === "fullscreen"), true);
   model.setSettingsSection("controls");
   renderer.render(model);
-  assert.equal(renderer.regions.filter((region) => region.action.startsWith("bind:")).length, 13);
+  assert.equal(renderer.regions.filter((region) => region.action.startsWith("bind:")).length, 15);
   assert.ok(renderer.regions.every((region) => region.x >= 0 && region.y >= 0 && region.x + region.w <= 568 && region.y + region.h <= 320));
 
   model.setMenuPage("main");
@@ -452,7 +561,7 @@ test("Windows 720p and 1080p layouts keep every desktop action inside the viewpo
 
     model.setMenuPage("loadout");
     renderer.render(model, { activeDevice: "gamepad", gamepadConnected: true, gamepadId: "Xbox Controller" });
-    assert.ok(renderer.regions.length >= 8);
+    assert.ok(renderer.regions.length >= 5);
     assert.equal(renderer.regions.some((region) => region.action === "inventory"), true);
     for (const region of renderer.regions) {
       assert.ok(region.x >= 0 && region.y >= 0 && region.x + region.w <= width && region.y + region.h <= height);
@@ -471,7 +580,7 @@ test("Windows 720p and 1080p layouts keep every desktop action inside the viewpo
     model.setMenuPage("settings");
     renderer.render(model, { activeDevice: "gamepad", gamepadConnected: true, gamepadId: "Xbox Controller" });
     const actions = renderer.regions;
-    assert.equal(actions.filter((region) => region.action.startsWith("toggle:")).length, 11);
+    assert.equal(actions.filter((region) => region.action.startsWith("toggle:")).length, 12);
     assert.equal(actions.some((region) => region.action === "fullscreen"), true);
     assert.equal(actions.some((region) => region.action === "back"), true);
     for (const region of actions) {
@@ -480,7 +589,7 @@ test("Windows 720p and 1080p layouts keep every desktop action inside the viewpo
 
     model.setSettingsSection("controls");
     renderer.render(model, { activeDevice: "gamepad", gamepadConnected: true, gamepadId: "Xbox Controller" });
-    assert.equal(renderer.regions.filter((region) => region.action.startsWith("bind:")).length, 13);
+    assert.equal(renderer.regions.filter((region) => region.action.startsWith("bind:")).length, 15);
     assert.equal(renderer.regions.some((region) => region.action === "resetBindings"), true);
     for (const region of renderer.regions) assert.ok(region.x >= 0 && region.y >= 0 && region.x + region.w <= width && region.y + region.h <= height);
 
@@ -502,4 +611,170 @@ test("Windows 720p and 1080p layouts keep every desktop action inside the viewpo
       }
     }
   }
+});
+test("menu art scales with desktop resolution while hit regions stay in physical coordinates", () => {
+  const { canvas } = createMockCanvas();
+  const renderer = new CanvasRenderer(canvas);
+  const model = createModel();
+  renderer.resize(1280, 720, 1);
+  renderer.render(model);
+  const base = { ...renderer.regions.find((region) => region.action === "start") };
+  renderer.resize(2560, 1440, 1);
+  renderer.render(model);
+  const scaled = renderer.regions.find((region) => region.action === "start");
+  assert.ok(scaled);
+  for (const key of ["x", "y", "w", "h"]) assert.ok(Math.abs(scaled[key] - base[key] * 2) < 2, `${key} should scale with the viewport`);
+  assert.equal(renderer.hitTest(scaled.x + scaled.w / 2, scaled.y + scaled.h / 2), "start");
+  assert.equal(renderer.width, 2560);
+  assert.equal(renderer.height, 1440);
+});
+
+test("combat HUD scales with the viewport and preserves the pause hit target", () => {
+  const { canvas } = createMockCanvas();
+  const renderer = new CanvasRenderer(canvas);
+  const model = createModel();
+  model.startRun({ seed: 20260924, tutorial: false });
+  renderer.resize(1280, 720, 1);
+  renderer.render(model);
+  const base = { ...renderer.regions.find((region) => region.action === "pause") };
+  renderer.resize(2560, 1440, 1);
+  renderer.render(model);
+  const scaled = renderer.regions.find((region) => region.action === "pause");
+  assert.ok(scaled);
+  for (const key of ["x", "y", "w", "h"]) assert.ok(Math.abs(scaled[key] - base[key] * 2) < 2, `${key} should scale with the viewport`);
+  assert.equal(renderer.hitTest(scaled.x + scaled.w / 2, scaled.y + scaled.h / 2), "pause");
+  assert.deepEqual([renderer.visibleWorldWidth, renderer.visibleWorldHeight], [1280, 720]);
+});
+
+test("painted apothecary roof stays inside its registered obstacle footprint", () => {
+  const { canvas, calls } = createMockCanvas();
+  const roof = { complete: true, naturalWidth: 512, naturalHeight: 341 };
+  const store = new ArtStore({ images: { [ART_IDS.PROP_ECHO_APOTHECARY]: roof } });
+  const renderer = new CanvasRenderer(canvas, { artStore: store });
+  renderer.resize(1280, 720, 1);
+  calls.length = 0;
+  renderer.drawObstacles([{ x: 174, y: 250, w: 202, h: 130, kind: "shop", sign: "药房" }]);
+  const painted = calls.find((call) => call[0] === "drawImage" && call[1] === roof);
+  assert.ok(painted);
+  assert.deepEqual(painted.slice(2), [174, 250, 202, 130]);
+});
+
+test("shared shop roof follows each shop's collision dimensions", () => {
+  const { canvas, calls } = createMockCanvas();
+  const roof = { complete: true, naturalWidth: 512, naturalHeight: 341 };
+  const store = new ArtStore({ images: { [ART_IDS.PROP_ECHO_SHOP]: roof } });
+  const renderer = new CanvasRenderer(canvas, { artStore: store });
+  renderer.resize(1280, 720, 1);
+  calls.length = 0;
+  renderer.drawObstacles([{ x: 438, y: 184, w: 190, h: 145, kind: "shop", sign: "机件" }]);
+  const painted = calls.find((call) => call[0] === "drawImage" && call[1] === roof);
+  assert.ok(painted);
+  assert.deepEqual(painted.slice(-2), [190, 145]);
+});
+
+test("painted warehouse roof uses obstacle dimensions across warehouse sizes", () => {
+  const { canvas, calls } = createMockCanvas();
+  const roof = { complete: true, naturalWidth: 512, naturalHeight: 352 };
+  const store = new ArtStore({ images: { [ART_IDS.PROP_ECHO_WAREHOUSE]: roof } });
+  const renderer = new CanvasRenderer(canvas, { artStore: store });
+  renderer.resize(1280, 720, 1);
+  calls.length = 0;
+  renderer.drawObstacles([
+    { x: 120, y: 160, w: 168, h: 116, kind: "warehouse", sign: "DEPOT" },
+    { x: 420, y: 160, w: 310, h: 150, kind: "warehouse", sign: "RADIO" }
+  ]);
+  const painted = calls.filter((call) => call[0] === "drawImage" && call[1] === roof);
+  assert.deepEqual(painted.map((call) => call.slice(2)), [
+    [120, 160, 168, 116],
+    [420, 160, 310, 150]
+  ]);
+});
+
+test("painted container fills its Echo District collision size without replacing other maps", () => {
+  const { canvas, calls } = createMockCanvas();
+  const container = { complete: true, naturalWidth: 512, naturalHeight: 201 };
+  const store = new ArtStore({ images: { [ART_IDS.PROP_ECHO_CONTAINER]: container } });
+  const renderer = new CanvasRenderer(canvas, { artStore: store });
+  renderer.resize(1280, 720, 1);
+  const obstacle = { x: 150, y: 170, w: 126, h: 72, kind: "container" };
+  calls.length = 0;
+  renderer.drawObstacles([obstacle]);
+  const painted = calls.find((call) => call[0] === "drawImage" && call[1] === container);
+  assert.deepEqual(painted.slice(2), [150, 170, 126, 72]);
+  renderer.mapLayout = renderer.resolveMapLayout("freight_nexus");
+  calls.length = 0;
+  renderer.drawObstacles([obstacle]);
+  assert.equal(calls.some((call) => call[0] === "drawImage" && call[1] === container), false);
+});
+
+test("one painted railcar fits horizontal and rotated vertical collision rectangles", () => {
+  const { canvas, calls } = createMockCanvas();
+  const railcar = { complete: true, naturalWidth: 512, naturalHeight: 129 };
+  const store = new ArtStore({ images: { [ART_IDS.PROP_ECHO_RAILCAR]: railcar } });
+  const renderer = new CanvasRenderer(canvas, { artStore: store });
+  renderer.resize(1280, 720, 1);
+  calls.length = 0;
+  renderer.drawObstacles([
+    { x: 100, y: 140, w: 232, h: 76, kind: "railcar" },
+    { x: 480, y: 140, w: 92, h: 190, kind: "railcar" }
+  ]);
+  const painted = calls.filter((call) => call[0] === "drawImage" && call[1] === railcar);
+  assert.deepEqual(painted.map((call) => call.slice(2)), [
+    [100, 140, 232, 76],
+    [0, 0, 190, 92]
+  ]);
+  assert.ok(calls.some((call) => call[0] === "translate" && call[1] === 572 && call[2] === 140));
+  assert.ok(calls.some((call) => call[0] === "rotate" && call[1] === Math.PI / 2));
+});
+
+test("switching maps and returning to menu releases unused decoded art", () => {
+  class LoadedImage {
+    constructor() {
+      this.complete = true;
+      this.naturalWidth = 1200;
+      this.naturalHeight = 900;
+      this.src = "";
+    }
+  }
+  const { canvas } = createMockCanvas();
+  const store = new ArtStore({ ImageCtor: LoadedImage });
+  const renderer = new CanvasRenderer(canvas, { artStore: store });
+  const model = createModel();
+  renderer.resize(1280, 720, 1);
+  renderer.render(model);
+  assert.ok(store.get(ART_IDS.RADIO_CAMP));
+  store.request(ART_IDS.PROP_ECHO_APOTHECARY);
+  model.startRun({ seed: 31, mapId: "freight_nexus", tutorial: false });
+  renderer.render(model);
+  assert.equal(store.get(ART_IDS.RADIO_CAMP), null);
+  assert.equal(store.get(ART_IDS.PROP_ECHO_APOTHECARY), null);
+  assert.ok(store.get(ART_IDS.GROUND_FREIGHT));
+  model.startRun({ seed: 32, mapId: "red_basin", tutorial: false });
+  renderer.render(model);
+  assert.equal(store.get(ART_IDS.GROUND_FREIGHT), null);
+  assert.ok(store.get(ART_IDS.GROUND_RED_BASIN));
+  assert.ok(store.get(ART_IDS.GROUND));
+  model.goToMenu();
+  renderer.render(model);
+  assert.equal(store.get(ART_IDS.GROUND_RED_BASIN), null);
+  assert.equal(store.get(ART_IDS.ACTOR_DRIFTER), null);
+  assert.ok(store.get(ART_IDS.RADIO_CAMP));
+});
+
+test("world framing stays fixed across desktop resolutions", () => {
+  const { canvas, calls } = createMockCanvas();
+  const renderer = new CanvasRenderer(canvas);
+  const model = createModel();
+  renderer.resize(1280, 720, 1);
+  assert.equal(renderer.camera.zoom, 1);
+  assert.deepEqual([renderer.visibleWorldWidth, renderer.visibleWorldHeight], [1280, 720]);
+  renderer.resize(1920, 1080, 1);
+  assert.equal(renderer.camera.zoom, 1.5);
+  assert.deepEqual([renderer.visibleWorldWidth, renderer.visibleWorldHeight], [1280, 720]);
+  renderer.resize(2560, 1440, 1);
+  assert.equal(renderer.camera.zoom, 2);
+  assert.deepEqual([renderer.visibleWorldWidth, renderer.visibleWorldHeight], [1280, 720]);
+  model.startRun({ seed: 77 });
+  renderer.render(model);
+  assert.ok(calls.some((call) => call[0] === "setTransform" && call[1] === 2 && call[4] === 2));
 });

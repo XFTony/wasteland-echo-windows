@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_jkxgd"]
+
+[resource]
+script = ExtResource("1_jkxgd")
+content_id = &"buy_stormstep_boots"
+category = &"shopItems"
+display_name = "踏雷绝缘靴"
+source_data = {
+"category": "equipment",
+"currency": "gold",
+"description": "靴子：护甲 +2%，移动 +10%，锁定 +5%。",
+"grantId": "stormstep_boots",
+"grantType": "equipment",
+"id": "buy_stormstep_boots",
+"name": "踏雷绝缘靴",
+"price": 5.0,
+"unlockRuleId": "blueprint_stormstep",
+"unlockStage": 3.0
+}

@@ -44,6 +44,7 @@ export function auditProject() {
   const packageJson = JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8"));
   const artManifest = JSON.parse(fs.readFileSync(path.join(root, "art", "manifest.json"), "utf8"));
   const { ART_ASSETS } = require("../src/render/art/asset-catalog");
+  const { AUDIO_ASSETS } = require("../src/content/audio-assets");
   const bundle = fs.readFileSync(path.join(root, "web", "game.bundle.js"), "utf8");
   const bundledModules = new Set(Array.from(bundle.matchAll(/^\/\/ (src\/[^^\r\n]+)$/gm), (match) => match[1]));
   const sourceModules = walk(path.join(root, "src"))
@@ -72,7 +73,13 @@ export function auditProject() {
   const catalogPaths = new Set(catalogAssets.map((asset) => `web/${asset.src.replace(/^\.\//, "")}`));
   const fontPaths = new Set(webAssets.filter((assetPath) => assetPath.startsWith("web/assets/fonts/")));
   const sourceRuntimePaths = new Set(artManifest.assets.map((asset) => asset.sourceRuntimePath).filter(Boolean));
-  const expectedWebAssets = new Set([...catalogPaths, ...fontPaths, ...sourceRuntimePaths]);
+  const audioPaths = AUDIO_ASSETS.map(asset => `web/${asset.src.replace(/^\.\//, "")}`);
+  const expectedWebAssets = new Set([...catalogPaths, ...fontPaths, ...sourceRuntimePaths, ...audioPaths]);
+  for (const asset of AUDIO_ASSETS) {
+    const absolute = path.join(root, "web", asset.src.replace(/^\.\//, ""));
+    if (!fs.existsSync(absolute)) throw new Error(`Missing audio ${asset.id}`);
+    if (fs.statSync(absolute).size !== asset.bytes || sha256(absolute) !== asset.sha256) throw new Error(`Audio provenance mismatch ${asset.id}`);
+  }
   const unregisteredWebAssets = webAssets.filter((assetPath) => !expectedWebAssets.has(assetPath));
 
   const hashCandidates = [
@@ -120,6 +127,8 @@ export function auditProject() {
       activeCatalogAssets: catalogAssets.filter((asset) => asset.active).length,
       inactiveCatalogAssets: catalogAssets.filter((asset) => !asset.active).length,
       webAssets: webAssets.length,
+      audioAssets: AUDIO_ASSETS.length,
+      audioBytes: AUDIO_ASSETS.reduce((sum, asset) => sum + asset.bytes, 0),
       unregisteredWebAssets: unregisteredWebAssets.length,
       missingManifestPaths: missingManifestPaths.length,
       duplicateGroups: duplicateGroups.length,
@@ -133,6 +142,7 @@ export function auditProject() {
       bundledModules: Array.from(bundledModules).sort(),
       unbundledModules: sourceModules.filter((module) => !bundledModules.has(module))
     },
+    audio: { provenance: "art/audio/survival-v1/source-provenance.json", additionalProvenance: ["art/audio/arsenal-v2/source-provenance.json"], assets: AUDIO_ASSETS },
     art: {
       catalog: catalogAssets.map((asset) => ({ id: asset.id, path: `web/${asset.src.replace(/^\.\//, "")}`, active: asset.active, eager: asset.eager })),
       unregisteredWebAssets,

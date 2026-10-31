@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_c06df"]
+
+[resource]
+script = ExtResource("1_c06df")
+content_id = &"buy_reaper_scythe"
+category = &"shopItems"
+display_name = "拾荒战镰"
+source_data = {
+"category": "weapon",
+"currency": "copper",
+"description": "116范围、205°宽弧清群；有效段消弹，无远程剑气",
+"grantId": "reaper_scythe",
+"grantType": "weapon",
+"id": "buy_reaper_scythe",
+"name": "拾荒战镰",
+"price": 110.0,
+"unlockStage": 1
+}

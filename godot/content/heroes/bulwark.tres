@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_ovlo5"]
+
+[resource]
+script = ExtResource("1_ovlo5")
+content_id = &"bulwark"
+category = &"heroes"
+display_name = "铁卫·牧石"
+source_data = {
+"accent": "#b85b43",
+"armorBonus": 0.08,
+"callsign": "BASTION-03",
+"copperMultiplier": 1.0,
+"damageMultiplier": 1.04,
+"description": "以旧装甲硬抗尸潮，牺牲机动换取容错。",
+"hpMultiplier": 1.2,
+"id": "bulwark",
+"lockRangeMultiplier": 0.96,
+"name": "铁卫·牧石",
+"passive": "拼装重甲：生命 +20%，护甲 +8%",
+"pickupMultiplier": 0.95,
+"portrait": "bulwark",
+"speedMultiplier": 0.92
+}

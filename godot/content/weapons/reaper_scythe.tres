@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/weapon_definition.gd" id="1_x5vwx"]
+
+[resource]
+script = ExtResource("1_x5vwx")
+damage = 33.0
+interval = 0.9
+projectile_speed = 1.0
+lock_range = 116.0
+knockback = 56.0
+recoil = 0.3
+content_id = &"reaper_scythe"
+category = &"weapons"
+display_name = "拾荒战镰"
+source_data = {
+"activeTime": 0.2,
+"arc": 3.577924966588375,
+"attackType": "slash",
+"blocksProjectiles": true,
+"color": "#c3c7b0",
+"damage": 33.0,
+"description": "116范围、205°宽弧清群；有效段消弹，无远程剑气",
+"id": "reaper_scythe",
+"interval": 0.9,
+"knockback": 56.0,
+"lockRange": 116.0,
+"mechanicId": "slash",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.055,
+"muzzleLength": 32.0,
+"muzzleParticles": 2.0,
+"name": "拾荒战镰",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 1.0,
+"rangeBand": "close",
+"reach": 116.0,
+"recoil": 0.3,
+"recovery": 0.25,
+"shellColor": "#b18b50",
+"shellLength": 0.0,
+"shellLife": 0.0,
+"spread": 0.0,
+"ttl": 0.9,
+"visualId": "reaper-scythe",
+"waveDamage": 0.0,
+"weaponClass": "scythe",
+"windup": 0.22
+}

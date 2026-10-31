@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_rdiu1"]
+
+[resource]
+script = ExtResource("1_rdiu1")
+content_id = &"executionCapacitor"
+category = &"upgrades"
+display_name = "处决电容"
+source_data = {
+"detail": "连续击败敌人后储存强化弹",
+"family": "firepower",
+"flavor": "杀戮不再只是计数，而是下一发的电荷",
+"id": "executionCapacitor",
+"max": 3.0,
+"name": "处决电容",
+"rarity": "prototype"
+}

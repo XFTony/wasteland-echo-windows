@@ -1,0 +1,36 @@
+{
+  "samples": 296,
+  "runSamples": 192,
+  "standSamples": 8,
+  "fireSamples": 96,
+  "bootClearanceSamples": 576,
+  "minimumBootClearanceScore": 1.0390456142702704,
+  "maxTargetErrorMetres": 4.0837406392486084e-07,
+  "minSoleMetres": -0.00774844316765666,
+  "maxWaistDegrees": 45.0,
+  "minElbowDegrees": 44.60730977119295,
+  "maxElbowDegrees": 81.47993574134505,
+  "minAnkleSeparationMetres": 0.3799999811461093,
+  "maxHipStepDegreesAcrossBack": 1.7853582896778029,
+  "failures": [],
+  "visualApproved": false,
+  "runtimeIntegrated": false,
+  "date": "2026-09-30",
+  "directionalSource": "art/animation/ranger/ranger-directional-sidearm-v2.blend",
+  "directionalSourceSha256": "8d8ea641414fa6066c6b2d901befc67e28131cf5759fe28e2a4d7935f44b04d7",
+  "baselineSource": "art/animation/ranger/ranger-run-ik-v3.blend",
+  "renderedFrames": 296,
+  "exportComplete": true,
+  "browserReview": {
+    "uniqueFacingViews": 8,
+    "frameStep": true,
+    "firePreview": true,
+    "pageErrors": []
+  },
+  "projectCheck": {
+    "tests": 208,
+    "pass": 208,
+    "fail": 0,
+    "stagedBytes": 10428913
+  }
+}

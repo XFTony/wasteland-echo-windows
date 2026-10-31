@@ -63,7 +63,7 @@ test("desktop staging contains only active runtime art and a Tauri shell", () =>
   const manifestPath = path.join(root, "dist", "runtime-manifest.json");
   assert.ok(fs.existsSync(manifestPath), "run npm.cmd run stage:desktop before the package test");
   const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
-  assert.ok(manifest.totalBytes < 6 * 1024 * 1024);
+  assert.ok(manifest.totalBytes < 16 * 1024 * 1024, "illustrated desktop art should stay under 16 MiB");
   assert.equal(manifest.files.some((file) => file.path.endsWith(".png")), false);
   assert.equal(manifest.files.some((file) => file.path.includes("deployment-journal")), false);
   assert.ok(fs.existsSync(path.join(root, "src-tauri", "tauri.conf.json")));

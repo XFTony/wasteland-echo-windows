@@ -4,8 +4,18 @@ import { fileURLToPath } from "node:url";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(scriptDir, "..");
-const entryPath = path.join(projectRoot, "src", "browser-entry.js");
-const outputPath = path.join(projectRoot, "web", "game.bundle.js");
+const args = process.argv.slice(2);
+function argument(name, fallback) {
+  const at = args.indexOf(name);
+  if (at < 0) return fallback;
+  if (!args[at + 1]) throw new Error("Missing value for " + name);
+  return args[at + 1];
+}
+const entryPath = path.resolve(projectRoot, argument("--entry", "src/browser-entry.js"));
+const outputPath = path.resolve(projectRoot, argument("--out", "web/game.bundle.js"));
+for (const target of [entryPath, outputPath]) {
+  if (!target.startsWith(projectRoot + path.sep)) throw new Error("Bundle paths must stay in the project");
+}
 const modules = [];
 const moduleIds = new Map();
 
@@ -64,5 +74,6 @@ ${moduleTable}
 })();
 `;
 
+fs.mkdirSync(path.dirname(outputPath), { recursive: true });
 fs.writeFileSync(outputPath, bundle, "utf8");
 console.log(`Built ${path.relative(projectRoot, outputPath)} (${Buffer.byteLength(bundle)} bytes, ${modules.length} modules)`);

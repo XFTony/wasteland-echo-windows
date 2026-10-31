@@ -1,0 +1,2548 @@
+{
+  "date": "2026-10-29",
+  "fixture": "Raised health, scripted movement and automatic upgrades; not human difficulty evidence",
+  "scenarios": 17,
+  "results": [
+    {
+      "weaponId": "prism_laser",
+      "mapId": "echo_district",
+      "duration": 180,
+      "targetSeconds": 180,
+      "simulatedSeconds": 180,
+      "reachedTarget": true,
+      "seed": 20261029,
+      "mode": "endless",
+      "strategy": "default",
+      "healthProfile": "stress",
+      "result": "running",
+      "finalHp": 999952.36,
+      "kills": 219,
+      "eliteKills": 0,
+      "level": 5,
+      "damageDealt": 3676.49,
+      "damageTaken": 62.67,
+      "damageTakenBySource": {
+        "drifter": 37.3,
+        "runner": 13.59,
+        "spitter": 11.78
+      },
+      "accuracy": 0.911,
+      "upgradeOrder": [
+        {
+          "id": "recovery",
+          "level": 1,
+          "elapsed": 30.73
+        },
+        {
+          "id": "pointBlankRelay",
+          "level": 1,
+          "elapsed": 121.18
+        },
+        {
+          "id": "pointBlankRelay",
+          "level": 2,
+          "elapsed": 136.95
+        },
+        {
+          "id": "projectile",
+          "level": 1,
+          "elapsed": 160.45
+        }
+      ],
+      "phaseTimeline": [
+        {
+          "id": "threat-2",
+          "elapsed": 60.02
+        },
+        {
+          "id": "threat-3",
+          "elapsed": 120.02
+        },
+        {
+          "id": "threat-4",
+          "elapsed": 180
+        }
+      ],
+      "bossEncounters": [
+        {
+          "enemyType": "warden",
+          "startedAt": 180,
+          "duration": null
+        }
+      ],
+      "copperCurve": [
+        {
+          "elapsed": 30,
+          "scrap": 0
+        },
+        {
+          "elapsed": 60,
+          "scrap": 1
+        },
+        {
+          "elapsed": 90,
+          "scrap": 1
+        },
+        {
+          "elapsed": 120,
+          "scrap": 2
+        },
+        {
+          "elapsed": 150,
+          "scrap": 7
+        },
+        {
+          "elapsed": 180,
+          "scrap": 12
+        }
+      ],
+      "maxEnemies": 29,
+      "maxProjectiles": 2,
+      "maxPickups": 140,
+      "bossWaves": 1,
+      "emittedEvents": 835,
+      "runtimeMs": 1045.1,
+      "memoryMiB": {
+        "baselineRss": 47.02,
+        "peakRss": 57.07,
+        "finalRss": 54.84,
+        "baselineHeapUsed": 7.89,
+        "peakHeapUsed": 13.29,
+        "finalHeapUsed": 10.7,
+        "peakHeapGrowth": 5.4,
+        "peakExternal": 2.09
+      },
+      "pools": {
+        "enemies": {
+          "created": 88,
+          "free": 61
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 95
+        },
+        "pickups": {
+          "created": 140,
+          "free": 0
+        }
+      }
+    },
+    {
+      "weaponId": "prism_laser",
+      "mapId": "freight_nexus",
+      "duration": 180,
+      "targetSeconds": 180,
+      "simulatedSeconds": 180,
+      "reachedTarget": true,
+      "seed": 20261029,
+      "mode": "endless",
+      "strategy": "default",
+      "healthProfile": "stress",
+      "result": "running",
+      "finalHp": 999874.65,
+      "kills": 211,
+      "eliteKills": 0,
+      "level": 6,
+      "damageDealt": 4082.24,
+      "damageTaken": 140.35,
+      "damageTakenBySource": {
+        "runner": 60.74,
+        "drifter": 53.14,
+        "spitter": 26.47
+      },
+      "accuracy": 0.8849,
+      "upgradeOrder": [
+        {
+          "id": "vitality",
+          "level": 1,
+          "elapsed": 27.67
+        },
+        {
+          "id": "focusProtocol",
+          "level": 1,
+          "elapsed": 72.5
+        },
+        {
+          "id": "damage",
+          "level": 1,
+          "elapsed": 108.25
+        },
+        {
+          "id": "pierce",
+          "level": 1,
+          "elapsed": 135.82
+        },
+        {
+          "id": "focusProtocol",
+          "level": 2,
+          "elapsed": 166.65
+        }
+      ],
+      "phaseTimeline": [
+        {
+          "id": "threat-2",
+          "elapsed": 60.02
+        },
+        {
+          "id": "threat-3",
+          "elapsed": 120.02
+        },
+        {
+          "id": "threat-4",
+          "elapsed": 180
+        }
+      ],
+      "bossEncounters": [
+        {
+          "enemyType": "warden",
+          "startedAt": 180,
+          "duration": null
+        }
+      ],
+      "copperCurve": [
+        {
+          "elapsed": 30,
+          "scrap": 2
+        },
+        {
+          "elapsed": 60,
+          "scrap": 5
+        },
+        {
+          "elapsed": 90,
+          "scrap": 6
+        },
+        {
+          "elapsed": 120,
+          "scrap": 10
+        },
+        {
+          "elapsed": 150,
+          "scrap": 11
+        },
+        {
+          "elapsed": 180,
+          "scrap": 22
+        }
+      ],
+      "maxEnemies": 23,
+      "maxProjectiles": 4,
+      "maxPickups": 140,
+      "bossWaves": 1,
+      "emittedEvents": 981,
+      "runtimeMs": 1182.92,
+      "memoryMiB": {
+        "baselineRss": 54.92,
+        "peakRss": 58.88,
+        "finalRss": 56.62,
+        "baselineHeapUsed": 11.19,
+        "peakHeapUsed": 14.64,
+        "finalHeapUsed": 13.28,
+        "peakHeapGrowth": 3.44,
+        "peakExternal": 2.12
+      },
+      "pools": {
+        "enemies": {
+          "created": 88,
+          "free": 66
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 95
+        },
+        "pickups": {
+          "created": 140,
+          "free": 1
+        }
+      }
+    },
+    {
+      "weaponId": "prism_laser",
+      "mapId": "red_basin",
+      "duration": 180,
+      "targetSeconds": 180,
+      "simulatedSeconds": 180,
+      "reachedTarget": true,
+      "seed": 20261029,
+      "mode": "endless",
+      "strategy": "default",
+      "healthProfile": "stress",
+      "result": "running",
+      "finalHp": 999824.2,
+      "kills": 231,
+      "eliteKills": 0,
+      "level": 7,
+      "damageDealt": 4376.43,
+      "damageTaken": 186.94,
+      "damageTakenBySource": {
+        "runner": 72.49,
+        "drifter": 70.67,
+        "crawler": 28.88,
+        "spitter": 14.9
+      },
+      "accuracy": 0.5949,
+      "upgradeOrder": [
+        {
+          "id": "projectile",
+          "level": 1,
+          "elapsed": 34.78
+        },
+        {
+          "id": "damage",
+          "level": 1,
+          "elapsed": 77.38
+        },
+        {
+          "id": "reactivePlating",
+          "level": 1,
+          "elapsed": 106.1
+        },
+        {
+          "id": "recovery",
+          "level": 1,
+          "elapsed": 138.78
+        },
+        {
+          "id": "salvageOverdrive",
+          "level": 1,
+          "elapsed": 161.62
+        },
+        {
+          "id": "recovery",
+          "level": 2,
+          "elapsed": 173.78
+        }
+      ],
+      "phaseTimeline": [
+        {
+          "id": "threat-2",
+          "elapsed": 60.02
+        },
+        {
+          "id": "threat-3",
+          "elapsed": 120.02
+        },
+        {
+          "id": "threat-4",
+          "elapsed": 180
+        }
+      ],
+      "bossEncounters": [
+        {
+          "enemyType": "warden",
+          "startedAt": 180,
+          "duration": null
+        }
+      ],
+      "copperCurve": [
+        {
+          "elapsed": 30,
+          "scrap": 0
+        },
+        {
+          "elapsed": 60,
+          "scrap": 2
+        },
+        {
+          "elapsed": 90,
+          "scrap": 5
+        },
+        {
+          "elapsed": 120,
+          "scrap": 9
+        },
+        {
+          "elapsed": 150,
+          "scrap": 12
+        },
+        {
+          "elapsed": 180,
+          "scrap": 18
+        }
+      ],
+      "maxEnemies": 28,
+      "maxProjectiles": 6,
+      "maxPickups": 140,
+      "bossWaves": 1,
+      "emittedEvents": 1058,
+      "runtimeMs": 1663.43,
+      "memoryMiB": {
+        "baselineRss": 56.66,
+        "peakRss": 58.15,
+        "finalRss": 57.48,
+        "baselineHeapUsed": 13.68,
+        "peakHeapUsed": 15.29,
+        "finalHeapUsed": 11.66,
+        "peakHeapGrowth": 1.61,
+        "peakExternal": 2.24
+      },
+      "pools": {
+        "enemies": {
+          "created": 88,
+          "free": 68
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 91
+        },
+        "pickups": {
+          "created": 140,
+          "free": 3
+        }
+      }
+    },
+    {
+      "weaponId": "slag_launcher",
+      "mapId": "echo_district",
+      "duration": 180,
+      "targetSeconds": 180,
+      "simulatedSeconds": 180,
+      "reachedTarget": true,
+      "seed": 20261029,
+      "mode": "endless",
+      "strategy": "default",
+      "healthProfile": "stress",
+      "result": "running",
+      "finalHp": 999860.58,
+      "kills": 200,
+      "eliteKills": 0,
+      "level": 6,
+      "damageDealt": 3290.78,
+      "damageTaken": 139.42,
+      "damageTakenBySource": {
+        "drifter": 54.33,
+        "spitter": 45.22,
+        "brute": 25.88,
+        "runner": 13.99
+      },
+      "accuracy": 1,
+      "upgradeOrder": [
+        {
+          "id": "focusProtocol",
+          "level": 1,
+          "elapsed": 27.82
+        },
+        {
+          "id": "executionCapacitor",
+          "level": 1,
+          "elapsed": 44.78
+        },
+        {
+          "id": "cascadeRounds",
+          "level": 1,
+          "elapsed": 83.65
+        },
+        {
+          "id": "cascadeRounds",
+          "level": 2,
+          "elapsed": 128.3
+        },
+        {
+          "id": "speed",
+          "level": 1,
+          "elapsed": 154.37
+        }
+      ],
+      "phaseTimeline": [
+        {
+          "id": "threat-2",
+          "elapsed": 60.02
+        },
+        {
+          "id": "threat-3",
+          "elapsed": 120.02
+        },
+        {
+          "id": "threat-4",
+          "elapsed": 180
+        }
+      ],
+      "bossEncounters": [
+        {
+          "enemyType": "warden",
+          "startedAt": 180,
+          "duration": null
+        }
+      ],
+      "copperCurve": [
+        {
+          "elapsed": 30,
+          "scrap": 0
+        },
+        {
+          "elapsed": 60,
+          "scrap": 5
+        },
+        {
+          "elapsed": 90,
+          "scrap": 7
+        },
+        {
+          "elapsed": 120,
+          "scrap": 9
+        },
+        {
+          "elapsed": 150,
+          "scrap": 14
+        },
+        {
+          "elapsed": 180,
+          "scrap": 22
+        }
+      ],
+      "maxEnemies": 40,
+      "maxProjectiles": 5,
+      "maxPickups": 140,
+      "bossWaves": 1,
+      "emittedEvents": 1063,
+      "runtimeMs": 1063.19,
+      "memoryMiB": {
+        "baselineRss": 57.58,
+        "peakRss": 60.1,
+        "finalRss": 57.88,
+        "baselineHeapUsed": 12.06,
+        "peakHeapUsed": 16.07,
+        "finalHeapUsed": 15.59,
+        "peakHeapGrowth": 4.01,
+        "peakExternal": 2.32
+      },
+      "pools": {
+        "enemies": {
+          "created": 88,
+          "free": 50
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 95
+        },
+        "pickups": {
+          "created": 140,
+          "free": 0
+        }
+      }
+    },
+    {
+      "weaponId": "slag_launcher",
+      "mapId": "freight_nexus",
+      "duration": 180,
+      "targetSeconds": 180,
+      "simulatedSeconds": 180,
+      "reachedTarget": true,
+      "seed": 20261029,
+      "mode": "endless",
+      "strategy": "default",
+      "healthProfile": "stress",
+      "result": "running",
+      "finalHp": 999883.03,
+      "kills": 202,
+      "eliteKills": 0,
+      "level": 8,
+      "damageDealt": 3599.95,
+      "damageTaken": 142.75,
+      "damageTakenBySource": {
+        "drifter": 68.03,
+        "runner": 48.59,
+        "crawler": 26.13
+      },
+      "accuracy": 1,
+      "upgradeOrder": [
+        {
+          "id": "critical",
+          "level": 1,
+          "elapsed": 25.28
+        },
+        {
+          "id": "speed",
+          "level": 1,
+          "elapsed": 47.13
+        },
+        {
+          "id": "recovery",
+          "level": 1,
+          "elapsed": 88.85
+        },
+        {
+          "id": "reactivePlating",
+          "level": 1,
+          "elapsed": 104.87
+        },
+        {
+          "id": "reactivePlating",
+          "level": 2,
+          "elapsed": 132.6
+        },
+        {
+          "id": "damage",
+          "level": 1,
+          "elapsed": 148.52
+        },
+        {
+          "id": "damage",
+          "level": 2,
+          "elapsed": 172.93
+        }
+      ],
+      "phaseTimeline": [
+        {
+          "id": "threat-2",
+          "elapsed": 60.02
+        },
+        {
+          "id": "threat-3",
+          "elapsed": 120.02
+        },
+        {
+          "id": "threat-4",
+          "elapsed": 180
+        }
+      ],
+      "bossEncounters": [
+        {
+          "enemyType": "warden",
+          "startedAt": 180,
+          "duration": null
+        }
+      ],
+      "copperCurve": [
+        {
+          "elapsed": 30,
+          "scrap": 0
+        },
+        {
+          "elapsed": 60,
+          "scrap": 2
+        },
+        {
+          "elapsed": 90,
+          "scrap": 3
+        },
+        {
+          "elapsed": 120,
+          "scrap": 8
+        },
+        {
+          "elapsed": 150,
+          "scrap": 15
+        },
+        {
+          "elapsed": 180,
+          "scrap": 23
+        }
+      ],
+      "maxEnemies": 36,
+      "maxProjectiles": 9,
+      "maxPickups": 126,
+      "bossWaves": 1,
+      "emittedEvents": 1044,
+      "runtimeMs": 1309.47,
+      "memoryMiB": {
+        "baselineRss": 58.66,
+        "peakRss": 89.92,
+        "finalRss": 89.92,
+        "baselineHeapUsed": 13.09,
+        "peakHeapUsed": 37.34,
+        "finalHeapUsed": 35.57,
+        "peakHeapGrowth": 24.25,
+        "peakExternal": 2.42
+      },
+      "pools": {
+        "enemies": {
+          "created": 88,
+          "free": 52
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 93
+        },
+        "pickups": {
+          "created": 140,
+          "free": 21
+        }
+      }
+    },
+    {
+      "weaponId": "slag_launcher",
+      "mapId": "red_basin",
+      "duration": 180,
+      "targetSeconds": 180,
+      "simulatedSeconds": 180,
+      "reachedTarget": true,
+      "seed": 20261029,
+      "mode": "endless",
+      "strategy": "default",
+      "healthProfile": "stress",
+      "result": "running",
+      "finalHp": 999695.6,
+      "kills": 237,
+      "eliteKills": 0,
+      "level": 9,
+      "damageDealt": 4679.52,
+      "damageTaken": 335.85,
+      "damageTakenBySource": {
+        "brute": 136.69,
+        "runner": 92.62,
+        "drifter": 69.68,
+        "crawler": 21.97,
+        "spitter": 14.9
+      },
+      "accuracy": 1,
+      "upgradeOrder": [
+        {
+          "id": "magnet",
+          "level": 1,
+          "elapsed": 35.3
+        },
+        {
+          "id": "projectile",
+          "level": 1,
+          "elapsed": 66.22
+        },
+        {
+          "id": "magnet",
+          "level": 2,
+          "elapsed": 95.97
+        },
+        {
+          "id": "recovery",
+          "level": 1,
+          "elapsed": 106.73
+        },
+        {
+          "id": "vitality",
+          "level": 1,
+          "elapsed": 137.7
+        },
+        {
+          "id": "critical",
+          "level": 1,
+          "elapsed": 161.05
+        },
+        {
+          "id": "executionCapacitor",
+          "level": 1,
+          "elapsed": 171.88
+        },
+        {
+          "id": "cascadeRounds",
+          "level": 1,
+          "elapsed": 173.67
+        }
+      ],
+      "phaseTimeline": [
+        {
+          "id": "threat-2",
+          "elapsed": 60.02
+        },
+        {
+          "id": "threat-3",
+          "elapsed": 120.02
+        },
+        {
+          "id": "threat-4",
+          "elapsed": 180
+        }
+      ],
+      "bossEncounters": [
+        {
+          "enemyType": "warden",
+          "startedAt": 180,
+          "duration": null
+        }
+      ],
+      "copperCurve": [
+        {
+          "elapsed": 30,
+          "scrap": 0
+        },
+        {
+          "elapsed": 60,
+          "scrap": 0
+        },
+        {
+          "elapsed": 90,
+          "scrap": 4
+        },
+        {
+          "elapsed": 120,
+          "scrap": 7
+        },
+        {
+          "elapsed": 150,
+          "scrap": 8
+        },
+        {
+          "elapsed": 180,
+          "scrap": 23
+        }
+      ],
+      "maxEnemies": 32,
+      "maxProjectiles": 6,
+      "maxPickups": 140,
+      "bossWaves": 1,
+      "emittedEvents": 1324,
+      "runtimeMs": 1574.78,
+      "memoryMiB": {
+        "baselineRss": 89.71,
+        "peakRss": 94.09,
+        "finalRss": 90.23,
+        "baselineHeapUsed": 36.38,
+        "peakHeapUsed": 41.64,
+        "finalHeapUsed": 37.81,
+        "peakHeapGrowth": 5.25,
+        "peakExternal": 2.17
+      },
+      "pools": {
+        "enemies": {
+          "created": 88,
+          "free": 66
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 94
+        },
+        "pickups": {
+          "created": 140,
+          "free": 28
+        }
+      }
+    },
+    {
+      "weaponId": "saw_disc",
+      "mapId": "echo_district",
+      "duration": 180,
+      "targetSeconds": 180,
+      "simulatedSeconds": 180,
+      "reachedTarget": true,
+      "seed": 20261029,
+      "mode": "endless",
+      "strategy": "default",
+      "healthProfile": "stress",
+      "result": "running",
+      "finalHp": 999871.89,
+      "kills": 218,
+      "eliteKills": 0,
+      "level": 6,
+      "damageDealt": 3802.99,
+      "damageTaken": 128.11,
+      "damageTakenBySource": {
+        "spitter": 58.81,
+        "drifter": 43.42,
+        "brute": 25.88
+      },
+      "accuracy": 1,
+      "upgradeOrder": [
+        {
+          "id": "magnet",
+          "level": 1,
+          "elapsed": 17.73
+        },
+        {
+          "id": "pointBlankRelay",
+          "level": 1,
+          "elapsed": 36.52
+        },
+        {
+          "id": "caliber",
+          "level": 1,
+          "elapsed": 97.1
+        },
+        {
+          "id": "velocity",
+          "level": 1,
+          "elapsed": 126.92
+        },
+        {
+          "id": "damage",
+          "level": 1,
+          "elapsed": 153.32
+        }
+      ],
+      "phaseTimeline": [
+        {
+          "id": "threat-2",
+          "elapsed": 60.02
+        },
+        {
+          "id": "threat-3",
+          "elapsed": 120.02
+        },
+        {
+          "id": "threat-4",
+          "elapsed": 180
+        }
+      ],
+      "bossEncounters": [
+        {
+          "enemyType": "warden",
+          "startedAt": 180,
+          "duration": null
+        }
+      ],
+      "copperCurve": [
+        {
+          "elapsed": 30,
+          "scrap": 0
+        },
+        {
+          "elapsed": 60,
+          "scrap": 1
+        },
+        {
+          "elapsed": 90,
+          "scrap": 2
+        },
+        {
+          "elapsed": 120,
+          "scrap": 4
+        },
+        {
+          "elapsed": 150,
+          "scrap": 7
+        },
+        {
+          "elapsed": 180,
+          "scrap": 7
+        }
+      ],
+      "maxEnemies": 25,
+      "maxProjectiles": 7,
+      "maxPickups": 140,
+      "bossWaves": 1,
+      "emittedEvents": 1236,
+      "runtimeMs": 1017.69,
+      "memoryMiB": {
+        "baselineRss": 90.39,
+        "peakRss": 93.82,
+        "finalRss": 92.14,
+        "baselineHeapUsed": 34.56,
+        "peakHeapUsed": 42.49,
+        "finalHeapUsed": 35.8,
+        "peakHeapGrowth": 7.93,
+        "peakExternal": 2.24
+      },
+      "pools": {
+        "enemies": {
+          "created": 88,
+          "free": 65
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 96
+        },
+        "pickups": {
+          "created": 140,
+          "free": 0
+        }
+      }
+    },
+    {
+      "weaponId": "saw_disc",
+      "mapId": "freight_nexus",
+      "duration": 180,
+      "targetSeconds": 180,
+      "simulatedSeconds": 180,
+      "reachedTarget": true,
+      "seed": 20261029,
+      "mode": "endless",
+      "strategy": "default",
+      "healthProfile": "stress",
+      "result": "running",
+      "finalHp": 999901.93,
+      "kills": 208,
+      "eliteKills": 0,
+      "level": 7,
+      "damageDealt": 3928.87,
+      "damageTaken": 98.07,
+      "damageTakenBySource": {
+        "drifter": 68.49,
+        "brute": 29.58
+      },
+      "accuracy": 1,
+      "upgradeOrder": [
+        {
+          "id": "speed",
+          "level": 1,
+          "elapsed": 34.97
+        },
+        {
+          "id": "cascadeRounds",
+          "level": 1,
+          "elapsed": 59.2
+        },
+        {
+          "id": "magnet",
+          "level": 1,
+          "elapsed": 103.17
+        },
+        {
+          "id": "caliber",
+          "level": 1,
+          "elapsed": 126.07
+        },
+        {
+          "id": "cascadeRounds",
+          "level": 2,
+          "elapsed": 136.43
+        },
+        {
+          "id": "executionCapacitor",
+          "level": 1,
+          "elapsed": 168.1
+        }
+      ],
+      "phaseTimeline": [
+        {
+          "id": "threat-2",
+          "elapsed": 60.02
+        },
+        {
+          "id": "threat-3",
+          "elapsed": 120.02
+        },
+        {
+          "id": "threat-4",
+          "elapsed": 180
+        }
+      ],
+      "bossEncounters": [
+        {
+          "enemyType": "warden",
+          "startedAt": 180,
+          "duration": null
+        }
+      ],
+      "copperCurve": [
+        {
+          "elapsed": 30,
+          "scrap": 0
+        },
+        {
+          "elapsed": 60,
+          "scrap": 3
+        },
+        {
+          "elapsed": 90,
+          "scrap": 4
+        },
+        {
+          "elapsed": 120,
+          "scrap": 7
+        },
+        {
+          "elapsed": 150,
+          "scrap": 11
+        },
+        {
+          "elapsed": 180,
+          "scrap": 15
+        }
+      ],
+      "maxEnemies": 34,
+      "maxProjectiles": 6,
+      "maxPickups": 140,
+      "bossWaves": 1,
+      "emittedEvents": 1376,
+      "runtimeMs": 1264.68,
+      "memoryMiB": {
+        "baselineRss": 92.17,
+        "peakRss": 96.85,
+        "finalRss": 91.53,
+        "baselineHeapUsed": 36.49,
+        "peakHeapUsed": 43.33,
+        "finalHeapUsed": 37.57,
+        "peakHeapGrowth": 6.85,
+        "peakExternal": 2.34
+      },
+      "pools": {
+        "enemies": {
+          "created": 88,
+          "free": 58
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 94
+        },
+        "pickups": {
+          "created": 140,
+          "free": 0
+        }
+      }
+    },
+    {
+      "weaponId": "saw_disc",
+      "mapId": "red_basin",
+      "duration": 180,
+      "targetSeconds": 180,
+      "simulatedSeconds": 180,
+      "reachedTarget": true,
+      "seed": 20261029,
+      "mode": "endless",
+      "strategy": "default",
+      "healthProfile": "stress",
+      "result": "running",
+      "finalHp": 999819.03,
+      "kills": 231,
+      "eliteKills": 0,
+      "level": 6,
+      "damageDealt": 4425.05,
+      "damageTaken": 180.97,
+      "damageTakenBySource": {
+        "runner": 71.21,
+        "drifter": 58.6,
+        "spitter": 29.65,
+        "crawler": 21.52
+      },
+      "accuracy": 1,
+      "upgradeOrder": [
+        {
+          "id": "fireRate",
+          "level": 1,
+          "elapsed": 35.03
+        },
+        {
+          "id": "caliber",
+          "level": 1,
+          "elapsed": 66.13
+        },
+        {
+          "id": "fireRate",
+          "level": 2,
+          "elapsed": 79.83
+        },
+        {
+          "id": "caliber",
+          "level": 2,
+          "elapsed": 118.93
+        },
+        {
+          "id": "velocity",
+          "level": 1,
+          "elapsed": 164.38
+        }
+      ],
+      "phaseTimeline": [
+        {
+          "id": "threat-2",
+          "elapsed": 60.02
+        },
+        {
+          "id": "threat-3",
+          "elapsed": 120.02
+        },
+        {
+          "id": "threat-4",
+          "elapsed": 180
+        }
+      ],
+      "bossEncounters": [
+        {
+          "enemyType": "warden",
+          "startedAt": 180,
+          "duration": null
+        }
+      ],
+      "copperCurve": [
+        {
+          "elapsed": 30,
+          "scrap": 0
+        },
+        {
+          "elapsed": 60,
+          "scrap": 2
+        },
+        {
+          "elapsed": 90,
+          "scrap": 8
+        },
+        {
+          "elapsed": 120,
+          "scrap": 9
+        },
+        {
+          "elapsed": 150,
+          "scrap": 10
+        },
+        {
+          "elapsed": 180,
+          "scrap": 17
+        }
+      ],
+      "maxEnemies": 28,
+      "maxProjectiles": 7,
+      "maxPickups": 140,
+      "bossWaves": 1,
+      "emittedEvents": 1524,
+      "runtimeMs": 1563.73,
+      "memoryMiB": {
+        "baselineRss": 91.7,
+        "peakRss": 94.09,
+        "finalRss": 92.11,
+        "baselineHeapUsed": 38.45,
+        "peakHeapUsed": 44.15,
+        "finalHeapUsed": 44.15,
+        "peakHeapGrowth": 5.7,
+        "peakExternal": 2.47
+      },
+      "pools": {
+        "enemies": {
+          "created": 88,
+          "free": 69
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 94
+        },
+        "pickups": {
+          "created": 140,
+          "free": 0
+        }
+      }
+    },
+    {
+      "weaponId": "echo_blade",
+      "mapId": "echo_district",
+      "duration": 180,
+      "targetSeconds": 180,
+      "simulatedSeconds": 180,
+      "reachedTarget": true,
+      "seed": 20261029,
+      "mode": "endless",
+      "strategy": "default",
+      "healthProfile": "stress",
+      "result": "running",
+      "finalHp": 999944.06,
+      "kills": 54,
+      "eliteKills": 0,
+      "level": 5,
+      "damageDealt": 892.87,
+      "damageTaken": 55.94,
+      "damageTakenBySource": {
+        "drifter": 41.51,
+        "runner": 14.43
+      },
+      "accuracy": 0.4148,
+      "upgradeOrder": [
+        {
+          "id": "fireRate",
+          "level": 1,
+          "elapsed": 17.22
+        },
+        {
+          "id": "reactivePlating",
+          "level": 1,
+          "elapsed": 35.43
+        },
+        {
+          "id": "meleeReach",
+          "level": 1,
+          "elapsed": 104.92
+        },
+        {
+          "id": "reactivePlating",
+          "level": 2,
+          "elapsed": 175.43
+        }
+      ],
+      "phaseTimeline": [
+        {
+          "id": "threat-2",
+          "elapsed": 60.02
+        },
+        {
+          "id": "threat-3",
+          "elapsed": 120.02
+        },
+        {
+          "id": "threat-4",
+          "elapsed": 180
+        }
+      ],
+      "bossEncounters": [
+        {
+          "enemyType": "warden",
+          "startedAt": 180,
+          "duration": null
+        }
+      ],
+      "copperCurve": [
+        {
+          "elapsed": 30,
+          "scrap": 0
+        },
+        {
+          "elapsed": 60,
+          "scrap": 2
+        },
+        {
+          "elapsed": 90,
+          "scrap": 3
+        },
+        {
+          "elapsed": 120,
+          "scrap": 4
+        },
+        {
+          "elapsed": 150,
+          "scrap": 6
+        },
+        {
+          "elapsed": 180,
+          "scrap": 7
+        }
+      ],
+      "maxEnemies": 42,
+      "maxProjectiles": 6,
+      "maxPickups": 24,
+      "bossWaves": 1,
+      "emittedEvents": 384,
+      "runtimeMs": 1168.06,
+      "memoryMiB": {
+        "baselineRss": 92.15,
+        "peakRss": 96.63,
+        "finalRss": 93.6,
+        "baselineHeapUsed": 40.8,
+        "peakHeapUsed": 45.56,
+        "finalHeapUsed": 41.13,
+        "peakHeapGrowth": 4.77,
+        "peakExternal": 2.54
+      },
+      "pools": {
+        "enemies": {
+          "created": 88,
+          "free": 46
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 93
+        },
+        "pickups": {
+          "created": 140,
+          "free": 121
+        }
+      }
+    },
+    {
+      "weaponId": "echo_blade",
+      "mapId": "freight_nexus",
+      "duration": 180,
+      "targetSeconds": 180,
+      "simulatedSeconds": 180,
+      "reachedTarget": true,
+      "seed": 20261029,
+      "mode": "endless",
+      "strategy": "default",
+      "healthProfile": "stress",
+      "result": "running",
+      "finalHp": 999832.97,
+      "kills": 108,
+      "eliteKills": 0,
+      "level": 7,
+      "damageDealt": 2205.07,
+      "damageTaken": 211.26,
+      "damageTakenBySource": {
+        "drifter": 86.39,
+        "runner": 61.77,
+        "brute": 30.27,
+        "spitter": 26.62,
+        "crawler": 6.22
+      },
+      "accuracy": 0.474,
+      "upgradeOrder": [
+        {
+          "id": "reactivePlating",
+          "level": 1,
+          "elapsed": 25.47
+        },
+        {
+          "id": "speed",
+          "level": 1,
+          "elapsed": 46.33
+        },
+        {
+          "id": "focusProtocol",
+          "level": 1,
+          "elapsed": 86.03
+        },
+        {
+          "id": "recovery",
+          "level": 1,
+          "elapsed": 104.25
+        },
+        {
+          "id": "recovery",
+          "level": 2,
+          "elapsed": 132.67
+        },
+        {
+          "id": "vitality",
+          "level": 1,
+          "elapsed": 168.45
+        }
+      ],
+      "phaseTimeline": [
+        {
+          "id": "threat-2",
+          "elapsed": 60.02
+        },
+        {
+          "id": "threat-3",
+          "elapsed": 120.02
+        },
+        {
+          "id": "threat-4",
+          "elapsed": 180
+        }
+      ],
+      "bossEncounters": [
+        {
+          "enemyType": "warden",
+          "startedAt": 180,
+          "duration": null
+        }
+      ],
+      "copperCurve": [
+        {
+          "elapsed": 30,
+          "scrap": 0
+        },
+        {
+          "elapsed": 60,
+          "scrap": 2
+        },
+        {
+          "elapsed": 90,
+          "scrap": 5
+        },
+        {
+          "elapsed": 120,
+          "scrap": 8
+        },
+        {
+          "elapsed": 150,
+          "scrap": 9
+        },
+        {
+          "elapsed": 180,
+          "scrap": 10
+        }
+      ],
+      "maxEnemies": 42,
+      "maxProjectiles": 8,
+      "maxPickups": 55,
+      "bossWaves": 1,
+      "emittedEvents": 791,
+      "runtimeMs": 1389.89,
+      "memoryMiB": {
+        "baselineRss": 93.64,
+        "peakRss": 98.05,
+        "finalRss": 94.62,
+        "baselineHeapUsed": 41.82,
+        "peakHeapUsed": 46.37,
+        "finalHeapUsed": 43.62,
+        "peakHeapGrowth": 4.55,
+        "peakExternal": 2.64
+      },
+      "pools": {
+        "enemies": {
+          "created": 88,
+          "free": 46
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 92
+        },
+        "pickups": {
+          "created": 140,
+          "free": 91
+        }
+      }
+    },
+    {
+      "weaponId": "echo_blade",
+      "mapId": "red_basin",
+      "duration": 180,
+      "targetSeconds": 180,
+      "simulatedSeconds": 180,
+      "reachedTarget": true,
+      "seed": 20261029,
+      "mode": "endless",
+      "strategy": "default",
+      "healthProfile": "stress",
+      "result": "running",
+      "finalHp": 999842.89,
+      "kills": 111,
+      "eliteKills": 0,
+      "level": 5,
+      "damageDealt": 2476.3,
+      "damageTaken": 157.11,
+      "damageTakenBySource": {
+        "spitter": 45.4,
+        "runner": 37.55,
+        "brute": 33.59,
+        "drifter": 32.83,
+        "crawler": 7.75
+      },
+      "accuracy": 0.973,
+      "upgradeOrder": [
+        {
+          "id": "executionCapacitor",
+          "level": 1,
+          "elapsed": 28.05
+        },
+        {
+          "id": "executionCapacitor",
+          "level": 2,
+          "elapsed": 81.37
+        },
+        {
+          "id": "fireRate",
+          "level": 1,
+          "elapsed": 128.67
+        },
+        {
+          "id": "phaseLining",
+          "level": 1,
+          "elapsed": 172.3
+        }
+      ],
+      "phaseTimeline": [
+        {
+          "id": "threat-2",
+          "elapsed": 60.02
+        },
+        {
+          "id": "threat-3",
+          "elapsed": 120.02
+        },
+        {
+          "id": "threat-4",
+          "elapsed": 180
+        }
+      ],
+      "bossEncounters": [
+        {
+          "enemyType": "warden",
+          "startedAt": 180,
+          "duration": null
+        }
+      ],
+      "copperCurve": [
+        {
+          "elapsed": 30,
+          "scrap": 0
+        },
+        {
+          "elapsed": 60,
+          "scrap": 1
+        },
+        {
+          "elapsed": 90,
+          "scrap": 2
+        },
+        {
+          "elapsed": 120,
+          "scrap": 3
+        },
+        {
+          "elapsed": 150,
+          "scrap": 3
+        },
+        {
+          "elapsed": 180,
+          "scrap": 4
+        }
+      ],
+      "maxEnemies": 40,
+      "maxProjectiles": 7,
+      "maxPickups": 83,
+      "bossWaves": 1,
+      "emittedEvents": 764,
+      "runtimeMs": 1722.27,
+      "memoryMiB": {
+        "baselineRss": 94.63,
+        "peakRss": 95.64,
+        "finalRss": 94.74,
+        "baselineHeapUsed": 44.44,
+        "peakHeapUsed": 46.68,
+        "finalHeapUsed": 40.37,
+        "peakHeapGrowth": 2.24,
+        "peakExternal": 2.77
+      },
+      "pools": {
+        "enemies": {
+          "created": 88,
+          "free": 58
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 96
+        },
+        "pickups": {
+          "created": 140,
+          "free": 57
+        }
+      }
+    },
+    {
+      "weaponId": "shock_hammer",
+      "mapId": "echo_district",
+      "duration": 180,
+      "targetSeconds": 180,
+      "simulatedSeconds": 180,
+      "reachedTarget": true,
+      "seed": 20261029,
+      "mode": "endless",
+      "strategy": "default",
+      "healthProfile": "stress",
+      "result": "running",
+      "finalHp": 999942.66,
+      "kills": 46,
+      "eliteKills": 0,
+      "level": 4,
+      "damageDealt": 861.56,
+      "damageTaken": 57.34,
+      "damageTakenBySource": {
+        "brute": 26.39,
+        "drifter": 16.57,
+        "runner": 14.37
+      },
+      "accuracy": 0,
+      "upgradeOrder": [
+        {
+          "id": "speed",
+          "level": 1,
+          "elapsed": 17.8
+        },
+        {
+          "id": "blastRadius",
+          "level": 1,
+          "elapsed": 49.35
+        },
+        {
+          "id": "damage",
+          "level": 1,
+          "elapsed": 126.4
+        }
+      ],
+      "phaseTimeline": [
+        {
+          "id": "threat-2",
+          "elapsed": 60.02
+        },
+        {
+          "id": "threat-3",
+          "elapsed": 120.02
+        },
+        {
+          "id": "threat-4",
+          "elapsed": 180
+        }
+      ],
+      "bossEncounters": [
+        {
+          "enemyType": "warden",
+          "startedAt": 180,
+          "duration": null
+        }
+      ],
+      "copperCurve": [
+        {
+          "elapsed": 30,
+          "scrap": 0
+        },
+        {
+          "elapsed": 60,
+          "scrap": 1
+        },
+        {
+          "elapsed": 90,
+          "scrap": 2
+        },
+        {
+          "elapsed": 120,
+          "scrap": 2
+        },
+        {
+          "elapsed": 150,
+          "scrap": 2
+        },
+        {
+          "elapsed": 180,
+          "scrap": 3
+        }
+      ],
+      "maxEnemies": 42,
+      "maxProjectiles": 3,
+      "maxPickups": 31,
+      "bossWaves": 1,
+      "emittedEvents": 256,
+      "runtimeMs": 1196.77,
+      "memoryMiB": {
+        "baselineRss": 94.81,
+        "peakRss": 99.71,
+        "finalRss": 95.71,
+        "baselineHeapUsed": 44.83,
+        "peakHeapUsed": 47.49,
+        "finalHeapUsed": 43.5,
+        "peakHeapGrowth": 2.67,
+        "peakExternal": 2.84
+      },
+      "pools": {
+        "enemies": {
+          "created": 88,
+          "free": 46
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 94
+        },
+        "pickups": {
+          "created": 140,
+          "free": 113
+        }
+      }
+    },
+    {
+      "weaponId": "shock_hammer",
+      "mapId": "freight_nexus",
+      "duration": 180,
+      "targetSeconds": 180,
+      "simulatedSeconds": 180,
+      "reachedTarget": true,
+      "seed": 20261029,
+      "mode": "endless",
+      "strategy": "default",
+      "healthProfile": "stress",
+      "result": "running",
+      "finalHp": 999694.68,
+      "kills": 126,
+      "eliteKills": 0,
+      "level": 8,
+      "damageDealt": 2347.02,
+      "damageTaken": 305.32,
+      "damageTakenBySource": {
+        "runner": 117.71,
+        "drifter": 80.33,
+        "spitter": 65.55,
+        "brute": 29.55,
+        "crawler": 12.18
+      },
+      "accuracy": 0,
+      "upgradeOrder": [
+        {
+          "id": "magnet",
+          "level": 1,
+          "elapsed": 41.77
+        },
+        {
+          "id": "reactivePlating",
+          "level": 1,
+          "elapsed": 55.05
+        },
+        {
+          "id": "pointBlankRelay",
+          "level": 1,
+          "elapsed": 60.37
+        },
+        {
+          "id": "phaseLining",
+          "level": 1,
+          "elapsed": 72.73
+        },
+        {
+          "id": "damage",
+          "level": 1,
+          "elapsed": 91.98
+        },
+        {
+          "id": "blastRadius",
+          "level": 1,
+          "elapsed": 114.22
+        },
+        {
+          "id": "scavenger",
+          "level": 1,
+          "elapsed": 139.35
+        }
+      ],
+      "phaseTimeline": [
+        {
+          "id": "threat-2",
+          "elapsed": 60.02
+        },
+        {
+          "id": "threat-3",
+          "elapsed": 120.02
+        },
+        {
+          "id": "threat-4",
+          "elapsed": 180
+        }
+      ],
+      "bossEncounters": [
+        {
+          "enemyType": "warden",
+          "startedAt": 180,
+          "duration": null
+        }
+      ],
+      "copperCurve": [
+        {
+          "elapsed": 30,
+          "scrap": 0
+        },
+        {
+          "elapsed": 60,
+          "scrap": 2
+        },
+        {
+          "elapsed": 90,
+          "scrap": 3
+        },
+        {
+          "elapsed": 120,
+          "scrap": 10
+        },
+        {
+          "elapsed": 150,
+          "scrap": 12
+        },
+        {
+          "elapsed": 180,
+          "scrap": 18
+        }
+      ],
+      "maxEnemies": 42,
+      "maxProjectiles": 13,
+      "maxPickups": 42,
+      "bossWaves": 1,
+      "emittedEvents": 846,
+      "runtimeMs": 1407.37,
+      "memoryMiB": {
+        "baselineRss": 95.73,
+        "peakRss": 101.28,
+        "finalRss": 96.85,
+        "baselineHeapUsed": 44.15,
+        "peakHeapUsed": 48.55,
+        "finalHeapUsed": 46.32,
+        "peakHeapGrowth": 4.39,
+        "peakExternal": 2.94
+      },
+      "pools": {
+        "enemies": {
+          "created": 88,
+          "free": 46
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 90
+        },
+        "pickups": {
+          "created": 140,
+          "free": 106
+        }
+      }
+    },
+    {
+      "weaponId": "shock_hammer",
+      "mapId": "red_basin",
+      "duration": 180,
+      "targetSeconds": 180,
+      "simulatedSeconds": 180,
+      "reachedTarget": true,
+      "seed": 20261029,
+      "mode": "endless",
+      "strategy": "default",
+      "healthProfile": "stress",
+      "result": "running",
+      "finalHp": 999920.13,
+      "kills": 57,
+      "eliteKills": 0,
+      "level": 4,
+      "damageDealt": 1117.35,
+      "damageTaken": 79.87,
+      "damageTakenBySource": {
+        "runner": 51.13,
+        "drifter": 21.1,
+        "crawler": 7.64
+      },
+      "accuracy": 0,
+      "upgradeOrder": [
+        {
+          "id": "blastRadius",
+          "level": 1,
+          "elapsed": 34.78
+        },
+        {
+          "id": "scavenger",
+          "level": 1,
+          "elapsed": 60.17
+        },
+        {
+          "id": "scavenger",
+          "level": 2,
+          "elapsed": 145.3
+        }
+      ],
+      "phaseTimeline": [
+        {
+          "id": "threat-2",
+          "elapsed": 60.02
+        },
+        {
+          "id": "threat-3",
+          "elapsed": 120.02
+        },
+        {
+          "id": "threat-4",
+          "elapsed": 180
+        }
+      ],
+      "bossEncounters": [
+        {
+          "enemyType": "warden",
+          "startedAt": 180,
+          "duration": null
+        }
+      ],
+      "copperCurve": [
+        {
+          "elapsed": 30,
+          "scrap": 0
+        },
+        {
+          "elapsed": 60,
+          "scrap": 0
+        },
+        {
+          "elapsed": 90,
+          "scrap": 0
+        },
+        {
+          "elapsed": 120,
+          "scrap": 0
+        },
+        {
+          "elapsed": 150,
+          "scrap": 1
+        },
+        {
+          "elapsed": 180,
+          "scrap": 2
+        }
+      ],
+      "maxEnemies": 42,
+      "maxProjectiles": 2,
+      "maxPickups": 41,
+      "bossWaves": 1,
+      "emittedEvents": 418,
+      "runtimeMs": 1823.29,
+      "memoryMiB": {
+        "baselineRss": 98.31,
+        "peakRss": 128.45,
+        "finalRss": 128.45,
+        "baselineHeapUsed": 47.19,
+        "peakHeapUsed": 65.86,
+        "finalHeapUsed": 54.64,
+        "peakHeapGrowth": 18.67,
+        "peakExternal": 3.07
+      },
+      "pools": {
+        "enemies": {
+          "created": 88,
+          "free": 46
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 96
+        },
+        "pickups": {
+          "created": 140,
+          "free": 99
+        }
+      }
+    },
+    {
+      "weaponId": "echo_blade",
+      "mapId": "echo_district",
+      "duration": 900,
+      "targetSeconds": 900,
+      "simulatedSeconds": 900,
+      "reachedTarget": true,
+      "seed": 20261029,
+      "mode": "endless",
+      "strategy": "default",
+      "healthProfile": "stress",
+      "result": "running",
+      "finalHp": 999452.41,
+      "kills": 233,
+      "eliteKills": 0,
+      "level": 12,
+      "damageDealt": 10646.47,
+      "damageTaken": 547.59,
+      "damageTakenBySource": {
+        "drifter": 308.13,
+        "runner": 146.74,
+        "brute": 38.25,
+        "screecher": 21.89,
+        "crawler": 19.3,
+        "spitter": 13.28
+      },
+      "accuracy": 0.8192,
+      "upgradeOrder": [
+        {
+          "id": "fireRate",
+          "level": 1,
+          "elapsed": 17.22
+        },
+        {
+          "id": "reactivePlating",
+          "level": 1,
+          "elapsed": 35.43
+        },
+        {
+          "id": "meleeReach",
+          "level": 1,
+          "elapsed": 104.92
+        },
+        {
+          "id": "reactivePlating",
+          "level": 2,
+          "elapsed": 175.43
+        },
+        {
+          "id": "meleeReach",
+          "level": 2,
+          "elapsed": 301.22
+        },
+        {
+          "id": "meleeReach",
+          "level": 3,
+          "elapsed": 403.93
+        },
+        {
+          "id": "fireRate",
+          "level": 2,
+          "elapsed": 554.12
+        },
+        {
+          "id": "scavenger",
+          "level": 1,
+          "elapsed": 606.25
+        },
+        {
+          "id": "fireRate",
+          "level": 3,
+          "elapsed": 709.38
+        },
+        {
+          "id": "meleeReach",
+          "level": 4,
+          "elapsed": 826.67
+        },
+        {
+          "id": "critical",
+          "level": 1,
+          "elapsed": 886.45
+        }
+      ],
+      "phaseTimeline": [
+        {
+          "id": "threat-2",
+          "elapsed": 60.02
+        },
+        {
+          "id": "threat-3",
+          "elapsed": 120.02
+        },
+        {
+          "id": "threat-4",
+          "elapsed": 180
+        },
+        {
+          "id": "threat-5",
+          "elapsed": 240
+        },
+        {
+          "id": "threat-6",
+          "elapsed": 300
+        },
+        {
+          "id": "threat-7",
+          "elapsed": 360
+        },
+        {
+          "id": "threat-8",
+          "elapsed": 420.02
+        },
+        {
+          "id": "threat-9",
+          "elapsed": 480.02
+        },
+        {
+          "id": "threat-10",
+          "elapsed": 540.02
+        },
+        {
+          "id": "threat-11",
+          "elapsed": 600.02
+        },
+        {
+          "id": "threat-12",
+          "elapsed": 660.02
+        },
+        {
+          "id": "threat-13",
+          "elapsed": 720.02
+        },
+        {
+          "id": "threat-14",
+          "elapsed": 780.02
+        },
+        {
+          "id": "threat-15",
+          "elapsed": 840.02
+        }
+      ],
+      "bossEncounters": [
+        {
+          "enemyType": "warden",
+          "startedAt": 180,
+          "duration": null
+        },
+        {
+          "enemyType": "warden",
+          "startedAt": 355.02,
+          "duration": null
+        }
+      ],
+      "copperCurve": [
+        {
+          "elapsed": 30,
+          "scrap": 0
+        },
+        {
+          "elapsed": 60,
+          "scrap": 2
+        },
+        {
+          "elapsed": 90,
+          "scrap": 3
+        },
+        {
+          "elapsed": 120,
+          "scrap": 4
+        },
+        {
+          "elapsed": 150,
+          "scrap": 6
+        },
+        {
+          "elapsed": 180,
+          "scrap": 7
+        },
+        {
+          "elapsed": 210,
+          "scrap": 7
+        },
+        {
+          "elapsed": 240,
+          "scrap": 8
+        },
+        {
+          "elapsed": 270,
+          "scrap": 8
+        },
+        {
+          "elapsed": 300,
+          "scrap": 8
+        },
+        {
+          "elapsed": 330,
+          "scrap": 8
+        },
+        {
+          "elapsed": 360,
+          "scrap": 9
+        },
+        {
+          "elapsed": 390,
+          "scrap": 9
+        },
+        {
+          "elapsed": 420,
+          "scrap": 10
+        },
+        {
+          "elapsed": 450,
+          "scrap": 10
+        },
+        {
+          "elapsed": 480,
+          "scrap": 10
+        },
+        {
+          "elapsed": 510,
+          "scrap": 11
+        },
+        {
+          "elapsed": 540,
+          "scrap": 13
+        },
+        {
+          "elapsed": 570,
+          "scrap": 15
+        },
+        {
+          "elapsed": 600,
+          "scrap": 17
+        },
+        {
+          "elapsed": 630,
+          "scrap": 17
+        },
+        {
+          "elapsed": 660,
+          "scrap": 21
+        },
+        {
+          "elapsed": 690,
+          "scrap": 23
+        },
+        {
+          "elapsed": 720,
+          "scrap": 23
+        },
+        {
+          "elapsed": 750,
+          "scrap": 23
+        },
+        {
+          "elapsed": 780,
+          "scrap": 23
+        },
+        {
+          "elapsed": 810,
+          "scrap": 31
+        },
+        {
+          "elapsed": 840,
+          "scrap": 43
+        },
+        {
+          "elapsed": 870,
+          "scrap": 50
+        },
+        {
+          "elapsed": 900,
+          "scrap": 51
+        }
+      ],
+      "maxEnemies": 104,
+      "maxProjectiles": 35,
+      "maxPickups": 124,
+      "bossWaves": 2,
+      "emittedEvents": 4822,
+      "runtimeMs": 10610.85,
+      "memoryMiB": {
+        "baselineRss": 128.45,
+        "peakRss": 131.73,
+        "finalRss": 129.32,
+        "baselineHeapUsed": 43.36,
+        "peakHeapUsed": 57.72,
+        "finalHeapUsed": 56.98,
+        "peakHeapGrowth": 14.35,
+        "peakExternal": 2.15
+      },
+      "pools": {
+        "enemies": {
+          "created": 104,
+          "free": 0
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 74
+        },
+        "pickups": {
+          "created": 140,
+          "free": 31
+        }
+      }
+    },
+    {
+      "weaponId": "shock_hammer",
+      "mapId": "echo_district",
+      "duration": 900,
+      "targetSeconds": 900,
+      "simulatedSeconds": 900,
+      "reachedTarget": true,
+      "seed": 20261029,
+      "mode": "endless",
+      "strategy": "default",
+      "healthProfile": "stress",
+      "result": "running",
+      "finalHp": 999814.05,
+      "kills": 88,
+      "eliteKills": 0,
+      "level": 6,
+      "damageDealt": 3085.45,
+      "damageTaken": 185.95,
+      "damageTakenBySource": {
+        "warden": 75.42,
+        "drifter": 69.76,
+        "brute": 26.39,
+        "runner": 14.37
+      },
+      "accuracy": 0,
+      "upgradeOrder": [
+        {
+          "id": "speed",
+          "level": 1,
+          "elapsed": 17.8
+        },
+        {
+          "id": "blastRadius",
+          "level": 1,
+          "elapsed": 49.35
+        },
+        {
+          "id": "damage",
+          "level": 1,
+          "elapsed": 126.4
+        },
+        {
+          "id": "phaseLining",
+          "level": 1,
+          "elapsed": 258.65
+        },
+        {
+          "id": "salvageOverdrive",
+          "level": 1,
+          "elapsed": 694.88
+        }
+      ],
+      "phaseTimeline": [
+        {
+          "id": "threat-2",
+          "elapsed": 60.02
+        },
+        {
+          "id": "threat-3",
+          "elapsed": 120.02
+        },
+        {
+          "id": "threat-4",
+          "elapsed": 180
+        },
+        {
+          "id": "threat-5",
+          "elapsed": 240
+        },
+        {
+          "id": "threat-6",
+          "elapsed": 300
+        },
+        {
+          "id": "threat-7",
+          "elapsed": 360
+        },
+        {
+          "id": "threat-8",
+          "elapsed": 420.02
+        },
+        {
+          "id": "threat-9",
+          "elapsed": 480.02
+        },
+        {
+          "id": "threat-10",
+          "elapsed": 540.02
+        },
+        {
+          "id": "threat-11",
+          "elapsed": 600.02
+        },
+        {
+          "id": "threat-12",
+          "elapsed": 660.02
+        },
+        {
+          "id": "threat-13",
+          "elapsed": 720.02
+        },
+        {
+          "id": "threat-14",
+          "elapsed": 780.02
+        },
+        {
+          "id": "threat-15",
+          "elapsed": 840.02
+        }
+      ],
+      "bossEncounters": [
+        {
+          "enemyType": "warden",
+          "startedAt": 180,
+          "duration": null
+        },
+        {
+          "enemyType": "warden",
+          "startedAt": 355.02,
+          "duration": null
+        }
+      ],
+      "copperCurve": [
+        {
+          "elapsed": 30,
+          "scrap": 0
+        },
+        {
+          "elapsed": 60,
+          "scrap": 1
+        },
+        {
+          "elapsed": 90,
+          "scrap": 2
+        },
+        {
+          "elapsed": 120,
+          "scrap": 2
+        },
+        {
+          "elapsed": 150,
+          "scrap": 2
+        },
+        {
+          "elapsed": 180,
+          "scrap": 3
+        },
+        {
+          "elapsed": 210,
+          "scrap": 4
+        },
+        {
+          "elapsed": 240,
+          "scrap": 4
+        },
+        {
+          "elapsed": 270,
+          "scrap": 5
+        },
+        {
+          "elapsed": 300,
+          "scrap": 5
+        },
+        {
+          "elapsed": 330,
+          "scrap": 5
+        },
+        {
+          "elapsed": 360,
+          "scrap": 5
+        },
+        {
+          "elapsed": 390,
+          "scrap": 5
+        },
+        {
+          "elapsed": 420,
+          "scrap": 5
+        },
+        {
+          "elapsed": 450,
+          "scrap": 5
+        },
+        {
+          "elapsed": 480,
+          "scrap": 5
+        },
+        {
+          "elapsed": 510,
+          "scrap": 6
+        },
+        {
+          "elapsed": 540,
+          "scrap": 6
+        },
+        {
+          "elapsed": 570,
+          "scrap": 7
+        },
+        {
+          "elapsed": 600,
+          "scrap": 7
+        },
+        {
+          "elapsed": 630,
+          "scrap": 9
+        },
+        {
+          "elapsed": 660,
+          "scrap": 11
+        },
+        {
+          "elapsed": 690,
+          "scrap": 11
+        },
+        {
+          "elapsed": 720,
+          "scrap": 13
+        },
+        {
+          "elapsed": 750,
+          "scrap": 13
+        },
+        {
+          "elapsed": 780,
+          "scrap": 13
+        },
+        {
+          "elapsed": 810,
+          "scrap": 13
+        },
+        {
+          "elapsed": 840,
+          "scrap": 13
+        },
+        {
+          "elapsed": 870,
+          "scrap": 13
+        },
+        {
+          "elapsed": 900,
+          "scrap": 13
+        }
+      ],
+      "maxEnemies": 104,
+      "maxProjectiles": 25,
+      "maxPickups": 54,
+      "bossWaves": 2,
+      "emittedEvents": 2025,
+      "runtimeMs": 10370.13,
+      "memoryMiB": {
+        "baselineRss": 129.34,
+        "peakRss": 132.07,
+        "finalRss": 132.07,
+        "baselineHeapUsed": 45.64,
+        "peakHeapUsed": 58.73,
+        "finalHeapUsed": 48.04,
+        "peakHeapGrowth": 13.09,
+        "peakExternal": 2.22
+      },
+      "pools": {
+        "enemies": {
+          "created": 104,
+          "free": 0
+        },
+        "projectiles": {
+          "created": 96,
+          "free": 84
+        },
+        "pickups": {
+          "created": 140,
+          "free": 86
+        }
+      }
+    }
+  ]
+}

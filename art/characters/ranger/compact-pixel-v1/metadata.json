@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-22",
+  "id": "study.ranger.compact-pixel.v1",
+  "role": "static compact pixel character look development",
+  "heroId": "ranger",
+  "skinId": "wanderer",
+  "generator": "OpenAI ImageGen built-in",
+  "imagePath": "art/characters/ranger/compact-pixel-v1/ranger-compact-v1.png",
+  "sourceReference": "art/characters/ranger/compact-pixel-v1/reference/ranger-pixel-sidearm-v1.png",
+  "referenceRole": "identity and colors only; body proportions and art language redesigned",
+  "referenceSha256": "37B53BBEA947258D8388CE5EAA70A0A196DB8B636FD08A4CF2550BFA77ECBF18",
+  "styleReference": "Soul Knight in-game character proportions and readable pixel clusters",
+  "styleReferencePages": [
+    "https://www.te5.com/yxrb/897775.html",
+    "https://m.gao7.com/news/1134283.shtm"
+  ],
+  "promptPath": "art/characters/ranger/compact-pixel-v1/prompt.txt",
+  "width": 1254,
+  "height": 1254,
+  "pixelFormat": "RGBA",
+  "alphaExtrema": [
+    0,
+    255
+  ],
+  "hasTransparency": true,
+  "visibleBoundsAlpha200": [
+    244,
+    173,
+    1087,
+    1200
+  ],
+  "bytes": 704622,
+  "sha256": "22E0B12A2E4546D69A37AD9D7CD5869A82757C8FA20DB701380EFCC06A64A6C1",
+  "nativePixelGridVerified": false,
+  "paletteRestricted": false,
+  "bakedWeapon": true,
+  "visualApproved": false,
+  "runtimeIntegrated": false,
+  "status": "inactive",
+  "scope": "one static protagonist appearance only",
+  "previousDetailedAnimationRoute": "discontinued by user on 2026-10-22; archived without deletion",
+  "referenceRelocation": {
+    "date": "2026-10-31",
+    "reason": "Retain current character provenance while retiring the abandoned animation route",
+    "originalSourceUrl": "https://github.com/XFTony/wasteland-echo-windows/blob/8ebdf50c1c597d5eb2924982157f3169db0fd26e/art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png"
+  }
+}

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_0w4no"]
+
+[resource]
+script = ExtResource("1_0w4no")
+content_id = &"ranger"
+category = &"heroes"
+display_name = "巡线者·黎响"
+source_data = {
+"accent": "#cda34f",
+"armorBonus": 0.0,
+"callsign": "ECHO-07",
+"copperMultiplier": 1.0,
+"damageMultiplier": 1.0,
+"description": "均衡可靠，擅长在视野边缘捕捉目标。",
+"hpMultiplier": 1.0,
+"id": "ranger",
+"lockRangeMultiplier": 1.08,
+"name": "巡线者·黎响",
+"passive": "远距感知：自动锁定距离 +8%",
+"pickupMultiplier": 1.0,
+"portrait": "ranger",
+"speedMultiplier": 1.0
+}

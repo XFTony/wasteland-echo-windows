@@ -24,8 +24,8 @@ test("first-run field manual advances through real gameplay actions and persists
   model.startRun({ seed: 1701, tutorial: true });
   model.updateSpawner = () => {};
   const startEvent = model.drainEvents().find((event) => event.type === "runStart");
-  assert.match(startEvent.radioTitle, /破晓频段/);
-  assert.match(startEvent.radioDetail, /广播塔/);
+  assert.match(startEvent.radioTitle, /余火电台/);
+  assert.match(startEvent.radioDetail, /广播广场/);
   assert.equal(currentTutorialStep(model.run.tutorial).id, "deployment");
 
   for (let index = 0; index < 40; index += 1) model.tick(0.05);

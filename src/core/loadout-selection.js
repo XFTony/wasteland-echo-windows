@@ -29,7 +29,7 @@ function resolveCatalogSelection(save, content, key) {
   const selection = LOADOUT_SELECTIONS[key];
   if (!selection) throw new Error(`Unknown loadout selection '${key}'`);
   const ids = availableIds(save, content, selection);
-  return ids.includes(save[key]) ? save[key] : ids[0];
+  return ids.includes(save[key]) ? save[key] : ids.includes(content.defaults[selection.defaultId]) ? content.defaults[selection.defaultId] : ids[0];
 }
 
 function shopCategories(content) {
@@ -54,7 +54,7 @@ function resolveLoadoutSelections(save, content) {
     selectedMode: resolveCatalogSelection(save, content, "selectedMode"),
     selectedHero: resolveCatalogSelection(save, content, "selectedHero"),
     selectedStage: campaign.selectedStage,
-    selectedMap: campaign.selectedMap,
+    selectedMap: resolveCatalogSelection(save, content, "selectedMap"),
     shopCategory: resolveShopCategory(save.shopCategory, content)
   };
 }

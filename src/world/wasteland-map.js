@@ -1,5 +1,7 @@
 "use strict";
 
+const { ECHO_DISTRICT } = require("./echo-district");
+
 function freezeEntries(entries) {
   return Object.freeze(entries.map((entry) => Object.freeze({ ...entry })));
 }
@@ -104,58 +106,10 @@ function mapLayout(definition) {
 }
 
 const MAP_LAYOUTS = Object.freeze({
-  echo_district: mapLayout({
-    id: "echo_district",
-    worldSize: 3072,
-    zones: [
-      ...WASTELAND_ZONES,
-      { id: "east-market", label: "东侧霓虹街", x: 2100, y: 180, w: 760, h: 720, surface: "pavement" },
-      { id: "signal-campus", label: "旧广播园区", x: 2130, y: 1220, w: 700, h: 720, surface: "concrete" },
-      { id: "south-housing", label: "南侧居民区", x: 240, y: 2140, w: 1760, h: 650, surface: "asphalt" }
-    ],
-    roads: [
-      { id: "echo-east-west", orientation: "horizontal", x: 0, y: 800, w: 3072, h: 308, lanes: 2 },
-      ...WASTELAND_ROADS.slice(1),
-      { id: "echo-east-access", orientation: "vertical", x: 1980, y: 0, w: 190, h: 3072, lanes: 1 },
-      { id: "echo-south-ring", orientation: "horizontal", x: 0, y: 2010, w: 3072, h: 180, lanes: 1 }
-    ],
-    roadDetails: [
-      { id: "echo-crosswalk-old-quarter", type: "crosswalk", orientation: "vertical", x: 856, y: 814, w: 111, h: 78, stripes: 7 },
-      { id: "echo-crosswalk-east-access", type: "crosswalk", orientation: "horizontal", x: 1988, y: 960, w: 170, h: 88, stripes: 6 },
-      { id: "echo-crack-01", type: "crack", x: 246, y: 914, w: 44, h: 18, seed: 11 },
-      { id: "echo-crack-02", type: "crack", x: 738, y: 1002, w: 52, h: 16, seed: 23 },
-      { id: "echo-crack-03", type: "crack", x: 1214, y: 882, w: 36, h: 20, seed: 37 },
-      { id: "echo-crack-04", type: "crack", x: 1710, y: 1036, w: 58, h: 18, seed: 41 },
-      { id: "echo-crack-05", type: "crack", x: 2298, y: 856, w: 48, h: 17, seed: 53 },
-      { id: "echo-crack-06", type: "crack", x: 2720, y: 1008, w: 42, h: 16, seed: 67 }
-    ],
-    interactives: [
-      { id: "echo-barrel-market", type: "explosiveBarrel", x: 1218, y: 972, radius: 14, effectRadius: 126, damage: 72 },
-      { id: "echo-supply-radio", type: "supplyCache", x: 2328, y: 1248, radius: 20, scrap: 8, healing: 28 },
-      { id: "echo-grid-campus", type: "electricField", x: 2580, y: 1650, radius: 96, slow: 0.58 }
-    ],
-    tracks: [
-      ...WASTELAND_TRACKS,
-      { id: "echo-east-spur", orientation: "vertical", x: 2440, y: 1120, w: 210, h: 1720, lines: 3, spacing: 48 }
-    ],
-    obstacles: [
-      ...WASTELAND_OBSTACLES,
-      ...shifted(WASTELAND_OBSTACLES, 940, 1030),
-      { x: 2240, y: 310, w: 240, h: 142, kind: "shop", sign: "电台" },
-      { x: 2550, y: 570, w: 214, h: 130, kind: "shop", sign: "食堂" },
-      { x: 2210, y: 1320, w: 310, h: 150, kind: "warehouse", sign: "RADIO" }
-    ],
-    scenery: [
-      ...WASTELAND_SCENERY,
-      ...shifted(WASTELAND_SCENERY, 980, 990),
-      { x: 2290, y: 1160, type: "antenna", detail: true },
-      { x: 2670, y: 1020, type: "barricade" },
-      { x: 2080, y: 2380, type: "streetlight" }
-    ],
-    theme: { ground: "#514536", asphalt: "#343a3b", concrete: "#696052", ballast: "#5b4d3e", accent: "#ffd166", haze: "#e2a764" }
-  }),
+  echo_district: mapLayout(ECHO_DISTRICT),
   freight_nexus: mapLayout({
     id: "freight_nexus",
+    blocksProjectiles: true,
     worldSize: 3584,
     zones: [
       { id: "north-depot", label: "北部机务段", x: 260, y: 180, w: 2900, h: 720, surface: "concrete" },
@@ -178,6 +132,7 @@ const MAP_LAYOUTS = Object.freeze({
       { id: "freight-crack-05", type: "crack", x: 1630, y: 2760, w: 22, h: 64, seed: 101 }
     ],
     interactives: [
+      { id: "freight-trade-post", type: "tradePost", x: 1665, y: 1940, radius: 78, name: "余火交易站", obstacleId: "freight-market-booth" },
       { id: "freight-barrel-loop", type: "explosiveBarrel", x: 2080, y: 1810, radius: 14, effectRadius: 138, damage: 78 },
       { id: "freight-supply-workers", type: "supplyCache", x: 1120, y: 2680, radius: 20, scrap: 10, healing: 24 },
       { id: "freight-grid-depot", type: "electricField", x: 2820, y: 720, radius: 108, slow: 0.52 }
@@ -187,6 +142,7 @@ const MAP_LAYOUTS = Object.freeze({
       { id: "freight-loop", orientation: "vertical", x: 2140, y: 340, w: 420, h: 2940, lines: 5, spacing: 58 }
     ],
     obstacles: [
+      { id: "freight-market-booth", x: 1570, y: 1760, w: 190, h: 136, kind: "tradePost", sign: "余火交易站" },
       ...shifted(WASTELAND_OBSTACLES, 610, 650),
       ...shifted(WASTELAND_OBSTACLES, 1510, 140, (item) => ["railcar", "container", "warehouse", "scrap"].includes(item.kind)),
       { x: 370, y: 390, w: 380, h: 160, kind: "station", sign: "NORTH DEPOT" },
@@ -203,6 +159,7 @@ const MAP_LAYOUTS = Object.freeze({
   }),
   red_basin: mapLayout({
     id: "red_basin",
+    blocksProjectiles: true,
     worldSize: 4096,
     zones: [
       { id: "red-dunes", label: "赤砂盆地", x: 100, y: 100, w: 3896, h: 3896, surface: "scrap" },
@@ -224,6 +181,7 @@ const MAP_LAYOUTS = Object.freeze({
       { id: "basin-crack-06", type: "crack", x: 1980, y: 3320, w: 28, h: 68, seed: 157 }
     ],
     interactives: [
+      { id: "basin-trade-post", type: "tradePost", x: 2215, y: 1990, radius: 78, name: "余火交易站", obstacleId: "basin-market-booth" },
       { id: "basin-barrel-lab", type: "explosiveBarrel", x: 1840, y: 1530, radius: 14, effectRadius: 150, damage: 84 },
       { id: "basin-supply-quarantine", type: "supplyCache", x: 2520, y: 2380, radius: 20, scrap: 12, healing: 34 },
       { id: "basin-grid-ring", type: "electricField", x: 2210, y: 1700, radius: 118, slow: 0.48 }
@@ -232,6 +190,7 @@ const MAP_LAYOUTS = Object.freeze({
       { id: "basin-dry-rail", orientation: "horizontal", x: 260, y: 3010, w: 3400, h: 260, lines: 4, spacing: 52 }
     ],
     obstacles: [
+      { id: "basin-market-booth", x: 2120, y: 1810, w: 190, h: 136, kind: "tradePost", sign: "余火交易站" },
       ...shifted(WASTELAND_OBSTACLES, 1000, 880, (item) => item.kind !== "shop"),
       ...shifted(WASTELAND_OBSTACLES, 2040, 1490, (item) => ["warehouse", "container", "scrap", "wreck"].includes(item.kind)),
       { x: 1480, y: 1400, w: 340, h: 170, kind: "warehouse", sign: "LAB 04" },

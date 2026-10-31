@@ -1,0 +1,77 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_erynw"]
+
+[resource]
+script = ExtResource("1_erynw")
+content_id = &"survival"
+category = &"modes"
+display_name = "坚守模式"
+source_data = {
+"bossOneAt": 0.88,
+"bossTwoAt": null,
+"description": "撑过三分钟递增尸潮即可获胜",
+"enemyLimit": 78.0,
+"hpGrowth": 0.52,
+"id": "survival",
+"name": "坚守模式",
+"objective": "守住信号",
+"playerHp": 115.0,
+"playerInvulnerability": 0.72,
+"playerSpeed": 178.0,
+"rule": "survive",
+"spawnEnd": 0.3,
+"spawnPhases": [{
+"at": 0.0,
+"cap": 12.0,
+"detail": "零散感染者正在靠近",
+"id": "scout",
+"index": 0.0,
+"interval": 1.28,
+"label": "接触警报"
+}, {
+"at": 0.12,
+"cap": 20.0,
+"detail": "尸潮开始沿主干道聚集",
+"id": "pressure",
+"index": 1.0,
+"interval": 0.94,
+"label": "街区失守"
+}, {
+"at": 0.3,
+"cap": 34.0,
+"detail": "保持移动，别被路障困住",
+"id": "surge",
+"index": 2.0,
+"interval": 0.66,
+"label": "第一波冲击"
+}, {
+"at": 0.48,
+"cap": 26.0,
+"detail": "抓紧搜集经验，下一波更凶",
+"id": "lull",
+"index": 3.0,
+"interval": 0.98,
+"label": "短暂喘息"
+}, {
+"at": 0.6,
+"cap": 52.0,
+"detail": "特殊感染者已进入战区",
+"id": "siege",
+"index": 4.0,
+"interval": 0.45,
+"label": "警报升级"
+}, {
+"at": 0.82,
+"cap": 78.0,
+"detail": "信号只剩最后一分钟",
+"id": "last-stand",
+"index": 5.0,
+"interval": 0.3,
+"label": "最终攻势"
+}],
+"spawnProfile": "survival",
+"spawnStart": 1.28,
+"speedGrowth": 0.09,
+"winReward": 25.0
+}

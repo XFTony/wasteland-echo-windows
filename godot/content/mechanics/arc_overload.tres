@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_sahni"]
+
+[resource]
+script = ExtResource("1_sahni")
+content_id = &"arc_overload"
+category = &"mechanics"
+display_name = "三相过载"
+source_data = {
+"description": "荒雷线圈炮每第 3 发获得额外伤害与穿透",
+"id": "arc_overload",
+"name": "三相过载"
+}

@@ -43,7 +43,7 @@ body {
   width: 100%;
   height: 100%;
   outline: none;
-  cursor: crosshair;
+  cursor: default;
   image-rendering: auto;
   background: #100f0c;
 }
@@ -56,12 +56,11 @@ body {
   position: fixed;
   right: 10px;
   bottom: 8px;
-  padding: 4px 7px;
-  border: 1px solid #71664f;
-  color: #ead9ad;
-  background: rgba(18, 16, 12, 0.94);
-  font-family: "Fusion Pixel 12", "Cascadia Mono", Consolas, monospace;
+  padding: 2px 4px;
+  color: #bcad89;
+  background: rgba(18, 22, 17, 0.42);
+  font-family: "Cascadia Mono", Consolas, monospace;
   font-size: 10px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.02em;
   pointer-events: none;
 }

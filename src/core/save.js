@@ -1,11 +1,12 @@
 "use strict";
 
 const { DEFAULT_KEY_BINDINGS, normalizeKeyBindings } = require("../input/key-bindings");
+const { LEGACY_STAGE_MAPS } = require("../content/survival");
 
 const SAVE_KEY = "wasteland_echo_save_v1";
 const SAVE_BACKUP_KEY = `${SAVE_KEY}_backup`;
 const SAVE_DAMAGED_KEY = `${SAVE_KEY}_damaged`;
-const CURRENT_SCHEMA_VERSION = 9;
+const CURRENT_SCHEMA_VERSION = 10;
 const AUTO_AIM_SCHEMA_VERSION = 3;
 const ARMOR_LOADOUT_SCHEMA_VERSION = 6;
 const LEGACY_EQUIPMENT_TARGETS = Object.freeze({
@@ -28,7 +29,8 @@ const DEFAULT_SETTINGS = Object.freeze({
   screenShake: "low",
   flashes: "low",
   autoAim: true,
-  autoFire: false
+  autoFire: true,
+  introAnimation: true
 });
 
 function normalizeSettings(candidate) {
@@ -40,7 +42,7 @@ function normalizeSettings(candidate) {
   settings.uiScale = Math.max(0.8, Math.min(1.2, Number(settings.uiScale) || 1));
   if (!["off", "low", "high"].includes(settings.screenShake)) settings.screenShake = DEFAULT_SETTINGS.screenShake;
   if (!["off", "low", "high"].includes(settings.flashes)) settings.flashes = DEFAULT_SETTINGS.flashes;
-  for (const key of ["musicMuted", "sfxMuted", "gamepadEnabled", "gamepadVibration", "showControlHints", "showFps", "autoAim", "autoFire"]) {
+  for (const key of ["musicMuted", "sfxMuted", "gamepadEnabled", "gamepadVibration", "showControlHints", "showFps", "autoAim", "autoFire", "introAnimation"]) {
     settings[key] = typeof source[key] === "boolean" ? source[key] : DEFAULT_SETTINGS[key];
   }
   return settings;
@@ -58,12 +60,15 @@ function createDefaultSave() {
     totalKills: 0,
     eliteKills: 0,
     bestTime: 0,
+    settledRuns: 0,
+    bossesDefeated: 0,
+    survivalRecords: {},
     bestNoHitTime: 0,
     wins: 0,
     unlockedWeapons: ["scrap_pistol"],
     unlockedSkins: ["wanderer"],
     unlockedHeroes: ["ranger", "mechanic"],
-    unlockedMaps: ["echo_district"],
+    unlockedMaps: ["echo_district", "freight_nexus", "red_basin"],
     completedStages: [],
     ownedEquipment: ["field_vest"],
     equippedEquipment: { helmet: null, chest: "field_vest", legs: null, boots: null },
@@ -72,7 +77,7 @@ function createDefaultSave() {
     selectedHero: "ranger",
     selectedMap: "echo_district",
     selectedStage: "signal_dawn",
-    selectedMode: "survival",
+    selectedMode: "endless",
     shopCategory: "weapon",
     settings: { ...DEFAULT_SETTINGS },
     keyBindings: { ...DEFAULT_KEY_BINDINGS },
@@ -167,10 +172,20 @@ function normalizeSave(candidate) {
   normalized.totalKills = nonNegativeInteger(candidate.totalKills);
   normalized.eliteKills = nonNegativeInteger(candidate.eliteKills);
   normalized.wins = nonNegativeInteger(candidate.wins);
+  normalized.bestTime = Number.isFinite(Number(candidate.bestTime)) ? Math.max(0, Number(candidate.bestTime)) : 0;
+  normalized.settledRuns = nonNegativeInteger(candidate.settledRuns, normalized.wins);
+  normalized.bossesDefeated = nonNegativeInteger(candidate.bossesDefeated);
+  normalized.survivalRecords = {};
+  if (candidate.survivalRecords && typeof candidate.survivalRecords === "object") {
+    for (const [id, record] of Object.entries(candidate.survivalRecords)) {
+      if (!record || typeof record !== "object") continue;
+      normalized.survivalRecords[id] = { bestTime: nonNegativeInteger(record.bestTime), bestKills: nonNegativeInteger(record.bestKills), runs: nonNegativeInteger(record.runs) };
+    }
+  }
   normalized.unlockedWeapons = uniqueIds(candidate.unlockedWeapons, ["scrap_pistol"]);
   normalized.unlockedSkins = uniqueIds(candidate.unlockedSkins, ["wanderer"]);
   normalized.unlockedHeroes = uniqueIds(candidate.unlockedHeroes, ["ranger", "mechanic"]);
-  normalized.unlockedMaps = uniqueIds(candidate.unlockedMaps, ["echo_district"]);
+  normalized.unlockedMaps = uniqueIds(candidate.unlockedMaps, defaults.unlockedMaps);
   normalized.completedStages = uniqueIds(candidate.completedStages);
   normalized.ownedEquipment = uniqueIds(candidate.ownedEquipment, ["field_vest"]);
   const candidateLoadout = candidate.equippedEquipment && typeof candidate.equippedEquipment === "object"
@@ -185,7 +200,7 @@ function normalizeSave(candidate) {
   normalized.selectedHero = optionalId(candidate.selectedHero, defaults.selectedHero);
   normalized.selectedMap = optionalId(candidate.selectedMap, defaults.selectedMap);
   normalized.selectedStage = optionalId(candidate.selectedStage, defaults.selectedStage);
-  normalized.selectedMode = optionalId(candidate.selectedMode, defaults.selectedMode);
+  normalized.selectedMode = sourceVersion < 10 && ["survival", "extraction"].includes(candidate.selectedMode) ? "endless" : optionalId(candidate.selectedMode, defaults.selectedMode);
   normalized.shopCategory = optionalId(candidate.shopCategory, defaults.shopCategory);
   normalized.achievements = candidate.achievements && typeof candidate.achievements === "object" && !Array.isArray(candidate.achievements)
     ? Object.fromEntries(Object.entries(candidate.achievements).filter(([id, unlocked]) => typeof id === "string" && id && unlocked === true))
@@ -210,9 +225,11 @@ function normalizeSave(candidate) {
     ? candidate.runHistory.slice(0, 20).filter((record) => record && typeof record === "object").map((record) => ({
       seed: nonNegativeInteger(record.seed),
       modeId: optionalId(record.modeId, defaults.selectedMode),
-      stageId: optionalId(record.stageId, defaults.selectedStage),
+      stageId: record.stageId === null ? null : optionalId(record.stageId, defaults.selectedStage),
+      mapId: optionalId(record.mapId, LEGACY_STAGE_MAPS[record.stageId] || defaults.selectedMap),
       weaponId: optionalId(record.weaponId, defaults.selectedWeapon),
-      result: record.result === "win" ? "win" : "lose",
+      result: ["win", "retire"].includes(record.result) ? record.result : "lose",
+      bossesDefeated: nonNegativeInteger(record.bossesDefeated),
       elapsed: Math.max(0, Number(record.elapsed) || 0),
       kills: nonNegativeInteger(record.kills),
       damageDealt: Math.max(0, Number(record.damageDealt) || 0),

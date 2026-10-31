@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_olvbt"]
+
+[resource]
+script = ExtResource("1_olvbt")
+content_id = &"turretKit"
+category = &"fieldGoods"
+display_name = "守望塔台套件"
+source_data = {
+"detail": "T/Y部署 · 场上与库存合计最多4座",
+"effect": "turret",
+"family": "utility",
+"icon": "caliber",
+"id": "turretKit",
+"name": "守望塔台套件",
+"prices": [18.0, 26.0, 36.0, 48.0],
+"repeat": true,
+"tab": "support"
+}

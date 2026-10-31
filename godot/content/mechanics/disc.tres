@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_4e0gr"]
+
+[resource]
+script = ExtResource("1_4e0gr")
+content_id = &"disc"
+category = &"mechanics"
+display_name = "逐跳锯切"
+source_data = {
+"description": "向未命中的可见目标弹射，逐跳衰减",
+"id": "disc",
+"name": "逐跳锯切"
+}

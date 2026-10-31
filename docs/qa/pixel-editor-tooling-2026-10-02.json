@@ -1,0 +1,13 @@
+{
+  "repository": "https://github.com/LibreSprite/LibreSprite",
+  "releaseTag": "v1.1",
+  "programVersion": "1.1-dev",
+  "officialAssetURL": "https://github.com/LibreSprite/LibreSprite/releases/download/v1.1/libresprite-development-windows-x86_64.zip",
+  "downloadBytes": 50944189,
+  "computedZipSHA256": "B6B078A8342A20277B16CAE4AA6B880FFCED7DB1F1B8BD5D0387193A7C3FE43D",
+  "vendorAssetDigestPublished": false,
+  "toolRelativePath": "output/tooling/libresprite-v1.1/portable/libresprite.exe",
+  "configurationRelativePath": "output/tooling/libresprite-v1.1/userdata",
+  "includedInGameRuntime": false,
+  "probe": "docs/qa/pixel-source-tool-verification-2026-10-01.json"
+}

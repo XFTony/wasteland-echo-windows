@@ -1,6 +1,25 @@
 * text=auto
+.gitattributes text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.mjs text eol=lf
+godot/*.json text eol=lf
 *.png binary
 *.webp binary
 *.ico binary
 *.woff2 binary
 *.zip binary
+*.gif binary
+*.aseprite binary
+*.gd text eol=lf
+*.gdshader text eol=lf
+*.tscn text eol=lf
+*.tres text eol=lf
+*.godot text eol=lf
+*.uid text eol=lf
+*.cmd text eol=crlf
+*.import text eol=lf
+*.cfg text eol=lf
+*.ogg binary
+*.wav binary

@@ -1,13 +1,11 @@
 "use strict";
 
 const { INPUT_DEVICES } = require("../../core/contracts");
-const { equippedDefinitionMap } = require("../../core/equipment");
-const { ART_IDS } = require("../art/asset-catalog");
-const { drawSurvivorActor } = require("../pixel-actors");
 const { focusBrackets } = require("./art-primitives");
-const { drawAssetContain } = require("./image-primitives");
 const { drawFieldButton, drawFieldPlate, drawTextScrim, inside } = require("./field-surfaces");
 const { UI_COLORS } = require("./theme");
+const { drawIllustratedPortrait } = require("../illustrated-actors");
+const { paperClip } = require("./radio-materials");
 
 const SELECTOR_META = Object.freeze({
   stage: Object.freeze({ label: "行动章节", code: "CHAPTER", prev: "stagePrev", next: "stageNext", accent: "#bd684c" }),
@@ -22,23 +20,12 @@ function itemFor(renderer, model, type) {
 }
 
 function selectorDescription(item, type) {
-  return type === "map" ? `${item.description} · ${item.worldSize}×${item.worldSize}` : item.description;
+  return item.description;
 }
 
 function drawSelectorArrow(renderer, action, direction, x, y, size, accent) {
   const pointer = renderer.pointerState;
-  const active = inside(pointer, x, y, size, size) || renderer.focusAction === action;
-  const pressed = inside(pointer, x, y, size, size) && pointer && pointer.down;
-  const offset = pressed ? 2 : active ? -1 : 0;
-  const ctx = renderer.ctx;
-  ctx.fillStyle = active ? accent : "#25251f";
-  ctx.fillRect(x, y + offset, size, size);
-  ctx.strokeStyle = active ? UI_COLORS.paper : "#7a705c";
-  ctx.lineWidth = renderer.focusAction === action ? 3 : 2;
-  ctx.strokeRect(x, y + offset, size, size);
-  renderer.text(direction < 0 ? "‹" : "›", x + size / 2, y + offset + size / 2 - 1, Math.max(18, size * 0.62), UI_COLORS.white, "center", "900", "display");
-  if (renderer.focusAction === action) focusBrackets(renderer, x - 3, y + offset - 3, size + 6, size + 6, accent, 2, 8);
-  renderer.addRegion(action, x, y, size, size);
+  drawFieldButton(renderer, action, direction < 0 ? "‹" : "›", x, y, size, size, { accent, size: Math.max(18, size * 0.62) });
 }
 
 function drawSelector(renderer, model, type, x, y, w, h, compact) {
@@ -47,51 +34,31 @@ function drawSelector(renderer, model, type, x, y, w, h, compact) {
   const active = inside(renderer.pointerState, x, y, w, h)
     || renderer.focusAction === meta.prev
     || renderer.focusAction === meta.next;
-  drawFieldPlate(renderer, x, y, w, h, { accent: meta.accent, active });
+  renderer.ctx.fillStyle = "rgba(211,190,149,0.24)";
+  renderer.ctx.fillRect(x + 14, y + h - 1, w - 28, 1);
   const pad = compact ? 12 : 22;
   const arrow = Math.max(compact ? 27 : 38, Math.min(compact ? 34 : 48, h * 0.34));
   const arrowY = y + (h - arrow) / 2 + (compact ? 3 : 7);
   drawSelectorArrow(renderer, meta.prev, -1, x + pad, arrowY, arrow, meta.accent);
   drawSelectorArrow(renderer, meta.next, 1, x + w - pad - arrow, arrowY, arrow, meta.accent);
   renderer.text(meta.label, x + pad, y + (compact ? 13 : 22), compact ? 11 : 13, meta.accent, "left", "900", "ui");
-  renderer.text(meta.code, x + w - pad, y + (compact ? 13 : 22), compact ? 10 : 11, UI_COLORS.mutedDark, "right", "900", "mono");
   renderer.fitText(item.name || item.objective, x + w / 2, y + h * (compact ? 0.48 : 0.46), compact ? 16 : 24, w - (pad + arrow) * 2 - 20, UI_COLORS.white, "center", "900", 12, "display");
   if (h >= (compact ? 51 : 86)) {
     renderer.fitText(selectorDescription(item, type), x + w / 2, y + h * 0.72, compact ? 10 : 13, w - (pad + arrow) * 2 - 12, UI_COLORS.paper, "center", "700", 10);
   }
 }
 
-function drawFallbackCrew(renderer, model, x, y, w, h) {
-  const skin = renderer.content.get("skins", model.selectedSkin, renderer.content.defaults.skin);
-  const weapon = renderer.content.get("weapons", model.selectedWeapon, renderer.content.defaults.weapon);
-  drawSurvivorActor(renderer.ctx, {
-    x: x + w * 0.5,
-    y: y + h * 0.68,
-    unit: Math.max(1.4, Math.min(4.3, h / 80)),
-    skin,
-    skinId: model.selectedSkin,
-    heroId: model.selectedHero,
-    weapon,
-    aimX: 0.92,
-    aimY: -0.22,
-    elapsed: renderer.frame / 60,
-    portrait: true,
-    equipment: equippedDefinitionMap(model.save, renderer.content)
-  });
-}
-
 function drawCrew(renderer, model, x, y, w, h, compact) {
-  renderer.text("当前车组", x + 2, y + (compact ? 12 : 20), compact ? 11 : 14, UI_COLORS.orange, "left", "900", "ui");
-  renderer.trackedText("CREW 07 / READY", x + (compact ? 74 : 104), y + (compact ? 12 : 20), compact ? 9 : 11, UI_COLORS.gold, compact ? 0.5 : 1.2);
+  renderer.text("出征行装", x + 18, y + (compact ? 12 : 20), compact ? 12 : 16, UI_COLORS.paper, "left", "800");
   const captionH = compact ? 52 : 98;
-  const artY = y + (compact ? 24 : 38);
-  const artH = Math.max(80, h - captionH - (compact ? 31 : 54));
-  const art = drawAssetContain(renderer, ART_IDS.DEPLOYMENT_CONVOY, x, artY, w, artH, { padding: 2, alignY: 0.62 });
-  if (!art) drawFallbackCrew(renderer, model, x, artY, w, artH);
 
   const hero = renderer.content.get("heroes", model.selectedHero, renderer.content.defaults.hero);
   const weapon = renderer.content.get("weapons", model.selectedWeapon, renderer.content.defaults.weapon);
   const skin = renderer.content.get("skins", model.selectedSkin, renderer.content.defaults.skin);
+  const portraitY = y + (compact ? 30 : 48), portraitH = Math.max(52, h - captionH - (compact ? 37 : 65));
+  paperClip(renderer.ctx, x + w * 0.45, portraitY + 7);
+  const compactBody = renderer.compactActors && renderer.compactActors.drawPortrait(renderer, model, x + 12, portraitY, w - 24, portraitH);
+  if (!compactBody) drawIllustratedPortrait(renderer, model.selectedHero, model.selectedSkin, x + 12, portraitY, w - 24, portraitH);
   const captionY = y + h - captionH;
   const focused = renderer.focusAction === "inventory";
   const active = focused || inside(renderer.pointerState, x, captionY, w, captionH);
@@ -109,11 +76,11 @@ function drawReadout(renderer, model, x, y, w, h, compact) {
   const mode = renderer.content.get("modes", model.selectedMode, renderer.content.defaults.mode);
   const map = renderer.content.get("maps", model.selectedMap, renderer.content.defaults.map);
   const duration = mode.rule === "endless" ? "无限" : `${Math.round(stage.duration / 60)} 分钟`;
-  const threat = Math.round((Number(stage.difficulty) || 1) * (Number(map.threat) || 1) * 100);
+  const threat = Math.round((Number(map.threat) || 1) * 100);
   const stats = [
-    ["时限", duration, UI_COLORS.white],
+    ["生存", "持续计时", UI_COLORS.white],
     ["威胁", `${threat}%`, threat >= 150 ? UI_COLORS.danger : UI_COLORS.orange],
-    ["目标", mode.objective, UI_COLORS.cyan]
+    ["补给", "地图交易站", UI_COLORS.cyan]
   ];
   drawTextScrim(renderer, x, y, w, h, { fill: "rgba(16,15,12,0.92)", accent: UI_COLORS.gold });
   const cellW = w / 3;
@@ -141,15 +108,17 @@ function drawDeploymentBunkerPage(renderer, model) {
     accent: UI_COLORS.orange
   });
   renderer.displayText("作战部署", marginX + (compact ? 14 : 24), marginY + headerH * 0.42, compact ? 25 : 43, UI_COLORS.white);
-  renderer.trackedText("FIELD COMMAND / ROUTE 07", marginX + (compact ? 15 : 26), marginY + headerH * 0.78, compact ? 8 : 11, UI_COLORS.gold, compact ? 0.4 : 1.1);
+  renderer.text("把行装准备好，再走进荒原。", marginX + (compact ? 15 : 26), marginY + headerH * 0.8, compact ? 10 : 12, UI_COLORS.muted, "left", "600");
   drawFieldButton(renderer, "back", "返回营地", renderer.width - marginX - (compact ? 94 : 142), marginY + (compact ? 3 : 9), compact ? 94 : 142, compact ? 31 : 48, { accent: UI_COLORS.gold });
 
   const bodyY = marginY + headerH + (compact ? 4 : 12);
   const bodyH = renderer.height - bodyY - marginY;
   const availableW = renderer.width - marginX * 2;
-  const leftW = availableW * (compact ? 0.4 : 0.42);
+  const leftW = availableW * (compact ? 0.38 : 0.36);
   const rightX = marginX + leftW + gap;
   const rightW = renderer.width - marginX - rightX;
+  drawTextScrim(renderer, marginX, bodyY, leftW, bodyH, { fill: "rgba(27,29,22,0.88)" });
+  drawTextScrim(renderer, rightX, bodyY, rightW, bodyH, { fill: "rgba(27,29,22,0.92)" });
   drawCrew(renderer, model, marginX, bodyY, leftW, bodyH, compact);
 
   const contentH = Math.min(bodyH, compact ? bodyH : 720);
@@ -158,15 +127,17 @@ function drawDeploymentBunkerPage(renderer, model) {
   const readoutH = compact ? 34 : 76;
   const actionH = compact ? 42 : 68;
   const hintH = compact ? 14 : 25;
-  const selectorH = (contentH - readoutH - actionH - hintH - contentGap * 5) / 3;
-  drawSelector(renderer, model, "stage", rightX, contentY, rightW, selectorH, compact);
-  drawSelector(renderer, model, "mode", rightX, contentY + selectorH + contentGap, rightW, selectorH, compact);
-  drawSelector(renderer, model, "map", rightX, contentY + (selectorH + contentGap) * 2, rightW, selectorH, compact);
-
-  const readoutY = contentY + (selectorH + contentGap) * 3;
+  const selectorArea = contentH - readoutH - actionH - hintH - contentGap * 5;
+  const selectorH = selectorArea * .44;
+  drawSelector(renderer, model, "map", rightX, contentY, rightW, selectorH, compact);
+  const textX = rightX + (compact ? 18 : 30), detailY = contentY + selectorH + contentGap;
+  renderer.displayText("连续生存", textX, detailY + 18, compact ? 19 : 27, UI_COLORS.gold);
+  const details = renderer.height < 430 ? ["移动生存 · 拾取经验与金币", "回交易站购枪、改装与部署塔台"] : ["移动躲避 · 自动瞄准射击", "捡拾经验与金币 · 升级技能", "返回交易站购枪改装 · 部署塔台", "威胁随时间增强 · 暂停可结算本局"];
+  details.forEach((line, index) => renderer.fitText(line, textX, detailY + (compact ? 46 : 60) + index * (compact ? 20 : 28), compact ? 12 : 16, rightW - 45, UI_COLORS.paper, "left", "700", 10));
+  const readoutY = contentY + selectorArea + contentGap * 3;
   drawReadout(renderer, model, rightX, readoutY, rightW, readoutH, compact);
   const mode = renderer.content.get("modes", model.selectedMode, renderer.content.defaults.mode);
-  const label = mode.rule === "endless" ? "进入无尽尸潮" : mode.rule === "extract" ? "确认出征 · 撤离行动" : "确认出征 · 坚守行动";
+  const label = "进入地图 · 连续生存";
   const actionY = readoutY + readoutH + contentGap;
   drawFieldButton(renderer, "deploy", label, rightX, actionY, rightW, actionH, { accent: UI_COLORS.orange, primary: true, role: "display", size: compact ? 15 : 21 });
   const hint = renderer.gamepadConnected

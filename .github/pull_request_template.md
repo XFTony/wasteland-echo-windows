@@ -5,9 +5,12 @@
 ## 验证
 
 - [ ] 已运行 npm run check
+- [ ] 已运行 node scripts/godot/verify-native.mjs；Quality汇总两条检查均成功
+- [ ] 原生玩法、UI与活动素材以godot/为准；没有用旧参考覆盖已编辑Resource
 - [ ] 若改动了画面或操作，附 720p/1080p 截图或真人测试记录
 - [ ] 若改动了存档、经济或内容 ID，验证旧档迁移和失败路径
 - [ ] 若准备发布，完成 docs/versioning-and-release.md 中的发布门槛
+- [ ] 未混入output、引擎缓存、用户存档或本机配置
 
 ## 风险与回退
 

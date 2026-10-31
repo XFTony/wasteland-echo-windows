@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-09-24T02:04:24.998Z",
+  "browser": "Microsoft Edge via playwright-core",
+  "headless": true,
+  "sampleFrames": 120,
+  "warmupFrames": 45,
+  "pageErrors": [],
+  "results": [
+    {
+      "id": "720p-80-high",
+      "width": 1280,
+      "height": 720,
+      "enemies": 80,
+      "quality": 2,
+      "frames": 120,
+      "averageMs": 7.002,
+      "averageFps": 142.81,
+      "p95Ms": 7.1,
+      "p99Ms": 7.1,
+      "onePercentLowFps": 94.34,
+      "overBudgetFrames": 0,
+      "severeFrames": 0,
+      "heapMiB": 6.5
+    },
+    {
+      "id": "1080p-120-medium",
+      "width": 1920,
+      "height": 1080,
+      "enemies": 120,
+      "quality": 1,
+      "frames": 120,
+      "averageMs": 6.946,
+      "averageFps": 143.97,
+      "p95Ms": 7.1,
+      "p99Ms": 7.2,
+      "onePercentLowFps": 138.89,
+      "overBudgetFrames": 0,
+      "severeFrames": 0,
+      "heapMiB": 3.84
+    }
+  ]
+}

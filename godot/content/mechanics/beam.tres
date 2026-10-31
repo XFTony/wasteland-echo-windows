@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_s0rqd"]
+
+[resource]
+script = ExtResource("1_s0rqd")
+content_id = &"beam"
+category = &"mechanics"
+display_name = "折光脉冲"
+source_data = {
+"description": "瞬时射线，有限贯穿，遇墙终止",
+"id": "beam",
+"name": "折光脉冲"
+}

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_layn3"]
+
+[resource]
+script = ExtResource("1_layn3")
+content_id = &"blueprint_coil"
+category = &"unlockRules"
+display_name = "荒雷许可"
+source_data = {
+"conditions": [{
+"gte": 3.0,
+"metric": "bossesDefeated"
+}],
+"description": "单局实际击败 3 名首领",
+"id": "blueprint_coil",
+"name": "荒雷许可",
+"reward": {
+"id": "buy_coil_cannon",
+"kind": "shopBlueprint"
+}
+}

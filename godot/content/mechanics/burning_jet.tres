@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_hnamn"]
+
+[resource]
+script = ExtResource("1_hnamn")
+content_id = &"burning_jet"
+category = &"mechanics"
+display_name = "燃烧火舌"
+source_data = {
+"description": "短程灼烧，刷新但不无限叠加",
+"id": "burning_jet",
+"name": "燃烧火舌"
+}

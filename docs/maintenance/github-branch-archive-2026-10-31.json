@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-31",
+  "repository": "XFTony/wasteland-echo-windows",
+  "mainBeforeIntegration": "a8eff8a2007d065f438bce2be4a1a56bf1cf14ec",
+  "developmentCheckpoint": "054f157e72c6f2d18773d280c40b91ee3f2bfa21",
+  "mainArchiveTag": "archive/main-before-godot-2026-10-31",
+  "historyArchiveTag": "archive/godot-history-2026-10-31",
+  "preservation": "Every listed branch head is an ancestor of the archived development checkpoint; delete branches only after a successful PR integration and fresh remote-head comparison.",
+  "branches": [
+    {
+      "branch": "codex/card-layout-cleanup",
+      "commit": "054f157e72c6f2d18773d280c40b91ee3f2bfa21",
+      "containedInDevelopmentCheckpoint": true
+    },
+    {
+      "branch": "codex/combat-art-and-impact",
+      "commit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+      "containedInDevelopmentCheckpoint": true
+    },
+    {
+      "branch": "codex/echo-ground-ui-polish",
+      "commit": "de4a68f193c87327b4f336c23288bbc730fce77a",
+      "containedInDevelopmentCheckpoint": true
+    },
+    {
+      "branch": "codex/echo-map-market-cards",
+      "commit": "7c96aa160d956e14aa1a6cd5ce7fdea1ddbbc723",
+      "containedInDevelopmentCheckpoint": true
+    },
+    {
+      "branch": "codex/endless-survival-audio",
+      "commit": "6d8b490b2dbb0cea6e2cc76f5701da6027b197c1",
+      "containedInDevelopmentCheckpoint": true
+    },
+    {
+      "branch": "codex/git-transport-reliability",
+      "commit": "d434a0552ed9ccd2b6ce98a7a7d61874b41b917c",
+      "containedInDevelopmentCheckpoint": true
+    },
+    {
+      "branch": "codex/godot-feasibility",
+      "commit": "ef7d50dfe1e68868615b0050a65c9b86b11a969a",
+      "containedInDevelopmentCheckpoint": true
+    },
+    {
+      "branch": "codex/godot-migration",
+      "commit": "d8c0aa64f93568e95fd80479a5810adf1f475090",
+      "containedInDevelopmentCheckpoint": true
+    },
+    {
+      "branch": "codex/map-art-interactions",
+      "commit": "e489364897efd5795b835010d90fa43c5d3e5fc8",
+      "containedInDevelopmentCheckpoint": true
+    },
+    {
+      "branch": "codex/modular-grip-materials",
+      "commit": "1843ad52c93aad1420810bb311d5346d2401422c",
+      "containedInDevelopmentCheckpoint": true
+    },
+    {
+      "branch": "codex/survival-builds-arsenal",
+      "commit": "fbb051f4211a4ed425ac12e1d2cd30eb6dbfdd41",
+      "containedInDevelopmentCheckpoint": true
+    },
+    {
+      "branch": "codex/weapon-variety-melee",
+      "commit": "e96b0876448a6c03dab75a28f56f0bfd1a050d82",
+      "containedInDevelopmentCheckpoint": true
+    }
+  ]
+}

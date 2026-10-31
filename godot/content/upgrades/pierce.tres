@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_jkm0n"]
+
+[resource]
+script = ExtResource("1_jkm0n")
+content_id = &"pierce"
+category = &"upgrades"
+display_name = "穿甲弹芯"
+source_data = {
+"detail": "穿透 +1",
+"family": "firepower",
+"flavor": "撕开拥挤的感染群",
+"id": "pierce",
+"max": 3.0,
+"name": "穿甲弹芯",
+"rarity": "advanced"
+}

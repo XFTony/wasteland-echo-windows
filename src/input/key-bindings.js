@@ -13,7 +13,9 @@ const BINDABLE_ACTIONS = Object.freeze([
   Object.freeze({ id: "upgrade1", label: "升级选项 1" }),
   Object.freeze({ id: "upgrade2", label: "升级选项 2" }),
   Object.freeze({ id: "upgrade3", label: "升级选项 3" }),
-  Object.freeze({ id: "upgrade4", label: "升级选项 4" })
+  Object.freeze({ id: "upgrade4", label: "升级选项 4" }),
+  Object.freeze({ id: "interact", label: "交易／交互" }),
+  Object.freeze({ id: "deployTurret", label: "部署塔台" })
 ]);
 
 const DEFAULT_KEY_BINDINGS = Object.freeze({
@@ -22,6 +24,7 @@ const DEFAULT_KEY_BINDINGS = Object.freeze({
   moveLeft: "KeyA",
   moveRight: "KeyD",
   fire: "Space",
+  interact: "KeyE",
   pause: "KeyP",
   fullscreen: "KeyF",
   restart: "KeyR",
@@ -29,7 +32,8 @@ const DEFAULT_KEY_BINDINGS = Object.freeze({
   upgrade1: "Digit1",
   upgrade2: "Digit2",
   upgrade3: "Digit3",
-  upgrade4: "Digit4"
+  upgrade4: "Digit4",
+  deployTurret: "KeyT"
 });
 
 const RESERVED_MENU_CODES = new Set(["Enter", "NumpadEnter", "Tab", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]);
@@ -63,6 +67,7 @@ function rebindKey(bindings, actionId, code) {
 }
 
 function keyLabel(code) {
+  if (code.startsWith("Unbound")) return "未绑定";
   if (code === "Space") return "空格";
   if (code === "Escape") return "Esc";
   if (code.startsWith("Key")) return code.slice(3);

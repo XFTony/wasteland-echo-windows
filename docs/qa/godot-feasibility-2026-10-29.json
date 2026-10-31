@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-29",
+  "sourceBaseline": "e96b0876448a6c03dab75a28f56f0bfd1a050d82",
+  "engineBinaryVersion": "4.7.2.stable.official.ed1daf0bf",
+  "native": {
+    "completeGamePort": false,
+    "enemyAtlasTypes": 2,
+    "engine": "4.7.2-stable (official)",
+    "mapObstacles": 17,
+    "maximumPoseError": 1.70598450495163e-05,
+    "nativePlayerMoved": true,
+    "originalObstacleRayHit": true,
+    "originalPoseCases": 24,
+    "renderer": "gl_compatibility",
+    "saveIsolation": "WastelandEcho-Godot-Pilot-Isolated",
+    "weapons": [
+      {
+        "id": "scrap_pistol",
+        "independentPartNodes": 5,
+        "nativeHits": 1
+      },
+      {
+        "id": "prism_laser",
+        "independentPartNodes": 5,
+        "nativeHits": 1
+      },
+      {
+        "id": "shock_hammer",
+        "independentPartNodes": 5,
+        "nativeHits": 1
+      }
+    ]
+  },
+  "mcp": {
+    "package": "@coding-solo/godot-mcp",
+    "version": "0.1.1",
+    "toolCount": 14,
+    "verifiedCalls": [
+      "get_godot_version",
+      "get_project_info",
+      "create_scene",
+      "add_node",
+      "load_sprite"
+    ],
+    "registeredInCodex": false
+  },
+  "assets": {
+    "files": 16,
+    "bytes": 1163006
+  },
+  "exportTemplatesInstalled": false,
+  "fullMigrationComplete": false,
+  "lowSpecBenchmarkComplete": false,
+  "productionSaveTouched": false,
+  "screenshots": [
+    {
+      "path": "docs/screenshots/godot-pilot-scrap_pistol-2026-10-29.webp",
+      "bytes": 104526,
+      "sha256": "25D0C9FB4F0D6A3DB6BAE97E55C270C7F01C5D56201E13B369CD48730AB5B2D9"
+    },
+    {
+      "path": "docs/screenshots/godot-pilot-prism_laser-2026-10-29.webp",
+      "bytes": 104414,
+      "sha256": "003BB99ED1EE1DE78E0060252964785BDF2B4F027B42741B38269F51AD411DC1"
+    },
+    {
+      "path": "docs/screenshots/godot-pilot-shock_hammer-2026-10-29.webp",
+      "bytes": 106054,
+      "sha256": "E349264835F8CCABBB605CDB168D6C544C3CA38C4DC3CF0A03C6B78CA83BE689"
+    }
+  ],
+  "originalGameCheck": {
+    "passed": true,
+    "tests": 331,
+    "failures": 0,
+    "runtimeCodeChanged": false
+  }
+}

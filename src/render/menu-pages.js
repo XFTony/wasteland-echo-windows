@@ -11,14 +11,16 @@ const { drawFieldButton, drawFieldPlate, drawTextScrim } = require("./ui/field-s
 const { hash2 } = require("./render-hash");
 const { BINDABLE_ACTIONS, keyLabel } = require("../input/key-bindings");
 const { GAME_VERSION, DESKTOP_SAVE_PATH } = require("../version");
+const { drawRadioMainMenu, drawRadioMenuChoice } = require("./ui/radio-main-menu");
+const { toggleSwitch } = require("./ui/radio-materials");
 
 const MENU_BACKDROPS = Object.freeze({
-  main: ART_IDS.BACKDROP_MAIN,
-  loadout: ART_IDS.BACKDROP_DEPLOYMENT,
-  inventory: ART_IDS.BACKDROP_INVENTORY,
-  shop: ART_IDS.BACKDROP_SHOP,
-  settings: ART_IDS.BACKDROP_SETTINGS,
-  credits: ART_IDS.BACKDROP_CREDITS
+  main: ART_IDS.RADIO_CAMP,
+  loadout: ART_IDS.RADIO_DESK,
+  inventory: ART_IDS.RADIO_DESK,
+  shop: ART_IDS.RADIO_DESK,
+  settings: ART_IDS.RADIO_DESK,
+  credits: ART_IDS.RADIO_DESK
 });
 
 const MENU_METHODS = {
@@ -26,16 +28,16 @@ const MENU_METHODS = {
     const ctx = this.ctx;
     const backgroundId = MENU_BACKDROPS[menuPage] || MENU_BACKDROPS.main;
     const backgroundReady = this.artStore && this.artStore.ready(backgroundId);
-    if (backgroundReady && drawAssetCover(this, backgroundId, 0, 0, this.width, this.height, { focalX: 0.5, focalY: 0.5 })) {
+    if (backgroundReady && drawAssetCover(this, backgroundId, 0, 0, this.width, this.height, { focalX: 0.5, focalY: 0.5, pixelated: true })) {
       if (backgroundId !== this.activeMenuBackdrop) {
         if (typeof this.artStore.releaseGroup === "function") this.artStore.releaseGroup("menu-backdrop", backgroundId);
         this.activeMenuBackdrop = backgroundId;
       }
-      ctx.fillStyle = menuPage === "main" ? "rgba(10,9,7,0.08)" : "rgba(10,9,7,0.16)";
+      ctx.fillStyle = menuPage === "main" ? "rgba(10,14,10,0.04)" : "rgba(14,17,12,0.24)";
       ctx.fillRect(0, 0, this.width, this.height);
       return;
     }
-    if (this.activeMenuBackdrop && drawAssetCover(this, this.activeMenuBackdrop, 0, 0, this.width, this.height, { focalX: 0.5, focalY: 0.5 })) {
+    if (this.activeMenuBackdrop && drawAssetCover(this, this.activeMenuBackdrop, 0, 0, this.width, this.height, { focalX: 0.5, focalY: 0.5, pixelated: true })) {
       ctx.fillStyle = "rgba(10,9,7,0.28)";
       ctx.fillRect(0, 0, this.width, this.height);
       return;
@@ -113,39 +115,7 @@ const MENU_METHODS = {
   },
 
   drawMainMenu(model) {
-    const compact = this.height < 430 || this.width < 720;
-    const safeX = compact ? 18 : Math.max(58, this.width * 0.06);
-    const safeY = compact ? 18 : Math.max(42, this.height * 0.07);
-    const menuW = compact ? Math.min(286, this.width * 0.51) : Math.min(430, this.width * 0.38);
-    const hasKeyArt = this.drawTitleKeyArt();
-    this.ctx.fillStyle = this.menuReadabilityGradient || "rgba(8,15,20,0.9)";
-    this.ctx.fillRect(0, 0, this.width, this.height);
-    this.ctx.fillStyle = this.menuFooterGradient || "rgba(8,12,15,0.3)";
-    this.ctx.fillRect(0, 0, this.width, this.height);
-
-    drawEchoMark(this, safeX, safeY, UI_COLORS.orange, compact ? 0.72 : 1.05);
-    this.trackedText("WASTELAND SURVIVAL / FIELD 07", safeX + (compact ? 34 : 44), safeY + (compact ? 7 : 10), compact ? 9 : 11, UI_COLORS.gold, compact ? 0.7 : 1.25);
-    this.displayText("荒原回响", safeX, safeY + (compact ? 43 : 68), compact ? 39 : 68, UI_COLORS.white);
-    this.trackedText("WASTELAND ECHO", safeX + 3, safeY + (compact ? 70 : 110), compact ? 10 : 14, UI_COLORS.cyan, compact ? 1.1 : 2.25);
-    this.text("枪火穿过尸潮，失真的信号仍在回响。", safeX + 1, safeY + (compact ? 87 : 137), compact ? 11 : 15, UI_COLORS.paper, "left", "700");
-
-    const startY = safeY + (compact ? 101 : 166);
-    const buttonH = compact ? 38 : 62;
-    const gap = compact ? 6 : 10;
-    this.menuChoice("start", "开始游戏", "进入作战部署", safeX, startY, menuW, buttonH, true, "01");
-    this.menuChoice("shop", "拾荒者商栈", "武器 · 服饰 · 装备", safeX, startY + buttonH + gap, menuW, buttonH, false, "02");
-    this.menuChoice("settings", "设置", "音频 · 画面 · 控制", safeX, startY + (buttonH + gap) * 2, menuW, buttonH, false, "03");
-    this.menuChoice("credits", "档案与制作", "记录 · 许可 · 版本", safeX, startY + (buttonH + gap) * 3, menuW, buttonH, false, "04");
-
-    const footerY = this.height - (compact ? 22 : 42);
-    this.text(`铜币 ${model.save.currencies.copper}   金币 ${model.save.currencies.gold}`, safeX, footerY - (compact ? 14 : 20), compact ? 9 : 13, UI_COLORS.gold, "left", "900", "mono");
-    this.text(`击败 ${model.save.totalKills}  ·  胜利 ${model.save.wins}  ·  已通关 ${model.save.completedStages.length}  ·  成就 ${Object.keys(model.save.achievements || {}).length}/8`, safeX, footerY, compact ? 8 : 11, UI_COLORS.muted, "left", "800", "mono");
-
-    if (!hasKeyArt) this.drawMenuActorShowcase(model, compact);
-    const controlHint = this.gamepadConnected
-      ? "A 选择  ·  十字键导航  ·  Menu 暂停"
-      : "Enter 选择  ·  方向键导航  ·  F 全屏";
-    this.fitText(controlHint, this.width - (compact ? 14 : 34), this.height - (compact ? 13 : 23), compact ? 9 : 11, this.width * 0.46, this.gamepadConnected ? UI_COLORS.cyan : UI_COLORS.muted, "right", "800", 8);
+    drawRadioMainMenu(this, model);
   },
 
   drawTitleKeyArt() {
@@ -167,32 +137,8 @@ const MENU_METHODS = {
     return true;
   },
 
-  menuChoice(action, label, detail, x, y, w, h, primary = false, index = "") {
-    const ctx = this.ctx;
-    const pointer = this.pointerState || OFFSCREEN_POINTER;
-    const hovered = pointer.x >= x && pointer.x <= x + w && pointer.y >= y && pointer.y <= y + h;
-    const focused = this.focusAction === action;
-    const active = hovered || focused;
-    const pressed = hovered && pointer.down;
-    const offset = pressed ? 2 : 0;
-    const accent = primary ? UI_COLORS.orange : active ? UI_COLORS.gold : UI_COLORS.iron;
-    drawFieldPlate(this, x, y + offset, w, h - offset, { accent, active, raised: active, lineWidth: focused ? 3 : 2 });
-    if (primary) {
-      const innerX = Math.max(18, w * 0.08);
-      const innerY = Math.max(9, h * 0.2);
-      ctx.fillStyle = active ? "rgba(169,71,47,0.84)" : "rgba(116,49,36,0.8)";
-      ctx.fillRect(x + innerX, y + offset + innerY, w - innerX * 2, Math.max(4, h - innerY * 2 - offset));
-    }
-    ctx.fillStyle = accent;
-    ctx.fillRect(x + 4, y + 7 + offset, active ? 7 : 4, h - 14 - offset);
-    this.text(label, x + (h < 48 ? 19 : 25), y + h * 0.35 + offset, h < 48 ? 15 : 20, UI_COLORS.white, "left", "900", "display");
-    this.text(detail, x + (h < 48 ? 19 : 25), y + h * 0.72 + offset, h < 48 ? 11 : 13, active ? UI_COLORS.paper : UI_COLORS.muted, "left", "700");
-    ctx.fillStyle = active ? "#5a4430" : "#23221d";
-    cutCornerPath(ctx, x + w - (h < 48 ? 38 : 46), y + 8 + offset, h < 48 ? 30 : 36, h - 16 - offset, 5);
-    ctx.fill();
-    this.text(index, x + w - (h < 48 ? 23 : 28), y + h / 2 + offset, h < 48 ? 11 : 13, active ? UI_COLORS.gold : UI_COLORS.ironLight, "center", "900", "mono");
-    if (focused) focusBrackets(this, x - 3, y - 3, w + 6, h + 6, UI_COLORS.gold, 2, 14);
-    this.addRegion(action, x, y, w, h);
+  menuChoice(action, label, detail, x, y, w, h, primary = false) {
+    drawRadioMenuChoice(this, action, label, detail, x, y, w, h, primary);
   },
 
   drawMenuActorShowcase(model, compact) {
@@ -268,7 +214,7 @@ const MENU_METHODS = {
       ["music", "背景音乐", `${Math.round(settings.music * 100)}%`, "range", settings.musicMuted],
       ["sfx", "战斗音效", `${Math.round(settings.sfx * 100)}%`, "range", settings.sfxMuted],
       ["uiScale", "界面缩放", `${Math.round(settings.uiScale * 100)}%`, "range", false],
-      ["autoAim", "自动瞄准（新档默认开）", settings.autoAim ? "开" : "关", "toggle"],
+      ["autoAim", "自动瞄准", settings.autoAim ? "开" : "关", "toggle"],
       ["autoFire", "自动开火", settings.autoFire ? "开" : "关", "toggle"],
       ["screenShake", "屏幕抖动", { off: "关", low: "低", high: "高" }[settings.screenShake], "toggle"],
       ["flashes", "闪光强度", { off: "关", low: "低", high: "高" }[settings.flashes], "toggle"],
@@ -276,27 +222,34 @@ const MENU_METHODS = {
       ["gamepadVibration", "手柄震动", settings.gamepadVibration ? "开" : "关", "toggle"],
       ["gamepadDeadzone", "摇杆死区", deadzoneLabel, "toggle"],
       ["showControlHints", "控制提示", settings.showControlHints ? "开" : "关", "toggle"],
-      ["showFps", "性能信息", settings.showFps ? "开" : "关", "toggle"]
+      ["showFps", "性能信息", settings.showFps ? "开" : "关", "toggle"],
+      ["introAnimation", "启动动画", settings.introAnimation ? "开" : "关", "toggle"],
+      ["replayStartup", "启动画面", "重播", "action"]
     ];
     const columns = 2;
     const rowsPerColumn = Math.ceil(rows.length / columns);
     const footerArea = compact ? 86 : 112;
-    const contentTop = y + headerH;
+    const contentTop = y + headerH + 20;
     const contentWidth = panelW - (compact ? 24 : 40);
     const columnW = contentWidth / columns;
-    const rowH = Math.min(compact ? 52 : 72, (panelH - headerH - footerArea) / rowsPerColumn);
+    const rowH = Math.min(compact ? 52 : 72, (panelH - headerH - footerArea - 20) / rowsPerColumn);
+    for (let column = 0; column < 2; column++) {
+      drawTextScrim(this, x + (compact ? 12 : 20) + column * columnW, contentTop - 5, columnW - 10, rowH * rowsPerColumn + 5,
+        { fill: "rgba(31,35,26,0.95)" });
+    }
     rows.forEach(([key, label, value, kind, muted], index) => {
       const column = Math.floor(index / rowsPerColumn);
       const row = index % rowsPerColumn;
       const columnX = x + (compact ? 12 : 20) + column * columnW;
       const rowY = contentTop + row * rowH;
-      drawFieldPlate(this, columnX + 3, rowY + 3, columnW - 8, rowH - 6, {
-        accent: value === "关" ? UI_COLORS.iron : UI_COLORS.cyan,
-        active: this.focusAction === `toggle:${key}`
-      });
+      this.ctx.fillStyle = "rgba(183,170,132,0.16)";
+      this.ctx.fillRect(columnX + 12, rowY + rowH - 4, columnW - 34, 1);
       this.fitText(label, columnX + (compact ? 12 : 18), rowY + rowH / 2, compact ? 13 : 16, columnW - (compact ? 102 : 148), PALETTE.cream, "left", "800", 11);
       const buttonH = compact ? Math.max(34, rowH - 14) : Math.min(46, rowH - 16);
-      if (kind === "range") {
+      if (kind === "action") {
+        this.button("replayStartup", value, columnX + columnW - (compact ? 82 : 118), rowY + (rowH - buttonH) / 2,
+          compact ? 72 : 100, buttonH, "secondary");
+      } else if (kind === "range") {
         const controlRight = columnX + columnW - (compact ? 10 : 18);
         const smallW = compact ? 32 : 38;
         const valueW = compact ? 68 : 92;
@@ -310,7 +263,9 @@ const MENU_METHODS = {
         this.button(`adjust:${key}:1`, "+", controlRight - smallW, rowY + (rowH - buttonH) / 2, smallW, buttonH, "secondary");
       } else {
         const buttonW = compact ? 72 : 100;
-        this.button(`toggle:${key}`, value, columnX + columnW - buttonW - (compact ? 10 : 18), rowY + (rowH - buttonH) / 2, buttonW, buttonH, value === "关" ? "secondary" : "primary");
+        const buttonX = columnX + columnW - buttonW - (compact ? 10 : 18), buttonY = rowY + (rowH - buttonH) / 2;
+        if (value === "开" || value === "关") toggleSwitch(this, `toggle:${key}`, value, buttonX, buttonY, buttonW, buttonH);
+        else this.button(`toggle:${key}`, value, buttonX, buttonY, buttonW, buttonH, "secondary");
       }
     });
     const footerY = y + panelH - (compact ? 43 : 54);
@@ -327,11 +282,9 @@ const MENU_METHODS = {
         role: "ui"
       });
       const lineY = guideY + (compact ? 42 : 61);
-      const keyboardGuide = settings.autoAim
-        ? "键鼠  WASD 移动  ·  范围内自动锁敌 / Space 射击  ·  Esc 暂停"
-        : "键鼠  WASD 移动  ·  鼠标瞄准 / 左键射击  ·  Esc 暂停";
+      const keyboardGuide = `键鼠  WASD 移动  ·  ${settings.autoAim ? "自动锁敌" : "鼠标瞄准"} / ${settings.autoFire ? "自动射击" : "左键射击"}  ·  Esc 暂停`;
       this.fitText(keyboardGuide, guideX + 14, lineY, compact ? 10 : 13, contentWidth * 0.56, UI_COLORS.paper, "left", "700", 10);
-      this.fitText("手柄  左摇杆移动  ·  RT / RB 射击  ·  A 确认  ·  B 返回", guideX + contentWidth - 14, lineY, compact ? 10 : 13, contentWidth * 0.4, UI_COLORS.paper, "right", "700", 10);
+      this.fitText(`手柄  左摇杆移动  ·  ${settings.autoFire ? "自动射击" : "RT / RB 射击"}  ·  A 确认  ·  B 返回`, guideX + contentWidth - 14, lineY, compact ? 10 : 13, contentWidth * 0.4, UI_COLORS.paper, "right", "700", 10);
     }
     drawFieldButton(this, "fullscreen", "切换全屏  F", this.width / 2 - (compact ? 157 : 180), footerY, compact ? 148 : 168, compact ? 34 : 42, { accent: UI_COLORS.cyan });
     drawFieldButton(this, "back", "返回营地", this.width / 2 + (compact ? 9 : 12), footerY, compact ? 148 : 168, compact ? 34 : 42, { accent: UI_COLORS.gold });
@@ -391,13 +344,13 @@ const MENU_METHODS = {
       : "下一目标：全部规则已完成";
     const lines = [
       "当前版本：v1.5 技术重构预览",
-      `生存档案：成就 ${Object.keys(model.save.achievements || {}).length}/8 · 胜利 ${model.save.wins} · 击败 ${model.save.totalKills}`,
+      `生存档案：成就 ${Object.keys(model.save.achievements || {}).length}/8 · 结算 ${model.save.settledRuns} · 击败 ${model.save.totalKills}`,
       rulesLine,
       nextRuleLine,
       "游戏设计、战斗内核与像素角色：本项目原创",
-      "标题主视觉、地表纹理与破框感染者：为本项目生成并登记素材台账",
-      "标题字体：Fusion Pixel Font · SIL OFL 1.1；正文使用系统易读字体",
-      "音乐与音效：原创编曲 + WebAudio 程序化合成，无外部采样",
+      "像素人物、营地与桌面场景：项目生成素材，经原生像素整理",
+      "字标采用 Fusion Pixel；中文正文采用系统字体，许可见素材台账",
+      "音频：原创主题编曲；实录枪声 SnakeF8；氛围 SubspaceAudio（CC0）",
       "输入：可重绑定键盘鼠标 + 标准 Gamepad API 手柄",
       "完整来源、许可与修改记录：查看 CREDITS.md 和素材台账"
     ];

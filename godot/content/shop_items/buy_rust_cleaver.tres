@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_fce1q"]
+
+[resource]
+script = ExtResource("1_fce1q")
+content_id = &"buy_rust_cleaver"
+category = &"shopItems"
+display_name = "锈刃战斧"
+source_data = {
+"category": "weapon",
+"currency": "copper",
+"description": "88范围、145度重挥；仅有效挥击段消弹，无剑气",
+"grantId": "rust_cleaver",
+"grantType": "weapon",
+"id": "buy_rust_cleaver",
+"name": "锈刃战斧",
+"price": 90.0,
+"unlockStage": 1
+}

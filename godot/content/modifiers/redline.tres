@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_5vl37"]
+
+[resource]
+script = ExtResource("1_5vl37")
+content_id = &"redline"
+category = &"modifiers"
+display_name = "红线协议"
+source_data = {
+"description": "尸潮更早升压，精英出现频率提高。",
+"id": "redline",
+"name": "红线协议",
+"rewardMultiplier": 1.25
+}

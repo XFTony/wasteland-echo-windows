@@ -1,6 +1,7 @@
 "use strict";
 
 const { UI_COLORS, MATERIALS } = require("./theme");
+const { radioMark, focusInk, surface } = require("./radio-materials");
 
 function cutCornerPath(ctx, x, y, w, h, cut = 9) {
   const c = Math.max(0, Math.min(cut, w * 0.18, h * 0.32));
@@ -38,12 +39,7 @@ function drawRivet(ctx, x, y, color = UI_COLORS.gold, size = 3) {
 }
 
 function drawEchoMark(renderer, x, y, color = UI_COLORS.gold, scale = 1) {
-  const ctx = renderer.ctx;
-  const unit = Math.max(1, scale);
-  ctx.fillStyle = color;
-  ctx.fillRect(Math.round(x), Math.round(y), Math.round(24 * unit), Math.max(2, Math.round(3 * unit)));
-  ctx.fillRect(Math.round(x + 5 * unit), Math.round(y + 6 * unit), Math.round(15 * unit), Math.max(2, Math.round(3 * unit)));
-  ctx.fillRect(Math.round(x + 10 * unit), Math.round(y + 12 * unit), Math.round(6 * unit), Math.max(2, Math.round(3 * unit)));
+  radioMark(renderer.ctx, x, y, color, scale);
 }
 
 function screenFrame(renderer, x, y, w, h, options = {}) {
@@ -91,32 +87,8 @@ function screenFrame(renderer, x, y, w, h, options = {}) {
 }
 
 function sectionPlate(renderer, x, y, w, h, options = {}) {
-  const ctx = renderer.ctx;
-  const material = MATERIALS[options.material] || MATERIALS.iron;
-  const cut = Number(options.cut) || Math.max(4, Math.min(9, Math.min(w, h) * 0.08));
-  const raised = Boolean(options.raised);
-  const depth = raised ? Math.max(3, Math.min(6, Math.min(w, h) * 0.04)) : 2;
-  fillCutShape(ctx, x + depth, y + depth, w, h, cut, options.shadowColor || UI_COLORS.shadow);
-  fillCutShape(
-    ctx,
-    x,
-    y,
-    w,
-    h,
-    cut,
-    options.fill || (raised ? material.raised : material.fill),
-    options.stroke || material.edge,
-    options.lineWidth || (raised ? 2.5 : 2)
-  );
-  ctx.fillStyle = options.highlight || material.highlight;
-  ctx.fillRect(x + cut + 3, y + 3, Math.max(8, w - cut * 2 - 6), 1);
-  ctx.fillStyle = options.lowlight || material.shadow;
-  ctx.fillRect(x + cut + 3, y + h - 4, Math.max(8, w - cut * 2 - 6), 2);
-  if (options.accent) {
-    ctx.fillStyle = options.accent;
-    if (options.accentEdge === "top") ctx.fillRect(x + cut + 4, y + 3, Math.max(18, w * 0.24), 4);
-    else ctx.fillRect(x + 3, y + cut + 3, 4, Math.max(18, h - cut * 2 - 6));
-  }
+  surface(renderer.ctx, x, y, w, h, { fill: options.fill, raised: options.raised,
+    accent: options.accent, active: false });
 }
 
 function sectionTitle(renderer, label, index, x, y, w, options = {}) {
@@ -132,25 +104,8 @@ function sectionTitle(renderer, label, index, x, y, w, options = {}) {
   renderer.ctx.fillRect(x + Math.max(34, Math.min(90, w * 0.24)), lineY + 1, Math.max(20, w * 0.34), 1);
 }
 
-function focusBrackets(renderer, x, y, w, h, color = UI_COLORS.gold, width = 2, length = 12) {
-  const ctx = renderer.ctx;
-  const l = Math.max(7, Math.min(length, w * 0.22, h * 0.34));
-  ctx.strokeStyle = color;
-  ctx.lineWidth = width;
-  const corners = [
-    [x, y, x + l, y, x, y + l],
-    [x + w, y, x + w - l, y, x + w, y + l],
-    [x, y + h, x + l, y + h, x, y + h - l],
-    [x + w, y + h, x + w - l, y + h, x + w, y + h - l]
-  ];
-  for (const [cx, cy, hx, hy, vx, vy] of corners) {
-    ctx.beginPath();
-    ctx.moveTo(cx, cy);
-    ctx.lineTo(hx, hy);
-    ctx.moveTo(cx, cy);
-    ctx.lineTo(vx, vy);
-    ctx.stroke();
-  }
+function focusBrackets(renderer, x, y, w, h, color = UI_COLORS.gold, width = 2) {
+  focusInk(renderer.ctx, x, y, w, h, color, width);
 }
 
 function statBlock(renderer, label, value, x, y, w, h, options = {}) {

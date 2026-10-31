@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-23",
+  "pageErrors": [],
+  "eightDirections": [
+    {
+      "degrees": 0,
+      "facing": 1,
+      "depth": "front",
+      "muzzleBodyAlpha": 0,
+      "bodyFrame": 0
+    },
+    {
+      "degrees": 45,
+      "facing": 1,
+      "depth": "front",
+      "muzzleBodyAlpha": 0,
+      "bodyFrame": 0
+    },
+    {
+      "degrees": 90,
+      "facing": 1,
+      "depth": "front",
+      "muzzleBodyAlpha": 0,
+      "bodyFrame": 0
+    },
+    {
+      "degrees": 135,
+      "facing": -1,
+      "depth": "front",
+      "muzzleBodyAlpha": 0,
+      "bodyFrame": 0
+    },
+    {
+      "degrees": 180,
+      "facing": -1,
+      "depth": "front",
+      "muzzleBodyAlpha": 0,
+      "bodyFrame": 0
+    },
+    {
+      "degrees": -135,
+      "facing": -1,
+      "depth": "back",
+      "muzzleBodyAlpha": 0,
+      "bodyFrame": 0
+    },
+    {
+      "degrees": -90,
+      "facing": -1,
+      "depth": "back",
+      "muzzleBodyAlpha": 0,
+      "bodyFrame": 0
+    },
+    {
+      "degrees": -45,
+      "facing": 1,
+      "depth": "back",
+      "muzzleBodyAlpha": 0,
+      "bodyFrame": 0
+    }
+  ],
+  "keyboardMovement": true,
+  "stopUsesIdle": true,
+  "collisionStopsSteps": true,
+  "continuousFire": true,
+  "pauseFrozen": true,
+  "blurClearsInput": true,
+  "video": {
+    "path": "output/compact-motion-2026-10-23/compact-ranger-motion.webm",
+    "bytes": 4124316,
+    "codec": "video/webm;codecs=vp8",
+    "width": 960,
+    "height": 560,
+    "decodeAndPlay": true
+  },
+  "visualApproved": false,
+  "runtimeIntegrated": false
+}

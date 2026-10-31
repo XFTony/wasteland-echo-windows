@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-01",
+  "toolVersion": "LibreSprite 1.1-dev",
+  "nativeFormat": "Aseprite RGBA",
+  "sourceFrames": 2,
+  "durationsMs": [
+    80,
+    120
+  ],
+  "pixelsExact": true,
+  "alphaExact": true,
+  "sourceSha256": "19722860EB9AD1FEC9A479E7B7241D51CC153A2E3C0AB669055A648C71D8BD2A",
+  "toolBinarySha256": "32F091B6EC073B5B5FED011B5E162CFF531F431DBEBFD5FF96E911D903C7BD3E",
+  "configurationPath": "output/tooling/libresprite-v1.1/userdata",
+  "role": "tool diagnostic only, not character animation",
+  "runtimeIntegrated": false
+}

@@ -4,9 +4,18 @@ const { PALETTE } = require("../config");
 const { clamp } = require("../core/math");
 const { INPUT_DEVICES } = require("../core/contracts");
 const { UI_COLORS } = require("./ui/theme");
-const { drawEchoMark, screenFrame, sectionPlate, statBlock } = require("./ui/art-primitives");
+const { drawEchoMark, sectionPlate } = require("./ui/art-primitives");
+const { drawFieldPlate, drawTextScrim } = require("./ui/field-surfaces");
 const { formatTime } = require("./format");
+const { surface, paperClip } = require("./ui/radio-materials");
 const { TUTORIAL_STEPS, currentTutorialStep, tutorialProgressRatio } = require("../core/tutorial");
+
+function wrapResultNote(value, maxChars) {
+  const characters = Array.from(String(value || ""));
+  const lines = [];
+  while (characters.length) lines.push(characters.splice(0, maxChars).join(""));
+  return lines.length ? lines : [""];
+}
 
 const HUD_METHODS = {
   drawHud(model) {
@@ -20,7 +29,9 @@ const HUD_METHODS = {
     this.text(`LV ${player.level}`, margin + 13, margin + 17, 13, PALETTE.amber, "left", "900");
     const weapon = this.content.get("weapons", player.weaponId, this.content.defaults.weapon);
     const mechanicStatus = model.mechanicSystem && model.mechanicSystem.status(run, weapon);
-    const weaponLabel = mechanicStatus ? `${weapon.name} · ${mechanicStatus.label} ${Math.round(mechanicStatus.value * 100)}%` : weapon.name;
+    const refit = run.arsenal && run.arsenal[player.weaponId], calibration = refit?.calibration || 0;
+    const weaponName = weapon.name + (refit && refit.tier > 1 ? ` ${refit.tier}阶` : "") + (calibration ? ` +${calibration}` : "");
+    const weaponLabel = mechanicStatus ? `${weaponName} · ${mechanicStatus.label} ${Math.round(mechanicStatus.value * 100)}%` : weaponName;
     this.fitText(weaponLabel, margin + 72, margin + 17, 13, 186, PALETTE.cream, "left", "900", 9);
     this.ctx.fillStyle = "#312521";
     this.ctx.fillRect(margin + 12, margin + 31, 246, 13);
@@ -31,7 +42,7 @@ const HUD_METHODS = {
     this.ctx.fillRect(margin + 12, margin + 50, 246, 8);
     this.ctx.fillStyle = PALETTE.mint;
     this.ctx.fillRect(margin + 12, margin + 50, 246 * clamp(player.xp / player.xpNext, 0, 1), 8);
-    this.fitText(`${stage.name} · ${map.name}`, margin + 12, margin + 69, 10, 246, "#d9d3ba", "left", "800", 9);
+    this.fitText(run.endless ? `${map.name} · 威胁${run.threatLevel}` : `${stage.name} · ${map.name}`, margin + 12, margin + 69, 10, 246, "#d9d3ba", "left", "800", 9);
 
     const remaining = run.elapsed < run.duration ? run.duration - run.elapsed : 0;
     const centerX = this.width / 2;
@@ -40,7 +51,7 @@ const HUD_METHODS = {
     sectionPlate(this, centerX - 86, 12, 172, 58, { material: "iron", fill: "#211f1a", stroke: timerAccent, accent: timerAccent, raised: true });
     const timerText = run.endless ? `∞ ${formatTime(run.elapsed)}` : run.elapsed >= run.duration ? `加时 ${formatTime(run.overtime)}` : formatTime(remaining);
     this.text(timerText, centerX, 33, 23, run.extraction.active ? PALETTE.cyan : finalWave ? PALETTE.amber : PALETTE.white, "center", "900");
-    const objective = run.endless ? "无尽尸潮" : run.extraction.active ? "前往撤离区" : finalWave ? "最终攻势" : mode.objective;
+    const objective = run.endless ? `连续生存 · 首领击败 ${run.bossesDefeated}` : run.extraction.active ? "前往撤离区" : finalWave ? "最终攻势" : mode.objective;
     this.text(objective, centerX, 55, 11, PALETTE.muted, "center", "900");
 
     const boss = model.enemies.find((enemy) => enemy.active && enemy.boss);
@@ -67,7 +78,7 @@ const HUD_METHODS = {
     const rightW = 170;
     sectionPlate(this, this.width - rightW - margin, margin, rightW, 54, { material: "iron", fill: "#211f1a", stroke: "#9a8152", accent: UI_COLORS.copper, raised: true });
     this.text(`击败 ${run.kills}`, this.width - rightW, margin + 17, 13, PALETTE.cream, "left", "900");
-    this.text(`回收物 ${run.scrap}`, this.width - rightW, margin + 38, 12, PALETTE.amber, "left", "900");
+    this.text(`拾荒币 ${run.scrap}`, this.width - rightW, margin + 38, 12, PALETTE.amber, "left", "900");
     this.button("pause", "Ⅱ", this.width - 48, 17, 32, 32, "secondary");
     if (run.extraction.active) {
       const progress = Math.round((run.extraction.hold / run.extraction.required) * 100);
@@ -94,7 +105,9 @@ const HUD_METHODS = {
     });
     this.trackedText(`荒原手册  ${tutorial.stepIndex + 1}/${TUTORIAL_STEPS.length}`, x + 14, y + 15, 9, PALETTE.amber, 1);
     this.displayText(step.title, x + 14, y + 40, 20, PALETTE.cream, "left");
-    this.fitText(step.detail, x + 14, y + 66, 11, width - 28, "#d7cfb6", "left", "700", 9);
+    const settings=model.save.settings;
+    const detail=step.id==='fire'?`${settings.autoAim?"射程内自动锁敌":"使用鼠标或右摇杆瞄准"}；${settings.autoFire?"武器自动射击":"使用射击键开火"}，完成3次攻击。`:step.detail;
+    this.fitText(detail, x + 14, y + 66, 11, width - 28, "#d7cfb6", "left", "700", 9);
     const barX = x + 14;
     const barY = y + 88;
     const barW = width - 112;
@@ -132,9 +145,12 @@ const HUD_METHODS = {
     this.text(`${distance}m`, x, y + 17, 9, PALETTE.cyan, "center", "bold");
   },
 
-  drawDesktopControlHint() {
+  drawDesktopControlHint(model) {
     const gamepad = this.activeInputDevice === INPUT_DEVICES.GAMEPAD;
-    const label = gamepad ? "手柄  LS 移动  ·  RS 瞄准  ·  RT / RB 射击  ·  Menu 暂停" : "键鼠  WASD 移动  ·  鼠标瞄准  ·  左键 / 空格射击  ·  Esc 暂停";
+    const settings = model && model.save.settings || {};
+    const aim = settings.autoAim ? "自动锁敌" : gamepad ? "RS 瞄准" : "鼠标瞄准";
+    const fire = settings.autoFire ? "自动射击" : gamepad ? "RT / RB 射击" : "左键 / 空格射击";
+    const label = gamepad ? `手柄  LS 移动  ·  ${aim}  ·  ${fire}  ·  Menu 暂停` : `键鼠  WASD 移动  ·  ${aim}  ·  ${fire}  ·  Esc 暂停`;
     const width = Math.min(gamepad ? 530 : 570, this.width - 28);
     const x = 14;
     const y = this.height - 35;
@@ -163,23 +179,27 @@ const HUD_METHODS = {
   drawPause() {
     this.drawOverlay();
     const compact = this.height < 520 || this.width < 760;
-    const w = Math.min(440, this.width - 30);
-    const h = Math.min(350, this.height - 24);
-    const x = this.width / 2 - w / 2;
-    const y = this.height / 2 - h / 2;
-    screenFrame(this, x, y, w, h, { material: "iron", fill: "#1b1915", stroke: UI_COLORS.ironLight, accent: UI_COLORS.gold });
-    drawEchoMark(this, x + 22, y + 17, UI_COLORS.gold, compact ? 0.72 : 0.9);
-    this.displayText("行动暂停", this.width / 2, y + (compact ? 38 : 45), compact ? 26 : 34, PALETTE.white, "center");
-    this.text("战场时间已冻结 · 输入状态已清空", this.width / 2, y + (compact ? 68 : 83), compact ? 11 : 13, PALETTE.muted, "center", "700");
-    const buttonW = Math.min(290, w - 54);
+    const w = Math.min(520, this.width - 30);
+    const h = Math.min(390, this.height - 24);
+    const x = (this.width - w) / 2;
+    const y = (this.height - h) / 2;
+    drawTextScrim(this, x, y, w, h, { fill: "rgba(20,19,16,0.97)", accent: UI_COLORS.gold });
+    surface(this.ctx, x, y, w, h, { raised: true, fill: "#232820" });
+    paperClip(this.ctx, x + w / 2 - 13, y + 6);
+    drawEchoMark(this, x + 22, y + 18, UI_COLORS.gold, compact ? 0.7 : 0.9);
+    this.displayText("行动暂停", x + 61, y + (compact ? 34 : 43), compact ? 26 : 34, PALETTE.white, "left");
+    this.text("战场时间已冻结", x + 24, y + (compact ? 66 : 80), compact ? 11 : 14, PALETTE.muted, "left", "700");
+    this.ctx.fillStyle = "rgba(196,178,141,0.3)";
+    this.ctx.fillRect(x + 24, y + (compact ? 82 : 102), w - 48, 1);
+    const buttonW = Math.min(330, w - 64);
     const buttonH = compact ? 42 : 48;
     const gap = compact ? 9 : 12;
-    const firstY = y + (compact ? 86 : 108);
+    const firstY = y + (compact ? 98 : 120);
     this.button("resume", "继续战斗", this.width / 2 - buttonW / 2, firstY, buttonW, buttonH, "primary");
     this.button("restart", "重新开始", this.width / 2 - buttonW / 2, firstY + buttonH + gap, buttonW, buttonH, "secondary");
-    this.button("quit", "退出本局", this.width / 2 - buttonW / 2, firstY + (buttonH + gap) * 2, buttonW, buttonH, "danger");
-    const hint = this.activeInputDevice === INPUT_DEVICES.GAMEPAD ? "手柄：Menu / B 继续，A 确认" : "键盘：P / Esc 继续，Q 退出，R 重开";
-    this.text(hint, this.width / 2, y + h - 16, compact ? 10 : 12, PALETTE.muted, "center", "700");
+    this.button("quit", "结算本局", this.width / 2 - buttonW / 2, firstY + (buttonH + gap) * 2, buttonW, buttonH, "danger");
+    const hint = this.activeInputDevice === INPUT_DEVICES.GAMEPAD ? "手柄 Menu / B 继续 · A 确认" : "P / Esc 继续 · Q 退出 · R 重开";
+    this.fitText(hint, this.width / 2, y + h - 20, compact ? 10 : 12, w - 36, PALETTE.muted, "center", "700", 9);
   },
 
   drawResult(model) {
@@ -187,62 +207,104 @@ const HUD_METHODS = {
     const run = model.run;
     const won = model.screen === "resultWin";
     const compact = this.height < 600 || this.width < 860;
-    const w = Math.min(820, this.width - 34);
-    const h = Math.min(compact ? 512 : 580, this.height - 28);
-    const x = this.width / 2 - w / 2;
-    const y = this.height / 2 - h / 2;
+    const visualScale = compact ? 1 : Math.min(1.32, Math.max(1, this.height / 720));
+    const w = Math.min(960 * visualScale, this.width - 34);
+    const h = Math.min(600 * visualScale, this.height - 28);
+    const x = (this.width - w) / 2;
+    const y = (this.height - h) / 2;
+    const inset = compact ? 18 : 28 * visualScale;
     const accent = won ? PALETTE.cyan : PALETTE.rust;
-    screenFrame(this, x, y, w, h, { material: "wood", fill: "#1b1813", stroke: "#8b6844", accent });
-    drawEchoMark(this, x + 24, y + 18, accent, compact ? 0.72 : 0.9);
-    const winTitle = run.rule === "extract" ? "撤离成功" : "坚守成功";
-    this.displayText(won ? winTitle : run.endless ? "尸潮压境" : "信号中断", this.width / 2, y + (compact ? 42 : 52), compact ? 28 : 38, accent, "center");
-    this.text(`SEED ${run.seed}`, x + w - 22, y + 22, compact ? 9 : 11, PALETTE.muted, "right", "800", "mono");
-    this.text(won ? run.rule === "extract" ? "你把废土的回声带了回来" : "信号穿过了最后一轮沙暴" : "战利品已结算，下一次会走得更远", this.width / 2, y + (compact ? 75 : 92), compact ? 11 : 14, PALETTE.muted, "center", "700");
+    drawTextScrim(this, x, y, w, h, { fill: "rgba(19,18,15,0.98)", accent });
+    surface(this.ctx, x, y, w, h, { raised: true, fill: "#232820" });
+    paperClip(this.ctx, x + w / 2 - 13, y + 6);
+    drawEchoMark(this, x + inset, y + (compact ? 15 : 18 * visualScale), accent, compact ? 0.72 : 0.9 * visualScale);
+    const title = run.result === "retire" ? "生存记录已归档" : won ? run.rule === "extract" ? "撤离成功" : "坚守成功" : run.endless ? "尸潮压境" : "信号中断";
+    this.displayText(title, x + inset + (compact ? 40 : 54 * visualScale), y + (compact ? 35 : 44 * visualScale), compact ? 27 : 37 * visualScale, accent, "left");
+    this.text(`SEED ${run.seed}`, x + w - inset, y + (compact ? 31 : 34 * visualScale), compact ? 9 : 11 * visualScale, PALETTE.muted, "right", "800", "mono");
+    const summary = won ? run.rule === "extract" ? "你把废土的回声带了回来" : "信号穿过了最后一轮沙暴" : "本局战利品已结算；下面记录关键战况";
+    this.fitText(summary, x + inset, y + (compact ? 70 : 83 * visualScale), compact ? 11 : 14 * visualScale, w - inset * 2, PALETTE.cream, "left", "700", 10);
+
     const payout = run.payout || { copper: run.scrap * 12 + run.kills * 2, gold: 0 };
     const accuracy = Math.round((Number(run.accuracy) || 0) * 100);
-    const stats = [
-      ["存活", formatTime(run.endless ? run.elapsed : Math.min(run.elapsed, run.duration))],
-      ["击败", run.kills],
+    const primary = [
+      ["存活时间", formatTime(run.endless ? run.elapsed : Math.min(run.elapsed, run.duration)), PALETTE.white],
+      ["击败感染者", String(run.kills), PALETTE.white],
+      ["获得铜币", `+${payout.copper}`, "#dfaa67"]
+    ];
+    const top = y + (compact ? 91 : 111 * visualScale);
+    const primaryGap = compact ? 7 : 12 * visualScale;
+    const primaryW = (w - inset * 2 - primaryGap * 2) / 3;
+    const primaryH = compact ? 70 : 88 * visualScale;
+    primary.forEach(([label, value, color], index) => {
+      const px = x + inset + index * (primaryW + primaryGap);
+      drawFieldPlate(this, px, top, primaryW, primaryH, { accent: color, fill: "#2e2b24" });
+      this.text(label, px + 13, top + (compact ? 20 : 24 * visualScale), compact ? 10 : 13 * visualScale, PALETTE.muted, "left", "800");
+      this.fitText(value, px + 13, top + (compact ? 49 : 58 * visualScale), compact ? 24 : 31 * visualScale, primaryW - 25, color, "left", "900", 16, "display");
+    });
+
+    const bodyY = top + primaryH + (compact ? 12 : 18 * visualScale);
+    const buttonH = compact ? 39 : 46 * visualScale;
+    const buttonY = y + h - buttonH - (compact ? 13 : 19 * visualScale);
+    const bodyH = buttonY - bodyY - (compact ? 13 : 18 * visualScale);
+    const bodyGap = compact ? 8 : 16 * visualScale;
+    const leftW = (w - inset * 2 - bodyGap) * 0.56;
+    const rightX = x + inset + leftW + bodyGap;
+    const rightW = w - inset * 2 - leftW - bodyGap;
+    drawTextScrim(this, x + inset, bodyY, leftW, bodyH, { fill: "#24231e", accent: UI_COLORS.ironLight });
+    drawTextScrim(this, rightX, bodyY, rightW, bodyH, { fill: "#24231e", accent });
+    this.text("战况记录", x + inset + 14, bodyY + (compact ? 19 : 23 * visualScale), compact ? 13 : 16 * visualScale, PALETTE.cream, "left", "900");
+    const secondary = [
       ["精英", run.eliteKills],
       ["造成伤害", Math.round(Number(run.damageDealt) || 0)],
-      ["弹体命中率", `${accuracy}%`],
+      ["命中率", `${accuracy}%`],
       ["最长无伤", formatTime(Number(run.maxNoHitTime) || 0)],
       ["武器熟练", `Lv.${run.masteryLevel || 1}  +${run.masteryGain || 0}`],
-      ["获得铜币", `+${payout.copper}`],
       ["获得金币", `+${payout.gold}`]
     ];
-    const statY = y + (compact ? 98 : 126);
-    const statGap = compact ? 5 : 9;
-    const statW = (w - (compact ? 34 : 52) - statGap * 2) / 3;
-    const statH = compact ? 62 : 78;
-    stats.forEach(([label, value], index) => {
-      const sx = x + (compact ? 17 : 26) + (index % 3) * (statW + statGap);
-      const sy = statY + Math.floor(index / 3) * (statH + statGap);
-      const valueColor = label === "获得金币" ? "#ffe15c" : label === "获得铜币" ? "#ff9b52" : PALETTE.white;
-      statBlock(this, label, String(value), sx, sy, statW, statH, { accent: valueColor, valueColor, fill: "#343126" });
+    const rowStart = bodyY + (compact ? 39 : 49 * visualScale);
+    const rowH = (bodyH - (compact ? 46 : 56 * visualScale)) / secondary.length;
+    secondary.forEach(([label, value], index) => {
+      const rowY = rowStart + index * rowH;
+      if (index) {
+        this.ctx.fillStyle = "rgba(196,178,141,0.18)";
+        this.ctx.fillRect(x + inset + 13, rowY - rowH * 0.48, leftW - 27, 1);
+      }
+      this.text(label, x + inset + 14, rowY, compact ? 10 : 12 * visualScale, PALETTE.muted, "left", "700");
+      this.fitText(String(value), x + inset + leftW - 15, rowY, compact ? 12 : 15 * visualScale, leftW * 0.52, label === "获得金币" ? PALETTE.amber : PALETTE.white, "right", "900", 10);
     });
+
     const progression = [
       ...(Array.isArray(run.masteryRewards) ? run.masteryRewards.map((reward) => `精通 Lv.${reward.level}「${reward.name}」`) : []),
       ...(Array.isArray(run.unlockRewards) ? run.unlockRewards.map((unlock) => `规则「${unlock.name}」`) : [])
     ];
+    this.text("本局新增", rightX + 14, bodyY + (compact ? 19 : 23 * visualScale), compact ? 13 : 16 * visualScale, accent, "left", "900");
+    const rewardBase = bodyY + (compact ? 43 : 53 * visualScale);
+    const rewardStep = compact ? 20 : 24 * visualScale;
     if (progression.length) {
-      const progressionY = statY + 3 * (statH + statGap) + (compact ? 2 : 1);
-      const progressionX = x + (compact ? 17 : 26);
-      const progressionW = w - (compact ? 34 : 52);
-      const progressionH = compact ? 37 : 48;
-      sectionPlate(this, progressionX, progressionY, progressionW, progressionH, { material: "iron", fill: "#292820", stroke: PALETTE.cyan, accent: PALETTE.cyan, raised: true });
-      this.text("本局新增", progressionX + (compact ? 10 : 14), progressionY + progressionH / 2, compact ? 11 : 13, PALETTE.cyan, "left", "900");
-      this.fitText(progression.slice(0, 3).join(" · "), progressionX + (compact ? 72 : 90), progressionY + progressionH / 2, compact ? 10 : 13, progressionW - (compact ? 82 : 104), PALETTE.cream, "left", "900", 9);
+      progression.slice(0, 3).forEach((line, index) => this.fitText(line, rightX + 14, rewardBase + index * rewardStep, compact ? 10 : 13 * visualScale, rightW - 28, PALETTE.cream, "left", "700", 9));
+    } else {
+      this.fitText("本局无新增解锁", rightX + 14, rewardBase, compact ? 10 : 13 * visualScale, rightW - 28, PALETTE.muted, "left", "700", 9);
     }
-    const buttonY = y + h - (compact ? 49 : 62);
-    if (!won && Array.isArray(run.advice) && run.advice.length) {
-      const adviceY = buttonY - (compact ? 55 : 70);
-      this.text("复盘建议", x + (compact ? 18 : 28), adviceY, compact ? 11 : 13, PALETTE.amber, "left", "900");
-      this.fitText(run.advice[0], x + (compact ? 86 : 108), adviceY, compact ? 10 : 12, w - (compact ? 108 : 140), PALETTE.cream, "left", "700", 9);
-      if (run.advice[1]) this.fitText(run.advice[1], x + (compact ? 18 : 28), adviceY + (compact ? 18 : 23), compact ? 9 : 11, w - (compact ? 36 : 56), PALETTE.muted, "left", "700", 8);
+    if (!won) {
+      const adviceY = bodyY + bodyH * 0.56;
+      this.text("复盘建议", rightX + 14, adviceY, compact ? 12 : 15 * visualScale, PALETTE.amber, "left", "900");
+      const advice = Array.isArray(run.advice) && run.advice.length ? run.advice : ["调整站位与装备，再次尝试。"];
+      let noteY = adviceY + (compact ? 21 : 27 * visualScale);
+      for (const suggestion of advice.slice(0, 2)) {
+        for (const line of wrapResultNote(suggestion, compact ? 20 : 26)) {
+          this.fitText(line, rightX + 14, noteY, compact ? 10 : 12 * visualScale, rightW - 28, PALETTE.cream, "left", "700", 10);
+          noteY += compact ? 16 : 19 * visualScale;
+        }
+        noteY += compact ? 4 : 6 * visualScale;
+      }
+    } else {
+      this.fitText("行动记录已归档，战利品已入账。", rightX + 14, bodyY + bodyH - (compact ? 22 : 27 * visualScale), compact ? 10 : 12 * visualScale, rightW - 28, PALETTE.muted, "left", "700", 9);
     }
-    this.button("restart", "再来一局", this.width / 2 - (compact ? 154 : 178), buttonY, compact ? 146 : 168, compact ? 40 : 46, "primary");
-    this.button("menu", "返回主页", this.width / 2 + (compact ? 8 : 10), buttonY, compact ? 146 : 168, compact ? 40 : 46, "secondary");
+
+    const actionW = Math.min(compact ? 146 : 168 * visualScale, (w - inset * 2 - 12) / 2);
+    const actionGap = compact ? 10 : 14 * visualScale;
+    this.button("restart", "再来一局", this.width / 2 - actionW - actionGap / 2, buttonY, actionW, buttonH, "primary");
+    this.button("menu", "返回主页", this.width / 2 + actionGap / 2, buttonY, actionW, buttonH, "secondary");
   },
 
   drawWindowNotice() {

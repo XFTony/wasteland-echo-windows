@@ -1,19 +1,41 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-09-20",
+  "updatedAt": "2026-10-28",
   "policy": {
     "deleteInactiveAssets": false,
     "runtimeCatalog": "src/render/art/asset-catalog.js",
     "runtimeRoot": "web/assets",
     "runtimeContainsOptimizedOnly": true,
     "inactiveArchiveRoot": "art/generated",
-    "commercialReview": "Generated assets require a service-terms review before commercial release."
+    "commercialReview": "Generated assets require a service-terms review before commercial release.",
+    "verifiedRetirement": {
+      "date": "2026-10-31",
+      "scope": [
+        "study.ranger.sidearm-quality-target.v1",
+        "study.ranger.pixel-sidearm.v1",
+        "study.ranger.pixel-density-38.v1",
+        "study.ranger.pixel-density-76.v1",
+        "study.ranger.run-keyposes.v1",
+        "study.ranger.native-run-candidate.v1",
+        "study.ranger.run-keyposes.v2",
+        "study.ranger.native-run-candidate.v2",
+        "study.ranger.native-run-continuous.v3",
+        "study.ranger.drawn-inbetweens.v4.part1",
+        "study.ranger.drawn-inbetweens.v4.part2",
+        "study.ranger.drawn-inbetweens.v4.revision",
+        "study.ranger.native-drawn-run.v4",
+        "study.ranger.drawn-art-atlas.v4"
+      ],
+      "records": "archivedAssets",
+      "plan": "docs/cleanup/retirement-plan.json",
+      "automaticInactiveDeletion": false
+    }
   },
   "assets": [
     {
       "id": "cover.keyart.v1",
       "version": "1.0",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/wasteland-title-keyart-v1.webp",
       "archivePath": "art/generated/v1.0/runtime-snapshot/wasteland-title-keyart-v1.png",
       "bytes": 348724,
@@ -34,7 +56,7 @@
     {
       "id": "menu.backdrop.main.v2",
       "version": "1.2",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/ui/backdrops/menu-main-camp-v2.webp",
       "archivePath": "art/generated/v1.2/runtime/menu-main-camp-v2.png",
       "sourcePaths": [
@@ -51,7 +73,7 @@
     {
       "id": "menu.backdrop.deployment.v2",
       "version": "1.2",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/ui/backdrops/deployment-command-bunker-v2.webp",
       "archivePath": "art/generated/v1.2/runtime/deployment-command-bunker-v2.png",
       "sourcePaths": [
@@ -68,7 +90,7 @@
     {
       "id": "menu.backdrop.inventory.v2",
       "version": "1.2",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/ui/backdrops/inventory-armory-v2.webp",
       "archivePath": "art/generated/v1.2/runtime/inventory-armory-v2.png",
       "sourcePaths": [
@@ -85,7 +107,7 @@
     {
       "id": "menu.backdrop.shop.v2",
       "version": "1.2",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/ui/backdrops/shop-quartermaster-v2.webp",
       "archivePath": "art/generated/v1.2/runtime/shop-quartermaster-v2.png",
       "sourcePaths": [
@@ -102,7 +124,7 @@
     {
       "id": "menu.backdrop.settings.v2",
       "version": "1.2",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/ui/backdrops/settings-radio-room-v2.webp",
       "archivePath": "art/generated/v1.2/runtime/settings-radio-room-v2.png",
       "sourcePaths": [
@@ -119,7 +141,7 @@
     {
       "id": "menu.backdrop.credits.v2",
       "version": "1.2",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/ui/backdrops/credits-archive-v2.webp",
       "archivePath": "art/generated/v1.2/runtime/credits-archive-v2.png",
       "sourcePaths": [
@@ -136,7 +158,7 @@
     {
       "id": "ui.field-plate.v2",
       "version": "1.2",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/ui/shared/ui-field-plate-v2.webp",
       "archivePath": "art/generated/v1.2/runtime/ui-field-plate-v2.png",
       "sourcePaths": [
@@ -197,7 +219,7 @@
     {
       "id": "deployment.convoy.v1",
       "version": "1.1",
-      "status": "active",
+      "status": "inactive",
       "runtimePath": "web/assets/ui/deployment/deployment-convoy-vignette-v1.webp",
       "archivePath": "art/generated/v1.1/runtime/deployment-convoy-vignette-v1.png",
       "sourcePaths": [
@@ -284,6 +306,2174 @@
       "sha256": "1CA47F7A5CE3DCCABBC11EF75C6707CE0072EFB1225378F8C1D752D50D691BB0",
       "generator": "OpenAI ImageGen + local chroma-key pipeline",
       "notes": "One continuous head-shoulder-arm-claw silhouette; no detached crop is used."
+    },
+    {
+      "id": "menu.backdrop.main.v3",
+      "version": "1.5",
+      "status": "inactive",
+      "runtimePath": "web/assets/ui/backdrops/menu-main-v3.webp",
+      "archivePath": "art/generated/v1.5/source/menu-main-keyart-v3-source.png",
+      "width": 1672,
+      "height": 941,
+      "pixelFormat": "RGB",
+      "bytes": 190430,
+      "sha256": "2047CA13715CC3FF0A4D0A175E4A6AD250386D653D1CBA8ED7FDEF24870D75CB",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "menu.backdrop.deployment.v3",
+      "version": "1.5",
+      "status": "inactive",
+      "runtimePath": "web/assets/ui/backdrops/deployment-command-garage-v3.webp",
+      "archivePath": "art/generated/v1.5/source/deployment-command-garage-v3-source.png",
+      "width": 1672,
+      "height": 941,
+      "pixelFormat": "RGB",
+      "bytes": 189218,
+      "sha256": "13ABFAA519C64713E9D24471F741B63E8D436476BE403B2D6B93269344617FD2",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "menu.backdrop.inventory.v3",
+      "version": "1.5",
+      "status": "inactive",
+      "runtimePath": "web/assets/ui/backdrops/inventory-armory-v3.webp",
+      "archivePath": "art/generated/v1.5/source/inventory-armory-v3-source.png",
+      "width": 1672,
+      "height": 941,
+      "pixelFormat": "RGB",
+      "bytes": 124302,
+      "sha256": "304AE65A30F8FA0FEFB79E4437FCA3E3DF8494183C39A8BC82CED1C300B90475",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "menu.backdrop.shop.v3",
+      "version": "1.5",
+      "status": "inactive",
+      "runtimePath": "web/assets/ui/backdrops/shop-quartermaster-v3.webp",
+      "archivePath": "art/generated/v1.5/source/shop-quartermaster-v3-source.png",
+      "width": 1672,
+      "height": 941,
+      "pixelFormat": "RGB",
+      "bytes": 141626,
+      "sha256": "178AEEB598DB55D612364C49C6B112B0748086C6C958A17F5D04B37E7736788B",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "menu.backdrop.settings.v3",
+      "version": "1.5",
+      "status": "inactive",
+      "runtimePath": "web/assets/ui/backdrops/settings-radio-room-v3.webp",
+      "archivePath": "art/generated/v1.5/source/settings-radio-room-v3-source.png",
+      "width": 1672,
+      "height": 941,
+      "pixelFormat": "RGB",
+      "bytes": 102716,
+      "sha256": "F7256D279BF2A93A894129BBF0FDA0820455EE5F50233634EFDA09F532DB1C7F",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "menu.backdrop.credits.v3",
+      "version": "1.5",
+      "status": "inactive",
+      "runtimePath": "web/assets/ui/backdrops/credits-archive-v3.webp",
+      "archivePath": "art/generated/v1.5/source/credits-archive-v3-source.png",
+      "width": 1672,
+      "height": 941,
+      "pixelFormat": "RGB",
+      "bytes": 134222,
+      "sha256": "BD074D9B2BFA6CF8802058C5974F76B1B584C917E55D0ACD5029E70F34C6737C",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "cover.survivor.v3",
+      "version": "1.5",
+      "status": "inactive",
+      "runtimePath": "web/assets/ui/characters/cover-survivor-v3.webp",
+      "archivePath": "art/generated/v1.5/source/cover-survivor-v3-source.png",
+      "width": 767,
+      "height": 1200,
+      "pixelFormat": "RGBA",
+      "bytes": 638280,
+      "sha256": "EBCDE97F58D3FF095B982C7D372D7F53BF9A27D3D9356AB9D409620485614684",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "actor.ranger.portrait.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/actors/ranger-armed-portrait-v1.webp",
+      "archivePath": "art/generated/v1.5/source/ranger-armed-portrait-v1-source.png",
+      "width": 745,
+      "height": 768,
+      "pixelFormat": "RGBA",
+      "bytes": 258444,
+      "sha256": "BE440C9549ABAD70451E42B1D5C66FFC9C9FBB5498A51A998D2173545207D97C",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "actor.ranger.base.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/actors/ranger-base-v1.webp",
+      "archivePath": "art/generated/v1.5/source/ranger-base-v1-source.png",
+      "width": 353,
+      "height": 512,
+      "pixelFormat": "RGBA",
+      "bytes": 113272,
+      "sha256": "FC35DE7B512F3161462FD84C26B267DB6A58EB005D01BA7EC2637D2D1E8A4E7F",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "actor.drifter.v1",
+      "version": "1.5",
+      "status": "inactive",
+      "runtimePath": "web/assets/actors/drifter-v1.webp",
+      "archivePath": "art/generated/v1.5/source/drifter-v1-source.png",
+      "width": 319,
+      "height": 512,
+      "pixelFormat": "RGBA",
+      "bytes": 89850,
+      "sha256": "E6B1AAD52CEEEF250C00DA24F577E944BC6D2FA3C9948F99F10EB155F296CFE7",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "actor.iron-colossus.v1",
+      "version": "1.5",
+      "status": "inactive",
+      "runtimePath": "web/assets/actors/iron-colossus-v1.webp",
+      "archivePath": "art/generated/v1.5/source/iron-colossus-v1-source.png",
+      "width": 493,
+      "height": 512,
+      "pixelFormat": "RGBA",
+      "bytes": 300906,
+      "sha256": "5461E66B546525E34E6A009BE9B3837F8E1C192379E7EB912E92E3410F875400",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "weapon.scrap-pistol.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/weapons/scrap-pistol-v1.webp",
+      "archivePath": "art/generated/v1.5/source/scrap-pistol-v1-source.png",
+      "width": 512,
+      "height": 340,
+      "pixelFormat": "RGBA",
+      "bytes": 140434,
+      "sha256": "8965B0BF4EFA16E432452A737B75A72404F7EC61980726F4D207169B4E7B40E6",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "world.ground.echo.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/world/echo-ground-v1.webp",
+      "archivePath": "art/generated/v1.5/source/echo-ground-v1-source.png",
+      "width": 1254,
+      "height": 1254,
+      "pixelFormat": "RGB",
+      "bytes": 294124,
+      "sha256": "1529597FE141C99ED4F51E5584B911DE4977D80C712AB661AB2D6E7C52423C21",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "actor.mechanic.base.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/actors/mechanic-base-v1.webp",
+      "archivePath": "art/generated/v1.5/source/mechanic-base-v1-source.png",
+      "width": 329,
+      "height": 512,
+      "pixelFormat": "RGBA",
+      "bytes": 106492,
+      "sha256": "536031544450C108BF26F457058698C420B9FF4D9FD0DB454F6A4217C0F9B149",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "actor.bulwark.base.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/actors/bulwark-base-v1.webp",
+      "archivePath": "art/generated/v1.5/source/bulwark-base-v1-source.png",
+      "width": 420,
+      "height": 512,
+      "pixelFormat": "RGBA",
+      "bytes": 170448,
+      "sha256": "35452EEE217405420DA56C736E073C6CB90BD8D46454D59502618A740059C109",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "actor.runner.v1",
+      "version": "1.5",
+      "status": "inactive",
+      "runtimePath": "web/assets/actors/runner-v1.webp",
+      "archivePath": "art/generated/v1.5/source/runner-v1-source.png",
+      "width": 328,
+      "height": 512,
+      "pixelFormat": "RGBA",
+      "bytes": 104320,
+      "sha256": "A62961828CD2CDF91F4F328AB45B3089FADB26DFFAF70B3B39674EA5368E0E1F",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "actor.spitter.v1",
+      "version": "1.5",
+      "status": "inactive",
+      "runtimePath": "web/assets/actors/spitter-v1.webp",
+      "archivePath": "art/generated/v1.5/source/spitter-v1-source.png",
+      "width": 428,
+      "height": 512,
+      "pixelFormat": "RGBA",
+      "bytes": 143184,
+      "sha256": "4534707E3F59E6819B85FDDD602363CA7CCFBAC1D38EE7BC65CCEAFBB1C7BCE7",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "actor.brute.v1",
+      "version": "1.5",
+      "status": "inactive",
+      "runtimePath": "web/assets/actors/brute-v1.webp",
+      "archivePath": "art/generated/v1.5/source/brute-v1-source.png",
+      "width": 490,
+      "height": 512,
+      "pixelFormat": "RGBA",
+      "bytes": 190256,
+      "sha256": "440FD949C344906176DB88E5B139609E96E466EC7731FB1EF6E098FDA82E3FEC",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "actor.screecher.v1",
+      "version": "1.5",
+      "status": "inactive",
+      "runtimePath": "web/assets/actors/screecher-v1.webp",
+      "archivePath": "art/generated/v1.5/source/screecher-v1-source.png",
+      "width": 366,
+      "height": 512,
+      "pixelFormat": "RGBA",
+      "bytes": 119184,
+      "sha256": "E18A67040E328DD9A5A7AD5EC41B929DC76E6ACE3850264C3174EFB6F4F790AE",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "actor.crawler.v1",
+      "version": "1.5",
+      "status": "inactive",
+      "runtimePath": "web/assets/actors/crawler-v1.webp",
+      "archivePath": "art/generated/v1.5/source/crawler-v1-source.png",
+      "width": 512,
+      "height": 462,
+      "pixelFormat": "RGBA",
+      "bytes": 104178,
+      "sha256": "C3EE5570C255B794D05F00FBFFA9586ABC25830FC80492A96704A1E9817F6BB9",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "actor.warden.v1",
+      "version": "1.5",
+      "status": "inactive",
+      "runtimePath": "web/assets/actors/warden-v1.webp",
+      "archivePath": "art/generated/v1.5/source/warden-v1-source.png",
+      "width": 420,
+      "height": 512,
+      "pixelFormat": "RGBA",
+      "bytes": 153990,
+      "sha256": "B52BDF371BA808C41552F95F64BB673E4FD494A8BD94F00AB5CB3CA7839137A5",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "world.ground.freight.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/world/freight-ground-v1.webp",
+      "archivePath": "art/generated/v1.5/source/freight-ground-v1-source.png",
+      "width": 1254,
+      "height": 1254,
+      "pixelFormat": "RGB",
+      "bytes": 413352,
+      "sha256": "0555805FC414637D685ACA091C37E3A0D2B5AF3E0B8C7B2C574D9EE5048E5E43",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "world.ground.red-basin.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/world/red-basin-ground-v1.webp",
+      "archivePath": "art/generated/v1.5/source/red-basin-ground-v1-source.png",
+      "width": 1254,
+      "height": 1254,
+      "pixelFormat": "RGB",
+      "bytes": 291974,
+      "sha256": "8EC0EC4F73191C8E2112C1656672E1ED31025D23D74D8DB0954AA6046F3847AA",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "weapon.swarm-smg.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/weapons/swarm-smg-v1.webp",
+      "archivePath": "art/generated/v1.5/source/swarm-smg-v1-source.png",
+      "width": 512,
+      "height": 336,
+      "pixelFormat": "RGBA",
+      "bytes": 77432,
+      "sha256": "C86CBC907936C1C38C40424F070DB7FC9FAA1E4C0C91F83A0C10DFF2A2943DE7",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "weapon.breaker-shotgun.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/weapons/breaker-shotgun-v1.webp",
+      "archivePath": "art/generated/v1.5/source/breaker-shotgun-v1-source.png",
+      "width": 512,
+      "height": 250,
+      "pixelFormat": "RGBA",
+      "bytes": 63166,
+      "sha256": "A1143C91CDD3357A70064FD889D0958799A642035410334071FBC3B2B5795A00",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "weapon.needle-rifle.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/weapons/needle-rifle-v1.webp",
+      "archivePath": "art/generated/v1.5/source/needle-rifle-v1-source.png",
+      "width": 512,
+      "height": 217,
+      "pixelFormat": "RGBA",
+      "bytes": 38044,
+      "sha256": "E7234F67E8470B4E5A7263CA2E255C3674A5D042225A0A0E3F306AE3AAC9EA78",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "weapon.rust-revolver.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/weapons/rust-revolver-v1.webp",
+      "archivePath": "art/generated/v1.5/source/rust-revolver-v1-source.png",
+      "width": 512,
+      "height": 319,
+      "pixelFormat": "RGBA",
+      "bytes": 114004,
+      "sha256": "ECF7C23E50297F4CC11D831D59FEF124F57171E56D6E9E4203C891B738AE5783",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "weapon.ember-carbine.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/weapons/ember-carbine-v1.webp",
+      "archivePath": "art/generated/v1.5/source/ember-carbine-v1-source.png",
+      "width": 512,
+      "height": 235,
+      "pixelFormat": "RGBA",
+      "bytes": 65692,
+      "sha256": "C49E139AB1EC6FFD16D42EEB57E7A632A40A5395C1917E6EF6274B0011FF24FB",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "weapon.coil-cannon.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/weapons/coil-cannon-v1.webp",
+      "archivePath": "art/generated/v1.5/source/coil-cannon-v1-source.png",
+      "width": 512,
+      "height": 252,
+      "pixelFormat": "RGBA",
+      "bytes": 76894,
+      "sha256": "F9E5B9DEAC94808C0EFC298EB3EE42107AE84DA693D4E67F2283BCFCBA568D05",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "outfit.wanderer.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/outfits/wanderer-v1.webp",
+      "archivePath": "art/generated/v1.5/source/wanderer-outfit-v1-source.png",
+      "width": 250,
+      "height": 320,
+      "pixelFormat": "RGBA",
+      "bytes": 57800,
+      "sha256": "C9E9C0E63DBB1194B06700AF1425FF6C5FA66BED15B1589E9B3E45F8762BD275",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "outfit.mechanic.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/outfits/mechanic-v1.webp",
+      "archivePath": "art/generated/v1.5/source/mechanic-outfit-v1-source.png",
+      "width": 207,
+      "height": 320,
+      "pixelFormat": "RGBA",
+      "bytes": 54072,
+      "sha256": "000C476B53B88B2B3166E07FB035DD7DCF0EF636A627593B3F840AA9BA479E0E",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "outfit.nightwatch.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/outfits/nightwatch-v1.webp",
+      "archivePath": "art/generated/v1.5/source/nightwatch-outfit-v1-source.png",
+      "width": 190,
+      "height": 320,
+      "pixelFormat": "RGBA",
+      "bytes": 38934,
+      "sha256": "67240379EE6A48CE3B186A8B0FF29449051730B5A1D865B270E19FEEBABBEAEB",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "equipment.field-vest.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/equipment/field-vest-v1.webp",
+      "archivePath": "art/generated/v1.5/source/field-vest-v1-source.png",
+      "width": 320,
+      "height": 295,
+      "pixelFormat": "RGBA",
+      "bytes": 84696,
+      "sha256": "E7145D973B284B889AFA50E3A9AF1682406D2D3BF16663D97FE112B19150426B",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "equipment.iron-plate.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/equipment/iron-plate-v1.webp",
+      "archivePath": "art/generated/v1.5/source/iron-plate-v1-source.png",
+      "width": 320,
+      "height": 310,
+      "pixelFormat": "RGBA",
+      "bytes": 104684,
+      "sha256": "916179C4727504AE85B3160427534F65530B3254B217A02A61AE5614151DE039",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "equipment.runner-boots.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/equipment/runner-boots-v1.webp",
+      "archivePath": "art/generated/v1.5/source/runner-boots-v1-source.png",
+      "width": 320,
+      "height": 271,
+      "pixelFormat": "RGBA",
+      "bytes": 71526,
+      "sha256": "B0F27774D2CC13EC62224F48B21DD5C00C13C0CA954C3BEF5D6A84796160537B",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "equipment.magnet-helm.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/equipment/magnet-helm-v1.webp",
+      "archivePath": "art/generated/v1.5/source/magnet-helm-v1-source.png",
+      "width": 320,
+      "height": 305,
+      "pixelFormat": "RGBA",
+      "bytes": 92760,
+      "sha256": "32508CA35CEDD6A959704A7D1A9D00D87F51B7EBD067D72227A855D182CBE223",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "equipment.ammo-rig.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/equipment/ammo-rig-v1.webp",
+      "archivePath": "art/generated/v1.5/source/ammo-rig-v1-source.png",
+      "width": 320,
+      "height": 226,
+      "pixelFormat": "RGBA",
+      "bytes": 61532,
+      "sha256": "D6A68C6D2C6D354BA546D7191385E0FBED14BF8AACADE99E95A0C913C4C29F05",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "equipment.signal-helm.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/equipment/signal-helm-v1.webp",
+      "archivePath": "art/generated/v1.5/source/signal-helm-v1-source.png",
+      "width": 320,
+      "height": 320,
+      "pixelFormat": "RGBA",
+      "bytes": 95160,
+      "sha256": "6110691CF20135DEA67F2F25313A3FD029B4016FD3C60628E931094D17B707E4",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "equipment.servo-greaves.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/equipment/servo-greaves-v1.webp",
+      "archivePath": "art/generated/v1.5/source/servo-greaves-v1-source.png",
+      "width": 297,
+      "height": 320,
+      "pixelFormat": "RGBA",
+      "bytes": 81654,
+      "sha256": "013B72ECD6F51D29FC6297FCC44135E9C29F729367663555A0BAADC9A89FA332",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "equipment.stormstep-boots.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/equipment/stormstep-boots-v1.webp",
+      "archivePath": "art/generated/v1.5/source/stormstep-boots-v1-source.png",
+      "width": 320,
+      "height": 267,
+      "pixelFormat": "RGBA",
+      "bytes": 92020,
+      "sha256": "80DDBCC3DFD6936D39B2FC54044322C005D2AEB8FF8F94D63576E2D77271A8AE",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "actor.ranger.mechanic.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/actors/ranger-mechanic-v1.webp",
+      "archivePath": "art/generated/v1.5/source/ranger-mechanic-v1-source.png",
+      "width": 335,
+      "height": 512,
+      "pixelFormat": "RGBA",
+      "bytes": 124900,
+      "sha256": "9DACF0CE45F604D857A55099ECEC39E3D416640D8FAB92191DB67D10CCC2F037",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "actor.ranger.nightwatch.v2",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/actors/ranger-nightwatch-v2.webp",
+      "archivePath": "art/generated/v1.5/source/ranger-nightwatch-v2-source.png",
+      "width": 333,
+      "height": 512,
+      "pixelFormat": "RGBA",
+      "bytes": 133106,
+      "sha256": "7006D20CA506D67F61845DEBAADDE34C5318CFED2604D4967BCE1987E9E1C59F",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending. First source variant archived but rejected because the 76px silhouette was too dark.",
+      "sourcePaths": [
+        "art/generated/v1.5/source/ranger-nightwatch-v1-source.png"
+      ]
+    },
+    {
+      "id": "actor.mechanic.mechanic.v2",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/actors/mechanic-mechanic-v2.webp",
+      "archivePath": "art/generated/v1.5/source/mechanic-mechanic-v2-source.png",
+      "width": 326,
+      "height": 512,
+      "pixelFormat": "RGBA",
+      "bytes": 116438,
+      "sha256": "4FD2709523F6DED06B7E2FBE42CEB66866E4091F2E13D5DAD4C522E746904889",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending. First source variant archived but rejected because it resembled the default olive jacket at 76px.",
+      "sourcePaths": [
+        "art/generated/v1.5/source/mechanic-mechanic-v1-source.png"
+      ]
+    },
+    {
+      "id": "actor.mechanic.nightwatch.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/actors/mechanic-nightwatch-v1.webp",
+      "archivePath": "art/generated/v1.5/source/mechanic-nightwatch-v1-source.png",
+      "width": 305,
+      "height": 512,
+      "pixelFormat": "RGBA",
+      "bytes": 108106,
+      "sha256": "B07AF5386B2667B870F023C0CC761B987E4F4B3E0892758245993D3BAA20CF71",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "actor.bulwark.mechanic.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/actors/bulwark-mechanic-v1.webp",
+      "archivePath": "art/generated/v1.5/source/bulwark-mechanic-v1-source.png",
+      "width": 408,
+      "height": 512,
+      "pixelFormat": "RGBA",
+      "bytes": 184480,
+      "sha256": "14BA9B2E942F207E7F1E3F9A9744E26FB72C960C22043543D67583F96BAE845A",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "actor.bulwark.nightwatch.v2",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/actors/bulwark-nightwatch-v2.webp",
+      "archivePath": "art/generated/v1.5/source/bulwark-nightwatch-v2-source.png",
+      "width": 395,
+      "height": 512,
+      "pixelFormat": "RGBA",
+      "bytes": 180882,
+      "sha256": "2EB2946A01F4823016F2EF88DEFF7769671F82A15FD42B965ABB15081AA2D4A9",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending. First source variant archived but rejected because its checkerboard background had no alpha channel.",
+      "sourcePaths": [
+        "art/generated/v1.5/source/bulwark-nightwatch-v1-source.png"
+      ]
+    },
+    {
+      "id": "world.prop.echo.apothecary-roof.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/world/props/echo-apothecary-roof-v1.webp",
+      "archivePath": "art/generated/v1.5/source/echo-apothecary-roof-v1-source.png",
+      "width": 512,
+      "height": 341,
+      "pixelFormat": "RGBA",
+      "bytes": 198144,
+      "sha256": "3C3C3DF356A7A43C1AF9A6E49E6C1E24A6548E93F907CAAA059E9439C8471B38",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "world.prop.echo.shop-roof.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/world/props/echo-shop-roof-v1.webp",
+      "archivePath": "art/generated/v1.5/source/echo-shop-roof-v1-source.png",
+      "width": 512,
+      "height": 349,
+      "pixelFormat": "RGBA",
+      "bytes": 208472,
+      "sha256": "B61B8EA9D6596B6C23A98A44231394A85B27C2EAFDE195121A670F03B8586262",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "world.prop.echo.warehouse-roof.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/world/props/echo-warehouse-roof-v1.webp",
+      "archivePath": "art/generated/v1.5/source/echo-warehouse-roof-v1-source.png",
+      "width": 512,
+      "height": 352,
+      "pixelFormat": "RGBA",
+      "bytes": 212966,
+      "sha256": "2BBB62432D2E02B37AC27DDBC02606643A832790FE42FCC7BD9BACD5C857CD21",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "world.prop.echo.container.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/world/props/echo-container-v1.webp",
+      "archivePath": "art/generated/v1.5/source/echo-container-v1-source.png",
+      "width": 512,
+      "height": 201,
+      "pixelFormat": "RGBA",
+      "bytes": 142882,
+      "sha256": "9C420F642CE15989BE54138F414F7C9A14E966765714E55E97390A089E3C114B",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "world.prop.echo.railcar.v1",
+      "version": "1.5",
+      "status": "active",
+      "runtimePath": "web/assets/world/props/echo-railcar-v1.webp",
+      "archivePath": "art/generated/v1.5/source/echo-railcar-v1-source.png",
+      "width": 512,
+      "height": 129,
+      "pixelFormat": "RGBA",
+      "bytes": 78586,
+      "sha256": "01D64B947380EF0EE00364C6AC58A2D8F68E2FDC6EB1DF8F397F2B718C7EAFB7",
+      "generator": "OpenAI ImageGen",
+      "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
+    },
+    {
+      "id": "study.ranger.compact-pixel.v1",
+      "version": "1.5-compact-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-pixel-v1/ranger-compact-v1.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-pixel-v1/reference/ranger-pixel-sidearm-v1.png"
+      ],
+      "width": 1254,
+      "height": 1254,
+      "pixelFormat": "RGBA",
+      "bytes": 704622,
+      "sha256": "22E0B12A2E4546D69A37AD9D7CD5869A82757C8FA20DB701380EFCC06A64A6C1",
+      "generator": "OpenAI ImageGen built-in",
+      "notes": "Static Soul Knight-inspired compact ranger design; large head and short body; original tan/orange character identity; grid cleanup and visual approval pending; not runtime integrated."
+    },
+    {
+      "id": "study.ranger.compact-motion.body.v1",
+      "version": "1.5-compact-motion-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-motion-v1/body-atlas.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-pixel-v1/ranger-compact-v1.png",
+        "art/characters/ranger/compact-motion-v1/metadata.json"
+      ],
+      "width": 576,
+      "height": 64,
+      "pixelFormat": "RGBA",
+      "bytes": 6290,
+      "sha256": "EF9EACDE2FFECE1D75C59363854AA029E8CD770A85C2341E55F498982A051B5B",
+      "generator": "Native pixel import + ImageGen drawings",
+      "notes": "64x64 idle and eight drawn short-step frames; stable head/chest and distinct lower-body pixels; inactive pilot."
+    },
+    {
+      "id": "study.ranger.compact-motion.grip.v1",
+      "version": "1.5-compact-motion-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-motion-v1/sidearm-grip.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-pixel-v1/ranger-compact-v1.png",
+        "art/characters/ranger/compact-motion-v1/metadata.json"
+      ],
+      "width": 36,
+      "height": 20,
+      "pixelFormat": "RGBA",
+      "bytes": 825,
+      "sha256": "BFEC8BD9C9364B1601FFBB1E8AC1A2CC80A92BB51DA62CE5E6D3FAA4CA33859B",
+      "generator": "Native pixel import + ImageGen drawings",
+      "notes": "Independent compact pistol with both gripping hands; same transform controls muzzle and feedback; inactive pilot."
+    },
+    {
+      "id": "study.ranger.compact-motion.source-walk.v1",
+      "version": "1.5-compact-motion-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-motion-v1/source/body-walk-drawings.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-pixel-v1/ranger-compact-v1.png",
+        "art/characters/ranger/compact-motion-v1/metadata.json"
+      ],
+      "width": 1536,
+      "height": 1024,
+      "pixelFormat": "RGBA",
+      "bytes": 1757198,
+      "sha256": "CC4BE0A9C559D2737A67999491A5042C76B100F6E5368FDCC2B8BBFF3238226F",
+      "generator": "OpenAI ImageGen built-in",
+      "notes": "Eight body-only pose drawings for compact character; source ordering and imported layers declared."
+    },
+    {
+      "id": "study.ranger.compact-motion.source-idle.v1",
+      "version": "1.5-compact-motion-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-motion-v1/source/body-idle-drawing.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-pixel-v1/ranger-compact-v1.png",
+        "art/characters/ranger/compact-motion-v1/metadata.json"
+      ],
+      "width": 1086,
+      "height": 1448,
+      "pixelFormat": "RGBA",
+      "bytes": 479888,
+      "sha256": "FCA7D2B1E1AE0E63C97C325CA68F31CF35B2F92F559843223972A8132E37E87F",
+      "generator": "OpenAI ImageGen built-in",
+      "notes": "Neutral idle body drawing with both boots planted; separate gripping component."
+    },
+    {
+      "id": "study.ranger.compact-motion.source-grip.v1",
+      "version": "1.5-compact-motion-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-motion-v1/source/sidearm-grip-drawing.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-pixel-v1/ranger-compact-v1.png",
+        "art/characters/ranger/compact-motion-v1/metadata.json"
+      ],
+      "width": 1683,
+      "height": 935,
+      "pixelFormat": "RGBA",
+      "bytes": 434917,
+      "sha256": "20F9AF740D5C6609381E645DA7CE5A946DC76FDA8381E8BDC312DFC69535050C",
+      "generator": "OpenAI ImageGen built-in",
+      "notes": "Separate pistol and two gloved hands; source artwork for freely aimed compact weapon component."
+    },
+    {
+      "id": "study.ranger.compact-arsenal.swarm_smg.source.v2",
+      "version": "1.5-compact-arsenal-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-arsenal-v2/source/swarm_smg.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-motion-v1/source/sidearm-grip-drawing.png"
+      ],
+      "width": 1691,
+      "height": 930,
+      "pixelFormat": "RGBA",
+      "bytes": 505993,
+      "sha256": "7C85CCB5D2451CA24E01534707D8D47C818CDCDEC93BE190CDE2C059CDCB6EA5",
+      "generator": "OpenAI ImageGen built-in",
+      "notes": "Compact two-hand swarm_smg source; automatic-combat pilot; visual review pending; not active game art."
+    },
+    {
+      "id": "study.ranger.compact-arsenal.swarm_smg.grip.v2",
+      "version": "1.5-compact-arsenal-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-arsenal-v2/weapons/swarm_smg.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-arsenal-v2/source/swarm_smg.png",
+        "art/characters/ranger/compact-arsenal-v2/weapons/swarm_smg.aseprite"
+      ],
+      "width": 40,
+      "height": 22,
+      "pixelFormat": "RGBA",
+      "bytes": 929,
+      "sha256": "7500953D2DF0145C81E6AF12FABC7FD304A5A5E658FA8DB1F5043DFB9CE777E4",
+      "generator": "Native pixel import + LibreSprite",
+      "notes": "Compact two-hand swarm_smg grip; automatic-combat pilot; visual review pending; not active game art."
+    },
+    {
+      "id": "study.ranger.compact-arsenal.breaker_shotgun.source.v2",
+      "version": "1.5-compact-arsenal-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-arsenal-v2/source/breaker_shotgun.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-motion-v1/source/sidearm-grip-drawing.png"
+      ],
+      "width": 1855,
+      "height": 848,
+      "pixelFormat": "RGBA",
+      "bytes": 547504,
+      "sha256": "2DF8057FCAD20B75E7A828C19105B7F50779F9442C6BA4087D3F349127653A6B",
+      "generator": "OpenAI ImageGen built-in",
+      "notes": "Compact two-hand breaker_shotgun source; automatic-combat pilot; visual review pending; not active game art."
+    },
+    {
+      "id": "study.ranger.compact-arsenal.breaker_shotgun.grip.v2",
+      "version": "1.5-compact-arsenal-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-arsenal-v2/weapons/breaker_shotgun.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-arsenal-v2/source/breaker_shotgun.png",
+        "art/characters/ranger/compact-arsenal-v2/weapons/breaker_shotgun.aseprite"
+      ],
+      "width": 48,
+      "height": 22,
+      "pixelFormat": "RGBA",
+      "bytes": 899,
+      "sha256": "C750CE7D27AAC0D813F030D6D3238447D43615A6E782BC87DB3818AE88F7B07E",
+      "generator": "Native pixel import + LibreSprite",
+      "notes": "Compact two-hand breaker_shotgun grip; automatic-combat pilot; visual review pending; not active game art."
+    },
+    {
+      "id": "study.ranger.compact-arsenal.needle_rifle.source.v2",
+      "version": "1.5-compact-arsenal-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-arsenal-v2/source/needle_rifle.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-motion-v1/source/sidearm-grip-drawing.png"
+      ],
+      "width": 1774,
+      "height": 887,
+      "pixelFormat": "RGBA",
+      "bytes": 385385,
+      "sha256": "7AB0C31DD684229191C6FC236A977CAECDB56181279A4E4F4F8F9B0A81704BE7",
+      "generator": "OpenAI ImageGen built-in",
+      "notes": "Compact two-hand needle_rifle source; automatic-combat pilot; visual review pending; not active game art."
+    },
+    {
+      "id": "study.ranger.compact-arsenal.needle_rifle.grip.v2",
+      "version": "1.5-compact-arsenal-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-arsenal-v2/weapons/needle_rifle.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-arsenal-v2/source/needle_rifle.png",
+        "art/characters/ranger/compact-arsenal-v2/weapons/needle_rifle.aseprite"
+      ],
+      "width": 52,
+      "height": 22,
+      "pixelFormat": "RGBA",
+      "bytes": 876,
+      "sha256": "4BC80F9498257438ACAB62A70A26A6E7A427897948EEBE216D560DAC4CD96251",
+      "generator": "Native pixel import + LibreSprite",
+      "notes": "Compact two-hand needle_rifle grip; automatic-combat pilot; visual review pending; not active game art."
+    },
+    {
+      "id": "study.ranger.compact-arsenal.rust_revolver.source.v2",
+      "version": "1.5-compact-arsenal-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-arsenal-v2/source/rust_revolver.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-motion-v1/source/sidearm-grip-drawing.png"
+      ],
+      "width": 1660,
+      "height": 948,
+      "pixelFormat": "RGBA",
+      "bytes": 474896,
+      "sha256": "37F23B7E8F23006A97ECB8BF56665592D139C716B291DE327B3798FA220AD8B7",
+      "generator": "OpenAI ImageGen built-in",
+      "notes": "Compact two-hand rust_revolver source; automatic-combat pilot; visual review pending; not active game art."
+    },
+    {
+      "id": "study.ranger.compact-arsenal.rust_revolver.grip.v2",
+      "version": "1.5-compact-arsenal-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-arsenal-v2/weapons/rust_revolver.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-arsenal-v2/source/rust_revolver.png",
+        "art/characters/ranger/compact-arsenal-v2/weapons/rust_revolver.aseprite"
+      ],
+      "width": 38,
+      "height": 22,
+      "pixelFormat": "RGBA",
+      "bytes": 1061,
+      "sha256": "3B03243FCBF9B9A95467389CC531541137FB66A5AC7BCA2C85F4782D4410CF48",
+      "generator": "Native pixel import + LibreSprite",
+      "notes": "Compact two-hand rust_revolver grip; automatic-combat pilot; visual review pending; not active game art."
+    },
+    {
+      "id": "study.ranger.compact-arsenal.ember_carbine.source.v2",
+      "version": "1.5-compact-arsenal-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-arsenal-v2/source/ember_carbine.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-motion-v1/source/sidearm-grip-drawing.png"
+      ],
+      "width": 1808,
+      "height": 870,
+      "pixelFormat": "RGBA",
+      "bytes": 558169,
+      "sha256": "AFB2D0992649A6EDD02C12FF5F979CAA9F9B361CF11DCEB10811C88059DB041C",
+      "generator": "OpenAI ImageGen built-in",
+      "notes": "Compact two-hand ember_carbine source; automatic-combat pilot; visual review pending; not active game art."
+    },
+    {
+      "id": "study.ranger.compact-arsenal.ember_carbine.grip.v2",
+      "version": "1.5-compact-arsenal-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-arsenal-v2/weapons/ember_carbine.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-arsenal-v2/source/ember_carbine.png",
+        "art/characters/ranger/compact-arsenal-v2/weapons/ember_carbine.aseprite"
+      ],
+      "width": 46,
+      "height": 22,
+      "pixelFormat": "RGBA",
+      "bytes": 974,
+      "sha256": "BDBED671A237492ACB347FF8B28B7384B2C5AA8AC6AE50691A882FDFFF7C3F96",
+      "generator": "Native pixel import + LibreSprite",
+      "notes": "Compact two-hand ember_carbine grip; automatic-combat pilot; visual review pending; not active game art."
+    },
+    {
+      "id": "study.ranger.compact-arsenal.coil_cannon.source.v2",
+      "version": "1.5-compact-arsenal-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-arsenal-v2/source/coil_cannon.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-motion-v1/source/sidearm-grip-drawing.png"
+      ],
+      "width": 1672,
+      "height": 941,
+      "pixelFormat": "RGBA",
+      "bytes": 617665,
+      "sha256": "B744BC362C839450EA87B58DEB8D18B651C0C2C6575C3747F53E0AB0F4C4464B",
+      "generator": "OpenAI ImageGen built-in",
+      "notes": "Compact two-hand coil_cannon source; automatic-combat pilot; visual review pending; not active game art."
+    },
+    {
+      "id": "study.ranger.compact-arsenal.coil_cannon.grip.v2",
+      "version": "1.5-compact-arsenal-study",
+      "status": "inactive",
+      "archivePath": "art/characters/ranger/compact-arsenal-v2/weapons/coil_cannon.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-arsenal-v2/source/coil_cannon.png",
+        "art/characters/ranger/compact-arsenal-v2/weapons/coil_cannon.aseprite"
+      ],
+      "width": 50,
+      "height": 28,
+      "pixelFormat": "RGBA",
+      "bytes": 1378,
+      "sha256": "3CE8382F4F48EF11505AF4AA865C81E27183791546DC918C5BB421F8151FA463",
+      "generator": "Native pixel import + LibreSprite",
+      "notes": "Compact two-hand coil_cannon grip; automatic-combat pilot; visual review pending; not active game art."
+    },
+    {
+      "id": "material.compact-modular.weapon.scrap_pistol.v1",
+      "version": "1.5-modular-grip-study",
+      "status": "inactive",
+      "archivePath": "art/weapons/compact-modular-v1/scrap_pistol/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/scrap_pistol/weapon-base.aseprite",
+        "art/characters/ranger/modular-grips-v3/source/regions.json"
+      ],
+      "width": 36,
+      "height": 20,
+      "pixelFormat": "RGBA",
+      "bytes": 586,
+      "sha256": "F1ACDEEBA0C4A94198240DB235361C119427E258F648AB903B75F2A6EB301136",
+      "generator": "Project native pixel source migration",
+      "notes": "Independent weapon.scrap_pistol material; derived from existing registered compact sprites; cached composition; original default pixels preserved; not active main-game art."
+    },
+    {
+      "id": "material.compact-modular.weapon.swarm_smg.v1",
+      "version": "1.5-modular-grip-study",
+      "status": "inactive",
+      "archivePath": "art/weapons/compact-modular-v1/swarm_smg/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/swarm_smg/weapon-base.aseprite",
+        "art/characters/ranger/modular-grips-v3/source/regions.json"
+      ],
+      "width": 40,
+      "height": 22,
+      "pixelFormat": "RGBA",
+      "bytes": 808,
+      "sha256": "E5A804C287D1A4419AAE9F00CFE8DAC75ADA3900BDF14A4DE3052EF056E7602B",
+      "generator": "Project native pixel source migration",
+      "notes": "Independent weapon.swarm_smg material; derived from existing registered compact sprites; cached composition; original default pixels preserved; not active main-game art."
+    },
+    {
+      "id": "material.compact-modular.weapon.breaker_shotgun.v1",
+      "version": "1.5-modular-grip-study",
+      "status": "inactive",
+      "archivePath": "art/weapons/compact-modular-v1/breaker_shotgun/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/breaker_shotgun/weapon-base.aseprite",
+        "art/characters/ranger/modular-grips-v3/source/regions.json"
+      ],
+      "width": 48,
+      "height": 22,
+      "pixelFormat": "RGBA",
+      "bytes": 858,
+      "sha256": "2907E8D2E5D2FA80D738681C5434D8B28D515617FE48435D7B98B602938A95FA",
+      "generator": "Project native pixel source migration",
+      "notes": "Independent weapon.breaker_shotgun material; derived from existing registered compact sprites; cached composition; original default pixels preserved; not active main-game art."
+    },
+    {
+      "id": "material.compact-modular.weapon.needle_rifle.v1",
+      "version": "1.5-modular-grip-study",
+      "status": "inactive",
+      "archivePath": "art/weapons/compact-modular-v1/needle_rifle/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/needle_rifle/weapon-base.aseprite",
+        "art/characters/ranger/modular-grips-v3/source/regions.json"
+      ],
+      "width": 52,
+      "height": 22,
+      "pixelFormat": "RGBA",
+      "bytes": 721,
+      "sha256": "7E91A8C85AFF2EE08FFA835A8C8CDDFA00E2BD45B1BFB79164D5A8D3E8FCC4FF",
+      "generator": "Project native pixel source migration",
+      "notes": "Independent weapon.needle_rifle material; derived from existing registered compact sprites; cached composition; original default pixels preserved; not active main-game art."
+    },
+    {
+      "id": "material.compact-modular.weapon.rust_revolver.v1",
+      "version": "1.5-modular-grip-study",
+      "status": "inactive",
+      "archivePath": "art/weapons/compact-modular-v1/rust_revolver/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/rust_revolver/weapon-base.aseprite",
+        "art/characters/ranger/modular-grips-v3/source/regions.json"
+      ],
+      "width": 38,
+      "height": 22,
+      "pixelFormat": "RGBA",
+      "bytes": 922,
+      "sha256": "15A2144B16950FC1409C3CA67508D60D386E95BD296D06A9B77CA4853AEF93A1",
+      "generator": "Project native pixel source migration",
+      "notes": "Independent weapon.rust_revolver material; derived from existing registered compact sprites; cached composition; original default pixels preserved; not active main-game art."
+    },
+    {
+      "id": "material.compact-modular.weapon.ember_carbine.v1",
+      "version": "1.5-modular-grip-study",
+      "status": "inactive",
+      "archivePath": "art/weapons/compact-modular-v1/ember_carbine/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/ember_carbine/weapon-base.aseprite",
+        "art/characters/ranger/modular-grips-v3/source/regions.json"
+      ],
+      "width": 46,
+      "height": 22,
+      "pixelFormat": "RGBA",
+      "bytes": 902,
+      "sha256": "65184878F0DDBDCD73219A86AF861501BE5954E3903749FFF220803035016CE6",
+      "generator": "Project native pixel source migration",
+      "notes": "Independent weapon.ember_carbine material; derived from existing registered compact sprites; cached composition; original default pixels preserved; not active main-game art."
+    },
+    {
+      "id": "material.compact-modular.weapon.coil_cannon.v1",
+      "version": "1.5-modular-grip-study",
+      "status": "inactive",
+      "archivePath": "art/weapons/compact-modular-v1/coil_cannon/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/coil_cannon/weapon-base.aseprite",
+        "art/characters/ranger/modular-grips-v3/source/regions.json"
+      ],
+      "width": 50,
+      "height": 28,
+      "pixelFormat": "RGBA",
+      "bytes": 1291,
+      "sha256": "621CA9206C28761C39C27E3E492C1DAF81285BAF7D64C04D85FC2A3B2C93C618",
+      "generator": "Project native pixel source migration",
+      "notes": "Independent weapon.coil_cannon material; derived from existing registered compact sprites; cached composition; original default pixels preserved; not active main-game art."
+    },
+    {
+      "id": "material.compact-modular.hands.ranger-cloth.v1",
+      "version": "1.5-modular-grip-study",
+      "status": "inactive",
+      "archivePath": "art/characters/hand-sets/compact-v1/ranger-cloth/poses.png",
+      "sourcePaths": [
+        "art/characters/hand-sets/compact-v1/ranger-cloth/poses.aseprite",
+        "art/characters/ranger/modular-grips-v3/source/regions.json"
+      ],
+      "width": 109,
+      "height": 9,
+      "pixelFormat": "RGBA",
+      "bytes": 1199,
+      "sha256": "59E48D44C40BBEAA9A18B25456A214326F616E0D147FFC77BBCC62F1119F7B6D",
+      "generator": "Project native pixel source migration",
+      "notes": "Independent hands.ranger-cloth material; derived from existing registered compact sprites; cached composition; original default pixels preserved; not active main-game art."
+    },
+    {
+      "id": "material.compact-modular.cuffs.ranger-coat.v1",
+      "version": "1.5-modular-grip-study",
+      "status": "inactive",
+      "archivePath": "art/characters/cuff-sets/compact-v1/ranger-coat/poses.png",
+      "sourcePaths": [
+        "art/characters/cuff-sets/compact-v1/ranger-coat/poses.aseprite",
+        "art/characters/ranger/modular-grips-v3/source/regions.json"
+      ],
+      "width": 57,
+      "height": 10,
+      "pixelFormat": "RGBA",
+      "bytes": 580,
+      "sha256": "183AC05DB3789F40CDE1EC0471C7E74B26BD1C19B9116D841DA02A9B67B99F55",
+      "generator": "Project native pixel source migration",
+      "notes": "Independent cuffs.ranger-coat material; derived from existing registered compact sprites; cached composition; original default pixels preserved; not active main-game art."
+    },
+    {
+      "id": "material.compact-modular.hands.plated-test.v1",
+      "version": "1.5-modular-grip-study",
+      "status": "inactive",
+      "archivePath": "art/characters/hand-sets/compact-v1/plated-test/poses.png",
+      "sourcePaths": [
+        "art/characters/hand-sets/compact-v1/plated-test/poses.aseprite",
+        "art/characters/ranger/modular-grips-v3/source/regions.json"
+      ],
+      "width": 128,
+      "height": 10,
+      "pixelFormat": "RGBA",
+      "bytes": 557,
+      "sha256": "B007C7D89E9D23A1DEDB87A5F2F091E1564073EF74038704EF8FEB1369F92B56",
+      "generator": "Project native pixel source migration",
+      "notes": "Independent hands.plated-test material; derived from existing registered compact sprites; cached composition; original default pixels preserved; not active main-game art."
+    },
+    {
+      "id": "material.compact-modular.cuffs.steel-test.v1",
+      "version": "1.5-modular-grip-study",
+      "status": "inactive",
+      "archivePath": "art/characters/cuff-sets/compact-v1/steel-test/poses.png",
+      "sourcePaths": [
+        "art/characters/cuff-sets/compact-v1/steel-test/poses.aseprite",
+        "art/characters/ranger/modular-grips-v3/source/regions.json"
+      ],
+      "width": 57,
+      "height": 10,
+      "pixelFormat": "RGBA",
+      "bytes": 566,
+      "sha256": "C32B23F061D0D172975811552F840D22D36FDC51FBFED0DD742271B11DD3AC2B",
+      "generator": "Project native pixel source migration",
+      "notes": "Independent cuffs.steel-test material; derived from existing registered compact sprites; cached composition; original default pixels preserved; not active main-game art."
+    },
+    {
+      "id": "actor.compact.ranger.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/ranger-body.webp",
+      "archivePath": "art/characters/ranger/compact-motion-v1/body-atlas.png",
+      "sourcePaths": [
+        "art/characters/ranger/compact-motion-v1/body-frames.aseprite"
+      ],
+      "width": 576,
+      "height": 64,
+      "bytes": 1806,
+      "sha256": "AF5FEC108E71611FE01EAC9F935A960E6854B2DAF56CF09D9D7D47FD1D0FA8F8",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "compact.part.cuffs.ranger-coat.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/cuffs-ranger-coat.webp",
+      "archivePath": "art/characters/cuff-sets/compact-v1/ranger-coat/poses.png",
+      "sourcePaths": [
+        "art/characters/cuff-sets/compact-v1/ranger-coat/poses.aseprite"
+      ],
+      "width": 57,
+      "height": 10,
+      "bytes": 248,
+      "sha256": "F1ABEAA5586CA86694D92366F0DF5D65C2C37ADFDDB029C8FBE6029E025C6C14",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "compact.part.hands.ranger-cloth.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/hands-ranger-cloth.webp",
+      "archivePath": "art/characters/hand-sets/compact-v1/ranger-cloth/poses.png",
+      "sourcePaths": [
+        "art/characters/hand-sets/compact-v1/ranger-cloth/poses.aseprite"
+      ],
+      "width": 109,
+      "height": 9,
+      "bytes": 380,
+      "sha256": "8C289F4ED8A4D1AE0DA787A3F5EC47DCFD38F03366D791E890C6C0E4BCCD6735",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "compact.part.weapon.breaker_shotgun.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/weapon-breaker-shotgun.webp",
+      "archivePath": "art/weapons/compact-modular-v1/breaker_shotgun/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/breaker_shotgun/weapon-base.aseprite"
+      ],
+      "width": 48,
+      "height": 22,
+      "bytes": 306,
+      "sha256": "BE3B9949529995D5C478F9B729D206AD9E2BC877DFF8461FB907CB3581F6FBAB",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "compact.part.weapon.coil_cannon.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/weapon-coil-cannon.webp",
+      "archivePath": "art/weapons/compact-modular-v1/coil_cannon/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/coil_cannon/weapon-base.aseprite"
+      ],
+      "width": 50,
+      "height": 28,
+      "bytes": 436,
+      "sha256": "26B99CD7EE8E96FA12070C006372428B975CB2D7B22BA1F389EE395F1E0DE970",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "compact.part.weapon.ember_carbine.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/weapon-ember-carbine.webp",
+      "archivePath": "art/weapons/compact-modular-v1/ember_carbine/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/ember_carbine/weapon-base.aseprite"
+      ],
+      "width": 46,
+      "height": 22,
+      "bytes": 312,
+      "sha256": "62344F015B355D45D15746BA8553804834F01FE474EAC552AE3E2C36CFFD82FE",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "compact.part.weapon.needle_rifle.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/weapon-needle-rifle.webp",
+      "archivePath": "art/weapons/compact-modular-v1/needle_rifle/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/needle_rifle/weapon-base.aseprite"
+      ],
+      "width": 52,
+      "height": 22,
+      "bytes": 278,
+      "sha256": "1BE14572BE1F059EC922DDC6539242A465C0E9CF183F2754F4B0324392F803F2",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "compact.part.weapon.rust_revolver.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/weapon-rust-revolver.webp",
+      "archivePath": "art/weapons/compact-modular-v1/rust_revolver/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/rust_revolver/weapon-base.aseprite"
+      ],
+      "width": 38,
+      "height": 22,
+      "bytes": 332,
+      "sha256": "C660079EE1B4EEEF43A17B32E60AC65CEA3610F969BD7A778DBA553841EE2732",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "compact.part.weapon.scrap_pistol.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/weapon-scrap-pistol.webp",
+      "archivePath": "art/weapons/compact-modular-v1/scrap_pistol/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/scrap_pistol/weapon-base.aseprite"
+      ],
+      "width": 36,
+      "height": 20,
+      "bytes": 248,
+      "sha256": "BAB0E0706A27BC86D254F408DB25C855127F2C384D7217237B444111FE9B96A4",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "compact.part.weapon.swarm_smg.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/weapon-swarm-smg.webp",
+      "archivePath": "art/weapons/compact-modular-v1/swarm_smg/weapon-base.png",
+      "sourcePaths": [
+        "art/weapons/compact-modular-v1/swarm_smg/weapon-base.aseprite"
+      ],
+      "width": 40,
+      "height": 22,
+      "bytes": 280,
+      "sha256": "17DA58DE487F3D3EE6EDF459659452938300605EE501D6F908F903A695ACA272",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "actor.compact.drifter.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/drifter-atlas.webp",
+      "archivePath": "art/enemies/compact-v1/drifter-atlas.png",
+      "sourcePaths": [
+        "art/enemies/compact-v1/drifter.aseprite",
+        "art/enemies/compact-v1/source/drifter-walk.png",
+        "art/enemies/compact-v1/source/generation-record.json"
+      ],
+      "width": 512,
+      "height": 64,
+      "bytes": 2908,
+      "sha256": "B81681CF22BB8FE712792ACD8BA2F080A5A7361CA3998ABDCD8C2078558E962A",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "actor.compact.runner.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/runner-atlas.webp",
+      "archivePath": "art/enemies/compact-v1/runner-atlas.png",
+      "sourcePaths": [
+        "art/enemies/compact-v1/runner.aseprite",
+        "art/enemies/compact-v1/source/runner-walk.png",
+        "art/enemies/compact-v1/source/generation-record.json"
+      ],
+      "width": 512,
+      "height": 64,
+      "bytes": 2712,
+      "sha256": "6A5002F1EF2412866A385ABC88985BD72102B2D331034CB2221B0608BF4EE6B6",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "actor.compact.spitter.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/spitter-atlas.webp",
+      "archivePath": "art/enemies/compact-v1/spitter-atlas.png",
+      "sourcePaths": [
+        "art/enemies/compact-v1/spitter.aseprite",
+        "art/enemies/compact-v1/source/spitter-walk.png",
+        "art/enemies/compact-v1/source/generation-record.json"
+      ],
+      "width": 512,
+      "height": 64,
+      "bytes": 3866,
+      "sha256": "62632393F47806A26392E4AB15FAF883C8F3650B11DCF144B5786F7DBCCF71DC",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "actor.compact.brute.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/brute-atlas.webp",
+      "archivePath": "art/enemies/compact-v1/brute-atlas.png",
+      "sourcePaths": [
+        "art/enemies/compact-v1/brute.aseprite",
+        "art/enemies/compact-v1/source/brute-walk.png",
+        "art/enemies/compact-v1/source/generation-record.json"
+      ],
+      "width": 640,
+      "height": 80,
+      "bytes": 6068,
+      "sha256": "B2A9A66134B29C802CA487DFBF061C60DE3AADD67548D046696068C94EF04229",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "actor.compact.screecher.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/screecher-atlas.webp",
+      "archivePath": "art/enemies/compact-v1/screecher-atlas.png",
+      "sourcePaths": [
+        "art/enemies/compact-v1/screecher.aseprite",
+        "art/enemies/compact-v1/source/screecher-walk.png",
+        "art/enemies/compact-v1/source/generation-record.json"
+      ],
+      "width": 512,
+      "height": 64,
+      "bytes": 3678,
+      "sha256": "9C70391684B1C5ED236D2B98F4B9D9B039D22EEC854E6CC20DD6DD132CF839BA",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "actor.compact.crawler.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/crawler-atlas.webp",
+      "archivePath": "art/enemies/compact-v1/crawler-atlas.png",
+      "sourcePaths": [
+        "art/enemies/compact-v1/crawler.aseprite",
+        "art/enemies/compact-v1/source/crawler-walk.png",
+        "art/enemies/compact-v1/source/generation-record.json"
+      ],
+      "width": 512,
+      "height": 64,
+      "bytes": 2364,
+      "sha256": "4E185C8DB2BA808F604AC4AC5892454C0A77C1004A180ED1DDB2167A98334C2F",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "actor.compact.warden.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/warden-atlas.webp",
+      "archivePath": "art/enemies/compact-v1/warden-atlas.png",
+      "sourcePaths": [
+        "art/enemies/compact-v1/warden.aseprite",
+        "art/enemies/compact-v1/source/warden-walk.png",
+        "art/enemies/compact-v1/source/generation-record.json"
+      ],
+      "width": 640,
+      "height": 80,
+      "bytes": 6438,
+      "sha256": "ACB6422F79C756CEE85DD07BCDF56EFCEAA110B762F22418C72746022C718793",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "actor.compact.iron_colossus.v1",
+      "version": "compact-v1",
+      "status": "active",
+      "runtimePath": "web/assets/actors/compact-v1/iron_colossus-atlas.webp",
+      "archivePath": "art/enemies/compact-v1/iron_colossus-atlas.png",
+      "sourcePaths": [
+        "art/enemies/compact-v1/iron_colossus.aseprite",
+        "art/enemies/compact-v1/source/iron_colossus-walk.png",
+        "art/enemies/compact-v1/source/generation-record.json"
+      ],
+      "width": 768,
+      "height": 96,
+      "bytes": 12854,
+      "sha256": "4268795312BBB0525BD4403FEEC4BEB70DF2914585D9E830152FFD2CB99FE647",
+      "generator": "OpenAI ImageGen + project native pixel import",
+      "notes": "Source ownership, editable native file and runtime texture kept separately."
+    },
+    {
+      "id": "menu.radio.camp.v1",
+      "version": "radio-v1",
+      "status": "active",
+      "runtimePath": "web/assets/ui/radio-v1/camp.webp",
+      "archivePath": "art/ui/radio-v1/source/camp.png",
+      "sourcePaths": [
+        "art/ui/radio-v1/source/generation-record.json"
+      ],
+      "width": 1536,
+      "height": 1024,
+      "bytes": 224856,
+      "sha256": "0144B3C1551031AF32AF60798D4B4A198AC0B2160FCE7C207AB0592EE9B81F5D",
+      "generator": "OpenAI built-in ImageGen",
+      "normalizedRms": 0.015286600805746304,
+      "notes": "Reusable crop-safe pixel environment; all text, buttons and animation remain code-drawn."
+    },
+    {
+      "id": "menu.radio.desk.v1",
+      "version": "radio-v1",
+      "status": "active",
+      "runtimePath": "web/assets/ui/radio-v1/desk.webp",
+      "archivePath": "art/ui/radio-v1/source/desk.png",
+      "sourcePaths": [
+        "art/ui/radio-v1/source/generation-record.json"
+      ],
+      "width": 1536,
+      "height": 1024,
+      "bytes": 267702,
+      "sha256": "9CC9FC4E5AD1E0A0BB11F1C626D4EE09C5EAFD35A6006DA5DAC7FB78F0331C21",
+      "generator": "OpenAI built-in ImageGen",
+      "normalizedRms": 0.013549004493229317,
+      "notes": "Reusable crop-safe pixel environment; all text, buttons and animation remain code-drawn."
+    },
+    {
+      "id": "world.prop.echo.market.v1",
+      "version": "echo-market-v1",
+      "status": "active",
+      "runtimePath": "web/assets/world/echo-market-v1/trade-post.webp",
+      "archivePath": "art/world/echo-market-v1/source/trade-post.png",
+      "sourcePaths": [
+        "art/world/echo-market-v1/source/generation-record.json",
+        "art/world/echo-market-v1/README.md"
+      ],
+      "width": 380,
+      "height": 272,
+      "bytes": 160304,
+      "sha256": "2E37223BA934525EB55DB29168ED53EAE185AB8318E3ECA97CFA77DE7583ED37",
+      "generator": "OpenAI built-in ImageGen",
+      "sourceAlphaBounds": [
+        114,
+        103,
+        1345,
+        985
+      ],
+      "notes": "Transparent source trimmed to alpha bounds and nearest-neighbor exported. Solid footprint and counter interaction remain world data; text and icons are code-drawn."
+    },
+    {
+      "id": "world.prop.echo.salvage-kit.v1",
+      "version": "echo-market-v1",
+      "status": "active",
+      "runtimePath": "web/assets/world/echo-market-v1/salvage-kit.webp",
+      "archivePath": "art/world/echo-market-v1/source/salvage-kit.png",
+      "sourcePaths": [
+        "art/world/echo-market-v1/source/salvage-kit-generation.json",
+        "art/world/echo-market-v1/README.md",
+        "src/content/echo-props.js"
+      ],
+      "width": 512,
+      "height": 384,
+      "bytes": 202026,
+      "sha256": "81546139F5BB5FB28D9515471236F4CAC9E7533F568C08F730E5B5783A7FAF87",
+      "generator": "OpenAI built-in ImageGen",
+      "spriteRects": {
+        "bus": [
+          8,
+          53,
+          240,
+          85
+        ],
+        "car": [
+          264,
+          36,
+          240,
+          120
+        ],
+        "wreck": [
+          8,
+          243,
+          240,
+          89
+        ],
+        "scrap": [
+          264,
+          213,
+          240,
+          149
+        ]
+      },
+      "notes": "Four alpha-cropped prop sprites packed with gutters; lossless nearest-neighbor export. No collision embedded in the image."
+    }
+  ],
+  "archivedAssets": [
+    {
+      "id": "study.ranger.sidearm-quality-target.v1",
+      "version": "1.5-lookdev",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/lookdev/ranger-sidearm-quality-target-v1.png",
+      "sourcePaths": [
+        "art/generated/v1.5/source/ranger-base-v1-source.png",
+        "art/animation/ranger/ranger-directional-sidearm-v2.blend"
+      ],
+      "width": 1024,
+      "height": 1536,
+      "pixelFormat": "RGBA",
+      "bytes": 1984101,
+      "sha256": "BD4C487CEB9AB9B3124DA3F5AFACE791EBD059EE56C519F94ECA11F0230DDC28",
+      "generator": "OpenAI ImageGen",
+      "notes": "Single-frame art quality target only; includes a painted pistol. Not runtime body art or a finished animation. Prompt and references in art/animation/ranger/lookdev/. Commercial terms review pending.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/lookdev/ranger-sidearm-quality-target-v1.png",
+            "sha256": "bd4c487ceb9ab9b3124da3f5aface791ebd059ee56c519f94eca11f0230ddc28",
+            "gitBlob": "4b4a1e3a0593876369345632eb49bcc2ec219f36"
+          },
+          {
+            "path": "art/animation/ranger/ranger-directional-sidearm-v2.blend",
+            "sha256": "8d8ea641414fa6066c6b2d901befc67e28131cf5759fe28e2a4d7935f44b04d7",
+            "gitBlob": "919752d017a8bc9b3e65516d29a8b7db0ffd0f77"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.pixel-sidearm.v1",
+      "version": "1.5-pixel-lookdev",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
+      "sourcePaths": [
+        "art/generated/v1.5/source/ranger-base-v1-source.png",
+        "art/animation/ranger/lookdev/ranger-sidearm-quality-target-v1.png"
+      ],
+      "width": 1254,
+      "height": 1254,
+      "pixelFormat": "RGBA",
+      "bytes": 864484,
+      "sha256": "37B53BBEA947258D8388CE5EAA70A0A196DB8B636FD08A4CF2550BFA77ECBF18",
+      "generator": "OpenAI ImageGen",
+      "notes": "Static detailed pixel-style study with baked pistol, not a native low-resolution pixel master or finished action atlas. Prompt, transparent bounds and review status recorded in art/animation/ranger/pixel-lookdev/. Commercial terms review pending.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
+            "sha256": "37b53bbea947258d8388ce5eaa70a0a196db8b636fd08a4cf2550bfa77ecbf18",
+            "gitBlob": "1a0db24925baf236679b1341013a559b4330a0e3"
+          },
+          {
+            "path": "art/animation/ranger/lookdev/ranger-sidearm-quality-target-v1.png",
+            "sha256": "bd4c487ceb9ab9b3124da3f5aface791ebd059ee56c519f94eca11f0230ddc28",
+            "gitBlob": "4b4a1e3a0593876369345632eb49bcc2ec219f36"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.pixel-density-38.v1",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/ranger-density-38-v1.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
+        "art/animation/ranger/pixel-source/ranger-density-38-v1.aseprite"
+      ],
+      "width": 64,
+      "height": 96,
+      "pixelFormat": "RGBA",
+      "bytes": 1701,
+      "sha256": "E6FAFA4072B3BA08B248CCE4F1ABCE34D919ECC7AE00EE59DF8421EC0FBA5282",
+      "generator": "LibreSprite + native pixel workflow",
+      "notes": "Density/palette draft only; one combined layer with baked pistol. Native source and exact editor export recorded; not finished actor art.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-density-38-v1.png",
+            "sha256": "e6fafa4072b3ba08b248cce4f1abce34d919ecc7ae00ee59df8421ec0fba5282",
+            "gitBlob": "189894c3a04a8bb15d785f2158d1eab51e83f1a3"
+          },
+          {
+            "path": "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
+            "sha256": "37b53bbea947258d8388ce5eaa70a0a196db8b636fd08a4cf2550bfa77ecbf18",
+            "gitBlob": "1a0db24925baf236679b1341013a559b4330a0e3"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-density-38-v1.aseprite",
+            "sha256": "2186ffd7cbcb83c378772ba03bbbd4637a74e3943e4bbd24ca2272d7a7c3625e",
+            "gitBlob": "35595ef6d5bd3de7c0be0e9ba1b4c978dd525a94"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.pixel-density-76.v1",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/ranger-density-76-v1.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
+        "art/animation/ranger/pixel-source/ranger-density-76-v1.aseprite"
+      ],
+      "width": 128,
+      "height": 128,
+      "pixelFormat": "RGBA",
+      "bytes": 5162,
+      "sha256": "01C8DECBDDE80ACE56F998D55CF7EAA3BA62D6CDD2A60E7E30714F6803499D8F",
+      "generator": "LibreSprite + native pixel workflow",
+      "notes": "Density/palette draft only; one combined layer with baked pistol. Native source and exact editor export recorded; not finished actor art.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-density-76-v1.png",
+            "sha256": "01c8decbdde80ace56f998d55cf7eaa3ba62d6cdd2a60e7e30714f6803499d8f",
+            "gitBlob": "6afb0b7596d17a1df5c855227744f99c4b2bf461"
+          },
+          {
+            "path": "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
+            "sha256": "37b53bbea947258d8388ce5eaa70a0a196db8b636fd08a4cf2550bfa77ecbf18",
+            "gitBlob": "1a0db24925baf236679b1341013a559b4330a0e3"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-density-76-v1.aseprite",
+            "sha256": "8b8c4cf9ac4b04556d6af8704b98add50964e6e1e56a8e5ab0804244e7fe3d36",
+            "gitBlob": "a1f4d83038fb1eb3710709ad83beecaaf88bccf6"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.run-keyposes.v1",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v1.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
+        "art/animation/ranger/pixel-source/ranger-density-76-v1.png"
+      ],
+      "width": 1536,
+      "height": 1024,
+      "pixelFormat": "RGBA",
+      "bytes": 2360940,
+      "sha256": "EBCBF4BB036ADC153124761B2A6F3999A9581549416952C11B1D6176D0156B1C",
+      "generator": "OpenAI ImageGen",
+      "notes": "Eight generated key-pose studies; half-transparent warm edges; human gait and identity review pending. Prompt saved beside source.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v1.png",
+            "sha256": "ebcbf4bb036adc153124761b2a6f3999a9581549416952c11b1d6176d0156b1c",
+            "gitBlob": "65faaf63e50452a3156cc7327360d96e8ae82e32"
+          },
+          {
+            "path": "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
+            "sha256": "37b53bbea947258d8388ce5eaa70a0a196db8b636fd08a4cf2550bfa77ecbf18",
+            "gitBlob": "1a0db24925baf236679b1341013a559b4330a0e3"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-density-76-v1.png",
+            "sha256": "01c8decbdde80ace56f998d55cf7eaa3ba62d6cdd2a60e7e30714f6803499d8f",
+            "gitBlob": "6afb0b7596d17a1df5c855227744f99c4b2bf461"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.native-run-candidate.v1",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v1/ranger-run-candidate-v1.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v1.png",
+        "art/animation/ranger/pixel-source/run-candidate-v1/ranger-run-candidate-v1.aseprite"
+      ],
+      "width": 1024,
+      "height": 128,
+      "pixelFormat": "RGBA",
+      "bytes": 36967,
+      "sha256": "D994CBA4B603E122066C0E7C5394DB5548A7DCE08505149267B12C2BA60CE9E2",
+      "generator": "LibreSprite + native pixel workflow",
+      "notes": "Eight native review frames, shared scale and declared alignment; baked pistol, foot/stride and loop review pending. Not runtime-integrated or visually approved.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v1/ranger-run-candidate-v1.png",
+            "sha256": "d994cba4b603e122066c0e7c5394db5548a7dce08505149267b12c2ba60ce9e2",
+            "gitBlob": "5019f3e9aeee2f0ecb2624ed1d493d6807a383d9"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v1.png",
+            "sha256": "ebcbf4bb036adc153124761b2a6f3999a9581549416952c11b1d6176d0156b1c",
+            "gitBlob": "65faaf63e50452a3156cc7327360d96e8ae82e32"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v1/ranger-run-candidate-v1.aseprite",
+            "sha256": "57aaa5a32fe3168c86d23b67ffc889795d4a27ceb32a94914f5933980938ba8c",
+            "gitBlob": "b7391fea24d3257fb2df82ed7992b0283f29fc3e"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.run-keyposes.v2",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v1.png"
+      ],
+      "width": 1536,
+      "height": 1024,
+      "pixelFormat": "RGBA",
+      "bytes": 2394288,
+      "sha256": "793F5E0DF46C632460AABB4B6AC266020E78985C8E543331E40FC2C08C08EF2E",
+      "generator": "OpenAI ImageGen",
+      "notes": "Targeted leg-phase study revision; upper-body reference retained, contact and loop review still pending.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+            "sha256": "793f5e0df46c632460aabb4b6ac266020e78985c8e543331e40fc2c08c08ef2e",
+            "gitBlob": "8b7472fea0c8d8e0b0d252b433633da8c767e51a"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v1.png",
+            "sha256": "ebcbf4bb036adc153124761b2a6f3999a9581549416952c11b1d6176d0156b1c",
+            "gitBlob": "65faaf63e50452a3156cc7327360d96e8ae82e32"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.native-run-candidate.v2",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v2/ranger-run-candidate-v2.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+        "art/animation/ranger/pixel-source/run-candidate-v2/ranger-run-candidate-v2.aseprite"
+      ],
+      "width": 1024,
+      "height": 128,
+      "pixelFormat": "RGBA",
+      "bytes": 37209,
+      "sha256": "D40AA1D61F85A4F18D7D9AE6D6AF1CA0A27301D3A69E4483649D8C1C320FE4A0",
+      "generator": "LibreSprite + native pixel workflow",
+      "notes": "Current native eight-pose review candidate. Partial phase correction only; gait, loop, layers and runtime integration remain pending.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v2/ranger-run-candidate-v2.png",
+            "sha256": "d40aa1d61f85a4f18d7d9ae6d6af1ca0a27301d3a69e4483649d8c1c320fe4a0",
+            "gitBlob": "86ced98d4565d33166c44b2ac6a25d900128a02a"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+            "sha256": "793f5e0df46c632460aabb4b6ac266020e78985c8e543331e40fc2c08c08ef2e",
+            "gitBlob": "8b7472fea0c8d8e0b0d252b433633da8c767e51a"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v2/ranger-run-candidate-v2.aseprite",
+            "sha256": "92c1ca22383a51d3734b3980158f2fd2abae4d77adf92a5f56e35e3a6c6ad122",
+            "gitBlob": "65f96ec281298f70e315581a2bab19673d721c5f"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.native-run-continuous.v3",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v3/ranger-run-candidate-v3.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-density-76-v1.png",
+        "art/animation/ranger/pixel-source/run-candidate-v3/ranger-run-candidate-v3.aseprite",
+        "art/animation/ranger/pixel-source/run-candidate-v3/rig-source.json"
+      ],
+      "width": 2560,
+      "height": 128,
+      "pixelFormat": "RGBA",
+      "bytes": 24059,
+      "sha256": "157F3965B84C399B027BEA9D8B302AA5FE200B8720A4F884E3E52B9FE2E8966E",
+      "generator": "Native pixel source + authored periodic joint motion",
+      "notes": "20-frame closed-cycle native review candidate; six editable layers, fixed leg identity and bones. Loop endpoints and stance verified, visual polish and runtime integration pending.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v3/ranger-run-candidate-v3.png",
+            "sha256": "157f3965b84c399b027bea9d8b302aa5fe200b8720a4f884e3e52b9fe2e8966e",
+            "gitBlob": "ba4d8c2b03a8f3f2c02539dfb0520a0edd8518f6"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-density-76-v1.png",
+            "sha256": "01c8decbdde80ace56f998d55cf7eaa3ba62d6cdd2a60e7e30714f6803499d8f",
+            "gitBlob": "6afb0b7596d17a1df5c855227744f99c4b2bf461"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v3/ranger-run-candidate-v3.aseprite",
+            "sha256": "dbc53ae71c6e9272249e42cdb447fe7d2e18f6344964fdf50ade7be96cd1b221",
+            "gitBlob": "1932a03f1c77664dc0dbfb8c8d9fe2a83f51f064"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v3/rig-source.json",
+            "sha256": "e1fc5fe48794ff5872d0f81342eeb8c5a462f04dc84a7b82076ea97930df22eb",
+            "gitBlob": "8289a118105b29e7ed3fee2797f6a9f31c51f1e3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.drawn-inbetweens.v4.part1",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-1-to-4.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png"
+      ],
+      "width": 768,
+      "height": 2048,
+      "pixelFormat": "RGBA",
+      "bytes": 2432870,
+      "sha256": "4B644D6BAE1E3F10276ED8B51D4755C4DB965F0BBE03DF5A7EBA6EA691E33CCD",
+      "generator": "OpenAI ImageGen",
+      "notes": "Eight complete-character inbetween drawings for key pairs 1 to 4; three-pose revision overrides declared in metadata.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-1-to-4.png",
+            "sha256": "4b644d6bae1e3f10276ed8b51d4755c4db965f0bbe03df5a7eba6ea691e33ccd",
+            "gitBlob": "6b55665547a308a19f37325eed2e01ed07e693ee"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+            "sha256": "793f5e0df46c632460aabb4b6ac266020e78985c8e543331e40fc2c08c08ef2e",
+            "gitBlob": "8b7472fea0c8d8e0b0d252b433633da8c767e51a"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.drawn-inbetweens.v4.part2",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-5-to-8.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png"
+      ],
+      "width": 768,
+      "height": 2048,
+      "pixelFormat": "RGBA",
+      "bytes": 2423263,
+      "sha256": "FA348A78AA373C2F6AD884D1AC8CDB3C8B1FD1FFF9ED4A3173DFED120809321A",
+      "generator": "OpenAI ImageGen",
+      "notes": "Eight complete-character inbetween drawings including the 8 to 1 loop seam; one pose overridden by revision.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-5-to-8.png",
+            "sha256": "fa348a78aa373c2f6ad884d1ac8cdb3c8b1fd1fff9ed4a3173dfed120809321a",
+            "gitBlob": "595533208bfb3719a18099320a35d1481dc251d9"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+            "sha256": "793f5e0df46c632460aabb4b6ac266020e78985c8e543331e40fc2c08c08ef2e",
+            "gitBlob": "8b7472fea0c8d8e0b0d252b433633da8c767e51a"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.drawn-inbetweens.v4.revision",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/three-pose-revision.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png"
+      ],
+      "width": 1881,
+      "height": 836,
+      "pixelFormat": "RGBA",
+      "bytes": 1505386,
+      "sha256": "71679DDB5329537BB1E9A26465391FD2407B16404D57BEB96DCFCDB0C237F12D",
+      "generator": "OpenAI ImageGen",
+      "notes": "Three targeted full-character drawing revisions; source assignment and registration saved.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v4/source/three-pose-revision.png",
+            "sha256": "71679ddb5329537bb1e9a26465391fd2407b16404d57beb96dcfcdb0c237f12d",
+            "gitBlob": "a54b6a30fabbd98d44dbb57763932e2135a8878d"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+            "sha256": "793f5e0df46c632460aabb4b6ac266020e78985c8e543331e40fc2c08c08ef2e",
+            "gitBlob": "8b7472fea0c8d8e0b0d252b433633da8c767e51a"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.native-drawn-run.v4",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v4/ranger-run-candidate-v4.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+        "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-1-to-4.png",
+        "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-5-to-8.png",
+        "art/animation/ranger/pixel-source/run-candidate-v4/source/three-pose-revision.png"
+      ],
+      "width": 3072,
+      "height": 128,
+      "pixelFormat": "RGBA",
+      "bytes": 107449,
+      "sha256": "0446CC9E43C18614230DFD2DF54FFCC3A0EAE1189507A44F603CC54401CE571B",
+      "generator": "ImageGen drawings + LibreSprite import",
+      "notes": "24 illustrated frames: original eight keys byte-identical plus 16 inbetweens; 400ms; inactive review only.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v4/ranger-run-candidate-v4.png",
+            "sha256": "0446cc9e43c18614230dfd2df54ffcc3a0eae1189507a44f603cc54401ce571b",
+            "gitBlob": "99539300df390059bc79c0d8f86ff80cff2cdcd1"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+            "sha256": "793f5e0df46c632460aabb4b6ac266020e78985c8e543331e40fc2c08c08ef2e",
+            "gitBlob": "8b7472fea0c8d8e0b0d252b433633da8c767e51a"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-1-to-4.png",
+            "sha256": "4b644d6bae1e3f10276ed8b51d4755c4db965f0bbe03df5a7eba6ea691e33ccd",
+            "gitBlob": "6b55665547a308a19f37325eed2e01ed07e693ee"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-5-to-8.png",
+            "sha256": "fa348a78aa373c2f6ad884d1ac8cdb3c8b1fd1fff9ed4a3173dfed120809321a",
+            "gitBlob": "595533208bfb3719a18099320a35d1481dc251d9"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v4/source/three-pose-revision.png",
+            "sha256": "71679ddb5329537bb1e9a26465391fd2407b16404d57beb96dcfcdb0c237f12d",
+            "gitBlob": "a54b6a30fabbd98d44dbb57763932e2135a8878d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.drawn-art-atlas.v4",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v4/ranger-run-drawn-art-v4.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png"
+      ],
+      "width": 12288,
+      "height": 512,
+      "pixelFormat": "RGBA",
+      "bytes": 4269502,
+      "sha256": "D8B67A499A1C2D37F1BA1067F3D52C5AD2294F1147F69729A47171BD9C8E521D",
+      "generator": "ImageGen drawings + whole-image registration",
+      "notes": "Offline high-resolution review atlas; not a runtime texture; visual consistency still pending.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v4/ranger-run-drawn-art-v4.png",
+            "sha256": "d8b67a499a1c2d37f1ba1067f3d52c5ad2294f1147f69729a47171bd9c8e521d",
+            "gitBlob": "06f4c5c652a6e10b550aa6e970eb3fa9148e0f22"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+            "sha256": "793f5e0df46c632460aabb4b6ac266020e78985c8e543331e40fc2c08c08ef2e",
+            "gitBlob": "8b7472fea0c8d8e0b0d252b433633da8c767e51a"
+          }
+        ]
+      }
     }
   ]
 }

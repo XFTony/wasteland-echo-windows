@@ -58,10 +58,11 @@ class ArtStore {
     return ids;
   }
 
-  releaseGroup(group, keepId = null) {
+  releaseGroup(group, keepIds = null) {
+    const keep = new Set(Array.isArray(keepIds) ? keepIds : keepIds ? [keepIds] : []);
     let released = 0;
     for (const definition of Object.values(this.catalog)) {
-      if (definition.group !== group || definition.id === keepId || !this.images[definition.id]) continue;
+      if (definition.group !== group || keep.has(definition.id) || !this.images[definition.id]) continue;
       delete this.images[definition.id];
       released += 1;
     }

@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-27",
+  "weapons": [
+    {
+      "id": "scrap_pistol",
+      "size": [
+        36,
+        20
+      ],
+      "bytes": 825,
+      "editorRoundtripExact": true,
+      "baseCombatValuesPreserved": true
+    },
+    {
+      "id": "swarm_smg",
+      "size": [
+        40,
+        22
+      ],
+      "bytes": 929,
+      "editorRoundtripExact": true,
+      "baseCombatValuesPreserved": true
+    },
+    {
+      "id": "breaker_shotgun",
+      "size": [
+        48,
+        22
+      ],
+      "bytes": 899,
+      "editorRoundtripExact": true,
+      "baseCombatValuesPreserved": true
+    },
+    {
+      "id": "needle_rifle",
+      "size": [
+        52,
+        22
+      ],
+      "bytes": 876,
+      "editorRoundtripExact": true,
+      "baseCombatValuesPreserved": true
+    },
+    {
+      "id": "rust_revolver",
+      "size": [
+        38,
+        22
+      ],
+      "bytes": 1061,
+      "editorRoundtripExact": true,
+      "baseCombatValuesPreserved": true
+    },
+    {
+      "id": "ember_carbine",
+      "size": [
+        46,
+        22
+      ],
+      "bytes": 974,
+      "editorRoundtripExact": true,
+      "baseCombatValuesPreserved": true
+    },
+    {
+      "id": "coil_cannon",
+      "size": [
+        50,
+        28
+      ],
+      "bytes": 1378,
+      "editorRoundtripExact": true,
+      "baseCombatValuesPreserved": true
+    }
+  ],
+  "totalWeaponBytes": 6942,
+  "decodedWeaponRGBABytes": 28192,
+  "sharedBodyReused": true,
+  "binaryAlpha": true,
+  "paletteLimit": 40,
+  "headOcclusionRows": 38,
+  "visualApproved": false,
+  "mainGameArtIntegrated": false
+}
