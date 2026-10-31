@@ -29,13 +29,28 @@ foreach ($filename in $templateHashes.Keys) {
 & $GodotPath --headless --path (Join-Path $workspaceDirectory 'godot') --log-file (Join-Path $workspaceDirectory 'output/godot-migration/version-engine.log') --script scripts/tools/check_version.gd -- $version
 if ($LASTEXITCODE -ne 0) { throw 'Native catalog version does not match package.json.' }
 $logPath = Join-Path $workspaceDirectory 'output/godot-migration/export.log'
-& $GodotPath --headless --path (Join-Path $workspaceDirectory 'godot') --log-file (Join-Path $workspaceDirectory 'output/godot-migration/export-engine.log') --export-release 'Windows Desktop' *> $logPath
+$stagingDirectory = [IO.Path]::GetFullPath((Join-Path $outputDirectory ('staging-' + [Guid]::NewGuid().ToString('N'))))
+if (-not $stagingDirectory.StartsWith($outputDirectory + [IO.Path]::DirectorySeparatorChar, [StringComparison]::OrdinalIgnoreCase)) {
+    throw 'Windows staging directory must stay inside the package directory.'
+}
+[IO.Directory]::CreateDirectory($stagingDirectory) | Out-Null
+$stagingExecutable = Join-Path $stagingDirectory 'WastelandEcho.exe'
+# Export into a fresh directory: Windows can reject the embedded-PCK rename over an existing executable.
+& $GodotPath --headless --path (Join-Path $workspaceDirectory 'godot') --log-file (Join-Path $workspaceDirectory 'output/godot-migration/export-engine.log') --export-release 'Windows Desktop' $stagingExecutable *> $logPath
 $exportExit = $LASTEXITCODE
 $log = [IO.File]::ReadAllText($logPath)
 if ($exportExit -ne 0 -or $log -match '(SCRIPT ERROR|ERROR):') { throw "Godot export failed; inspect $logPath" }
 $executable = Join-Path $outputDirectory 'WastelandEcho.exe'
+if (-not (Test-Path -LiteralPath $stagingExecutable)) { throw 'The staged Windows executable was not generated.' }
+$stagingHash = (Get-FileHash -LiteralPath $stagingExecutable -Algorithm SHA256).Hash.ToLowerInvariant()
+Copy-Item -LiteralPath $stagingExecutable -Destination $executable -Force
 if (-not (Test-Path -LiteralPath $executable)) { throw 'The Windows executable was not generated.' }
 $sha = (Get-FileHash -LiteralPath $executable -Algorithm SHA256).Hash.ToLowerInvariant()
+if ($sha -ne $stagingHash) { throw 'The final executable differs from the verified staged file.' }
+Remove-Item -LiteralPath $stagingExecutable
+if (@(Get-ChildItem -LiteralPath $stagingDirectory -Force).Count -eq 0) {
+    Remove-Item -LiteralPath $stagingDirectory
+}
 $sourceCommit = (& git -C $workspaceDirectory rev-parse HEAD).Trim()
 $manifest = [ordered]@{
     kind = 'internal-godot-preview'
