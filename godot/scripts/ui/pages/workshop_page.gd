@@ -82,10 +82,16 @@ static func run_lines(model: RunSimulation) -> Array[String]:
 		extra = "弹射 %d次 · 锁定范围 %.0f" % [int(weapon.bounces) + int(player.get("bounceBonus", 0)), WeaponRules.target_range(weapon, player)]
 	elif kind == "explosive":
 		extra = "爆炸半径 %.0f · 锁定范围 %.0f" % [float(weapon.blastRadius) * float(player.blastRadiusMultiplier), WeaponRules.target_range(weapon, player)]
+	elif kind == "beam":
+		extra = "瞬时射线 · 穿透次数 %d · 锁定范围 %.0f" % [int(weapon.pierce) + int(player.pierceBonus), WeaponRules.target_range(weapon, player)]
 	else:
 		extra = "穿透次数 %d · 锁定范围 %.0f · 弹速 %.0f" % [int(weapon.pierce) + int(player.pierceBonus), WeaponRules.target_range(weapon, player), float(weapon.projectileSpeed) * float(player.projectileSpeedMultiplier)]
 		if weapon.has("slowDuration"):
 			extra += " · 减速%.1f秒" % (float(weapon.slowDuration) + float(player.get("chillDurationBonus", 0)))
+		if weapon.has("burnDuration"):
+			extra += " · 灼烧%.1f秒（刷新）" % float(weapon.burnDuration)
+		if weapon.has("chainJumps"):
+			extra += " · 最多%d次连锁" % int(weapon.chainJumps)
 	return ["%s · 常态伤害 %.1f%s · %.2f次/秒" % [weapon.name, damage, "×%d弹" % count if count > 0 else "/次", 1 / maxf(1.0 / 60, interval)],
 		"移速 %.0f · 拾取 %.0f · 暴击 %.0f%% · 暴伤 %.2f倍" % [player.speed, player.pickupRadius, float(player.criticalChance) * 100, player.criticalMultiplier],
 		"护甲减伤 %.0f%% · 脱战回复 %.1f/秒 · 当前轮数 %d" % [float(player.armor) * 100, player.regenPerSecond, 1 + floori(float(model.run.elapsed) / 45)], extra]

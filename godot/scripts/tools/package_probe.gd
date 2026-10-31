@@ -21,6 +21,16 @@ func run(game: Node) -> void:
 	for id: String in catalog.all("weapons"):
 		if assets.weapon_texture(id) == null:
 			_failures.append("Missing packed weapon: " + id)
+	var fieldcraft_art: int = 0
+	var art: Dictionary = catalog.metadata.get("combatArt", {})
+	var fieldcraft_paths: Array = art.get("frames", []).duplicate()
+	for category: String in ["upgradeTextures", "weaponTextures", "deathTextures"]:
+		fieldcraft_paths.append_array(art.get(category, {}).values())
+	for filename: String in fieldcraft_paths:
+		if CombatArt.texture(filename) == null:
+			_failures.append("Missing packed fieldcraft bitmap: " + filename)
+		else:
+			fieldcraft_art += 1
 	var maps: int = 0
 	var art_maps: int = 0
 	var painted_maps: int = 0
@@ -63,5 +73,5 @@ func run(game: Node) -> void:
 	print("GODOT_PACKAGE_SMOKE " + JSON.stringify({"maps": maps,
 		"mapsWithArt": art_maps, "paintedMaps": painted_maps, "sharedMapAtlases": map_atlases.size(),
 		"images": catalog.metadata.assets.size(), "audio": catalog.metadata.audio.size(),
-		"weapons": catalog.all("weapons").size(), "failures": _failures}))
+		"weapons": catalog.all("weapons").size(), "fieldcraftArt": fieldcraft_art, "failures": _failures}))
 	get_tree().quit(0 if _failures.is_empty() else 1)

@@ -5,6 +5,10 @@ extends RefCounted
 
 static func paint(canvas: CanvasItem, catalog: GameCatalog, id: String,
 		center: Vector2, size: float) -> void:
+	var texture: Texture2D = CombatArt.icon(catalog, id)
+	if texture != null:
+		canvas.draw_texture_rect(texture, Rect2(center - Vector2.ONE * size / 2, Vector2.ONE * size), false)
+		return
 	var scale: float = size / 64
 	var origin: Vector2 = center - Vector2.ONE * size / 2
 	for command: Dictionary in catalog.metadata.get("upgradeGlyphs", {}).get(id, []):

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_u2bcy"]
+
+[resource]
+script = ExtResource("1_u2bcy")
+content_id = &"buy_ember_sprayer"
+category = &"shopItems"
+display_name = "焚尘喷火器"
+source_data = {
+"category": "weapon",
+"currency": "copper",
+"description": "短程火舌穿透2次；灼烧1.2秒，每0.4秒3基础伤害，重复命中刷新",
+"grantId": "ember_sprayer",
+"grantType": "weapon",
+"id": "buy_ember_sprayer",
+"name": "焚尘喷火器",
+"price": 160.0,
+"unlockStage": 1
+}

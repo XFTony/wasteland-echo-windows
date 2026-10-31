@@ -22,4 +22,6 @@
 - 当前编曲源：`scripts/audio/prepare-survival-audio.py`保存原创动机、和声和离线制作流程；`src/platform/music-score.js`保留旧章节合成曲供回退；`docs/wasteland-pulse-composition.json` 保留 v1.3“破晓脉冲”草稿作为历史依据；
 - Darkest Dungeon、Hunt: Showdown、Slay the Spire、《炉石传说》、《我的世界》和 Into the Breach 仅用于分析剪影、实体材质、卡牌层级、装备信息结构和战术可读性；Terraria 仅用于分析“标题即世界观入口”的呈现思路。项目没有复制其卡框、布局、标题、角色、代码或素材。
 
+- 战地工坊v2：6种卡面、42个改件物件、13件枪体和8类敌人倒地帧由OpenAI内置ImageGen原创生成；已有项目敌人仅用作形象参考。原图、完整提示词、技术裁切与SHA见[工作包](art/combat/fieldcraft-v2/README.md)。生成素材记录适用服务条款，不标为第三方CC0；不含《元气骑士》或《土豆兄弟》的拆包素材。另有5段项目原创离线合成短音效，源及SHA单列保存。
+
 未来新增的图片、字体、音乐、音效或第三方代码，必须先登记到 `docs/assets-ledger.csv`，写明来源、作者、许可证、修改情况和署名文本，再进入发布包。

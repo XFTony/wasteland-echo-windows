@@ -16,6 +16,12 @@ static func accent(kind: String, item: Dictionary, catalog: GameCatalog) -> Colo
 
 
 static func weapon_summary(weapon: Dictionary) -> Array[String]:
+	if weapon.has("burnDuration"):
+		return ["基础%.0f伤害 / %d锁定范围" % [weapon.damage, weapon.lockRange],
+			"灼烧%.1f秒 · 每%.1f秒%.0f伤害" % [weapon.burnDuration, weapon.burnInterval, weapon.burnDamage], "重复命中刷新 · 不无限叠层"]
+	if weapon.has("chainJumps"):
+		return ["基础%.0f伤害 / %d锁定范围" % [weapon.damage, weapon.lockRange],
+			"最多%d次连锁 · 每次保留%d%%" % [weapon.chainJumps, roundi(float(weapon.chainRetention) * 100)], "不重复命中 · 电弧受墙体阻挡"]
 	match str(weapon.get("attackType", "projectile")):
 		"beam":
 			return ["基础%d伤害 / %d射程" % [weapon.damage, weapon.lockRange],

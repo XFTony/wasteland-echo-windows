@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/weapon_definition.gd" id="1_aqu8c"]
+
+[resource]
+script = ExtResource("1_aqu8c")
+damage = 11.0
+interval = 0.28
+projectile_speed = 1.0
+lock_range = 74.0
+knockback = 12.0
+recoil = 0.2
+content_id = &"scrap_knuckles"
+category = &"weapons"
+display_name = "裂响拳刃"
+source_data = {
+"activeTime": 0.075,
+"arc": 0.6632251157578452,
+"attackStyle": "thrust",
+"attackType": "slash",
+"blocksProjectiles": false,
+"color": "#d4bc8d",
+"damage": 11.0,
+"description": "74范围、38°快速前刺；无剑气，不消除敌弹",
+"id": "scrap_knuckles",
+"interval": 0.28,
+"knockback": 12.0,
+"lockRange": 74.0,
+"mechanicId": "slash",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.055,
+"muzzleLength": 32.0,
+"muzzleParticles": 2.0,
+"name": "裂响拳刃",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 1.0,
+"rangeBand": "close",
+"reach": 74.0,
+"recoil": 0.2,
+"recovery": 0.09,
+"restTipReach": 45.0,
+"shellColor": "#b18b50",
+"shellLength": 0.0,
+"shellLife": 0.0,
+"spread": 0.0,
+"ttl": 0.9,
+"visualId": "scrap-knuckles",
+"waveDamage": 0.0,
+"weaponClass": "fist",
+"windup": 0.04
+}

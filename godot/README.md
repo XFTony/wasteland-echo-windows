@@ -14,8 +14,8 @@ WASD 或方向键移动，默认自动瞄准/射击；E 与交易站交互或回
 
 ## 资源与开发规则
 
-- `content/`：154 个原生内容定义及 GameCatalog，其中16件武器、42项改件；迁移基线的137个内容ID保留，后续玩法以原生Resource为准。
-- `assets/`：活动素材及 `.import` 设置；Catalog有59张登记图片、25音频，地图另有四张直接引用的共享图集（其中两张仅旧城使用）。本轮四武器与八图标使用原生像素描述，不增加大型角色图集。完整文件数、体积、来源与SHA见 `../docs/assets/asset-catalog.md`。同内容由Git去重；后续原生美术改动在此提交。
+- `content/`：164 个原生内容定义及 GameCatalog，其中20件武器、42项改件；迁移基线的137个内容ID保留，后续玩法以原生Resource为准。
+- `assets/`：活动素材及 `.import` 设置；Catalog有59张原登记图片、30音频，地图另有四张共享图集；战地工坊新增69张直接引用的小贴图（6卡面、42插图、13枪体、8倒地条带），替代活动界面的简化图形。枪体不含手/袖口，逻辑尺寸独立于贴图分辨率。完整文件数、体积、来源与SHA见 `../docs/assets/asset-catalog.md`。
 - `scenes/maps/`：三张可编辑地图。`GroundTiles`可直接绘制；障碍位置与footprint同时提供真实碰撞，保持轴对齐。表现节点另按脚底排序，高物上部淡化；图块自身物理/导航关闭。
 - `content/map_art/`：共享TileSet、ShaderMaterial和三图视觉Profile；图集源图/提示词在 `../art/world/pixel-map-v2/`。编辑操作与边界见 `../docs/design/map-editor-workflow.md`。
 - `scripts/`：GDScript 规则、原生 Control/Node2D 表现、AudioStream 音频及输入，没有嵌入旧网页。
@@ -37,6 +37,6 @@ node scripts/godot/verify-native.mjs
 
 Windows 模板固定为官方 4.7.2，下载归档及提取文件均核对 SHA256。首次准备使用 `scripts/godot/prepare-windows-templates.ps1 -ResumeDownload`；构建运行 `scripts/godot/build-windows.ps1`。模板、导入缓存、大包和完整截图不进 Git；构建记录来源提交、脏工作区、SHA256及许可文件，并核对版本一致性。
 
-构建后运行 `scripts/godot/verify-package.ps1`，自动核对干净源码记录、包的SHA、三张地图、四张地图图集（其中两张仅旧城使用）、59张Catalog图片、25音频和16武器。它使用隔离测试存储，带超时退出；不代替真实窗口/DPI/手柄/长局验收。本轮玩法设计见 `../docs/design/survival-builds-arsenal-plan.md`、核验边界见 `../docs/qa/survival-builds-validation.md`；旧城美术样板见 `../docs/design/echo-ground-ui-polish-plan.md`。
+构建后运行 `scripts/godot/verify-package.ps1`，自动核对干净源码记录、包的SHA、三地图、四地图图集、59张Catalog图片、69张本轮贴图、30音频和20武器。它使用隔离测试存储，带超时退出；不代替真实窗口/DPI/手柄/长局验收。本轮设计见 `../docs/design/fieldcraft-combat-art-plan.md`、核验边界见 `../docs/qa/fieldcraft-validation.md`。`install_fieldcraft_content.gd`用于首次安装本工作包，重复默认保留；`--apply-design`才显式重应用。原稿、提示词与裁切工具见 `../art/combat/fieldcraft-v2/README.md`。
 
 MCP 安装见 `../tools/godot-mcp/README.md`，本机已直接验证可用。完整计划见 `../docs/godot-migration-plan.md`，验证范围见 `../docs/qa/godot-native-validation.md`，当前状态见 `migration_status.json`。

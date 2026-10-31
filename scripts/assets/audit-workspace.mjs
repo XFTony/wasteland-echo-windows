@@ -137,9 +137,10 @@ function category(file, registration) {
 walk(root);
 const tracked = new Set(slash(execFileSync("git", ["ls-files", "-z"], { cwd: root, encoding: "utf8", windowsHide: true })).split("\0").filter(Boolean));
 const manifest = json("art/manifest.json", { assets: [] });
-const mapManifestPaths = ["art/world/pixel-map-v2/manifest.json", "art/world/echo-ground-v3/manifest.json", "art/combat/survival-builds-v1/manifest.json"];
+const mapManifestPaths = ["art/world/pixel-map-v2/manifest.json", "art/world/echo-ground-v3/manifest.json", "art/combat/survival-builds-v1/manifest.json", "art/combat/fieldcraft-v2/manifest.json"];
 const combatDesign = json("art/combat/survival-builds-v1/design.json", { audio: [], visuals: {} });
-const nativeAudio = new Map(combatDesign.audio.map(item => ["godot/" + item.src.replace(/^\.\//, ""), item]));
+const fieldcraftDesign = json("art/combat/fieldcraft-v2/design.json", {audio: [], visuals: {}, art: {weaponTextures: {}}});
+const nativeAudio = new Map([...combatDesign.audio, ...fieldcraftDesign.audio].map(item => ["godot/" + item.src.replace(/^\.\//, ""), item]));
 const artRecords = [
   ...manifest.assets.map(item => ({ ...item, registryPath: "art/manifest.json" })),
   ...mapManifestPaths.flatMap(registryPath => {
@@ -156,10 +157,15 @@ const registered = new Map([...Object.values(ART_ASSETS), ...AUDIO_ASSETS].map(i
 const activeImages = Object.values(ART_ASSETS).filter(item => item.active);
 const fileByPath = new Map(files.map(file => [file.path, file]));
 const nativeReferences = new Map();
+const templatedNativeReferences = [];
 for (const file of files.filter(file => file.path.startsWith("godot/") && !file.path.startsWith("godot/data/") && [".gd", ".tscn", ".tres", ".godot", ".cfg"].includes(file.extension))) {
   const text = fs.readFileSync(path.join(root, file.path), "utf8");
   for (const match of text.matchAll(/res:\/\/(assets\/[^"\r\n\)\]]+\.(?:png|webp|jpe?g|gif|ico|wav|ogg|flac|woff2?|ttf|otf))/gi)) {
     const target = "godot/" + match[1];
+    if (/%[0-9.]*[ds]/.test(target)) {
+      templatedNativeReferences.push({path:file.path,pattern:target,reason:"Authoring/runtime format string; explicit catalog paths and packed resources are verified separately"});
+      continue;
+    }
     const kind = file.path === "godot/content/game_catalog.tres" ? "catalog_resource_path" : "native_scene_script_or_resource";
     if (!nativeReferences.has(target)) nativeReferences.set(target, []);
     if (!nativeReferences.get(target).some(row => row.path === file.path && row.kind === kind)) nativeReferences.get(target).push({ path: file.path, kind });
@@ -177,7 +183,8 @@ for (const file of files.filter(file => file.path.startsWith("godot/assets/") &&
   const legacy = "web/" + file.path.slice("godot/".length);
   const registration = nativeAudio.get(file.path) || registered.get(legacy);
   const art = artRecords.find(item => (registration?.id && item.id === registration.id) || item.runtimePath === legacy || item.runtimePath === file.path);
-  const paths = [legacy, file.path, art?.archivePath, ...(art?.sourcePaths || [])].filter(Boolean);
+  // Shared prompts and authoring scripts are provenance, not a unique license identity.
+  const paths = [legacy, file.path, art?.archivePath].filter(Boolean);
   const rows = ledger.filter(row => (registration?.id && row.asset_id === registration.id) || (art?.id && row.asset_id === art.id) || paths.some(candidate => row.local_path.split(/;\s*/).includes(candidate)));
   const references = nativeReferences.get(file.path) || [];
   const data = fs.readFileSync(path.join(root, file.path));
@@ -222,13 +229,13 @@ try {
   const counters = Object.fromEntries(execFileSync("git", ["count-objects", "-v"], { cwd: root, encoding: "utf8", windowsHide: true }).trim().split(/\r?\n/).map(line => line.split(": ")));
   gitStorage = { source: "git count-objects -v (aggregate only)", counters, allocatedObjectBytes: (Number(counters.size) + Number(counters["size-pack"])) * 1024, directoryTotalMeasured: false };
 } catch { gitStorage = { source: "Git aggregate not available", directoryTotalMeasured: false }; }
-const procedural = Object.entries({...NATIVE_WEAPONS, ...combatDesign.visuals}).map(([id, spec]) => ({ id, category: "原生代码绘制武器", dimensions: { width: spec.width, height: spec.height }, rectangles: spec.shapes.length, bytes: null, sha256: null, registration: "runtime_generated_texture", references: ["godot/content/game_catalog.tres", "godot/scripts/presentation/asset_store.gd", ...(combatDesign.visuals[id] ? ["art/combat/survival-builds-v1/design.json", "scripts/godot/prepare-survival-content.mjs"] : ["src/content/weapon-expansion.js"])], licenseEvidence: ["docs/assets-ledger.csv", "CREDITS.md"], note: "No separate PNG exists; metadata and native drawing code are the source" }));
+const procedural = Object.entries({...NATIVE_WEAPONS, ...combatDesign.visuals}).filter(([id]) => !fieldcraftDesign.art.weaponTextures[id]).map(([id, spec]) => ({ id, category: "原生代码绘制武器", dimensions: { width: spec.width, height: spec.height }, rectangles: spec.shapes.length, bytes: null, sha256: null, registration: "runtime_generated_texture", references: ["godot/content/game_catalog.tres", "godot/scripts/presentation/asset_store.gd", ...(combatDesign.visuals[id] ? ["art/combat/survival-builds-v1/design.json", "scripts/godot/prepare-survival-content.mjs"] : ["src/content/weapon-expansion.js"])], licenseEvidence: ["docs/assets-ledger.csv", "CREDITS.md"], note: "No separate PNG exists; metadata and native drawing code are the source" }));
 const report = {
   format: 1, generatedAt: new Date().toISOString(), authority: "godot is active; original implementation retained as reference",
   scanPolicy: { excludedGeneratedOutputs: scanExcluded, opaqueDirectoryNames: [...opaqueNames].sort(), followsSymlinks: false, actualUserProfileScanned: false, opaqueSizePolicy: "Unknown directory size is null; no dependency/cache walk was performed merely to estimate it", duplicatePolicy: "Exact-byte groups are evidence, never automatic deletion permission" },
   summary: { measuredFiles: files.length, measuredBytes: files.reduce((sum, file) => sum + file.bytes, 0), opaqueDirectories: opaque.length, nativeMaterialFiles: runtimeAssets.length, nativeMaterialBytes: runtimeAssets.reduce((sum, file) => sum + file.bytes, 0), registeredActiveImages: activeImages.length, registeredAudio: AUDIO_ASSETS.length + nativeAudio.size, proceduralWeapons: procedural.length, retiredArtRegistrations: legacyAssets.length, editableSourceFiles: sourceFiles.length, nativeBlendFiles: sourceFiles.filter(file => file.inNativeRuntimeTree && file.extension === ".blend").length, exactDuplicateGroups: duplicates.length },
   topLevel, opaqueDirectories: opaque, gitStorage, runtimeAssets, procedural, legacyAssets, sourceFiles, duplicates,
-  findings: { missingNativeReferences, missingRegisteredLegacy, sourceHashMismatches: runtimeAssets.filter(asset => asset.declaredSha256Matches === false).map(asset => asset.path), nativeRetiredCopies: legacyAssets.filter(asset => asset.nativeCopy), nativeWithoutRegistration: runtimeAssets.filter(asset => !asset.contentId).map(asset => asset.path), nativeWithoutLedgerMatch: runtimeAssets.filter(asset => !asset.licenseRecords.length).map(asset => asset.path), scanErrors },
+  findings: { missingNativeReferences, templatedNativeReferences, missingRegisteredLegacy, sourceHashMismatches: runtimeAssets.filter(asset => asset.declaredSha256Matches === false).map(asset => asset.path), nativeRetiredCopies: legacyAssets.filter(asset => asset.nativeCopy), nativeWithoutRegistration: runtimeAssets.filter(asset => !asset.contentId).map(asset => asset.path), nativeWithoutLedgerMatch: runtimeAssets.filter(asset => !asset.licenseRecords.length).map(asset => asset.path), scanErrors },
   files: files.map(file => ({ ...file, tracked: tracked.has(file.path) }))
 };
 fs.mkdirSync(destination, { recursive: true });
@@ -250,6 +257,7 @@ for (const name of categoryNames) {
   catalogLines.push("");
 }
 catalogLines.push("## 没有独立图片文件的活动素材", "", "| 内容 | 类型 | 源与引用 |", "|---|---|---|");
+catalogLines.push("", `本轮 ${Object.keys(fieldcraftDesign.art.weaponTextures).length} 件枪体已使用独立贴图；旧形状只作缺图兜底，不再计为活动枪体美术。`, "");
 for (const item of procedural) catalogLines.push(`| ${item.id} | ${item.dimensions.width}×${item.dimensions.height}，${item.rectangles}条像素矩形 | ${item.references.map(link).join("、")} |`);
 catalogLines.push("", "升级/商品的原生图形、地图程序化装饰和UI材质也可能来自Resource/代码，不能用PNG文件数判断内容缺失。", "", "## 精确重复与历史边界", "", `检测到 ${duplicates.length} 组精确字节重复。Godot与旧版相同字节的素材是有意对照/回退，Git对象会去重，本次不建议删除任何一组。完整成员及SHA见JSON。`, "", `旧版注册表标记 inactive 的美术 ${legacyAssets.length} 项；其中活动原生树副本 ${report.findings.nativeRetiredCopies.length} 项。可编辑源文件 ${sourceFiles.length} 份，活动树中的.blend为 ${report.summary.nativeBlendFiles} 份。`, "", "历史Blender/精细像素动作研究保留于art、experiments和相应output目录，不把技术样板标为当前游戏完成品。", "", "## 登记复核项", "", `- 原生路径/场景引用缺失：${missingNativeReferences.length}。`, `- 旧版已登记路径缺失：${missingRegisteredLegacy.length}。`, `- 原生活动树无旧注册ID：${report.findings.nativeWithoutRegistration.length}。新地图或应用图标可以采用原生直接引用，须另补来源记录，不据此认定未使用。`, `- 未精确匹配旧许可台账的原生文件：${report.findings.nativeWithoutLedgerMatch.length}。完整列表见JSON；已有manifest/CREDITS/provenance可能提供证据，不能自动判为未授权。`, "", "## 新增素材的保存步骤", "", "1. 活动图片/音频放Godot功能子目录，保留稳定ID和.import设置；源图、分层文件、原采样放art相应工作包。", "2. 同步来源/许可记录，声明生成原图、参考输入、处理脚本与运行图关系；未核实的许可标为待核实。", "3. 把真实路径登记到原生Resource或场景，按运行尺寸检查边缘、接缝和交互可读性。", "4. 运行本脚本重建索引；在Git提交中保存源码/素材与来源，完整截图/大包留output。", "5. 只有引用检查和实际验收均确认停用后，再单列归档/删除清单，避免改路径破坏存档或场景引用。", "");
 fs.writeFileSync(path.join(destination, "asset-catalog.md"), catalogLines.join("\n"));

@@ -132,7 +132,8 @@ func _draw_held() -> void:
 		if part.depth == "back":
 			_draw_part(part, pivot)
 	var texture: Texture2D = weapon_texture(weapon_id)
-	draw_texture(texture, -pivot)
+	var logical_size := Vector2(float(definition.visual.width), float(definition.visual.height))
+	draw_texture_rect(texture, Rect2(-pivot, logical_size), false)
 	for part: Dictionary in layout.layers:
 		if part.depth == "front":
 			_draw_part(part, pivot)
@@ -168,7 +169,7 @@ func _draw_illustrated() -> void:
 	var weapon_art: String = _catalog.metadata.illustrated.weapons.get(weapon_id, "")
 	var gun: Texture2D = _assets.texture(weapon_art) if not weapon_art.is_empty() else _assets.weapon_texture(weapon_id)
 	if gun != null:
-		var gun_width: float = float(ILLUSTRATED_WIDTHS.get(weapon_id, gun.get_width() * 1.5))
+		var gun_width: float = float(ILLUSTRATED_WIDTHS.get(weapon_id, float(_catalog.metadata.poses[weapon_id].definition.visual.width) * 1.5))
 		var gun_height: float = gun_width * gun.get_height() / float(gun.get_width())
 		var grip: float = 0.29 if weapon_id in ["scrap_pistol", "rust_revolver"] else 0.39
 		draw_texture_rect(gun, Rect2(-gun_width * grip, -gun_height * 0.43, gun_width, gun_height), false)

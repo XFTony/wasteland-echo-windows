@@ -40,6 +40,7 @@ func acquire(values: Dictionary = {}) -> Dictionary:
 		item.empowered = bool(values.get("empowered", false))
 		item.hitX = null
 		item.hitY = null
+		item.erase("arcTriggered")
 		for key: String in ["barrelStartX", "barrelStartY"]:
 			var value: Variant = values.get(key)
 			item[key] = value if (value is float or value is int) and is_finite(float(value)) else null
@@ -48,6 +49,8 @@ func acquire(values: Dictionary = {}) -> Dictionary:
 	elif _kind == "enemy":
 		item.erase("chillUntil")
 		item.erase("chillFactor")
+		for key: String in ["burnUntil", "burnNext", "burnDamage", "burnWeapon", "burnInterval"]:
+			item.erase(key)
 		for key: String in ["vx", "vy", "hitFlash", "hitCooldown", "dashTime", "navigationTime",
 			"bossPhase", "knockbackVX", "knockbackVY", "knockbackAttackCursor"]:
 			item[key] = 0

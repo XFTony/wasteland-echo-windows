@@ -13,6 +13,7 @@ const design = read("art/combat/survival-builds-v1/design.json");
 const source = read("godot/data/content_source.json");
 const checks = read("output/godot-migration/native-checks.json");
 const behavior = read("output/survival-builds/behavior.json");
+assert.equal(behavior.weapons, 16, "Historical survival-builds report: use its original commit or the current fieldcraft report; do not overwrite history with later content.");
 const legacyCheck = process.argv.includes("--legacy-check-passed")
   ? { command: "npm run check", exitCode: 0, tests: 331, scope: "Original Canvas/Tauri baseline; not new Godot balance acceptance" }
   : null;

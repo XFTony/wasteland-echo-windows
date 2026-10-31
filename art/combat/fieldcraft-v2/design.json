@@ -1,0 +1,474 @@
+{
+  "version": 1,
+  "date": "2026-10-31",
+  "weapons": [
+    {
+      "projectileCount": 1,
+      "spread": 0,
+      "pierce": 2,
+      "recoil": 0.35,
+      "muzzleLength": 32,
+      "muzzleFlashLength": 10,
+      "muzzleFlashLife": 0.055,
+      "muzzleParticles": 2,
+      "shellLength": 0,
+      "shellLife": 0,
+      "shellColor": "#b18b50",
+      "ttl": 0.52,
+      "id": "ember_sprayer",
+      "name": "焚尘喷火器",
+      "description": "短程火舌穿透2次；灼烧1.2秒，每0.4秒3基础伤害，重复命中刷新",
+      "weaponClass": "flamethrower",
+      "rangeBand": "close",
+      "visualId": "ember-sprayer",
+      "mechanicId": "burning_jet",
+      "damage": 3,
+      "interval": 0.1,
+      "projectileSpeed": 440,
+      "lockRange": 225,
+      "knockback": 3,
+      "color": "#e88b43",
+      "burnDuration": 1.2,
+      "burnInterval": 0.4,
+      "burnDamage": 3
+    },
+    {
+      "projectileCount": 1,
+      "spread": 0,
+      "pierce": 0,
+      "recoil": 0.5,
+      "muzzleLength": 32,
+      "muzzleFlashLength": 10,
+      "muzzleFlashLife": 0.055,
+      "muzzleParticles": 2,
+      "shellLength": 0,
+      "shellLife": 0,
+      "shellColor": "#b18b50",
+      "ttl": 0.9,
+      "id": "arc_repeater",
+      "name": "雷索发射器",
+      "description": "初始命中后最多连锁2次，每次保留65%伤害；电弧不能穿墙",
+      "weaponClass": "electric",
+      "rangeBand": "mid",
+      "visualId": "arc-repeater",
+      "mechanicId": "arc_tether",
+      "damage": 18,
+      "interval": 0.66,
+      "projectileSpeed": 610,
+      "lockRange": 460,
+      "knockback": 18,
+      "color": "#7fc9dc",
+      "chainJumps": 2,
+      "chainRange": 145,
+      "chainRetention": 0.65
+    },
+    {
+      "projectileCount": 1,
+      "spread": 0,
+      "pierce": 0,
+      "recoil": 0.2,
+      "muzzleLength": 32,
+      "muzzleFlashLength": 10,
+      "muzzleFlashLife": 0.055,
+      "muzzleParticles": 2,
+      "shellLength": 0,
+      "shellLife": 0,
+      "shellColor": "#b18b50",
+      "ttl": 0.9,
+      "id": "scrap_knuckles",
+      "name": "裂响拳刃",
+      "description": "74范围、38°快速前刺；无剑气，不消除敌弹",
+      "attackType": "slash",
+      "attackStyle": "thrust",
+      "weaponClass": "fist",
+      "rangeBand": "close",
+      "visualId": "scrap-knuckles",
+      "mechanicId": "slash",
+      "damage": 11,
+      "interval": 0.28,
+      "projectileSpeed": 1,
+      "lockRange": 74,
+      "reach": 74,
+      "arc": 0.6632251157578452,
+      "windup": 0.04,
+      "activeTime": 0.075,
+      "recovery": 0.09,
+      "restTipReach": 45,
+      "waveDamage": 0,
+      "blocksProjectiles": false,
+      "knockback": 12,
+      "color": "#d4bc8d"
+    },
+    {
+      "projectileCount": 1,
+      "spread": 0,
+      "pierce": 0,
+      "recoil": 0.3,
+      "muzzleLength": 32,
+      "muzzleFlashLength": 10,
+      "muzzleFlashLife": 0.055,
+      "muzzleParticles": 2,
+      "shellLength": 0,
+      "shellLife": 0,
+      "shellColor": "#b18b50",
+      "ttl": 0.9,
+      "id": "reaper_scythe",
+      "name": "拾荒战镰",
+      "description": "116范围、205°宽弧清群；有效段消弹，无远程剑气",
+      "attackType": "slash",
+      "weaponClass": "scythe",
+      "rangeBand": "close",
+      "visualId": "reaper-scythe",
+      "mechanicId": "slash",
+      "damage": 33,
+      "interval": 0.9,
+      "projectileSpeed": 1,
+      "lockRange": 116,
+      "reach": 116,
+      "arc": 3.5779249665883754,
+      "windup": 0.22,
+      "activeTime": 0.2,
+      "recovery": 0.25,
+      "waveDamage": 0,
+      "blocksProjectiles": true,
+      "knockback": 56,
+      "color": "#c3c7b0"
+    }
+  ],
+  "visuals": {
+    "ember_sprayer": {
+      "width": 56,
+      "height": 30,
+      "pivot": [
+        15,
+        10
+      ],
+      "muzzle": [
+        54,
+        10
+      ],
+      "primaryGrip": [
+        17,
+        20
+      ],
+      "supportGrip": [
+        35,
+        18
+      ],
+      "family": "heavy",
+      "shapes": [
+        [
+          1,
+          8,
+          54,
+          4,
+          "steel"
+        ]
+      ],
+      "hold": {
+        "chestY": -16,
+        "aimOffsetX": 3,
+        "upShoulder": 11,
+        "upLift": 7
+      }
+    },
+    "arc_repeater": {
+      "width": 52,
+      "height": 28,
+      "pivot": [
+        14,
+        9
+      ],
+      "muzzle": [
+        50,
+        9
+      ],
+      "primaryGrip": [
+        17,
+        18
+      ],
+      "supportGrip": [
+        33,
+        16
+      ],
+      "family": "heavy",
+      "shapes": [
+        [
+          1,
+          7,
+          50,
+          4,
+          "steel"
+        ]
+      ],
+      "hold": {
+        "chestY": -16,
+        "aimOffsetX": 3,
+        "upShoulder": 11,
+        "upLift": 7
+      }
+    },
+    "scrap_knuckles": {
+      "width": 42,
+      "height": 24,
+      "pivot": [
+        12,
+        12
+      ],
+      "muzzle": [
+        40,
+        12
+      ],
+      "primaryGrip": [
+        13,
+        14
+      ],
+      "supportGrip": [
+        13,
+        14
+      ],
+      "family": "blade",
+      "shapes": [
+        [
+          1,
+          10,
+          40,
+          4,
+          "steel"
+        ]
+      ],
+      "hold": {
+        "chestY": -8,
+        "aimOffsetX": 9,
+        "upShoulder": 14,
+        "upLift": 3
+      }
+    },
+    "reaper_scythe": {
+      "width": 76,
+      "height": 42,
+      "pivot": [
+        15,
+        20
+      ],
+      "muzzle": [
+        73,
+        20
+      ],
+      "primaryGrip": [
+        17,
+        22
+      ],
+      "supportGrip": [
+        35,
+        22
+      ],
+      "family": "blade",
+      "shapes": [
+        [
+          1,
+          18,
+          74,
+          4,
+          "steel"
+        ]
+      ],
+      "hold": {
+        "chestY": -8,
+        "aimOffsetX": 9,
+        "upShoulder": 14,
+        "upLift": 3
+      }
+    }
+  },
+  "feedback": {
+    "ember_sprayer": {
+      "family": "flame",
+      "kick": 0.35,
+      "angle": 0.7,
+      "recovery": 0.055,
+      "camera": 0.015,
+      "trail": 13,
+      "width": 5,
+      "color": "#e88b43",
+      "core": "#ffe1a0",
+      "impact": "#e88b43",
+      "shell": "none",
+      "ejectDelay": 0,
+      "flash": "flame"
+    },
+    "arc_repeater": {
+      "family": "arc",
+      "kick": 1.4,
+      "angle": 0.7,
+      "recovery": 0.055,
+      "camera": 0.08,
+      "trail": 13,
+      "width": 3,
+      "color": "#7fc9dc",
+      "core": "#d5f8ef",
+      "impact": "#7fc9dc",
+      "shell": "none",
+      "ejectDelay": 0,
+      "flash": "arc"
+    },
+    "scrap_knuckles": {
+      "family": "fist",
+      "kick": 0,
+      "angle": 0,
+      "recovery": 0.055,
+      "camera": 0.03,
+      "trail": 13,
+      "width": 2,
+      "color": "#d4bc8d",
+      "core": "#fff0c2",
+      "impact": "#d4bc8d",
+      "shell": "none",
+      "ejectDelay": 0,
+      "flash": "none"
+    },
+    "reaper_scythe": {
+      "family": "scythe",
+      "kick": 0,
+      "angle": 0,
+      "recovery": 0.055,
+      "camera": 0.03,
+      "trail": 13,
+      "width": 3,
+      "color": "#c3c7b0",
+      "core": "#fff0c2",
+      "impact": "#c3c7b0",
+      "shell": "none",
+      "ejectDelay": 0,
+      "flash": "none"
+    }
+  },
+  "prices": {
+    "ember_sprayer": 160,
+    "arc_repeater": 175,
+    "scrap_knuckles": 70,
+    "reaper_scythe": 110
+  },
+  "gunPrices": {
+    "ember_sprayer": 24,
+    "arc_repeater": 27,
+    "scrap_knuckles": 15,
+    "reaper_scythe": 21
+  },
+  "art": {
+    "frames": [
+      "res://assets/ui/fieldcraft-v2/frame-0.webp",
+      "res://assets/ui/fieldcraft-v2/frame-1.webp",
+      "res://assets/ui/fieldcraft-v2/frame-2.webp",
+      "res://assets/ui/fieldcraft-v2/frame-3.webp",
+      "res://assets/ui/fieldcraft-v2/frame-4.webp",
+      "res://assets/ui/fieldcraft-v2/frame-5.webp"
+    ],
+    "upgradeTextures": {
+      "meleeReach": "res://assets/ui/fieldcraft-v2/upgrades/meleeReach.webp",
+      "blastRadius": "res://assets/ui/fieldcraft-v2/upgrades/blastRadius.webp",
+      "engineering": "res://assets/ui/fieldcraft-v2/upgrades/engineering.webp",
+      "turretRepair": "res://assets/ui/fieldcraft-v2/upgrades/turretRepair.webp",
+      "endlessPower": "res://assets/ui/fieldcraft-v2/upgrades/endlessPower.webp",
+      "endlessVitality": "res://assets/ui/fieldcraft-v2/upgrades/endlessVitality.webp",
+      "endlessSupplies": "res://assets/ui/fieldcraft-v2/upgrades/endlessSupplies.webp",
+      "endlessAid": "res://assets/ui/fieldcraft-v2/upgrades/endlessAid.webp",
+      "damage": "res://assets/ui/fieldcraft-v2/upgrades/damage.webp",
+      "fireRate": "res://assets/ui/fieldcraft-v2/upgrades/fireRate.webp",
+      "projectile": "res://assets/ui/fieldcraft-v2/upgrades/projectile.webp",
+      "pierce": "res://assets/ui/fieldcraft-v2/upgrades/pierce.webp",
+      "velocity": "res://assets/ui/fieldcraft-v2/upgrades/velocity.webp",
+      "caliber": "res://assets/ui/fieldcraft-v2/upgrades/caliber.webp",
+      "critical": "res://assets/ui/fieldcraft-v2/upgrades/critical.webp",
+      "speed": "res://assets/ui/fieldcraft-v2/upgrades/speed.webp",
+      "vitality": "res://assets/ui/fieldcraft-v2/upgrades/vitality.webp",
+      "magnet": "res://assets/ui/fieldcraft-v2/upgrades/magnet.webp",
+      "armor": "res://assets/ui/fieldcraft-v2/upgrades/armor.webp",
+      "recovery": "res://assets/ui/fieldcraft-v2/upgrades/recovery.webp",
+      "scavenger": "res://assets/ui/fieldcraft-v2/upgrades/scavenger.webp",
+      "phaseLining": "res://assets/ui/fieldcraft-v2/upgrades/phaseLining.webp",
+      "executionCapacitor": "res://assets/ui/fieldcraft-v2/upgrades/executionCapacitor.webp",
+      "reactivePlating": "res://assets/ui/fieldcraft-v2/upgrades/reactivePlating.webp",
+      "salvageOverdrive": "res://assets/ui/fieldcraft-v2/upgrades/salvageOverdrive.webp",
+      "pointBlankRelay": "res://assets/ui/fieldcraft-v2/upgrades/pointBlankRelay.webp",
+      "focusProtocol": "res://assets/ui/fieldcraft-v2/upgrades/focusProtocol.webp",
+      "cascadeRounds": "res://assets/ui/fieldcraft-v2/upgrades/cascadeRounds.webp",
+      "penetratorDoctrine": "res://assets/ui/fieldcraft-v2/upgrades/penetratorDoctrine.webp",
+      "swarmProtocol": "res://assets/ui/fieldcraft-v2/upgrades/swarmProtocol.webp",
+      "recoveryField": "res://assets/ui/fieldcraft-v2/upgrades/recoveryField.webp",
+      "phaseAegis": "res://assets/ui/fieldcraft-v2/upgrades/phaseAegis.webp",
+      "kineticLoop": "res://assets/ui/fieldcraft-v2/upgrades/kineticLoop.webp",
+      "arcNetwork": "res://assets/ui/fieldcraft-v2/upgrades/arcNetwork.webp",
+      "critDamage": "res://assets/ui/fieldcraft-v2/upgrades/critDamage.webp",
+      "killMend": "res://assets/ui/fieldcraft-v2/upgrades/killMend.webp",
+      "meleeTempo": "res://assets/ui/fieldcraft-v2/upgrades/meleeTempo.webp",
+      "ricochetCoil": "res://assets/ui/fieldcraft-v2/upgrades/ricochetCoil.webp",
+      "chillAmplifier": "res://assets/ui/fieldcraft-v2/upgrades/chillAmplifier.webp",
+      "blastFocus": "res://assets/ui/fieldcraft-v2/upgrades/blastFocus.webp",
+      "fieldRush": "res://assets/ui/fieldcraft-v2/upgrades/fieldRush.webp",
+      "pressureBarrel": "res://assets/ui/fieldcraft-v2/upgrades/pressureBarrel.webp"
+    },
+    "weaponTextures": {
+      "prism_laser": "res://assets/weapons/fieldcraft-v2/prism_laser.webp",
+      "slag_launcher": "res://assets/weapons/fieldcraft-v2/slag_launcher.webp",
+      "saw_disc": "res://assets/weapons/fieldcraft-v2/saw_disc.webp",
+      "echo_blade": "res://assets/weapons/fieldcraft-v2/echo_blade.webp",
+      "shock_hammer": "res://assets/weapons/fieldcraft-v2/shock_hammer.webp",
+      "ratchet_crossbow": "res://assets/weapons/fieldcraft-v2/ratchet_crossbow.webp",
+      "frost_projector": "res://assets/weapons/fieldcraft-v2/frost_projector.webp",
+      "breach_spear": "res://assets/weapons/fieldcraft-v2/breach_spear.webp",
+      "rust_cleaver": "res://assets/weapons/fieldcraft-v2/rust_cleaver.webp",
+      "ember_sprayer": "res://assets/weapons/fieldcraft-v2/ember_sprayer.webp",
+      "arc_repeater": "res://assets/weapons/fieldcraft-v2/arc_repeater.webp",
+      "scrap_knuckles": "res://assets/weapons/fieldcraft-v2/scrap_knuckles.webp",
+      "reaper_scythe": "res://assets/weapons/fieldcraft-v2/reaper_scythe.webp"
+    },
+    "deathTextures": {
+      "drifter": "res://assets/actors/fieldcraft-v2/drifter-death.webp",
+      "runner": "res://assets/actors/fieldcraft-v2/runner-death.webp",
+      "spitter": "res://assets/actors/fieldcraft-v2/spitter-death.webp",
+      "brute": "res://assets/actors/fieldcraft-v2/brute-death.webp",
+      "screecher": "res://assets/actors/fieldcraft-v2/screecher-death.webp",
+      "crawler": "res://assets/actors/fieldcraft-v2/crawler-death.webp",
+      "warden": "res://assets/actors/fieldcraft-v2/warden-death.webp",
+      "iron_colossus": "res://assets/actors/fieldcraft-v2/iron_colossus-death.webp"
+    }
+  },
+  "audio": [
+    {
+      "id": "ember_sprayer",
+      "role": "shot",
+      "seconds": 0.15,
+      "src": "assets/audio/fieldcraft-v2/ember_sprayer.wav",
+      "resourcePath": "res://assets/audio/fieldcraft-v2/ember_sprayer.wav"
+    },
+    {
+      "id": "arc_repeater",
+      "role": "shot",
+      "seconds": 0.23,
+      "src": "assets/audio/fieldcraft-v2/arc_repeater.wav",
+      "resourcePath": "res://assets/audio/fieldcraft-v2/arc_repeater.wav"
+    },
+    {
+      "id": "scrap_knuckles",
+      "role": "melee",
+      "seconds": 0.23,
+      "src": "assets/audio/fieldcraft-v2/scrap_knuckles.wav",
+      "resourcePath": "res://assets/audio/fieldcraft-v2/scrap_knuckles.wav"
+    },
+    {
+      "id": "reaper_scythe",
+      "role": "melee",
+      "seconds": 0.23,
+      "src": "assets/audio/fieldcraft-v2/reaper_scythe.wav",
+      "resourcePath": "res://assets/audio/fieldcraft-v2/reaper_scythe.wav"
+    },
+    {
+      "id": "enemy_fall",
+      "role": "impact",
+      "seconds": 0.26,
+      "src": "assets/audio/fieldcraft-v2/enemy_fall.wav",
+      "resourcePath": "res://assets/audio/fieldcraft-v2/enemy_fall.wav"
+    }
+  ]
+}

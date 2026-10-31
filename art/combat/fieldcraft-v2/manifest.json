@@ -1,0 +1,1009 @@
+{
+  "version": "fieldcraft-v2",
+  "created": "2026-10-31",
+  "generator": "OpenAI built-in ImageGen for original bitmap art; project-original offline audio synthesis",
+  "usageTerms": "Generated art follows applicable service terms; not third-party CC0. Audio is project original. No game graphics or recordings copied.",
+  "sourceReference": "art/combat/fieldcraft-v2/references/enemies.png",
+  "prompts": "art/combat/fieldcraft-v2/prompts.json",
+  "sources": [
+    {
+      "path": "art/combat/fieldcraft-v2/sources/cards.png",
+      "bytes": 3135053,
+      "sha256": "4a66483ee341620eadfdb269759d017071254c9689b4fa19c21645e2e6022acf"
+    },
+    {
+      "path": "art/combat/fieldcraft-v2/sources/death-0.png",
+      "bytes": 970711,
+      "sha256": "eb42eff46368f4e25ea72f04a5f4fd5343f07d1bce5a0ab29cc0ac422207a4be"
+    },
+    {
+      "path": "art/combat/fieldcraft-v2/sources/death-1.png",
+      "bytes": 1466947,
+      "sha256": "7f0e997ff90f23065290baa77ec56ed5b4f27a8c84e797625ea6ce9d843a6a76"
+    },
+    {
+      "path": "art/combat/fieldcraft-v2/sources/icons-0.png",
+      "bytes": 2049667,
+      "sha256": "3fa6d6560d71c7a52c7278a119a2e9e13b3708407f631a47f33b8d425a197cba"
+    },
+    {
+      "path": "art/combat/fieldcraft-v2/sources/icons-1.png",
+      "bytes": 2649504,
+      "sha256": "4624d2be008095ae788dab3b7ea7c4ebfe834a1d66cdc9d5949ef88fa2c77273"
+    },
+    {
+      "path": "art/combat/fieldcraft-v2/sources/icons-2.png",
+      "bytes": 2117655,
+      "sha256": "1708b23c90c76b5cdaae69653e4f31aabf0ec1de4d99b37c34519e1e8e900425"
+    },
+    {
+      "path": "art/combat/fieldcraft-v2/sources/weapons.png",
+      "bytes": 902613,
+      "sha256": "203f281c3c0b87b4989a8e1e62686eff255ec952b19c1e73466dd624731c146f"
+    }
+  ],
+  "assets": [
+    {
+      "id": "fieldcraft.frame.0",
+      "type": "card-frame",
+      "runtime": "godot/assets/ui/fieldcraft-v2/frame-0.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/cards.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 151410,
+      "sha256": "29135a6bb1d964ae42fd9818c842c284a2d9d01eb8f84bcb507978828f638579",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.frame.1",
+      "type": "card-frame",
+      "runtime": "godot/assets/ui/fieldcraft-v2/frame-1.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/cards.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 147598,
+      "sha256": "d9fb3314772dcf72fc7793f7dacc32511e104dc0caf61a32b8cbcd12069a3008",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.frame.2",
+      "type": "card-frame",
+      "runtime": "godot/assets/ui/fieldcraft-v2/frame-2.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/cards.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 150348,
+      "sha256": "d69541cc29232669f7193d1c5a7e1cce23331794f1f2b2fe308c008cac14f35f",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.frame.3",
+      "type": "card-frame",
+      "runtime": "godot/assets/ui/fieldcraft-v2/frame-3.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/cards.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 149218,
+      "sha256": "b0a11d6f0a9a2e5e5c058b621a4e1331f22f6101b2692d598db53e9f973f4609",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.frame.4",
+      "type": "card-frame",
+      "runtime": "godot/assets/ui/fieldcraft-v2/frame-4.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/cards.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 145428,
+      "sha256": "788172679c2371af6726b75ecfef9face7cbe1c90276873040cbe32214c43889",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.frame.5",
+      "type": "card-frame",
+      "runtime": "godot/assets/ui/fieldcraft-v2/frame-5.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/cards.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 158170,
+      "sha256": "e562994de5db6a56e8b0aa72ab3272a69e331020f0267572d190c5578713ab37",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.meleeReach",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/meleeReach.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-0.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 8282,
+      "sha256": "9522f6428453d68f285c136039bfec29bef563626aa96a09ce4b738ef4f0d650",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.blastRadius",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/blastRadius.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-0.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 16316,
+      "sha256": "ac268e22ccf23e82e61d87dcd54a28f16ce42c081a9f9b5626539e211bc1dcdf",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.engineering",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/engineering.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-1.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 16752,
+      "sha256": "677411f2383775072af88e6d8d9bfb30a61e489eb0e42b573c347fded568c79b",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.turretRepair",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/turretRepair.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-1.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 19992,
+      "sha256": "24768b4764901a8137b7b6f50ea2309ff57132e5e82f61923801b442bda6b6b4",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.endlessPower",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/endlessPower.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-1.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 20116,
+      "sha256": "32d6572f6561b9455a730aec296deb19f697ffc051f16f35bb3e144b919217c4",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.endlessVitality",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/endlessVitality.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-1.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 15722,
+      "sha256": "217fc9a7dc9d11b74467cfc36df50c89848145203f2a0a37d9f8d25e3c7c3b64",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.endlessSupplies",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/endlessSupplies.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-1.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 18830,
+      "sha256": "86e1aadf4bbc850b2f8d51a380004b02817d3dcb0fe29a6e5f4fae931437f8d7",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.endlessAid",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/endlessAid.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-1.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 17110,
+      "sha256": "f346dbbdfc7fbab91841fb527b7d939d92feb726e86a1cab745c180a42a2d225",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.damage",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/damage.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-0.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 12286,
+      "sha256": "930968f2dc20f52b865e905048d8dc73174222529749be256a006e1d83cfe76b",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.fireRate",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/fireRate.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-0.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 13332,
+      "sha256": "55a2a28ff0347a0c579dacabe32165b06feaebc78dc1e42f799bc789159a0776",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.projectile",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/projectile.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-0.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 17182,
+      "sha256": "3374bf3251e2791abc89623c98213d238991becd20848c15d14254bf20700dac",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.pierce",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/pierce.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-0.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 10750,
+      "sha256": "d62b03a187c9f3c6fd56306ffe52c34d231afb32c1e8253e8e9886301dcdf368",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.velocity",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/velocity.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-0.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 17490,
+      "sha256": "b1c87a4d44713f40adb1d2c6ae70db03a2044991cd18aed44994ee71da69b2ed",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.caliber",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/caliber.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-0.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 15942,
+      "sha256": "89acfbbf5ea9ea47d4a637b553562977636bcabf5723444c87db5170558754dd",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.critical",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/critical.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-0.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 15760,
+      "sha256": "9af9ac3f9db1f0e381ffa027fb9c58679cc8ecfcf1a9a5b76c61e9e0038670fe",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.speed",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/speed.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-0.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 17120,
+      "sha256": "08972af7c4132d2b0da197318720657692dc109682d18e4598ea9c94ba386834",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.vitality",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/vitality.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-0.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 17524,
+      "sha256": "5854d5e615963315232c4b9a0ee546453628f4e7df1eb1de7b6511ed84660679",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.magnet",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/magnet.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-0.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 14886,
+      "sha256": "6af661bfa277cbb21186ac0f517b35a361a89031b01215c23fa5de80ed728cc4",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.armor",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/armor.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-0.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 16982,
+      "sha256": "90d553d3f05bf3ff136b7ac9757797c74fe2dd18b83c61e82a6d5df0ddf0db9c",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.recovery",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/recovery.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-0.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 9156,
+      "sha256": "412c721d2c38185376ac638b6947c3c0074e34f05758bf0b322c1482335dd76c",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.scavenger",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/scavenger.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-0.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 17658,
+      "sha256": "72c09f6221f49507293eebdc2cba64b3291ed55b61894bf3233d0b42dc50b623",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.phaseLining",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/phaseLining.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-0.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 18034,
+      "sha256": "2747e0293c7f2d92ab2f67caf34adc7f98f99456bcb6b16f93d78004a82c066d",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.executionCapacitor",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/executionCapacitor.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-1.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 20546,
+      "sha256": "9689454a3ccf2476d8234b32d2055f287fa711a31eabd839f0da6b6e4f7eb806",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.reactivePlating",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/reactivePlating.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-1.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 20912,
+      "sha256": "5619bf8b7d5173ead2b46bfc0407c0ea532e469fd8606b67c3bdcbacd7fd9e21",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.salvageOverdrive",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/salvageOverdrive.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-1.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 18322,
+      "sha256": "6f576496506b7eca06936d093bf5e66512250a5bff5561f1ff40a6aa82fa434d",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.pointBlankRelay",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/pointBlankRelay.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-1.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 15650,
+      "sha256": "895875181320fd5fb12916deb22f12a9d196eb181f182e414b4462767718a7f0",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.focusProtocol",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/focusProtocol.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-1.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 16886,
+      "sha256": "9a3dc135fbc09e6f6d43ca9665202704db32ce540b06308bab1586da56e8f65f",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.cascadeRounds",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/cascadeRounds.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-1.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 19308,
+      "sha256": "14b204bd4185812d54eb5fe9cdfe52e1a96e1593a1cbe8d0ba80dcef2ee77475",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.penetratorDoctrine",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/penetratorDoctrine.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-1.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 14342,
+      "sha256": "322feefadda57ab3ba95e9aac9faf78671e1ed0ef2129c2e5345301d6357e3bb",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.swarmProtocol",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/swarmProtocol.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-1.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 18730,
+      "sha256": "72261aa0dc43d84b513c221c670dce70303d086fb38fac253fadfae009673761",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.recoveryField",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/recoveryField.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-1.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 18986,
+      "sha256": "bfe43e7ac28a165b30ec927d9b7eef0282c3d8f00eec6cd46e57aaf22b5c9eac",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.phaseAegis",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/phaseAegis.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-1.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 19954,
+      "sha256": "a7eb8058eb0b988f056be798f7bcecbc2b2faaa50eaa4dde3d846c45698ee37c",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.kineticLoop",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/kineticLoop.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-2.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 20090,
+      "sha256": "ba162f9fbaa2c92e861602e865edcbd0edc6d4553f9ae3e3f9a42517886323f2",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.arcNetwork",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/arcNetwork.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-2.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 18946,
+      "sha256": "24a1d57ac47e023dea48dfb537e36648776435a2647c0a3f40fbcc76ee5581e0",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.critDamage",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/critDamage.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-2.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 15166,
+      "sha256": "a50b8be909c208c7b1b9a27d1aae8c30e687c4ffb73c233c6a436cd1261ef777",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.killMend",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/killMend.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-2.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 16596,
+      "sha256": "5dc2732e1002f39e755c5274db3a9ce931c044822165b3bbe524a7a2f0e4118c",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.meleeTempo",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/meleeTempo.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-2.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 16618,
+      "sha256": "3c00a0678eb765c1fbc925a24bbaaf13aace4eb2176f54eb5a4b076e0dedb2d3",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.ricochetCoil",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/ricochetCoil.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-2.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 20412,
+      "sha256": "6352e38964912b9f68305bbb6bda97f1b00301ca3af1005a233549abcc233227",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.chillAmplifier",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/chillAmplifier.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-2.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 15568,
+      "sha256": "769b3e788b6d0eea902a0ba2439b5d25b45a2c58f862e7b32d289b3c8885810c",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.blastFocus",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/blastFocus.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-2.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 19948,
+      "sha256": "6ed74e5c735d93268c1561415bb94146b1181ec6fa1cd1436681177776dacd7e",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.fieldRush",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/fieldRush.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-2.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 18056,
+      "sha256": "864ca3f1d9e155a13e2766f9ef13bf854e2b318b9de0c1195447930d34a0888d",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.upgrade.pressureBarrel",
+      "type": "upgrade-illustration",
+      "runtime": "godot/assets/ui/fieldcraft-v2/upgrades/pressureBarrel.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/icons-2.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 12570,
+      "sha256": "964a70aac4ef734ef01bb1a7e36abb4bcb7baa7bf301326fd0404b90fa659a47",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.weapon.prism_laser",
+      "type": "independent-weapon-body",
+      "runtime": "godot/assets/weapons/fieldcraft-v2/prism_laser.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/weapons.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 6648,
+      "sha256": "1d39b402cdb6e8fc9234e152d338a23eb7e41f03c1bb2424de68e6ce38be8d67",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.weapon.slag_launcher",
+      "type": "independent-weapon-body",
+      "runtime": "godot/assets/weapons/fieldcraft-v2/slag_launcher.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/weapons.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 5966,
+      "sha256": "bdadfb5a0b8f47877d497ad8339b58cd7d99420e053d65ab059da9bec350b00b",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.weapon.saw_disc",
+      "type": "independent-weapon-body",
+      "runtime": "godot/assets/weapons/fieldcraft-v2/saw_disc.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/weapons.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 6844,
+      "sha256": "e8772c123cac29a0aa7af2c2bd8bb610f6fde292288e819d5ddd067f3085de4c",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.weapon.echo_blade",
+      "type": "independent-weapon-body",
+      "runtime": "godot/assets/weapons/fieldcraft-v2/echo_blade.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/weapons.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 4704,
+      "sha256": "0499b28c0a66bf7edee2f4eca1f32a98ef1eacbe2b5af7a86c305eba48f9acb1",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.weapon.shock_hammer",
+      "type": "independent-weapon-body",
+      "runtime": "godot/assets/weapons/fieldcraft-v2/shock_hammer.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/weapons.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 7510,
+      "sha256": "6454a16436a42e3e215768bd7bff466cb1c31aee30a18677bf73e0cccb5e2c54",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.weapon.ratchet_crossbow",
+      "type": "independent-weapon-body",
+      "runtime": "godot/assets/weapons/fieldcraft-v2/ratchet_crossbow.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/weapons.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 7984,
+      "sha256": "d18a72bab9da9ee824618eda98ef6e0cff2d590375405b67a97c96e245609bf6",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.weapon.frost_projector",
+      "type": "independent-weapon-body",
+      "runtime": "godot/assets/weapons/fieldcraft-v2/frost_projector.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/weapons.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 10596,
+      "sha256": "34cc6b0211aeaf4856237ecb7549bfce1e95577c6c9a6e0d75c8c0e650578a13",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.weapon.breach_spear",
+      "type": "independent-weapon-body",
+      "runtime": "godot/assets/weapons/fieldcraft-v2/breach_spear.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/weapons.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 7886,
+      "sha256": "b99f7100aa598005b02fba0013a66d444748ad9610157206dd916ee63746ac8a",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.weapon.rust_cleaver",
+      "type": "independent-weapon-body",
+      "runtime": "godot/assets/weapons/fieldcraft-v2/rust_cleaver.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/weapons.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 9172,
+      "sha256": "001da647af583b8bb86dd21f12847a4e9f8e9abbead6160aade81e2bef835344",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.weapon.ember_sprayer",
+      "type": "independent-weapon-body",
+      "runtime": "godot/assets/weapons/fieldcraft-v2/ember_sprayer.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/weapons.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 10486,
+      "sha256": "1293f1784086f526dd00894213f6172aec29adfa454ea9b78f9869a186e38c4f",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.weapon.arc_repeater",
+      "type": "independent-weapon-body",
+      "runtime": "godot/assets/weapons/fieldcraft-v2/arc_repeater.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/weapons.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 7836,
+      "sha256": "3586c2e43b699b59a0a5ac25c918452b73d246acbc2e2190a81e946f8e818156",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.weapon.scrap_knuckles",
+      "type": "independent-weapon-body",
+      "runtime": "godot/assets/weapons/fieldcraft-v2/scrap_knuckles.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/weapons.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 5960,
+      "sha256": "6c94165d3346957a79570303562935c3617be9b0e2eb338a02405c52466d9332",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.weapon.reaper_scythe",
+      "type": "independent-weapon-body",
+      "runtime": "godot/assets/weapons/fieldcraft-v2/reaper_scythe.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/weapons.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 7446,
+      "sha256": "d75d202482694b501dc5fee23c1c4bd9ff554d60b89971e5d7b995ffe0070242",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.death.drifter",
+      "type": "enemy-death-strip",
+      "runtime": "godot/assets/actors/fieldcraft-v2/drifter-death.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/death-0.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 7576,
+      "sha256": "2ccfcd8618ca8c615f56e6630fdd0eecf962e4caa04888658bad1b611cf006de",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.death.runner",
+      "type": "enemy-death-strip",
+      "runtime": "godot/assets/actors/fieldcraft-v2/runner-death.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/death-0.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 6416,
+      "sha256": "12356c58e37078181ea75e2e9f4fba25d53e3b2c226870f45c93e4280a94ae5f",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.death.spitter",
+      "type": "enemy-death-strip",
+      "runtime": "godot/assets/actors/fieldcraft-v2/spitter-death.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/death-0.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 7372,
+      "sha256": "6ae8963a541bf222d2aebe5002dd974dc1ebef9c8a3e23d2b061c6db7ce3fcc8",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.death.brute",
+      "type": "enemy-death-strip",
+      "runtime": "godot/assets/actors/fieldcraft-v2/brute-death.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/death-0.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 15416,
+      "sha256": "4d782d4c566ec102d8d91688d0b6db0cf4cf59975dc65e915a250d3d718a5aae",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.death.screecher",
+      "type": "enemy-death-strip",
+      "runtime": "godot/assets/actors/fieldcraft-v2/screecher-death.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/death-1.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 12500,
+      "sha256": "a446ed1eee475893a08e420d43399f2e1058d25fa99f1130b5e599e55f0daf00",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.death.crawler",
+      "type": "enemy-death-strip",
+      "runtime": "godot/assets/actors/fieldcraft-v2/crawler-death.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/death-1.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 7714,
+      "sha256": "518a4e7ce1f7d59a416930c07d60e22658551ae98d859e5169fe374dfe90c7fa",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.death.warden",
+      "type": "enemy-death-strip",
+      "runtime": "godot/assets/actors/fieldcraft-v2/warden-death.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/death-1.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 18954,
+      "sha256": "0531dca281d813c64eea3e398b3b9634edbed2792e47da1b1309063e5e9067f5",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.death.iron_colossus",
+      "type": "enemy-death-strip",
+      "runtime": "godot/assets/actors/fieldcraft-v2/iron_colossus-death.webp",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/sources/death-1.png",
+        "art/combat/fieldcraft-v2/prompts.json",
+        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+      ],
+      "bytes": 32154,
+      "sha256": "020b9dbb3dac04d90c7dd0a30a2f5c43f9e2c3a81391f8dceb129afed81f05e3",
+      "processing": "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement"
+    },
+    {
+      "id": "fieldcraft.audio.ember_sprayer",
+      "runtime": "godot/assets/audio/fieldcraft-v2/ember_sprayer.wav",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/audio/ember_sprayer.wav",
+        "scripts/audio/generate-fieldcraft.py"
+      ],
+      "seconds": 0.15,
+      "bytes": 6660,
+      "sha256": "8d4801ebc86bd1270bca3334425890b011d5740d8d08cc43395e7c249fd3b1b0",
+      "type": "audio"
+    },
+    {
+      "id": "fieldcraft.audio.arc_repeater",
+      "runtime": "godot/assets/audio/fieldcraft-v2/arc_repeater.wav",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/audio/arc_repeater.wav",
+        "scripts/audio/generate-fieldcraft.py"
+      ],
+      "seconds": 0.23,
+      "bytes": 10188,
+      "sha256": "2f381010594fdf167e24466c5f4a6188695c089a8741c9e13aa871f31433a9ff",
+      "type": "audio"
+    },
+    {
+      "id": "fieldcraft.audio.scrap_knuckles",
+      "runtime": "godot/assets/audio/fieldcraft-v2/scrap_knuckles.wav",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/audio/scrap_knuckles.wav",
+        "scripts/audio/generate-fieldcraft.py"
+      ],
+      "seconds": 0.23,
+      "bytes": 10188,
+      "sha256": "7886fd7d8ae9e7d05c13fa967b2113a78bf9bcef5761df5fcbbb3a3573f3bb73",
+      "type": "audio"
+    },
+    {
+      "id": "fieldcraft.audio.reaper_scythe",
+      "runtime": "godot/assets/audio/fieldcraft-v2/reaper_scythe.wav",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/audio/reaper_scythe.wav",
+        "scripts/audio/generate-fieldcraft.py"
+      ],
+      "seconds": 0.23,
+      "bytes": 10188,
+      "sha256": "ff8e9bfbf56b442d5b60a120209e01ce5880700ec2b49f1ba2cae9c356d38417",
+      "type": "audio"
+    },
+    {
+      "id": "fieldcraft.audio.enemy_fall",
+      "runtime": "godot/assets/audio/fieldcraft-v2/enemy_fall.wav",
+      "sourcePaths": [
+        "art/combat/fieldcraft-v2/audio/enemy_fall.wav",
+        "scripts/audio/generate-fieldcraft.py"
+      ],
+      "seconds": 0.26,
+      "bytes": 11510,
+      "sha256": "963f77db1a27176274714a25fa9bee90f577351b0e99a63e8b4bd37b81102620",
+      "type": "audio"
+    }
+  ],
+  "runtimeBytes": 1862874,
+  "bitmapFiles": 69,
+  "audioFiles": 5,
+  "decodedBitmapBytes": 6919488,
+  "decodedBitmapScope": "RGBA pixel payload sum measured by native tests, excluding GPU/driver/import-cache overhead"
+}

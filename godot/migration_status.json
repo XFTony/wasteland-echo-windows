@@ -1,8 +1,8 @@
 {
   "target": "Native Godot development; original reproduction baseline retained for regression and rollback",
   "baseline": "ef7d50d",
-  "status": "native_gameplay_iteration_human_acceptance_pending",
-  "developmentPhase": "native_survival_builds_and_arsenal",
+  "status": "native_art_iteration_package_pending",
+  "developmentPhase": "native_fieldcraft_combat_art",
   "toolchain": {
     "godot": "4.7.2.stable.official.ed1daf0bf",
     "skill": "godot @ c8bc20f876a8da241274d48461444fab86182d83",
@@ -39,17 +39,16 @@
     "Native UI interaction: 155 checks across five sizes, real pointer/click/navigation events, resize focus retention and injected reduced-motion behavior"
   ],
   "verified": [
-    "2026-10-31: 154 native definitions, 16 weapons, 42 upgrades; all 137 reference content IDs retained",
-    "Native foundation 125283 comparisons; revised spawn cap and interval checked independently",
-    "Unchanged legacy combat: 72 scenarios, 248 checkpoints, 154069 comparisons; 12 former spawn scenarios replaced by native pressure checks",
-    "Native survival builds: 441 checks; all 42 real selections change native attributes, mechanics or resources",
-    "12 ranged weapons in eight aim directions produce an actual extra projectile or ray after the multishot upgrade",
-    "Four new weapons: field and permanent purchase, ownership normalization, attack behavior, slow lifetime and independent grip artwork",
-    "25 audio assets decoded; native input/audio 55 checks, runtime 12, save transfer 10, map art 58, UI interaction 155",
-    "Six-menu regions: 24 layouts and 208 actions; battle regions: 28 layouts and 196 actions; existing rectangles preserved",
-    "Normal-health seed88 pressure proxies: opening materially denser; first-map orbit with normal upgrades survives 60 seconds at 37.16 of 116 HP, not a human balance verdict",
-    "Default content importer preserves the entire edited native catalog and metadata; overwrite requires an explicit flag",
-    "Standalone Windows package rebuilt from clean commit 978d346: 3 maps, 4 map atlases, 59 catalog images, 25 audio assets and 16 weapons verified"
+    "2026-10-31: 164 native definitions, 20 weapons, 42 upgrades; original 137 content IDs retained",
+    "Foundation 125283 comparisons; unchanged legacy combat 72 scenarios, 248 checkpoints, 154069 comparisons",
+    "Survival builds 499 checks; 42 actual upgrade state changes and 14 ranged weapons in eight multishot directions",
+    "Fieldcraft 313 checks: 69 decoded bitmap assets, 42 unique upgrade illustrations, 13 refined/new weapon textures and 8 four-frame death strips",
+    "Existing 16 weapon stats retained; new burn and limited chain ownership, walls, melee directions and pooled status cleanup verified",
+    "30 decoded audio assets; input/audio 60 checks, runtime 12, save transfer 10, map art 58, native UI interaction 155",
+    "Menu 24 layouts and 208 action regions; battle 28 layouts and 196 regions; previous/next pagination roles preserve both hit rectangles",
+    "Actual native windows: 42-card gallery, four resolutions, 104 grip directions and 80 sequential death frames; first-card pointer hover verified",
+    "6,919,488 bytes of decoded bitmap pixel data; not a process/GPU memory measurement",
+    "Default importer preserves edited native catalog and metadata; original Canvas/Tauri runtime unchanged"
   ],
   "inProgress": [
     "Human opening-pressure and new-weapon balance review; other two maps normal-build strategies not yet reviewed",
@@ -77,15 +76,24 @@
     "saveTransfer": "Godot存档导入与备份.cmd"
   },
   "latestVisualIteration": {
-    "name": "echo-ground-v3",
-    "date": "2026-10-30",
-    "scope": "One map ground art and native UI interaction",
-    "userVisualSignoff": true,
-    "signoffBasis": "User confirmed the first map meets the basic visual requirement in the current request",
-    "otherMapsRethemed": false,
-    "reducedMotionPublicSetting": false
+    "name": "fieldcraft-v2",
+    "date": "2026-10-31",
+    "scope": "Upgrade card artwork, nine weapon refinements and eight enemy death strips",
+    "userVisualSignoff": false,
+    "approvedMapUnchanged": true,
+    "validation": "docs/qa/fieldcraft-validation.md"
   },
   "latestGameplayIteration": {
+    "name": "fieldcraft-v2",
+    "date": "2026-10-31",
+    "scope": "Two additional ranged and two melee weapons; burn and finite chain effects",
+    "validation": "docs/qa/fieldcraft-validation.md",
+    "humanBalanceSignoff": false,
+    "saveSchemaChanged": false,
+    "newWeaponEvolutionBlueprints": false,
+    "windowsPackage": null
+  },
+  "previousGameplayIteration": {
     "name": "survival-builds-v1",
     "date": "2026-10-31",
     "scope": "Opening pressure, real upgrade effects, wave unlocks and four additional weapons",
@@ -101,5 +109,14 @@
       "headlessContentAndCombatPassed": true,
       "physicalDeviceAcceptance": false
     }
+  },
+  "approvedMapIteration": {
+    "name": "echo-ground-v3",
+    "date": "2026-10-30",
+    "scope": "One map ground art and native UI interaction",
+    "userVisualSignoff": true,
+    "signoffBasis": "User confirmed the first map meets the basic visual requirement in the current request",
+    "otherMapsRethemed": false,
+    "reducedMotionPublicSetting": false
   }
 }

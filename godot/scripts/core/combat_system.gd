@@ -140,6 +140,9 @@ func update_enemies(model: RunSimulation, delta: float) -> void:
 	for enemy: Dictionary in model.enemies:
 		if not enemy.active:
 			continue
+		StatusWeaponRules.tick(model, enemy)
+		if not enemy.active:
+			continue
 		enemy.hitFlash = maxf(0, float(enemy.hitFlash) - delta)
 		enemy.hitCooldown = maxf(0, float(enemy.hitCooldown) - delta)
 		enemy.actionCooldown -= delta
@@ -326,10 +329,10 @@ func damage_enemy(model: RunSimulation, enemy: Dictionary, amount: float, source
 	var push: float = KnockbackRules.add(enemy, source)
 	model.run.damageDealt += applied
 	var owner: String = str(source.get("owner", "environment"))
-	if owner in ["player", "melee"]:
+	if owner in ["player", "melee", "status"]:
 		if owner == "melee":
 			model.run.meleeHits += 1
-		else:
+		elif owner == "player":
 			model.run.hits += 1
 		if bool(source.get("critical", false)):
 			model.run.criticalHits += 1
@@ -354,6 +357,7 @@ func damage_enemy(model: RunSimulation, enemy: Dictionary, amount: float, source
 		if float(weapon.get("slowDuration", 0)) > 0:
 			enemy["chillUntil"] = float(model.run.elapsed) + (float(weapon.slowDuration) + float(model.run.player.get("chillDurationBonus", 0))) * (0.5 if enemy.boss else 1.0)
 			enemy["chillFactor"] = maxf(0.9, float(weapon.slowFactor)) if enemy.boss else float(weapon.slowFactor)
+	StatusWeaponRules.on_hit(model, enemy, source, requested)
 	if float(enemy.hp) <= 0:
 		kill_enemy(model, enemy, source)
 
@@ -396,7 +400,7 @@ func kill_enemy(model: RunSimulation, enemy: Dictionary, source: Dictionary) -> 
 	if int(model.run.player.get("killMend", 0)) > 0 and int(model.run.kills) % 12 == 0:
 		model.run.player.hp = minf(float(model.run.player.maxHp), float(model.run.player.hp) + int(model.run.player.killMend))
 	var owner: String = str(source.get("owner", "environment"))
-	if owner in ["player", "melee"] and source.get("weaponId") != null and model.run.weaponStats.has(source.weaponId):
+	if owner in ["player", "melee", "status"] and source.get("weaponId") != null and model.run.weaponStats.has(source.weaponId):
 		model.run.weaponStats[source.weaponId].kills += 1
 		if enemy.elite:
 			model.run.weaponStats[source.weaponId].eliteKills += 1

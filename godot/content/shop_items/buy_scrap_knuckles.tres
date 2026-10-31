@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/content/content_definition.gd" id="1_xj5xb"]
+
+[resource]
+script = ExtResource("1_xj5xb")
+content_id = &"buy_scrap_knuckles"
+category = &"shopItems"
+display_name = "裂响拳刃"
+source_data = {
+"category": "weapon",
+"currency": "copper",
+"description": "74范围、38°快速前刺；无剑气，不消除敌弹",
+"grantId": "scrap_knuckles",
+"grantType": "weapon",
+"id": "buy_scrap_knuckles",
+"name": "裂响拳刃",
+"price": 70.0,
+"unlockStage": 1
+}

@@ -19,7 +19,7 @@ func _run() -> void:
 	_model.save.unlockedEvolutions = _catalog.all("upgrades").keys()
 	_model.save.settings.autoFire = false
 	_model.save.settings.autoAim = false
-	_check(_catalog.definitions.size() == 154 and _catalog.all("weapons").size() == 16 and _catalog.all("upgrades").size() == 42, "native content addition count is deliberate")
+	_check(_catalog.definitions.size() == 164 and _catalog.all("weapons").size() == 20 and _catalog.all("upgrades").size() == 42, "native content addition count is deliberate")
 	_audit_all_selections()
 	_test_multishot()
 	_test_live_modifiers()

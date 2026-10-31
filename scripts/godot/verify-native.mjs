@@ -15,7 +15,8 @@ const suites = [
   ["save-transfer", "scenes/tools/save_transfer.tscn", "GODOT_SAVE_TRANSFER", "--qa-save-transfer-test"],
   ["map-art", "tests/map_art_test.gd", "GODOT_MAP_ART"],
   ["ui-interaction", "tests/ui_interaction_test.gd", "GODOT_UI_INTERACTION"],
-  ["survival-builds", "tests/survival_builds_test.gd", "GODOT_SURVIVAL_BUILDS"]
+  ["survival-builds", "tests/survival_builds_test.gd", "GODOT_SURVIVAL_BUILDS"],
+  ["fieldcraft", "tests/fieldcraft_test.gd", "GODOT_FIELDCRAFT"]
 ];
 const reports = {};
 for (const [name, script, marker, flag] of suites) {

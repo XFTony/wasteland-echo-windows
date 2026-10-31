@@ -31,6 +31,10 @@ func release(asset_id: String) -> void:
 
 
 func weapon_texture(id: String) -> Texture2D:
+	var filename: String = str(_catalog.metadata.get("combatArt", {}).get("weaponTextures", {}).get(id, ""))
+	var refined: Texture2D = CombatArt.texture(filename)
+	if refined != null:
+		return refined
 	var spec: Dictionary = _catalog.metadata.poses[id].definition.visual
 	if not str(spec.asset).begins_with("native."):
 		return texture(_catalog.metadata.actorMetadata.PART_ASSETS[spec.asset])

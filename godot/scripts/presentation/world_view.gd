@@ -31,6 +31,7 @@ var _enemy_visual_pool: Array[DepthActor] = []
 var _structure_visuals: Dictionary = {}
 var _interactive_visuals: Dictionary = {}
 var _using_gamepad: bool = false
+var impacts := CombatImpacts.new()
 
 
 func _input(event: InputEvent) -> void:
@@ -43,6 +44,7 @@ func _input(event: InputEvent) -> void:
 func configure(model: RunSimulation, assets: AssetStore, scene: MapScene) -> void:
 	_model = model
 	_assets = assets
+	impacts.configure(model)
 	map_scene = scene
 	map_scene.z_index = -20
 	add_child(map_scene)
@@ -85,6 +87,7 @@ func screen_to_world(point: Vector2) -> Vector2:
 
 
 func consume(events: Array[Dictionary]) -> void:
+	impacts.consume(events, _enemy_states)
 	for event: Dictionary in events:
 		if event.type == "shot":
 			var weapon: Dictionary = _model.catalog.parameters("weapons", event.weaponId)
@@ -102,7 +105,7 @@ func consume(events: Array[Dictionary]) -> void:
 					_spawn_shell(event, profile)
 			_camera_kick = minf(2, _camera_kick + float(profile.camera))
 			_recoil_aim = Vector2(event.aimX, event.aimY)
-		elif event.type in ["hit", "worldHit", "bulletDeflect", "weaponImpact"]:
+		elif event.type in ["worldHit", "bulletDeflect", "weaponImpact"]:
 			if _effects.size() < 128:
 				var impact_color: String = "#dfc68d" if event.type == "worldHit" else "#a6d0ad"
 				if event.get("weaponId") != null:
@@ -111,12 +114,16 @@ func consume(events: Array[Dictionary]) -> void:
 					"duration": 0.18, "color": impact_color})
 			if event.type == "weaponImpact" and event.get("kind") == "slam":
 				_camera_kick = minf(2, _camera_kick + 0.75)
+		elif event.type == "weaponArc" and _effects.size() < 128:
+			_effects.append({"x": event.x, "y": event.y, "from": Vector2(event.fromX, event.fromY),
+				"age": 0.0, "duration": 0.13, "color": "#9bd8e0"})
 
 
 func synchronize() -> void:
 	if _model == null or _model.run.is_empty():
 		return
 	var run: Dictionary = _model.run
+	impacts.advance(float(run.elapsed))
 	var player: Dictionary = run.player
 	var viewport: Vector2 = get_viewport_rect().size
 	if viewport.x <= 0 or viewport.y <= 0:
@@ -211,6 +218,7 @@ func _draw_ground(canvas: CanvasItem) -> void:
 				Vector2(base.position.x + 2, base.end.y - band), Vector2(base.end.x, base.end.y - band),
 				Vector2(base.end.x + 10, base.end.y + 7), Vector2(base.position.x + 10, base.end.y + 7)]), Color(0.06, 0.065, 0.045, 0.24))
 	_draw_interactives()
+	impacts.paint_corpses(_canvas, visible_world)
 	_draw_attack_effects(false)
 
 
@@ -232,9 +240,20 @@ func _draw_foreground(canvas: CanvasItem) -> void:
 		var alpha: float = 1 - float(fx.age) / float(fx.duration)
 		var point := Vector2(fx.x, fx.y)
 		var color := Color(Color(fx.color), alpha)
-		_canvas.draw_line(point - Vector2(5, 0), point + Vector2(5, 0), color, 2)
-		_canvas.draw_line(point - Vector2(0, 4), point + Vector2(0, 4), color, 2)
+		if fx.has("from"):
+			var origin: Vector2 = fx.from
+			var side := Vector2(-(point - origin).normalized().y, (point - origin).normalized().x)
+			var path := PackedVector2Array([origin, origin.lerp(point, 0.3) + side * 5,
+				origin.lerp(point, 0.62) - side * 4, point])
+			_canvas.draw_polyline(path, Color(Color("325966"), alpha), 5)
+			_canvas.draw_polyline(path, color, 2)
+		else:
+			for index: int in range(4):
+				var direction := Vector2.from_angle(index * PI / 2 + 0.4)
+				var middle: Vector2 = point + direction * (3 + float(fx.age) * 35)
+				_canvas.draw_line(middle, middle + direction * 3, color, 2)
 	_draw_flash()
+	impacts.paint_bursts(_canvas, visible_world)
 	_draw_attack_effects(true)
 	for projectile: Dictionary in _model.enemy_shots:
 		_draw_projectile(projectile)
@@ -267,6 +286,7 @@ func _sample_enemy(enemy: Dictionary, elapsed: float) -> void:
 	elif cos(float(enemy.heading)) < -0.12:
 		state.facing = -1.0
 	state.frame = config.walkFrames[floori(float(state.phase) * config.walkFrames.size()) % config.walkFrames.size()] if state.walking else config.idleFrame
+	state.enemyType = str(enemy.type)
 	_enemy_states[enemy.id] = state
 
 
@@ -279,14 +299,18 @@ func _draw_enemy(enemy: Dictionary, local: bool = false) -> void:
 	var point: Vector2 = Vector2.ZERO if local else (Vector2(enemy.x, enemy.y) - camera_position).round() + camera_position
 	_canvas.draw_set_transform(point + Vector2(0, 1), 0, Vector2(1, 0.36))
 	_canvas.draw_circle(Vector2.ZERO, float(enemy.radius) + (5 if enemy.boss else 2), Color(0.04, 0.05, 0.055, 0.38))
-	_canvas.draw_set_transform(point, 0, Vector2(float(config.pixelScale) * float(state.facing), config.pixelScale))
+	var reaction: Dictionary = impacts.reaction_pose(int(enemy.id))
+	_canvas.draw_set_transform(point + Vector2(reaction.offset), reaction.rotation,
+		Vector2(float(config.pixelScale) * float(state.facing), config.pixelScale) * Vector2(reaction.scale))
 	var texture: Texture2D = _assets.texture(config.assetId)
 	var chilled: bool = float(enemy.get("chillUntil", 0)) > float(_model.run.elapsed)
+	var burning: bool = float(enemy.get("burnUntil", 0)) > float(_model.run.elapsed)
 	if texture != null:
 		_canvas.draw_texture_rect_region(texture, Rect2(-float(config.root[0]), -float(config.root[1]), config.canvas, config.canvas),
 			Rect2(int(state.frame) * int(config.canvas), 0, config.canvas, config.canvas),
-			Color(0.66 if chilled else 1.0, 0.86 if chilled else 1.0, 1,
-				0.7 if float(enemy.hitFlash) > 0 and _model.save.settings.flashes != "off" else 1.0))
+			Color((0.66 if chilled else 1.12 if burning else 1.0) * float(reaction.brightness),
+				(0.86 if chilled else 0.85 if burning else 1.0) * float(reaction.brightness),
+				(0.73 if burning else 1.0) * float(reaction.brightness), 1.0))
 	_canvas.draw_set_transform(Vector2.ZERO)
 
 
@@ -306,11 +330,12 @@ func _draw_projectile(projectile: Dictionary) -> void:
 	match str(projectile.attackKind):
 		"disc":
 			_canvas.draw_set_transform(point, float(projectile.ttl) * 30)
-			_canvas.draw_circle(Vector2.ZERO, float(projectile.radius) + 1, Color("29342b"))
-			_canvas.draw_rect(Rect2(-6, -6, 12, 12), Color("acb5a0"))
-			_canvas.draw_rect(Rect2(-8, -2, 16, 4), Color("acb5a0"))
-			_canvas.draw_rect(Rect2(-2, -8, 4, 16), Color("acb5a0"))
-			_canvas.draw_rect(Rect2(-3, -3, 6, 6), Color("806a43"))
+			var teeth := PackedVector2Array()
+			for index: int in range(24):
+				teeth.append(Vector2.from_angle(index * TAU / 24) * (10 if index % 2 == 0 else 7))
+			_canvas.draw_colored_polygon(teeth, Color("bcc1ac"))
+			_canvas.draw_circle(Vector2.ZERO, 5, Color("354033"))
+			_canvas.draw_circle(Vector2.ZERO, 2, Color("b28e52"))
 		"explosive":
 			_canvas.draw_rect(Rect2(-9, -5, 17, 10), Color("1e2821"))
 			_canvas.draw_rect(Rect2(-7, -3, 12, 6), Color("8d9b68"))
@@ -321,7 +346,15 @@ func _draw_projectile(projectile: Dictionary) -> void:
 			_canvas.draw_arc(Vector2(-7, 0), 15, -0.8, 0.8, 18, Color(profile.color), 3)
 			_canvas.draw_arc(Vector2(-7, 0), 15, -0.8, 0.8, 18, Color(profile.core), 1)
 		_:
-			if profile.family == "crossbow":
+			if profile.family == "flame":
+				var flicker: float = sin(float(projectile.ttl) * 80 + float(projectile.id))
+				_paint_polygon(PackedVector2Array([Vector2(10, 0), Vector2(2, -5), Vector2(-10, -3 + flicker), Vector2(-17, 0), Vector2(-8, 5), Vector2(1, 4)]), Color("be5c2d"))
+				_paint_polygon(PackedVector2Array([Vector2(7, 0), Vector2(-1, -3), Vector2(-10, 0), Vector2(-1, 3)]), Color("f2b660"))
+				_canvas.draw_rect(Rect2(-1, -1, 5, 2), Color("ffdf9c"))
+			elif profile.family == "arc":
+				_canvas.draw_polyline(PackedVector2Array([Vector2(-18, 1), Vector2(-8, -2), Vector2(-4, 2), Vector2(8, 0)]), Color("3b7180"), 5)
+				_canvas.draw_polyline(PackedVector2Array([Vector2(-18, 1), Vector2(-8, -2), Vector2(-4, 2), Vector2(8, 0)]), Color("b2edf0"), 2)
+			elif profile.family == "crossbow":
 				_canvas.draw_rect(Rect2(-13, -1, 21, 2), Color("8f815f"))
 				_paint_polygon(PackedVector2Array([Vector2(12, 0), Vector2(4, -3), Vector2(4, 3)]), Color("dedbc3"))
 				_canvas.draw_line(Vector2(-13, -3), Vector2(-9, 0), Color("b79b64"), 2)
@@ -548,7 +581,12 @@ func _draw_flash() -> void:
 	var length: float = minf(float(weapon.muzzleFlashLength), 8 if profile.flash == "short" else 17 if profile.flash == "coil" else 22)
 	var color := Color(Color(profile.color), alpha)
 	var core := Color(Color(profile.core), alpha)
-	if profile.flash == "mist":
+	if profile.flash == "flame":
+		_paint_polygon(PackedVector2Array([Vector2.ZERO, Vector2(6, -3), Vector2(18, -2), Vector2(23, 0), Vector2(14, 4), Vector2(5, 2)]), Color(Color("e58a42"), alpha))
+		_canvas.draw_line(Vector2.ZERO, Vector2(11, 0), core, 3)
+	elif profile.flash == "arc":
+		_canvas.draw_polyline(PackedVector2Array([Vector2(1, -4), Vector2(8, -1), Vector2(4, 2), Vector2(12, 4)]), color, 2)
+	elif profile.flash == "mist":
 		for index: int in range(3):
 			_canvas.draw_arc(Vector2(index * 4, (index % 2 - 0.5) * 3), 3 + (1 - alpha) * 4,
 				-1.1, 1.1, 10, Color(Color("bdd9d5"), alpha * 0.45), 1)
@@ -670,7 +708,9 @@ func _sync_depth_visuals(active_ids: Dictionary) -> void:
 		actor.visible = _visible(enemy.x, enemy.y, 120)
 		var state: Dictionary = _enemy_states[enemy.id]
 		var revision: int = int(state.frame) + (256 if float(state.facing) < 0 else 0) + (512 if float(enemy.hitFlash) > 0 else 0) + (1024 if float(enemy.get("chillUntil", 0)) > float(_model.run.elapsed) else 0)
-		if actor.revision != revision:
+		revision += 2048 if float(enemy.get("burnUntil", 0)) > float(_model.run.elapsed) else 0
+		revision += 4096 if impacts.reactions.has(enemy.id) else 0
+		if actor.revision != revision or impacts.reactions.has(enemy.id):
 			actor.revision = revision
 			actor.queue_redraw()
 	var towers: Dictionary = {}

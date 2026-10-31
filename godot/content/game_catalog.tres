@@ -156,10 +156,20 @@
 [ext_resource type="Resource" path="res://content/upgrades/field_rush.tres" id="153_3pkxb"]
 [ext_resource type="Resource" path="res://content/upgrades/pressure_barrel.tres" id="154_a6vxh"]
 [ext_resource type="Resource" path="res://content/mechanics/cryogenic.tres" id="155_wuffr"]
+[ext_resource type="Resource" path="res://content/weapons/ember_sprayer.tres" id="156_twhwc"]
+[ext_resource type="Resource" path="res://content/shop_items/buy_ember_sprayer.tres" id="157_6fdd3"]
+[ext_resource type="Resource" path="res://content/weapons/arc_repeater.tres" id="158_spuub"]
+[ext_resource type="Resource" path="res://content/shop_items/buy_arc_repeater.tres" id="159_esdli"]
+[ext_resource type="Resource" path="res://content/weapons/scrap_knuckles.tres" id="160_3pkxb"]
+[ext_resource type="Resource" path="res://content/shop_items/buy_scrap_knuckles.tres" id="161_a6vxh"]
+[ext_resource type="Resource" path="res://content/weapons/reaper_scythe.tres" id="162_wuffr"]
+[ext_resource type="Resource" path="res://content/shop_items/buy_reaper_scythe.tres" id="163_xbdfa"]
+[ext_resource type="Resource" path="res://content/mechanics/burning_jet.tres" id="164_fo1do"]
+[ext_resource type="Resource" path="res://content/mechanics/arc_tether.tres" id="165_gkx0y"]
 
 [resource]
 script = ExtResource("139_yrrra")
-definitions = Array[ExtResource("1_ovpvi")]([ExtResource("2_y553u"), ExtResource("3_2rnui"), ExtResource("4_lxayq"), ExtResource("5_l0d7t"), ExtResource("6_j3n3h"), ExtResource("7_nlmbw"), ExtResource("8_bp6j5"), ExtResource("9_xwhg2"), ExtResource("10_3ux03"), ExtResource("11_2ks3m"), ExtResource("12_vrv4c"), ExtResource("13_jr5i8"), ExtResource("14_stqoi"), ExtResource("15_3tf7t"), ExtResource("16_yt2e0"), ExtResource("17_gifpc"), ExtResource("18_203jw"), ExtResource("19_ot2qp"), ExtResource("20_a5tdd"), ExtResource("21_fhcf4"), ExtResource("22_8p545"), ExtResource("23_txcrd"), ExtResource("24_ps5uc"), ExtResource("25_vxjln"), ExtResource("26_aqjij"), ExtResource("27_wkrns"), ExtResource("28_twhwc"), ExtResource("29_6fdd3"), ExtResource("30_spuub"), ExtResource("31_esdli"), ExtResource("32_3pkxb"), ExtResource("33_a6vxh"), ExtResource("34_wuffr"), ExtResource("35_xbdfa"), ExtResource("36_fo1do"), ExtResource("37_gkx0y"), ExtResource("38_bekvc"), ExtResource("39_8spkn"), ExtResource("40_33x8r"), ExtResource("41_1tc2q"), ExtResource("42_wfkyj"), ExtResource("43_8ok48"), ExtResource("44_xcv5i"), ExtResource("45_xt2r5"), ExtResource("46_vp3u0"), ExtResource("47_nck24"), ExtResource("48_4juax"), ExtResource("49_xdgsq"), ExtResource("50_siiqh"), ExtResource("51_yyehl"), ExtResource("52_8glry"), ExtResource("53_mbd4s"), ExtResource("54_jiw88"), ExtResource("55_3rqf4"), ExtResource("56_o3esl"), ExtResource("57_somyk"), ExtResource("58_dvsoj"), ExtResource("59_qu77i"), ExtResource("60_g53wi"), ExtResource("61_sjba0"), ExtResource("62_gor65"), ExtResource("63_vla03"), ExtResource("64_g87ta"), ExtResource("65_g8mdq"), ExtResource("66_si64e"), ExtResource("67_jjjt0"), ExtResource("68_88dt7"), ExtResource("69_2jvna"), ExtResource("70_j2m4b"), ExtResource("71_ldie3"), ExtResource("72_cpvnb"), ExtResource("73_cwtpy"), ExtResource("74_1cle8"), ExtResource("75_4mgc3"), ExtResource("76_ua1xs"), ExtResource("77_aviub"), ExtResource("78_tt50v"), ExtResource("79_rb5h1"), ExtResource("80_kii7c"), ExtResource("81_nvkd3"), ExtResource("82_rtue4"), ExtResource("83_7skdo"), ExtResource("84_vip4r"), ExtResource("85_am657"), ExtResource("86_r1pa3"), ExtResource("87_eh67r"), ExtResource("88_e8rms"), ExtResource("89_ynthu"), ExtResource("90_fi8yq"), ExtResource("91_fm0dt"), ExtResource("92_f8uob"), ExtResource("93_nlots"), ExtResource("94_67gci"), ExtResource("95_2np4x"), ExtResource("96_68anw"), ExtResource("97_7r3wo"), ExtResource("98_f58it"), ExtResource("99_2lmwj"), ExtResource("100_p4jfc"), ExtResource("101_phc8e"), ExtResource("102_gjoka"), ExtResource("103_qypiy"), ExtResource("104_twbby"), ExtResource("105_e66vn"), ExtResource("106_r5can"), ExtResource("107_c8so3"), ExtResource("108_5mgu0"), ExtResource("109_fpwct"), ExtResource("110_sh8wb"), ExtResource("111_r0o56"), ExtResource("112_qr45g"), ExtResource("113_1l0qk"), ExtResource("114_qf16q"), ExtResource("115_01ay7"), ExtResource("116_62eds"), ExtResource("117_nsbjo"), ExtResource("118_rv5ua"), ExtResource("119_wopek"), ExtResource("120_jwm3u"), ExtResource("121_f3wum"), ExtResource("122_jraf7"), ExtResource("123_tom40"), ExtResource("124_voqmw"), ExtResource("125_f46u0"), ExtResource("126_n22qa"), ExtResource("127_hprmw"), ExtResource("128_tnetd"), ExtResource("129_6oje1"), ExtResource("130_4ylw0"), ExtResource("131_fafuv"), ExtResource("132_usnwl"), ExtResource("133_lytfp"), ExtResource("134_lppod"), ExtResource("135_y0c8b"), ExtResource("136_07qym"), ExtResource("137_ch2xr"), ExtResource("138_avqwr"), ExtResource("139_203jw"), ExtResource("140_ot2qp"), ExtResource("141_a5tdd"), ExtResource("142_fhcf4"), ExtResource("143_8p545"), ExtResource("144_txcrd"), ExtResource("145_ps5uc"), ExtResource("146_vxjln"), ExtResource("147_aqjij"), ExtResource("148_wkrns"), ExtResource("149_twhwc"), ExtResource("150_6fdd3"), ExtResource("151_spuub"), ExtResource("152_esdli"), ExtResource("153_3pkxb"), ExtResource("154_a6vxh"), ExtResource("155_wuffr")])
+definitions = Array[ExtResource("1_ovpvi")]([ExtResource("2_y553u"), ExtResource("3_2rnui"), ExtResource("4_lxayq"), ExtResource("5_l0d7t"), ExtResource("6_j3n3h"), ExtResource("7_nlmbw"), ExtResource("8_bp6j5"), ExtResource("9_xwhg2"), ExtResource("10_3ux03"), ExtResource("11_2ks3m"), ExtResource("12_vrv4c"), ExtResource("13_jr5i8"), ExtResource("14_stqoi"), ExtResource("15_3tf7t"), ExtResource("16_yt2e0"), ExtResource("17_gifpc"), ExtResource("18_203jw"), ExtResource("19_ot2qp"), ExtResource("20_a5tdd"), ExtResource("21_fhcf4"), ExtResource("22_8p545"), ExtResource("23_txcrd"), ExtResource("24_ps5uc"), ExtResource("25_vxjln"), ExtResource("26_aqjij"), ExtResource("27_wkrns"), ExtResource("28_twhwc"), ExtResource("29_6fdd3"), ExtResource("30_spuub"), ExtResource("31_esdli"), ExtResource("32_3pkxb"), ExtResource("33_a6vxh"), ExtResource("34_wuffr"), ExtResource("35_xbdfa"), ExtResource("36_fo1do"), ExtResource("37_gkx0y"), ExtResource("38_bekvc"), ExtResource("39_8spkn"), ExtResource("40_33x8r"), ExtResource("41_1tc2q"), ExtResource("42_wfkyj"), ExtResource("43_8ok48"), ExtResource("44_xcv5i"), ExtResource("45_xt2r5"), ExtResource("46_vp3u0"), ExtResource("47_nck24"), ExtResource("48_4juax"), ExtResource("49_xdgsq"), ExtResource("50_siiqh"), ExtResource("51_yyehl"), ExtResource("52_8glry"), ExtResource("53_mbd4s"), ExtResource("54_jiw88"), ExtResource("55_3rqf4"), ExtResource("56_o3esl"), ExtResource("57_somyk"), ExtResource("58_dvsoj"), ExtResource("59_qu77i"), ExtResource("60_g53wi"), ExtResource("61_sjba0"), ExtResource("62_gor65"), ExtResource("63_vla03"), ExtResource("64_g87ta"), ExtResource("65_g8mdq"), ExtResource("66_si64e"), ExtResource("67_jjjt0"), ExtResource("68_88dt7"), ExtResource("69_2jvna"), ExtResource("70_j2m4b"), ExtResource("71_ldie3"), ExtResource("72_cpvnb"), ExtResource("73_cwtpy"), ExtResource("74_1cle8"), ExtResource("75_4mgc3"), ExtResource("76_ua1xs"), ExtResource("77_aviub"), ExtResource("78_tt50v"), ExtResource("79_rb5h1"), ExtResource("80_kii7c"), ExtResource("81_nvkd3"), ExtResource("82_rtue4"), ExtResource("83_7skdo"), ExtResource("84_vip4r"), ExtResource("85_am657"), ExtResource("86_r1pa3"), ExtResource("87_eh67r"), ExtResource("88_e8rms"), ExtResource("89_ynthu"), ExtResource("90_fi8yq"), ExtResource("91_fm0dt"), ExtResource("92_f8uob"), ExtResource("93_nlots"), ExtResource("94_67gci"), ExtResource("95_2np4x"), ExtResource("96_68anw"), ExtResource("97_7r3wo"), ExtResource("98_f58it"), ExtResource("99_2lmwj"), ExtResource("100_p4jfc"), ExtResource("101_phc8e"), ExtResource("102_gjoka"), ExtResource("103_qypiy"), ExtResource("104_twbby"), ExtResource("105_e66vn"), ExtResource("106_r5can"), ExtResource("107_c8so3"), ExtResource("108_5mgu0"), ExtResource("109_fpwct"), ExtResource("110_sh8wb"), ExtResource("111_r0o56"), ExtResource("112_qr45g"), ExtResource("113_1l0qk"), ExtResource("114_qf16q"), ExtResource("115_01ay7"), ExtResource("116_62eds"), ExtResource("117_nsbjo"), ExtResource("118_rv5ua"), ExtResource("119_wopek"), ExtResource("120_jwm3u"), ExtResource("121_f3wum"), ExtResource("122_jraf7"), ExtResource("123_tom40"), ExtResource("124_voqmw"), ExtResource("125_f46u0"), ExtResource("126_n22qa"), ExtResource("127_hprmw"), ExtResource("128_tnetd"), ExtResource("129_6oje1"), ExtResource("130_4ylw0"), ExtResource("131_fafuv"), ExtResource("132_usnwl"), ExtResource("133_lytfp"), ExtResource("134_lppod"), ExtResource("135_y0c8b"), ExtResource("136_07qym"), ExtResource("137_ch2xr"), ExtResource("138_avqwr"), ExtResource("139_203jw"), ExtResource("140_ot2qp"), ExtResource("141_a5tdd"), ExtResource("142_fhcf4"), ExtResource("143_8p545"), ExtResource("144_txcrd"), ExtResource("145_ps5uc"), ExtResource("146_vxjln"), ExtResource("147_aqjij"), ExtResource("148_wkrns"), ExtResource("149_twhwc"), ExtResource("150_6fdd3"), ExtResource("151_spuub"), ExtResource("152_esdli"), ExtResource("153_3pkxb"), ExtResource("154_a6vxh"), ExtResource("155_wuffr"), ExtResource("156_twhwc"), ExtResource("157_6fdd3"), ExtResource("158_spuub"), ExtResource("159_esdli"), ExtResource("160_3pkxb"), ExtResource("161_a6vxh"), ExtResource("162_wuffr"), ExtResource("163_xbdfa"), ExtResource("164_fo1do"), ExtResource("165_gkx0y")])
 defaults = {
 "enemy": "drifter",
 "equipment": "field_vest",
@@ -2272,6 +2282,36 @@ metadata = {
 "seconds": 0.28,
 "source": "Project original offline synthesis; no third-party samples",
 "src": "./assets/audio/survival-v2/rust_cleaver.wav"
+}, {
+"id": "ember_sprayer",
+"resourcePath": "res://assets/audio/fieldcraft-v2/ember_sprayer.wav",
+"role": "shot",
+"seconds": 0.15,
+"src": "assets/audio/fieldcraft-v2/ember_sprayer.wav"
+}, {
+"id": "arc_repeater",
+"resourcePath": "res://assets/audio/fieldcraft-v2/arc_repeater.wav",
+"role": "shot",
+"seconds": 0.23,
+"src": "assets/audio/fieldcraft-v2/arc_repeater.wav"
+}, {
+"id": "scrap_knuckles",
+"resourcePath": "res://assets/audio/fieldcraft-v2/scrap_knuckles.wav",
+"role": "melee",
+"seconds": 0.23,
+"src": "assets/audio/fieldcraft-v2/scrap_knuckles.wav"
+}, {
+"id": "reaper_scythe",
+"resourcePath": "res://assets/audio/fieldcraft-v2/reaper_scythe.wav",
+"role": "melee",
+"seconds": 0.23,
+"src": "assets/audio/fieldcraft-v2/reaper_scythe.wav"
+}, {
+"id": "enemy_fall",
+"resourcePath": "res://assets/audio/fieldcraft-v2/enemy_fall.wav",
+"role": "impact",
+"seconds": 0.26,
+"src": "assets/audio/fieldcraft-v2/enemy_fall.wav"
 }],
 "baseline": "ef7d50d",
 "casings": {
@@ -2319,6 +2359,78 @@ metadata = {
 "speed": 57.0,
 "spin": 10.0,
 "width": 2.7
+}
+},
+"combatArt": {
+"deathTextures": {
+"brute": "res://assets/actors/fieldcraft-v2/brute-death.webp",
+"crawler": "res://assets/actors/fieldcraft-v2/crawler-death.webp",
+"drifter": "res://assets/actors/fieldcraft-v2/drifter-death.webp",
+"iron_colossus": "res://assets/actors/fieldcraft-v2/iron_colossus-death.webp",
+"runner": "res://assets/actors/fieldcraft-v2/runner-death.webp",
+"screecher": "res://assets/actors/fieldcraft-v2/screecher-death.webp",
+"spitter": "res://assets/actors/fieldcraft-v2/spitter-death.webp",
+"warden": "res://assets/actors/fieldcraft-v2/warden-death.webp"
+},
+"frames": ["res://assets/ui/fieldcraft-v2/frame-0.webp", "res://assets/ui/fieldcraft-v2/frame-1.webp", "res://assets/ui/fieldcraft-v2/frame-2.webp", "res://assets/ui/fieldcraft-v2/frame-3.webp", "res://assets/ui/fieldcraft-v2/frame-4.webp", "res://assets/ui/fieldcraft-v2/frame-5.webp"],
+"upgradeTextures": {
+"arcNetwork": "res://assets/ui/fieldcraft-v2/upgrades/arcNetwork.webp",
+"armor": "res://assets/ui/fieldcraft-v2/upgrades/armor.webp",
+"blastFocus": "res://assets/ui/fieldcraft-v2/upgrades/blastFocus.webp",
+"blastRadius": "res://assets/ui/fieldcraft-v2/upgrades/blastRadius.webp",
+"caliber": "res://assets/ui/fieldcraft-v2/upgrades/caliber.webp",
+"cascadeRounds": "res://assets/ui/fieldcraft-v2/upgrades/cascadeRounds.webp",
+"chillAmplifier": "res://assets/ui/fieldcraft-v2/upgrades/chillAmplifier.webp",
+"critDamage": "res://assets/ui/fieldcraft-v2/upgrades/critDamage.webp",
+"critical": "res://assets/ui/fieldcraft-v2/upgrades/critical.webp",
+"damage": "res://assets/ui/fieldcraft-v2/upgrades/damage.webp",
+"endlessAid": "res://assets/ui/fieldcraft-v2/upgrades/endlessAid.webp",
+"endlessPower": "res://assets/ui/fieldcraft-v2/upgrades/endlessPower.webp",
+"endlessSupplies": "res://assets/ui/fieldcraft-v2/upgrades/endlessSupplies.webp",
+"endlessVitality": "res://assets/ui/fieldcraft-v2/upgrades/endlessVitality.webp",
+"engineering": "res://assets/ui/fieldcraft-v2/upgrades/engineering.webp",
+"executionCapacitor": "res://assets/ui/fieldcraft-v2/upgrades/executionCapacitor.webp",
+"fieldRush": "res://assets/ui/fieldcraft-v2/upgrades/fieldRush.webp",
+"fireRate": "res://assets/ui/fieldcraft-v2/upgrades/fireRate.webp",
+"focusProtocol": "res://assets/ui/fieldcraft-v2/upgrades/focusProtocol.webp",
+"killMend": "res://assets/ui/fieldcraft-v2/upgrades/killMend.webp",
+"kineticLoop": "res://assets/ui/fieldcraft-v2/upgrades/kineticLoop.webp",
+"magnet": "res://assets/ui/fieldcraft-v2/upgrades/magnet.webp",
+"meleeReach": "res://assets/ui/fieldcraft-v2/upgrades/meleeReach.webp",
+"meleeTempo": "res://assets/ui/fieldcraft-v2/upgrades/meleeTempo.webp",
+"penetratorDoctrine": "res://assets/ui/fieldcraft-v2/upgrades/penetratorDoctrine.webp",
+"phaseAegis": "res://assets/ui/fieldcraft-v2/upgrades/phaseAegis.webp",
+"phaseLining": "res://assets/ui/fieldcraft-v2/upgrades/phaseLining.webp",
+"pierce": "res://assets/ui/fieldcraft-v2/upgrades/pierce.webp",
+"pointBlankRelay": "res://assets/ui/fieldcraft-v2/upgrades/pointBlankRelay.webp",
+"pressureBarrel": "res://assets/ui/fieldcraft-v2/upgrades/pressureBarrel.webp",
+"projectile": "res://assets/ui/fieldcraft-v2/upgrades/projectile.webp",
+"reactivePlating": "res://assets/ui/fieldcraft-v2/upgrades/reactivePlating.webp",
+"recovery": "res://assets/ui/fieldcraft-v2/upgrades/recovery.webp",
+"recoveryField": "res://assets/ui/fieldcraft-v2/upgrades/recoveryField.webp",
+"ricochetCoil": "res://assets/ui/fieldcraft-v2/upgrades/ricochetCoil.webp",
+"salvageOverdrive": "res://assets/ui/fieldcraft-v2/upgrades/salvageOverdrive.webp",
+"scavenger": "res://assets/ui/fieldcraft-v2/upgrades/scavenger.webp",
+"speed": "res://assets/ui/fieldcraft-v2/upgrades/speed.webp",
+"swarmProtocol": "res://assets/ui/fieldcraft-v2/upgrades/swarmProtocol.webp",
+"turretRepair": "res://assets/ui/fieldcraft-v2/upgrades/turretRepair.webp",
+"velocity": "res://assets/ui/fieldcraft-v2/upgrades/velocity.webp",
+"vitality": "res://assets/ui/fieldcraft-v2/upgrades/vitality.webp"
+},
+"weaponTextures": {
+"arc_repeater": "res://assets/weapons/fieldcraft-v2/arc_repeater.webp",
+"breach_spear": "res://assets/weapons/fieldcraft-v2/breach_spear.webp",
+"echo_blade": "res://assets/weapons/fieldcraft-v2/echo_blade.webp",
+"ember_sprayer": "res://assets/weapons/fieldcraft-v2/ember_sprayer.webp",
+"frost_projector": "res://assets/weapons/fieldcraft-v2/frost_projector.webp",
+"prism_laser": "res://assets/weapons/fieldcraft-v2/prism_laser.webp",
+"ratchet_crossbow": "res://assets/weapons/fieldcraft-v2/ratchet_crossbow.webp",
+"reaper_scythe": "res://assets/weapons/fieldcraft-v2/reaper_scythe.webp",
+"rust_cleaver": "res://assets/weapons/fieldcraft-v2/rust_cleaver.webp",
+"saw_disc": "res://assets/weapons/fieldcraft-v2/saw_disc.webp",
+"scrap_knuckles": "res://assets/weapons/fieldcraft-v2/scrap_knuckles.webp",
+"shock_hammer": "res://assets/weapons/fieldcraft-v2/shock_hammer.webp",
+"slag_launcher": "res://assets/weapons/fieldcraft-v2/slag_launcher.webp"
 }
 },
 "defaults": {
@@ -2466,6 +2578,7 @@ metadata = {
 "y": 0.0
 }
 },
+"fieldcraftVersion": 1.0,
 "format": 1.0,
 "icons": {
 "equipment": {
@@ -2498,16 +2611,24 @@ metadata = {
 "wanderer": "outfit.wanderer.v1"
 },
 "weaponClasses": {
+"axe": "战斧",
 "blade": "军刀",
 "carbine": "卡宾枪",
+"crossbow": "机械弩",
 "disc": "锯盘投射器",
+"electric": "电链枪",
+"elemental": "控制喷射",
+"fist": "拳刃",
+"flamethrower": "喷火器",
 "hammer": "战锤",
 "heavy": "重型武器",
 "revolver": "左轮",
 "rifle": "精确步枪",
+"scythe": "战镰",
 "shotgun": "霰弹枪",
 "sidearm": "副武器",
-"smg": "冲锋枪"
+"smg": "冲锋枪",
+"spear": "长矛"
 }
 },
 "illustrated": {
@@ -4087,6 +4208,23 @@ metadata = {
 "wood": "#795840"
 },
 "nativeWeapons": {
+"arc_repeater": {
+&"asset": "native.arc_repeater",
+"family": "heavy",
+"height": 28.0,
+"hold": {
+"aimOffsetX": 3.0,
+"chestY": -16.0,
+"upLift": 7.0,
+"upShoulder": 11.0
+},
+"muzzle": [50.0, 9.0],
+"pivot": [14.0, 9.0],
+"primaryGrip": [17.0, 18.0],
+"shapes": [[1.0, 7.0, 50.0, 4.0, "steel"]],
+"supportGrip": [33.0, 16.0],
+"width": 52.0
+},
 "breach_spear": {
 &"asset": "native.breach_spear",
 "family": "spear",
@@ -4119,6 +4257,23 @@ metadata = {
 "shapes": [[1.0, 8.0, 15.0, 6.0, "ink"], [3.0, 9.0, 12.0, 4.0, "wood"], [5.0, 8.0, 2.0, 6.0, "brass"], [10.0, 8.0, 2.0, 6.0, "brass"], [15.0, 3.0, 4.0, 15.0, "ink"], [16.0, 5.0, 2.0, 11.0, "brass"], [18.0, 6.0, 29.0, 9.0, "ink"], [20.0, 7.0, 28.0, 6.0, "steel"], [21.0, 7.0, 25.0, 2.0, "light"], [20.0, 12.0, 24.0, 2.0, "teal"], [46.0, 6.0, 6.0, 8.0, "ink"], [47.0, 7.0, 5.0, 5.0, "steel"], [51.0, 7.0, 3.0, 5.0, "ink"], [52.0, 8.0, 3.0, 3.0, "light"], [55.0, 9.0, 2.0, 1.0, "light"], [24.0, 9.0, 2.0, 2.0, "dark"], [36.0, 9.0, 3.0, 2.0, "dark"]],
 "supportGrip": [13.0, 11.0],
 "width": 58.0
+},
+"ember_sprayer": {
+&"asset": "native.ember_sprayer",
+"family": "heavy",
+"height": 30.0,
+"hold": {
+"aimOffsetX": 3.0,
+"chestY": -16.0,
+"upLift": 7.0,
+"upShoulder": 11.0
+},
+"muzzle": [54.0, 10.0],
+"pivot": [15.0, 10.0],
+"primaryGrip": [17.0, 20.0],
+"shapes": [[1.0, 8.0, 54.0, 4.0, "steel"]],
+"supportGrip": [35.0, 18.0],
+"width": 56.0
 },
 "frost_projector": {
 &"asset": "native.frost_projector",
@@ -4170,6 +4325,23 @@ metadata = {
 "supportGrip": [29.0, 18.0],
 "width": 64.0
 },
+"reaper_scythe": {
+&"asset": "native.reaper_scythe",
+"family": "blade",
+"height": 42.0,
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -8.0,
+"upLift": 3.0,
+"upShoulder": 14.0
+},
+"muzzle": [73.0, 20.0],
+"pivot": [15.0, 20.0],
+"primaryGrip": [17.0, 22.0],
+"shapes": [[1.0, 18.0, 74.0, 4.0, "steel"]],
+"supportGrip": [35.0, 22.0],
+"width": 76.0
+},
 "rust_cleaver": {
 &"asset": "native.rust_cleaver",
 "family": "axe",
@@ -4202,6 +4374,23 @@ metadata = {
 "shapes": [[1.0, 9.0, 13.0, 9.0, "ink"], [3.0, 10.0, 10.0, 6.0, "wood"], [11.0, 5.0, 35.0, 16.0, "ink"], [13.0, 7.0, 30.0, 11.0, "dark"], [29.0, 1.0, 10.0, 23.0, "ink"], [25.0, 5.0, 18.0, 15.0, "steel"], [28.0, 2.0, 12.0, 21.0, "steel"], [24.0, 9.0, 20.0, 7.0, "light"], [30.0, 6.0, 8.0, 13.0, "dark"], [32.0, 9.0, 4.0, 7.0, "brass"], [40.0, 7.0, 7.0, 8.0, "ink"], [42.0, 9.0, 4.0, 4.0, "steel"], [18.0, 19.0, 6.0, 7.0, "ink"], [19.0, 20.0, 3.0, 5.0, "olive"], [14.0, 7.0, 10.0, 2.0, "olive"], [15.0, 12.0, 7.0, 1.0, "brass"], [15.0, 15.0, 7.0, 1.0, "steel"], [23.0, 8.0, 2.0, 2.0, "light"]],
 "supportGrip": [33.0, 19.0],
 "width": 48.0
+},
+"scrap_knuckles": {
+&"asset": "native.scrap_knuckles",
+"family": "blade",
+"height": 24.0,
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -8.0,
+"upLift": 3.0,
+"upShoulder": 14.0
+},
+"muzzle": [40.0, 12.0],
+"pivot": [12.0, 12.0],
+"primaryGrip": [13.0, 14.0],
+"shapes": [[1.0, 10.0, 40.0, 4.0, "steel"]],
+"supportGrip": [13.0, 14.0],
+"width": 42.0
 },
 "shock_hammer": {
 "family": "hammer",
@@ -4263,6 +4452,175 @@ metadata = {
 "white": "#f2e6c5"
 },
 "poses": {
+"arc_repeater": {
+"definition": {
+"combat": {
+"chainJumps": 2.0,
+"chainRange": 145.0,
+"chainRetention": 0.65,
+"color": "#7fc9dc",
+"damage": 18.0,
+"description": "初始命中后最多连锁2次，每次保留65%伤害；电弧不能穿墙",
+"id": "arc_repeater",
+"interval": 0.66,
+"knockback": 18.0,
+"lockRange": 460.0,
+"mechanicId": "arc_tether",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.055,
+"muzzleLength": 32.0,
+"muzzleParticles": 2.0,
+"name": "雷索发射器",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 610.0,
+"rangeBand": "mid",
+"recoil": 0.5,
+"shellColor": "#b18b50",
+"shellLength": 0.0,
+"shellLife": 0.0,
+"spread": 0.0,
+"ttl": 0.9,
+"visualId": "arc-repeater",
+"weaponClass": "electric"
+},
+"id": "arc_repeater",
+"name": "雷索发射器",
+"version": "fieldcraft-v2",
+"visual": {
+&"asset": "native.arc_repeater",
+"family": "heavy",
+"height": 28.0,
+"hold": {
+"aimOffsetX": 3.0,
+"chestY": -16.0,
+"upLift": 7.0,
+"upShoulder": 11.0
+},
+"muzzle": [50.0, 9.0],
+"pivot": [14.0, 9.0],
+"primaryGrip": [17.0, 18.0],
+"shapes": [[1.0, 7.0, 50.0, 4.0, "steel"]],
+"supportGrip": [33.0, 16.0],
+"width": 52.0
+}
+},
+"hold": {
+"aimOffsetX": 3.0,
+"chestY": -16.0,
+"height": 28.0,
+"muzzle": [50.0, 9.0],
+"pivot": [14.0, 9.0],
+"recoil": 0.5,
+"upLift": 7.0,
+"upShoulder": 11.0,
+"width": 52.0
+},
+"layout": {
+"height": 28.0,
+"layers": [{
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 5.0,
+"kind": "hand",
+"rect": [44.0, 0.0, 7.0, 5.0],
+"slot": "primary",
+"width": 7.0,
+"x": 15.0,
+"y": 16.0
+}, {
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 5.0,
+"kind": "cuff",
+"rect": [26.0, 0.0, 4.0, 5.0],
+"slot": "primary",
+"width": 4.0,
+"x": 12.0,
+"y": 17.0
+}, {
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "back",
+"height": 5.0,
+"kind": "hand",
+"rect": [44.0, 0.0, 7.0, 5.0],
+"slot": "support",
+"width": 7.0,
+"x": 31.0,
+"y": 14.0
+}, {
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "back",
+"height": 5.0,
+"kind": "cuff",
+"rect": [26.0, 0.0, 4.0, 5.0],
+"slot": "support",
+"width": 4.0,
+"x": 28.0,
+"y": 15.0
+}],
+"muzzle": [50.0, 9.0],
+"origin": [0, 0],
+"pivot": [14.0, 9.0],
+"weapon": {
+"combat": {
+"chainJumps": 2.0,
+"chainRange": 145.0,
+"chainRetention": 0.65,
+"color": "#7fc9dc",
+"damage": 18.0,
+"description": "初始命中后最多连锁2次，每次保留65%伤害；电弧不能穿墙",
+"id": "arc_repeater",
+"interval": 0.66,
+"knockback": 18.0,
+"lockRange": 460.0,
+"mechanicId": "arc_tether",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.055,
+"muzzleLength": 32.0,
+"muzzleParticles": 2.0,
+"name": "雷索发射器",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 610.0,
+"rangeBand": "mid",
+"recoil": 0.5,
+"shellColor": "#b18b50",
+"shellLength": 0.0,
+"shellLife": 0.0,
+"spread": 0.0,
+"ttl": 0.9,
+"visualId": "arc-repeater",
+"weaponClass": "electric"
+},
+"id": "arc_repeater",
+"name": "雷索发射器",
+"version": "fieldcraft-v2",
+"visual": {
+&"asset": "native.arc_repeater",
+"family": "heavy",
+"height": 28.0,
+"hold": {
+"aimOffsetX": 3.0,
+"chestY": -16.0,
+"upLift": 7.0,
+"upShoulder": 11.0
+},
+"muzzle": [50.0, 9.0],
+"pivot": [14.0, 9.0],
+"primaryGrip": [17.0, 18.0],
+"shapes": [[1.0, 7.0, 50.0, 4.0, "steel"]],
+"supportGrip": [33.0, 16.0],
+"width": 52.0
+}
+},
+"width": 52.0
+}
+},
 "breach_spear": {
 "definition": {
 "combat": {
@@ -4998,6 +5356,175 @@ metadata = {
 "width": 46.0
 }
 },
+"ember_sprayer": {
+"definition": {
+"combat": {
+"burnDamage": 3.0,
+"burnDuration": 1.2,
+"burnInterval": 0.4,
+"color": "#e88b43",
+"damage": 3.0,
+"description": "短程火舌穿透2次；灼烧1.2秒，每0.4秒3基础伤害，重复命中刷新",
+"id": "ember_sprayer",
+"interval": 0.1,
+"knockback": 3.0,
+"lockRange": 225.0,
+"mechanicId": "burning_jet",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.055,
+"muzzleLength": 32.0,
+"muzzleParticles": 2.0,
+"name": "焚尘喷火器",
+"pierce": 2.0,
+"projectileCount": 1.0,
+"projectileSpeed": 440.0,
+"rangeBand": "close",
+"recoil": 0.35,
+"shellColor": "#b18b50",
+"shellLength": 0.0,
+"shellLife": 0.0,
+"spread": 0.0,
+"ttl": 0.52,
+"visualId": "ember-sprayer",
+"weaponClass": "flamethrower"
+},
+"id": "ember_sprayer",
+"name": "焚尘喷火器",
+"version": "fieldcraft-v2",
+"visual": {
+&"asset": "native.ember_sprayer",
+"family": "heavy",
+"height": 30.0,
+"hold": {
+"aimOffsetX": 3.0,
+"chestY": -16.0,
+"upLift": 7.0,
+"upShoulder": 11.0
+},
+"muzzle": [54.0, 10.0],
+"pivot": [15.0, 10.0],
+"primaryGrip": [17.0, 20.0],
+"shapes": [[1.0, 8.0, 54.0, 4.0, "steel"]],
+"supportGrip": [35.0, 18.0],
+"width": 56.0
+}
+},
+"hold": {
+"aimOffsetX": 3.0,
+"chestY": -16.0,
+"height": 30.0,
+"muzzle": [54.0, 10.0],
+"pivot": [15.0, 10.0],
+"recoil": 0.35,
+"upLift": 7.0,
+"upShoulder": 11.0,
+"width": 56.0
+},
+"layout": {
+"height": 30.0,
+"layers": [{
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 5.0,
+"kind": "hand",
+"rect": [44.0, 0.0, 7.0, 5.0],
+"slot": "primary",
+"width": 7.0,
+"x": 15.0,
+"y": 18.0
+}, {
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 5.0,
+"kind": "cuff",
+"rect": [26.0, 0.0, 4.0, 5.0],
+"slot": "primary",
+"width": 4.0,
+"x": 12.0,
+"y": 19.0
+}, {
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "back",
+"height": 5.0,
+"kind": "hand",
+"rect": [44.0, 0.0, 7.0, 5.0],
+"slot": "support",
+"width": 7.0,
+"x": 33.0,
+"y": 16.0
+}, {
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "back",
+"height": 5.0,
+"kind": "cuff",
+"rect": [26.0, 0.0, 4.0, 5.0],
+"slot": "support",
+"width": 4.0,
+"x": 30.0,
+"y": 17.0
+}],
+"muzzle": [54.0, 10.0],
+"origin": [0, 0],
+"pivot": [15.0, 10.0],
+"weapon": {
+"combat": {
+"burnDamage": 3.0,
+"burnDuration": 1.2,
+"burnInterval": 0.4,
+"color": "#e88b43",
+"damage": 3.0,
+"description": "短程火舌穿透2次；灼烧1.2秒，每0.4秒3基础伤害，重复命中刷新",
+"id": "ember_sprayer",
+"interval": 0.1,
+"knockback": 3.0,
+"lockRange": 225.0,
+"mechanicId": "burning_jet",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.055,
+"muzzleLength": 32.0,
+"muzzleParticles": 2.0,
+"name": "焚尘喷火器",
+"pierce": 2.0,
+"projectileCount": 1.0,
+"projectileSpeed": 440.0,
+"rangeBand": "close",
+"recoil": 0.35,
+"shellColor": "#b18b50",
+"shellLength": 0.0,
+"shellLife": 0.0,
+"spread": 0.0,
+"ttl": 0.52,
+"visualId": "ember-sprayer",
+"weaponClass": "flamethrower"
+},
+"id": "ember_sprayer",
+"name": "焚尘喷火器",
+"version": "fieldcraft-v2",
+"visual": {
+&"asset": "native.ember_sprayer",
+"family": "heavy",
+"height": 30.0,
+"hold": {
+"aimOffsetX": 3.0,
+"chestY": -16.0,
+"upLift": 7.0,
+"upShoulder": 11.0
+},
+"muzzle": [54.0, 10.0],
+"pivot": [15.0, 10.0],
+"primaryGrip": [17.0, 20.0],
+"shapes": [[1.0, 8.0, 54.0, 4.0, "steel"]],
+"supportGrip": [35.0, 18.0],
+"width": 56.0
+}
+},
+"width": 56.0
+}
+},
 "frost_projector": {
 "definition": {
 "combat": {
@@ -5626,6 +6153,185 @@ metadata = {
 "width": 64.0
 }
 },
+"reaper_scythe": {
+"definition": {
+"combat": {
+"activeTime": 0.2,
+"arc": 3.577924966588375,
+"attackType": "slash",
+"blocksProjectiles": true,
+"color": "#c3c7b0",
+"damage": 33.0,
+"description": "116范围、205°宽弧清群；有效段消弹，无远程剑气",
+"id": "reaper_scythe",
+"interval": 0.9,
+"knockback": 56.0,
+"lockRange": 116.0,
+"mechanicId": "slash",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.055,
+"muzzleLength": 32.0,
+"muzzleParticles": 2.0,
+"name": "拾荒战镰",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 1.0,
+"rangeBand": "close",
+"reach": 116.0,
+"recoil": 0.3,
+"recovery": 0.25,
+"shellColor": "#b18b50",
+"shellLength": 0.0,
+"shellLife": 0.0,
+"spread": 0.0,
+"ttl": 0.9,
+"visualId": "reaper-scythe",
+"waveDamage": 0.0,
+"weaponClass": "scythe",
+"windup": 0.22
+},
+"id": "reaper_scythe",
+"name": "拾荒战镰",
+"version": "fieldcraft-v2",
+"visual": {
+&"asset": "native.reaper_scythe",
+"family": "blade",
+"height": 42.0,
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -8.0,
+"upLift": 3.0,
+"upShoulder": 14.0
+},
+"muzzle": [73.0, 20.0],
+"pivot": [15.0, 20.0],
+"primaryGrip": [17.0, 22.0],
+"shapes": [[1.0, 18.0, 74.0, 4.0, "steel"]],
+"supportGrip": [35.0, 22.0],
+"width": 76.0
+}
+},
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -8.0,
+"height": 42.0,
+"muzzle": [73.0, 20.0],
+"pivot": [15.0, 20.0],
+"recoil": 0.3,
+"upLift": 3.0,
+"upShoulder": 14.0,
+"width": 76.0
+},
+"layout": {
+"height": 42.0,
+"layers": [{
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 5.0,
+"kind": "hand",
+"rect": [44.0, 0.0, 7.0, 5.0],
+"slot": "primary",
+"width": 7.0,
+"x": 15.0,
+"y": 20.0
+}, {
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 5.0,
+"kind": "cuff",
+"rect": [26.0, 0.0, 4.0, 5.0],
+"slot": "primary",
+"width": 4.0,
+"x": 12.0,
+"y": 21.0
+}, {
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "back",
+"height": 5.0,
+"kind": "hand",
+"rect": [44.0, 0.0, 7.0, 5.0],
+"slot": "support",
+"width": 7.0,
+"x": 33.0,
+"y": 20.0
+}, {
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "back",
+"height": 5.0,
+"kind": "cuff",
+"rect": [26.0, 0.0, 4.0, 5.0],
+"slot": "support",
+"width": 4.0,
+"x": 30.0,
+"y": 21.0
+}],
+"muzzle": [73.0, 20.0],
+"origin": [0, 0],
+"pivot": [15.0, 20.0],
+"weapon": {
+"combat": {
+"activeTime": 0.2,
+"arc": 3.577924966588375,
+"attackType": "slash",
+"blocksProjectiles": true,
+"color": "#c3c7b0",
+"damage": 33.0,
+"description": "116范围、205°宽弧清群；有效段消弹，无远程剑气",
+"id": "reaper_scythe",
+"interval": 0.9,
+"knockback": 56.0,
+"lockRange": 116.0,
+"mechanicId": "slash",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.055,
+"muzzleLength": 32.0,
+"muzzleParticles": 2.0,
+"name": "拾荒战镰",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 1.0,
+"rangeBand": "close",
+"reach": 116.0,
+"recoil": 0.3,
+"recovery": 0.25,
+"shellColor": "#b18b50",
+"shellLength": 0.0,
+"shellLife": 0.0,
+"spread": 0.0,
+"ttl": 0.9,
+"visualId": "reaper-scythe",
+"waveDamage": 0.0,
+"weaponClass": "scythe",
+"windup": 0.22
+},
+"id": "reaper_scythe",
+"name": "拾荒战镰",
+"version": "fieldcraft-v2",
+"visual": {
+&"asset": "native.reaper_scythe",
+"family": "blade",
+"height": 42.0,
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -8.0,
+"upLift": 3.0,
+"upShoulder": 14.0
+},
+"muzzle": [73.0, 20.0],
+"pivot": [15.0, 20.0],
+"primaryGrip": [17.0, 22.0],
+"shapes": [[1.0, 18.0, 74.0, 4.0, "steel"]],
+"supportGrip": [35.0, 22.0],
+"width": 76.0
+}
+},
+"width": 76.0
+}
+},
 "rust_cleaver": {
 "definition": {
 "combat": {
@@ -6105,6 +6811,189 @@ metadata = {
 }
 },
 "width": 48.0
+}
+},
+"scrap_knuckles": {
+"definition": {
+"combat": {
+"activeTime": 0.075,
+"arc": 0.6632251157578452,
+"attackStyle": "thrust",
+"attackType": "slash",
+"blocksProjectiles": false,
+"color": "#d4bc8d",
+"damage": 11.0,
+"description": "74范围、38°快速前刺；无剑气，不消除敌弹",
+"id": "scrap_knuckles",
+"interval": 0.28,
+"knockback": 12.0,
+"lockRange": 74.0,
+"mechanicId": "slash",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.055,
+"muzzleLength": 32.0,
+"muzzleParticles": 2.0,
+"name": "裂响拳刃",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 1.0,
+"rangeBand": "close",
+"reach": 74.0,
+"recoil": 0.2,
+"recovery": 0.09,
+"restTipReach": 45.0,
+"shellColor": "#b18b50",
+"shellLength": 0.0,
+"shellLife": 0.0,
+"spread": 0.0,
+"ttl": 0.9,
+"visualId": "scrap-knuckles",
+"waveDamage": 0.0,
+"weaponClass": "fist",
+"windup": 0.04
+},
+"id": "scrap_knuckles",
+"name": "裂响拳刃",
+"version": "fieldcraft-v2",
+"visual": {
+&"asset": "native.scrap_knuckles",
+"family": "blade",
+"height": 24.0,
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -8.0,
+"upLift": 3.0,
+"upShoulder": 14.0
+},
+"muzzle": [40.0, 12.0],
+"pivot": [12.0, 12.0],
+"primaryGrip": [13.0, 14.0],
+"shapes": [[1.0, 10.0, 40.0, 4.0, "steel"]],
+"supportGrip": [13.0, 14.0],
+"width": 42.0
+}
+},
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -8.0,
+"height": 24.0,
+"muzzle": [40.0, 12.0],
+"pivot": [12.0, 12.0],
+"recoil": 0.2,
+"upLift": 3.0,
+"upShoulder": 14.0,
+"width": 42.0
+},
+"layout": {
+"height": 24.0,
+"layers": [{
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "front",
+"height": 5.0,
+"kind": "hand",
+"rect": [44.0, 0.0, 7.0, 5.0],
+"slot": "primary",
+"width": 7.0,
+"x": 11.0,
+"y": 12.0
+}, {
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "front",
+"height": 5.0,
+"kind": "cuff",
+"rect": [26.0, 0.0, 4.0, 5.0],
+"slot": "primary",
+"width": 4.0,
+"x": 8.0,
+"y": 13.0
+}, {
+"anchor": [2.0, 2.0],
+"asset": "hands.ranger-cloth",
+"depth": "back",
+"height": 5.0,
+"kind": "hand",
+"rect": [44.0, 0.0, 7.0, 5.0],
+"slot": "support",
+"width": 7.0,
+"x": 11.0,
+"y": 12.0
+}, {
+"anchor": [5.0, 1.0],
+"asset": "cuffs.ranger-coat",
+"depth": "back",
+"height": 5.0,
+"kind": "cuff",
+"rect": [26.0, 0.0, 4.0, 5.0],
+"slot": "support",
+"width": 4.0,
+"x": 8.0,
+"y": 13.0
+}],
+"muzzle": [40.0, 12.0],
+"origin": [0, 0],
+"pivot": [12.0, 12.0],
+"weapon": {
+"combat": {
+"activeTime": 0.075,
+"arc": 0.6632251157578452,
+"attackStyle": "thrust",
+"attackType": "slash",
+"blocksProjectiles": false,
+"color": "#d4bc8d",
+"damage": 11.0,
+"description": "74范围、38°快速前刺；无剑气，不消除敌弹",
+"id": "scrap_knuckles",
+"interval": 0.28,
+"knockback": 12.0,
+"lockRange": 74.0,
+"mechanicId": "slash",
+"muzzleFlashLength": 10.0,
+"muzzleFlashLife": 0.055,
+"muzzleLength": 32.0,
+"muzzleParticles": 2.0,
+"name": "裂响拳刃",
+"pierce": 0.0,
+"projectileCount": 1.0,
+"projectileSpeed": 1.0,
+"rangeBand": "close",
+"reach": 74.0,
+"recoil": 0.2,
+"recovery": 0.09,
+"restTipReach": 45.0,
+"shellColor": "#b18b50",
+"shellLength": 0.0,
+"shellLife": 0.0,
+"spread": 0.0,
+"ttl": 0.9,
+"visualId": "scrap-knuckles",
+"waveDamage": 0.0,
+"weaponClass": "fist",
+"windup": 0.04
+},
+"id": "scrap_knuckles",
+"name": "裂响拳刃",
+"version": "fieldcraft-v2",
+"visual": {
+&"asset": "native.scrap_knuckles",
+"family": "blade",
+"height": 24.0,
+"hold": {
+"aimOffsetX": 9.0,
+"chestY": -8.0,
+"upLift": 3.0,
+"upShoulder": 14.0
+},
+"muzzle": [40.0, 12.0],
+"pivot": [12.0, 12.0],
+"primaryGrip": [13.0, 14.0],
+"shapes": [[1.0, 10.0, 40.0, 4.0, "steel"]],
+"supportGrip": [13.0, 14.0],
+"width": 42.0
+}
+},
+"width": 42.0
 }
 },
 "scrap_pistol": {
@@ -7269,18 +8158,22 @@ metadata = {
 },
 "survival": {
 "gunPrices": {
+"arc_repeater": 27.0,
 "breach_spear": 17.0,
 "breaker_shotgun": 20.0,
 "coil_cannon": 36.0,
 "echo_blade": 16.0,
 "ember_carbine": 24.0,
+"ember_sprayer": 24.0,
 "frost_projector": 22.0,
 "needle_rifle": 26.0,
 "prism_laser": 32.0,
 "ratchet_crossbow": 24.0,
+"reaper_scythe": 21.0,
 "rust_cleaver": 20.0,
 "rust_revolver": 22.0,
 "saw_disc": 26.0,
+"scrap_knuckles": 15.0,
 "scrap_pistol": 12.0,
 "shock_hammer": 22.0,
 "slag_launcher": 28.0,
@@ -12691,6 +13584,21 @@ metadata = {
 },
 "version": "1.5.0-alpha.1",
 "weaponFeedback": {
+"arc_repeater": {
+"angle": 0.7,
+"camera": 0.08,
+"color": "#7fc9dc",
+"core": "#d5f8ef",
+"ejectDelay": 0.0,
+"family": "arc",
+"flash": "arc",
+"impact": "#7fc9dc",
+"kick": 1.4,
+"recovery": 0.055,
+"shell": "none",
+"trail": 13.0,
+"width": 3.0
+},
 "breach_spear": {
 "angle": 0.0,
 "camera": 0.0,
@@ -12766,6 +13674,21 @@ metadata = {
 "trail": 13.0,
 "width": 2.0
 },
+"ember_sprayer": {
+"angle": 0.7,
+"camera": 0.015,
+"color": "#e88b43",
+"core": "#ffe1a0",
+"ejectDelay": 0.0,
+"family": "flame",
+"flash": "flame",
+"impact": "#e88b43",
+"kick": 0.35,
+"recovery": 0.055,
+"shell": "none",
+"trail": 13.0,
+"width": 5.0
+},
 "frost_projector": {
 "angle": 0.018,
 "camera": 0.0,
@@ -12826,6 +13749,21 @@ metadata = {
 "trail": 10.0,
 "width": 3.0
 },
+"reaper_scythe": {
+"angle": 0.0,
+"camera": 0.03,
+"color": "#c3c7b0",
+"core": "#fff0c2",
+"ejectDelay": 0.0,
+"family": "scythe",
+"flash": "none",
+"impact": "#c3c7b0",
+"kick": 0.0,
+"recovery": 0.055,
+"shell": "none",
+"trail": 13.0,
+"width": 3.0
+},
 "rust_cleaver": {
 "angle": 0.0,
 "camera": 0.0,
@@ -12870,6 +13808,21 @@ metadata = {
 "shell": "none",
 "trail": 7.0,
 "width": 8.0
+},
+"scrap_knuckles": {
+"angle": 0.0,
+"camera": 0.03,
+"color": "#d4bc8d",
+"core": "#fff0c2",
+"ejectDelay": 0.0,
+"family": "fist",
+"flash": "none",
+"impact": "#d4bc8d",
+"kick": 0.0,
+"recovery": 0.055,
+"shell": "none",
+"trail": 13.0,
+"width": 2.0
 },
 "scrap_pistol": {
 "angle": 0.65,

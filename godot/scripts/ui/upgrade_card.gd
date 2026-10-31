@@ -19,6 +19,7 @@ var _base_rotation: float = 0.0
 
 
 func _ready() -> void:
+	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	for state: String in ["normal", "hover", "pressed", "focus", "disabled", "hover_pressed"]:
 		add_theme_stylebox_override(state, StyleBoxEmpty.new())
 	focus_mode = Control.FOCUS_ALL
@@ -54,62 +55,76 @@ func _draw() -> void:
 	draw_set_transform_matrix(visual_transform)
 	var active: bool = interaction_active()
 	var tiny: bool = size.y < 170
-	var pad: float = clampf(size.x * 0.075, 10, 22)
 	var family: String = str(option.get("family", "utility"))
 	var styles: Dictionary = catalog.metadata.upgradeStyles
 	var family_style: Dictionary = styles.families.get(family, styles.families.utility)
-	var color := Color(family_style.fill)
-	RadioPaint.surface(self, Rect2(Vector2.ZERO, size), false, true, false, Color("41382a"))
-	RadioPaint.surface(self, Rect2(Vector2(4, 4), size - Vector2(8, 8)), true, false, false,
-		Color("f0dfb7") if active else Color("ddc69a"))
-	draw_rect(Rect2(10, 10, 5, maxf(15, size.y - 20)), Color("766247"))
-	draw_rect(Rect2(pad + 2, 13, size.x - pad * 2 - 4, 20 if tiny else 28), color)
-	fonts.text(self, str(index + 1), Vector2(pad + 10, 23 if tiny else 27),
-		11 if tiny else 15, RadioPaint.WHITE, "left", 900, "mono")
 	var rarity: Dictionary = styles.rarities.get(option.get("rarity", "standard"), styles.rarities.standard)
+	var frame: Texture2D = CombatArt.frame(catalog, family, str(option.get("rarity", "standard")))
+	var lower_template: bool = family == "utility" or option.get("rarity") in ["prototype", "evolution"]
+	if frame != null and not tiny:
+		draw_texture_rect(frame, Rect2(Vector2.ZERO, size), false, Color(1.07, 1.04, 0.97) if active else Color.WHITE)
+	else:
+		RadioPaint.surface(self, Rect2(Vector2.ZERO, size), false, true, false, Color("41382a"))
+		RadioPaint.surface(self, Rect2(Vector2(4, 4), size - Vector2(8, 8)), true, false, false, Color("ddc69a"))
+	var broad_binding: bool = family == "utility" and option.get("rarity") not in ["prototype", "evolution"]
+	var content_x: float = 41 if tiny else size.x * (0.59 if broad_binding else 0.58)
+	var content_width: float = size.x - 88 if tiny else size.x * (0.56 if broad_binding else 0.58)
+	fonts.text(self, str(index + 1), Vector2(size.x * 0.26, 23 if tiny else size.y * 0.085),
+		11 if tiny else 14, RadioPaint.INK, "left", 900, "mono")
 	fonts.fit(self, str(family_style.label) + " / " + str(rarity.label),
-		Vector2(size.x - pad - 10, 23 if tiny else 27), 10 if tiny else 12, size.x - pad * 2 - 35,
-		RadioPaint.WHITE, "right", 800, 9)
-	if not tiny:
-		RadioPaint.paper_clip(self, Vector2(size.x / 2 - 12, 3), 24)
-		draw_rect(Rect2(pad, size.y * 0.14, size.x - pad * 2, size.y * 0.32), Color(0.51, 0.416, 0.247, 0.10))
-		for row: int in range(4):
-			draw_rect(Rect2(pad + 6, size.y * 0.19 + row * 15, 18 + row * 4, 1), Color(0.369, 0.294, 0.176, 0.14))
-	var center := Vector2(41 if tiny else size.x / 2, size.y * (0.6 if tiny else 0.30))
-	var icon_size: float = minf(50, size.y * 0.55) if tiny else minf(minf(size.x * 0.6, size.y * 0.31), 144)
+		Vector2(size.x * 0.88, 23 if tiny else size.y * 0.085), 10 if tiny else 12, size.x * 0.58,
+		RadioPaint.INK, "right", 800, 9)
+	var center := Vector2(content_x, size.y * (0.6 if tiny else 0.285))
+	var icon_size: float = minf(50, size.y * 0.55) if tiny else minf(minf(size.x * 0.64, size.y * 0.25), 148)
 	UpgradeGlyph.paint(self, catalog, option.id, center, icon_size)
-	var text_x: float = 77 if tiny else size.x / 2
+	var text_x: float = 77 if tiny else content_x
 	var alignment: String = "left" if tiny else "center"
-	var available: float = size.x - 88 if tiny else size.x - pad * 2
-	fonts.fit(self, option.name, Vector2(text_x, size.y * (0.49 if tiny else 0.51)),
-		13 if tiny else minf(24, size.x * 0.092), available, RadioPaint.INK, alignment, 900, 10 if tiny else 16)
+	var available: float = content_width
+	fonts.fit(self, option.name, Vector2(text_x, size.y * (0.49 if tiny or lower_template else 0.525)),
+		13 if tiny else minf(23, size.x * 0.086), available, RadioPaint.INK, alignment, 900, 10 if tiny else 15)
 	if not tiny:
-		fonts.text(self, "装 配 效 果", Vector2(size.x / 2, size.y * 0.60), 10, Color("6b583a"), "center", 800)
-	var lines: Array[String] = []
-	var maximum: int = 17 if tiny else maxi(10, floori((size.x - pad * 2) / 15))
-	for part: String in str(option.detail).split(" · "):
-		while not part.is_empty():
-			var count: int = maximum - 1 if part.length() == maximum + 1 else maximum
-			lines.append(part.left(count))
-			part = part.substr(count)
+		fonts.text(self, "装配效果", Vector2(content_x, size.y * 0.59), 10, Color("6b583a"), "center", 800)
+	var detail_size: int = 10 if tiny else 14 if size.x < 260 else 16
+	var lines: Array[String] = _wrap_text(str(option.detail), available, detail_size, 800)
+	while not tiny and lines.size() > 3 and detail_size > 12:
+		detail_size -= 1
+		lines = _wrap_text(str(option.detail), available, detail_size, 800)
 	for row: int in range(mini(3, lines.size())):
-		fonts.fit(self, lines[row], Vector2(text_x, size.y * (0.71 if tiny else 0.68) + row * (13 if tiny else 22)),
-			10 if tiny else 16, available, Color("3e3424"), alignment, 800, 9 if tiny else 12)
+		fonts.text(self, lines[row], Vector2(text_x, size.y * (0.71 if tiny else 0.65) + row * (13 if tiny else ceili(detail_size * fonts.ui_scale) + 4)),
+			detail_size, Color("3e3424"), alignment, 800)
 	if not tiny:
 		var note: String = str(option.get("preview", option.get("flavor", "")))
 		if not note.is_empty() and lines.size() < 3:
-			fonts.fit(self, note, Vector2(size.x / 2, size.y * 0.83), 12, size.x - pad * 2, Color("685334"), "center", 700, 10)
-		var footer: float = size.y - 43
-		draw_rect(Rect2(pad, footer - 5, size.x - pad * 2, 1), Color("aa9064"))
+			var notes: Array[String] = _wrap_text(note, content_width, 12, 700)
+			for row: int in range(mini(2, notes.size())):
+				fonts.text(self, notes[row], Vector2(content_x, size.y * 0.76 + row * 14), 12, Color("685334"), "center", 700)
+		var footer: float = size.y * (0.865 if lower_template else 0.89)
+		var pale_footer: bool = option.get("rarity") == "prototype"
 		fonts.text(self, "可重复 · 第%d次" % (level + 1) if option.get("repeatable", false) else "装配 %d/%d" % [mini(level + 1, int(option.max)), option.max],
-			Vector2(pad, footer + 13), 12, Color("513f29"), "left", 900)
+			Vector2(size.x * 0.36, footer), 11, RadioPaint.INK if pale_footer else Color("f0ddae"), "left", 900)
 		var count: int = 0 if option.get("repeatable", false) else mini(8, int(option.max))
 		var pip: float = minf(8, (size.x * 0.43 - count * 3) / maxi(1, count))
 		for item: int in range(count):
-			draw_rect(Rect2(size.x - pad - (count - item) * (pip + 3), footer + 8, pip, 8), color if item <= level else Color("b6a17a"))
+			draw_rect(Rect2(size.x * 0.88 - (count - item) * (pip + 3), footer - 3, pip, 6), (Color("9d743b") if pale_footer else Color("eac67e")) if item <= level else Color("796d53"))
 	if active:
-		RadioPaint.focus_ink(self, Rect2(Vector2(9, 5), size - Vector2(18, 12)), Color(family_style.dark), 3)
+		RadioPaint.focus_ink(self, Rect2(Vector2(9, 5), size - Vector2(18, 12)), Color("e2bc73"), 3)
 	draw_set_transform_matrix(Transform2D.IDENTITY)
+
+
+func _wrap_text(value: String, width: float, font_size: int, weight: int) -> Array[String]:
+	var result: Array[String] = []
+	var font: Font = fonts.font_for("ui", weight)
+	var pixels: int = roundi(maxf(11, font_size * fonts.ui_scale))
+	for part: String in value.split(" · "):
+		var line: String = ""
+		for character: String in part:
+			if not line.is_empty() and font.get_string_size(line + character, HORIZONTAL_ALIGNMENT_LEFT, -1, pixels).x > width:
+				result.append(line)
+				line = ""
+			line += character
+		if not line.is_empty():
+			result.append(line)
+	return result
 
 
 func interaction_active() -> bool:
