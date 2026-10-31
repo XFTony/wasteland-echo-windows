@@ -1,6 +1,6 @@
 {
   "format": 1,
-  "generatedAt": "2026-10-31T03:47:30.060Z",
+  "generatedAt": "2026-10-31T04:08:34.183Z",
   "authority": "godot is active; original implementation retained as reference",
   "scanPolicy": {
     "excludedGeneratedOutputs": [
@@ -25,8 +25,8 @@
     "duplicatePolicy": "Exact-byte groups are evidence, never automatic deletion permission"
   },
   "summary": {
-    "measuredFiles": 4489,
-    "measuredBytes": 3276750371,
+    "measuredFiles": 4505,
+    "measuredBytes": 3680712963,
     "opaqueDirectories": 10,
     "nativeMaterialFiles": 166,
     "nativeMaterialBytes": 17998026,
@@ -129,7 +129,7 @@
       "purpose": "标明当前原生版入口、历史版本与主要文档",
       "policy": "随开发主线更新，避免指向旧包",
       "measuredFiles": 1,
-      "measuredBytes": 22845,
+      "measuredBytes": 22898,
       "partial": false,
       "opaqueChildren": []
     },
@@ -149,7 +149,7 @@
       "purpose": "原图、分层、原采样、生成记录及历史动作研究",
       "policy": "源与来源记录提交；历史不等于活动素材",
       "measuredFiles": 331,
-      "measuredBytes": 259215401,
+      "measuredBytes": 259216547,
       "partial": false,
       "opaqueChildren": []
     },
@@ -169,7 +169,7 @@
       "purpose": "规范、计划、评审、许可、QA摘要",
       "policy": "提交可长期参考的文档，避免完整重复截图",
       "measuredFiles": 150,
-      "measuredBytes": 6620564,
+      "measuredBytes": 6621634,
       "partial": false,
       "opaqueChildren": []
     },
@@ -190,8 +190,8 @@
       "category": "原生活动项目",
       "purpose": "后续运行代码、场景、Resource和活动素材的开发主目录",
       "policy": "提交源码/素材/UID/import设置；忽略.godot和builds",
-      "measuredFiles": 707,
-      "measuredBytes": 25306257,
+      "measuredFiles": 709,
+      "measuredBytes": 25311431,
       "partial": true,
       "opaqueChildren": [
         "godot/.godot"
@@ -214,8 +214,8 @@
       "category": "可再生输出/本地构建",
       "purpose": "截图、录屏、包、SDK模板、QA产物",
       "policy": "不进Git；确认来源和可重建方法后才考虑清理",
-      "measuredFiles": 2707,
-      "measuredBytes": 2904643900,
+      "measuredFiles": 2721,
+      "measuredBytes": 3308595833,
       "partial": true,
       "opaqueChildren": [
         "output/godot-evaluation-2026-10-29/mcp/node_modules",
@@ -259,7 +259,7 @@
       "purpose": "导出、素材制作、构建、检查脚本",
       "policy": "提交工具，不把开发工具依赖带入运行包",
       "measuredFiles": 159,
-      "measuredBytes": 1176120,
+      "measuredBytes": 1179336,
       "partial": false,
       "opaqueChildren": []
     },
@@ -393,8 +393,8 @@
   "gitStorage": {
     "source": "git count-objects -v (aggregate only)",
     "counters": {
-      "count": "463",
-      "size": "21083",
+      "count": "515",
+      "size": "21254",
       "in-pack": "3323",
       "packs": "4",
       "size-pack": "319436",
@@ -402,7 +402,7 @@
       "garbage": "0",
       "size-garbage": "0"
     },
-    "allocatedObjectBytes": 348691456,
+    "allocatedObjectBytes": 348866560,
     "directoryTotalMeasured": false
   },
   "runtimeAssets": [
@@ -7141,12 +7141,14 @@
       "sourceEvidence": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "sourceEvidenceExisting": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "provenanceRecord": "art/combat/fieldcraft-v2/manifest.json",
       "generator": "OpenAI built-in ImageGen for original bitmap art; project-original offline audio synthesis",
@@ -7192,12 +7194,14 @@
       "sourceEvidence": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "sourceEvidenceExisting": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "provenanceRecord": "art/combat/fieldcraft-v2/manifest.json",
       "generator": "OpenAI built-in ImageGen for original bitmap art; project-original offline audio synthesis",
@@ -7243,12 +7247,14 @@
       "sourceEvidence": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "sourceEvidenceExisting": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "provenanceRecord": "art/combat/fieldcraft-v2/manifest.json",
       "generator": "OpenAI built-in ImageGen for original bitmap art; project-original offline audio synthesis",
@@ -7294,12 +7300,14 @@
       "sourceEvidence": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "sourceEvidenceExisting": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "provenanceRecord": "art/combat/fieldcraft-v2/manifest.json",
       "generator": "OpenAI built-in ImageGen for original bitmap art; project-original offline audio synthesis",
@@ -7345,12 +7353,14 @@
       "sourceEvidence": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "sourceEvidenceExisting": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "provenanceRecord": "art/combat/fieldcraft-v2/manifest.json",
       "generator": "OpenAI built-in ImageGen for original bitmap art; project-original offline audio synthesis",
@@ -7396,12 +7406,14 @@
       "sourceEvidence": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "sourceEvidenceExisting": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "provenanceRecord": "art/combat/fieldcraft-v2/manifest.json",
       "generator": "OpenAI built-in ImageGen for original bitmap art; project-original offline audio synthesis",
@@ -7447,12 +7459,14 @@
       "sourceEvidence": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "sourceEvidenceExisting": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "provenanceRecord": "art/combat/fieldcraft-v2/manifest.json",
       "generator": "OpenAI built-in ImageGen for original bitmap art; project-original offline audio synthesis",
@@ -7498,12 +7512,14 @@
       "sourceEvidence": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "sourceEvidenceExisting": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "provenanceRecord": "art/combat/fieldcraft-v2/manifest.json",
       "generator": "OpenAI built-in ImageGen for original bitmap art; project-original offline audio synthesis",
@@ -7549,12 +7565,14 @@
       "sourceEvidence": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "sourceEvidenceExisting": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "provenanceRecord": "art/combat/fieldcraft-v2/manifest.json",
       "generator": "OpenAI built-in ImageGen for original bitmap art; project-original offline audio synthesis",
@@ -7600,12 +7618,14 @@
       "sourceEvidence": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "sourceEvidenceExisting": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "provenanceRecord": "art/combat/fieldcraft-v2/manifest.json",
       "generator": "OpenAI built-in ImageGen for original bitmap art; project-original offline audio synthesis",
@@ -7651,12 +7671,14 @@
       "sourceEvidence": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "sourceEvidenceExisting": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "provenanceRecord": "art/combat/fieldcraft-v2/manifest.json",
       "generator": "OpenAI built-in ImageGen for original bitmap art; project-original offline audio synthesis",
@@ -7702,12 +7724,14 @@
       "sourceEvidence": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "sourceEvidenceExisting": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "provenanceRecord": "art/combat/fieldcraft-v2/manifest.json",
       "generator": "OpenAI built-in ImageGen for original bitmap art; project-original offline audio synthesis",
@@ -7753,12 +7777,14 @@
       "sourceEvidence": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "sourceEvidenceExisting": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "provenanceRecord": "art/combat/fieldcraft-v2/manifest.json",
       "generator": "OpenAI built-in ImageGen for original bitmap art; project-original offline audio synthesis",
@@ -11566,7 +11592,7 @@
     },
     {
       "path": "art/combat/fieldcraft-v2/manifest.json",
-      "bytes": 45964,
+      "bytes": 46757,
       "extension": ".json",
       "contentReadBlocked": false,
       "tracked": true
@@ -11580,7 +11606,7 @@
     },
     {
       "path": "art/combat/fieldcraft-v2/README.md",
-      "bytes": 2169,
+      "bytes": 2522,
       "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
@@ -13498,7 +13524,7 @@
     },
     {
       "path": "docs/assets-ledger.csv",
-      "bytes": 92108,
+      "bytes": 92771,
       "extension": ".csv",
       "contentReadBlocked": false,
       "tracked": true
@@ -14009,7 +14035,7 @@
     },
     {
       "path": "docs/qa/fieldcraft-validation.md",
-      "bytes": 6212,
+      "bytes": 6358,
       "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
@@ -14457,7 +14483,7 @@
     },
     {
       "path": "docs/versioning-and-release.md",
-      "bytes": 9244,
+      "bytes": 9505,
       "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
@@ -18349,7 +18375,7 @@
     },
     {
       "path": "godot/export_presets.cfg",
-      "bytes": 1481,
+      "bytes": 1525,
       "extension": ".cfg",
       "contentReadBlocked": false,
       "tracked": true
@@ -18370,7 +18396,7 @@
     },
     {
       "path": "godot/migration_status.json",
-      "bytes": 7273,
+      "bytes": 7299,
       "extension": ".json",
       "contentReadBlocked": false,
       "tracked": true
@@ -18384,7 +18410,7 @@
     },
     {
       "path": "godot/README.md",
-      "bytes": 5197,
+      "bytes": 5635,
       "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
@@ -19153,6 +19179,20 @@
       "tracked": true
     },
     {
+      "path": "godot/scripts/tools/calibrate_fieldcraft_grips.gd",
+      "bytes": 2521,
+      "extension": ".gd",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "godot/scripts/tools/calibrate_fieldcraft_grips.gd.uid",
+      "bytes": 20,
+      "extension": ".uid",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
       "path": "godot/scripts/tools/check_version.gd",
       "bytes": 370,
       "extension": ".gd",
@@ -19420,7 +19460,7 @@
     },
     {
       "path": "godot/scripts/ui/upgrade_card.gd",
-      "bytes": 6903,
+      "bytes": 7032,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -19602,7 +19642,7 @@
     },
     {
       "path": "godot/tests/fieldcraft_review.gd",
-      "bytes": 9032,
+      "bytes": 9810,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -19616,7 +19656,7 @@
     },
     {
       "path": "godot/tests/fieldcraft_test.gd",
-      "bytes": 15027,
+      "bytes": 16245,
       "extension": ".gd",
       "contentReadBlocked": false,
       "tracked": true
@@ -27910,6 +27950,41 @@
       "tracked": false
     },
     {
+      "path": "output/fieldcraft-v2/grip-calibration-engine.log",
+      "bytes": 2256,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/fieldcraft-v2/grip-calibration.log",
+      "bytes": 2259,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/fieldcraft-v2/grip-inspect-engine.log",
+      "bytes": 2281,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/fieldcraft-v2/grips-final-engine.log",
+      "bytes": 241,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/fieldcraft-v2/grips-final.log",
+      "bytes": 245,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
       "path": "output/fieldcraft-v2/import-engine.log",
       "bytes": 1164,
       "extension": ".log",
@@ -27995,7 +28070,7 @@
     },
     {
       "path": "output/fieldcraft-v2/review/attack-reaper_scythe.png",
-      "bytes": 1139398,
+      "bytes": 1139209,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
@@ -28023,35 +28098,35 @@
     },
     {
       "path": "output/fieldcraft-v2/review/card-gallery-00.png",
-      "bytes": 1311742,
+      "bytes": 1312361,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/fieldcraft-v2/review/card-gallery-01.png",
-      "bytes": 1322898,
+      "bytes": 1322928,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/fieldcraft-v2/review/card-gallery-02.png",
-      "bytes": 1229603,
+      "bytes": 1229587,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/fieldcraft-v2/review/card-gallery-03.png",
-      "bytes": 1316440,
+      "bytes": 1317128,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/fieldcraft-v2/review/card-gallery-04.png",
-      "bytes": 1318927,
+      "bytes": 1319186,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
@@ -28065,7 +28140,7 @@
     },
     {
       "path": "output/fieldcraft-v2/review/card-gallery-06.png",
-      "bytes": 1316432,
+      "bytes": 1317324,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
@@ -28079,21 +28154,21 @@
     },
     {
       "path": "output/fieldcraft-v2/review/card-gallery-08.png",
-      "bytes": 1323815,
+      "bytes": 1324278,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/fieldcraft-v2/review/card-gallery-09.png",
-      "bytes": 1347075,
+      "bytes": 1347974,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/fieldcraft-v2/review/card-gallery-10.png",
-      "bytes": 1078108,
+      "bytes": 1078519,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
@@ -28177,7 +28252,7 @@
     },
     {
       "path": "output/fieldcraft-v2/review/grips-1.png",
-      "bytes": 184217,
+      "bytes": 181877,
       "extension": ".png",
       "contentReadBlocked": false,
       "tracked": false
@@ -28317,7 +28392,7 @@
     },
     {
       "path": "output/fieldcraft-v2/review.html",
-      "bytes": 8971,
+      "bytes": 8952,
       "extension": ".html",
       "contentReadBlocked": false,
       "tracked": false
@@ -28333,6 +28408,20 @@
       "path": "output/fieldcraft-v2/tests.json",
       "bytes": 267,
       "extension": ".json",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/fieldcraft-v2/uid-import-engine.log",
+      "bytes": 1059,
+      "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/fieldcraft-v2/uid-import.log",
+      "bytes": 1496,
+      "extension": ".log",
       "contentReadBlocked": false,
       "tracked": false
     },
@@ -28361,6 +28450,41 @@
       "path": "output/fieldcraft-v2/visual.log",
       "bytes": 353,
       "extension": ".log",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/fieldcraft-v2/windows/build-manifest.json",
+      "bytes": 367,
+      "extension": ".json",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/fieldcraft-v2/windows/COPYRIGHT-Godot.txt",
+      "bytes": 100108,
+      "extension": ".txt",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/fieldcraft-v2/windows/LICENSE-Godot.txt",
+      "bytes": 1149,
+      "extension": ".txt",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/fieldcraft-v2/windows/SHA256SUMS.txt",
+      "bytes": 84,
+      "extension": ".txt",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/fieldcraft-v2/windows/WastelandEcho.exe",
+      "bytes": 134598968,
+      "extension": ".exe",
       "contentReadBlocked": false,
       "tracked": false
     },
@@ -30102,14 +30226,14 @@
     },
     {
       "path": "output/godot-migration/export-engine.log",
-      "bytes": 69138,
+      "bytes": 87947,
       "extension": ".log",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/export.log",
-      "bytes": 85415,
+      "bytes": 108279,
       "extension": ".log",
       "contentReadBlocked": false,
       "tracked": false
@@ -30872,14 +30996,14 @@
     },
     {
       "path": "output/godot-migration/package-engine.log",
-      "bytes": 207,
+      "bytes": 226,
       "extension": ".log",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/package-smoke.json",
-      "bytes": 497,
+      "bytes": 573,
       "extension": ".json",
       "contentReadBlocked": false,
       "tracked": false
@@ -30893,7 +31017,7 @@
     },
     {
       "path": "output/godot-migration/package-stdout.log",
-      "bytes": 210,
+      "bytes": 229,
       "extension": ".log",
       "contentReadBlocked": false,
       "tracked": false
@@ -31529,9 +31653,23 @@
       "tracked": false
     },
     {
+      "path": "output/godot-migration/windows/staging-ea0755a3ae784f12bd215ee4b051b60f/WastelandEcho.exe",
+      "bytes": 134598968,
+      "extension": ".exe",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
       "path": "output/godot-migration/windows/WastelandEcho.exe",
       "bytes": 132585992,
       "extension": ".exe",
+      "contentReadBlocked": false,
+      "tracked": false
+    },
+    {
+      "path": "output/godot-migration/windows/WastelandEcho.tmp",
+      "bytes": 134598968,
+      "extension": ".tmp",
       "contentReadBlocked": false,
       "tracked": false
     },
@@ -38712,7 +38850,7 @@
     },
     {
       "path": "README.md",
-      "bytes": 22845,
+      "bytes": 22898,
       "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
@@ -38950,7 +39088,7 @@
     },
     {
       "path": "scripts/assets/register-fieldcraft.mjs",
-      "bytes": 4623,
+      "bytes": 4750,
       "extension": ".mjs",
       "contentReadBlocked": false,
       "tracked": true
@@ -39328,7 +39466,7 @@
     },
     {
       "path": "scripts/godot/build-windows.ps1",
-      "bytes": 3679,
+      "bytes": 5738,
       "extension": ".ps1",
       "contentReadBlocked": false,
       "tracked": true
@@ -39405,7 +39543,7 @@
     },
     {
       "path": "scripts/godot/report-fieldcraft.mjs",
-      "bytes": 15158,
+      "bytes": 15635,
       "extension": ".mjs",
       "contentReadBlocked": false,
       "tracked": true
@@ -39454,7 +39592,7 @@
     },
     {
       "path": "scripts/godot/verify-package.ps1",
-      "bytes": 2712,
+      "bytes": 3265,
       "extension": ".ps1",
       "contentReadBlocked": false,
       "tracked": true

@@ -69,10 +69,11 @@ func _draw() -> void:
 	var broad_binding: bool = family == "utility" and option.get("rarity") not in ["prototype", "evolution"]
 	var content_x: float = 41 if tiny else size.x * (0.59 if broad_binding else 0.58)
 	var content_width: float = size.x - 88 if tiny else size.x * (0.56 if broad_binding else 0.58)
-	fonts.text(self, str(index + 1), Vector2(size.x * 0.26, 23 if tiny else size.y * 0.085),
+	var header_y: float = 23 if tiny else size.y * (0.085 if lower_template else 0.12)
+	fonts.text(self, str(index + 1), Vector2(size.x * 0.26, header_y),
 		11 if tiny else 14, RadioPaint.INK, "left", 900, "mono")
 	fonts.fit(self, str(family_style.label) + " / " + str(rarity.label),
-		Vector2(size.x * 0.88, 23 if tiny else size.y * 0.085), 10 if tiny else 12, size.x * 0.58,
+		Vector2(size.x * 0.88, header_y), 10 if tiny else 12, size.x * 0.58,
 		RadioPaint.INK, "right", 800, 9)
 	var center := Vector2(content_x, size.y * (0.6 if tiny else 0.285))
 	var icon_size: float = minf(50, size.y * 0.55) if tiny else minf(minf(size.x * 0.64, size.y * 0.25), 148)
@@ -83,21 +84,21 @@ func _draw() -> void:
 	fonts.fit(self, option.name, Vector2(text_x, size.y * (0.49 if tiny or lower_template else 0.525)),
 		13 if tiny else minf(23, size.x * 0.086), available, RadioPaint.INK, alignment, 900, 10 if tiny else 15)
 	if not tiny:
-		fonts.text(self, "装配效果", Vector2(content_x, size.y * 0.59), 10, Color("6b583a"), "center", 800)
+		fonts.text(self, "装配效果", Vector2(content_x, size.y * (0.59 if lower_template else 0.625)), 10, Color("6b583a"), "center", 800)
 	var detail_size: int = 10 if tiny else 14 if size.x < 260 else 16
 	var lines: Array[String] = _wrap_text(str(option.detail), available, detail_size, 800)
 	while not tiny and lines.size() > 3 and detail_size > 12:
 		detail_size -= 1
 		lines = _wrap_text(str(option.detail), available, detail_size, 800)
 	for row: int in range(mini(3, lines.size())):
-		fonts.text(self, lines[row], Vector2(text_x, size.y * (0.71 if tiny else 0.65) + row * (13 if tiny else ceili(detail_size * fonts.ui_scale) + 4)),
+		fonts.text(self, lines[row], Vector2(text_x, size.y * (0.71 if tiny else 0.65 if lower_template else 0.68) + row * (13 if tiny else ceili(detail_size * fonts.ui_scale) + 4)),
 			detail_size, Color("3e3424"), alignment, 800)
 	if not tiny:
 		var note: String = str(option.get("preview", option.get("flavor", "")))
 		if not note.is_empty() and lines.size() < 3:
 			var notes: Array[String] = _wrap_text(note, content_width, 12, 700)
 			for row: int in range(mini(2, notes.size())):
-				fonts.text(self, notes[row], Vector2(content_x, size.y * 0.76 + row * 14), 12, Color("685334"), "center", 700)
+				fonts.text(self, notes[row], Vector2(content_x, size.y * (0.76 if lower_template else 0.78) + row * 14), 12, Color("685334"), "center", 700)
 		var footer: float = size.y * (0.865 if lower_template else 0.89)
 		var pale_footer: bool = option.get("rarity") == "prototype"
 		fonts.text(self, "可重复 · 第%d次" % (level + 1) if option.get("repeatable", false) else "装配 %d/%d" % [mini(level + 1, int(option.max)), option.max],

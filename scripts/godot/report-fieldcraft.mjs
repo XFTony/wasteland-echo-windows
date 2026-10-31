@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import assert from "node:assert/strict";
+import { execFileSync } from "node:child_process";
 const root = path.resolve(import.meta.dirname, "../..");
 const read = file => JSON.parse(fs.readFileSync(path.join(root, file), "utf8"));
 const write = (file, value) => { fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); fs.writeFileSync(path.join(root, file), value); };
@@ -20,7 +21,8 @@ let pack = null;
 if (fs.existsSync(path.join(root, "output/godot-migration/package-smoke.json"))) {
   const p = read("output/godot-migration/package-smoke.json");
   const m = read((p.packagePath || "output/godot-migration/windows") + "/build-manifest.json");
-  if (p.passed && p.report.weapons === 20 && p.report.fieldcraftArt === 69 && p.sha256 === m.sha256 && p.sourceCommit === m.sourceCommit && !m.sourceDirty) pack = { ...p, bytes: m.bytes, version: m.version };
+  const runtimeDiff = execFileSync("git", ["diff", "--name-only", m.sourceCommit, "--", "godot/assets", "godot/content", "godot/scenes", "godot/scripts", "godot/project.godot", "godot/export_presets.cfg"], {cwd:root,encoding:"utf8",windowsHide:true});
+  if (!runtimeDiff.trim() && p.passed && p.report.weapons === 20 && p.report.fieldcraftArt === 69 && p.sha256 === m.sha256 && p.sourceCommit === m.sourceCommit && !m.sourceDirty) pack = { ...p, bytes: m.bytes, version: m.version };
 }
 const runtimeFiles = ["godot/content/game_catalog.tres", "godot/scripts/core/status_weapon_rules.gd", "godot/scripts/core/combat_system.gd", "godot/scripts/core/entity_pool.gd", "godot/scripts/presentation/combat_art.gd", "godot/scripts/presentation/combat_impacts.gd", "godot/scripts/presentation/world_view.gd", "godot/scripts/presentation/character_visual.gd", "godot/scripts/ui/upgrade_card.gd", "godot/scripts/ui/item_presentation.gd"];
 const hashes = Object.fromEntries(runtimeFiles.map(file => [file, crypto.createHash("sha256").update(fs.readFileSync(path.join(root, file))).digest("hex")]));

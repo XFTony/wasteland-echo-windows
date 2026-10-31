@@ -42,7 +42,7 @@
     "2026-10-31: 164 native definitions, 20 weapons, 42 upgrades; original 137 content IDs retained",
     "Foundation 125283 comparisons; unchanged legacy combat 72 scenarios, 248 checkpoints, 154069 comparisons",
     "Survival builds 499 checks; 42 actual upgrade state changes and 14 ranged weapons in eight multishot directions",
-    "Fieldcraft 313 checks: 69 decoded bitmap assets, 42 unique upgrade illustrations, 13 refined/new weapon textures and 8 four-frame death strips",
+    "Fieldcraft 326 checks: 69 decoded bitmap assets, 42 unique upgrade illustrations, 13 refined/new weapon textures and 8 four-frame death strips",
     "Existing 16 weapon stats retained; new burn and limited chain ownership, walls, melee directions and pooled status cleanup verified",
     "30 decoded audio assets; input/audio 60 checks, runtime 12, save transfer 10, map art 58, native UI interaction 155",
     "Menu 24 layouts and 208 action regions; battle 28 layouts and 196 regions; previous/next pagination roles preserve both hit rectangles",
@@ -53,7 +53,7 @@
   "inProgress": [
     "Human opening-pressure and new-weapon balance review; other two maps normal-build strategies not yet reviewed",
     "Windows rendered long-session profiling, cold-load spikes and memory trends",
-    "Full hero/outfit/weapon-direction and non-default UI visual review",
+    "Non-default hero/outfit direction visual review; ranger-default 104 refined/new poses reviewed",
     "Native gamepad focus, shortcuts and rumble implemented; physical-device verification pending",
     "1080p text sampling and OS reduced-motion behavior"
   ],
@@ -72,7 +72,7 @@
   "assetAuthority": "godot/assets and native Resource definitions; original web assets remain reference/rollback",
   "entryPoints": {
     "development": "启动Godot开发版.cmd",
-    "windows": "output/godot-migration/windows/WastelandEcho.exe",
+    "windows": "output/fieldcraft-v2/windows/WastelandEcho.exe",
     "saveTransfer": "Godot存档导入与备份.cmd"
   },
   "latestVisualIteration": {

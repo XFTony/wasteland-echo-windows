@@ -4,7 +4,7 @@
 
 ## 开始体验
 
-- 独立程序：`../output/godot-migration/windows/WastelandEcho.exe`，双击即可，不需要安装 Godot、Node.js 或浏览器。
+- 当前独立程序：`../output/fieldcraft-v2/windows/WastelandEcho.exe`，双击即可，不需要安装 Godot、Node.js 或浏览器。先正常退出正在游玩的旧版，再启动新版，避免两个窗口同时写入个人进度；旧包保留作回退。
 - 源码开发：双击根目录的 `启动Godot开发版.cmd`，或用 Godot 4.7.2 打开本目录 `project.godot` 后按 F5。首次导入缓存由 Godot 创建，原生项目所需素材已入 Git。
 - 旧进度导入：双击根目录 `Godot存档导入与备份.cmd`。选择旧版导出的 JSON，先核对预览，再确认导入；新版原有进度会自动备份。工具不扫描、修改原版 WebView2 内部数据。
 
@@ -36,6 +36,8 @@ node scripts/godot/verify-native.mjs
 检查器同时核对退出码、日志错误和报告标记，覆盖基础/存档、战斗、实际组合根、原生输入/音频、存档工具及地图美术交互。区域比较脚本为 `verify-ui-regions.mjs` 和 `verify-battle-regions.mjs`；截图和完整日志位于根目录 `output/godot-migration/`，本轮地图局部验收在 `output/map-art/`。
 
 Windows 模板固定为官方 4.7.2，下载归档及提取文件均核对 SHA256。首次准备使用 `scripts/godot/prepare-windows-templates.ps1 -ResumeDownload`；构建运行 `scripts/godot/build-windows.ps1`。模板、导入缓存、大包和完整截图不进 Git；构建记录来源提交、脏工作区、SHA256及许可文件，并核对版本一致性。
+
+旧版运行时不能覆盖其exe。本轮使用 `build-windows.ps1 -DestinationDirectory output/fieldcraft-v2/windows` 和 `verify-package.ps1 -PackagePath output/fieldcraft-v2/windows`。构建先导出到新临时目录，成功后复制并复算SHA，不再直接在运行中的程序路径上导出。
 
 构建后运行 `scripts/godot/verify-package.ps1`，自动核对干净源码记录、包的SHA、三地图、四地图图集、59张Catalog图片、69张本轮贴图、30音频和20武器。它使用隔离测试存储，带超时退出；不代替真实窗口/DPI/手柄/长局验收。本轮设计见 `../docs/design/fieldcraft-combat-art-plan.md`、核验边界见 `../docs/qa/fieldcraft-validation.md`。`install_fieldcraft_content.gd`用于首次安装本工作包，重复默认保留；`--apply-design`才显式重应用。原稿、提示词与裁切工具见 `../art/combat/fieldcraft-v2/README.md`。
 

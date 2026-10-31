@@ -20,6 +20,28 @@ func _run() -> void:
 	session.save_data.settings.autoFire = false
 	session.save_data.settings.autoAim = false
 	session.save_data.settings.flashes = "off"
+	if "--grips-only" in OS.get_cmdline_user_args():
+		var model: RunSimulation = _fresh("reaper_scythe")
+		await _grip_gallery()
+		model = _fresh("reaper_scythe")
+		var target: Dictionary = model.spawn_enemy("drifter", float(model.run.player.x) + 83, float(model.run.player.y) - 12)
+		target.hp = 1000
+		target.speed = 0
+		model.fire_weapon(1, 0)
+		var world: WorldView = _game.get("world")
+		for step: int in range(17):
+			model.tick(1.0 / 60)
+			world.consume(model.drain_events())
+		world.synchronize()
+		await _capture("attack-reaper_scythe")
+		var audio: NativeAudio = _game.get("audio")
+		audio.shutdown()
+		_game.queue_free()
+		await process_frame
+		await create_timer(0.25).timeout
+		print("FIELDCRAFT_GRIP_REVIEW 104 poses and corrected scythe attack")
+		quit()
+		return
 	if "--extra-ui" in OS.get_cmdline_user_args():
 		await _extra_ui()
 		var audio: NativeAudio = _game.get("audio")

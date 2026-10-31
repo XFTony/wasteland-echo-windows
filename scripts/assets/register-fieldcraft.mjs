@@ -17,6 +17,7 @@ const add = (id, type, resource, source) => {
   const runtime = "godot/" + resource.slice("res://".length);
   assets.push({ id: "fieldcraft." + id, type, runtime, sourcePaths: [source, `${folder}/prompts.json`, "godot/scripts/tools/prepare_fieldcraft_art.gd"],
     bytes: fs.statSync(path.join(root, runtime)).size, sha256: digest(runtime), processing: "Grid crop, alpha-threshold bounds, nearest-neighbor scale and logical muzzle alignment; no geometry-drawn replacement" });
+  if (type === "independent-weapon-body") assets.at(-1).sourcePaths.push("godot/scripts/tools/calibrate_fieldcraft_grips.gd");
 };
 design.art.frames.forEach((file, index) => add(`frame.${index}`, "card-frame", file, `${folder}/sources/cards.png`));
 for (const [id, file] of Object.entries(design.art.upgradeTextures)) add(`upgrade.${id}`, "upgrade-illustration", file, `${folder}/sources/icons-${groups.findIndex(g => g.includes(id))}.png`);

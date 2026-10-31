@@ -68,7 +68,7 @@
       "weapons": 20
     },
     "fieldcraft": {
-      "checks": 313,
+      "checks": 326,
       "deathTypes": 8,
       "decodedArtBytes": 6919488,
       "failures": [],
@@ -113,7 +113,7 @@
   },
   "package": null,
   "evidenceHashes": {
-    "godot/content/game_catalog.tres": "06e7770a433f1af23cbd6b94a2d2c2d257aa549bfe44f1370fcd73082ff453a1",
+    "godot/content/game_catalog.tres": "b8fe35c8420c82b5c1137248916453eea313b75f2d19eb8e3031ac2e2ffee8a5",
     "godot/scripts/core/status_weapon_rules.gd": "0f1bcb566ce5ef52b9c1ef3ea1a0fff6d6640a2fa5c321ce4769425c983cae47",
     "godot/scripts/core/combat_system.gd": "a6270a5e8b6d652f60a624af703c3576cfab62b1185b2634252c88223a08e350",
     "godot/scripts/core/entity_pool.gd": "547b6a007320be99b9216d27b667b83c40af082ae6d3dac84b5b63cf53e9562b",
@@ -121,7 +121,7 @@
     "godot/scripts/presentation/combat_impacts.gd": "179e685e608b458abb6863e1d48ad308eeb263f048521f86c5574e1a811230ec",
     "godot/scripts/presentation/world_view.gd": "956663490f6d3cfad5853a43bb377d34f1f7862d936af717db162c4cb5744453",
     "godot/scripts/presentation/character_visual.gd": "353facf0de7806e68cac984ea0266c3f1161f1db95f8640eaeda7558fab08cc5",
-    "godot/scripts/ui/upgrade_card.gd": "a7f41d28e4adbd622dfabb6157cd37a5eafc6022de4f582ad204c1a522ffc933",
+    "godot/scripts/ui/upgrade_card.gd": "dbd067e3c5d9901530c4243fee018563d02e8172098efe46caf1af66e7e1e6cc",
     "godot/scripts/ui/item_presentation.gd": "0d1cb26b4d0498c68a21c86aa39fc2b67d32bd52d6ac88e34dcd534b716f3e3f"
   },
   "humanAcceptance": {

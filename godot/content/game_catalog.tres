@@ -6233,8 +6233,8 @@ metadata = {
 "rect": [44.0, 0.0, 7.0, 5.0],
 "slot": "primary",
 "width": 7.0,
-"x": 15.0,
-"y": 20.0
+"x": 14.0,
+"y": 16.0
 }, {
 "anchor": [5.0, 1.0],
 "asset": "cuffs.ranger-coat",
@@ -6244,8 +6244,8 @@ metadata = {
 "rect": [26.0, 0.0, 4.0, 5.0],
 "slot": "primary",
 "width": 4.0,
-"x": 12.0,
-"y": 21.0
+"x": 11.0,
+"y": 17.0
 }, {
 "anchor": [2.0, 2.0],
 "asset": "hands.ranger-cloth",
@@ -6255,8 +6255,8 @@ metadata = {
 "rect": [44.0, 0.0, 7.0, 5.0],
 "slot": "support",
 "width": 7.0,
-"x": 33.0,
-"y": 20.0
+"x": 32.0,
+"y": 15.0
 }, {
 "anchor": [5.0, 1.0],
 "asset": "cuffs.ranger-coat",
@@ -6266,8 +6266,8 @@ metadata = {
 "rect": [26.0, 0.0, 4.0, 5.0],
 "slot": "support",
 "width": 4.0,
-"x": 30.0,
-"y": 21.0
+"x": 29.0,
+"y": 16.0
 }],
 "muzzle": [73.0, 20.0],
 "origin": [0, 0],

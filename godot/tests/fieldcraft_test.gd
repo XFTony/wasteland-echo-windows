@@ -91,6 +91,7 @@ func _test_art() -> void:
 		if texture != null:
 			_decoded_art_bytes += texture.get_image().get_data_size()
 			_check(texture.get_image().get_used_rect().size.x >= texture.get_width() * 0.65, "long weapon was not shrunk by transparent source padding: " + id)
+			_check(_palms_touch(id, texture.get_image(), assets), "independent hand layers contact the refined weapon: " + id)
 	for id: String in art.deathTextures:
 		var texture: Texture2D = CombatArt.texture(art.deathTextures[id])
 		_check(texture != null and texture.get_size() == Vector2(512, 128), "four real death drawings: " + id)
@@ -113,6 +114,31 @@ func _test_art() -> void:
 	_catalog.metadata.erase("combatArt")
 	_check(CombatArt.icon(_catalog, "damage") == null and CombatArt.frame(_catalog, "firepower", "standard") == null, "missing bitmap metadata leaves fallback available")
 	_catalog.metadata.combatArt = restored
+
+
+func _palms_touch(id: String, image: Image, assets: AssetStore) -> bool:
+	var pose: Dictionary = _catalog.metadata.poses[id]
+	var factor := Vector2(float(image.get_width()) / float(pose.definition.visual.width), float(image.get_height()) / float(pose.definition.visual.height))
+	for part: Dictionary in pose.layout.layers:
+		if part.kind != "hand":
+			continue
+		var hand: Image = assets.texture(_catalog.metadata.actorMetadata.PART_ASSETS[part.asset]).get_image()
+		var sum := Vector2.ZERO
+		var count: int = 0
+		for y: int in range(int(part.rect[3])):
+			for x: int in range(int(part.rect[2])):
+				if hand.get_pixel(int(part.rect[0]) + x, int(part.rect[1]) + y).a > 0.5:
+					sum += Vector2(x + 0.5, y + 0.5)
+					count += 1
+		var center: Vector2 = Vector2(part.x, part.y) + sum / maxi(1, count)
+		var nearest: float = INF
+		for y: int in range(image.get_height()):
+			for x: int in range(image.get_width()):
+				if image.get_pixel(x, y).a > 0.5:
+					nearest = minf(nearest, center.distance_squared_to(Vector2(x + 0.5, y + 0.5) / factor))
+		if nearest > 1.2 * 1.2:
+			return false
+	return true
 
 
 func _test_card_text() -> void:

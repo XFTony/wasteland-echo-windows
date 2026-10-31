@@ -674,7 +674,8 @@
       "sourcePaths": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "bytes": 6648,
       "sha256": "1d39b402cdb6e8fc9234e152d338a23eb7e41f03c1bb2424de68e6ce38be8d67",
@@ -687,7 +688,8 @@
       "sourcePaths": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "bytes": 5966,
       "sha256": "bdadfb5a0b8f47877d497ad8339b58cd7d99420e053d65ab059da9bec350b00b",
@@ -700,7 +702,8 @@
       "sourcePaths": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "bytes": 6844,
       "sha256": "e8772c123cac29a0aa7af2c2bd8bb610f6fde292288e819d5ddd067f3085de4c",
@@ -713,7 +716,8 @@
       "sourcePaths": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "bytes": 4704,
       "sha256": "0499b28c0a66bf7edee2f4eca1f32a98ef1eacbe2b5af7a86c305eba48f9acb1",
@@ -726,7 +730,8 @@
       "sourcePaths": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "bytes": 7510,
       "sha256": "6454a16436a42e3e215768bd7bff466cb1c31aee30a18677bf73e0cccb5e2c54",
@@ -739,7 +744,8 @@
       "sourcePaths": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "bytes": 7984,
       "sha256": "d18a72bab9da9ee824618eda98ef6e0cff2d590375405b67a97c96e245609bf6",
@@ -752,7 +758,8 @@
       "sourcePaths": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "bytes": 10596,
       "sha256": "34cc6b0211aeaf4856237ecb7549bfce1e95577c6c9a6e0d75c8c0e650578a13",
@@ -765,7 +772,8 @@
       "sourcePaths": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "bytes": 7886,
       "sha256": "b99f7100aa598005b02fba0013a66d444748ad9610157206dd916ee63746ac8a",
@@ -778,7 +786,8 @@
       "sourcePaths": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "bytes": 9172,
       "sha256": "001da647af583b8bb86dd21f12847a4e9f8e9abbead6160aade81e2bef835344",
@@ -791,7 +800,8 @@
       "sourcePaths": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "bytes": 10486,
       "sha256": "1293f1784086f526dd00894213f6172aec29adfa454ea9b78f9869a186e38c4f",
@@ -804,7 +814,8 @@
       "sourcePaths": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "bytes": 7836,
       "sha256": "3586c2e43b699b59a0a5ac25c918452b73d246acbc2e2190a81e946f8e818156",
@@ -817,7 +828,8 @@
       "sourcePaths": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "bytes": 5960,
       "sha256": "6c94165d3346957a79570303562935c3617be9b0e2eb338a02405c52466d9332",
@@ -830,7 +842,8 @@
       "sourcePaths": [
         "art/combat/fieldcraft-v2/sources/weapons.png",
         "art/combat/fieldcraft-v2/prompts.json",
-        "godot/scripts/tools/prepare_fieldcraft_art.gd"
+        "godot/scripts/tools/prepare_fieldcraft_art.gd",
+        "godot/scripts/tools/calibrate_fieldcraft_grips.gd"
       ],
       "bytes": 7446,
       "sha256": "d75d202482694b501dc5fee23c1c4bd9ff554d60b89971e5d7b995ffe0070242",
