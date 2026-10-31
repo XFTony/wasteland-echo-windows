@@ -1,7 +1,7 @@
 {
   "target": "Native Godot development; original reproduction baseline retained for regression and rollback",
   "baseline": "ef7d50d",
-  "status": "internal_preview_ready_for_human_art_and_balance_review",
+  "status": "cleanup_verified_package_pending",
   "developmentPhase": "native_fieldcraft_combat_art",
   "toolchain": {
     "godot": "4.7.2.stable.official.ed1daf0bf",
@@ -49,7 +49,10 @@
     "Actual native windows: 42-card gallery, four resolutions, 104 grip directions and 80 sequential death frames; first-card pointer hover verified",
     "6,919,488 bytes of decoded bitmap pixel data; not a process/GPU memory measurement",
     "Default importer preserves edited native catalog and metadata; original Canvas/Tauri runtime unchanged",
-    "Final standalone Windows package: 3 maps, 4 map atlases, 59 original catalog images, 69 fieldcraft bitmaps, 30 audio assets and 20 weapons verified"
+    "Final standalone Windows package: 3 maps, 4 map atlases, 59 original catalog images, 69 fieldcraft bitmaps, 30 audio assets and 20 weapons verified",
+    "2026-10-31 cleanup: deleted shadow and actual post-cleanup pass 333 legacy tests and ten native suites; protected 1191 files unchanged",
+    "1056 retired files backed up externally and each ZIP entry SHA verified; fourteen inactive study records retained with restoration metadata",
+    "Card layouts: 145 checks, 42 actual bitmap bounds, 16 real pointer hovers across four resolutions; longest bright residual line below artwork is zero"
   ],
   "inProgress": [
     "Human opening-pressure and new-weapon balance review; other two maps normal-build strategies not yet reviewed",
@@ -73,16 +76,16 @@
   "assetAuthority": "godot/assets and native Resource definitions; original web assets remain reference/rollback",
   "entryPoints": {
     "development": "启动Godot开发版.cmd",
-    "windows": "output/fieldcraft-v2/windows/WastelandEcho.exe",
+    "windows": "output/card-layout-cleanup/windows/WastelandEcho.exe",
     "saveTransfer": "Godot存档导入与备份.cmd"
   },
   "latestVisualIteration": {
-    "name": "fieldcraft-v2",
+    "name": "card-layout-cleanup",
     "date": "2026-10-31",
-    "scope": "Upgrade card artwork, nine weapon refinements and eight enemy death strips",
+    "scope": "Six frame-specific windows, alpha-content centering and selection marks inside the card",
+    "approvedArtUnchanged": true,
     "userVisualSignoff": false,
-    "approvedMapUnchanged": true,
-    "validation": "docs/qa/fieldcraft-validation.md"
+    "validation": "docs/cleanup/retirement-report.md"
   },
   "latestGameplayIteration": {
     "name": "fieldcraft-v2",
@@ -132,5 +135,22 @@
     "signoffBasis": "User confirmed the first map meets the basic visual requirement in the current request",
     "otherMapsRethemed": false,
     "reducedMotionPublicSetting": false
+  },
+  "approvedArtIteration": {
+    "name": "fieldcraft-v2",
+    "date": "2026-10-31",
+    "scope": "Upgrade card artwork, nine weapon refinements and eight enemy death strips",
+    "userVisualSignoff": true,
+    "approvedMapUnchanged": true,
+    "validation": "docs/qa/fieldcraft-validation.md",
+    "signoffBasis": "User explicitly approved the latest art style before requesting alignment and cleanup"
+  },
+  "latestCleanup": {
+    "date": "2026-10-31",
+    "files": 1056,
+    "protectedFiles": 1191,
+    "retiredStudyRecords": 14,
+    "report": "docs/cleanup/retirement-report.md",
+    "saveDataTouched": false
   }
 }

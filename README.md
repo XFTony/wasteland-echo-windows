@@ -1,5 +1,7 @@
 # 荒原回响 · Wasteland Echo
 
+2026-10-31 **卡牌布局修正与安全清理**：六种卡面使用独立插画窗口，42图按可见内容居中；移除悬停底线/侧箭头，选择反馈留在卡内。经过引用筛查、隔离删除演练、完整ZIP校验和清理后回归，移出1056项旧路线/预览/缓存文件，保留现行美术、制作工具、旧版参考与有效测试。[清理与恢复报告](./docs/cleanup/retirement-report.md)、[语言选择依据](./docs/design/card-layout-and-safe-cleanup.md)、[文件导航](./docs/project-file-guide.md)、[修正前后与逐卡焦点](./output/card-layout-cleanup/review.html)。**最新入口：`output/card-layout-cleanup/windows/WastelandEcho.exe`**。游戏逻辑继续使用GDScript；GitHub默认main尚无Godot项目，语言条主要反映旧JS主线。
+
 2026-10-31 **战地工坊美术与受击反馈**：升级卡使用6种实体底板与42种独立插图；细化9件简化武器，新增焚尘喷火器、雷索发射器、裂响拳刃、拾荒战镰，共14件远程＋6件近战。八类敌人新增方向性受击、四帧倒地与短暂残留，尸体不再参与攻击/碰撞，低画质减半表现数量。保留已认可地图与七枪美术，手和袖口仍独立。[本轮设计](./docs/design/fieldcraft-combat-art-plan.md)、[验收与成本](./docs/qa/fieldcraft-validation.md)、[原稿/提示词/来源](./art/combat/fieldcraft-v2/README.md)、[实窗对照与倒地视频](./output/fieldcraft-v2/review.html)。**本轮体验入口为 `output/fieldcraft-v2/windows/WastelandEcho.exe`**；使用独立目录避免覆盖运行中的旧版。这是内部样板，审美与新武器平衡待本人确认。
 
 2026-10-31 **生存压力与战地改件内部样板**：前期敌人进入频率与数量上调，每45秒记一轮连续尸潮；修复零散布武器的多弹重叠、特殊武器改件参数遗漏与拾荒收益舍入问题。新增8项改件、棘轮连弩／霜凝喷射器／破阵长矛／锈刃战斧，目前共16件武器、42项改件。行装页可打开“战地改件”档案，暂停可查看本局真实属性与已装配改件。[设计与研究](./docs/design/survival-builds-arsenal-plan.md)、[验证与42项改件审计](./docs/qa/survival-builds-validation.md)、[实际截图与声音预览](./output/survival-builds/review.html)。当前体验入口仍是 `output/godot-migration/windows/WastelandEcho.exe`；本轮为内部调参，难度须本人试玩确认，不代表正式新Release。

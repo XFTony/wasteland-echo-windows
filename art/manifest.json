@@ -7,7 +7,29 @@
     "runtimeRoot": "web/assets",
     "runtimeContainsOptimizedOnly": true,
     "inactiveArchiveRoot": "art/generated",
-    "commercialReview": "Generated assets require a service-terms review before commercial release."
+    "commercialReview": "Generated assets require a service-terms review before commercial release.",
+    "verifiedRetirement": {
+      "date": "2026-10-31",
+      "scope": [
+        "study.ranger.sidearm-quality-target.v1",
+        "study.ranger.pixel-sidearm.v1",
+        "study.ranger.pixel-density-38.v1",
+        "study.ranger.pixel-density-76.v1",
+        "study.ranger.run-keyposes.v1",
+        "study.ranger.native-run-candidate.v1",
+        "study.ranger.run-keyposes.v2",
+        "study.ranger.native-run-candidate.v2",
+        "study.ranger.native-run-continuous.v3",
+        "study.ranger.drawn-inbetweens.v4.part1",
+        "study.ranger.drawn-inbetweens.v4.part2",
+        "study.ranger.drawn-inbetweens.v4.revision",
+        "study.ranger.native-drawn-run.v4",
+        "study.ranger.drawn-art-atlas.v4"
+      ],
+      "records": "archivedAssets",
+      "plan": "docs/cleanup/retirement-plan.json",
+      "automaticInactiveDeletion": false
+    }
   },
   "assets": [
     {
@@ -1009,242 +1031,6 @@
       "notes": "Stylized painted wasteland art; source and runtime crop recorded in illustrated-assets-report.json. Commercial terms review pending."
     },
     {
-      "id": "study.ranger.sidearm-quality-target.v1",
-      "version": "1.5-lookdev",
-      "status": "inactive",
-      "archivePath": "art/animation/ranger/lookdev/ranger-sidearm-quality-target-v1.png",
-      "sourcePaths": [
-        "art/generated/v1.5/source/ranger-base-v1-source.png",
-        "art/animation/ranger/ranger-directional-sidearm-v2.blend"
-      ],
-      "width": 1024,
-      "height": 1536,
-      "pixelFormat": "RGBA",
-      "bytes": 1984101,
-      "sha256": "BD4C487CEB9AB9B3124DA3F5AFACE791EBD059EE56C519F94ECA11F0230DDC28",
-      "generator": "OpenAI ImageGen",
-      "notes": "Single-frame art quality target only; includes a painted pistol. Not runtime body art or a finished animation. Prompt and references in art/animation/ranger/lookdev/. Commercial terms review pending."
-    },
-    {
-      "id": "study.ranger.pixel-sidearm.v1",
-      "version": "1.5-pixel-lookdev",
-      "status": "inactive",
-      "archivePath": "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
-      "sourcePaths": [
-        "art/generated/v1.5/source/ranger-base-v1-source.png",
-        "art/animation/ranger/lookdev/ranger-sidearm-quality-target-v1.png"
-      ],
-      "width": 1254,
-      "height": 1254,
-      "pixelFormat": "RGBA",
-      "bytes": 864484,
-      "sha256": "37B53BBEA947258D8388CE5EAA70A0A196DB8B636FD08A4CF2550BFA77ECBF18",
-      "generator": "OpenAI ImageGen",
-      "notes": "Static detailed pixel-style study with baked pistol, not a native low-resolution pixel master or finished action atlas. Prompt, transparent bounds and review status recorded in art/animation/ranger/pixel-lookdev/. Commercial terms review pending."
-    },
-    {
-      "id": "study.ranger.pixel-density-38.v1",
-      "version": "1.5-pixel-study",
-      "status": "inactive",
-      "archivePath": "art/animation/ranger/pixel-source/ranger-density-38-v1.png",
-      "sourcePaths": [
-        "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
-        "art/animation/ranger/pixel-source/ranger-density-38-v1.aseprite"
-      ],
-      "width": 64,
-      "height": 96,
-      "pixelFormat": "RGBA",
-      "bytes": 1701,
-      "sha256": "E6FAFA4072B3BA08B248CCE4F1ABCE34D919ECC7AE00EE59DF8421EC0FBA5282",
-      "generator": "LibreSprite + native pixel workflow",
-      "notes": "Density/palette draft only; one combined layer with baked pistol. Native source and exact editor export recorded; not finished actor art."
-    },
-    {
-      "id": "study.ranger.pixel-density-76.v1",
-      "version": "1.5-pixel-study",
-      "status": "inactive",
-      "archivePath": "art/animation/ranger/pixel-source/ranger-density-76-v1.png",
-      "sourcePaths": [
-        "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
-        "art/animation/ranger/pixel-source/ranger-density-76-v1.aseprite"
-      ],
-      "width": 128,
-      "height": 128,
-      "pixelFormat": "RGBA",
-      "bytes": 5162,
-      "sha256": "01C8DECBDDE80ACE56F998D55CF7EAA3BA62D6CDD2A60E7E30714F6803499D8F",
-      "generator": "LibreSprite + native pixel workflow",
-      "notes": "Density/palette draft only; one combined layer with baked pistol. Native source and exact editor export recorded; not finished actor art."
-    },
-    {
-      "id": "study.ranger.run-keyposes.v1",
-      "version": "1.5-pixel-study",
-      "status": "inactive",
-      "archivePath": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v1.png",
-      "sourcePaths": [
-        "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
-        "art/animation/ranger/pixel-source/ranger-density-76-v1.png"
-      ],
-      "width": 1536,
-      "height": 1024,
-      "pixelFormat": "RGBA",
-      "bytes": 2360940,
-      "sha256": "EBCBF4BB036ADC153124761B2A6F3999A9581549416952C11B1D6176D0156B1C",
-      "generator": "OpenAI ImageGen",
-      "notes": "Eight generated key-pose studies; half-transparent warm edges; human gait and identity review pending. Prompt saved beside source."
-    },
-    {
-      "id": "study.ranger.native-run-candidate.v1",
-      "version": "1.5-pixel-study",
-      "status": "inactive",
-      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v1/ranger-run-candidate-v1.png",
-      "sourcePaths": [
-        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v1.png",
-        "art/animation/ranger/pixel-source/run-candidate-v1/ranger-run-candidate-v1.aseprite"
-      ],
-      "width": 1024,
-      "height": 128,
-      "pixelFormat": "RGBA",
-      "bytes": 36967,
-      "sha256": "D994CBA4B603E122066C0E7C5394DB5548A7DCE08505149267B12C2BA60CE9E2",
-      "generator": "LibreSprite + native pixel workflow",
-      "notes": "Eight native review frames, shared scale and declared alignment; baked pistol, foot/stride and loop review pending. Not runtime-integrated or visually approved."
-    },
-    {
-      "id": "study.ranger.run-keyposes.v2",
-      "version": "1.5-pixel-study",
-      "status": "inactive",
-      "archivePath": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
-      "sourcePaths": [
-        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v1.png"
-      ],
-      "width": 1536,
-      "height": 1024,
-      "pixelFormat": "RGBA",
-      "bytes": 2394288,
-      "sha256": "793F5E0DF46C632460AABB4B6AC266020E78985C8E543331E40FC2C08C08EF2E",
-      "generator": "OpenAI ImageGen",
-      "notes": "Targeted leg-phase study revision; upper-body reference retained, contact and loop review still pending."
-    },
-    {
-      "id": "study.ranger.native-run-candidate.v2",
-      "version": "1.5-pixel-study",
-      "status": "inactive",
-      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v2/ranger-run-candidate-v2.png",
-      "sourcePaths": [
-        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
-        "art/animation/ranger/pixel-source/run-candidate-v2/ranger-run-candidate-v2.aseprite"
-      ],
-      "width": 1024,
-      "height": 128,
-      "pixelFormat": "RGBA",
-      "bytes": 37209,
-      "sha256": "D40AA1D61F85A4F18D7D9AE6D6AF1CA0A27301D3A69E4483649D8C1C320FE4A0",
-      "generator": "LibreSprite + native pixel workflow",
-      "notes": "Current native eight-pose review candidate. Partial phase correction only; gait, loop, layers and runtime integration remain pending."
-    },
-    {
-      "id": "study.ranger.native-run-continuous.v3",
-      "version": "1.5-pixel-study",
-      "status": "inactive",
-      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v3/ranger-run-candidate-v3.png",
-      "sourcePaths": [
-        "art/animation/ranger/pixel-source/ranger-density-76-v1.png",
-        "art/animation/ranger/pixel-source/run-candidate-v3/ranger-run-candidate-v3.aseprite",
-        "art/animation/ranger/pixel-source/run-candidate-v3/rig-source.json"
-      ],
-      "width": 2560,
-      "height": 128,
-      "pixelFormat": "RGBA",
-      "bytes": 24059,
-      "sha256": "157F3965B84C399B027BEA9D8B302AA5FE200B8720A4F884E3E52B9FE2E8966E",
-      "generator": "Native pixel source + authored periodic joint motion",
-      "notes": "20-frame closed-cycle native review candidate; six editable layers, fixed leg identity and bones. Loop endpoints and stance verified, visual polish and runtime integration pending."
-    },
-    {
-      "id": "study.ranger.drawn-inbetweens.v4.part1",
-      "version": "1.5-pixel-study",
-      "status": "inactive",
-      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-1-to-4.png",
-      "sourcePaths": [
-        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png"
-      ],
-      "width": 768,
-      "height": 2048,
-      "pixelFormat": "RGBA",
-      "bytes": 2432870,
-      "sha256": "4B644D6BAE1E3F10276ED8B51D4755C4DB965F0BBE03DF5A7EBA6EA691E33CCD",
-      "generator": "OpenAI ImageGen",
-      "notes": "Eight complete-character inbetween drawings for key pairs 1 to 4; three-pose revision overrides declared in metadata."
-    },
-    {
-      "id": "study.ranger.drawn-inbetweens.v4.part2",
-      "version": "1.5-pixel-study",
-      "status": "inactive",
-      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-5-to-8.png",
-      "sourcePaths": [
-        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png"
-      ],
-      "width": 768,
-      "height": 2048,
-      "pixelFormat": "RGBA",
-      "bytes": 2423263,
-      "sha256": "FA348A78AA373C2F6AD884D1AC8CDB3C8B1FD1FFF9ED4A3173DFED120809321A",
-      "generator": "OpenAI ImageGen",
-      "notes": "Eight complete-character inbetween drawings including the 8 to 1 loop seam; one pose overridden by revision."
-    },
-    {
-      "id": "study.ranger.drawn-inbetweens.v4.revision",
-      "version": "1.5-pixel-study",
-      "status": "inactive",
-      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/three-pose-revision.png",
-      "sourcePaths": [
-        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png"
-      ],
-      "width": 1881,
-      "height": 836,
-      "pixelFormat": "RGBA",
-      "bytes": 1505386,
-      "sha256": "71679DDB5329537BB1E9A26465391FD2407B16404D57BEB96DCFCDB0C237F12D",
-      "generator": "OpenAI ImageGen",
-      "notes": "Three targeted full-character drawing revisions; source assignment and registration saved."
-    },
-    {
-      "id": "study.ranger.native-drawn-run.v4",
-      "version": "1.5-pixel-study",
-      "status": "inactive",
-      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v4/ranger-run-candidate-v4.png",
-      "sourcePaths": [
-        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
-        "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-1-to-4.png",
-        "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-5-to-8.png",
-        "art/animation/ranger/pixel-source/run-candidate-v4/source/three-pose-revision.png"
-      ],
-      "width": 3072,
-      "height": 128,
-      "pixelFormat": "RGBA",
-      "bytes": 107449,
-      "sha256": "0446CC9E43C18614230DFD2DF54FFCC3A0EAE1189507A44F603CC54401CE571B",
-      "generator": "ImageGen drawings + LibreSprite import",
-      "notes": "24 illustrated frames: original eight keys byte-identical plus 16 inbetweens; 400ms; inactive review only."
-    },
-    {
-      "id": "study.ranger.drawn-art-atlas.v4",
-      "version": "1.5-pixel-study",
-      "status": "inactive",
-      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v4/ranger-run-drawn-art-v4.png",
-      "sourcePaths": [
-        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png"
-      ],
-      "width": 12288,
-      "height": 512,
-      "pixelFormat": "RGBA",
-      "bytes": 4269502,
-      "sha256": "D8B67A499A1C2D37F1BA1067F3D52C5AD2294F1147F69729A47171BD9C8E521D",
-      "generator": "ImageGen drawings + whole-image registration",
-      "notes": "Offline high-resolution review atlas; not a runtime texture; visual consistency still pending."
-    },
-    {
       "id": "study.ranger.compact-pixel.v1",
       "version": "1.5-compact-pixel-study",
       "status": "inactive",
@@ -2134,6 +1920,560 @@
         ]
       },
       "notes": "Four alpha-cropped prop sprites packed with gutters; lossless nearest-neighbor export. No collision embedded in the image."
+    }
+  ],
+  "archivedAssets": [
+    {
+      "id": "study.ranger.sidearm-quality-target.v1",
+      "version": "1.5-lookdev",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/lookdev/ranger-sidearm-quality-target-v1.png",
+      "sourcePaths": [
+        "art/generated/v1.5/source/ranger-base-v1-source.png",
+        "art/animation/ranger/ranger-directional-sidearm-v2.blend"
+      ],
+      "width": 1024,
+      "height": 1536,
+      "pixelFormat": "RGBA",
+      "bytes": 1984101,
+      "sha256": "BD4C487CEB9AB9B3124DA3F5AFACE791EBD059EE56C519F94ECA11F0230DDC28",
+      "generator": "OpenAI ImageGen",
+      "notes": "Single-frame art quality target only; includes a painted pistol. Not runtime body art or a finished animation. Prompt and references in art/animation/ranger/lookdev/. Commercial terms review pending.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/lookdev/ranger-sidearm-quality-target-v1.png",
+            "sha256": "bd4c487ceb9ab9b3124da3f5aface791ebd059ee56c519f94eca11f0230ddc28",
+            "gitBlob": "4b4a1e3a0593876369345632eb49bcc2ec219f36"
+          },
+          {
+            "path": "art/animation/ranger/ranger-directional-sidearm-v2.blend",
+            "sha256": "8d8ea641414fa6066c6b2d901befc67e28131cf5759fe28e2a4d7935f44b04d7",
+            "gitBlob": "919752d017a8bc9b3e65516d29a8b7db0ffd0f77"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.pixel-sidearm.v1",
+      "version": "1.5-pixel-lookdev",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
+      "sourcePaths": [
+        "art/generated/v1.5/source/ranger-base-v1-source.png",
+        "art/animation/ranger/lookdev/ranger-sidearm-quality-target-v1.png"
+      ],
+      "width": 1254,
+      "height": 1254,
+      "pixelFormat": "RGBA",
+      "bytes": 864484,
+      "sha256": "37B53BBEA947258D8388CE5EAA70A0A196DB8B636FD08A4CF2550BFA77ECBF18",
+      "generator": "OpenAI ImageGen",
+      "notes": "Static detailed pixel-style study with baked pistol, not a native low-resolution pixel master or finished action atlas. Prompt, transparent bounds and review status recorded in art/animation/ranger/pixel-lookdev/. Commercial terms review pending.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
+            "sha256": "37b53bbea947258d8388ce5eaa70a0a196db8b636fd08a4cf2550bfa77ecbf18",
+            "gitBlob": "1a0db24925baf236679b1341013a559b4330a0e3"
+          },
+          {
+            "path": "art/animation/ranger/lookdev/ranger-sidearm-quality-target-v1.png",
+            "sha256": "bd4c487ceb9ab9b3124da3f5aface791ebd059ee56c519f94eca11f0230ddc28",
+            "gitBlob": "4b4a1e3a0593876369345632eb49bcc2ec219f36"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.pixel-density-38.v1",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/ranger-density-38-v1.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
+        "art/animation/ranger/pixel-source/ranger-density-38-v1.aseprite"
+      ],
+      "width": 64,
+      "height": 96,
+      "pixelFormat": "RGBA",
+      "bytes": 1701,
+      "sha256": "E6FAFA4072B3BA08B248CCE4F1ABCE34D919ECC7AE00EE59DF8421EC0FBA5282",
+      "generator": "LibreSprite + native pixel workflow",
+      "notes": "Density/palette draft only; one combined layer with baked pistol. Native source and exact editor export recorded; not finished actor art.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-density-38-v1.png",
+            "sha256": "e6fafa4072b3ba08b248cce4f1abce34d919ecc7ae00ee59df8421ec0fba5282",
+            "gitBlob": "189894c3a04a8bb15d785f2158d1eab51e83f1a3"
+          },
+          {
+            "path": "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
+            "sha256": "37b53bbea947258d8388ce5eaa70a0a196db8b636fd08a4cf2550bfa77ecbf18",
+            "gitBlob": "1a0db24925baf236679b1341013a559b4330a0e3"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-density-38-v1.aseprite",
+            "sha256": "2186ffd7cbcb83c378772ba03bbbd4637a74e3943e4bbd24ca2272d7a7c3625e",
+            "gitBlob": "35595ef6d5bd3de7c0be0e9ba1b4c978dd525a94"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.pixel-density-76.v1",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/ranger-density-76-v1.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
+        "art/animation/ranger/pixel-source/ranger-density-76-v1.aseprite"
+      ],
+      "width": 128,
+      "height": 128,
+      "pixelFormat": "RGBA",
+      "bytes": 5162,
+      "sha256": "01C8DECBDDE80ACE56F998D55CF7EAA3BA62D6CDD2A60E7E30714F6803499D8F",
+      "generator": "LibreSprite + native pixel workflow",
+      "notes": "Density/palette draft only; one combined layer with baked pistol. Native source and exact editor export recorded; not finished actor art.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-density-76-v1.png",
+            "sha256": "01c8decbdde80ace56f998d55cf7eaa3ba62d6cdd2a60e7e30714f6803499d8f",
+            "gitBlob": "6afb0b7596d17a1df5c855227744f99c4b2bf461"
+          },
+          {
+            "path": "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
+            "sha256": "37b53bbea947258d8388ce5eaa70a0a196db8b636fd08a4cf2550bfa77ecbf18",
+            "gitBlob": "1a0db24925baf236679b1341013a559b4330a0e3"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-density-76-v1.aseprite",
+            "sha256": "8b8c4cf9ac4b04556d6af8704b98add50964e6e1e56a8e5ab0804244e7fe3d36",
+            "gitBlob": "a1f4d83038fb1eb3710709ad83beecaaf88bccf6"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.run-keyposes.v1",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v1.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
+        "art/animation/ranger/pixel-source/ranger-density-76-v1.png"
+      ],
+      "width": 1536,
+      "height": 1024,
+      "pixelFormat": "RGBA",
+      "bytes": 2360940,
+      "sha256": "EBCBF4BB036ADC153124761B2A6F3999A9581549416952C11B1D6176D0156B1C",
+      "generator": "OpenAI ImageGen",
+      "notes": "Eight generated key-pose studies; half-transparent warm edges; human gait and identity review pending. Prompt saved beside source.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v1.png",
+            "sha256": "ebcbf4bb036adc153124761b2a6f3999a9581549416952c11b1d6176d0156b1c",
+            "gitBlob": "65faaf63e50452a3156cc7327360d96e8ae82e32"
+          },
+          {
+            "path": "art/animation/ranger/pixel-lookdev/ranger-pixel-sidearm-v1.png",
+            "sha256": "37b53bbea947258d8388ce5eaa70a0a196db8b636fd08a4cf2550bfa77ecbf18",
+            "gitBlob": "1a0db24925baf236679b1341013a559b4330a0e3"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-density-76-v1.png",
+            "sha256": "01c8decbdde80ace56f998d55cf7eaa3ba62d6cdd2a60e7e30714f6803499d8f",
+            "gitBlob": "6afb0b7596d17a1df5c855227744f99c4b2bf461"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.native-run-candidate.v1",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v1/ranger-run-candidate-v1.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v1.png",
+        "art/animation/ranger/pixel-source/run-candidate-v1/ranger-run-candidate-v1.aseprite"
+      ],
+      "width": 1024,
+      "height": 128,
+      "pixelFormat": "RGBA",
+      "bytes": 36967,
+      "sha256": "D994CBA4B603E122066C0E7C5394DB5548A7DCE08505149267B12C2BA60CE9E2",
+      "generator": "LibreSprite + native pixel workflow",
+      "notes": "Eight native review frames, shared scale and declared alignment; baked pistol, foot/stride and loop review pending. Not runtime-integrated or visually approved.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v1/ranger-run-candidate-v1.png",
+            "sha256": "d994cba4b603e122066c0e7c5394db5548a7dce08505149267b12c2ba60ce9e2",
+            "gitBlob": "5019f3e9aeee2f0ecb2624ed1d493d6807a383d9"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v1.png",
+            "sha256": "ebcbf4bb036adc153124761b2a6f3999a9581549416952c11b1d6176d0156b1c",
+            "gitBlob": "65faaf63e50452a3156cc7327360d96e8ae82e32"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v1/ranger-run-candidate-v1.aseprite",
+            "sha256": "57aaa5a32fe3168c86d23b67ffc889795d4a27ceb32a94914f5933980938ba8c",
+            "gitBlob": "b7391fea24d3257fb2df82ed7992b0283f29fc3e"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.run-keyposes.v2",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v1.png"
+      ],
+      "width": 1536,
+      "height": 1024,
+      "pixelFormat": "RGBA",
+      "bytes": 2394288,
+      "sha256": "793F5E0DF46C632460AABB4B6AC266020E78985C8E543331E40FC2C08C08EF2E",
+      "generator": "OpenAI ImageGen",
+      "notes": "Targeted leg-phase study revision; upper-body reference retained, contact and loop review still pending.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+            "sha256": "793f5e0df46c632460aabb4b6ac266020e78985c8e543331e40fc2c08c08ef2e",
+            "gitBlob": "8b7472fea0c8d8e0b0d252b433633da8c767e51a"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v1.png",
+            "sha256": "ebcbf4bb036adc153124761b2a6f3999a9581549416952c11b1d6176d0156b1c",
+            "gitBlob": "65faaf63e50452a3156cc7327360d96e8ae82e32"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.native-run-candidate.v2",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v2/ranger-run-candidate-v2.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+        "art/animation/ranger/pixel-source/run-candidate-v2/ranger-run-candidate-v2.aseprite"
+      ],
+      "width": 1024,
+      "height": 128,
+      "pixelFormat": "RGBA",
+      "bytes": 37209,
+      "sha256": "D40AA1D61F85A4F18D7D9AE6D6AF1CA0A27301D3A69E4483649D8C1C320FE4A0",
+      "generator": "LibreSprite + native pixel workflow",
+      "notes": "Current native eight-pose review candidate. Partial phase correction only; gait, loop, layers and runtime integration remain pending.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v2/ranger-run-candidate-v2.png",
+            "sha256": "d40aa1d61f85a4f18d7d9ae6d6af1ca0a27301d3a69e4483649d8c1c320fe4a0",
+            "gitBlob": "86ced98d4565d33166c44b2ac6a25d900128a02a"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+            "sha256": "793f5e0df46c632460aabb4b6ac266020e78985c8e543331e40fc2c08c08ef2e",
+            "gitBlob": "8b7472fea0c8d8e0b0d252b433633da8c767e51a"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v2/ranger-run-candidate-v2.aseprite",
+            "sha256": "92c1ca22383a51d3734b3980158f2fd2abae4d77adf92a5f56e35e3a6c6ad122",
+            "gitBlob": "65f96ec281298f70e315581a2bab19673d721c5f"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.native-run-continuous.v3",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v3/ranger-run-candidate-v3.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-density-76-v1.png",
+        "art/animation/ranger/pixel-source/run-candidate-v3/ranger-run-candidate-v3.aseprite",
+        "art/animation/ranger/pixel-source/run-candidate-v3/rig-source.json"
+      ],
+      "width": 2560,
+      "height": 128,
+      "pixelFormat": "RGBA",
+      "bytes": 24059,
+      "sha256": "157F3965B84C399B027BEA9D8B302AA5FE200B8720A4F884E3E52B9FE2E8966E",
+      "generator": "Native pixel source + authored periodic joint motion",
+      "notes": "20-frame closed-cycle native review candidate; six editable layers, fixed leg identity and bones. Loop endpoints and stance verified, visual polish and runtime integration pending.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v3/ranger-run-candidate-v3.png",
+            "sha256": "157f3965b84c399b027bea9d8b302aa5fe200b8720a4f884e3e52b9fe2e8966e",
+            "gitBlob": "ba4d8c2b03a8f3f2c02539dfb0520a0edd8518f6"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-density-76-v1.png",
+            "sha256": "01c8decbdde80ace56f998d55cf7eaa3ba62d6cdd2a60e7e30714f6803499d8f",
+            "gitBlob": "6afb0b7596d17a1df5c855227744f99c4b2bf461"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v3/ranger-run-candidate-v3.aseprite",
+            "sha256": "dbc53ae71c6e9272249e42cdb447fe7d2e18f6344964fdf50ade7be96cd1b221",
+            "gitBlob": "1932a03f1c77664dc0dbfb8c8d9fe2a83f51f064"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v3/rig-source.json",
+            "sha256": "e1fc5fe48794ff5872d0f81342eeb8c5a462f04dc84a7b82076ea97930df22eb",
+            "gitBlob": "8289a118105b29e7ed3fee2797f6a9f31c51f1e3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.drawn-inbetweens.v4.part1",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-1-to-4.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png"
+      ],
+      "width": 768,
+      "height": 2048,
+      "pixelFormat": "RGBA",
+      "bytes": 2432870,
+      "sha256": "4B644D6BAE1E3F10276ED8B51D4755C4DB965F0BBE03DF5A7EBA6EA691E33CCD",
+      "generator": "OpenAI ImageGen",
+      "notes": "Eight complete-character inbetween drawings for key pairs 1 to 4; three-pose revision overrides declared in metadata.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-1-to-4.png",
+            "sha256": "4b644d6bae1e3f10276ed8b51d4755c4db965f0bbe03df5a7eba6ea691e33ccd",
+            "gitBlob": "6b55665547a308a19f37325eed2e01ed07e693ee"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+            "sha256": "793f5e0df46c632460aabb4b6ac266020e78985c8e543331e40fc2c08c08ef2e",
+            "gitBlob": "8b7472fea0c8d8e0b0d252b433633da8c767e51a"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.drawn-inbetweens.v4.part2",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-5-to-8.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png"
+      ],
+      "width": 768,
+      "height": 2048,
+      "pixelFormat": "RGBA",
+      "bytes": 2423263,
+      "sha256": "FA348A78AA373C2F6AD884D1AC8CDB3C8B1FD1FFF9ED4A3173DFED120809321A",
+      "generator": "OpenAI ImageGen",
+      "notes": "Eight complete-character inbetween drawings including the 8 to 1 loop seam; one pose overridden by revision.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-5-to-8.png",
+            "sha256": "fa348a78aa373c2f6ad884d1ac8cdb3c8b1fd1fff9ed4a3173dfed120809321a",
+            "gitBlob": "595533208bfb3719a18099320a35d1481dc251d9"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+            "sha256": "793f5e0df46c632460aabb4b6ac266020e78985c8e543331e40fc2c08c08ef2e",
+            "gitBlob": "8b7472fea0c8d8e0b0d252b433633da8c767e51a"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.drawn-inbetweens.v4.revision",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v4/source/three-pose-revision.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png"
+      ],
+      "width": 1881,
+      "height": 836,
+      "pixelFormat": "RGBA",
+      "bytes": 1505386,
+      "sha256": "71679DDB5329537BB1E9A26465391FD2407B16404D57BEB96DCFCDB0C237F12D",
+      "generator": "OpenAI ImageGen",
+      "notes": "Three targeted full-character drawing revisions; source assignment and registration saved.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v4/source/three-pose-revision.png",
+            "sha256": "71679ddb5329537bb1e9a26465391fd2407b16404d57beb96dcfcdb0c237f12d",
+            "gitBlob": "a54b6a30fabbd98d44dbb57763932e2135a8878d"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+            "sha256": "793f5e0df46c632460aabb4b6ac266020e78985c8e543331e40fc2c08c08ef2e",
+            "gitBlob": "8b7472fea0c8d8e0b0d252b433633da8c767e51a"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.native-drawn-run.v4",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v4/ranger-run-candidate-v4.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+        "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-1-to-4.png",
+        "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-5-to-8.png",
+        "art/animation/ranger/pixel-source/run-candidate-v4/source/three-pose-revision.png"
+      ],
+      "width": 3072,
+      "height": 128,
+      "pixelFormat": "RGBA",
+      "bytes": 107449,
+      "sha256": "0446CC9E43C18614230DFD2DF54FFCC3A0EAE1189507A44F603CC54401CE571B",
+      "generator": "ImageGen drawings + LibreSprite import",
+      "notes": "24 illustrated frames: original eight keys byte-identical plus 16 inbetweens; 400ms; inactive review only.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v4/ranger-run-candidate-v4.png",
+            "sha256": "0446cc9e43c18614230dfd2df54ffcc3a0eae1189507a44f603cc54401ce571b",
+            "gitBlob": "99539300df390059bc79c0d8f86ff80cff2cdcd1"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+            "sha256": "793f5e0df46c632460aabb4b6ac266020e78985c8e543331e40fc2c08c08ef2e",
+            "gitBlob": "8b7472fea0c8d8e0b0d252b433633da8c767e51a"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-1-to-4.png",
+            "sha256": "4b644d6bae1e3f10276ed8b51d4755c4db965f0bbe03df5a7eba6ea691e33ccd",
+            "gitBlob": "6b55665547a308a19f37325eed2e01ed07e693ee"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v4/source/inbetweens-pairs-5-to-8.png",
+            "sha256": "fa348a78aa373c2f6ad884d1ac8cdb3c8b1fd1fff9ed4a3173dfed120809321a",
+            "gitBlob": "595533208bfb3719a18099320a35d1481dc251d9"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v4/source/three-pose-revision.png",
+            "sha256": "71679ddb5329537bb1e9a26465391fd2407b16404d57beb96dcfcdb0c237f12d",
+            "gitBlob": "a54b6a30fabbd98d44dbb57763932e2135a8878d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "study.ranger.drawn-art-atlas.v4",
+      "version": "1.5-pixel-study",
+      "status": "inactive",
+      "archivePath": "art/animation/ranger/pixel-source/run-candidate-v4/ranger-run-drawn-art-v4.png",
+      "sourcePaths": [
+        "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png"
+      ],
+      "width": 12288,
+      "height": 512,
+      "pixelFormat": "RGBA",
+      "bytes": 4269502,
+      "sha256": "D8B67A499A1C2D37F1BA1067F3D52C5AD2294F1147F69729A47171BD9C8E521D",
+      "generator": "ImageGen drawings + whole-image registration",
+      "notes": "Offline high-resolution review atlas; not a runtime texture; visual consistency still pending.",
+      "retirement": {
+        "date": "2026-10-31",
+        "reason": "Superseded detailed animation route; unused by active game or retained authoring",
+        "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+        "plan": "docs/cleanup/retirement-plan.json",
+        "backupSet": "2026-10-31-card-layout-cleanup",
+        "files": [
+          {
+            "path": "art/animation/ranger/pixel-source/run-candidate-v4/ranger-run-drawn-art-v4.png",
+            "sha256": "d8b67a499a1c2d37f1ba1067f3d52c5ad2294f1147f69729a47171bd9c8e521d",
+            "gitBlob": "06f4c5c652a6e10b550aa6e970eb3fa9148e0f22"
+          },
+          {
+            "path": "art/animation/ranger/pixel-source/ranger-run-keyposes-study-v2.png",
+            "sha256": "793f5e0df46c632460aabb4b6ac266020e78985c8e543331e40fc2c08c08ef2e",
+            "gitBlob": "8b7472fea0c8d8e0b0d252b433633da8c767e51a"
+          }
+        ]
+      }
     }
   ]
 }

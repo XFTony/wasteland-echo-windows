@@ -4,7 +4,7 @@
 
 ## 开始体验
 
-- 当前独立程序：`../output/fieldcraft-v2/windows/WastelandEcho.exe`，双击即可，不需要安装 Godot、Node.js 或浏览器。先正常退出正在游玩的旧版，再启动新版，避免两个窗口同时写入个人进度；旧包保留作回退。
+- 当前独立程序：`../output/card-layout-cleanup/windows/WastelandEcho.exe`，双击即可，不需要安装 Godot、Node.js 或浏览器。先正常退出正在游玩的旧版，再启动新版，避免两个窗口同时写入个人进度；旧包保留作回退。
 - 源码开发：双击根目录的 `启动Godot开发版.cmd`，或用 Godot 4.7.2 打开本目录 `project.godot` 后按 F5。首次导入缓存由 Godot 创建，原生项目所需素材已入 Git。
 - 旧进度导入：双击根目录 `Godot存档导入与备份.cmd`。选择旧版导出的 JSON，先核对预览，再确认导入；新版原有进度会自动备份。工具不扫描、修改原版 WebView2 内部数据。
 
@@ -19,6 +19,7 @@ WASD 或方向键移动，默认自动瞄准/射击；E 与交易站交互或回
 - `scenes/maps/`：三张可编辑地图。`GroundTiles`可直接绘制；障碍位置与footprint同时提供真实碰撞，保持轴对齐。表现节点另按脚底排序，高物上部淡化；图块自身物理/导航关闭。
 - `content/map_art/`：共享TileSet、ShaderMaterial和三图视觉Profile；图集源图/提示词在 `../art/world/pixel-map-v2/`。编辑操作与边界见 `../docs/design/map-editor-workflow.md`。
 - `scripts/`：GDScript 规则、原生 Control/Node2D 表现、AudioStream 音频及输入，没有嵌入旧网页。
+- `content/ui/card_layouts/`：六种已认可卡框的原生插画/纸签窗口，编辑这些Resource可调整对齐；图案按可见Alpha内容适配，焦点标识留在卡内。
 - `data/`：可再生参考夹具，不进入发行包。JavaScript 仅在开发阶段导出旧版数据与预期结果。
 
 正常使用 Godot 资源、场景和源码即可开发。重建迁移对照时，`export-game.mjs` 默认保留已有原生素材，仅补缺失文件；`import_content.gd` 默认整体保留已有Catalog、定义和metadata，不把本轮新增内容重置为137项迁移基线。`--sync-reference-assets` 与 `--overwrite` 都是明确的覆盖操作，使用前先核对差异。`install_survival_content.gd` 首次安装本工作包，重复运行默认保留；只有明确使用 `--apply-design` 才重应用本工作包设计，之后人工调整原生Resource时不要无意覆盖。
@@ -37,7 +38,7 @@ node scripts/godot/verify-native.mjs
 
 Windows 模板固定为官方 4.7.2，下载归档及提取文件均核对 SHA256。首次准备使用 `scripts/godot/prepare-windows-templates.ps1 -ResumeDownload`；构建运行 `scripts/godot/build-windows.ps1`。模板、导入缓存、大包和完整截图不进 Git；构建记录来源提交、脏工作区、SHA256及许可文件，并核对版本一致性。
 
-旧版运行时不能覆盖其exe。本轮使用 `build-windows.ps1 -DestinationDirectory output/fieldcraft-v2/windows` 和 `verify-package.ps1 -PackagePath output/fieldcraft-v2/windows`。构建先导出到新临时目录，成功后复制并复算SHA，不再直接在运行中的程序路径上导出。
+旧版运行时不能覆盖其exe。本轮使用 `build-windows.ps1 -DestinationDirectory output/card-layout-cleanup/windows` 和 `verify-package.ps1 -PackagePath output/card-layout-cleanup/windows`。构建先导出到新临时目录，成功后复制并复算SHA，不再直接在运行中的程序路径上导出。完整多平台模板下载缓存已备份移出，两个固定SHA的Windows模板保留，构建不依赖下载原包。
 
 构建后运行 `scripts/godot/verify-package.ps1`，自动核对干净源码记录、包的SHA、三地图、四地图图集、59张Catalog图片、69张本轮贴图、30音频和20武器。它使用隔离测试存储，带超时退出；不代替真实窗口/DPI/手柄/长局验收。本轮设计见 `../docs/design/fieldcraft-combat-art-plan.md`、核验边界见 `../docs/qa/fieldcraft-validation.md`。`install_fieldcraft_content.gd`用于首次安装本工作包，重复默认保留；`--apply-design`才显式重应用。原稿、提示词与裁切工具见 `../art/combat/fieldcraft-v2/README.md`。
 

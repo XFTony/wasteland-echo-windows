@@ -1,5 +1,7 @@
 # 本机 Godot 工具连接与游戏迁移验证
 
+> 历史素材已按清理记录归档；原稿链接固定到清理前提交，旧预览恢复方法见[清理报告](cleanup/retirement-report.md)。
+
 日期：2026-10-29。基于武器扩展已完成的 `e96b087` 基线，隔离分支为 `codex/godot-feasibility`。本次是本机验证与迁移评估，没有用样板替换原游戏。
 
 ## 1. 结论
@@ -67,7 +69,7 @@ Godot官方支持命令行导入、运行、脚本检查、无界面测试与导
 
 ## 4. 已完成的原生技术样板
 
-入口：[启动样板](../experiments/godot-pilot/启动样板.cmd)、[打开编辑器](../experiments/godot-pilot/打开编辑器.cmd)、[样板说明](../experiments/godot-pilot/README.md)。
+入口：[启动样板](https://github.com/XFTony/wasteland-echo-windows/blob/8ebdf50c1c597d5eb2924982157f3169db0fd26e/experiments/godot-pilot/%E5%90%AF%E5%8A%A8%E6%A0%B7%E6%9D%BF.cmd)、[打开编辑器](https://github.com/XFTony/wasteland-echo-windows/blob/8ebdf50c1c597d5eb2924982157f3169db0fd26e/experiments/godot-pilot/%E6%89%93%E5%BC%80%E7%BC%96%E8%BE%91%E5%99%A8.cmd)、[样板说明](https://github.com/XFTony/wasteland-echo-windows/blob/8ebdf50c1c597d5eb2924982157f3169db0fd26e/experiments/godot-pilot/README.md)。
 
 | 项目 | 实际完成与证据 | 结论边界 |
 |---|---|---|

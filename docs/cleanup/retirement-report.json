@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-31",
+  "status": "cleanup_complete_package_pending",
+  "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
+  "preCleanupCheckpoint": "79df5423cf65385f4ceb7392c744b3d4ded91ff5",
+  "planSha256": "a99cac0753162254e1e095d4ec8ab6f516b24c7b8119a7f2fe5b3c3d7cbba210",
+  "cleanup": {
+    "files": 1056,
+    "trackedFiles": 104,
+    "untrackedFiles": 952,
+    "bytes": 1386937687,
+    "groups": {
+      "art/animation/ranger/": {
+        "files": 61,
+        "bytes": 21518387
+      },
+      "experiments/godot-pilot/": {
+        "files": 86,
+        "bytes": 3732359
+      },
+      "output/animation/ranger/": {
+        "files": 851,
+        "bytes": 79822958
+      },
+      "extracted-multiplatform-sdk-cache": {
+        "files": 1,
+        "bytes": 1281349702
+      },
+      "superseded-authoring-qa": {
+        "files": 18,
+        "bytes": 130977
+      },
+      "scripts/blender/": {
+        "files": 39,
+        "bytes": 383304
+      }
+    },
+    "archivedStudies": 14,
+    "backupDirectory": "../Wechat games-清理备份/2026-10-31-card-layout-cleanup",
+    "backupSha256": "a68e0bcbc80966b1e707c5912b432324aed036e1abeb48a0765175d60edf0063",
+    "backupBytes": 1462416605,
+    "backupVerifiedEntries": 1056
+  },
+  "safeguards": {
+    "protectedFiles": 1191,
+    "missingProtected": [],
+    "changedProtected": [],
+    "remainingCandidates": [],
+    "shadowNativeSuites": 10,
+    "shadowLegacyTests": 333,
+    "postLegacyTests": 333,
+    "postNativeSuites": 10
+  },
+  "ui": {
+    "layouts": 6,
+    "icons": 42,
+    "geometryChecks": 145,
+    "pointerCases": 16,
+    "maximumBrightLineRunBelowCard": 0,
+    "keyboardFocusPassed": true,
+    "physicalGamepadPassed": false
+  },
+  "package": null,
+  "inventory": {
+    "measuredFiles": 3569,
+    "measuredBytes": 2068119927,
+    "opaqueDirectories": 9,
+    "nativeMaterialFiles": 166,
+    "nativeMaterialBytes": 17998026,
+    "registeredActiveImages": 59,
+    "registeredAudio": 30,
+    "proceduralWeapons": 0,
+    "retiredArtRegistrations": 24,
+    "editableSourceFiles": 37,
+    "nativeBlendFiles": 0,
+    "exactDuplicateGroups": 102
+  },
+  "languages": {
+    "runtime": "typed GDScript",
+    "csharpFiles": 0,
+    "defaultBranch": "main",
+    "defaultMainHasGodot": false,
+    "defaultMainTree": "a8eff8a2007d065f438bce2be4a1a56bf1cf14ec"
+  },
+  "physicalAcceptance": {
+    "dpi": false,
+    "gamepad": false,
+    "lowEnd": false,
+    "longSession": false
+  }
+}

@@ -18,8 +18,9 @@ $planSha = (Get-FileHash -LiteralPath $planFile -Algorithm SHA256).Hash.ToLowerI
 if ($plan.format -ne 1 -or $plan.blockers.Count -ne 0) { throw 'Plan must be supported and have no remaining dependency blockers.' }
 $proofDirectory = Join-Path $repositoryRoot 'output/card-layout-cleanup'
 [IO.Directory]::CreateDirectory($proofDirectory) | Out-Null
-$backupDirectory = [IO.Path]::GetFullPath((Join-Path $repositoryRoot $plan.backupDirectory))
-$expectedBackup = [IO.Path]::GetFullPath((Join-Path $repositoryRoot '../Wechat games-清理备份/2026-10-31-card-layout-cleanup'))
+$backupDirectory = if ([IO.Path]::IsPathRooted($plan.backupDirectory)) { [IO.Path]::GetFullPath($plan.backupDirectory) } else { [IO.Path]::GetFullPath((Join-Path $repositoryRoot $plan.backupDirectory)) }
+$backupFolderName = 'Wechat games-' + [char]0x6e05 + [char]0x7406 + [char]0x5907 + [char]0x4efd
+$expectedBackup = [IO.Path]::GetFullPath((Join-Path (Join-Path $repositoryRoot '..') ($backupFolderName + '/2026-10-31-card-layout-cleanup')))
 if ($backupDirectory -ne $expectedBackup) { throw 'Unexpected backup destination.' }
 $archivePath = Join-Path $backupDirectory 'retired-files.zip'
 $utf8 = [Text.UTF8Encoding]::new($false)

@@ -3,6 +3,9 @@ import path from "node:path";
 import crypto from "node:crypto";
 import { execFileSync } from "node:child_process";
 const root = path.resolve(import.meta.dirname, "../..");
+if (fs.existsSync(path.join(root,"output/card-layout-cleanup/backup-proof.json")) || fs.existsSync(path.join(root,"output/card-layout-cleanup/cleanup-receipt.json"))) {
+  throw new Error("The verified retirement plan is frozen. Read docs/cleanup/retirement-plan.json; create a new dated plan for another cleanup.");
+}
 const slash = value => value.replaceAll("\\", "/");
 const baseline = execFileSync("git", ["rev-parse", "HEAD"], {cwd:root,encoding:"utf8",windowsHide:true}).trim();
 const gitFiles = new Map(execFileSync("git", ["ls-files", "-s", "-z"], {cwd:root,encoding:"utf8",windowsHide:true}).split("\0").filter(Boolean).map(line => {const m=line.match(/^\d+ ([a-f0-9]+) \d\t(.+)$/s);return [m[2],m[1]];}));

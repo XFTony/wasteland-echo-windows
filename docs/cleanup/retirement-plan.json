@@ -1,9 +1,9 @@
 {
   "format": 1,
   "date": "2026-10-31",
-  "workspace": "D:\\DeskBox\\XF Tony\\DeskBox\\Wechat games",
+  "workspace": ".",
   "baselineCommit": "8ebdf50c1c597d5eb2924982157f3169db0fd26e",
-  "backupDirectory": "D:\\DeskBox\\XF Tony\\DeskBox\\Wechat games-清理备份\\2026-10-31-card-layout-cleanup",
+  "backupDirectory": "../Wechat games-清理备份/2026-10-31-card-layout-cleanup",
   "purpose": "User-approved safe removal of superseded prototypes; active source and provenance remain",
   "roots": [
     "art/animation/ranger/",
