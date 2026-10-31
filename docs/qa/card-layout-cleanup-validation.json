@@ -202,5 +202,27 @@
     "changedProtected": [],
     "remainingCandidates": []
   },
-  "package": null
+  "package": {
+    "kind": "internal-godot-preview",
+    "version": "1.5.0-alpha.1",
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "sourceCommit": "99e62318efa402a0e71625a23fd529558a92db39",
+    "sourceDirty": false,
+    "file": "WastelandEcho.exe",
+    "bytes": 134607144,
+    "sha256": "b7104ef17a897a84af23f7f0fef30730fd8bc618d2e4ce41aa78f3ad57d0ed1a",
+    "published": false,
+    "report": {
+      "audio": 30,
+      "cardLayouts": 6,
+      "failures": [],
+      "fieldcraftArt": 69,
+      "images": 59,
+      "maps": 3,
+      "mapsWithArt": 3,
+      "paintedMaps": 1,
+      "sharedMapAtlases": 4,
+      "weapons": 20
+    }
+  }
 }

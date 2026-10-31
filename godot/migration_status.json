@@ -1,7 +1,7 @@
 {
   "target": "Native Godot development; original reproduction baseline retained for regression and rollback",
   "baseline": "ef7d50d",
-  "status": "cleanup_verified_package_pending",
+  "status": "card_layout_and_cleanup_preview_ready",
   "developmentPhase": "native_fieldcraft_combat_art",
   "toolchain": {
     "godot": "4.7.2.stable.official.ed1daf0bf",
@@ -52,7 +52,8 @@
     "Final standalone Windows package: 3 maps, 4 map atlases, 59 original catalog images, 69 fieldcraft bitmaps, 30 audio assets and 20 weapons verified",
     "2026-10-31 cleanup: deleted shadow and actual post-cleanup pass 333 legacy tests and ten native suites; protected 1191 files unchanged",
     "1056 retired files backed up externally and each ZIP entry SHA verified; fourteen inactive study records retained with restoration metadata",
-    "Card layouts: 145 checks, 42 actual bitmap bounds, 16 real pointer hovers across four resolutions; longest bright residual line below artwork is zero"
+    "Card layouts: 145 checks, 42 actual bitmap bounds, 16 real pointer hovers across four resolutions; longest bright residual line below artwork is zero",
+    "Cleaned standalone package verifies six card layout resources, 69 fieldcraft bitmaps, 30 audio, 20 weapons and all three maps using the retained Windows templates"
   ],
   "inProgress": [
     "Human opening-pressure and new-weapon balance review; other two maps normal-build strategies not yet reviewed",
@@ -151,6 +152,19 @@
     "protectedFiles": 1191,
     "retiredStudyRecords": 14,
     "report": "docs/cleanup/retirement-report.md",
-    "saveDataTouched": false
+    "saveDataTouched": false,
+    "windowsPackage": {
+      "kind": "internal-godot-preview",
+      "version": "1.5.0-alpha.1",
+      "engine": "4.7.2.stable.official.ed1daf0bf",
+      "sourceCommit": "99e62318efa402a0e71625a23fd529558a92db39",
+      "sourceDirty": false,
+      "file": "WastelandEcho.exe",
+      "bytes": 134607144,
+      "sha256": "b7104ef17a897a84af23f7f0fef30730fd8bc618d2e4ce41aa78f3ad57d0ed1a",
+      "published": false,
+      "packagePath": "output/card-layout-cleanup/windows",
+      "headlessContentAndCombatPassed": true
+    }
   }
 }
