@@ -48,7 +48,8 @@
     "25 audio assets decoded; native input/audio 55 checks, runtime 12, save transfer 10, map art 58, UI interaction 155",
     "Six-menu regions: 24 layouts and 208 actions; battle regions: 28 layouts and 196 actions; existing rectangles preserved",
     "Normal-health seed88 pressure proxies: opening materially denser; first-map orbit with normal upgrades survives 60 seconds at 37.16 of 116 HP, not a human balance verdict",
-    "Default content importer preserves the entire edited native catalog and metadata; overwrite requires an explicit flag"
+    "Default content importer preserves the entire edited native catalog and metadata; overwrite requires an explicit flag",
+    "Standalone Windows package rebuilt from clean commit 978d346: 3 maps, 4 map atlases, 59 catalog images, 25 audio assets and 16 weapons verified"
   ],
   "inProgress": [
     "Human opening-pressure and new-weapon balance review; other two maps normal-build strategies not yet reviewed",
@@ -91,6 +92,14 @@
     "validation": "docs/qa/survival-builds-validation.md",
     "humanBalanceSignoff": false,
     "saveSchemaChanged": false,
-    "newWeaponEvolutionBlueprints": false
+    "newWeaponEvolutionBlueprints": false,
+    "windowsPackage": {
+      "sourceCommit": "978d346e7418b46a7e3a529b59da80f64ae3c460",
+      "sourceDirty": false,
+      "bytes": 132585992,
+      "sha256": "9291c14a1e7b76634ddce36107077204c55f789a920b2e40533580da32df05b5",
+      "headlessContentAndCombatPassed": true,
+      "physicalDeviceAcceptance": false
+    }
   }
 }

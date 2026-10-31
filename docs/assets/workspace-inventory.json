@@ -1,6 +1,6 @@
 {
   "format": 1,
-  "generatedAt": "2026-10-31T02:07:20.098Z",
+  "generatedAt": "2026-10-31T02:09:42.292Z",
   "authority": "godot is active; original implementation retained as reference",
   "scanPolicy": {
     "excludedGeneratedOutputs": [
@@ -26,7 +26,7 @@
   },
   "summary": {
     "measuredFiles": 4212,
-    "measuredBytes": 3212527814,
+    "measuredBytes": 3212655231,
     "opaqueDirectories": 10,
     "nativeMaterialFiles": 92,
     "nativeMaterialBytes": 16135152,
@@ -169,7 +169,7 @@
       "purpose": "规范、计划、评审、许可、QA摘要",
       "policy": "提交可长期参考的文档，避免完整重复截图",
       "measuredFiles": 147,
-      "measuredBytes": 6565772,
+      "measuredBytes": 6566493,
       "partial": false,
       "opaqueChildren": []
     },
@@ -191,7 +191,7 @@
       "purpose": "后续运行代码、场景、Resource和活动素材的开发主目录",
       "policy": "提交源码/素材/UID/import设置；忽略.godot和builds",
       "measuredFiles": 535,
-      "measuredBytes": 23287058,
+      "measuredBytes": 23287530,
       "partial": true,
       "opaqueChildren": [
         "godot/.godot"
@@ -215,7 +215,7 @@
       "purpose": "截图、录屏、包、SDK模板、QA产物",
       "policy": "不进Git；确认来源和可重建方法后才考虑清理",
       "measuredFiles": 2627,
-      "measuredBytes": 2855979698,
+      "measuredBytes": 2856105922,
       "partial": true,
       "opaqueChildren": [
         "output/godot-evaluation-2026-10-29/mcp/node_modules",
@@ -393,8 +393,8 @@
   "gitStorage": {
     "source": "git count-objects -v (aggregate only)",
     "counters": {
-      "count": "218",
-      "size": "5882",
+      "count": "232",
+      "size": "5998",
       "in-pack": "3323",
       "packs": "4",
       "size-pack": "319436",
@@ -402,7 +402,7 @@
       "garbage": "0",
       "size-garbage": "0"
     },
-    "allocatedObjectBytes": 333125632,
+    "allocatedObjectBytes": 333244416,
     "directoryTotalMeasured": false
   },
   "runtimeAssets": [
@@ -10389,14 +10389,14 @@
     },
     {
       "path": "docs/qa/survival-builds-validation.json",
-      "bytes": 32167,
+      "bytes": 32763,
       "extension": ".json",
       "contentReadBlocked": false,
       "tracked": true
     },
     {
       "path": "docs/qa/survival-builds-validation.md",
-      "bytes": 13053,
+      "bytes": 13178,
       "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
@@ -13469,7 +13469,7 @@
     },
     {
       "path": "godot/migration_status.json",
-      "bytes": 6338,
+      "bytes": 6810,
       "extension": ".json",
       "contentReadBlocked": false,
       "tracked": true
@@ -24564,14 +24564,14 @@
     },
     {
       "path": "output/godot-migration/export-engine.log",
-      "bytes": 64186,
+      "bytes": 69138,
       "extension": ".log",
       "contentReadBlocked": false,
       "tracked": false
     },
     {
       "path": "output/godot-migration/export.log",
-      "bytes": 79359,
+      "bytes": 85415,
       "extension": ".log",
       "contentReadBlocked": false,
       "tracked": false
@@ -25978,7 +25978,7 @@
     },
     {
       "path": "output/godot-migration/windows/WastelandEcho.exe",
-      "bytes": 132470776,
+      "bytes": 132585992,
       "extension": ".exe",
       "contentReadBlocked": false,
       "tracked": false

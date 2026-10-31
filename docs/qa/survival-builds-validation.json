@@ -1,6 +1,6 @@
 {
   "date": "2026-10-31",
-  "status": "package_pending",
+  "status": "internal_preview_ready_for_human_balance_review",
   "version": "1.5.0-alpha.1",
   "definitions": 154,
   "weapons": 16,
@@ -1116,7 +1116,25 @@
       }
     ]
   },
-  "package": null,
+  "package": {
+    "sourceCommit": "978d346e7418b46a7e3a529b59da80f64ae3c460",
+    "sourceDirty": false,
+    "sha256": "9291c14a1e7b76634ddce36107077204c55f789a920b2e40533580da32df05b5",
+    "passed": true,
+    "report": {
+      "audio": 25,
+      "failures": [],
+      "images": 59,
+      "maps": 3,
+      "mapsWithArt": 3,
+      "paintedMaps": 1,
+      "sharedMapAtlases": 4,
+      "weapons": 16
+    },
+    "scope": "Exported package resources and headless combat only; not rendered, device or long-session acceptance.",
+    "bytes": 132585992,
+    "version": "1.5.0-alpha.1"
+  },
   "evidenceHashes": {
     "godot/content/game_catalog.tres": "e996d75168d42eefc29d0804ce19d51cc48418e3fdfc8d8952a2cc56fee48526",
     "godot/scripts/core/survival_rules.gd": "fe9682f945853ac244d166d12b9c2ac47076905cd15d5bc9ea9dc72bed22aa1e",

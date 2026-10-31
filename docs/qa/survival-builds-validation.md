@@ -118,7 +118,7 @@
 
 ## 包、来源与回退
 
-Windows包尚待重建，旧exe暂不能作为本轮验收结果。
+已从干净源码提交 `978d346e7418b46a7e3a529b59da80f64ae3c460` 重建并完成独立包自检；126.44 MiB，SHA256：`9291c14a1e7b76634ddce36107077204c55f789a920b2e40533580da32df05b5`。
 
 完整日志/截图在output/survival-builds；本地预览打开output/survival-builds/review.html。源码、Resource、import、uid、美术设计与音频源进入Git；exe、缓存和完整截图不进入源码历史。默认导入会整体保留已编辑Catalog，防止CI从旧夹具重建并丢失新增内容。
 
