@@ -41,7 +41,7 @@ function classify(name) {
   if (name === "CHANGELOG.md") return ["版本变更记录", "已发布/开发中内容及兼容变更", "提交；内部备份不冒充正式Release"];
   if (name === "CREDITS.md") return ["署名与许可入口", "原创、生成素材、第三方音频/字体/引擎的来源边界", "新增素材时与台账同步"];
   if (["package.json", "package-lock.json"].includes(name)) return ["开发依赖与版本", "旧版工具、迁移对照及构建脚本的Node依赖", "锁文件提交；不等于原生游戏运行依赖"];
-  if (name.endsWith(".cmd")) return ["本机启动入口", "开发版、旧版或存档工具的便捷启动脚本，按脚本名称区分", "保留稳定入口；独立包从output/godot-migration/windows启动"];
+  if (name.endsWith(".cmd")) return ["本机启动入口", "开发版、旧版或存档工具的便捷启动脚本，按脚本名称区分", "保留稳定入口；独立包按README最新迭代目录启动"];
   if (name.endsWith("-spec.md")) return ["规格文档", "平台与历史玩法规格，原生改造以迁移计划及当前Resource为准", "提交；历史决定不能覆盖已确认的新玩法"];
   return ["项目根文件/其它", "按实际用途进一步登记", "保留现有引用"];
 }

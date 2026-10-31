@@ -1,6 +1,6 @@
 {
   "format": 1,
-  "generatedAt": "2026-10-31T04:08:34.183Z",
+  "generatedAt": "2026-10-31T04:10:48.569Z",
   "authority": "godot is active; original implementation retained as reference",
   "scanPolicy": {
     "excludedGeneratedOutputs": [
@@ -25,8 +25,8 @@
     "duplicatePolicy": "Exact-byte groups are evidence, never automatic deletion permission"
   },
   "summary": {
-    "measuredFiles": 4505,
-    "measuredBytes": 3680712963,
+    "measuredFiles": 4503,
+    "measuredBytes": 3411516632,
     "opaqueDirectories": 10,
     "nativeMaterialFiles": 166,
     "nativeMaterialBytes": 17998026,
@@ -117,7 +117,7 @@
       "path": "Godot存档导入与备份.cmd",
       "category": "本机启动入口",
       "purpose": "开发版、旧版或存档工具的便捷启动脚本，按脚本名称区分",
-      "policy": "保留稳定入口；独立包从output/godot-migration/windows启动",
+      "policy": "保留稳定入口；独立包按README最新迭代目录启动",
       "measuredFiles": 1,
       "measuredBytes": 533,
       "partial": false,
@@ -169,7 +169,7 @@
       "purpose": "规范、计划、评审、许可、QA摘要",
       "policy": "提交可长期参考的文档，避免完整重复截图",
       "measuredFiles": 150,
-      "measuredBytes": 6621634,
+      "measuredBytes": 6622459,
       "partial": false,
       "opaqueChildren": []
     },
@@ -191,7 +191,7 @@
       "purpose": "后续运行代码、场景、Resource和活动素材的开发主目录",
       "policy": "提交源码/素材/UID/import设置；忽略.godot和builds",
       "measuredFiles": 709,
-      "measuredBytes": 25311431,
+      "measuredBytes": 25312137,
       "partial": true,
       "opaqueChildren": [
         "godot/.godot"
@@ -214,8 +214,8 @@
       "category": "可再生输出/本地构建",
       "purpose": "截图、录屏、包、SDK模板、QA产物",
       "policy": "不进Git；确认来源和可重建方法后才考虑清理",
-      "measuredFiles": 2721,
-      "measuredBytes": 3308595833,
+      "measuredFiles": 2719,
+      "measuredBytes": 3039397977,
       "partial": true,
       "opaqueChildren": [
         "output/godot-evaluation-2026-10-29/mcp/node_modules",
@@ -259,7 +259,7 @@
       "purpose": "导出、素材制作、构建、检查脚本",
       "policy": "提交工具，不把开发工具依赖带入运行包",
       "measuredFiles": 159,
-      "measuredBytes": 1179336,
+      "measuredBytes": 1179330,
       "partial": false,
       "opaqueChildren": []
     },
@@ -331,7 +331,7 @@
       "path": "启动Godot开发版.cmd",
       "category": "本机启动入口",
       "purpose": "开发版、旧版或存档工具的便捷启动脚本，按脚本名称区分",
-      "policy": "保留稳定入口；独立包从output/godot-migration/windows启动",
+      "policy": "保留稳定入口；独立包按README最新迭代目录启动",
       "measuredFiles": 1,
       "measuredBytes": 656,
       "partial": false,
@@ -393,8 +393,8 @@
   "gitStorage": {
     "source": "git count-objects -v (aggregate only)",
     "counters": {
-      "count": "515",
-      "size": "21254",
+      "count": "554",
+      "size": "21524",
       "in-pack": "3323",
       "packs": "4",
       "size-pack": "319436",
@@ -402,7 +402,7 @@
       "garbage": "0",
       "size-garbage": "0"
     },
-    "allocatedObjectBytes": 348866560,
+    "allocatedObjectBytes": 349143040,
     "directoryTotalMeasured": false
   },
   "runtimeAssets": [
@@ -14028,14 +14028,14 @@
     },
     {
       "path": "docs/qa/fieldcraft-validation.json",
-      "bytes": 4298,
+      "bytes": 4947,
       "extension": ".json",
       "contentReadBlocked": false,
       "tracked": true
     },
     {
       "path": "docs/qa/fieldcraft-validation.md",
-      "bytes": 6358,
+      "bytes": 6534,
       "extension": ".md",
       "contentReadBlocked": false,
       "tracked": true
@@ -18396,7 +18396,7 @@
     },
     {
       "path": "godot/migration_status.json",
-      "bytes": 7299,
+      "bytes": 8005,
       "extension": ".json",
       "contentReadBlocked": false,
       "tracked": true
@@ -19183,14 +19183,14 @@
       "bytes": 2521,
       "extension": ".gd",
       "contentReadBlocked": false,
-      "tracked": false
+      "tracked": true
     },
     {
       "path": "godot/scripts/tools/calibrate_fieldcraft_grips.gd.uid",
       "bytes": 20,
       "extension": ".uid",
       "contentReadBlocked": false,
-      "tracked": false
+      "tracked": true
     },
     {
       "path": "godot/scripts/tools/check_version.gd",
@@ -28483,7 +28483,7 @@
     },
     {
       "path": "output/fieldcraft-v2/windows/WastelandEcho.exe",
-      "bytes": 134598968,
+      "bytes": 134599048,
       "extension": ".exe",
       "contentReadBlocked": false,
       "tracked": false
@@ -31653,23 +31653,9 @@
       "tracked": false
     },
     {
-      "path": "output/godot-migration/windows/staging-ea0755a3ae784f12bd215ee4b051b60f/WastelandEcho.exe",
-      "bytes": 134598968,
-      "extension": ".exe",
-      "contentReadBlocked": false,
-      "tracked": false
-    },
-    {
       "path": "output/godot-migration/windows/WastelandEcho.exe",
       "bytes": 132585992,
       "extension": ".exe",
-      "contentReadBlocked": false,
-      "tracked": false
-    },
-    {
-      "path": "output/godot-migration/windows/WastelandEcho.tmp",
-      "bytes": 134598968,
-      "extension": ".tmp",
       "contentReadBlocked": false,
       "tracked": false
     },
@@ -39081,7 +39067,7 @@
     },
     {
       "path": "scripts/assets/audit-workspace.mjs",
-      "bytes": 30812,
+      "bytes": 30806,
       "extension": ".mjs",
       "contentReadBlocked": false,
       "tracked": true

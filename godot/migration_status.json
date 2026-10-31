@@ -1,7 +1,7 @@
 {
   "target": "Native Godot development; original reproduction baseline retained for regression and rollback",
   "baseline": "ef7d50d",
-  "status": "native_art_iteration_package_pending",
+  "status": "internal_preview_ready_for_human_art_and_balance_review",
   "developmentPhase": "native_fieldcraft_combat_art",
   "toolchain": {
     "godot": "4.7.2.stable.official.ed1daf0bf",
@@ -48,7 +48,8 @@
     "Menu 24 layouts and 208 action regions; battle 28 layouts and 196 regions; previous/next pagination roles preserve both hit rectangles",
     "Actual native windows: 42-card gallery, four resolutions, 104 grip directions and 80 sequential death frames; first-card pointer hover verified",
     "6,919,488 bytes of decoded bitmap pixel data; not a process/GPU memory measurement",
-    "Default importer preserves edited native catalog and metadata; original Canvas/Tauri runtime unchanged"
+    "Default importer preserves edited native catalog and metadata; original Canvas/Tauri runtime unchanged",
+    "Final standalone Windows package: 3 maps, 4 map atlases, 59 original catalog images, 69 fieldcraft bitmaps, 30 audio assets and 20 weapons verified"
   ],
   "inProgress": [
     "Human opening-pressure and new-weapon balance review; other two maps normal-build strategies not yet reviewed",
@@ -91,7 +92,20 @@
     "humanBalanceSignoff": false,
     "saveSchemaChanged": false,
     "newWeaponEvolutionBlueprints": false,
-    "windowsPackage": null
+    "windowsPackage": {
+      "kind": "internal-godot-preview",
+      "version": "1.5.0-alpha.1",
+      "engine": "4.7.2.stable.official.ed1daf0bf",
+      "sourceCommit": "a23b236386371e1a2186ff7965aaa1065b8bb646",
+      "sourceDirty": false,
+      "file": "WastelandEcho.exe",
+      "bytes": 134599048,
+      "sha256": "b061a1f9b188bf426db93dbb658cefb23fd4c5da1ad53042459f36d9d1585709",
+      "published": false,
+      "packagePath": "output/fieldcraft-v2/windows",
+      "headlessContentAndCombatPassed": true,
+      "physicalDeviceAcceptance": false
+    }
   },
   "previousGameplayIteration": {
     "name": "survival-builds-v1",

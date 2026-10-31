@@ -52,7 +52,7 @@
 
 ## Windows包与本人体验
 
-独立Windows包待本轮源码提交后重建；旧exe暂不能代表本轮。
+从干净源码a23b236386371e1a2186ff7965aaa1065b8bb646构建；128.36MiB；SHA256：b061a1f9b188bf426db93dbb658cefb23fd4c5da1ad53042459f36d9d1585709。独立包已核对3地图、4地图图集、59原登记图片、69本轮贴图、30音频及20武器。
 
 入口：output/fieldcraft-v2/windows/WastelandEcho.exe。旧版窗口占用原路径，因此本轮使用独立目录；已新增构建目标/包验证路径参数，原窗口与存档未被强制结束。画面与倒地视频：output/fieldcraft-v2/review.html。全部截图/视频与生成缓存留output；源图、运行图、来源、代码和摘要入Git。本轮不修改真实用户存档。
 

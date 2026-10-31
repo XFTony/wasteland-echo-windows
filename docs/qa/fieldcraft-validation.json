@@ -1,7 +1,7 @@
 {
   "date": "2026-10-31",
   "phase": "fieldcraft-v2",
-  "status": "package_pending",
+  "status": "internal_preview_ready",
   "definitions": 164,
   "weapons": 20,
   "rangedWeapons": 14,
@@ -111,7 +111,27 @@
     "lowQualityCorpses": 20,
     "lowQualityHitBursts": 56
   },
-  "package": null,
+  "package": {
+    "packagePath": "output/fieldcraft-v2/windows",
+    "sourceCommit": "a23b236386371e1a2186ff7965aaa1065b8bb646",
+    "sourceDirty": false,
+    "sha256": "b061a1f9b188bf426db93dbb658cefb23fd4c5da1ad53042459f36d9d1585709",
+    "passed": true,
+    "report": {
+      "audio": 30,
+      "failures": [],
+      "fieldcraftArt": 69,
+      "images": 59,
+      "maps": 3,
+      "mapsWithArt": 3,
+      "paintedMaps": 1,
+      "sharedMapAtlases": 4,
+      "weapons": 20
+    },
+    "scope": "Exported package resources and headless combat only; not rendered, device or long-session acceptance.",
+    "bytes": 134599048,
+    "version": "1.5.0-alpha.1"
+  },
   "evidenceHashes": {
     "godot/content/game_catalog.tres": "b8fe35c8420c82b5c1137248916453eea313b75f2d19eb8e3031ac2e2ffee8a5",
     "godot/scripts/core/status_weapon_rules.gd": "0f1bcb566ce5ef52b9c1ef3ea1a0fff6d6640a2fa5c321ce4769425c983cae47",
